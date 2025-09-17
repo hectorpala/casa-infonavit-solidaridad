@@ -3,197 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa en Venta - Hector es Bienes Raíces</title>
-    <meta name="description" content="Hermosa casa en venta en Solidaridad, Quintana Roo. Compramos, remodelamos y vendemos propiedades de calidad.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Casas en Venta - Hector es Bienes Raíces</title>
+    <meta name="description" content="Casas en venta en México. Compramos, remodelamos y vendemos propiedades de calidad. Encuentra tu hogar ideal.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #1d1d1b;
+            background: #ffffff;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 78, 0, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 78, 0, 0.02) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 78, 0, 0.2);
+        }
+
+        .logo {
+            height: 80px;
+            width: auto;
+            margin-bottom: 1rem;
+        }
+
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(255, 78, 0, 0.05) 50%, 
+                rgba(255, 255, 255, 0.95) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #1d1d1b, #ff4e00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .properties {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, #1d1d1b, #ff4e00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .property-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 78, 0, 0.15);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 78, 0, 0.2);
+            border-color: rgba(255, 78, 0, 0.4);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .property-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1d1d1b;
+        }
+
+        .property-location {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .property-price {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff4e00, #ff6b2b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background: rgba(255, 78, 0, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #ff4e00;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff4e00, #ff6b2b);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 78, 0, 0.4);
+        }
+
+        .footer {
+            background: rgba(248, 250, 252, 0.98);
+            padding: 3rem 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid rgba(255, 78, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <img src="images/Logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" class="logo">
-                <a href="#contact" class="cta-button">Contactar</a>
-            </div>
+            <img src="images/Logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" class="logo">
+            <h2 style="color: #ff4e00; margin: 0;">Compramos, Remodelamos & Vendemos</h2>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Tu Nuevo Hogar Te Está Esperando</h1>
-            <p class="hero-subtitle">Se vende Casa en Infonavit Solidaridad, en Avenida principal. 7.5mt x 15mt = 112.5 mt², 91.60 mt² de construcción, 2 recámaras, 2 baños completos, cuarto tv una sola planta</p>
-            <a href="#gallery" class="hero-cta">Ver Fotos</a>
-        </div>
-        <div class="hero-image">
-            <img src="images/sala.jpg" alt="Casa principal" class="main-image">
+        <div class="container">
+            <h1>Casas en Venta</h1>
+            <p>Encuentra tu hogar ideal. Propiedades remodeladas con la mejor calidad y ubicación en México.</p>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Properties Section -->
+    <section class="properties">
         <div class="container">
-            <h2 class="section-title">Características Principales</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-bed"></i>
-                    <h3>2 Recámaras y una Sala de Estancia</h3>
-                    <p>Espaciosas habitaciones con excelente iluminación natural</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-bath"></i>
-                    <h3>2 Baños Completos</h3>
-                    <p>Baños completos con acabados de primera calidad</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-car"></i>
-                    <h3>Cochera y Portón Techado para Dos Autos</h3>
-                    <p>Espacio seguro y techado para dos vehículos</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Excelente Ubicación</h3>
-                    <p>Cerca de escuelas, centros comerciales y transporte</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2 class="section-title">Galería de Fotos</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/exterior.jpg" alt="Vista exterior de la casa">
-                    <div class="gallery-overlay">
-                        <span>Exterior</span>
+            <h2 class="section-title">Propiedades Disponibles</h2>
+            <div class="property-grid">
+                
+                <!-- Casa Infonavit Solidaridad -->
+                <a href="culiacan-infonavit-solidaridad/" class="property-card">
+                    <img src="culiacan-infonavit-solidaridad/images/exterior.jpg" alt="Casa Infonavit Solidaridad" class="property-image">
+                    <h3 class="property-title">Casa Remodelada en Infonavit Solidaridad</h3>
+                    <p class="property-location"><i class="fas fa-map-marker-alt"></i> Blvrd Elbert 2609, Culiacán Rosales, Sinaloa</p>
+                    <div class="property-price">$1,750,000</div>
+                    <div class="property-features">
+                        <span class="feature">2 Recámaras</span>
+                        <span class="feature">2 Baños</span>
+                        <span class="feature">Cochera</span>
+                        <span class="feature">112.5 m²</span>
                     </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/sala.jpg" alt="Exterior 2 - Vista sin letrero">
-                    <div class="gallery-overlay">
-                        <span>Exterior 2</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/cocina.jpg" alt="Cochera techada para dos autos">
-                    <div class="gallery-overlay">
-                        <span>Cochera techada dos autos</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/recamara.jpg" alt="Sala y comedor">
-                    <div class="gallery-overlay">
-                        <span>Sala y comedor</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/bano.jpg" alt="Recámara principal">
-                    <div class="gallery-overlay">
-                        <span>Recámara principal</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/jardin.jpg" alt="Estancia y recámara principal">
-                    <div class="gallery-overlay">
-                        <span>Estancia y recámara principal</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/bano-atras.jpg" alt="Baño atrás">
-                    <div class="gallery-overlay">
-                        <span>Baño atrás</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/sala-estancia-closet.jpg" alt="Sala de estancia closet">
-                    <div class="gallery-overlay">
-                        <span>Sala de estancia closet</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Details Section -->
-    <section class="details">
-        <div class="container">
-            <div class="details-content">
-                <div class="details-info">
-                    <h2>Información Detallada</h2>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <strong>Superficie:</strong>
-                            <span>91.60 m² construcción</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Terreno:</strong>
-                            <span>112.5 m² (7.5mt x 15mt)</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Niveles:</strong>
-                            <span>1 planta con cuarto TV</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Servicios:</strong>
-                            <span>Agua, luz, gas natural</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Documentos:</strong>
-                            <span>En regla</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="price-card">
-                    <h3>Precio</h3>
-                    <div class="price">$1,750,000</div>
-                    <p class="price-note">Se acepta contado y todos los créditos</p>
-                    <a href="#contact" class="price-cta">Más Información</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">¿Interesado?</h2>
-            <p class="contact-subtitle">Contáctanos para más información o para agendar una visita</p>
-            <div class="contact-buttons">
-                <a href="https://wa.me/528111652545?text=Me%20interesan%20informes%20de%20la%20casa%20remodelada%20en%20Infonavit%20Solidaridad" 
-                   class="whatsapp-button" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                    Contactar por WhatsApp
+                    <span class="cta-button">Ver Detalles</span>
                 </a>
-                <a href="tel:+528111652545" class="phone-button">
-                    <i class="fas fa-phone"></i>
-                    Llamar Ahora
-                </a>
-            </div>
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Blvrd Elbert 2609, Infonavit Solidaridad, Solidaridad, 80058 Culiacán Rosales, Sin.</p>
-                <p><i class="fas fa-phone"></i> +52 811 165 2545</p>
-                <p><i class="fas fa-envelope"></i> hector@bienesraices.mx</p>
-                <p><a href="https://www.google.com/maps/place/Blvrd+Elbert+2609,+Infonavit+Solidaridad,+Solidaridad,+80058+Culiac%C3%A1n+Rosales,+Sin./@24.824491,-107.4313046,17z/data=!3m1!4b1!4m6!3m5!1s0x86bcda631b1aa9b3:0xf7def2e762c6ba36!8m2!3d24.824491!4d-107.4287297!16s%2Fg%2F11g0gm3_73?entry=ttu&g_ep=EgoyMDI1MDkxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: #ff4e00; text-decoration: none;"><i class="fas fa-map"></i> Ver en Google Maps</a></p>
-            </div>
-            
-            <!-- Google Maps Embed -->
-            <div class="container" style="margin-top: 3rem;">
-                <div style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-radius: 20px; padding: 2rem; border: 1px solid rgba(255, 78, 0, 0.2);">
-                    <h3 style="text-align: center; margin-bottom: 2rem; color: #1d1d1b; font-family: 'Poppins', sans-serif;">Ubicación de la Propiedad</h3>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3609.8285756677786!2d-107.43130464942!3d24.824490999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86bcda631b1aa9b3%3A0xf7def2e762c6ba36!2sBlvrd%20Elbert%202609%2C%20Infonavit%20Solidaridad%2C%20Solidaridad%2C%2080058%20Culiac%C3%A1n%20Rosales%2C%20Sin.!5e0!3m2!1sen!2smx!4v1726587600000!5m2!1sen!2smx" 
-                        width="100%" 
-                        height="400" 
-                        style="border:0; border-radius: 15px;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+
+                <!-- Placeholder para futuras propiedades -->
+                <div class="property-card" style="border: 2px dashed rgba(255, 78, 0, 0.3); opacity: 0.7;">
+                    <div style="height: 250px; background: rgba(255, 78, 0, 0.1); border-radius: 15px; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-plus" style="font-size: 3rem; color: #ff4e00; opacity: 0.5;"></i>
+                    </div>
+                    <h3 class="property-title">Próxima Propiedad</h3>
+                    <p class="property-location">Ubicación por definir</p>
+                    <div class="property-price">Precio por definir</div>
+                    <p style="text-align: center; color: #999; font-style: italic;">Pronto disponible</p>
                 </div>
+
             </div>
         </div>
     </section>
@@ -202,9 +254,8 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 Hector es Bienes Raíces. Todos los derechos reservados.</p>
+            <p>📱 +52 811 165 2545 | 📧 hector@bienesraices.mx</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
