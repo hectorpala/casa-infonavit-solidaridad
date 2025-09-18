@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://casasenventa.info/sitemap.xml
+
+# Permitir indexación de imágenes
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /culiacan-infonavit-solidaridad/images/
+
+# Permitir todos los crawlers principales
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Evitar crawling de archivos temporales o de desarrollo
+Disallow: /*.bak$
+Disallow: /*.tmp$
+Disallow: /*~$

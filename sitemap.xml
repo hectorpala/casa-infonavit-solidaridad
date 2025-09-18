@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Página principal -->
+  <url>
+    <loc>https://casasenventa.info/</loc>
+    <lastmod>2024-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://casasenventa.info/culiacan-infonavit-solidaridad/images/optimized/exterior-new.jpg</image:loc>
+      <image:title>Casa en Venta Infonavit Solidaridad</image:title>
+      <image:caption>Casa remodelada en venta en Culiacán, Sinaloa</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Página de la propiedad -->
+  <url>
+    <loc>https://casasenventa.info/culiacan-infonavit-solidaridad/</loc>
+    <lastmod>2024-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://casasenventa.info/culiacan-infonavit-solidaridad/images/optimized/sala.jpg</image:loc>
+      <image:title>Interior Casa Infonavit Solidaridad</image:title>
+      <image:caption>Interior de casa remodelada con sala y comedor</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://casasenventa.info/culiacan-infonavit-solidaridad/images/optimized/1.jpg</image:loc>
+      <image:title>Galería Casa Infonavit Solidaridad</image:title>
+      <image:caption>Fotos de la propiedad en venta</image:caption>
+    </image:image>
+  </url>
+  
+</urlset>
