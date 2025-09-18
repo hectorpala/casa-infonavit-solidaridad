@@ -409,6 +409,15 @@ body {
     font-size: 3rem;
     color: rgba(255, 78, 0, 0.4);
     transition: all 0.4s ease;
+    margin-bottom: 1rem;
+}
+
+.placeholder-text {
+    color: rgba(255, 78, 0, 0.6);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
 }
 
 .gallery-overlay {
