@@ -141,55 +141,69 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mortgage Calculator Functionality
-    const mortgageCalculator = {
+    // Modern Mortgage Calculator Functionality
+    const modernCalculator = {
         init() {
             this.bindEvents();
-            this.updateDownPaymentDisplay();
+            this.updateSliderDisplay();
             this.calculate(); // Initial calculation
         },
 
         bindEvents() {
-            const calculateBtn = document.getElementById('calculateBtn');
-            const downPaymentSlider = document.getElementById('downPayment');
-            const propertyPrice = document.getElementById('propertyPrice');
-            const loanTerm = document.getElementById('loanTerm');
-            const creditType = document.getElementById('creditType');
+            const slider = document.getElementById('downPaymentSlider');
+            const priceInput = document.getElementById('housePrice');
+            const loanYears = document.getElementById('loanYears');
+            const bankType = document.getElementById('bankType');
 
-            if (calculateBtn) {
-                calculateBtn.addEventListener('click', () => this.calculate());
-            }
-
-            if (downPaymentSlider) {
-                downPaymentSlider.addEventListener('input', () => this.updateDownPaymentDisplay());
-            }
-
-            // Auto-calculate on input changes
-            [propertyPrice, loanTerm, creditType].forEach(element => {
-                if (element) {
-                    element.addEventListener('change', () => this.calculate());
-                }
-            });
-
-            if (propertyPrice) {
-                propertyPrice.addEventListener('input', () => {
-                    this.updateDownPaymentDisplay();
+            if (slider) {
+                slider.addEventListener('input', () => {
+                    this.updateSliderDisplay();
                     this.calculate();
                 });
             }
+
+            if (priceInput) {
+                priceInput.addEventListener('input', (e) => {
+                    this.formatPriceInput(e.target);
+                    this.updateSliderDisplay();
+                    this.calculate();
+                });
+            }
+
+            if (loanYears) {
+                loanYears.addEventListener('change', () => this.calculate());
+            }
+
+            if (bankType) {
+                bankType.addEventListener('change', () => this.calculate());
+            }
         },
 
-        updateDownPaymentDisplay() {
-            const propertyPrice = parseFloat(document.getElementById('propertyPrice').value) || 0;
-            const downPaymentPercent = parseFloat(document.getElementById('downPayment').value) || 20;
-            const downPaymentAmount = propertyPrice * (downPaymentPercent / 100);
-
-            document.getElementById('downPaymentDisplay').textContent = `${downPaymentPercent}%`;
-            document.getElementById('downPaymentAmount').textContent = 
-                `$${this.formatNumber(downPaymentAmount)} MXN`;
+        formatPriceInput(input) {
+            let value = input.value.replace(/[^\d]/g, '');
+            if (value) {
+                value = parseInt(value).toLocaleString('es-MX');
+                input.value = value;
+            }
         },
 
-        getInterestRate(creditType) {
+        updateSliderDisplay() {
+            const priceInput = document.getElementById('housePrice');
+            const slider = document.getElementById('downPaymentSlider');
+            const percentSpan = document.getElementById('downPaymentPercent');
+            const moneySpan = document.getElementById('downPaymentMoney');
+
+            if (!priceInput || !slider || !percentSpan || !moneySpan) return;
+
+            const price = parseFloat(priceInput.value.replace(/[^\d]/g, '')) || 0;
+            const percent = parseFloat(slider.value) || 5;
+            const amount = price * (percent / 100);
+
+            percentSpan.textContent = `${percent}%`;
+            moneySpan.textContent = `$${this.formatNumber(amount)}`;
+        },
+
+        getInterestRate(bankType) {
             const rates = {
                 'infonavit-bajo': 3.76,
                 'infonavit-medio': 6.5,
@@ -197,24 +211,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 'fovissste': 9.90,
                 'hsbc': 10.45,
                 'banamex': 11.75,
-                'santander': 13.25,
-                'promedio': 11.65
+                'santander': 13.25
             };
-            return rates[creditType] || 11.65;
+            return rates[bankType] || 10.45;
         },
 
-        getCreditTypeName(creditType) {
+        getBankName(bankType) {
             const names = {
-                'infonavit-bajo': 'INFONAVIT (Ingresos bajos)',
-                'infonavit-medio': 'INFONAVIT (Ingresos medios)',
-                'infonavit-alto': 'INFONAVIT (Ingresos altos)',
-                'fovissste': 'FOVISSSTE',
-                'hsbc': 'HSBC',
-                'banamex': 'Banamex',
-                'santander': 'Santander',
-                'promedio': 'Promedio Mercado'
+                'infonavit-bajo': '🏠 INFONAVIT Bajo',
+                'infonavit-medio': '🏠 INFONAVIT Medio',
+                'infonavit-alto': '🏠 INFONAVIT Alto',
+                'fovissste': '🏛️ FOVISSSTE',
+                'hsbc': '🏦 HSBC',
+                'banamex': '🏦 Banamex',
+                'santander': '🏦 Santander'
             };
-            return names[creditType] || 'Banco';
+            return names[bankType] || '🏦 Banco';
         },
 
         calculateMonthlyPayment(loanAmount, annualRate, years) {
@@ -233,58 +245,80 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         calculate() {
-            const propertyPrice = parseFloat(document.getElementById('propertyPrice').value) || 0;
-            const downPaymentPercent = parseFloat(document.getElementById('downPayment').value) || 20;
-            const loanTermYears = parseInt(document.getElementById('loanTerm').value) || 20;
-            const creditType = document.getElementById('creditType').value;
+            const priceInput = document.getElementById('housePrice');
+            const slider = document.getElementById('downPaymentSlider');
+            const loanYears = document.getElementById('loanYears');
+            const bankType = document.getElementById('bankType');
+
+            if (!priceInput || !slider || !loanYears || !bankType) return;
+
+            const propertyPrice = parseFloat(priceInput.value.replace(/[^\d]/g, '')) || 0;
+            const downPaymentPercent = parseFloat(slider.value) || 5;
+            const years = parseInt(loanYears.value) || 20;
+            const bank = bankType.value;
 
             if (propertyPrice <= 0) return;
 
             const downPaymentAmount = propertyPrice * (downPaymentPercent / 100);
             const loanAmount = propertyPrice - downPaymentAmount;
-            const interestRate = this.getInterestRate(creditType);
-            const monthlyPayment = this.calculateMonthlyPayment(loanAmount, interestRate, loanTermYears);
-            const totalPayment = monthlyPayment * loanTermYears * 12;
-            const totalInterest = totalPayment - loanAmount;
+            const interestRate = this.getInterestRate(bank);
+            const monthlyPayment = this.calculateMonthlyPayment(loanAmount, interestRate, years);
+            const totalPayment = monthlyPayment * years * 12;
 
-            // Update main results
-            document.getElementById('monthlyPayment').textContent = `$${this.formatNumber(monthlyPayment)}`;
-            document.getElementById('loanAmount').textContent = `$${this.formatNumber(loanAmount)}`;
-            document.getElementById('downPaymentResult').textContent = `$${this.formatNumber(downPaymentAmount)}`;
-            document.getElementById('interestRate').textContent = `${interestRate}%`;
-            document.getElementById('totalPayment').textContent = `$${this.formatNumber(totalPayment)}`;
-            document.getElementById('totalInterest').textContent = `$${this.formatNumber(totalInterest)}`;
+            // Update main result
+            const monthlyResult = document.getElementById('monthlyResult');
+            if (monthlyResult) {
+                monthlyResult.textContent = `$${this.formatNumber(monthlyPayment)}`;
+            }
+
+            // Update detail cards
+            const loanAmountResult = document.getElementById('loanAmountResult');
+            const interestRateResult = document.getElementById('interestRateResult');
+            const totalPaymentResult = document.getElementById('totalPaymentResult');
+
+            if (loanAmountResult) loanAmountResult.textContent = `$${this.formatNumber(loanAmount)}`;
+            if (interestRateResult) interestRateResult.textContent = `${interestRate}%`;
+            if (totalPaymentResult) totalPaymentResult.textContent = `$${this.formatNumber(totalPayment)}`;
 
             // Generate comparison
-            this.generateComparison(loanAmount, loanTermYears);
+            this.generateComparison(loanAmount, years);
         },
 
         generateComparison(loanAmount, years) {
-            const comparisonGrid = document.getElementById('comparisonGrid');
-            if (!comparisonGrid) return;
+            const comparisonCards = document.getElementById('comparisonCards');
+            if (!comparisonCards) return;
 
-            const creditTypes = [
+            const banks = [
                 'infonavit-bajo',
-                'infonavit-medio', 
+                'infonavit-medio',
                 'fovissste',
                 'hsbc',
-                'promedio'
+                'banamex'
             ];
 
-            comparisonGrid.innerHTML = '';
+            comparisonCards.innerHTML = '';
 
-            creditTypes.forEach(type => {
-                const rate = this.getInterestRate(type);
+            let bestPayment = Infinity;
+            let bestIndex = 0;
+
+            const payments = banks.map((bank, index) => {
+                const rate = this.getInterestRate(bank);
                 const payment = this.calculateMonthlyPayment(loanAmount, rate, years);
-                const name = this.getCreditTypeName(type);
+                if (payment < bestPayment) {
+                    bestPayment = payment;
+                    bestIndex = index;
+                }
+                return { bank, payment, rate };
+            });
 
-                const comparisonItem = document.createElement('div');
-                comparisonItem.className = 'comparison-item';
-                comparisonItem.innerHTML = `
-                    <span class="comparison-name">${name}</span>
-                    <span class="comparison-payment">$${this.formatNumber(payment)}</span>
+            payments.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = `comparison-card ${index === bestIndex ? 'best' : ''}`;
+                card.innerHTML = `
+                    <div class="comparison-name">${this.getBankName(item.bank)}</div>
+                    <div class="comparison-payment">$${this.formatNumber(item.payment)}</div>
                 `;
-                comparisonGrid.appendChild(comparisonItem);
+                comparisonCards.appendChild(card);
             });
         },
 
@@ -296,9 +330,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Initialize mortgage calculator if elements exist
-    if (document.getElementById('calculateBtn')) {
-        mortgageCalculator.init();
+    // Initialize modern calculator if elements exist
+    if (document.getElementById('housePrice')) {
+        modernCalculator.init();
     }
 
 });
