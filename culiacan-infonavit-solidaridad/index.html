@@ -310,6 +310,107 @@
         </div>
     </section>
 
+    <!-- Mortgage Calculator Section -->
+    <section class="mortgage-calculator" id="calculadora">
+        <div class="container">
+            <h2 class="section-title">Calculadora de Hipoteca</h2>
+            <p class="calculator-subtitle">Descubre cuánto pagarías mensualmente con tasas reales de México 2025</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="propertyPrice">Precio de la Propiedad</label>
+                        <input type="number" id="propertyPrice" value="1750000" min="100000" max="10000000" step="10000">
+                        <span class="currency">MXN</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="downPayment">Enganche (%)</label>
+                        <input type="range" id="downPayment" min="10" max="50" value="20" step="5">
+                        <span class="percentage-display" id="downPaymentDisplay">20%</span>
+                        <div class="amount-display" id="downPaymentAmount">$350,000 MXN</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loanTerm">Plazo del Crédito (años)</label>
+                        <select id="loanTerm">
+                            <option value="10">10 años</option>
+                            <option value="15">15 años</option>
+                            <option value="20" selected>20 años</option>
+                            <option value="25">25 años</option>
+                            <option value="30">30 años</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="creditType">Tipo de Crédito</label>
+                        <select id="creditType">
+                            <option value="infonavit-bajo">INFONAVIT (Ingresos bajos) - 3.76%</option>
+                            <option value="infonavit-medio">INFONAVIT (Ingresos medios) - 6.5%</option>
+                            <option value="infonavit-alto">INFONAVIT (Ingresos altos) - 10.45%</option>
+                            <option value="fovissste">FOVISSSTE - 9.90%</option>
+                            <option value="hsbc" selected>HSBC - 10.45%</option>
+                            <option value="banamex">Banamex - 11.75%</option>
+                            <option value="santander">Santander - 13.25%</option>
+                            <option value="promedio">Promedio Mercado - 11.65%</option>
+                        </select>
+                    </div>
+
+                    <button id="calculateBtn" class="calculate-btn">
+                        <i class="fas fa-calculator"></i>
+                        Calcular Pago Mensual
+                    </button>
+                </div>
+
+                <div class="calculator-results">
+                    <div class="result-card main-result">
+                        <h3>Pago Mensual</h3>
+                        <div class="monthly-payment" id="monthlyPayment">$0</div>
+                        <p class="payment-note">Sin incluir seguro de vida y daños</p>
+                    </div>
+
+                    <div class="result-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Monto del Crédito:</span>
+                            <span class="detail-value" id="loanAmount">$0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Enganche:</span>
+                            <span class="detail-value" id="downPaymentResult">$0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Tasa de Interés:</span>
+                            <span class="detail-value" id="interestRate">0%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total a Pagar:</span>
+                            <span class="detail-value" id="totalPayment">$0</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Total Intereses:</span>
+                            <span class="detail-value" id="totalInterest">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-comparison">
+                        <h4>Comparación de Opciones</h4>
+                        <div class="comparison-grid" id="comparisonGrid">
+                            <!-- Se llena dinámicamente -->
+                        </div>
+                    </div>
+
+                    <div class="calculator-cta">
+                        <p>¿Te interesa esta propiedad con estos pagos?</p>
+                        <a href="#contact" class="cta-button">
+                            <i class="fas fa-phone"></i>
+                            Contactar Ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Amenities Section -->
     <section class="amenities" id="amenidades">
         <div class="container">
