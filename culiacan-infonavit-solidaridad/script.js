@@ -154,28 +154,61 @@ document.addEventListener('DOMContentLoaded', function() {
             const priceInput = document.getElementById('housePrice');
             const loanYears = document.getElementById('loanYears');
             const bankType = document.getElementById('bankType');
+            const calcButton = document.getElementById('calculateButton');
 
+            // Button click event
+            if (calcButton) {
+                calcButton.addEventListener('click', () => {
+                    this.calculate();
+                    this.showCalculatingAnimation();
+                });
+            }
+
+            // Slider events with better handling
             if (slider) {
-                slider.addEventListener('input', () => {
+                slider.addEventListener('input', (e) => {
+                    console.log('Slider moved to:', e.target.value);
                     this.updateSliderDisplay();
+                });
+                
+                slider.addEventListener('change', () => {
                     this.calculate();
                 });
             }
 
+            // Price input events
             if (priceInput) {
                 priceInput.addEventListener('input', (e) => {
                     this.formatPriceInput(e.target);
                     this.updateSliderDisplay();
+                });
+                
+                priceInput.addEventListener('blur', () => {
                     this.calculate();
                 });
             }
 
+            // Select change events
             if (loanYears) {
                 loanYears.addEventListener('change', () => this.calculate());
             }
 
             if (bankType) {
                 bankType.addEventListener('change', () => this.calculate());
+            }
+        },
+
+        showCalculatingAnimation() {
+            const button = document.getElementById('calculateButton');
+            if (button) {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<span class="calc-icon">⏳</span><span>Calculando...</span>';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 1000);
             }
         },
 

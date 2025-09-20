@@ -1228,33 +1228,62 @@ img {
 
 .modern-slider {
     width: 100%;
-    height: 8px;
+    height: 12px;
     border-radius: 8px;
-    background: linear-gradient(90deg, #e2e8f0 0%, #ff4e00 100%);
+    background: #e2e8f0;
     outline: none;
     -webkit-appearance: none;
+    appearance: none;
     margin-bottom: 1rem;
+    position: relative;
+}
+
+.modern-slider::-webkit-slider-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    background: #e2e8f0;
+    border-radius: 8px;
 }
 
 .modern-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 24px;
-    height: 24px;
+    appearance: none;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: linear-gradient(135deg, #ff4e00, #ff6b2b);
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(255, 78, 0, 0.3);
-    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(255, 78, 0, 0.4);
+    border: 4px solid white;
+    margin-top: -8px;
+}
+
+.modern-slider::-moz-range-track {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    background: #e2e8f0;
+    border-radius: 8px;
+    border: none;
 }
 
 .modern-slider::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: linear-gradient(135deg, #ff4e00, #ff6b2b);
     cursor: pointer;
-    border: 3px solid white;
-    box-shadow: 0 4px 12px rgba(255, 78, 0, 0.3);
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(255, 78, 0, 0.4);
+}
+
+.modern-slider:focus {
+    outline: none;
+}
+
+.modern-slider:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 4px rgba(255, 78, 0, 0.2), 0 4px 12px rgba(255, 78, 0, 0.4);
 }
 
 .slider-display {
@@ -1296,6 +1325,42 @@ img {
     outline: none;
     border-color: #ff4e00;
     box-shadow: 0 0 0 4px rgba(255, 78, 0, 0.1);
+}
+
+.calc-button-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.calc-button {
+    background: linear-gradient(135deg, #ff4e00, #ff6b2b);
+    color: white;
+    border: none;
+    padding: 1.5rem 3rem;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 10px 30px rgba(255, 78, 0, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.calc-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 78, 0, 0.4);
+}
+
+.calc-button:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.calc-icon {
+    font-size: 1.5rem;
 }
 
 .calc-results {
