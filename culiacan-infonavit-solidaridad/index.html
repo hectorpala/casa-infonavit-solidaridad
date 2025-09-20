@@ -310,129 +310,101 @@
         </div>
     </section>
 
-    <!-- Modern Mortgage Calculator Section -->
-    <section class="modern-calculator" id="calculadora">
+    <!-- Simple Working Calculator -->
+    <section class="simple-calc" id="calculadora">
         <div class="container">
-            <div class="calc-header">
-                <h2 class="calc-title">🏠 Calculadora de Hipoteca</h2>
-                <p class="calc-subtitle">Descubre tu pago mensual con tasas reales de México 2025</p>
-            </div>
-            
-            <div class="calc-widget">
-                <div class="calc-inputs">
-                    <div class="input-row">
-                        <div class="input-field">
-                            <label>💰 Precio de la Casa</label>
-                            <div class="input-wrapper">
-                                <span class="currency-symbol">$</span>
-                                <input type="text" id="housePrice" value="1,750,000" class="price-input">
-                                <span class="currency-label">MXN</span>
-                            </div>
-                        </div>
-                        
-                        <div class="input-field">
-                            <label>📊 Enganche</label>
-                            <div class="slider-container">
-                                <input type="range" id="downPaymentSlider" min="5" max="50" value="5" class="modern-slider">
-                                <div class="slider-display">
-                                    <span id="downPaymentPercent">5%</span>
-                                    <span id="downPaymentMoney">$87,500</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="input-row">
-                        <div class="input-field">
-                            <label>📅 Años del Crédito</label>
-                            <select id="loanYears" class="modern-select">
-                                <option value="10">10 años</option>
-                                <option value="15">15 años</option>
-                                <option value="20" selected>20 años</option>
-                                <option value="25">25 años</option>
-                                <option value="30">30 años</option>
-                            </select>
-                        </div>
-                        
-                        <div class="input-field">
-                            <label>🏦 Tipo de Crédito</label>
-                            <select id="bankType" class="modern-select">
-                                <option value="infonavit-bajo">🏠 INFONAVIT Bajo - 3.76%</option>
-                                <option value="infonavit-medio">🏠 INFONAVIT Medio - 6.5%</option>
-                                <option value="infonavit-alto">🏠 INFONAVIT Alto - 10.45%</option>
-                                <option value="fovissste">🏛️ FOVISSSTE - 9.90%</option>
-                                <option value="hsbc" selected>🏦 HSBC - 10.45%</option>
-                                <option value="banamex">🏦 Banamex - 11.75%</option>
-                                <option value="santander">🏦 Santander - 13.25%</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="calc-button-section">
-                        <button id="calculateButton" class="calc-button">
-                            <span class="calc-icon">🧮</span>
-                            <span>Calcular Pago Mensual</span>
-                        </button>
-                    </div>
+            <h2>🏠 Calculadora de Hipoteca</h2>
+            <div class="calc-box">
+                <div class="input-group">
+                    <label>Precio de la casa:</label>
+                    <input type="number" id="precio" value="1750000" min="100000" step="10000">
                 </div>
-
-                <div class="calc-results">
-                    <div class="result-main">
-                        <div class="monthly-payment-card">
-                            <div class="payment-icon">💳</div>
-                            <div class="payment-info">
-                                <span class="payment-label">Pago Mensual</span>
-                                <span class="payment-amount" id="monthlyResult">$0</span>
-                                <span class="payment-note">*Sin seguro incluido</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="result-details">
-                        <div class="detail-card">
-                            <span class="detail-icon">💰</span>
-                            <div class="detail-info">
-                                <span class="detail-label">Monto a Financiar</span>
-                                <span class="detail-value" id="loanAmountResult">$0</span>
-                            </div>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <span class="detail-icon">📈</span>
-                            <div class="detail-info">
-                                <span class="detail-label">Tasa de Interés</span>
-                                <span class="detail-value" id="interestRateResult">0%</span>
-                            </div>
-                        </div>
-                        
-                        <div class="detail-card">
-                            <span class="detail-icon">💎</span>
-                            <div class="detail-info">
-                                <span class="detail-label">Total a Pagar</span>
-                                <span class="detail-value" id="totalPaymentResult">$0</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="comparison-section">
-                        <h4>💡 Compara Opciones</h4>
-                        <div class="comparison-cards" id="comparisonCards">
-                            <!-- Se llena dinámicamente -->
-                        </div>
-                    </div>
-
-                    <div class="cta-section">
-                        <div class="cta-content">
-                            <span class="cta-text">¿Te convencen estos números? 🎯</span>
-                            <a href="#contact" class="modern-cta-btn">
-                                <span>📞 Contactar Ahora</span>
-                            </a>
-                        </div>
-                    </div>
+                
+                <div class="input-group">
+                    <label>Enganche (%):</label>
+                    <input type="range" id="enganche" min="5" max="50" value="5" oninput="updateEnganche()">
+                    <span id="engancheDisplay">5% = $87,500</span>
+                </div>
+                
+                <div class="input-group">
+                    <label>Años:</label>
+                    <select id="anos">
+                        <option value="10">10 años</option>
+                        <option value="15">15 años</option>
+                        <option value="20" selected>20 años</option>
+                        <option value="25">25 años</option>
+                        <option value="30">30 años</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Banco:</label>
+                    <select id="banco">
+                        <option value="3.76">INFONAVIT Bajo - 3.76%</option>
+                        <option value="6.5">INFONAVIT Medio - 6.5%</option>
+                        <option value="10.45">INFONAVIT Alto - 10.45%</option>
+                        <option value="9.9">FOVISSSTE - 9.9%</option>
+                        <option value="10.45" selected>HSBC - 10.45%</option>
+                        <option value="11.75">Banamex - 11.75%</option>
+                        <option value="13.25">Santander - 13.25%</option>
+                    </select>
+                </div>
+                
+                <button onclick="calcular()" class="calc-btn">🧮 CALCULAR</button>
+                
+                <div class="result-box">
+                    <h3>💳 Pago Mensual: <span id="resultado">$0</span></h3>
+                    <p>📊 Monto del crédito: <span id="credito">$0</span></p>
+                    <p>📈 Tasa: <span id="tasa">0%</span></p>
+                    <p>💎 Total a pagar: <span id="total">$0</span></p>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        function updateEnganche() {
+            const precio = document.getElementById('precio').value || 1750000;
+            const porcentaje = document.getElementById('enganche').value;
+            const monto = precio * (porcentaje / 100);
+            document.getElementById('engancheDisplay').textContent = 
+                porcentaje + '% = $' + monto.toLocaleString('es-MX');
+        }
+
+        function calcular() {
+            const precio = parseFloat(document.getElementById('precio').value) || 1750000;
+            const enganchePorcentaje = parseFloat(document.getElementById('enganche').value) || 5;
+            const anos = parseInt(document.getElementById('anos').value) || 20;
+            const tasaAnual = parseFloat(document.getElementById('banco').value) || 10.45;
+
+            const engancheMonto = precio * (enganchePorcentaje / 100);
+            const montoCredito = precio - engancheMonto;
+            const tasaMensual = tasaAnual / 100 / 12;
+            const numeroPageos = anos * 12;
+
+            let pagoMensual;
+            if (tasaMensual === 0) {
+                pagoMensual = montoCredito / numeroPageos;
+            } else {
+                pagoMensual = montoCredito * 
+                    (tasaMensual * Math.pow(1 + tasaMensual, numeroPageos)) / 
+                    (Math.pow(1 + tasaMensual, numeroPageos) - 1);
+            }
+
+            const totalPagar = pagoMensual * numeroPageos;
+
+            document.getElementById('resultado').textContent = '$' + Math.round(pagoMensual).toLocaleString('es-MX');
+            document.getElementById('credito').textContent = '$' + Math.round(montoCredito).toLocaleString('es-MX');
+            document.getElementById('tasa').textContent = tasaAnual + '%';
+            document.getElementById('total').textContent = '$' + Math.round(totalPagar).toLocaleString('es-MX');
+        }
+
+        // Calcular al cargar
+        window.onload = function() {
+            updateEnganche();
+            calcular();
+        };
+    </script>
 
     <!-- Amenities Section -->
     <section class="amenities" id="amenidades">
