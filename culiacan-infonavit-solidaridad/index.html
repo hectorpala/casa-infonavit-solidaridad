@@ -663,117 +663,13 @@
                             <div class="property-price">$20,000/mes</div>
                             <div class="property-size">198 m²</div>
                         </div>
-                        <a href="#barcelona-details" class="property-button">Ver Detalles</a>
+                        <a href="casa-renta-barcelona.html" class="property-button">Ver Detalles</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Barcelona Property Details -->
-    <section class="property-details-section" id="barcelona-details" style="display: none; padding: 80px 0; background: #f8f9fa;">
-        <div class="container">
-            <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <div style="text-align: center; margin-bottom: 40px;">
-                    <h2 style="color: #ff4e00; font-size: 2.5rem; margin-bottom: 10px;">Casa Amueblada en Renta</h2>
-                    <p style="color: #666; font-size: 1.2rem;">Boulevard Cantabria 3115, Barcelona Villa</p>
-                    <div style="background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 10px 20px; border-radius: 25px; display: inline-block; font-weight: 700; margin-top: 10px;">
-                        $20,000/mes
-                    </div>
-                </div>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-                    <div>
-                        <h3 style="color: #1d1d1b; margin-bottom: 20px;">📋 Características</h3>
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>🏠 Superficie:</strong> 198 m² construcción</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>📐 Terreno:</strong> 144 m²</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>🛏️ Recámaras:</strong> 3 amplias</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>🚿 Baños:</strong> 2 completos</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>🚗 Estacionamiento:</strong> 2 autos</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>❄️ Aire Acondicionado:</strong> Sí</li>
-                            <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>🪑 Amueblada:</strong> Completamente</li>
-                            <li style="padding: 8px 0;"><strong>🏗️ Edad:</strong> 1 año</li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h3 style="color: #1d1d1b; margin-bottom: 20px;">💰 Calculadora de Renta</h3>
-                        <div style="background: #f8f9fa; padding: 20px; border-radius: 15px;">
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Depósito:</label>
-                                <select id="deposito-calc" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
-                                    <option value="2">2 meses ($40,000)</option>
-                                    <option value="3">3 meses ($60,000)</option>
-                                </select>
-                            </div>
-                            <div style="margin-bottom: 15px;">
-                                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Gastos adicionales:</label>
-                                <input type="number" id="gastos-calc" value="3000" min="0" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;" placeholder="Agua, luz, gas">
-                            </div>
-                            <button onclick="calcularRentaBarcelona()" style="background: #ff4e00; color: white; border: none; padding: 12px 20px; border-radius: 8px; width: 100%; font-weight: 600; cursor: pointer;">
-                                🧮 Calcular Gastos
-                            </button>
-                            <div id="resultado-barcelona" style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px; border: 2px solid #28a745; display: none;">
-                                <h4 style="color: #28a745; margin: 0 0 10px 0;">Resumen de Gastos:</h4>
-                                <p style="margin: 5px 0;"><strong>Gastos de entrada:</strong> <span id="entrada-barcelona"></span></p>
-                                <p style="margin: 5px 0;"><strong>Total mensual:</strong> <span id="mensual-barcelona"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="https://wa.me/528111652545?text=Me%20interesa%20la%20casa%20en%20renta%20en%20Boulevard%20Cantabria%203115%2C%20Barcelona%20Villa" 
-                       style="background: linear-gradient(135deg, #25d366, #128c7e); color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 10px; display: inline-block;">
-                        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
-                    </a>
-                    <a href="tel:+528111652545" 
-                       style="background: linear-gradient(135deg, #ff4e00, #ff6b2b); color: white; padding: 15px 30px; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 10px; display: inline-block;">
-                        <i class="fas fa-phone"></i> Llamar Ahora
-                    </a>
-                </div>
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <button onclick="closeBarcelonaDetails()" style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
-                        ← Regresar a Propiedades
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function calcularRentaBarcelona() {
-            const renta = 20000;
-            const deposito = parseInt(document.getElementById('deposito-calc').value) || 2;
-            const gastos = parseInt(document.getElementById('gastos-calc').value) || 3000;
-            
-            const entrada = (renta * deposito) + renta; // Depósito + primera renta
-            const mensual = renta + gastos;
-            
-            document.getElementById('entrada-barcelona').textContent = '$' + entrada.toLocaleString('es-MX');
-            document.getElementById('mensual-barcelona').textContent = '$' + mensual.toLocaleString('es-MX');
-            document.getElementById('resultado-barcelona').style.display = 'block';
-        }
-        
-        // Show Barcelona details when clicking "Ver Detalles"
-        document.addEventListener('DOMContentLoaded', function() {
-            const barcelonaButtons = document.querySelectorAll('a[href="#barcelona-details"]');
-            barcelonaButtons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('barcelona-details').style.display = 'block';
-                    document.getElementById('barcelona-details').scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-        });
-        
-        function closeBarcelonaDetails() {
-            document.getElementById('barcelona-details').style.display = 'none';
-            document.getElementById('propiedades').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
