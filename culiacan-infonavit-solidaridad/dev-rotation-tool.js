@@ -10,13 +10,8 @@ class DevRotationTool {
     }
 
     checkDevMode() {
-        // Check if we're in development mode
-        // You can control this via localStorage or URL parameter
-        const devMode = localStorage.getItem('hector-dev-mode') === 'true' || 
-                       window.location.search.includes('dev=true') ||
-                       window.location.hostname === 'localhost';
-        
-        return devMode;
+        // Always enable dev mode for Hector - force it on
+        return true;
     }
 
     init() {
