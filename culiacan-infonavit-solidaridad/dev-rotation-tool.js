@@ -62,6 +62,19 @@ class DevRotationTool {
             </div>
             
             <div style="margin-bottom: 15px; text-align: center;">
+                <button onclick="window.devRotator.clearAllRotations()" style="
+                    background: linear-gradient(135deg, #dc3545, #c82333);
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    font-size: 14px;
+                    width: 100%;
+                    margin-bottom: 10px;
+                ">🗑️ LIMPIAR TODO</button>
+                
                 <button onclick="window.devRotator.toggleMode()" id="dev-toggle-btn" style="
                     background: linear-gradient(135deg, #28a745, #20c997);
                     color: white;
@@ -291,6 +304,33 @@ class DevRotationTool {
         navigator.clipboard.writeText(rotations).then(() => {
             this.showNotification('📋 Rotaciones copiadas al portapapeles', 'success');
         });
+    }
+
+    clearAllRotations() {
+        if (confirm('¿Borrar TODAS las rotaciones y empezar de cero? Esto restablecerá todas las imágenes a 0°.')) {
+            // Clear all rotations
+            this.rotations = {};
+            
+            // Clear localStorage
+            localStorage.removeItem('hector-dev-rotations');
+            localStorage.removeItem('final-rotations');
+            localStorage.removeItem('rotations-finalized');
+            
+            // Reset all images visually
+            const images = document.querySelectorAll('.gallery-image, .main-image');
+            images.forEach(img => {
+                img.style.transform = 'rotate(0deg)';
+                img.style.transition = 'transform 0.4s ease';
+            });
+            
+            // Refresh the panel if open
+            const container = document.getElementById('dev-controls-container');
+            if (container && container.style.display !== 'none') {
+                this.populateImageList();
+            }
+            
+            this.showNotification('🗑️ Todas las rotaciones eliminadas - Empezando de cero', 'success');
+        }
     }
 
     disableDevMode() {
