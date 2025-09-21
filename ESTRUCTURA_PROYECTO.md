@@ -6,7 +6,7 @@
 ```
 
 ## 🌐 **URLs FINALES**
-- **Página Principal**: https://casasenventa.info
+- **Página. dfgdfgg Principal**: https://casasenventa.info
 - **Casa Específica**: https://casasenventa.info/culiacan-infonavit-solidaridad/
 - **GitHub Repository**: https://github.com/hectorpala/casa-infonavit-solidaridad
 
@@ -194,4 +194,4 @@ Tipo: CNAME | Nombre: www | Valor: hectorpala.github.io
 **📅 Creado**: Septiembre 2024  
 **👨‍💻 Desarrollado con**: Claude Code  
 **🏢 Cliente**: Hector es Bienes Raíces  
-**🎯 Objetivo**: Landing pages profesionales para venta inmobiliaria
+**🎯 Objetivo**: Landing pages profesionales para venta inmobi, quiero que me ayudes en la pagina princiap viene una parte de otros proyectos  donde esta un enlace para la unica propiedad que teenmos en linea la foto de esa propiedad ahi viene al revez podras cambiarla por otra y ponerla bien
