@@ -46,6 +46,221 @@ body {
     box-shadow: 0 8px 32px rgba(255, 78, 0, 0.2);
 }
 
+/* Image Rotation Tool Styles */
+.image-edit-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+}
+
+.edit-mode-btn {
+    background: linear-gradient(135deg, #ff4e00, #ff6b2b);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 20px rgba(255, 78, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.edit-mode-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 78, 0, 0.5);
+}
+
+.edit-mode-btn i {
+    font-size: 16px;
+}
+
+/* Rotation Controls */
+.rotation-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1000;
+}
+
+.image-edit-mode .rotation-controls {
+    display: flex;
+}
+
+.rotation-buttons {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rotate-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotate-btn:hover {
+    background: rgba(255, 78, 0, 0.8);
+    border-color: #ff4e00;
+    transform: scale(1.1);
+}
+
+.rotate-btn.reset-btn {
+    background: rgba(220, 53, 69, 0.8);
+    border-color: #dc3545;
+}
+
+.rotate-btn.reset-btn:hover {
+    background: rgba(220, 53, 69, 1);
+}
+
+.rotation-info {
+    text-align: center;
+    margin-top: 4px;
+}
+
+.current-rotation {
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    background: rgba(255, 78, 0, 0.8);
+    padding: 2px 6px;
+    border-radius: 8px;
+    display: inline-block;
+    min-width: 40px;
+}
+
+/* Image Edit Mode Overlay */
+.image-edit-mode .gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 78, 0, 0.1);
+    border: 2px dashed rgba(255, 78, 0, 0.5);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.image-edit-mode .hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 78, 0, 0.1);
+    border: 2px dashed rgba(255, 78, 0, 0.5);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/* Image containers must be relative */
+.gallery-item {
+    position: relative;
+}
+
+.hero-image {
+    position: relative;
+}
+
+/* Ensure images can be transformed */
+.gallery-image,
+.main-image {
+    transform-origin: center center;
+    will-change: transform;
+}
+
+/* Notification */
+.rotation-notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10001;
+    animation: slideInRight 0.3s ease;
+}
+
+.rotation-notification.success {
+    background: rgba(40, 167, 69, 0.9);
+}
+
+.rotation-notification i {
+    font-size: 16px;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .image-edit-btn {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .edit-mode-btn {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+    
+    .rotation-controls {
+        top: 5px;
+        right: 5px;
+        padding: 6px;
+    }
+    
+    .rotate-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 10px;
+    }
+    
+    .rotation-notification {
+        top: 60px;
+        right: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
 /* Header */
 .header {
     position: fixed;
