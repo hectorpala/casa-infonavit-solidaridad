@@ -115,6 +115,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Development Rotation Tool - Always available for Hector -->
     <script src="dev-rotation-tool.js" defer></script>
+    <script>
+        // Force panel to show immediately
+        window.addEventListener('load', () => {
+            console.log('🔧 Forcing dev panel to show...');
+            setTimeout(() => {
+                if (!document.getElementById('hector-dev-panel')) {
+                    console.log('⚠️ Panel not found, creating manually...');
+                    window.devRotator = new DevRotationTool();
+                }
+            }, 1000);
+        });
+    </script>
 </head>
 <body>
     <!-- Header -->
