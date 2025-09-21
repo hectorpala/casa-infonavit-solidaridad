@@ -260,6 +260,32 @@ body {
     }
 }
 
+/* Simple Rotator Styles */
+.rotation-mode .gallery-item::before,
+.rotation-mode .hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(40, 167, 69, 0.1);
+    border: 2px dashed rgba(40, 167, 69, 0.5);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.simple-controls button:hover {
+    background: rgba(40, 167, 69, 0.8) !important;
+    transform: scale(1.1);
+}
+
+.gallery-image, .main-image {
+    transform-origin: center center;
+    will-change: transform;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .image-edit-btn {
