@@ -113,71 +113,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <!-- Font Awesome optimizado - una sola carga -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Emergency Panel Creation -->
+    <!-- Auto-cleanup rotations -->
     <script>
-        // Create panel immediately - no dependencies
+        // AUTOMATICALLY clean all rotations when page loads
         window.addEventListener('DOMContentLoaded', () => {
-            console.log('🚨 Creating emergency panel...');
+            console.log('🗑️ Auto-cleaning rotations...');
             
-            // Remove any existing panels
-            const existing = document.getElementById('hector-dev-panel');
-            if (existing) existing.remove();
+            // Clear all storage immediately
+            localStorage.clear();
             
-            // Create emergency panel
-            const panel = document.createElement('div');
-            panel.id = 'hector-dev-panel';
-            panel.style.cssText = `
-                position: fixed;
-                top: 10px;
-                right: 10px;
-                background: linear-gradient(135deg, #dc3545, #c82333);
-                border-radius: 15px;
-                padding: 20px;
-                z-index: 99999;
-                border: 3px solid #fff;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-                color: white;
-                font-family: Arial, sans-serif;
-                min-width: 300px;
-            `;
-            
-            panel.innerHTML = `
-                <div style="text-align: center;">
-                    <h3 style="color: white; margin: 0 0 15px 0;">🗑️ LIMPIAR ROTACIONES</h3>
-                    <button onclick="clearAllRotationsNow()" style="
-                        background: white;
-                        color: #dc3545;
-                        border: none;
-                        padding: 15px 25px;
-                        border-radius: 8px;
-                        cursor: pointer;
-                        font-weight: bold;
-                        font-size: 16px;
-                        width: 100%;
-                    ">RESETEAR TODAS LAS IMÁGENES</button>
-                </div>
-            `;
-            
-            document.body.appendChild(panel);
-            console.log('✅ Emergency panel created!');
-        });
-        
-        function clearAllRotationsNow() {
-            if (confirm('¿Resetear TODAS las imágenes a su orientación original?')) {
-                // Clear all storage
-                localStorage.clear();
-                
-                // Reset all images
+            // Reset all images immediately  
+            setTimeout(() => {
                 const images = document.querySelectorAll('img');
                 images.forEach(img => {
                     img.style.transform = 'rotate(0deg)';
-                    img.style.transition = 'transform 0.4s ease';
+                    img.style.transition = 'none';
                 });
-                
-                alert('✅ Todas las rotaciones eliminadas. Las imágenes están en su orientación original.');
-                location.reload();
-            }
-        }
+                console.log('✅ All rotations cleared automatically');
+            }, 500);
+        });
     </script>
 </head>
 <body>
