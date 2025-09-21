@@ -673,5 +673,122 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- PANEL DE ROTACIÓN EMBEBIDO -->
+    <div id="hector-rotation-panel" style="
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: #ff4e00;
+        border-radius: 15px;
+        padding: 20px;
+        z-index: 99999;
+        color: white;
+        font-family: Arial, sans-serif;
+        min-width: 250px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    ">
+        <h3 style="margin: 0 0 15px 0; text-align: center;">🔧 ROTAR IMÁGENES</h3>
+        <button onclick="toggleRotationControls()" id="toggle-btn" style="
+            background: white;
+            color: #ff4e00;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        ">ACTIVAR CONTROLES</button>
+        
+        <div id="rotation-controls" style="display: none; margin-top: 15px;">
+            <div id="image-controls-list"></div>
+            <button onclick="resetAllImages()" style="
+                background: #dc3545;
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 6px;
+                cursor: pointer;
+                width: 100%;
+                margin-top: 10px;
+            ">🔄 RESETEAR TODO</button>
+        </div>
+    </div>
+    
+    <script>
+        let imageRotations = {};
+        
+        function toggleRotationControls() {
+            const controls = document.getElementById('rotation-controls');
+            const btn = document.getElementById('toggle-btn');
+            
+            if (controls.style.display === 'none') {
+                controls.style.display = 'block';
+                btn.textContent = 'OCULTAR CONTROLES';
+                populateImageControls();
+            } else {
+                controls.style.display = 'none';
+                btn.textContent = 'ACTIVAR CONTROLES';
+            }
+        }
+        
+        function populateImageControls() {
+            const container = document.getElementById('image-controls-list');
+            const images = document.querySelectorAll('.gallery-image, .main-image');
+            container.innerHTML = '';
+            
+            images.forEach((img, index) => {
+                const src = img.src;
+                const filename = src.split('/').pop().split('.')[0];
+                
+                const controlDiv = document.createElement('div');
+                controlDiv.style.cssText = 'margin-bottom: 10px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 8px;';
+                controlDiv.innerHTML = `
+                    <div style="font-size: 12px; margin-bottom: 5px; color: white;">Imagen ${index + 1} (${filename})</div>
+                    <div style="text-align: center;">
+                        <button onclick="rotateImage('${filename}', -90)" style="background: #28a745; color: white; border: none; padding: 8px 12px; margin: 2px; border-radius: 4px; cursor: pointer;">⟲ -90°</button>
+                        <button onclick="rotateImage('${filename}', 90)" style="background: #28a745; color: white; border: none; padding: 8px 12px; margin: 2px; border-radius: 4px; cursor: pointer;">⟳ +90°</button>
+                        <button onclick="rotateImage('${filename}', 180)" style="background: #ffc107; color: black; border: none; padding: 8px 12px; margin: 2px; border-radius: 4px; cursor: pointer;">🔄 180°</button>
+                        <button onclick="resetImage('${filename}')" style="background: #dc3545; color: white; border: none; padding: 8px 12px; margin: 2px; border-radius: 4px; cursor: pointer;">↺ Reset</button>
+                    </div>
+                `;
+                container.appendChild(controlDiv);
+            });
+        }
+        
+        function rotateImage(filename, degrees) {
+            const img = document.querySelector(`img[src*="${filename}"]`);
+            if (!img) return;
+            
+            imageRotations[filename] = (imageRotations[filename] || 0) + degrees;
+            if (imageRotations[filename] < 0) imageRotations[filename] += 360;
+            imageRotations[filename] = imageRotations[filename] % 360;
+            
+            img.style.transform = `rotate(${imageRotations[filename]}deg)`;
+            img.style.transition = 'transform 0.3s ease';
+            
+            console.log(`Rotated ${filename} to ${imageRotations[filename]}°`);
+        }
+        
+        function resetImage(filename) {
+            const img = document.querySelector(`img[src*="${filename}"]`);
+            if (img) {
+                imageRotations[filename] = 0;
+                img.style.transform = 'rotate(0deg)';
+                img.style.transition = 'transform 0.3s ease';
+            }
+        }
+        
+        function resetAllImages() {
+            if (confirm('¿Resetear todas las imágenes a 0°?')) {
+                imageRotations = {};
+                document.querySelectorAll('.gallery-image, .main-image').forEach(img => {
+                    img.style.transform = 'rotate(0deg)';
+                    img.style.transition = 'transform 0.3s ease';
+                });
+                alert('Todas las imágenes reseteadas');
+            }
+        }
+    </script>
 </body>
 </html>
