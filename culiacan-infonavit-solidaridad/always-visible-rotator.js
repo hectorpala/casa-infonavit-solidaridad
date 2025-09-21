@@ -58,53 +58,76 @@ class AlwaysVisibleRotator {
         controls.onmouseenter = () => controls.style.opacity = '1';
         controls.onmouseleave = () => controls.style.opacity = '0.8';
 
-        controls.innerHTML = `
-            <button onclick="window.alwaysRotator.rotateLeft('${imageId}')" 
-                    style="
-                        background: rgba(0, 0, 0, 0.7);
-                        border: 2px solid rgba(255, 255, 255, 0.8);
-                        color: white;
-                        padding: 8px;
-                        border-radius: 50%;
-                        cursor: pointer;
-                        font-size: 14px;
-                        width: 36px;
-                        height: 36px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        transition: all 0.2s ease;
-                        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-                    "
-                    title="Rotar izquierda (90°)"
-                    onmouseover="this.style.background='rgba(255, 78, 0, 0.9)'; this.style.transform='scale(1.1)'"
-                    onmouseout="this.style.background='rgba(0, 0, 0, 0.7)'; this.style.transform='scale(1)'">
-                <i class="fas fa-undo"></i>
-            </button>
-            
-            <button onclick="window.alwaysRotator.rotateRight('${imageId}')" 
-                    style="
-                        background: rgba(0, 0, 0, 0.7);
-                        border: 2px solid rgba(255, 255, 255, 0.8);
-                        color: white;
-                        padding: 8px;
-                        border-radius: 50%;
-                        cursor: pointer;
-                        font-size: 14px;
-                        width: 36px;
-                        height: 36px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        transition: all 0.2s ease;
-                        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-                    "
-                    title="Rotar derecha (90°)"
-                    onmouseover="this.style.background='rgba(255, 78, 0, 0.9)'; this.style.transform='scale(1.1)'"
-                    onmouseout="this.style.background='rgba(0, 0, 0, 0.7)'; this.style.transform='scale(1)'">
-                <i class="fas fa-redo"></i>
-            </button>
+        // Create buttons with proper event handling
+        const leftButton = document.createElement('button');
+        leftButton.innerHTML = '<i class="fas fa-undo"></i>';
+        leftButton.title = 'Rotar izquierda (90°)';
+        leftButton.style.cssText = `
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: white;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         `;
+        
+        const rightButton = document.createElement('button');
+        rightButton.innerHTML = '<i class="fas fa-redo"></i>';
+        rightButton.title = 'Rotar derecha (90°)';
+        rightButton.style.cssText = `
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: white;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 14px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        `;
+
+        // Add event listeners with stopPropagation
+        leftButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+            window.alwaysRotator.rotateLeft(imageId);
+        });
+
+        rightButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            event.stopImmediatePropagation();
+            window.alwaysRotator.rotateRight(imageId);
+        });
+
+        // Add hover effects
+        [leftButton, rightButton].forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                btn.style.background = 'rgba(255, 78, 0, 0.9)';
+                btn.style.transform = 'scale(1.1)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.background = 'rgba(0, 0, 0, 0.7)';
+                btn.style.transform = 'scale(1)';
+            });
+        });
+
+        controls.appendChild(leftButton);
+        controls.appendChild(rightButton);
 
         container.appendChild(controls);
         
@@ -150,9 +173,15 @@ class AlwaysVisibleRotator {
             this.rotations[imageId] += 360;
         }
 
-        // Apply rotation immediately
+        // Apply rotation immediately while preserving size and position
         img.style.transform = `rotate(${this.rotations[imageId]}deg)`;
         img.style.transition = 'transform 0.3s ease';
+        
+        // Ensure image maintains its original size and position
+        img.style.maxWidth = '100%';
+        img.style.height = 'auto';
+        img.style.objectFit = 'cover';
+        img.style.transformOrigin = 'center center';
 
         // Auto-save immediately
         this.saveRotations();
@@ -210,6 +239,10 @@ class AlwaysVisibleRotator {
             if (img) {
                 img.style.transform = `rotate(${this.rotations[imageId]}deg)`;
                 img.style.transition = 'transform 0.3s ease';
+                img.style.maxWidth = '100%';
+                img.style.height = 'auto';
+                img.style.objectFit = 'cover';
+                img.style.transformOrigin = 'center center';
             }
         });
     }
