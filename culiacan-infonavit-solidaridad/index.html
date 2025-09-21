@@ -114,15 +114,27 @@
     <!-- Font Awesome optimizado - una sola carga -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- PANEL DE ROTACIÓN PERMANENTE -->
+    <!-- PANEL DE ROTACIÓN SOLO PARA HECTOR -->
     <script>
-        // Panel siempre visible para Hector
-        document.addEventListener('DOMContentLoaded', () => {
-            const panel = document.createElement('div');
-            panel.style.cssText = 'position:fixed;top:10px;right:10px;background:#ff4e00;padding:15px;color:white;border-radius:10px;z-index:99999;font-family:Arial;min-width:250px;box-shadow:0 5px 20px rgba(0,0,0,0.5);';
-            panel.innerHTML = '<h3 style="margin:0 0 10px 0;text-align:center;">🔧 ROTAR</h3><button onclick="toggleControls()" id="toggle-btn" style="background:white;color:#ff4e00;border:none;padding:10px;border-radius:5px;cursor:pointer;width:100%;font-weight:bold;">ACTIVAR</button><div id="controls" style="display:none;margin-top:10px;"></div>';
-            document.body.appendChild(panel);
-        });
+        // Panel solo visible cuando sea necesario
+        let devMode = localStorage.getItem('hector-dev-mode') === 'true' || 
+                     window.location.search.includes('hector=true') ||
+                     window.location.hostname === 'localhost';
+        
+        if (devMode) {
+            document.addEventListener('DOMContentLoaded', () => {
+                const panel = document.createElement('div');
+                panel.style.cssText = 'position:fixed;top:10px;right:10px;background:#ff4e00;padding:15px;color:white;border-radius:10px;z-index:99999;font-family:Arial;min-width:250px;box-shadow:0 5px 20px rgba(0,0,0,0.5);';
+                panel.innerHTML = '<h3 style="margin:0 0 10px 0;text-align:center;">🔧 ROTAR</h3><button onclick="toggleControls()" id="toggle-btn" style="background:white;color:#ff4e00;border:none;padding:10px;border-radius:5px;cursor:pointer;width:100%;font-weight:bold;">ACTIVAR</button><div id="controls" style="display:none;margin-top:10px;"></div>';
+                document.body.appendChild(panel);
+            });
+        }
+        
+        // Activar modo desarrollo (para Hector)
+        function activateDevMode() {
+            localStorage.setItem('hector-dev-mode', 'true');
+            location.reload();
+        }
         
         let rotations = {};
         
