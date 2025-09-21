@@ -835,3 +835,49 @@ img {
     transform-origin: left;
     z-index: 9999;
 }
+
+/* Floor Plans Styles */
+.floor-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.floor-plan {
+    background: linear-gradient(135deg, rgba(255, 78, 0, 0.05), rgba(248, 250, 252, 0.95));
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 78, 0, 0.1);
+}
+
+.floor-plan h4 {
+    color: #ff4e00;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.floor-plan ul {
+    list-style: none;
+    padding: 0;
+}
+
+.floor-plan li {
+    padding: 0.5rem 0;
+    color: #666;
+    border-bottom: 1px solid rgba(255, 78, 0, 0.1);
+}
+
+.floor-plan li:last-child {
+    border-bottom: none;
+}
+
+.floor-plan li:before {
+    content: "✓";
+    color: #ff4e00;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
