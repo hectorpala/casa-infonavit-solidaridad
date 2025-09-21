@@ -113,6 +113,86 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <!-- Font Awesome optimizado - una sola carga -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- PANEL DE ROTACIÓN PERMANENTE -->
+    <script>
+        // Panel siempre visible para Hector
+        document.addEventListener('DOMContentLoaded', () => {
+            const panel = document.createElement('div');
+            panel.style.cssText = 'position:fixed;top:10px;right:10px;background:#ff4e00;padding:15px;color:white;border-radius:10px;z-index:99999;font-family:Arial;min-width:250px;box-shadow:0 5px 20px rgba(0,0,0,0.5);';
+            panel.innerHTML = '<h3 style="margin:0 0 10px 0;text-align:center;">🔧 ROTAR</h3><button onclick="toggleControls()" id="toggle-btn" style="background:white;color:#ff4e00;border:none;padding:10px;border-radius:5px;cursor:pointer;width:100%;font-weight:bold;">ACTIVAR</button><div id="controls" style="display:none;margin-top:10px;"></div>';
+            document.body.appendChild(panel);
+        });
+        
+        let rotations = {};
+        
+        function toggleControls() {
+            const controls = document.getElementById('controls');
+            const btn = document.getElementById('toggle-btn');
+            
+            if (controls.style.display === 'none') {
+                controls.style.display = 'block';
+                btn.textContent = 'OCULTAR';
+                loadImageControls();
+            } else {
+                controls.style.display = 'none';
+                btn.textContent = 'ACTIVAR';
+            }
+        }
+        
+        function loadImageControls() {
+            const container = document.getElementById('controls');
+            const images = document.querySelectorAll('.gallery-image, .main-image');
+            container.innerHTML = '';
+            
+            images.forEach((img, i) => {
+                const src = img.src.split('/').pop().split('.')[0];
+                const div = document.createElement('div');
+                div.style.cssText = 'margin:8px 0;padding:8px;background:rgba(255,255,255,0.1);border-radius:5px;';
+                div.innerHTML = `
+                    <div style="font-size:11px;margin-bottom:5px;">Imagen ${i+1} (${src})</div>
+                    <button onclick="rotate('${src}', -90)" style="background:#28a745;color:white;border:none;padding:5px 8px;margin:1px;border-radius:3px;cursor:pointer;font-size:11px;">⟲</button>
+                    <button onclick="rotate('${src}', 90)" style="background:#28a745;color:white;border:none;padding:5px 8px;margin:1px;border-radius:3px;cursor:pointer;font-size:11px;">⟳</button>
+                    <button onclick="rotate('${src}', 180)" style="background:#ffc107;color:black;border:none;padding:5px 8px;margin:1px;border-radius:3px;cursor:pointer;font-size:11px;">🔄</button>
+                    <button onclick="rotate('${src}', 0, true)" style="background:#dc3545;color:white;border:none;padding:5px 8px;margin:1px;border-radius:3px;cursor:pointer;font-size:11px;">↺</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+        
+        function rotate(filename, degrees, reset = false) {
+            const img = document.querySelector(\`img[src*="\${filename}"]\`);
+            if (!img) return;
+            
+            if (reset) {
+                rotations[filename] = 0;
+            } else {
+                rotations[filename] = (rotations[filename] || 0) + degrees;
+                if (rotations[filename] < 0) rotations[filename] += 360;
+                rotations[filename] = rotations[filename] % 360;
+            }
+            
+            img.style.transform = \`rotate(\${rotations[filename]}deg)\`;
+            img.style.transition = 'transform 0.3s ease';
+            
+            // Guardar en localStorage inmediatamente
+            localStorage.setItem('image-rotations', JSON.stringify(rotations));
+        }
+        
+        // Aplicar rotaciones guardadas al cargar
+        window.addEventListener('load', () => {
+            const saved = localStorage.getItem('image-rotations');
+            if (saved) {
+                rotations = JSON.parse(saved);
+                Object.keys(rotations).forEach(filename => {
+                    const img = document.querySelector(\`img[src*="\${filename}"]\`);
+                    if (img && rotations[filename] !== 0) {
+                        img.style.transform = \`rotate(\${rotations[filename]}deg)\`;
+                    }
+                });
+            }
+        });
+    </script>
 </head>
 <body>
     <!-- Header -->
