@@ -113,26 +113,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <!-- Font Awesome optimizado - una sola carga -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Auto-cleanup rotations -->
-    <script>
-        // AUTOMATICALLY clean all rotations when page loads
-        window.addEventListener('DOMContentLoaded', () => {
-            console.log('🗑️ Auto-cleaning rotations...');
-            
-            // Clear all storage immediately
-            localStorage.clear();
-            
-            // Reset all images immediately  
-            setTimeout(() => {
-                const images = document.querySelectorAll('img');
-                images.forEach(img => {
-                    img.style.transform = 'rotate(0deg)';
-                    img.style.transition = 'none';
-                });
-                console.log('✅ All rotations cleared automatically');
-            }, 500);
-        });
-    </script>
+    <!-- Development Rotation Tool - Always available for Hector -->
+    <script src="dev-rotation-tool.js" defer></script>
 </head>
 <body>
     <!-- Header -->
