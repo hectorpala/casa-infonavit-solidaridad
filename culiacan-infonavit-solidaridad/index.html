@@ -116,10 +116,8 @@
     
     <!-- PANEL DE ROTACIÓN SOLO PARA HECTOR -->
     <script>
-        // Panel solo visible cuando sea necesario
-        let devMode = localStorage.getItem('hector-dev-mode') === 'true' || 
-                     window.location.search.includes('hector=true') ||
-                     window.location.hostname === 'localhost';
+        // Panel SIEMPRE visible para Hector hasta que esté todo bien
+        let devMode = true;
         
         if (devMode) {
             document.addEventListener('DOMContentLoaded', () => {
