@@ -115,6 +115,116 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Development Rotation Tool - Always available for Hector -->
     <script src="dev-rotation-tool.js" defer></script>
+    <script>
+        // Force panel creation - backup method
+        setTimeout(() => {
+            if (!document.getElementById('hector-dev-panel')) {
+                console.log('Creating backup panel...');
+                
+                const panel = document.createElement('div');
+                panel.id = 'hector-dev-panel';
+                panel.style.cssText = `
+                    position: fixed;
+                    top: 10px;
+                    right: 10px;
+                    background: #ff4e00;
+                    border-radius: 15px;
+                    padding: 20px;
+                    z-index: 99999;
+                    color: white;
+                    font-family: Arial, sans-serif;
+                    min-width: 250px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+                `;
+                
+                panel.innerHTML = `
+                    <h3 style="margin: 0 0 15px 0; text-align: center;">🔧 ROTAR IMÁGENES</h3>
+                    <button onclick="showRotationControls()" style="
+                        background: white;
+                        color: #ff4e00;
+                        border: none;
+                        padding: 12px 20px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        font-weight: bold;
+                        width: 100%;
+                    ">ACTIVAR CONTROLES</button>
+                    <div id="rotation-controls" style="display: none; margin-top: 15px;">
+                        <div id="image-controls"></div>
+                        <button onclick="resetAllRotations()" style="
+                            background: #dc3545;
+                            color: white;
+                            border: none;
+                            padding: 10px;
+                            border-radius: 6px;
+                            cursor: pointer;
+                            width: 100%;
+                            margin-top: 10px;
+                        ">🔄 RESETEAR TODO</button>
+                    </div>
+                `;
+                
+                document.body.appendChild(panel);
+            }
+        }, 2000);
+        
+        function showRotationControls() {
+            const controls = document.getElementById('rotation-controls');
+            const container = document.getElementById('image-controls');
+            
+            if (controls.style.display === 'none') {
+                controls.style.display = 'block';
+                
+                const images = document.querySelectorAll('.gallery-image, .main-image');
+                container.innerHTML = '';
+                
+                images.forEach((img, index) => {
+                    const src = img.src;
+                    const filename = src.split('/').pop().split('.')[0];
+                    
+                    const controlDiv = document.createElement('div');
+                    controlDiv.style.cssText = 'margin-bottom: 10px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 8px;';
+                    controlDiv.innerHTML = `
+                        <div style="font-size: 12px; margin-bottom: 5px;">Imagen ${index + 1}</div>
+                        <button onclick="rotateImg('${filename}', -90)" style="background: #28a745; color: white; border: none; padding: 5px 8px; margin: 2px; border-radius: 4px; cursor: pointer;">⟲</button>
+                        <button onclick="rotateImg('${filename}', 90)" style="background: #28a745; color: white; border: none; padding: 5px 8px; margin: 2px; border-radius: 4px; cursor: pointer;">⟳</button>
+                        <button onclick="rotateImg('${filename}', 180)" style="background: #ffc107; color: black; border: none; padding: 5px 8px; margin: 2px; border-radius: 4px; cursor: pointer;">🔄</button>
+                        <button onclick="rotateImg('${filename}', 0, true)" style="background: #dc3545; color: white; border: none; padding: 5px 8px; margin: 2px; border-radius: 4px; cursor: pointer;">↺</button>
+                    `;
+                    container.appendChild(controlDiv);
+                });
+            } else {
+                controls.style.display = 'none';
+            }
+        }
+        
+        let rotations = {};
+        
+        function rotateImg(filename, degrees, reset = false) {
+            const img = document.querySelector(\`img[src*="\${filename}"]\`);
+            if (!img) return;
+            
+            if (reset) {
+                rotations[filename] = 0;
+            } else {
+                rotations[filename] = (rotations[filename] || 0) + degrees;
+                if (rotations[filename] < 0) rotations[filename] += 360;
+                rotations[filename] = rotations[filename] % 360;
+            }
+            
+            img.style.transform = \`rotate(\${rotations[filename]}deg)\`;
+            img.style.transition = 'transform 0.3s ease';
+        }
+        
+        function resetAllRotations() {
+            if (confirm('¿Resetear todas las imágenes?')) {
+                rotations = {};
+                document.querySelectorAll('.gallery-image, .main-image').forEach(img => {
+                    img.style.transform = 'rotate(0deg)';
+                });
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Header -->
