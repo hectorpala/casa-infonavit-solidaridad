@@ -9,6 +9,9 @@ class AlwaysVisibleRotator {
         // Apply saved rotations first
         this.applyRotations();
         
+        // COMPLETELY disable clicks on images first
+        this.disableAllImageClicks();
+        
         // Add controls to all images immediately
         this.addControlsToAllImages();
         
@@ -18,15 +21,49 @@ class AlwaysVisibleRotator {
         this.showNotification('🔄 Controles de rotación listos en cada imagen', 'success');
     }
 
+    disableAllImageClicks() {
+        // Disable all clicks on gallery items and images
+        const allImages = document.querySelectorAll('.gallery-item, .gallery-image, .main-image, img');
+        
+        allImages.forEach(element => {
+            // Remove any existing event listeners by cloning and replacing
+            const newElement = element.cloneNode(true);
+            if (element.parentNode) {
+                element.parentNode.replaceChild(newElement, element);
+            }
+            
+            // Disable pointer events on images only (not containers)
+            if (element.tagName === 'IMG') {
+                newElement.style.pointerEvents = 'none';
+                newElement.style.userSelect = 'none';
+            }
+            
+            // Add event blocker to containers
+            if (element.classList.contains('gallery-item')) {
+                newElement.addEventListener('click', (e) => {
+                    // Only allow clicks on rotation controls
+                    if (!e.target.closest('.always-controls')) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        e.stopImmediatePropagation();
+                        return false;
+                    }
+                }, true);
+            }
+        });
+        
+        console.log('🚫 All image clicks disabled - only rotation controls work');
+    }
+
     addControlsToAllImages() {
-        // Wait a bit for images to load
+        // Wait a bit for images to load and DOM to update
         setTimeout(() => {
             const images = document.querySelectorAll('.gallery-image, .main-image');
             
             images.forEach((img, index) => {
                 this.addControlsToImage(img);
             });
-        }, 500);
+        }, 1000);
     }
 
     addControlsToImage(img) {
@@ -307,7 +344,7 @@ class AlwaysVisibleRotator {
     }
 }
 
-// Add CSS for animations
+// Add CSS for animations and disable image clicks
 const style = document.createElement('style');
 style.textContent = `
     @keyframes fadeInOut {
@@ -324,6 +361,20 @@ style.textContent = `
     .gallery-image, .main-image {
         transform-origin: center center;
         will-change: transform;
+        pointer-events: none !important;
+        user-select: none !important;
+    }
+    
+    .gallery-item {
+        cursor: default !important;
+    }
+    
+    .always-controls {
+        pointer-events: auto !important;
+    }
+    
+    .always-controls button {
+        pointer-events: auto !important;
     }
 `;
 document.head.appendChild(style);
