@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Gallery image click handler
+    // Gallery image click handler - DISABLED for rotation functionality
+    // Images now use rotation controls instead of modal lightbox
+    console.log('ℹ️ Gallery modal disabled - using rotation controls instead');
+    
+    /* MODAL FUNCTIONALITY DISABLED - REPLACED WITH ROTATION CONTROLS
     const galleryItems = document.querySelectorAll('.gallery-item');
     galleryItems.forEach(item => {
         item.addEventListener('click', function() {
@@ -109,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    END COMMENTED MODAL CODE */
 
     // Header background change on scroll
     const header = document.querySelector('.header');
