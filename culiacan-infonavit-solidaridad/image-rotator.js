@@ -23,10 +23,26 @@ class ImageRotator {
             </button>
         `;
         
-        // Add to header or hero section
-        const header = document.querySelector('.header .container');
-        if (header) {
-            header.appendChild(editBtn);
+        // Add directly to body for maximum visibility
+        document.body.appendChild(editBtn);
+        
+        // Add a secondary button in the gallery section for easier access
+        const gallerySection = document.querySelector('.gallery');
+        if (gallerySection) {
+            const galleryBtn = document.createElement('div');
+            galleryBtn.className = 'gallery-edit-btn';
+            galleryBtn.innerHTML = `
+                <button class="gallery-edit-mode-btn" onclick="document.getElementById('toggleEditMode').click()">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Rotar Fotos</span>
+                </button>
+            `;
+            
+            // Insert before gallery title
+            const galleryTitle = gallerySection.querySelector('.section-title');
+            if (galleryTitle) {
+                galleryTitle.parentNode.insertBefore(galleryBtn, galleryTitle.nextSibling);
+            }
         }
     }
 
@@ -266,5 +282,33 @@ class ImageRotator {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    new ImageRotator();
+    console.log('🔄 Iniciando herramienta de rotación de imágenes...');
+    try {
+        const rotator = new ImageRotator();
+        console.log('✅ Herramienta de rotación cargada exitosamente');
+        
+        // Debug: mostrar mensaje en la página
+        setTimeout(() => {
+            const debugMsg = document.createElement('div');
+            debugMsg.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                background: rgba(40, 167, 69, 0.9);
+                color: white;
+                padding: 8px 16px;
+                border-radius: 8px;
+                font-size: 12px;
+                z-index: 10000;
+            `;
+            debugMsg.textContent = '✅ Herramienta de rotación activa';
+            document.body.appendChild(debugMsg);
+            
+            // Auto-remove after 3 seconds
+            setTimeout(() => debugMsg.remove(), 3000);
+        }, 1000);
+        
+    } catch (error) {
+        console.error('❌ Error al cargar herramienta de rotación:', error);
+    }
 });

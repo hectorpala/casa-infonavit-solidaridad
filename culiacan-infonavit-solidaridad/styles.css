@@ -51,7 +51,38 @@ body {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 10000;
+    z-index: 99999;
+}
+
+.gallery-edit-btn {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: rgba(255, 78, 0, 0.1);
+    border-radius: 12px;
+    border: 2px dashed rgba(255, 78, 0, 0.3);
+}
+
+.gallery-edit-mode-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
+    transition: all 0.3s ease;
+}
+
+.gallery-edit-mode-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(40, 167, 69, 0.6);
+    background: linear-gradient(135deg, #20c997, #28a745);
 }
 
 .edit-mode-btn {
