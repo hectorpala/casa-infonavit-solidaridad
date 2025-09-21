@@ -137,6 +137,28 @@
 
 .property-content {
     padding: 2.5rem;
+    position: relative;
+}
+
+.property-badge {
+    position: absolute;
+    top: -40px;
+    right: 20px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: white;
+    z-index: 10;
+}
+
+.property-badge.sale {
+    background: linear-gradient(135deg, #ff4e00, #ff6b2b);
+}
+
+.property-badge.rent {
+    background: linear-gradient(135deg, #28a745, #20c997);
 }
 
 .property-title {
