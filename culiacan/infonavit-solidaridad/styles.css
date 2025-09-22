@@ -1046,10 +1046,12 @@ body {
 
 @media (max-width: 768px) {
     .hero {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        display: grid !important;
         text-align: center;
         padding: 4rem 0;
         min-height: auto;
+        gap: 2rem;
     }
     
     .hero-title {
@@ -1058,19 +1060,41 @@ body {
     
     .hero-content {
         order: 2;
+        padding: 0 1rem;
     }
     
     .hero-image {
         order: 1;
         padding: 0 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block !important;
         min-height: 300px;
+        max-width: 100% !important;
+        width: 100% !important;
+        justify-self: stretch !important;
+    }
+    
+    .hero-image .carousel-container {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto;
     }
     
     .hero-image .carousel-wrapper {
-        height: 300px;
+        height: 300px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto;
+    }
+    
+    .hero-image .carousel-slide {
+        height: 300px !important;
+    }
+    
+    .hero-image .carousel-image {
+        height: 300px !important;
+        width: 100% !important;
+        object-fit: cover;
+        object-position: center;
     }
     
     .main-image {

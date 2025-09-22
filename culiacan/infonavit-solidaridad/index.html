@@ -821,8 +821,8 @@
         let touchEndX = 0;
         
         function showSlide(n) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
+            const slides = document.querySelectorAll('.gallery .carousel-slide');
+            const dots = document.querySelectorAll('.gallery .carousel-dot');
             
             if (n >= totalSlides) currentSlide = 0;
             if (n < 0) currentSlide = totalSlides - 1;
@@ -852,17 +852,19 @@
             showSlide(currentSlide);
         }
         
-        // Touch/swipe support for mobile
-        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        // Touch/swipe support for mobile - GALLERY CAROUSEL ONLY
+        const carouselWrapper = document.querySelector('.gallery .carousel-wrapper');
         
-        carouselWrapper.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        
-        carouselWrapper.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
+        if (carouselWrapper) {
+            carouselWrapper.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            carouselWrapper.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+        }
         
         function handleSwipe() {
             const swipeThreshold = 50;
