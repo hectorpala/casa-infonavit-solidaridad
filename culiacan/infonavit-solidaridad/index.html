@@ -1075,5 +1075,103 @@
             }
         }
     </script>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/528111652545?text=Hola%2C%20me%20interesa%20la%20casa%20remodelada%20en%20Infonavit%20Solidaridad%20por%20%241%2C750%2C000.%20%C2%BFPodr%C3%ADa%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">Escríbenos en WhatsApp</span>
+    </a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 12px 20px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            text-decoration: none;
+            color: white;
+        }
+
+        .whatsapp-float i {
+            font-size: 18px;
+            min-width: 18px;
+        }
+
+        .whatsapp-text {
+            white-space: nowrap;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.7);
+            }
+            100% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                padding: 14px 18px;
+                font-size: 13px;
+                border-radius: 30px;
+                min-height: 48px; /* Tamaño mínimo para fácil toque */
+            }
+            
+            .whatsapp-text {
+                display: none; /* Ocultar texto en móvil para hacer botón más compacto */
+            }
+            
+            .whatsapp-float {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                justify-content: center;
+                padding: 0;
+            }
+            
+            .whatsapp-float i {
+                font-size: 24px;
+            }
+        }
+
+        /* Asegurar que no interfiera con otros elementos */
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+    </style>
 </body>
 </html>
