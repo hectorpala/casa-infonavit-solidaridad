@@ -117,9 +117,78 @@
             <a href="#gallery" class="hero-cta">Ver Fotos</a>
         </div>
         <div class="hero-image">
-            <picture>
-                <img src="images/villas-del-rio/549835812_1572330437454890_2016480339598919512_n.jpg" alt="Casa Villas del Río - Fachada" class="main-image">
-            </picture>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active" data-slide="0">
+                        <picture>
+                            <img src="images/villas-del-rio/549835812_1572330437454890_2016480339598919512_n.jpg" alt="Villas del Río - Fachada principal" class="carousel-image gallery-image main-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Fachada Principal</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="1">
+                        <picture>
+                            <img src="images/villas-del-rio/550083564_24130148876662782_5219336723756453808_n.jpg" alt="Villas del Río - Sala comedor" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Sala y Comedor</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="2">
+                        <picture>
+                            <img src="images/villas-del-rio/550905901_652820357871822_1070154889037836378_n.jpg" alt="Villas del Río - Cocina" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Cocina</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="3">
+                        <picture>
+                            <img src="images/villas-del-rio/550991026_672043128710349_7804031896976936211_n.jpg" alt="Villas del Río - Recámara principal" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Recámara Principal</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="4">
+                        <picture>
+                            <img src="images/villas-del-rio/551032635_1881425412781917_400103895264855425_n.jpg" alt="Villas del Río - Recámara secundaria" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Recámara Secundaria</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="5">
+                        <picture>
+                            <img src="images/villas-del-rio/551236144_973217544967262_3205575083163955487_n.jpg" alt="Villas del Río - Otra recámara" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Tercera Recámara</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="6">
+                        <picture>
+                            <img src="images/villas-del-rio/551363458_1119427067055256_4373401699738113100_n.jpg" alt="Villas del Río - Área de estacionamiento" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Área de Estacionamiento</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="7">
+                        <picture>
+                            <img src="images/villas-del-rio/jardin.jpg" alt="Villas del Río - Jardín y terreno excedente" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Jardín y Terreno Excedente</div>
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="carousel-arrow carousel-prev" onclick="changeSlideHero(-1)" aria-label="Foto anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow carousel-next" onclick="changeSlideHero(1)" aria-label="Siguiente foto">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Dots indicators -->
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" onclick="goToSlideHero(0)" aria-label="Ir a foto 1"></button>
+                    <button class="carousel-dot" onclick="goToSlideHero(1)" aria-label="Ir a foto 2"></button>
+                    <button class="carousel-dot" onclick="goToSlideHero(2)" aria-label="Ir a foto 3"></button>
+                    <button class="carousel-dot" onclick="goToSlideHero(3)" aria-label="Ir a foto 4"></button>
+                    <button class="carousel-dot" onclick="goToSlideHero(4)" aria-label="Ir a foto 5"></button>
+                    <button class="carousel-dot" onclick="goToSlideHero(5)" aria-label="Ir a foto 6"></button>
+                    <button class="carousel-dot" onclick="goToSlideHero(6)" aria-label="Ir a foto 7"></button>
+                    <button class="carousel-dot" onclick="goToSlideHero(7)" aria-label="Ir a foto 8"></button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -351,14 +420,15 @@
     </footer>
 
     <script>
+        // GALLERY CAROUSEL (main gallery)
         let currentSlide = 0;
         const totalSlides = 8;
         let touchStartX = 0;
         let touchEndX = 0;
         
         function showSlide(n) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
+            const slides = document.querySelectorAll('.gallery .carousel-slide');
+            const dots = document.querySelectorAll('.gallery .carousel-dot');
             
             if (n >= totalSlides) currentSlide = 0;
             if (n < 0) currentSlide = totalSlides - 1;
@@ -388,17 +458,19 @@
             showSlide(currentSlide);
         }
         
-        // Touch/swipe support for mobile
-        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        // Touch/swipe support for mobile - GALLERY CAROUSEL ONLY
+        const carouselWrapper = document.querySelector('.gallery .carousel-wrapper');
         
-        carouselWrapper.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        
-        carouselWrapper.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
+        if (carouselWrapper) {
+            carouselWrapper.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            carouselWrapper.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+        }
         
         function handleSwipe() {
             const swipeThreshold = 50;
@@ -421,6 +493,71 @@
                 changeSlide(1);
             }
         });
+
+        // HERO CAROUSEL FUNCTIONS (separate from gallery carousel)
+        let currentSlideHero = 0;
+        const totalSlidesHero = 8;
+        let touchStartXHero = 0;
+        let touchEndXHero = 0;
+        
+        function showSlideHero(n) {
+            const slides = document.querySelectorAll('.hero-image .carousel-slide');
+            const dots = document.querySelectorAll('.hero-image .carousel-dot');
+            
+            if (n >= totalSlidesHero) currentSlideHero = 0;
+            if (n < 0) currentSlideHero = totalSlidesHero - 1;
+            
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlideHero) {
+                    slide.classList.add('active');
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlideHero) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+        
+        function changeSlideHero(direction) {
+            currentSlideHero += direction;
+            showSlideHero(currentSlideHero);
+        }
+        
+        function goToSlideHero(n) {
+            currentSlideHero = n;
+            showSlideHero(currentSlideHero);
+        }
+        
+        // Touch/swipe support for hero carousel
+        const carouselWrapperHero = document.querySelector('.hero-image .carousel-wrapper');
+        
+        if (carouselWrapperHero) {
+            carouselWrapperHero.addEventListener('touchstart', (e) => {
+                touchStartXHero = e.changedTouches[0].screenX;
+            });
+            
+            carouselWrapperHero.addEventListener('touchend', (e) => {
+                touchEndXHero = e.changedTouches[0].screenX;
+                handleSwipeHero();
+            });
+        }
+        
+        function handleSwipeHero() {
+            const swipeThreshold = 50;
+            const diff = touchStartXHero - touchEndXHero;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeSlideHero(1);
+                } else {
+                    changeSlideHero(-1);
+                }
+            }
+        }
 
         // Calculator functions
         function updateEnganche() {
