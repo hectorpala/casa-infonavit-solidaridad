@@ -996,6 +996,27 @@ body {
 }
 
 /* Responsive Design */
+/* Force horizontal layout on larger screens */
+@media (min-width: 769px) {
+    .hero {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        align-items: center !important;
+        gap: 4rem;
+        min-height: 70vh !important;
+    }
+    
+    .hero-content {
+        order: 1 !important;
+        text-align: left !important;
+    }
+    
+    .hero-image {
+        order: 2 !important;
+        padding: 0 2rem !important;
+    }
+}
+
 @media (max-width: 1024px) {
     .hero {
         gap: 2rem;
