@@ -507,12 +507,20 @@ body {
 /* Hero carousel specific styles */
 .hero-image .carousel-wrapper {
     height: 450px;
-    max-width: 100%;
+    max-width: 500px;
+    width: 100%;
 }
 
 .hero-image .carousel-container {
-    max-width: 100%;
+    max-width: 500px;
+    width: 100%;
     margin: 0;
+}
+
+.hero-image {
+    max-width: 500px;
+    width: 100%;
+    justify-self: end;
 }
 
 .main-image {
@@ -1000,20 +1008,28 @@ body {
 @media (min-width: 769px) {
     .hero {
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
+        grid-template-columns: 1fr 500px !important;
         align-items: center !important;
-        gap: 4rem;
+        gap: 2rem;
         min-height: 70vh !important;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
     
     .hero-content {
         order: 1 !important;
         text-align: left !important;
+        justify-self: start !important;
     }
     
     .hero-image {
         order: 2 !important;
-        padding: 0 2rem !important;
+        padding: 0 !important;
+        justify-self: end !important;
+        max-width: 500px;
+        width: 100%;
     }
 }
 
