@@ -30,7 +30,7 @@
     <meta property="og:description" content="Casa moderna de 1 piso prácticamente nueva. Cocina con granito, aire acondicionado, seguridad y cochera para 2 autos en Santa Fe.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://casasenventa.info/casa-venta-santa-fe-culiacan-sinaloa/">
-    <meta property="og:image" content="https://casasenventa.info/casa-venta-santa-fe-culiacan-sinaloa/images/santa-fe/c1c5775b-8a82-11f0-8364-0b8ecc5151e4.jpeg">
+    <meta property="og:image" content="https://casasenventa.info/images/santa-fe/c1c5775b-8a82-11f0-8364-0b8ecc5151e4.jpeg">
     
     <!-- Schema.org Structured Data for Property -->
     <script type="application/ld+json">
@@ -41,9 +41,9 @@
       "description": "Casa moderna de 1 piso con 2 años de uso en excelente estado. Cocina con cubierta de granito, aire acondicionado, cámaras de seguridad, cochera para 2 vehículos.",
       "url": "https://casasenventa.info/casa-venta-santa-fe-culiacan-sinaloa/",
       "image": [
-        "https://casasenventa.info/casa-venta-santa-fe-culiacan-sinaloa/images/santa-fe/c1c5775b-8a82-11f0-8364-0b8ecc5151e4.jpeg",
-        "https://casasenventa.info/casa-venta-santa-fe-culiacan-sinaloa/images/santa-fe/c6fc26ad-8a82-11f0-8ef3-0b8ecc5151e4.jpeg",
-        "https://casasenventa.info/casa-venta-santa-fe-culiacan-sinaloa/images/santa-fe/ca8d9e9e-8a82-11f0-adaa-0b8ecc5151e4.jpeg"
+        "https://casasenventa.info/images/santa-fe/c1c5775b-8a82-11f0-8364-0b8ecc5151e4.jpeg",
+        "https://casasenventa.info/images/santa-fe/c6fc26ad-8a82-11f0-8ef3-0b8ecc5151e4.jpeg",
+        "https://casasenventa.info/images/santa-fe/ca8d9e9e-8a82-11f0-adaa-0b8ecc5151e4.jpeg"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -107,7 +107,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="culiacan/infonavit-solidaridad/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -120,7 +120,6 @@
         <div class="container">
             <div class="header-content">
                 <picture>
-                    <source srcset="images/webp/Logo-hector-es-bienes-raices.webp" type="image/webp">
                     <img src="images/optimized/Logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" class="logo">
                 </picture>
                 <a href="#contact" class="cta-button">Contactar</a>
@@ -132,11 +131,13 @@
     <section class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Casa Moderna Lista para Habitar en Santa Fe</h1>
-            <p class="hero-subtitle">Casa de un piso con 2 años de uso en excelente estado. Cochera para 2 vehículos, cocina con cubierta de granito, aire acondicionado, cámaras de seguridad y ubicación privilegiada cerca del parque y área común</p>
+            <p class="hero-subtitle">Casa de un piso con 2 años de uso en excelente estado. Cochera para 2 vehículos, cocina con cubierta de granito, aire acondicionado, cámaras de seguridad y ubicación privilegiada cerca del parque y área común.</p>
             <a href="#gallery" class="hero-cta">Ver Fotos</a>
         </div>
         <div class="hero-image">
-            <img src="images/santa-fe/c1c5775b-8a82-11f0-8364-0b8ecc5151e4.jpeg" alt="Casa Santa Fe - Fachada" class="main-image">
+            <picture>
+                <img src="images/santa-fe/c1c5775b-8a82-11f0-8364-0b8ecc5151e4.jpeg" alt="Casa Santa Fe - Fachada" class="main-image">
+            </picture>
         </div>
     </section>
 
@@ -165,54 +166,54 @@
                     <h3>Cocina con Granito</h3>
                     <p>Muebles de madera con cubierta de granito</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Sistema de Seguridad</h3>
-                    <p>Cámaras instaladas y protecciones en ventanas</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-snowflake"></i>
-                    <h3>Climatización</h3>
-                    <p>Mini split para confort todo el año</p>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Carousel Section -->
     <section class="gallery" id="gallery">
         <div class="container">
             <h2 class="section-title">Galería de Fotos</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/santa-fe/c1c5775b-8a82-11f0-8364-0b8ecc5151e4.jpeg" alt="Fachada moderna" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Fachada</span>
+            <div class="carousel-container">
+                <!-- Main carousel display -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active" data-slide="0">
+                        <img src="images/santa-fe/c1c5775b-8a82-11f0-8364-0b8ecc5151e4.jpeg" alt="Santa Fe - Fachada moderna" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Fachada Moderna</div>
                     </div>
+                    <div class="carousel-slide" data-slide="1">
+                        <img src="images/santa-fe/c6fc26ad-8a82-11f0-8ef3-0b8ecc5151e4.jpeg" alt="Santa Fe - Sala con aire acondicionado" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Sala con Aire Acondicionado</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="2">
+                        <img src="images/santa-fe/ca8d9e9e-8a82-11f0-adaa-0b8ecc5151e4.jpeg" alt="Santa Fe - Cocina con granito" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Cocina con Granito</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="3">
+                        <img src="images/santa-fe/d0f86052-8a82-11f0-8396-0b8ecc5151e4.jpeg" alt="Santa Fe - Interior de la casa" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Interior</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="4">
+                        <img src="images/santa-fe/d393bf46-8a82-11f0-8b21-0b8ecc5151e4.jpeg" alt="Santa Fe - Espacios adicionales" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Espacios Adicionales</div>
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="carousel-arrow carousel-prev" onclick="changeSlide(-1)" aria-label="Foto anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow carousel-next" onclick="changeSlide(1)" aria-label="Siguiente foto">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/santa-fe/c6fc26ad-8a82-11f0-8ef3-0b8ecc5151e4.jpeg" alt="Sala con aire acondicionado" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Sala A/A</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/santa-fe/ca8d9e9e-8a82-11f0-adaa-0b8ecc5151e4.jpeg" alt="Cocina con granito" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Cocina Granito</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/santa-fe/d0f86052-8a82-11f0-8396-0b8ecc5151e4.jpeg" alt="Interior de la casa" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Interior</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/santa-fe/d393bf46-8a82-11f0-8b21-0b8ecc5151e4.jpeg" alt="Espacio adicional" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Espacios</span>
-                    </div>
+                
+                <!-- Dots indicators -->
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Ir a foto 1"></button>
+                    <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Ir a foto 2"></button>
+                    <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Ir a foto 3"></button>
+                    <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Ir a foto 4"></button>
+                    <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Ir a foto 5"></button>
                 </div>
             </div>
         </div>
@@ -226,6 +227,10 @@
                     <h2>Información Detallada</h2>
                     <div class="info-grid">
                         <div class="info-item">
+                            <strong>Ubicación:</strong>
+                            <span>Colonia Santa Fe, C.P. 80029</span>
+                        </div>
+                        <div class="info-item">
                             <strong>Niveles:</strong>
                             <span>1 piso (sin escaleras)</span>
                         </div>
@@ -238,47 +243,25 @@
                             <span>Excelente, lista para habitar</span>
                         </div>
                         <div class="info-item">
-                            <strong>Servicios:</strong>
-                            <span>Completos + equipamiento</span>
+                            <strong>Recámaras:</strong>
+                            <span>2 habitaciones con closets</span>
                         </div>
                         <div class="info-item">
-                            <strong>Ubicación:</strong>
-                            <span>C.P. 80029, Santa Fe</span>
+                            <strong>Baños:</strong>
+                            <span>1 baño completo</span>
                         </div>
                         <div class="info-item">
-                            <strong>Cercanías:</strong>
-                            <span>1 cuadra área común, cerca parque</span>
+                            <strong>Estacionamiento:</strong>
+                            <span>Cochera techada para 2 autos</span>
                         </div>
-                    </div>
-                    
-                    <h3>Equipamiento Incluido</h3>
-                    <div class="floor-plans">
-                        <div class="floor-plan">
-                            <h4><i class="fas fa-tools"></i> Sistemas y Equipos</h4>
-                            <ul>
-                                <li>Boiler para agua caliente</li>
-                                <li>Bomba de presión para agua</li>
-                                <li>Mini split aire acondicionado</li>
-                                <li>Cámaras de seguridad instaladas</li>
-                                <li>Protecciones en todas las ventanas</li>
-                                <li>Sistema eléctrico completo</li>
-                            </ul>
-                        </div>
-                        <div class="floor-plan">
-                            <h4><i class="fas fa-home"></i> Distribución</h4>
-                            <ul>
-                                <li>Cochera techada para 2 autos</li>
-                                <li>Sala-comedor integrados</li>
-                                <li>Cocina equipada con granito</li>
-                                <li>2 habitaciones con closets</li>
-                                <li>1 baño completo</li>
-                                <li>Patio con medio techo</li>
-                            </ul>
+                        <div class="info-item">
+                            <strong>Financiamiento:</strong>
+                            <span>Se aceptan todos los créditos</span>
                         </div>
                     </div>
                 </div>
                 <div class="price-card">
-                    <h3>Precio de Venta</h3>
+                    <h3>Precio</h3>
                     <div class="price">$1,375,000</div>
                     <p class="price-note">Casa prácticamente nueva - Lista para habitar</p>
                     <a href="#contact" class="price-cta">Más Información</a>
@@ -287,67 +270,53 @@
         </div>
     </section>
 
-    <!-- Amenities Section -->
-    <section class="amenities" id="amenidades">
+    <!-- Simple Working Calculator -->
+    <section class="simple-calc" id="calculadora">
         <div class="container">
-            <h2 class="section-title">¿Por qué Santa Fe?</h2>
-            <p class="amenities-subtitle">Sector consolidado con excelente ubicación y servicios completos</p>
-            
-            <div class="amenities-grid">
-                <!-- Ubicación -->
-                <div class="amenity-category">
-                    <div class="category-header">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Ubicación</h3>
-                    </div>
-                    <ul class="amenity-list">
-                        <li><strong>Sector Santa Fe</strong> - Zona residencial consolidada</li>
-                        <li><strong>Área Común</strong> - A solo 1 cuadra de distancia</li>
-                        <li><strong>Cerca del Parque</strong> - Espacios verdes y recreación</li>
-                        <li><strong>Ambiente Tranquilo</strong> - Ideal para familias</li>
-                    </ul>
+            <h2>🏠 Calculadora de Hipoteca</h2>
+            <div class="calc-box">
+                <div class="input-group">
+                    <label>Precio de la casa:</label>
+                    <input type="number" id="precio" value="1375000" min="100000" step="10000">
                 </div>
-
-                <!-- Servicios -->
-                <div class="amenity-category">
-                    <div class="category-header">
-                        <i class="fas fa-wrench"></i>
-                        <h3>Servicios</h3>
-                    </div>
-                    <ul class="amenity-list">
-                        <li><strong>Servicios Básicos</strong> - Agua, luz, drenaje completos</li>
-                        <li><strong>Internet</strong> - Cobertura de fibra óptica</li>
-                        <li><strong>Recolección de Basura</strong> - Servicio municipal</li>
-                        <li><strong>Alumbrado Público</strong> - Calles bien iluminadas</li>
-                    </ul>
+                
+                <div class="input-group">
+                    <label>Enganche (%):</label>
+                    <input type="range" id="enganche" min="5" max="50" value="5" oninput="updateEnganche()">
+                    <span id="engancheDisplay">5% = $68,750</span>
                 </div>
-
-                <!-- Seguridad -->
-                <div class="amenity-category">
-                    <div class="category-header">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Seguridad</h3>
-                    </div>
-                    <ul class="amenity-list">
-                        <li><strong>Cámaras Instaladas</strong> - Sistema de vigilancia</li>
-                        <li><strong>Protecciones</strong> - En todas las ventanas</li>
-                        <li><strong>Zona Tranquila</strong> - Baja incidencia delictiva</li>
-                        <li><strong>Iluminación</strong> - Calles bien iluminadas</li>
-                    </ul>
+                
+                <div class="input-group">
+                    <label>Años:</label>
+                    <select id="anos">
+                        <option value="10">10 años</option>
+                        <option value="15">15 años</option>
+                        <option value="20" selected>20 años</option>
+                        <option value="25">25 años</option>
+                        <option value="30">30 años</option>
+                    </select>
                 </div>
-
-                <!-- Comodidades -->
-                <div class="amenity-category">
-                    <div class="category-header">
-                        <i class="fas fa-star"></i>
-                        <h3>Comodidades</h3>
-                    </div>
-                    <ul class="amenity-list">
-                        <li><strong>Un Solo Piso</strong> - Sin escaleras, accesible</li>
-                        <li><strong>Cochera Techada</strong> - Para 2 vehículos</li>
-                        <li><strong>Patio Semi-techado</strong> - Espacio exterior</li>
-                        <li><strong>Lista para Habitar</strong> - Mudanza inmediata</li>
-                    </ul>
+                
+                <div class="input-group">
+                    <label>Banco:</label>
+                    <select id="banco">
+                        <option value="3.76">INFONAVIT Bajo - 3.76%</option>
+                        <option value="6.5">INFONAVIT Medio - 6.5%</option>
+                        <option value="10.45">INFONAVIT Alto - 10.45%</option>
+                        <option value="9.9">FOVISSSTE - 9.9%</option>
+                        <option value="10.45" selected>HSBC - 10.45%</option>
+                        <option value="11.75">Banamex - 11.75%</option>
+                        <option value="13.25">Santander - 13.25%</option>
+                    </select>
+                </div>
+                
+                <button onclick="calcular()" class="calc-btn">🧮 CALCULAR</button>
+                
+                <div class="result-box">
+                    <h3>💳 Pago Mensual: <span id="resultado">$0</span></h3>
+                    <p>📊 Monto del crédito: <span id="credito">$0</span></p>
+                    <p>📈 Tasa: <span id="tasa">0%</span></p>
+                    <p>💎 Total a pagar: <span id="total">$0</span></p>
                 </div>
             </div>
         </div>
@@ -356,8 +325,8 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">¿Interesado en Esta Propiedad?</h2>
-            <p class="contact-subtitle">Contáctanos para agendar una visita a esta casa moderna en Santa Fe</p>
+            <h2 class="section-title">¿Interesado?</h2>
+            <p class="contact-subtitle">Contáctanos para más información o para agendar una visita</p>
             <div class="contact-buttons">
                 <a href="https://wa.me/528111652545?text=Me%20interesa%20la%20casa%20en%20venta%20en%20Santa%20Fe%2C%20Culiac\u00e1n%20por%20%241%2C375%2C000" 
                    class="whatsapp-button" target="_blank">
@@ -384,6 +353,120 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 5;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+        
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+        
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+        
+        // Touch/swipe support for mobile
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        
+        carouselWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carouselWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeSlide(1);
+                } else {
+                    changeSlide(-1);
+                }
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Calculator functions
+        function updateEnganche() {
+            const precio = document.getElementById('precio').value || 1375000;
+            const porcentaje = document.getElementById('enganche').value;
+            const monto = precio * (porcentaje / 100);
+            document.getElementById('engancheDisplay').textContent = 
+                porcentaje + '% = $' + monto.toLocaleString('es-MX');
+        }
+
+        function calcular() {
+            const precio = parseFloat(document.getElementById('precio').value) || 1375000;
+            const enganchePorcentaje = parseFloat(document.getElementById('enganche').value) || 5;
+            const anos = parseInt(document.getElementById('anos').value) || 20;
+            const tasaAnual = parseFloat(document.getElementById('banco').value) || 10.45;
+
+            const engancheMonto = precio * (enganchePorcentaje / 100);
+            const montoCredito = precio - engancheMonto;
+            const tasaMensual = tasaAnual / 100 / 12;
+            const numeroPageos = anos * 12;
+
+            let pagoMensual;
+            if (tasaMensual === 0) {
+                pagoMensual = montoCredito / numeroPageos;
+            } else {
+                pagoMensual = montoCredito * 
+                    (tasaMensual * Math.pow(1 + tasaMensual, numeroPageos)) / 
+                    (Math.pow(1 + tasaMensual, numeroPageos) - 1);
+            }
+
+            const totalPagar = pagoMensual * numeroPageos;
+
+            document.getElementById('resultado').textContent = '$' + Math.round(pagoMensual).toLocaleString('es-MX');
+            document.getElementById('credito').textContent = '$' + Math.round(montoCredito).toLocaleString('es-MX');
+            document.getElementById('tasa').textContent = tasaAnual + '%';
+            document.getElementById('total').textContent = '$' + Math.round(totalPagar).toLocaleString('es-MX');
+        }
+
+        // Initialize calculator
+        window.onload = function() {
+            updateEnganche();
+            calcular();
+        };
+    </script>
 </body>
 </html>
