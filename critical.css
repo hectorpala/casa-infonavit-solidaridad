@@ -191,6 +191,39 @@ body {
     transform: translateY(-5px);
 }
 
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 1001;
+    position: relative;
+}
+
+.hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: #1d1d1b;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .hamburger-line:first-child {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:last-child {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 /* Basic mobile responsiveness for critical content */
 @media (max-width: 768px) {
     .hero {
@@ -213,20 +246,48 @@ body {
     }
     
     .header-content {
-        flex-direction: column;
-        gap: 1rem;
+        flex-direction: row;
+        justify-content: space-between;
         padding: 0.5rem;
     }
     
+    .hamburger {
+        display: flex;
+    }
+    
     .nav {
-        gap: 0.5rem;
-        flex-wrap: wrap;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav.active {
+        right: 0;
     }
     
     .nav a {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        width: 80%;
+        text-align: center;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav a:hover {
+        background: rgba(255, 78, 0, 0.1);
+        transform: translateX(-10px);
     }
 }
 
@@ -235,8 +296,17 @@ body {
         padding: 0 15px;
     }
     
+    .header {
+        padding: 0.5rem 0;
+    }
+    
+    .logo {
+        height: 45px;
+    }
+    
     .hero {
-        padding: 3rem 0;
+        margin-top: 65px;
+        padding: 2.5rem 0;
     }
     
     .hero-title {
@@ -253,12 +323,11 @@ body {
     }
     
     .nav {
-        flex-direction: column;
-        gap: 0.5rem;
+        width: 250px;
     }
     
-    .nav a {
-        width: 100%;
-        text-align: center;
+    .hamburger-line {
+        width: 20px;
+        height: 2px;
     }
 }

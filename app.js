@@ -1,5 +1,36 @@
 // Non-critical JavaScript - Loaded with defer
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile hamburger menu functionality
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+        
+        // Update aria-expanded attribute
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+    });
+    
+    // Close menu when clicking on nav links
+    document.querySelectorAll('.nav a').forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', false);
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !nav.contains(e.target)) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', false);
+        }
+    });
+
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
