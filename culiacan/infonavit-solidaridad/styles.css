@@ -1007,6 +1007,8 @@ body {
     
     .main-image {
         height: 300px;
+        object-fit: cover;
+        object-position: center;
     }
     
     .section-title {
@@ -1073,6 +1075,12 @@ body {
     
     .hero-title {
         font-size: 2rem;
+    }
+    
+    .main-image {
+        height: 250px;
+        object-fit: cover;
+        object-position: center;
     }
     
     .section-title {
