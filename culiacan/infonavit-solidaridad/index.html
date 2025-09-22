@@ -775,6 +775,10 @@
             showSlide(currentSlide);
         }
         
+        // Expose functions globally for onclick handlers
+        window.changeSlide = changeSlide;
+        window.goToSlide = goToSlide;
+        
         // Touch/swipe support for mobile - GALLERY CAROUSEL ONLY
         const carouselWrapper = document.querySelector('.gallery .carousel-wrapper');
         
@@ -853,6 +857,10 @@
             currentSlideHero = n;
             showSlideHero(currentSlideHero);
         }
+        
+        // Expose hero carousel functions globally for onclick handlers
+        window.changeSlideHero = changeSlideHero;
+        window.goToSlideHero = goToSlideHero;
         
         // Touch/swipe support for hero carousel
         const carouselWrapperHero = document.querySelector('.hero-image .carousel-wrapper');
