@@ -107,12 +107,26 @@
       ]
     }
     </script>
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="images/webp/fachada con porton abierto.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/fachada con porton abierto.jpg" as="image">
+    
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <!-- Optimized font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome optimizado - una sola carga -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"></noscript>
+    <!-- DNS prefetch y performance hints -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//wa.me">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Font Awesome optimizado con preload -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
     
 </head>
 <body>
@@ -143,63 +157,63 @@
                     <div class="carousel-slide active" data-slide="0">
                         <picture>
                             <source srcset="images/webp/fachada con porton abierto.webp" type="image/webp">
-                            <img src="images/fachada con porton abierto.jpg" alt="Fachada con portón abierto" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/fachada con porton abierto.jpg" alt="Fachada con portón abierto" class="carousel-image gallery-image main-image" loading="eager" decoding="async" width="800" height="600">
                         </picture>
                         <div class="image-caption">Fachada</div>
                     </div>
                     <div class="carousel-slide" data-slide="1">
                         <picture>
                             <source srcset="images/webp/sala comedor.webp" type="image/webp">
-                            <img src="images/sala comedor.jpg" alt="Sala y comedor remodelados" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/sala comedor.jpg" alt="Sala y comedor remodelados" class="carousel-image gallery-image main-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Sala y Comedor</div>
                     </div>
                     <div class="carousel-slide" data-slide="2">
                         <picture>
                             <source srcset="images/webp/estancia y recamara principal.webp" type="image/webp">
-                            <img src="images/estancia y recamara principal.jpg" alt="Estancia y recámara principal" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/estancia y recamara principal.jpg" alt="Estancia y recámara principal" class="carousel-image gallery-image main-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Estancia y Recámara</div>
                     </div>
                     <div class="carousel-slide" data-slide="3">
                         <picture>
                             <source srcset="images/webp/Recamara Principal.webp" type="image/webp">
-                            <img src="images/Recamara Principal.jpg" alt="Recámara principal" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/Recamara Principal.jpg" alt="Recámara principal" class="carousel-image gallery-image main-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Recámara Principal</div>
                     </div>
                     <div class="carousel-slide" data-slide="4">
                         <picture>
                             <source srcset="images/webp/sala estancia closet.webp" type="image/webp">
-                            <img src="images/sala estancia closet.jpg" alt="Sala, estancia y closet" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/sala estancia closet.jpg" alt="Sala, estancia y closet" class="carousel-image gallery-image main-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Sala y Closet</div>
                     </div>
                     <div class="carousel-slide" data-slide="5">
                         <picture>
                             <source srcset="images/webp/baño atras.webp" type="image/webp">
-                            <img src="images/baño atras.jpg" alt="Baño completo" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/baño atras.jpg" alt="Baño completo" class="carousel-image gallery-image main-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Baño Completo</div>
                     </div>
                     <div class="carousel-slide" data-slide="6">
                         <picture>
                             <source srcset="images/webp/cochera abierta 3.webp" type="image/webp">
-                            <img src="images/cochera abierta 3.jpg" alt="Vista completa de cochera" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/cochera abierta 3.jpg" alt="Vista completa de cochera" class="carousel-image gallery-image main-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Vista Cochera</div>
                     </div>
                     <div class="carousel-slide" data-slide="7">
                         <picture>
                             <source srcset="images/webp/cochera abierta 2.webp" type="image/webp">
-                            <img src="images/cochera abierta 2.jpg" alt="Cochera techada" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/cochera abierta 2.jpg" alt="Cochera techada" class="carousel-image gallery-image main-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Cochera</div>
                     </div>
                     <div class="carousel-slide" data-slide="8">
                         <picture>
                             <source srcset="images/webp/cochera abierta piso.webp" type="image/webp">
-                            <img src="images/cochera abierta piso.jpg" alt="Piso de cochera" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/cochera abierta piso.jpg" alt="Piso de cochera" class="carousel-image gallery-image main-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Piso Cochera</div>
                     </div>
@@ -268,63 +282,63 @@
                     <div class="carousel-slide active" data-slide="0">
                         <picture>
                             <source srcset="images/webp/fachada con porton abierto.webp" type="image/webp">
-                            <img src="images/fachada con porton abierto.jpg" alt="Fachada con portón abierto" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/fachada con porton abierto.jpg" alt="Fachada con portón abierto" class="carousel-image gallery-image" loading="eager" decoding="async" width="800" height="600">
                         </picture>
                         <div class="image-caption">Fachada</div>
                     </div>
                     <div class="carousel-slide" data-slide="1">
                         <picture>
                             <source srcset="images/webp/sala comedor.webp" type="image/webp">
-                            <img src="images/sala comedor.jpg" alt="Sala y comedor remodelados" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/sala comedor.jpg" alt="Sala y comedor remodelados" class="carousel-image gallery-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Sala y Comedor</div>
                     </div>
                     <div class="carousel-slide" data-slide="2">
                         <picture>
                             <source srcset="images/webp/estancia y recamara principal.webp" type="image/webp">
-                            <img src="images/estancia y recamara principal.jpg" alt="Estancia y recámara principal" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/estancia y recamara principal.jpg" alt="Estancia y recámara principal" class="carousel-image gallery-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Estancia y Recámara</div>
                     </div>
                     <div class="carousel-slide" data-slide="3">
                         <picture>
                             <source srcset="images/webp/Recamara Principal.webp" type="image/webp">
-                            <img src="images/Recamara Principal.jpg" alt="Recámara principal" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/Recamara Principal.jpg" alt="Recámara principal" class="carousel-image gallery-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Recámara Principal</div>
                     </div>
                     <div class="carousel-slide" data-slide="4">
                         <picture>
                             <source srcset="images/webp/sala estancia closet.webp" type="image/webp">
-                            <img src="images/sala estancia closet.jpg" alt="Sala, estancia y closet" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/sala estancia closet.jpg" alt="Sala, estancia y closet" class="carousel-image gallery-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Sala y Closet</div>
                     </div>
                     <div class="carousel-slide" data-slide="5">
                         <picture>
                             <source srcset="images/webp/baño atras.webp" type="image/webp">
-                            <img src="images/baño atras.jpg" alt="Baño completo" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/baño atras.jpg" alt="Baño completo" class="carousel-image gallery-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Baño Completo</div>
                     </div>
                     <div class="carousel-slide" data-slide="6">
                         <picture>
                             <source srcset="images/webp/cochera abierta 3.webp" type="image/webp">
-                            <img src="images/cochera abierta 3.jpg" alt="Vista completa de cochera" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/cochera abierta 3.jpg" alt="Vista completa de cochera" class="carousel-image gallery-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Vista Cochera</div>
                     </div>
                     <div class="carousel-slide" data-slide="7">
                         <picture>
                             <source srcset="images/webp/cochera abierta 2.webp" type="image/webp">
-                            <img src="images/cochera abierta 2.jpg" alt="Cochera techada" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/cochera abierta 2.jpg" alt="Cochera techada" class="carousel-image gallery-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Cochera</div>
                     </div>
                     <div class="carousel-slide" data-slide="8">
                         <picture>
                             <source srcset="images/webp/cochera abierta piso.webp" type="image/webp">
-                            <img src="images/cochera abierta piso.jpg" alt="Piso de cochera" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/cochera abierta piso.jpg" alt="Piso de cochera" class="carousel-image gallery-image" loading="lazy" decoding="async"
                         </picture>
                         <div class="image-caption">Piso Cochera</div>
                     </div>
@@ -615,7 +629,7 @@
                     <div class="property-image">
                         <picture>
                             <source srcset="images/webp/sala.webp" type="image/webp">
-                            <img src="images/optimized/sala.jpg" alt="Casa en Venta Infonavit Solidaridad" loading="lazy">
+                            <img src="images/optimized/sala.jpg" alt="Casa en Venta Infonavit Solidaridad" loading="lazy" decoding="async"
                         </picture>
                         <div class="property-badge sale">VENTA</div>
                     </div>
@@ -643,7 +657,7 @@
                     <div class="property-image">
                         <picture>
                             <source srcset="images/webp/exterior.webp" type="image/webp">
-                            <img src="images/optimized/exterior.jpg" alt="Casa en Renta Barcelona Villa" loading="lazy">
+                            <img src="images/optimized/exterior.jpg" alt="Casa en Renta Barcelona Villa" loading="lazy" decoding="async"
                         </picture>
                         <div class="property-badge rent">RENTA</div>
                     </div>
@@ -721,9 +735,10 @@
 
     <script src="script.js"></script>
     
-    <!-- Carousel JavaScript -->
+    <!-- Carousel JavaScript - Deferred for performance -->
     <script>
-        let currentSlide = 0;
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
         const totalSlides = 9;
         let touchStartX = 0;
         let touchEndX = 0;
@@ -865,6 +880,7 @@
                 }
             }
         }
+        }); // End DOMContentLoaded
     </script>
     
 
