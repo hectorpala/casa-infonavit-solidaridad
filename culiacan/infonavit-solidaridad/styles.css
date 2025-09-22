@@ -3181,14 +3181,28 @@ img {
     justify-content: center;
     z-index: 2;
     transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-wrapper:hover .carousel-arrow {
     opacity: 1;
     visibility: visible;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    animation: pulseArrow 2s infinite;
+}
+
+@keyframes pulseArrow {
+    0% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(-50%) scale(1.05);
+        box-shadow: 0 12px 35px rgba(255, 78, 0, 0.3);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
 }
 
 .carousel-arrow:hover {
@@ -3196,6 +3210,7 @@ img {
     color: white;
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 12px 35px rgba(255, 78, 0, 0.4);
+    animation: none;
 }
 
 .carousel-prev {
