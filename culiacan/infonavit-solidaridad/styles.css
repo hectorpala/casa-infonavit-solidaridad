@@ -3259,16 +3259,29 @@ img {
     transform: scale(1.1);
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive - Optimized for better photo display */
 @media (max-width: 768px) {
     .carousel-wrapper {
-        height: 450px;
+        height: 350px;
+        border-radius: 16px;
+        margin: 0 5px;
+    }
+    
+    .carousel-image {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
     }
     
     .carousel-arrow {
         width: 45px;
         height: 45px;
-        font-size: 1rem;
+        font-size: 1.1rem;
+        background: rgba(0, 0, 0, 0.8);
+        border: 2px solid #ff4e00;
+        backdrop-filter: blur(10px);
     }
     
     .carousel-prev {
@@ -3282,8 +3295,13 @@ img {
     .image-caption {
         bottom: 15px;
         left: 15px;
+        right: 15px;
         padding: 10px 16px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        border-radius: 10px;
+        backdrop-filter: blur(15px);
+        background: rgba(0, 0, 0, 0.8);
+        text-align: center;
     }
     
     .carousel-dots {
@@ -3294,33 +3312,63 @@ img {
     .carousel-dot {
         width: 10px;
         height: 10px;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid #ff4e00;
+    }
+    
+    .carousel-dot.active {
+        background: #ff4e00;
+        transform: scale(1.3);
+        box-shadow: 0 0 10px rgba(255, 78, 0, 0.8);
+    }
+    
+    .gallery .container {
+        padding: 0 10px;
     }
 }
 
 @media (max-width: 480px) {
     .carousel-wrapper {
-        height: 400px;
+        height: 280px;
+        border-radius: 12px;
+        margin: 0 10px;
+    }
+    
+    .carousel-image {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
     }
     
     .carousel-arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 0.9rem;
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+        background: rgba(0, 0, 0, 0.85);
+        border: 2px solid #ff4e00;
+        backdrop-filter: blur(15px);
     }
     
     .carousel-prev {
-        left: 10px;
+        left: 12px;
     }
     
     .carousel-next {
-        right: 10px;
+        right: 12px;
     }
     
     .image-caption {
-        bottom: 10px;
-        left: 10px;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
         padding: 8px 12px;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        border-radius: 8px;
+        backdrop-filter: blur(15px);
+        background: rgba(0, 0, 0, 0.85);
+        text-align: center;
     }
     
     .carousel-dots {
@@ -3329,8 +3377,20 @@ img {
     }
     
     .carousel-dot {
-        width: 8px;
-        height: 8px;
+        width: 9px;
+        height: 9px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid #ff4e00;
+    }
+    
+    .carousel-dot.active {
+        background: #ff4e00;
+        transform: scale(1.4);
+        box-shadow: 0 0 12px rgba(255, 78, 0, 0.9);
+    }
+    
+    .gallery .container {
+        padding: 0 5px;
     }
 }
 
@@ -3349,8 +3409,65 @@ img {
     will-change: transform;
 }
 
+/* Additional mobile optimizations */
+@media (max-width: 360px) {
+    .carousel-wrapper {
+        height: 250px;
+        margin: 0 5px;
+    }
+    
+    .carousel-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+    
+    .carousel-prev {
+        left: 8px;
+    }
+    
+    .carousel-next {
+        right: 8px;
+    }
+    
+    .image-caption {
+        bottom: 8px;
+        left: 8px;
+        right: 8px;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+    
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+/* Ensure images load properly on all devices */
+.carousel-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Improve touch responsiveness */
+.carousel-arrow {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.carousel-dot {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
 /* Force cache refresh Sat Sep 20 22:40:03 MST 2025 */
 /* Force update Sat Sep 20 23:27:42 MST 2025 */
 /* Cache buster 1758436392 */
 /* Carousel added Sept 22 2025 */
 /* BLINKING ARROWS SUPER VISIBLE - Sept 22 2025 - v2.1 */
+/* Mobile optimizations - Sept 22 2025 - v2.2 */
