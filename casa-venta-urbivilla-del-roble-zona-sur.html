@@ -107,7 +107,7 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="culiacan/infonavit-solidaridad/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -120,7 +120,6 @@
         <div class="container">
             <div class="header-content">
                 <picture>
-                    <source srcset="images/webp/Logo-hector-es-bienes-raices.webp" type="image/webp">
                     <img src="images/optimized/Logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" class="logo">
                 </picture>
                 <a href="#contact" class="cta-button">Contactar</a>
@@ -136,7 +135,9 @@
             <a href="#gallery" class="hero-cta">Ver Fotos</a>
         </div>
         <div class="hero-image">
-            <img src="images/villa-del-roble/f4011276-2f4b-11f0-973f-9b94169f1182.jpeg" alt="Casa Urbivilla del Roble - Fachada" class="main-image">
+            <picture>
+                <img src="images/villa-del-roble/f4011276-2f4b-11f0-973f-9b94169f1182.jpeg" alt="Casa Urbivilla del Roble - Fachada" class="main-image">
+            </picture>
         </div>
     </section>
 
@@ -179,64 +180,85 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Carousel Section -->
     <section class="gallery" id="gallery">
         <div class="container">
             <h2 class="section-title">Galería de Fotos</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/villa-del-roble/f4011276-2f4b-11f0-973f-9b94169f1182.jpeg" alt="Fachada moderna" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Fachada</span>
+            <div class="carousel-container">
+                <!-- Main carousel display -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active" data-slide="0">
+                        <img src="images/villa-del-roble/f4011276-2f4b-11f0-973f-9b94169f1182.jpeg" alt="Urbivilla del Roble - Fachada moderna" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Fachada Moderna</div>
                     </div>
+                    <div class="carousel-slide" data-slide="1">
+                        <img src="images/villa-del-roble/00ea1c6e-2f4c-11f0-9c13-9b94169f1182.jpeg" alt="Urbivilla del Roble - Cochera techada" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Cochera Techada</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="2">
+                        <img src="images/villa-del-roble/2242228a-2f4c-11f0-8906-9b94169f1182.jpeg" alt="Urbivilla del Roble - Comedor familiar" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Comedor Familiar</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="3">
+                        <img src="images/villa-del-roble/00ea72dc-2f4c-11f0-b901-9b94169f1182.jpeg" alt="Urbivilla del Roble - Sala de estar" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Sala de Estar</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="4">
+                        <img src="images/villa-del-roble/0d0389be-2f4c-11f0-ad20-9b94169f1182.jpeg" alt="Urbivilla del Roble - Recámara principal" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Recámara Principal</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="5">
+                        <img src="images/villa-del-roble/0d03e382-2f4c-11f0-a74b-9b94169f1182.jpeg" alt="Urbivilla del Roble - Baño completo" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Baño Completo</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="6">
+                        <img src="images/villa-del-roble/22427eb2-2f4c-11f0-b624-9b94169f1182.jpeg" alt="Urbivilla del Roble - Cocina integral" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Cocina Integral</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="7">
+                        <img src="images/villa-del-roble/2242a595-2f4c-11f0-8409-9b94169f1182.jpeg" alt="Urbivilla del Roble - Patio techado" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Patio Techado</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="8">
+                        <img src="images/villa-del-roble/2fd01518-2f4c-11f0-9753-9b94169f1182.jpeg" alt="Urbivilla del Roble - Área de lavado" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Área de Lavado</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="9">
+                        <img src="images/villa-del-roble/2fd06972-2f4c-11f0-b719-9b94169f1182.jpeg" alt="Urbivilla del Roble - Vista general interior" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Vista General Interior</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="10">
+                        <img src="images/villa-del-roble/33bf3a6e-2f4c-11f0-9a63-9b94169f1182.jpeg" alt="Urbivilla del Roble - Espacios amplios" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Espacios Amplios</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="11">
+                        <img src="images/villa-del-roble/3fd0457d-2f4c-11f0-a615-9b94169f1182.jpeg" alt="Urbivilla del Roble - Acabados de calidad" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Acabados de Calidad</div>
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="carousel-arrow carousel-prev" onclick="changeSlide(-1)" aria-label="Foto anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow carousel-next" onclick="changeSlide(1)" aria-label="Siguiente foto">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/villa-del-roble/00ea1c6e-2f4c-11f0-9c13-9b94169f1182.jpeg" alt="Cochera techada" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Cochera</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/villa-del-roble/2242228a-2f4c-11f0-8906-9b94169f1182.jpeg" alt="Comedor" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Comedor</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/villa-del-roble/00ea72dc-2f4c-11f0-b901-9b94169f1182.jpeg" alt="Sala de estar" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Sala</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/villa-del-roble/0d0389be-2f4c-11f0-ad20-9b94169f1182.jpeg" alt="Recámara principal" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Recámara</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/villa-del-roble/0d03e382-2f4c-11f0-a74b-9b94169f1182.jpeg" alt="Baño completo" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Baño</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/villa-del-roble/22427eb2-2f4c-11f0-b624-9b94169f1182.jpeg" alt="Cocina integral" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Cocina</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/villa-del-roble/2242a595-2f4c-11f0-8409-9b94169f1182.jpeg" alt="Patio techado" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Patio</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/villa-del-roble/2fd01518-2f4c-11f0-9753-9b94169f1182.jpeg" alt="Área de lavado" class="gallery-image" loading="lazy">
-                    <div class="gallery-overlay">
-                        <span>Área de Lavado</span>
-                    </div>
+                
+                <!-- Dots indicators -->
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Ir a foto 1"></button>
+                    <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Ir a foto 2"></button>
+                    <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Ir a foto 3"></button>
+                    <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Ir a foto 4"></button>
+                    <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Ir a foto 5"></button>
+                    <button class="carousel-dot" onclick="goToSlide(5)" aria-label="Ir a foto 6"></button>
+                    <button class="carousel-dot" onclick="goToSlide(6)" aria-label="Ir a foto 7"></button>
+                    <button class="carousel-dot" onclick="goToSlide(7)" aria-label="Ir a foto 8"></button>
+                    <button class="carousel-dot" onclick="goToSlide(8)" aria-label="Ir a foto 9"></button>
+                    <button class="carousel-dot" onclick="goToSlide(9)" aria-label="Ir a foto 10"></button>
+                    <button class="carousel-dot" onclick="goToSlide(10)" aria-label="Ir a foto 11"></button>
+                    <button class="carousel-dot" onclick="goToSlide(11)" aria-label="Ir a foto 12"></button>
                 </div>
             </div>
         </div>
@@ -285,67 +307,53 @@
         </div>
     </section>
 
-    <!-- Amenities Section -->
-    <section class="amenities" id="amenidades">
+    <!-- Simple Working Calculator -->
+    <section class="simple-calc" id="calculadora">
         <div class="container">
-            <h2 class="section-title">¿Por qué Zona Sur?</h2>
-            <p class="amenities-subtitle">Ubicación estratégica con acceso a todo lo que necesitas</p>
-            
-            <div class="amenities-grid">
-                <!-- Comercio -->
-                <div class="amenity-category">
-                    <div class="category-header">
-                        <i class="fas fa-shopping-cart"></i>
-                        <h3>Centros Comerciales</h3>
-                    </div>
-                    <ul class="amenity-list">
-                        <li><strong>Plaza San Isidro</strong> - Centro comercial principal</li>
-                        <li><strong>Mi Plaza</strong> - Entretenimiento y servicios</li>
-                        <li><strong>Plaza Barranco</strong> - Comercio y restaurantes</li>
-                        <li><strong>Plaza Explanada</strong> - Compras y diversión</li>
-                    </ul>
+            <h2>🏠 Calculadora de Hipoteca</h2>
+            <div class="calc-box">
+                <div class="input-group">
+                    <label>Precio de la casa:</label>
+                    <input type="number" id="precio" value="1550000" min="100000" step="10000">
                 </div>
-
-                <!-- Salud -->
-                <div class="amenity-category">
-                    <div class="category-header">
-                        <i class="fas fa-hospital"></i>
-                        <h3>Salud</h3>
-                    </div>
-                    <ul class="amenity-list">
-                        <li><strong>Hospital Civil</strong> - Atención médica</li>
-                        <li><strong>Clínicas IMSS</strong> - Servicios de salud</li>
-                        <li><strong>Farmacias</strong> - Múltiples opciones cerca</li>
-                        <li><strong>Consultorios</strong> - Especialidades médicas</li>
-                    </ul>
+                
+                <div class="input-group">
+                    <label>Enganche (%):</label>
+                    <input type="range" id="enganche" min="5" max="50" value="5" oninput="updateEnganche()">
+                    <span id="engancheDisplay">5% = $77,500</span>
                 </div>
-
-                <!-- Transporte -->
-                <div class="amenity-category">
-                    <div class="category-header">
-                        <i class="fas fa-bus"></i>
-                        <h3>Transporte</h3>
-                    </div>
-                    <ul class="amenity-list">
-                        <li><strong>Rutas de Camión</strong> - Múltiples líneas</li>
-                        <li><strong>Taxis y Uber</strong> - Disponibles 24/7</li>
-                        <li><strong>Acceso Vial</strong> - Principales avenidas</li>
-                        <li><strong>Estacionamiento</strong> - Cochera propia</li>
-                    </ul>
+                
+                <div class="input-group">
+                    <label>Años:</label>
+                    <select id="anos">
+                        <option value="10">10 años</option>
+                        <option value="15">15 años</option>
+                        <option value="20" selected>20 años</option>
+                        <option value="25">25 años</option>
+                        <option value="30">30 años</option>
+                    </select>
                 </div>
-
-                <!-- Servicios -->
-                <div class="amenity-category">
-                    <div class="category-header">
-                        <i class="fas fa-wrench"></i>
-                        <h3>Servicios</h3>
-                    </div>
-                    <ul class="amenity-list">
-                        <li><strong>Bancos</strong> - BBVA, Banamex, Santander</li>
-                        <li><strong>Gasolineras</strong> - Varias estaciones</li>
-                        <li><strong>Supermercados</strong> - Walmart, Soriana</li>
-                        <li><strong>Servicios Públicos</strong> - Completos</li>
-                    </ul>
+                
+                <div class="input-group">
+                    <label>Banco:</label>
+                    <select id="banco">
+                        <option value="3.76">INFONAVIT Bajo - 3.76%</option>
+                        <option value="6.5">INFONAVIT Medio - 6.5%</option>
+                        <option value="10.45">INFONAVIT Alto - 10.45%</option>
+                        <option value="9.9">FOVISSSTE - 9.9%</option>
+                        <option value="10.45" selected>HSBC - 10.45%</option>
+                        <option value="11.75">Banamex - 11.75%</option>
+                        <option value="13.25">Santander - 13.25%</option>
+                    </select>
+                </div>
+                
+                <button onclick="calcular()" class="calc-btn">🧮 CALCULAR</button>
+                
+                <div class="result-box">
+                    <h3>💳 Pago Mensual: <span id="resultado">$0</span></h3>
+                    <p>📊 Monto del crédito: <span id="credito">$0</span></p>
+                    <p>📈 Tasa: <span id="tasa">0%</span></p>
+                    <p>💎 Total a pagar: <span id="total">$0</span></p>
                 </div>
             </div>
         </div>
@@ -382,6 +390,120 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 12;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+        
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+        
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+        
+        // Touch/swipe support for mobile
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        
+        carouselWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carouselWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeSlide(1);
+                } else {
+                    changeSlide(-1);
+                }
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Calculator functions
+        function updateEnganche() {
+            const precio = document.getElementById('precio').value || 1550000;
+            const porcentaje = document.getElementById('enganche').value;
+            const monto = precio * (porcentaje / 100);
+            document.getElementById('engancheDisplay').textContent = 
+                porcentaje + '% = $' + monto.toLocaleString('es-MX');
+        }
+
+        function calcular() {
+            const precio = parseFloat(document.getElementById('precio').value) || 1550000;
+            const enganchePorcentaje = parseFloat(document.getElementById('enganche').value) || 5;
+            const anos = parseInt(document.getElementById('anos').value) || 20;
+            const tasaAnual = parseFloat(document.getElementById('banco').value) || 10.45;
+
+            const engancheMonto = precio * (enganchePorcentaje / 100);
+            const montoCredito = precio - engancheMonto;
+            const tasaMensual = tasaAnual / 100 / 12;
+            const numeroPageos = anos * 12;
+
+            let pagoMensual;
+            if (tasaMensual === 0) {
+                pagoMensual = montoCredito / numeroPageos;
+            } else {
+                pagoMensual = montoCredito * 
+                    (tasaMensual * Math.pow(1 + tasaMensual, numeroPageos)) / 
+                    (Math.pow(1 + tasaMensual, numeroPageos) - 1);
+            }
+
+            const totalPagar = pagoMensual * numeroPageos;
+
+            document.getElementById('resultado').textContent = '$' + Math.round(pagoMensual).toLocaleString('es-MX');
+            document.getElementById('credito').textContent = '$' + Math.round(montoCredito).toLocaleString('es-MX');
+            document.getElementById('tasa').textContent = tasaAnual + '%';
+            document.getElementById('total').textContent = '$' + Math.round(totalPagar).toLocaleString('es-MX');
+        }
+
+        // Initialize calculator
+        window.onload = function() {
+            updateEnganche();
+            calcular();
+        };
+    </script>
 </body>
 </html>
