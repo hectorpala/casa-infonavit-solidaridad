@@ -3184,28 +3184,30 @@ img {
     opacity: 1;
     visibility: visible;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    animation: pulseArrow 1s infinite;
+    animation: blinkArrow 0.8s infinite;
 }
 
-@keyframes pulseArrow {
+@keyframes blinkArrow {
     0% {
         opacity: 1;
         transform: translateY(-50%) scale(1);
-        background: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-    50% {
-        opacity: 0.3;
-        transform: translateY(-50%) scale(1.2);
         background: rgba(255, 78, 0, 0.95);
         color: white;
-        box-shadow: 0 15px 40px rgba(255, 78, 0, 0.6);
+        box-shadow: 0 15px 40px rgba(255, 78, 0, 0.8);
+    }
+    50% {
+        opacity: 0.1;
+        transform: translateY(-50%) scale(0.8);
+        background: rgba(255, 255, 255, 0.9);
+        color: #ff4e00;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
     100% {
         opacity: 1;
         transform: translateY(-50%) scale(1);
-        background: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        background: rgba(255, 78, 0, 0.95);
+        color: white;
+        box-shadow: 0 15px 40px rgba(255, 78, 0, 0.8);
     }
 }
 
@@ -3351,3 +3353,4 @@ img {
 /* Force update Sat Sep 20 23:27:42 MST 2025 */
 /* Cache buster 1758436392 */
 /* Carousel added Sept 22 2025 */
+/* BLINKING ARROWS SUPER VISIBLE - Sept 22 2025 - v2.1 */
