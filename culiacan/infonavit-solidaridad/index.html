@@ -265,91 +265,97 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Carousel Section -->
     <section class="gallery" id="gallery">
         <div class="container">
             <h2 class="section-title">Galería de Fotos</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <picture>
-                        <source srcset="images/webp/fachada con porton abierto.webp" type="image/webp">
-                        <img src="images/fachada con porton abierto.jpg" alt="Fachada con portón abierto" class="gallery-image" loading="lazy">
-                    </picture>
-                    <div class="gallery-overlay">
-                        <span>Fachada</span>
+            <div class="carousel-container">
+                <!-- Main carousel display -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active" data-slide="0">
+                        <picture>
+                            <source srcset="images/webp/fachada con porton abierto.webp" type="image/webp">
+                            <img src="images/fachada con porton abierto.jpg" alt="Fachada con portón abierto" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Fachada</div>
                     </div>
+                    <div class="carousel-slide" data-slide="1">
+                        <picture>
+                            <source srcset="images/webp/sala comedor.webp" type="image/webp">
+                            <img src="images/sala comedor.jpg" alt="Sala y comedor remodelados" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Sala y Comedor</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="2">
+                        <picture>
+                            <source srcset="images/webp/estancia y recamara principal.webp" type="image/webp">
+                            <img src="images/estancia y recamara principal.jpg" alt="Estancia y recámara principal" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Estancia y Recámara</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="3">
+                        <picture>
+                            <source srcset="images/webp/Recamara Principal.webp" type="image/webp">
+                            <img src="images/Recamara Principal.jpg" alt="Recámara principal" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Recámara Principal</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="4">
+                        <picture>
+                            <source srcset="images/webp/sala estancia closet.webp" type="image/webp">
+                            <img src="images/sala estancia closet.jpg" alt="Sala, estancia y closet" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Sala y Closet</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="5">
+                        <picture>
+                            <source srcset="images/webp/baño atras.webp" type="image/webp">
+                            <img src="images/baño atras.jpg" alt="Baño completo" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Baño Completo</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="6">
+                        <picture>
+                            <source srcset="images/webp/cochera abierta 3.webp" type="image/webp">
+                            <img src="images/cochera abierta 3.jpg" alt="Vista completa de cochera" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Vista Cochera</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="7">
+                        <picture>
+                            <source srcset="images/webp/cochera abierta 2.webp" type="image/webp">
+                            <img src="images/cochera abierta 2.jpg" alt="Cochera techada" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Cochera</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="8">
+                        <picture>
+                            <source srcset="images/webp/cochera abierta piso.webp" type="image/webp">
+                            <img src="images/cochera abierta piso.jpg" alt="Piso de cochera" class="carousel-image gallery-image" loading="lazy">
+                        </picture>
+                        <div class="image-caption">Piso Cochera</div>
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="carousel-arrow carousel-prev" onclick="changeSlide(-1)" aria-label="Foto anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow carousel-next" onclick="changeSlide(1)" aria-label="Siguiente foto">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="gallery-item">
-                    <picture>
-                        <source srcset="images/webp/sala comedor.webp" type="image/webp">
-                        <img src="images/sala comedor.jpg" alt="Sala y comedor remodelados" class="gallery-image" loading="lazy">
-                    </picture>
-                    <div class="gallery-overlay">
-                        <span>Sala y Comedor</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <picture>
-                        <source srcset="images/webp/estancia y recamara principal.webp" type="image/webp">
-                        <img src="images/estancia y recamara principal.jpg" alt="Estancia y recámara principal" class="gallery-image" loading="lazy">
-                    </picture>
-                    <div class="gallery-overlay">
-                        <span>Estancia y Recámara</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <picture>
-                        <source srcset="images/webp/Recamara Principal.webp" type="image/webp">
-                        <img src="images/Recamara Principal.jpg" alt="Recámara principal" class="gallery-image" loading="lazy">
-                    </picture>
-                    <div class="gallery-overlay">
-                        <span>Recámara Principal</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <picture>
-                        <source srcset="images/webp/sala estancia closet.webp" type="image/webp">
-                        <img src="images/sala estancia closet.jpg" alt="Sala, estancia y closet" class="gallery-image" loading="lazy">
-                    </picture>
-                    <div class="gallery-overlay">
-                        <span>Sala y Closet</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <picture>
-                        <source srcset="images/webp/baño atras.webp" type="image/webp">
-                        <img src="images/baño atras.jpg" alt="Baño completo" class="gallery-image" loading="lazy">
-                    </picture>
-                    <div class="gallery-overlay">
-                        <span>Baño Completo</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <picture>
-                        <source srcset="images/webp/cochera abierta 3.webp" type="image/webp">
-                        <img src="images/cochera abierta 3.jpg" alt="Vista completa de cochera" class="gallery-image" loading="lazy">
-                    </picture>
-                    <div class="gallery-overlay">
-                        <span>Vista Cochera</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <picture>
-                        <source srcset="images/webp/cochera abierta 2.webp" type="image/webp">
-                        <img src="images/cochera abierta 2.jpg" alt="Cochera techada" class="gallery-image" loading="lazy">
-                    </picture>
-                    <div class="gallery-overlay">
-                        <span>Cochera</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <picture>
-                        <source srcset="images/webp/cochera abierta piso.webp" type="image/webp">
-                        <img src="images/cochera abierta piso.jpg" alt="Piso de cochera" class="gallery-image" loading="lazy">
-                    </picture>
-                    <div class="gallery-overlay">
-                        <span>Piso Cochera</span>
-                    </div>
+                
+                <!-- Dots indicators -->
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Ir a foto 1"></button>
+                    <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Ir a foto 2"></button>
+                    <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Ir a foto 3"></button>
+                    <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Ir a foto 4"></button>
+                    <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Ir a foto 5"></button>
+                    <button class="carousel-dot" onclick="goToSlide(5)" aria-label="Ir a foto 6"></button>
+                    <button class="carousel-dot" onclick="goToSlide(6)" aria-label="Ir a foto 7"></button>
+                    <button class="carousel-dot" onclick="goToSlide(7)" aria-label="Ir a foto 8"></button>
+                    <button class="carousel-dot" onclick="goToSlide(8)" aria-label="Ir a foto 9"></button>
                 </div>
             </div>
         </div>
@@ -721,6 +727,85 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Carousel JavaScript -->
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 9;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
+            
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+        
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+        
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+        
+        // Touch/swipe support for mobile
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        
+        carouselWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        carouselWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeSlide(1); // Swipe left, go to next
+                } else {
+                    changeSlide(-1); // Swipe right, go to previous
+                }
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+        
+        // Auto-play functionality (optional - can be enabled)
+        // setInterval(() => {
+        //     changeSlide(1);
+        // }, 5000); // Change slide every 5 seconds
+    </script>
     
     <!-- PANEL DE ROTACIÓN EMBEBIDO -->
     <div id="hector-rotation-panel" style="
