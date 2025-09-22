@@ -1003,12 +1003,20 @@ body {
     
     .hero-image {
         order: 1;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
     }
     
     .main-image {
         height: 300px;
         object-fit: cover;
         object-position: center;
+        display: block;
+        width: 100%;
+        max-width: 100%;
     }
     
     .section-title {
@@ -1081,6 +1089,9 @@ body {
         height: 250px;
         object-fit: cover;
         object-position: center;
+        display: block;
+        width: 100%;
+        max-width: 100%;
     }
     
     .section-title {
