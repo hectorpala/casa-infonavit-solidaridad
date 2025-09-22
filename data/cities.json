@@ -1,0 +1,116 @@
+{
+  "cities": {
+    "culiacan": {
+      "name": "Culiacán",
+      "state": "Sinaloa",
+      "slug": "culiacan",
+      "phone": "+52 811 165 2545",
+      "phoneClean": "528111652545",
+      "whatsappMessage": "Hola Hector, me interesan propiedades en Culiacán, Sinaloa",
+      "description": "Capital de Sinaloa, centro económico y cultural del estado",
+      "features": "excelente infraestructura, universidades prestigiosas, centros comerciales modernos y servicios de calidad",
+      "coordinates": [24.8091, -107.3940],
+      "neighborhoods": [
+        {
+          "name": "Infonavit Solidaridad",
+          "slug": "infonavit-solidaridad",
+          "description": "Colonia residencial consolidada con excelentes servicios",
+          "averagePrice": 1650000,
+          "properties": 12
+        },
+        {
+          "name": "Barcelona Villa",
+          "slug": "barcelona-villa",
+          "description": "Zona residencial de nivel medio-alto con amenidades",
+          "averagePrice": 2200000,
+          "properties": 8
+        },
+        {
+          "name": "Villa del Roble",
+          "slug": "villa-del-roble",
+          "description": "Desarrollo habitacional moderno en zona sur",
+          "averagePrice": 1550000,
+          "properties": 6
+        },
+        {
+          "name": "Santa Fe",
+          "slug": "santa-fe",
+          "description": "Colonia tranquila con casas de una planta",
+          "averagePrice": 1375000,
+          "properties": 4
+        }
+      ],
+      "totalProperties": 30,
+      "heroImage": "culiacan-hero.jpg",
+      "status": "active"
+    },
+    "mazatlan": {
+      "name": "Mazatlán",
+      "state": "Sinaloa", 
+      "slug": "mazatlan",
+      "phone": "+52 811 165 2545",
+      "phoneClean": "528111652545",
+      "whatsappMessage": "Hola Hector, me interesan propiedades en Mazatlán, Sinaloa",
+      "description": "Puerto turístico con hermosas playas y gran calidad de vida",
+      "features": "malecón más largo del mundo, playas doradas, centro histórico y excelente gastronomía",
+      "coordinates": [23.2494, -106.4103],
+      "neighborhoods": [
+        {
+          "name": "Zona Dorada",
+          "slug": "zona-dorada",
+          "description": "Principal zona turística con hoteles y restaurantes",
+          "averagePrice": 3500000,
+          "properties": 0
+        },
+        {
+          "name": "Playa Norte",
+          "slug": "playa-norte",
+          "description": "Zona residencial frente al mar",
+          "averagePrice": 2800000,
+          "properties": 0
+        },
+        {
+          "name": "Centro Histórico",
+          "slug": "centro-historico",
+          "description": "Corazón cultural de la ciudad",
+          "averagePrice": 1900000,
+          "properties": 0
+        }
+      ],
+      "totalProperties": 0,
+      "heroImage": "mazatlan-hero.jpg",
+      "status": "coming-soon"
+    },
+    "hermosillo": {
+      "name": "Hermosillo",
+      "state": "Sonora",
+      "slug": "hermosillo", 
+      "phone": "+52 811 165 2545",
+      "phoneClean": "528111652545",
+      "whatsappMessage": "Hola Hector, me interesan propiedades en Hermosillo, Sonora",
+      "description": "Capital de Sonora, importante centro industrial y universitario",
+      "features": "clima seco, industria automotriz, Universidad de Sonora y desarrollo económico",
+      "coordinates": [29.0892, -110.9611],
+      "neighborhoods": [],
+      "totalProperties": 0,
+      "heroImage": "hermosillo-hero.jpg",
+      "status": "planned"
+    }
+  },
+  "globalConfig": {
+    "siteName": "Casas en Venta",
+    "companyName": "Hector es Bienes Raíces",
+    "tagline": "Compramos • Remodelamos • Vendemos",
+    "email": "hector@bienesraices.mx",
+    "socialMedia": {
+      "whatsapp": "+52 811 165 2545",
+      "facebook": "",
+      "instagram": ""
+    },
+    "seoDefaults": {
+      "author": "Hector es Bienes Raíces",
+      "keywords": "casas en venta, bienes raíces, propiedades México, Sinaloa",
+      "ogImage": "https://casasenventa.info/assets/images/global/og-default.jpg"
+    }
+  }
+}

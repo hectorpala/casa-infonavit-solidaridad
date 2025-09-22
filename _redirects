@@ -1,0 +1,39 @@
+# Redirects para estructura escalable de casasenventa.info
+# Formato: ruta-antigua ruta-nueva código-estado
+
+# Redirect página antigua de Infonavit Solidaridad a nueva estructura
+/culiacan-infonavit-solidaridad/index.html /culiacan/infonavit-solidaridad/ 301
+/culiacan-infonavit-solidaridad/ /culiacan/infonavit-solidaridad/ 301
+/culiacan-infonavit-solidaridad /culiacan/infonavit-solidaridad/ 301
+
+# Redirect páginas individuales de propiedades
+/casa-venta-urbivilla-del-roble-zona-sur.html /culiacan/villa-del-roble/casa-urbivilla/ 301
+/casa-venta-cocotera-hacienda-de-la-mora.html /culiacan/hacienda-de-la-mora/casa-cocotera/ 301
+/casa-venta-privada-la-estancia-santa-barbara.html /culiacan/santa-barbara/casa-la-estancia/ 301
+/casa-venta-infonavit-barrancos-culiacan.html /culiacan/infonavit-barrancos/casa-barrancos/ 301
+/casa-venta-santa-fe-culiacan-sinaloa.html /culiacan/santa-fe/casa-santa-fe/ 301
+/casa-venta-villas-del-rio-culiacan.html /culiacan/villas-del-rio/casa-villas-rio/ 301
+/casa-venta-villa-bonita-culiacan.html /culiacan/villa-bonita/casa-villa-bonita/ 301
+/culiacan-casaenrenta-barcelona-villa.html /culiacan/barcelona-villa/casa-cantabria-3115/ 301
+
+# Redirects de búsqueda común
+/casas-culiacan /culiacan/ 301
+/propiedades-culiacan /culiacan/ 301
+/venta-culiacan /culiacan/ 301
+/renta-culiacan /culiacan/ 301
+
+# Redirects futuros para otras ciudades
+/casas-mazatlan /mazatlan/ 301
+/propiedades-mazatlan /mazatlan/ 301
+/casas-hermosillo /hermosillo/ 301
+
+# Redirects para SEO
+/bienes-raices-culiacan /culiacan/ 301
+/casas-en-venta-culiacan /culiacan/ 301
+/inmuebles-culiacan /culiacan/ 301
+
+# Redirects de colonias específicas
+/infonavit-solidaridad /culiacan/infonavit-solidaridad/ 301
+/barcelona-villa /culiacan/barcelona-villa/ 301
+/villa-del-roble /culiacan/villa-del-roble/ 301
+/santa-fe-culiacan /culiacan/santa-fe/ 301

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casas en Venta en Mazatlán, Sinaloa | Próximamente | Hector es Bienes Raíces</title>
+    <meta name="description" content="Próximamente: Casas en venta en Mazatlán, Sinaloa. Zona Dorada, Playa Norte y Centro Histórico. Regístrate para ser el primero en conocer nuestras propiedades.">
+    <meta name="keywords" content="casas en venta Mazatlán, propiedades Mazatlán Sinaloa, Zona Dorada, Playa Norte, bienes raíces puerto">
+    <meta name="author" content="Hector es Bienes Raíces">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://casasenventa.info/mazatlan/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Casas en Venta en Mazatlán | Próximamente | Hector es Bienes Raíces">
+    <meta property="og:description" content="Muy pronto tendremos las mejores propiedades en Mazatlán. Zona Dorada, playas y centro histórico.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://casasenventa.info/mazatlan/">
+    <meta property="og:image" content="https://casasenventa.info/assets/images/cities/mazatlan/mazatlan-hero.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../critical.css">
+    <link rel="stylesheet" href="../styles-full.css">
+    
+    <style>
+    /* Estilos específicos para página "Coming Soon" */
+    .hero-coming-soon {
+        min-height: 100vh;
+        background: linear-gradient(135deg, rgba(255, 78, 0, 0.8), rgba(0, 0, 0, 0.4)), 
+                    url('https://images.unsplash.com/photo-1544966503-7cc1265ccf1c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+    }
+    
+    .coming-soon-content {
+        max-width: 800px;
+        padding: 2rem;
+    }
+    
+    .coming-soon-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+    }
+    
+    .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 3rem 0;
+        flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1.5rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        min-width: 100px;
+    }
+    
+    .countdown-number {
+        font-size: 2.5rem;
+        font-weight: 900;
+        display: block;
+    }
+    
+    .countdown-label {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .notification-form {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        margin-top: 3rem;
+    }
+    
+    .form-group {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .form-group input {
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        font-size: 1rem;
+        min-width: 250px;
+    }
+    
+    .form-group button {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 50px;
+        background: linear-gradient(135deg, #ff4e00, #ff6b2b);
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .form-group button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(255, 78, 0, 0.4);
+    }
+    
+    .features-preview {
+        margin-top: 4rem;
+    }
+    
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .feature-item {
+        text-align: center;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+    
+    @media (max-width: 768px) {
+        .countdown {
+            gap: 1rem;
+        }
+        
+        .countdown-item {
+            min-width: 80px;
+            padding: 1rem;
+        }
+        
+        .countdown-number {
+            font-size: 1.8rem;
+        }
+        
+        .form-group {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .form-group input {
+            min-width: 100%;
+            max-width: 300px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/">
+                    <picture>
+                        <source srcset="../images/webp/Logo-hector-es-bienes-raices.webp" type="image/webp">
+                        <img src="../images/optimized/Logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" class="logo">
+                    </picture>
+                </a>
+                
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs">
+                    <a href="/">Inicio</a>
+                    <span class="separator">></span>
+                    <span>Mazatlán</span>
+                </nav>
+                
+                <!-- Botón hamburguesa para móvil -->
+                <button class="hamburger" aria-label="Menú" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <nav class="nav">
+                    <a href="/#cities">Ciudades</a>
+                    <a href="/culiacan/">Culiacán</a>
+                    <a href="#notify">Notificarme</a>
+                    <a href="#contact" class="cta-button">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Coming Soon -->
+    <section class="hero-coming-soon">
+        <div class="coming-soon-content">
+            <div class="coming-soon-badge">
+                <i class="fas fa-clock"></i>
+                Próximamente
+            </div>
+            
+            <h1 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 1rem;">
+                Mazatlán, Sinaloa
+            </h1>
+            
+            <h2 style="font-size: 1.5rem; font-weight: 400; margin-bottom: 2rem; opacity: 0.9;">
+                La Perla del Pacífico te espera
+            </h2>
+            
+            <p style="font-size: 1.2rem; line-height: 1.7; opacity: 0.9; max-width: 600px; margin: 0 auto;">
+                Muy pronto tendremos las mejores propiedades en el puerto más hermoso del Pacífico mexicano. 
+                Zona Dorada, playas doradas y el centro histórico más encantador.
+            </p>
+
+            <!-- Countdown (simulado) -->
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">90</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">12</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">30</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+            </div>
+
+            <!-- Notification Form -->
+            <div class="notification-form" id="notify">
+                <h3 style="margin-bottom: 1rem;">Sé el primero en conocer nuestras propiedades</h3>
+                <p style="opacity: 0.8; margin-bottom: 2rem;">Te notificaremos cuando lancemos oficialmente en Mazatlán</p>
+                
+                <form class="form-group" id="notification-form">
+                    <input type="email" placeholder="Tu email" required>
+                    <input type="tel" placeholder="Tu teléfono (opcional)">
+                    <button type="submit">
+                        <i class="fas fa-bell"></i>
+                        Notificarme
+                    </button>
+                </form>
+            </div>
+
+            <!-- Features Preview -->
+            <div class="features-preview">
+                <h3 style="margin-bottom: 2rem;">¿Qué encontrarás en Mazatlán?</h3>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-umbrella-beach feature-icon"></i>
+                        <h4>Zona Dorada</h4>
+                        <p>Propiedades frente al mar</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-water feature-icon"></i>
+                        <h4>Playa Norte</h4>
+                        <p>Residencial exclusivo</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-landmark feature-icon"></i>
+                        <h4>Centro Histórico</h4>
+                        <p>Casas coloniales restauradas</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-ship feature-icon"></i>
+                        <h4>Malecón</h4>
+                        <p>Vista al puerto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title" style="color: #1d1d1b;">¿Tienes una propiedad en Mazatlán?</h2>
+            <p style="font-size: 1.3rem; color: #666; margin-bottom: 2rem; text-align: center;">
+                Si tienes una propiedad que quieres vender en Mazatlán, contáctanos
+            </p>
+            
+            <div class="contact-buttons">
+                <a href="https://wa.me/528111652545?text=Hola%20Hector,%20tengo%20una%20propiedad%20en%20Mazatlán%20que%20me%20interesa%20vender" 
+                   class="whatsapp-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Vender mi Propiedad
+                </a>
+                <a href="tel:+528111652545" class="phone-button">
+                    <i class="fas fa-phone"></i>
+                    Llamar Ahora
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Servicios en Mazatlán y Culiacán</p>
+                <p><i class="fas fa-phone"></i> +52 811 165 2545</p>
+                <p><i class="fas fa-envelope"></i> hector@bienesraices.mx</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Hector es Bienes Raíces. Todos los derechos reservados.</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">Próximamente en Mazatlán - Tu socio de confianza en bienes raíces</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../app.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulación de countdown
+            function updateCountdown() {
+                // Obtener elementos
+                const daysEl = document.getElementById('days');
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                
+                // Fecha objetivo (90 días desde hoy)
+                const targetDate = new Date();
+                targetDate.setDate(targetDate.getDate() + 90);
+                
+                const now = new Date();
+                const timeDifference = targetDate - now;
+                
+                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                
+                if (daysEl) daysEl.textContent = days;
+                if (hoursEl) hoursEl.textContent = hours;
+                if (minutesEl) minutesEl.textContent = minutes;
+            }
+            
+            // Actualizar countdown cada minuto
+            updateCountdown();
+            setInterval(updateCountdown, 60000);
+            
+            // Manejar formulario de notificaciones
+            const form = document.getElementById('notification-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = form.querySelector('input[type="email"]').value;
+                    const phone = form.querySelector('input[type="tel"]').value;
+                    
+                    // Enviar a WhatsApp
+                    const message = `Hola, me interesa recibir notificaciones sobre propiedades en Mazatlán. Mi email es: ${email}${phone ? '. Mi teléfono es: ' + phone : ''}`;
+                    const whatsappURL = `https://wa.me/528111652545?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappURL, '_blank');
+                    
+                    // Mostrar mensaje de confirmación
+                    form.innerHTML = `
+                        <div style="text-align: center; padding: 2rem;">
+                            <i class="fas fa-check-circle" style="font-size: 3rem; color: #4CAF50; margin-bottom: 1rem;"></i>
+                            <h4>¡Gracias por registrarte!</h4>
+                            <p>Te contactaremos por WhatsApp cuando lancemos en Mazatlán</p>
+                        </div>
+                    `;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

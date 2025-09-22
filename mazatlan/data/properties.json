@@ -1,0 +1,82 @@
+{
+  "properties": [],
+  "comingSoon": true,
+  "launchDate": "2025-03-01",
+  "targetNeighborhoods": [
+    {
+      "name": "Zona Dorada",
+      "slug": "zona-dorada", 
+      "description": "Principal zona turística con hoteles, restaurantes y playas",
+      "targetPriceRange": "3M-8M",
+      "features": ["Frente al mar", "Zona hotelera", "Restaurants", "Vida nocturna"]
+    },
+    {
+      "name": "Playa Norte",
+      "slug": "playa-norte",
+      "description": "Zona residencial exclusiva frente al mar",
+      "targetPriceRange": "2.5M-6M", 
+      "features": ["Residencial", "Playa privada", "Exclusividad", "Tranquilidad"]
+    },
+    {
+      "name": "Centro Histórico",
+      "slug": "centro-historico",
+      "description": "Corazón cultural con arquitectura colonial",
+      "targetPriceRange": "1.5M-4M",
+      "features": ["Patrimonio histórico", "Arquitectura colonial", "Cultura", "Restaurantes típicos"]
+    },
+    {
+      "name": "El Cid",
+      "slug": "el-cid",
+      "description": "Desarrollo turístico con campo de golf",
+      "targetPriceRange": "4M-10M",
+      "features": ["Campo de golf", "Marina", "Resort", "Lujo"]
+    }
+  ],
+  "marketAnalysis": {
+    "averagePricePerM2": 45000,
+    "growthProjection": "15% anual",
+    "touristDemand": "Alta temporada: Dic-Abr",
+    "investmentPotential": "Excelente para rentas turísticas"
+  },
+  "contactInfo": {
+    "whatsappMessage": "Hola Hector, me interesa invertir en propiedades en Mazatlán cuando estén disponibles",
+    "whatsappMessageEncoded": "Hola%20Hector%2C%20me%20interesa%20invertir%20en%20propiedades%20en%20Mazatl%C3%A1n%20cuando%20est%C3%A9n%20disponibles",
+    "notificationMessage": "Me interesa recibir notificaciones sobre propiedades en Mazatlán"
+  },
+  "seo": {
+    "targetKeywords": [
+      "casas en venta Mazatlán",
+      "propiedades Zona Dorada",
+      "bienes raíces puerto Mazatlán",
+      "casas frente al mar Sinaloa",
+      "inversión turística Mazatlán"
+    ],
+    "competitorAnalysis": "Mercado en crecimiento con alta demanda turística",
+    "contentStrategy": "Enfoque en inversión turística y calidad de vida costera"
+  },
+  "timeline": {
+    "phase1": {
+      "date": "2025-01-15",
+      "milestone": "Primeras propiedades identificadas",
+      "description": "Análisis de mercado y selección inicial de propiedades"
+    },
+    "phase2": {
+      "date": "2025-02-15", 
+      "milestone": "Remodelaciones iniciadas",
+      "description": "Inicio de trabajos de remodelación en primeras propiedades"
+    },
+    "phase3": {
+      "date": "2025-03-01",
+      "milestone": "Lanzamiento oficial",
+      "description": "Apertura oficial de operaciones en Mazatlán"
+    }
+  },
+  "summary": {
+    "totalProperties": 0,
+    "forSale": 0,
+    "forRent": 0,
+    "averagePrice": 0,
+    "status": "coming-soon",
+    "estimatedLaunch": "Q1 2025"
+  }
+}

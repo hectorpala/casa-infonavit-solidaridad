@@ -1,0 +1,169 @@
+{
+  "properties": [
+    {
+      "id": "casa-elbert-2609",
+      "title": "Casa Remodelada en Infonavit Solidaridad",
+      "titleShort": "Casa Elbert 2609",
+      "slug": "casa-elbert-2609",
+      "description": "Casa completamente remodelada de 2 recámaras con cochera techada para 2 autos. Ubicada en zona consolidada de Infonavit Solidaridad.",
+      "address": "Blvrd Elbert 2609",
+      "neighborhood": "Infonavit Solidaridad",
+      "neighborhoodSlug": "infonavit-solidaridad",
+      "city": "Culiacán",
+      "citySlug": "culiacan",
+      "state": "Sinaloa",
+      "price": "1,750,000",
+      "priceNumeric": 1750000,
+      "priceRange": "1-2M",
+      "listingType": "venta",
+      "listingTypeLabel": "VENTA",
+      "propertyType": "Casa",
+      "status": "available",
+      "featured": true,
+      "specifications": {
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "parkingSpots": 2,
+        "levels": 1,
+        "lotSize": 112.5,
+        "builtArea": 91.6,
+        "yearBuilt": "Remodelada 2024",
+        "lotDimensions": "7.5m x 15m"
+      },
+      "features": [
+        "Totalmente remodelada",
+        "Cochera techada para 2 autos",
+        "2 baños completos",
+        "Sala de estancia adicional",
+        "Patio trasero",
+        "Ubicación privilegiada",
+        "Escrituras en regla",
+        "Lista para habitar"
+      ],
+      "coordinates": {
+        "latitude": 24.8091,
+        "longitude": -107.3940
+      },
+      "images": {
+        "main": "exterior.jpg",
+        "gallery": [
+          "exterior.jpg",
+          "sala-comedor.jpg", 
+          "cocina.jpg",
+          "recamara-principal.jpg",
+          "bano.jpg",
+          "cochera.jpg",
+          "patio.jpg",
+          "sala-estancia.jpg"
+        ],
+        "count": 8
+      },
+      "seo": {
+        "metaTitle": "Casa Remodelada Elbert 2609, Infonavit Solidaridad | $1,750,000",
+        "metaDescription": "Casa de 2 recámaras, 2 baños, cochera techada. 112.5m² en Infonavit Solidaridad, Culiacán. Totalmente remodelada. Ver fotos y detalles.",
+        "keywords": "casa venta Culiacán, Infonavit Solidaridad, casa remodelada, 2 recámaras"
+      },
+      "contact": {
+        "whatsappMessage": "Me interesan informes de la casa remodelada en Elbert 2609, Infonavit Solidaridad por $1,750,000",
+        "whatsappMessageEncoded": "Me%20interesan%20informes%20de%20la%20casa%20remodelada%20en%20Elbert%202609%2C%20Infonavit%20Solidaridad%20por%20%241%2C750%2C000"
+      },
+      "nearbyPlaces": [
+        "Escuela Primaria (300m)",
+        "Tienda OXXO (200m)", 
+        "Farmacia Guadalajara (400m)",
+        "Parque Local (500m)",
+        "Transporte público (100m)"
+      ],
+      "dateCreated": "2024-01-15",
+      "dateUpdated": "2024-09-22"
+    },
+    {
+      "id": "casa-cantabria-3115", 
+      "title": "Casa Amueblada en Barcelona Villa",
+      "titleShort": "Casa Cantabria 3115",
+      "slug": "casa-cantabria-3115",
+      "description": "Casa amueblada de 3 recámaras en exclusiva Barcelona Villa. Ideal para renta ejecutiva o familia.",
+      "address": "Boulevard Cantabria 3115",
+      "neighborhood": "Barcelona Villa",
+      "neighborhoodSlug": "barcelona-villa",
+      "city": "Culiacán", 
+      "citySlug": "culiacan",
+      "state": "Sinaloa",
+      "price": "20,000/mes",
+      "priceNumeric": 20000,
+      "priceRange": "15-25K",
+      "listingType": "renta",
+      "listingTypeLabel": "RENTA",
+      "propertyType": "Casa",
+      "status": "available",
+      "featured": false,
+      "specifications": {
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "parkingSpots": 2,
+        "levels": 1,
+        "lotSize": 198,
+        "builtArea": 150,
+        "yearBuilt": "2018",
+        "furnished": true
+      },
+      "features": [
+        "Completamente amueblada",
+        "Aire acondicionado",
+        "Cocina equipada",
+        "Área de lavado",
+        "Jardín privado",
+        "Caseta de vigilancia",
+        "Cerca de plazas comerciales"
+      ],
+      "coordinates": {
+        "latitude": 24.8145,
+        "longitude": -107.3885
+      },
+      "images": {
+        "main": "exterior-cantabria.jpg",
+        "gallery": [
+          "exterior-cantabria.jpg",
+          "sala-cantabria.jpg",
+          "cocina-cantabria.jpg", 
+          "recamara-cantabria.jpg",
+          "bano-cantabria.jpg",
+          "jardin-cantabria.jpg"
+        ],
+        "count": 6
+      },
+      "seo": {
+        "metaTitle": "Casa Amueblada Cantabria 3115, Barcelona Villa | $20,000/mes",
+        "metaDescription": "Casa amueblada de 3 recámaras en Barcelona Villa, Culiacán. Ideal para renta ejecutiva. 198m², jardín privado.",
+        "keywords": "casa renta Culiacán, Barcelona Villa, casa amueblada, renta ejecutiva"
+      },
+      "contact": {
+        "whatsappMessage": "Me interesa la casa amueblada en Boulevard Cantabria 3115, Barcelona Villa por $20,000/mes",
+        "whatsappMessageEncoded": "Me%20interesa%20la%20casa%20amueblada%20en%20Boulevard%20Cantabria%203115%2C%20Barcelona%20Villa%20por%20%2420%2C000%2Fmes"
+      },
+      "nearbyPlaces": [
+        "Plaza Centenario (800m)",
+        "Hospital Angeles (1.2km)",
+        "Universidad Autónoma de Sinaloa (2km)",
+        "Walmart (600m)",
+        "Starbucks (500m)"
+      ],
+      "dateCreated": "2024-02-10",
+      "dateUpdated": "2024-09-20"
+    }
+  ],
+  "summary": {
+    "totalProperties": 2,
+    "forSale": 1,
+    "forRent": 1,
+    "averagePrice": 1750000,
+    "priceRange": {
+      "min": 20000,
+      "max": 1750000
+    },
+    "neighborhoods": {
+      "infonavit-solidaridad": 1,
+      "barcelona-villa": 1
+    }
+  }
+}

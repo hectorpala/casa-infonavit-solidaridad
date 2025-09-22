@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casas en Venta en {{CITY_NAME}}, {{STATE}} | Hector es Bienes Raíces</title>
+    <meta name="description" content="Descubre las mejores casas en venta en {{CITY_NAME}}, {{STATE}}. {{NEIGHBORHOODS_LIST}}. Precios competitivos y calidad garantizada.">
+    <meta name="keywords" content="casas en venta {{CITY_NAME}}, propiedades {{CITY_NAME}} {{STATE}}, bienes raíces {{CITY_NAME}}">
+    <meta name="author" content="Hector es Bienes Raíces">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://casasenventa.info/{{CITY_SLUG}}/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#ff4e00">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Casas en Venta en {{CITY_NAME}} | Hector es Bienes Raíces">
+    <meta property="og:description" content="Encuentra tu hogar ideal en {{CITY_NAME}}, {{STATE}}. Propiedades de calidad con garantía.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://casasenventa.info/{{CITY_SLUG}}/">
+    <meta property="og:image" content="https://casasenventa.info/assets/images/cities/{{CITY_SLUG}}/hero-{{CITY_SLUG}}.jpg">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Hector es Bienes Raíces",
+      "url": "https://casasenventa.info/{{CITY_SLUG}}/",
+      "logo": "https://casasenventa.info/assets/images/global/logo.png",
+      "description": "Especialistas en bienes raíces en {{CITY_NAME}}, {{STATE}}. Compramos, remodelamos y vendemos propiedades de calidad.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{CITY_NAME}}",
+        "addressRegion": "{{STATE}}",
+        "addressCountry": "MX"
+      },
+      "telephone": "{{PHONE}}",
+      "email": "hector@bienesraices.mx",
+      "areaServed": {
+        "@type": "City",
+        "name": "{{CITY_NAME}}"
+      }
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/critical.css">
+    <link rel="preload" href="../assets/css/styles-shared.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/css/styles-shared.css"></noscript>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/">
+                    <picture>
+                        <source srcset="../assets/images/global/logo.webp" type="image/webp">
+                        <img src="../assets/images/global/logo.png" alt="Hector es Bienes Raíces" class="logo">
+                    </picture>
+                </a>
+                
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs">
+                    <a href="/">Inicio</a>
+                    <span class="separator">></span>
+                    <span>{{CITY_NAME}}</span>
+                </nav>
+                
+                <!-- Botón hamburguesa para móvil -->
+                <button class="hamburger" aria-label="Menú" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <nav class="nav">
+                    <a href="#neighborhoods">Colonias</a>
+                    <a href="#properties">Propiedades</a>
+                    <a href="#about">Nosotros</a>
+                    <a href="#contact" class="cta-button">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero hero-city" style="background-image: url('../assets/images/cities/{{CITY_SLUG}}/hero-{{CITY_SLUG}}.jpg')">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Casas en Venta en {{CITY_NAME}}</h1>
+            <p class="hero-subtitle">{{STATE}}, México</p>
+            <h2 class="hero-tagline">{{PROPERTIES_COUNT}}+ Propiedades Disponibles</h2>
+            <div class="hero-buttons">
+                <a href="#properties" class="hero-cta">Ver Propiedades</a>
+                <a href="#contact" class="hero-secondary">Contactar Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neighborhoods Section -->
+    <section class="neighborhoods" id="neighborhoods">
+        <div class="container">
+            <h2 class="section-title">Colonias Populares en {{CITY_NAME}}</h2>
+            <div class="neighborhoods-grid" id="neighborhoods-container">
+                <!-- Generado dinámicamente por JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties" id="properties">
+        <div class="container">
+            <h2 class="section-title">Propiedades Destacadas</h2>
+            <div class="property-grid" id="properties-container">
+                <!-- Generado dinámicamente por JavaScript -->
+            </div>
+            <div class="load-more">
+                <button class="load-more-btn">Ver Más Propiedades</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>¿Por qué elegir {{CITY_NAME}} para tu próximo hogar?</h2>
+                    <p>{{CITY_NAME}} ofrece una excelente calidad de vida con {{CITY_FEATURES}}. Nuestro equipo conoce cada rincón de la ciudad y te ayudará a encontrar la propiedad perfecta.</p>
+                    <p>Especialistas en bienes raíces en {{CITY_NAME}} con años de experiencia en el mercado local. Te acompañamos en cada paso del proceso.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number" id="city-properties-count">{{PROPERTIES_COUNT}}</div>
+                        <div class="stat-label">Propiedades en {{CITY_NAME}}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Atención al Cliente</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">¿Buscas casa en {{CITY_NAME}}?</h2>
+            <p style="font-size: 1.3rem; color: #666; margin-bottom: 2rem;">Contáctanos y encuentra tu hogar ideal</p>
+            
+            <div class="contact-buttons">
+                <a href="https://wa.me/{{PHONE_CLEAN}}?text={{WHATSAPP_MESSAGE}}" 
+                   class="whatsapp-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Contactar por WhatsApp
+                </a>
+                <a href="tel:{{PHONE}}" class="phone-button">
+                    <i class="fas fa-phone"></i>
+                    Llamar Ahora
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> {{CITY_NAME}}, {{STATE}}</p>
+                <p><i class="fas fa-phone"></i> {{PHONE}}</p>
+                <p><i class="fas fa-envelope"></i> hector@bienesraices.mx</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Hector es Bienes Raíces. Todos los derechos reservados.</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">Especialistas en {{CITY_NAME}} - Tu socio de confianza en bienes raíces</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/city-manager.js"></script>
+    <script>
+        // Inicializar ciudad específica
+        document.addEventListener('DOMContentLoaded', function() {
+            const cityManager = new CityManager();
+            cityManager.initializeCity('{{CITY_SLUG}}');
+        });
+    </script>
+</body>
+</html>

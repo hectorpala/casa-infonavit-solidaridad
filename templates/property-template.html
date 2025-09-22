@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROPERTY_TITLE}} | {{NEIGHBORHOOD}}, {{CITY}} | ${{PRICE}}</title>
+    <meta name="description" content="{{PROPERTY_DESCRIPTION}} en {{NEIGHBORHOOD}}, {{CITY}}. {{BEDROOMS}} recámaras, {{BATHROOMS}} baños, {{AREA}}m². Ver fotos y detalles.">
+    <meta name="keywords" content="casa en venta {{CITY}}, {{NEIGHBORHOOD}}, {{PROPERTY_TYPE}}, {{PRICE_RANGE}}">
+    <meta name="author" content="Hector es Bienes Raíces">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://casasenventa.info/{{CITY_SLUG}}/{{NEIGHBORHOOD_SLUG}}/{{PROPERTY_SLUG}}/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{PROPERTY_TITLE}} | ${{PRICE}}">
+    <meta property="og:description" content="{{PROPERTY_DESCRIPTION}} en {{NEIGHBORHOOD}}, {{CITY}}.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://casasenventa.info/{{CITY_SLUG}}/{{NEIGHBORHOOD_SLUG}}/{{PROPERTY_SLUG}}/">
+    <meta property="og:image" content="https://casasenventa.info/assets/images/properties/{{PROPERTY_SLUG}}/main.jpg">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "House",
+      "name": "{{PROPERTY_TITLE}}",
+      "description": "{{PROPERTY_DESCRIPTION}}",
+      "url": "https://casasenventa.info/{{CITY_SLUG}}/{{NEIGHBORHOOD_SLUG}}/{{PROPERTY_SLUG}}/",
+      "image": "https://casasenventa.info/assets/images/properties/{{PROPERTY_SLUG}}/main.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ADDRESS}}",
+        "addressLocality": "{{NEIGHBORHOOD}}",
+        "addressRegion": "{{CITY}}, {{STATE}}",
+        "addressCountry": "MX"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": {{LATITUDE}},
+        "longitude": {{LONGITUDE}}
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "{{PRICE_NUMERIC}}",
+        "priceCurrency": "MXN",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "RealEstateAgent",
+          "name": "Hector es Bienes Raíces",
+          "telephone": "{{PHONE}}"
+        }
+      },
+      "numberOfRooms": {{BEDROOMS}},
+      "numberOfBathroomsTotal": {{BATHROOMS}},
+      "floorSize": {
+        "@type": "QuantitativeValue",
+        "value": {{AREA}},
+        "unitCode": "MTK"
+      }
+    }
+    </script>
+    
+    <!-- Fonts y CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/css/critical.css">
+    <link rel="stylesheet" href="../../../assets/css/property-page.css">
+    
+    <!-- Preload critical images -->
+    <link rel="preload" href="../../../assets/images/properties/{{PROPERTY_SLUG}}/main.jpg" as="image">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/">
+                    <img src="../../../assets/images/global/logo.png" alt="Hector es Bienes Raíces" class="logo">
+                </a>
+                
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs">
+                    <a href="/">Inicio</a>
+                    <span>></span>
+                    <a href="/{{CITY_SLUG}}/">{{CITY}}</a>
+                    <span>></span>
+                    <a href="/{{CITY_SLUG}}/{{NEIGHBORHOOD_SLUG}}/">{{NEIGHBORHOOD}}</a>
+                    <span>></span>
+                    <span>{{PROPERTY_TITLE_SHORT}}</span>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="#contact" class="cta-button">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-property">
+        <div class="container">
+            <div class="property-hero-content">
+                <div class="property-info">
+                    <div class="property-badge {{LISTING_TYPE}}">{{LISTING_TYPE_LABEL}}</div>
+                    <h1 class="property-title">{{PROPERTY_TITLE}}</h1>
+                    <p class="property-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        {{ADDRESS}}, {{NEIGHBORHOOD}}, {{CITY}}
+                    </p>
+                    <div class="property-price">${{PRICE}}</div>
+                    <div class="property-features">
+                        <span class="feature"><i class="fas fa-bed"></i> {{BEDROOMS}} Recámaras</span>
+                        <span class="feature"><i class="fas fa-bath"></i> {{BATHROOMS}} Baños</span>
+                        <span class="feature"><i class="fas fa-car"></i> {{PARKING_SPOTS}} Autos</span>
+                        <span class="feature"><i class="fas fa-ruler-combined"></i> {{AREA}} m²</span>
+                    </div>
+                </div>
+                <div class="property-hero-image">
+                    <img src="../../../assets/images/properties/{{PROPERTY_SLUG}}/main.jpg" 
+                         alt="{{PROPERTY_TITLE}}" class="hero-img">
+                    <div class="image-counter">
+                        <i class="fas fa-camera"></i>
+                        <span id="photo-count">{{PHOTOS_COUNT}}</span> fotos
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería de Fotos</h2>
+            <div class="gallery-grid" id="gallery-container">
+                <!-- Generado dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="details-main">
+                    <h2>Descripción de la Propiedad</h2>
+                    <div class="description">
+                        {{DESCRIPTION_HTML}}
+                    </div>
+                    
+                    <h3>Características Principales</h3>
+                    <div class="features-grid">
+                        {{FEATURES_HTML}}
+                    </div>
+                    
+                    <h3>Detalles Técnicos</h3>
+                    <div class="technical-details">
+                        <div class="detail-row">
+                            <span class="label">Superficie del terreno:</span>
+                            <span class="value">{{LOT_SIZE}} m²</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Superficie construida:</span>
+                            <span class="value">{{BUILT_AREA}} m²</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Año de construcción:</span>
+                            <span class="value">{{YEAR_BUILT}}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Niveles:</span>
+                            <span class="value">{{LEVELS}}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="details-sidebar">
+                    <div class="contact-card">
+                        <h3>Solicita Información</h3>
+                        <div class="agent-info">
+                            <img src="../../../assets/images/global/agent.jpg" alt="Hector" class="agent-photo">
+                            <div>
+                                <h4>Hector Palazuelos</h4>
+                                <p>Especialista en {{CITY}}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-buttons">
+                            <a href="https://wa.me/{{PHONE_CLEAN}}?text={{WHATSAPP_MESSAGE_ENCODED}}" 
+                               class="whatsapp-button" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                WhatsApp
+                            </a>
+                            <a href="tel:{{PHONE}}" class="phone-button">
+                                <i class="fas fa-phone"></i>
+                                Llamar
+                            </a>
+                        </div>
+                        
+                        <form class="contact-form" id="contact-form">
+                            <input type="text" placeholder="Tu nombre" required>
+                            <input type="email" placeholder="Tu email" required>
+                            <input type="tel" placeholder="Tu teléfono" required>
+                            <textarea placeholder="Mensaje (opcional)"></textarea>
+                            <button type="submit">Enviar Consulta</button>
+                        </form>
+                    </div>
+                    
+                    <div class="mortgage-calculator">
+                        <h3>Calculadora de Hipoteca</h3>
+                        <div class="calculator-inputs">
+                            <input type="number" id="loan-amount" placeholder="Monto del préstamo" value="{{PRICE_NUMERIC}}">
+                            <input type="number" id="interest-rate" placeholder="Tasa de interés %" value="8.5">
+                            <input type="number" id="loan-term" placeholder="Años" value="20">
+                        </div>
+                        <button onclick="calculateMortgage()">Calcular</button>
+                        <div id="monthly-payment"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <div class="map-container">
+                <div id="property-map"></div>
+                <div class="map-info">
+                    <h3>{{NEIGHBORHOOD}}, {{CITY}}</h3>
+                    <p>{{LOCATION_DESCRIPTION}}</p>
+                    <div class="nearby-places">
+                        <h4>Lugares Cercanos:</h4>
+                        <ul id="nearby-list">
+                            {{NEARBY_PLACES_HTML}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Properties -->
+    <section class="related-properties">
+        <div class="container">
+            <h2 class="section-title">Propiedades Similares en {{NEIGHBORHOOD}}</h2>
+            <div class="property-grid" id="related-properties">
+                <!-- Generado dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Hector es Bienes Raíces. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-nav">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../../assets/js/property-page.js"></script>
+    <script>
+        // Initialize property page
+        document.addEventListener('DOMContentLoaded', function() {
+            const propertyData = {
+                slug: '{{PROPERTY_SLUG}}',
+                city: '{{CITY_SLUG}}',
+                neighborhood: '{{NEIGHBORHOOD_SLUG}}',
+                coordinates: [{{LATITUDE}}, {{LONGITUDE}}],
+                photos: {{PHOTOS_JSON}}
+            };
+            
+            initializePropertyPage(propertyData);
+        });
+    </script>
+    
+    <!-- Google Maps API -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    </script>
+</body>
+</html>
