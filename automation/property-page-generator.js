@@ -9,10 +9,11 @@ const path = require('path');
  */
 
 class PropertyPageGenerator {
-    constructor() {
-        this.templatePath = './templates/property-template.html';
+    constructor(isRental = false) {
+        this.templatePath = isRental ? './automation/templates/rental-template.html' : './automation/templates/property-template.html';
         this.baseDirectory = './';
         this.imagesDirectory = './images/';
+        this.isRental = isRental;
     }
 
     /**
@@ -275,7 +276,12 @@ ${slides}
      * Generate personalized WhatsApp message
      */
     generateWhatsAppMessage(propertyData) {
-        const message = `Hola%2C%20me%20interesa%20la%20casa%20en%20${encodeURIComponent(propertyData.location)}%20por%20%24${propertyData.price.toLocaleString('es-MX').replace(/,/g, '%2C')}.%20%C2%BFPodr%C3%ADa%20darme%20m%C3%A1s%20informaci%C3%B3n%3F`;
+        const priceText = this.isRental ? 
+            `%24${propertyData.price.toLocaleString('es-MX').replace(/,/g, '%2C')}%20mensuales` :
+            `%24${propertyData.price.toLocaleString('es-MX').replace(/,/g, '%2C')}`;
+        const actionText = this.isRental ? 'renta' : 'venta';
+        
+        const message = `Hola%2C%20me%20interesa%20la%20casa%20en%20${actionText}%20en%20${encodeURIComponent(propertyData.location)}%20por%20${priceText}.%20%C2%BFPodr%C3%ADa%20darme%20m%C3%A1s%20informaci%C3%B3n%3F`;
         return `https://wa.me/528111652545?text=${message}`;
     }
 

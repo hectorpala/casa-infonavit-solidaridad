@@ -48,6 +48,19 @@ const propertyConfigs = {
         bathrooms: 3,
         features: ['3 niveles', 'Alberca', 'Garage para 2 autos', 'Área de BBQ'],
         canonicalURL: 'https://casasenventa.info/casa-venta-montebello-culiacan/'
+    },
+
+    'villa-primavera': {
+        key: 'villa-primavera',
+        title: 'Casa en Renta $11,000 - Villa Primavera',
+        subtitle: 'Casa de 2 pisos en privada con alberca comunitaria y aire acondicionado',
+        description: 'Hermosa casa de 2 pisos en Privada Villa Primavera. 3 recámaras, 2.5 baños, cocina integral, aire acondicionado en toda la casa y alberca en área común. Contrato mínimo 1 año.',
+        price: 11000,
+        location: 'Villa Primavera, Culiacán',
+        bedrooms: 3,
+        bathrooms: 2.5,
+        features: ['2 pisos', 'Aire acondicionado', 'Alberca común', 'Cocina integral', 'Privada'],
+        canonicalURL: 'https://casasenventa.info/casa-renta-villa-primavera/'
     }
 };
 

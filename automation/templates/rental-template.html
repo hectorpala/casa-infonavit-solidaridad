@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROPERTY_TITLE}} | Hector es Bienes Raíces</title>
+    <meta name="description" content="{{PROPERTY_DESCRIPTION}} Ubicada en {{PROPERTY_LOCATION}}. {{PROPERTY_BEDROOMS}} recámaras, {{PROPERTY_BATHROOMS}} baños. ¡Contáctanos!">
+    <meta name="keywords" content="casa renta {{PROPERTY_LOCATION}}, {{PROPERTY_BEDROOMS}} recámaras, {{PROPERTY_BATHROOMS}} baños, {{PROPERTY_FEATURES}}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{CANONICAL_URL}}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="HectorBR">
+    <meta name="theme-color" content="#ff4e00">
+    <meta name="msapplication-TileColor" content="#ff4e00">
+    <meta name="msapplication-TileImage" content="pwa-icon-144x144.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{PROPERTY_TITLE}}">
+    <meta property="og:description" content="{{PROPERTY_DESCRIPTION}} {{PROPERTY_BEDROOMS}} recámaras, {{PROPERTY_BATHROOMS}} baños en {{PROPERTY_LOCATION}}.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{CANONICAL_URL}}">
+    <meta property="og:image" content="https://casasenventa.info/{{OG_IMAGE}}">
+    
+    <!-- Schema.org Structured Data for Rental Property -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SingleFamilyResidence",
+      "name": "{{PROPERTY_TITLE}}",
+      "description": "{{PROPERTY_DESCRIPTION}}",
+      "url": "{{CANONICAL_URL}}",
+      "image": "https://casasenventa.info/{{OG_IMAGE}}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{PROPERTY_LOCATION}}",
+        "addressLocality": "Culiacán",
+        "addressRegion": "Sinaloa",
+        "addressCountry": "MX"
+      },
+      "numberOfBedrooms": {{PROPERTY_BEDROOMS}},
+      "numberOfBathroomsTotal": {{PROPERTY_BATHROOMS}},
+      "petsAllowed": false,
+      "offers": {
+        "@type": "Offer",
+        "price": "{{PROPERTY_PRICE_NUMBER}}",
+        "priceCurrency": "MXN",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "{{PROPERTY_PRICE_NUMBER}}",
+          "priceCurrency": "MXN",
+          "unitText": "MONTH"
+        },
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2025-12-31",
+        "seller": {
+          "@type": "RealEstateAgent",
+          "name": "Hector es Bienes Raíces",
+          "telephone": "+52 811 165 2545",
+          "email": "hector@bienesraices.mx",
+          "url": "https://casasenventa.info"
+        }
+      }
+    }
+    </script>
+    
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="//wa.me">
+    <link rel="dns-prefetch" href="//api.whatsapp.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="culiacan/infonavit-solidaridad/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" as="style">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="culiacan/infonavit-solidaridad/styles.css">
+    
+    <!-- Optimized font loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    </noscript>
+    
+    <!-- Font Awesome optimizado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <picture>
+                    <img src="images/optimized/Logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" class="logo">
+                </picture>
+                <a href="#contact" class="cta-button">Contactar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">{{PROPERTY_TITLE}}</h1>
+            <p class="hero-subtitle">{{PROPERTY_SUBTITLE}}</p>
+            <a href="#gallery" class="hero-cta">Ver Fotos</a>
+        </div>
+        <div class="hero-image">
+            <div class="carousel-container">
+{{HERO_CAROUSEL}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Características Principales</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bed"></i>
+                    <h3>{{PROPERTY_BEDROOMS}} Recámaras</h3>
+                    <p>Habitaciones amplias con excelente iluminación y ventilación</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bath"></i>
+                    <h3>{{PROPERTY_BATHROOMS}} Baños</h3>
+                    <p>Baños completos con acabados de calidad</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>Aire Acondicionado</h3>
+                    <p>Clima en toda la casa para máximo confort</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-swimming-pool"></i>
+                    <h3>Alberca Común</h3>
+                    <p>Disfruta de alberca en área común de la privada</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-home"></i>
+                    <h3>2 Pisos</h3>
+                    <p>Casa amplia distribuida en dos niveles</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Privada Cerrada</h3>
+                    <p>Seguridad y tranquilidad en privada exclusiva</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Carousel Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería de Fotos</h2>
+            <div class="carousel-container">
+{{GALLERY_CAROUSEL}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details">
+        <div class="container">
+            <div class="details-content">
+                <div class="details-info">
+                    <h2>Información Detallada</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>Ubicación:</strong>
+                            <span>{{PROPERTY_LOCATION}}</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Recámaras:</strong>
+                            <span>{{PROPERTY_BEDROOMS}} habitaciones</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Baños:</strong>
+                            <span>{{PROPERTY_BATHROOMS}} baños</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Contrato:</strong>
+                            <span>Mínimo 1 año</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Depósito:</strong>
+                            <span>1 mes de renta</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Características:</strong>
+                            <span>{{PROPERTY_FEATURES}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-card">
+                    <h3>Renta Mensual</h3>
+                    <div class="price">{{PROPERTY_PRICE}}</div>
+                    <p class="price-note">Contrato mínimo 1 año + 1 mes depósito</p>
+                    <a href="#contact" class="price-cta">Más Información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Calculator -->
+    <section class="simple-calc" id="calculadora">
+        <div class="container">
+            <h2>🏠 Calculadora de Renta</h2>
+            <div class="calc-box">
+                <div class="input-group">
+                    <label>Renta mensual:</label>
+                    <input type="number" id="renta" value="{{PROPERTY_PRICE_NUMBER}}" min="1000" step="500">
+                </div>
+                
+                <div class="input-group">
+                    <label>Meses de depósito:</label>
+                    <select id="deposito">
+                        <option value="1" selected>1 mes</option>
+                        <option value="2">2 meses</option>
+                        <option value="3">3 meses</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Gastos adicionales:</label>
+                    <input type="number" id="gastos" value="3000" min="0" step="500" placeholder="Servicios, limpieza, etc.">
+                </div>
+                
+                <button onclick="calcularRenta()" class="calc-btn">🧮 CALCULAR</button>
+                
+                <div class="result-box">
+                    <h3>💰 Para entrar: <span id="entrada">$0</span></h3>
+                    <p>🏠 Renta mensual: <span id="rentaMensual">$0</span></p>
+                    <p>📋 Gastos adicionales: <span id="gastosMensuales">$0</span></p>
+                    <p>💎 Total mensual: <span id="totalMensual">$0</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">¿Interesado?</h2>
+            <p class="contact-subtitle">Contáctanos para más información o para agendar una visita</p>
+            <div class="contact-buttons">
+                <a href="{{WHATSAPP_URL}}" 
+                   class="whatsapp-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Contactar por WhatsApp
+                </a>
+                <a href="tel:+528111652545" class="phone-button">
+                    <i class="fas fa-phone"></i>
+                    Llamar Ahora
+                </a>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> {{PROPERTY_LOCATION}}</p>
+                <p><i class="fas fa-phone"></i> +52 811 165 2545</p>
+                <p><i class="fas fa-envelope"></i> hector@bienesraices.mx</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="{{WHATSAPP_URL}}" 
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">Escríbenos en WhatsApp</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Hector es Bienes Raíces. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+{{CAROUSEL_JAVASCRIPT}}
+
+        // Rental calculator functions
+        function calcularRenta() {
+            const renta = parseFloat(document.getElementById('renta').value) || {{PROPERTY_PRICE_NUMBER}};
+            const mesesDeposito = parseInt(document.getElementById('deposito').value) || 1;
+            const gastosAdicionales = parseFloat(document.getElementById('gastos').value) || 3000;
+
+            const depositoTotal = renta * mesesDeposito;
+            const gastosEntrada = depositoTotal + renta;
+            const totalMensual = renta + gastosAdicionales;
+
+            document.getElementById('entrada').textContent = '$' + gastosEntrada.toLocaleString('es-MX');
+            document.getElementById('rentaMensual').textContent = '$' + renta.toLocaleString('es-MX');
+            document.getElementById('gastosMensuales').textContent = '$' + gastosAdicionales.toLocaleString('es-MX');
+            document.getElementById('totalMensual').textContent = '$' + totalMensual.toLocaleString('es-MX');
+        }
+
+        // Initialize calculator
+        calcularRenta();
+
+        // Make functions globally available
+        window.changeSlide = changeSlide;
+        window.goToSlide = goToSlide;
+        window.changeSlideHero = changeSlideHero;
+        window.goToSlideHero = goToSlideHero;
+        window.calcularRenta = calcularRenta;
+});
+    </script>
+</body>
+</html>
