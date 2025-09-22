@@ -90,11 +90,27 @@
       ]
     }
     </script>
-    <link rel="stylesheet" href="culiacan/infonavit-solidaridad/styles.css">
+    <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome optimizado - una sola carga -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="//wa.me">
+    <link rel="dns-prefetch" href="//api.whatsapp.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="culiacan/infonavit-solidaridad/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" as="style">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="culiacan/infonavit-solidaridad/styles.css">
+    
+    <!-- Optimized font loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    </noscript>
+    
+    <!-- Font Awesome optimizado -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -413,6 +429,13 @@
         </div>
     </section>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/528111652545?text=Hola%2C%20me%20interesa%20la%20casa%20en%20Villa%20Bonita%20por%20%241%2C400%2C000.%20%C2%BFPodr%C3%ADa%20darme%20m%C3%A1s%20informaci%C3%B3n%3F" 
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">Escríbenos en WhatsApp</span>
+    </a>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -421,6 +444,7 @@
     </footer>
 
     <script>
+document.addEventListener("DOMContentLoaded", function() {
         // GALLERY CAROUSEL (main gallery)
         let currentSlide = 0;
         const totalSlides = 8;
@@ -598,10 +622,17 @@
         }
 
         // Initialize calculator
-        window.onload = function() {
-            updateEnganche();
-            calcular();
-        };
+        updateEnganche();
+        calcular();
+
+        // Expose functions globally for onclick handlers
+        window.changeSlide = changeSlide;
+        window.goToSlide = goToSlide;
+        window.changeSlideHero = changeSlideHero;
+        window.goToSlideHero = goToSlideHero;
+        window.updateEnganche = updateEnganche;
+        window.calcular = calcular;
+});
     </script>
 </body>
 </html>
