@@ -3369,6 +3369,45 @@ img {
     transform: scale(1.1);
 }
 
+/* Price Badge Styles */
+.price-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff4e00 0%, #ff6b2e 100%);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(255, 78, 0, 0.3);
+    z-index: 20;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.price-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(255, 78, 0, 0.4);
+}
+
+.price-amount {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2px;
+}
+
+.price-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 /* Mobile Responsive - Optimized for better photo display */
 @media (max-width: 768px) {
     .carousel-wrapper {
@@ -3391,7 +3430,21 @@ img {
         font-size: 1.1rem;
         background: rgba(0, 0, 0, 0.8);
         border: 2px solid #ff4e00;
-        backdrop-filter: blur(10px);
+    }
+    
+    .price-badge {
+        top: 15px;
+        right: 15px;
+        padding: 10px 14px;
+        border-radius: 12px;
+    }
+    
+    .price-amount {
+        font-size: 16px;
+    }
+    
+    .price-label {
+        font-size: 11px;
     }
     
     .carousel-prev {

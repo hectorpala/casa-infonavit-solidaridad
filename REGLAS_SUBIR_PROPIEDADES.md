@@ -65,6 +65,7 @@ Quiero la misma estructura y optimización que las otras propiedades.
 ✅ WhatsApp floating button personalizado
 ✅ Calculadora de renta (para propiedades de renta)
 ✅ Calculadora de hipoteca (para propiedades de venta)
+✅ Price badge visible en carrusel de fotos (overlay en esquina superior derecha)
 ✅ Responsive design completo
 ✅ Lazy loading de imágenes
 
