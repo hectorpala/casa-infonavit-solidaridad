@@ -64,6 +64,7 @@ Quiero la misma estructura y optimización que las otras propiedades.
 ✅ Carrusel dual (hero + galería) con navegación
 ✅ WhatsApp floating button personalizado
 ✅ Calculadora de renta (para propiedades de renta)
+✅ Calculadora de hipoteca (para propiedades de venta)
 ✅ Responsive design completo
 ✅ Lazy loading de imágenes
 
@@ -180,6 +181,12 @@ El sistema usa:
 - **Precio**: $2,100,000
 - **Características**: 3 recámaras, 2.5 baños, cochera 2 autos, 225 m²
 - **Status**: ✅ Deployed successfully
+
+### ✅ Casa Valle Alto Verde (Venta)
+- **Commit**: 2025413
+- **Precio**: $1,300,000
+- **Características**: 2 recámaras, 1 baño, 2 pisos, completamente remodelada
+- **Status**: ✅ Deployed successfully - ✅ Con calculadora de hipoteca
 
 ## 🔧 COMANDOS ESENCIALES
 
