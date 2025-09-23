@@ -74,6 +74,8 @@ Quiero la misma estructura y optimización que las otras propiedades.
 - [ ] Confirmar descripciones precisas de cada foto
 - [ ] Revisar información de contacto y WhatsApp
 - [ ] Validar que aparezca en ambas páginas de listings
+- [ ] **IMPORTANTE: Verificar que el price badge naranja aparezca en la esquina superior derecha del carrusel de fotos**
+- [ ] Si el badge no aparece: refrescar página (Cmd+R) o forzar recarga (Cmd+Shift+R)
 
 ### 6. COMANDO DE PUBLICACIÓN
 ```
