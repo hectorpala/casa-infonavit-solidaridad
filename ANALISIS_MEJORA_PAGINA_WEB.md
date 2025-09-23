@@ -295,6 +295,54 @@ Quiero un resultado **claro, accionable y organizado en secciones**, para que pu
 
 ---
 
+## 🔧 **SISTEMA DE VERIFICACIÓN LOCAL**
+
+### **SCRIPT DE VERIFICACIÓN PRE-PUBLICACIÓN:**
+Para evitar confusiones de deployment, **SIEMPRE** usa el sistema de verificación local antes de publicar:
+
+```bash
+# Comando estándar de verificación
+./verificar-optimizaciones.sh [archivo.html]
+
+# Ejemplos de uso:
+./verificar-optimizaciones.sh casa-venta-valle-alto-verde.html
+./verificar-optimizaciones.sh culiacan/infonavit-solidaridad/index.html
+```
+
+### **MÉTRICAS DE VERIFICACIÓN:**
+El script evalúa automáticamente:
+- **📸 Lazy Loading:** >5 imágenes = ✅
+- **📏 Dimensiones:** >5 imágenes = ✅  
+- **⚡ Preload:** >0 imágenes = ✅
+- **⚙️ JavaScript defer:** >0 scripts = ✅
+- **🌐 Open Graph:** ≥4 tags = ✅
+- **🎨 Alt descriptivo:** >3 imágenes = ✅
+
+### **CRITERIOS DE PUBLICACIÓN:**
+- **6/6 puntos:** ✅ LISTO PARA PUBLICAR
+- **5/6 puntos:** ✅ LISTO PARA PUBLICAR  
+- **3-4/6 puntos:** ⚠️ NECESITA MEJORAS MENORES
+- **<3/6 puntos:** ❌ NECESITA OPTIMIZACIÓN MAYOR
+
+### **WORKFLOW RECOMENDADO:**
+```bash
+# 1. Implementar optimizaciones
+# 2. Verificar localmente
+./verificar-optimizaciones.sh [archivo]
+
+# 3. Solo si resultado es ✅, entonces publicar:
+if ./verificar-optimizaciones.sh [archivo] | grep -q "LISTO PARA PUBLICAR"; then
+    echo "✅ Verificación exitosa - Procediendo a publicar"
+    # publica ya
+else
+    echo "❌ Verificación falló - NO publicar"
+fi
+```
+
+**📋 DOCUMENTO COMPLETO:** Ver `VERIFICACION_LOCAL_OPTIMIZACIONES.md` para comandos detallados.
+
+---
+
 ## 🔧 **COMANDOS ÚTILES**
 
 ### **Para análisis rápido:**

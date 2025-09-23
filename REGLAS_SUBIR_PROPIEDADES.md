@@ -77,12 +77,40 @@ Quiero la misma estructura y optimización que las otras propiedades.
 - [ ] **IMPORTANTE: Verificar que el price badge naranja aparezca en la esquina superior derecha del carrusel de fotos**
 - [ ] Si el badge no aparece: refrescar página (Cmd+R) o forzar recarga (Cmd+Shift+R)
 
-### 6. COMANDO DE PUBLICACIÓN
+### 6. ✅ VERIFICACIÓN PRE-PUBLICACIÓN (OBLIGATORIA)
+**⚠️ PASO CRÍTICO: Verificar optimizaciones ANTES de publicar**
+
+```bash
+# SIEMPRE ejecutar ANTES de "publica ya":
+./verificar-optimizaciones.sh casa-[tipo]-[nombre].html
+```
+
+**Ejemplo:**
+```bash
+./verificar-optimizaciones.sh casa-venta-valle-alto-verde.html
+```
+
+**🎯 CRITERIOS PARA PUBLICAR:**
+- **6/6 puntos:** ✅ LISTO PARA PUBLICAR
+- **5/6 puntos:** ✅ LISTO PARA PUBLICAR  
+- **<5/6 puntos:** ❌ NO PUBLICAR - Corregir optimizaciones
+
+**📊 El script verifica automáticamente:**
+- 📸 **Lazy Loading** (>5 imágenes)
+- 📏 **Dimensiones** especificadas (>5 imágenes)
+- ⚡ **Preload** de imagen crítica (>0)
+- ⚙️ **JavaScript defer** (>0 scripts)
+- 🌐 **Open Graph** completo (≥4 tags)
+- 🎨 **Alt text descriptivo** (>3 imágenes)
+
+**✅ Solo si la verificación muestra "LISTO PARA PUBLICAR", entonces:**
+
+### 7. COMANDO DE PUBLICACIÓN
 ```
 publica ya
 ```
 
-### 7. VERIFICACIÓN POST-PUBLICACIÓN
+### 8. VERIFICACIÓN POST-PUBLICACIÓN
 Si no aparece la propiedad inmediatamente:
 1. **Refrescar con Ctrl+F5** (o Cmd+Shift+R en Mac)
 2. **Borrar caché del navegador**
@@ -208,7 +236,12 @@ puedes identificar las fotos osea saber que son?
 si (actualiza las descripciones de fotos)
 ```
 
-### Para publicar:
+### Para verificar antes de publicar:
+```
+./verificar-optimizaciones.sh casa-[tipo]-[nombre].html
+```
+
+### Para publicar (solo si verificación es ✅):
 ```
 publica ya
 ```
