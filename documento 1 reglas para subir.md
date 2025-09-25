@@ -2,17 +2,20 @@
 
 ## 🎯 Proceso Completo Automatizado
 
-### 1. PREPARACIÓN DE FOTOS ⚡ OPTIMIZACIÓN AUTOMÁTICA
+### 1. PREPARACIÓN DE FOTOS ⚡ OPTIMIZACIÓN 100% AUTOMÁTICA
 ```bash
-# ✅ NUEVO: Las fotos se optimizan AUTOMÁTICAMENTE
-# - PropertyPageGenerator ejecuta optimizar-fotos.sh
-# - Convierte PNG → JPG automáticamente
-# - Reduce calidad a 85% (balance perfecto)
-# - Redimensiona a máximo 1200px (responsive)
-# - Reducción típica: 60-70% del tamaño original
+# ✅ COMPLETAMENTE AUTOMÁTICO: Al invocar las reglas del documento 1
+# 🤖 PropertyPageGenerator hace TODO automáticamente:
+# 1. Auto-detecta fotos en carpeta PROYECTOS
+# 2. Ejecuta optimizar-fotos.sh automáticamente  
+# 3. Convierte PNG → JPG automáticamente
+# 4. Reduce calidad a 85% (balance perfecto)
+# 5. Redimensiona a máximo 1200px (responsive)
+# 6. Ejecuta verificar-optimizaciones.sh automáticamente
+# 7. Muestra "READY TO PUBLISH" si todo está correcto
 
-# 📂 Ubicar fotos en: /Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/[nombre-propiedad]/
-# 🎯 El sistema copia y optimiza automáticamente
+# 📂 Solo ubicar fotos en: /Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/[nombre-propiedad]/
+# 🎯 EL RESTO ES 100% AUTOMÁTICO - NO REQUIERE ACCIÓN MANUAL
 ```
 
 ### 2. COMANDO PARA INVOCAR REGLAS
@@ -215,10 +218,12 @@ Quiero la misma estructura y optimización que las otras propiedades.
 </div>
 ```
 
-### 4. OPTIMIZACIONES INCLUIDAS
+### 4. OPTIMIZACIONES 100% AUTOMÁTICAS INCLUIDAS
 ✅ SEO completo (meta tags, structured data, Open Graph)
 ✅ Performance (preloading, font optimization, DNS prefetch)
-✅ **NUEVO: Optimización automática de fotos** (PNG→JPG, calidad 85%, 1200px max)
+✅ **🤖 AUTOMÁTICO: Detección de fotos en PROYECTOS**
+✅ **🤖 AUTOMÁTICO: Optimización de fotos** (PNG→JPG, calidad 85%, 1200px max)
+✅ **🤖 AUTOMÁTICO: Verificación pre-publicación** (./verificar-optimizaciones.sh)
 ✅ Carrusel dual (hero + galería) con navegación
 ✅ WhatsApp floating button personalizado
 ✅ Calculadora de renta (para propiedades de renta)
@@ -226,7 +231,6 @@ Quiero la misma estructura y optimización que las otras propiedades.
 ✅ Price badge visible en carrusel de fotos (overlay en esquina superior derecha)
 ✅ Responsive design completo
 ✅ Lazy loading de imágenes
-✅ **Verificación automática pre-publicación** (./verificar-optimizaciones.sh)
 
 ### 5. VERIFICACIÓN POST-CREACIÓN
 - [ ] Verificar que la fachada sea la imagen principal
@@ -236,33 +240,33 @@ Quiero la misma estructura y optimización que las otras propiedades.
 - [ ] **IMPORTANTE: Verificar que el price badge naranja aparezca en la esquina superior derecha del carrusel de fotos**
 - [ ] Si el badge no aparece: refrescar página (Cmd+R) o forzar recarga (Cmd+Shift+R)
 
-### 6. ✅ VERIFICACIÓN PRE-PUBLICACIÓN (OBLIGATORIA)
-**⚠️ PASO CRÍTICO: Verificar optimizaciones ANTES de publicar**
+### 6. ✅ VERIFICACIÓN PRE-PUBLICACIÓN (100% AUTOMÁTICA)
+**🤖 COMPLETAMENTE AUTOMÁTICO: PropertyPageGenerator ejecuta automáticamente**
 
 ```bash
-# SIEMPRE ejecutar ANTES de "publica ya":
-./verificar-optimizaciones.sh casa-[tipo]-[nombre].html
+# ✅ YA NO NECESITAS EJECUTAR MANUALMENTE
+# 🤖 PropertyPageGenerator ejecuta automáticamente:
+# ./verificar-optimizaciones.sh casa-[tipo]-[nombre].html
+
+# 🎯 El sistema muestra automáticamente:
+# "✅ VERIFICACIÓN PASSED - READY TO PUBLISH" o 
+# "⚠️ VERIFICACIÓN FAILED - REVIEW REQUIRED"
 ```
 
-**Ejemplo:**
-```bash
-./verificar-optimizaciones.sh casa-venta-valle-alto-verde.html
-```
+**🎯 CRITERIOS AUTOMÁTICOS:**
+- **6/6 puntos:** ✅ "READY TO PUBLISH" 
+- **5/6 puntos:** ✅ "READY TO PUBLISH"
+- **<5/6 puntos:** ⚠️ "REVIEW REQUIRED"
 
-**🎯 CRITERIOS PARA PUBLICAR:**
-- **6/6 puntos:** ✅ LISTO PARA PUBLICAR
-- **5/6 puntos:** ✅ LISTO PARA PUBLICAR  
-- **<5/6 puntos:** ❌ NO PUBLICAR - Corregir optimizaciones
-
-**📊 El script verifica automáticamente:**
+**📊 El sistema verifica automáticamente:**
 - 📸 **Lazy Loading** (>5 imágenes)
-- 📏 **Dimensiones** especificadas (>5 imágenes)
+- 📏 **Dimensiones** especificadas (>5 imágenes)  
 - ⚡ **Preload** de imagen crítica (>0)
 - ⚙️ **JavaScript defer** (>0 scripts)
 - 🌐 **Open Graph** completo (≥4 tags)
 - 🎨 **Alt text descriptivo** (>3 imágenes)
 
-**✅ Solo si la verificación muestra "LISTO PARA PUBLICAR", entonces:**
+**✅ Si muestra "READY TO PUBLISH", proceder con publicación:**
 
 ### 7. COMANDO DE PUBLICACIÓN
 ```

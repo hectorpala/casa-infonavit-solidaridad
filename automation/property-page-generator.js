@@ -18,6 +18,46 @@ class PropertyPageGenerator {
     }
 
     /**
+     * Auto-detect photos source folder in PROYECTOS
+     */
+    detectPhotosSource(propertyKey, propertyTitle) {
+        const proyectosBase = '/Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS';
+        
+        // Posibles nombres de carpeta basados en propertyKey y título
+        const possibleNames = [
+            propertyKey,
+            propertyKey.replace(/-/g, ' '),
+            propertyTitle.toLowerCase().replace(/casa|venta|renta/gi, '').trim(),
+            // Nombres específicos conocidos
+            'stanza-corcega',
+            'barcelona',
+            'infonavit-barrancos',
+            'hacienda-de-la-mora',
+            'villa-primavera',
+            'zona-dorada'
+        ];
+        
+        try {
+            const directories = fs.readdirSync(proyectosBase);
+            
+            for (const possibleName of possibleNames) {
+                const foundDir = directories.find(dir => 
+                    dir.toLowerCase().includes(possibleName.toLowerCase()) ||
+                    possibleName.toLowerCase().includes(dir.toLowerCase())
+                );
+                
+                if (foundDir) {
+                    return path.join(proyectosBase, foundDir);
+                }
+            }
+        } catch (error) {
+            console.warn('⚠️  No se puede acceder a carpeta PROYECTOS:', error.message);
+        }
+        
+        return null;
+    }
+
+    /**
      * Auto-optimize photos from PROYECTOS folder
      */
     optimizePhotos(sourcePath, propertyKey) {
@@ -36,6 +76,36 @@ class PropertyPageGenerator {
             return true;
         } catch (error) {
             console.error('❌ Error al optimizar fotos:', error.message);
+            return false;
+        }
+    }
+
+    /**
+     * Run automatic optimization check
+     */
+    runOptimizationCheck(filepath) {
+        try {
+            const filename = path.basename(filepath);
+            const checkScript = path.join(__dirname, '..', 'verificar-optimizaciones.sh');
+            
+            console.log('🔍 EJECUTANDO VERIFICACIÓN AUTOMÁTICA...');
+            const result = execSync(`"${checkScript}" "${filename}"`, { 
+                encoding: 'utf8',
+                stdio: 'pipe'
+            });
+            
+            console.log(result);
+            
+            // Verificar si está listo para publicar
+            if (result.includes('LISTO PARA PUBLICAR')) {
+                console.log('✅ VERIFICACIÓN PASSED - READY TO PUBLISH');
+            } else {
+                console.warn('⚠️  VERIFICACIÓN FAILED - REVIEW REQUIRED');
+            }
+            
+            return true;
+        } catch (error) {
+            console.warn('⚠️  Error en verificación automática:', error.message);
             return false;
         }
     }
@@ -421,12 +491,36 @@ ${slides}
      */
     generate(propertyConfig) {
         try {
+            // 🎯 OPTIMIZACIÓN AUTOMÁTICA OBLIGATORIA
+            console.log('🔄 INICIANDO PROCESO AUTOMÁTICO DE OPTIMIZACIÓN...');
+            
+            // 1. Auto-detectar carpeta de fotos en PROYECTOS
+            const sourcePath = this.detectPhotosSource(propertyConfig.key, propertyConfig.title);
+            if (sourcePath) {
+                console.log(`📂 Fotos detectadas en: ${sourcePath}`);
+                
+                // 2. Optimizar fotos automáticamente
+                const optimized = this.optimizePhotos(sourcePath, propertyConfig.key);
+                if (optimized) {
+                    console.log('✅ FOTOS OPTIMIZADAS AUTOMÁTICAMENTE');
+                } else {
+                    console.warn('⚠️  Error en optimización automática, continuando...');
+                }
+            } else {
+                console.warn('⚠️  No se encontró carpeta de fotos en PROYECTOS, verificar manualmente');
+            }
+            
+            // 3. Generar página HTML
             const htmlContent = this.generatePropertyPage(propertyConfig);
             const filepath = this.savePropertyPage(propertyConfig, htmlContent);
+            
+            // 4. Ejecutar verificación automática
+            this.runOptimizationCheck(filepath);
             
             console.log(`🎉 Successfully generated property page for ${propertyConfig.title}`);
             console.log(`📁 File: ${filepath}`);
             console.log(`📸 Photos: ${this.scanPropertyPhotos(propertyConfig.key).length} images`);
+            console.log('✅ PROCESO AUTOMÁTICO COMPLETADO - READY TO PUBLISH');
             
             return filepath;
         } catch (error) {
