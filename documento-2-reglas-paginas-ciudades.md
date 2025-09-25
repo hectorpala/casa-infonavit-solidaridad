@@ -642,6 +642,68 @@ indicators.forEach((indicator, index) => {
 ### Propiedades con Carrusel Implementado
 - **Casa Infonavit Solidaridad**: 5 imágenes (fachada, exterior, sala, cocina, recámara)
 - **Casa Barcelona Villa**: 8 imágenes (fachada, interior, sala, cocina, recámara, baño, patio, área social)
+- **Casa Urbivilla del Roble**: 8 imágenes (fachada, interior, sala, cocina, recámara, baño, patio, área común)
+- **Casa Valle Alto Verde**: 6 imágenes (fachada, interior, sala, cocina, recámara, baño)
+- **Casa Lázaro Cárdenas**: 5 imágenes (fachada, interior, sala, cocina, recámara)
+- **Casa Zona Dorada**: 6 imágenes (fachada, interior, sala, cocina, recámara, vista exterior)
+- **Casa Santa Fe**: 5 imágenes (fachada, interior, sala, cocina, recámara)
+- **Casa Privada Acacia Cotos**: 7 imágenes (fachada, exterior, sala, recámara principal, cocina, cochera, patio)
+- **Casa Hacienda de La Mora**: 6 imágenes disponibles
+- **Casa La Estancia I**: 11 imágenes disponibles
+- **Casa Infonavit Barrancos**: 11 imágenes disponibles
+
+## 🔍 REGLAS DE VALIDACIÓN Y CONSISTENCIA
+
+### REGLA #10: VALIDACIÓN OBLIGATORIA DE PRECIOS
+**IMPORTANTE: Los precios en las tarjetas DEBEN coincidir exactamente con las páginas individuales.**
+
+#### Proceso de Validación:
+```bash
+# 1. Leer página individual para obtener precio real
+Read(file_path: "casa-[nombre-propiedad].html")
+# Buscar: <title>Casa en Venta $X,XXX,XXX</title>
+# O buscar: <div class="price">$X,XXX,XXX</div>
+
+# 2. Comparar con precio en tarjeta de ciudad
+# 3. Corregir si hay discrepancia
+# 4. Actualizar también WhatsApp links, descripciones y especificaciones
+```
+
+#### Discrepancias Críticas Encontradas y Corregidas:
+- **Casa Valle Alto Verde**: $1,350,000 → $1,300,000 ✅
+- **Casa Lázaro Cárdenas**: $980,000 → $2,100,000 ✅ (diferencia de $1.12M)
+- **Casa Zona Dorada**: $2,450,000 → $1,300,000 ✅ (diferencia de $1.15M)  
+- **Casa Privada Acacia Cotos**: $1,950,000 → $4,100,000 ✅ (diferencia de $2.15M)
+
+### REGLA #11: ACTUALIZACIÓN INTEGRAL POR PRECIO
+**Cuando se corrige un precio, actualizar TODOS los elementos relacionados:**
+
+```html
+<!-- 1. Precio principal -->
+<h3>$X,XXX,XXX</h3>
+
+<!-- 2. Descripción (puede cambiar según el rango de precio) -->
+<p>Casa [Económica/Familiar/Premium/Espectacular] en [Ubicación]</p>
+
+<!-- 3. WhatsApp link -->
+<a href="https://wa.me/526671631231?text=...de%20$X,XXX,XXX...">
+
+<!-- 4. Especificaciones si corresponden -->
+<span>X rec</span>
+<span>X baños</span>
+<span>X m²</span>
+
+<!-- 5. Badge apropiado -->
+<span>Disponible/Premium/Económica</span>
+```
+
+### REGLA #12: CLASIFICACIÓN POR RANGOS DE PRECIO
+**Usar descripciones apropiadas según el rango:**
+
+- **$800k - $1.2M**: "Casa Económica" / Badge: "Disponible"
+- **$1.3M - $2M**: "Casa Familiar" / Badge: "Disponible" 
+- **$2.1M - $3M**: "Casa Espectacular" / Badge: "Disponible"
+- **$3M+**: "Casa Premium/Modelo" / Badge: "Premium"
 
 ## 📝 ACTUALIZACIONES RECIENTES
 
@@ -659,6 +721,11 @@ indicators.forEach((indicator, index) => {
 - ✅ **Casa Barcelona Villa**: Agregado carrusel con 8 imágenes disponibles, flechas y dots funcionales
 - ✅ **CSS Carrusel Uniforme**: Botones circulares blancos con iconos naranjas, hover effects
 - ✅ **Estructura Consistente**: Todas las propiedades con múltiples imágenes usan la misma estructura
+- ✅ **Sistema JavaScript Unificado**: Un solo sistema maneja .carousel-dot y .indicator
+- ✅ **12 Propiedades Completas**: Página de Culiacán con todas las propiedades y carruseles funcionales
+- ✅ **Casa Urbivilla del Roble**: Carrusel implementado con 8 imágenes (era la única que faltaba)
+- ✅ **Corrección Precios Críticos**: 4 propiedades tenían precios incorrectos, todas corregidas
+- ✅ **Validación de Precios**: Sistema para verificar consistencia entre tarjetas y páginas individuales
 
 ### Problemas Comunes Resueltos
 - **Error 404 en propiedades**: Verificar que los archivos HTML individuales existen y están deployados
@@ -668,6 +735,31 @@ indicators.forEach((indicator, index) => {
 - **Dots no aparecen**: Verificar que hay múltiples imágenes en el carousel (auto-hide si hay solo 1)
 - **Dots no clickeables**: Asegurar que tienen `e.stopPropagation()` para no activar navegación de tarjeta
 - **Dots desincronizados**: Verificar que `showImage()` actualiza tanto imágenes como dots
+- **Carruseles mixtos no funcionan**: Sistema unificado maneja .carousel-dot Y .indicator
+- **Precios inconsistentes**: Validar SIEMPRE contra página individual antes de deployment
+- **Discrepancias críticas**: Diferencias de millones pueden ocurrir, verificar 2-3 veces
+- **JavaScript duplicado**: Un solo sistema de carrusel elimina conflictos de event listeners
+
+### Procedimientos Técnicos Implementados
+
+#### Solución de Carruseles Mixtos:
+```javascript
+// ANTES: Dos sistemas separados
+const dots1 = container.parentNode.querySelectorAll('.carousel-dot');
+const dots2 = container.parentNode.querySelectorAll('.indicator');
+
+// DESPUÉS: Sistema unificado
+const dots = container.parentNode.querySelectorAll('.carousel-dot, .indicator');
+```
+
+#### Validación de Precios (Proceso Completo):
+```bash
+1. Read(página individual) → Extraer precio real
+2. Grep(página ciudad) → Localizar precio en tarjeta  
+3. Edit(correcciones) → Actualizar precio + descripción + WhatsApp + specs
+4. Commit → Documentar cambio con diferencia exacta
+5. Deploy → Verificar consistencia en producción
+```
 
 ---
 
