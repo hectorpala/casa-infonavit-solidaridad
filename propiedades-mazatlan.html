@@ -50,6 +50,16 @@
             z-index: 10 !important;
         }
         
+        /* Carousel dots styling */
+        .carousel-dot {
+            opacity: 0.6;
+        }
+        
+        .carousel-dot.active {
+            opacity: 1;
+            background-color: white !important;
+        }
+        
         /* Uniform image areas */
         .property-card .aspect-video {
             height: 240px !important;
@@ -243,6 +253,14 @@
                         </svg>
                     </button>
                     
+                    <!-- Carousel dots -->
+                    <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-1">
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot active"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                    </div>
+                    
                     <!-- Badges -->
                     <div class="absolute top-3 left-3 flex gap-2">
                         <span class="bg-green-500 text-white px-2 py-1 rounded-lg text-xs font-medium">Actualizado hoy</span>
@@ -316,6 +334,14 @@
                             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
                         </svg>
                     </button>
+                    
+                    <!-- Carousel dots -->
+                    <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-1">
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot active"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                    </div>
                     
                     <!-- Badges -->
                     <div class="absolute top-3 left-3 flex gap-2">
@@ -396,6 +422,15 @@
                         </svg>
                     </button>
                     
+                    <!-- Carousel dots -->
+                    <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-1">
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot active"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                    </div>
+                    
                     <!-- Badges -->
                     <div class="absolute top-3 left-3 flex gap-2">
                         <span class="bg-purple-500 text-white px-2 py-1 rounded-lg text-xs font-medium">Premium</span>
@@ -474,6 +509,15 @@
                             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
                         </svg>
                     </button>
+                    
+                    <!-- Carousel dots -->
+                    <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-1">
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot active"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                        <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+                    </div>
                     
                     <!-- Badges -->
                     <div class="absolute top-3 left-3 flex gap-2">
@@ -571,12 +615,14 @@
                 const images = container.querySelectorAll('.carousel-image');
                 const prevBtn = container.parentNode.querySelector('.carousel-prev');
                 const nextBtn = container.parentNode.querySelector('.carousel-next');
+                const dots = container.parentNode.querySelectorAll('.carousel-dot');
                 let currentIndex = 0;
                 
                 // Hide carousel controls if only one image
                 if (images.length <= 1) {
                     if (prevBtn) prevBtn.style.display = 'none';
                     if (nextBtn) nextBtn.style.display = 'none';
+                    dots.forEach(dot => dot.style.display = 'none');
                     return;
                 }
                 
@@ -590,11 +636,21 @@
                             img.classList.remove('active');
                         }
                     });
+                    
+                    // Update dots
+                    dots.forEach((dot, i) => {
+                        if (i === index) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
                 }
                 
                 if (prevBtn) {
                     prevBtn.addEventListener('click', (e) => {
                         e.preventDefault();
+                        e.stopPropagation();
                         currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
                         showImage(currentIndex);
                     });
@@ -603,10 +659,21 @@
                 if (nextBtn) {
                     nextBtn.addEventListener('click', (e) => {
                         e.preventDefault();
+                        e.stopPropagation();
                         currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
                         showImage(currentIndex);
                     });
                 }
+                
+                // Add dot functionality
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        currentIndex = index;
+                        showImage(currentIndex);
+                    });
+                });
             });
             
             // Favorite functionality
@@ -638,10 +705,11 @@
             const propertyCards = document.querySelectorAll('.property-card[data-href]');
             propertyCards.forEach(card => {
                 card.addEventListener('click', function(e) {
-                    // Don't navigate if clicking on WhatsApp button or carousel controls
+                    // Don't navigate if clicking on WhatsApp button, carousel controls, or dots
                     if (e.target.closest('a[href*="wa.me"]') || 
                         e.target.closest('.carousel-prev') || 
                         e.target.closest('.carousel-next') ||
+                        e.target.closest('.carousel-dot') ||
                         e.target.closest('.favorite-btn')) {
                         return;
                     }

@@ -45,14 +45,21 @@ tailwind.config = {
 }
 ```
 
-### REGLA #3: CSS UNIFORME OBLIGATORIO PARA TARJETAS
-**SIEMPRE incluir este CSS para tarjetas uniformes:**
+### REGLA #3: CSS UNIFORME OBLIGATORIO PARA TARJETAS CLICKEABLES
+**SIEMPRE incluir este CSS para tarjetas uniformes y clickeables:**
 ```css
 <style>
     .property-card {
         display: flex !important;
         flex-direction: column !important;
         height: 100% !important;
+        cursor: pointer;
+    }
+    
+    /* Clickable card approach - make entire card clickable except WhatsApp button */
+    .property-card a[href*="wa.me"] {
+        position: relative !important;
+        z-index: 10 !important;
     }
     
     /* Uniform image areas */
@@ -215,9 +222,12 @@ tailwind.config = {
 </main>
 ```
 
-### REGLA #6: ESTRUCTURA PROPERTY CARD OBLIGATORIA
+### REGLA #6: ESTRUCTURA PROPERTY CARD CLICKEABLE OBLIGATORIA
+**IMPORTANTE: Las tarjetas deben ser clickeables para navegar a las páginas individuales.**
+
 ```html
-<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card">
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" 
+     data-href="[RUTA_PAGINA_INDIVIDUAL]">
     <div class="relative aspect-video">
         <div class="carousel-container" data-current="0">
             <img src="[RUTA_IMAGEN]" 
@@ -266,9 +276,10 @@ tailwind.config = {
             <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">[CARACTERISTICA_EXTRA]</span>
         </div>
         
-        <!-- CTA Button -->
+        <!-- CTA Button - No se activa con el click de tarjeta -->
         <a href="https://wa.me/526671631231?text=[MENSAJE_WHATSAPP_ENCODED]" 
-           class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+           class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors"
+           onclick="event.stopPropagation()">
             Solicitar tour
         </a>
     </div>
@@ -392,6 +403,25 @@ tailwind.config = {
                 }
             });
         }
+        
+        // Property card click functionality - OBLIGATORIO
+        const propertyCards = document.querySelectorAll('.property-card[data-href]');
+        propertyCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't navigate if clicking on WhatsApp button or carousel controls
+                if (e.target.closest('a[href*="wa.me"]') || 
+                    e.target.closest('.carousel-prev') || 
+                    e.target.closest('.carousel-next') ||
+                    e.target.closest('.favorite-btn')) {
+                    return;
+                }
+                
+                const href = this.getAttribute('data-href');
+                if (href) {
+                    window.location.href = href;
+                }
+            });
+        });
     });
 </script>
 ```
@@ -417,6 +447,13 @@ tailwind.config = {
 - `[M2]` → Metros cuadrados
 - `[CARACTERISTICA_EXTRA]` → Característica destacada
 - `[MENSAJE_WHATSAPP_ENCODED]` → Mensaje WhatsApp URL-encoded
+- `[RUTA_PAGINA_INDIVIDUAL]` → Ruta al archivo HTML de la propiedad individual
+
+### RUTAS TÍPICAS DE PROPIEDADES
+- Casa Infonavit Solidaridad: `culiacan/infonavit-solidaridad/index.html`
+- Casa Valle Alto Verde: `casa-venta-valle-alto-verde.html`
+- Casa Privada Acacia: `casa-privada-acacia-zona-norte.html`
+- Casa Barcelona Villa (renta): `culiacan-casaenrenta-barcelona-villa.html`
 
 ## 🔗 INTEGRACIÓN CON INDEX PRINCIPAL
 
@@ -440,12 +477,29 @@ Antes de publicar una página de ciudad, verificar:
 ✅ **WhatsApp**: Links personalizados por propiedad
 ✅ **CSS**: Tarjetas uniformes aplicadas
 ✅ **JavaScript**: Carruseles funcionando
+✅ **Clickeable**: Tarjetas navegan a páginas individuales correctamente
 ✅ **Footer**: Información de contacto actualizada
 ✅ **Index**: Enlace desde página principal agregado
 ✅ **Responsive**: Funciona en móvil y desktop
+✅ **Cache**: Verificar que no hay problemas de cache después del deployment
 
 ## 🚀 EJEMPLO COMPLETO
 Ver `propiedades-mazatlan.html` como referencia completa de implementación.
+
+## 📝 ACTUALIZACIONES RECIENTES
+
+### Septiembre 2025
+- ✅ **Tarjetas Clickeables**: Se agregó funcionalidad para que las tarjetas de propiedades redirijan a las páginas individuales
+- ✅ **Validación de Rutas**: Se corrigieron rutas incorrectas (Casa Barcelona Villa: `culiacan-casaenrenta-barcelona-villa.html`)  
+- ✅ **Uniformidad Visual**: Se mantuvo la alineación perfecta mientras se agregó clickeabilidad
+- ✅ **Exclusión de Elementos**: WhatsApp buttons y carousel controls no activan la navegación
+- ✅ **JavaScript Optimizado**: Click handlers limpios sin conflictos con otros elementos
+
+### Problemas Comunes Resueltos
+- **Error 404 en propiedades**: Verificar que los archivos HTML individuales existen y están deployados
+- **Cache del navegador**: Usar Ctrl+Shift+R o ventana incógnita para probar después de deployment
+- **Rutas incorrectas**: Validar que `data-href` apunta a archivos existentes
+- **Alineación rota**: El CSS uniforme debe aplicarse ANTES de agregar funcionalidad clickeable
 
 ---
 
