@@ -3851,3 +3851,77 @@ img {
 /* WhatsApp floating button deployed - Sept 22 2025 - v2.3 */
 /* CAROUSEL BUTTONS FIX - Sept 25 2025 - v2.4 */
 /* SUPER VISIBLE ARROWS WITH !IMPORTANT - Sept 25 2025 - v2.5 */
+
+/* Carousel Buttons for Culiacan Index Page - SUPER VISIBLE */
+.carousel-btn-index {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(255, 78, 0, 0.95) !important;
+    border: 2px solid white !important;
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50% !important;
+    color: white !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    z-index: 999 !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    backdrop-filter: blur(3px) !important;
+}
+
+.carousel-btn-index:hover {
+    background: rgba(255, 78, 0, 1) !important;
+    transform: translateY(-50%) scale(1.15) !important;
+    box-shadow: 0 6px 20px rgba(255, 78, 0, 0.6) !important;
+}
+
+.prev-btn-index {
+    left: 10px !important;
+}
+
+.next-btn-index {
+    right: 10px !important;
+}
+
+/* Mobile adjustments for index carousel buttons */
+@media (max-width: 768px) {
+    .carousel-btn-index {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 1rem !important;
+    }
+    
+    .prev-btn-index {
+        left: 8px !important;
+    }
+    
+    .next-btn-index {
+        right: 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-btn-index {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .prev-btn-index {
+        left: 5px !important;
+    }
+    
+    .next-btn-index {
+        right: 5px !important;
+    }
+}
+
+/* CULIACAN INDEX CAROUSEL FIX - Sept 25 2025 - v2.6 */
