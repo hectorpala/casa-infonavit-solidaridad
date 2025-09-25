@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 /**
  * Automated Property Page Generator
@@ -14,6 +15,29 @@ class PropertyPageGenerator {
         this.baseDirectory = './';
         this.imagesDirectory = './images/';
         this.isRental = isRental;
+    }
+
+    /**
+     * Auto-optimize photos from PROYECTOS folder
+     */
+    optimizePhotos(sourcePath, propertyKey) {
+        console.log('🎯 INICIANDO OPTIMIZACIÓN AUTOMÁTICA DE FOTOS');
+        
+        const destinationPath = path.join(this.imagesDirectory, propertyKey);
+        
+        try {
+            // Ejecutar script de optimización automática
+            const optimizeScript = path.join(__dirname, 'optimizar-fotos.sh');
+            execSync(`"${optimizeScript}" "${sourcePath}" "${destinationPath}"`, { 
+                stdio: 'inherit',
+                encoding: 'utf8'
+            });
+            console.log('✅ FOTOS OPTIMIZADAS AUTOMÁTICAMENTE');
+            return true;
+        } catch (error) {
+            console.error('❌ Error al optimizar fotos:', error.message);
+            return false;
+        }
     }
 
     /**

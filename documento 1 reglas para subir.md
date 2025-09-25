@@ -2,12 +2,17 @@
 
 ## 🎯 Proceso Completo Automatizado
 
-### 1. PREPARACIÓN DE FOTOS
+### 1. PREPARACIÓN DE FOTOS ⚡ OPTIMIZACIÓN AUTOMÁTICA
 ```bash
-# Ubicar fotos en: /Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/[nombre-propiedad]/
-# Copiar fotos al proyecto:
-mkdir -p "images/[nombre-propiedad]"
-cp "/Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/[carpeta-origen]"/*.jpg "images/[nombre-propiedad]/"
+# ✅ NUEVO: Las fotos se optimizan AUTOMÁTICAMENTE
+# - PropertyPageGenerator ejecuta optimizar-fotos.sh
+# - Convierte PNG → JPG automáticamente
+# - Reduce calidad a 85% (balance perfecto)
+# - Redimensiona a máximo 1200px (responsive)
+# - Reducción típica: 60-70% del tamaño original
+
+# 📂 Ubicar fotos en: /Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/[nombre-propiedad]/
+# 🎯 El sistema copia y optimiza automáticamente
 ```
 
 ### 2. COMANDO PARA INVOCAR REGLAS
@@ -213,6 +218,7 @@ Quiero la misma estructura y optimización que las otras propiedades.
 ### 4. OPTIMIZACIONES INCLUIDAS
 ✅ SEO completo (meta tags, structured data, Open Graph)
 ✅ Performance (preloading, font optimization, DNS prefetch)
+✅ **NUEVO: Optimización automática de fotos** (PNG→JPG, calidad 85%, 1200px max)
 ✅ Carrusel dual (hero + galería) con navegación
 ✅ WhatsApp floating button personalizado
 ✅ Calculadora de renta (para propiedades de renta)
@@ -220,6 +226,7 @@ Quiero la misma estructura y optimización que las otras propiedades.
 ✅ Price badge visible en carrusel de fotos (overlay en esquina superior derecha)
 ✅ Responsive design completo
 ✅ Lazy loading de imágenes
+✅ **Verificación automática pre-publicación** (./verificar-optimizaciones.sh)
 
 ### 5. VERIFICACIÓN POST-CREACIÓN
 - [ ] Verificar que la fachada sea la imagen principal
@@ -274,9 +281,11 @@ Si no aparece la propiedad inmediatamente:
 ## 🔧 AUTOMATION SYSTEM
 El sistema usa:
 - **PropertyPageGenerator** con templates optimizados
+- **✅ NUEVO: Optimización automática de fotos** (optimizar-fotos.sh)
 - **Detección automática** de fotos en directorio
 - **Template de renta** vs **template de venta**
 - **Generación automática** de carruseles y JavaScript
+- **Verificación pre-publicación** obligatoria
 - **GitHub Pages deployment** automático a casasenventa.info
 
 ## 📁 ESTRUCTURA DE CARPETAS

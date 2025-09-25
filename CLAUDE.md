@@ -18,12 +18,14 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 ### PropertyPageGenerator
 - **Ubicación:** `automation/property-page-generator.js`
 - **Templates:** `automation/templates/rental-template.html` y `property-template.html`
-- **Función:** Genera páginas completas con SEO, carruseles y optimizaciones
+- **✅ NUEVO:** `automation/optimizar-fotos.sh` - Optimización automática
+- **Función:** Genera páginas completas con SEO, carruseles y fotos optimizadas automáticamente
 
 ### Estructura de Fotos
 - **Origen:** `/Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/[carpeta]/`
 - **Destino:** `images/[property-slug]/`
-- **Proceso:** Copiar automáticamente y generar carruseles
+- **✅ NUEVO Proceso:** Copia + optimización automática (PNG→JPG, 85% calidad, 1200px max)
+- **Generación:** Carruseles automáticos con fotos optimizadas
 
 ## 📄 ARCHIVOS CRÍTICOS
 
