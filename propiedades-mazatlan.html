@@ -40,6 +40,16 @@
             height: 100% !important;
         }
         
+        /* Clickable card approach - make entire card clickable except WhatsApp button */
+        .property-card {
+            cursor: pointer;
+        }
+        
+        .property-card a[href*="wa.me"] {
+            position: relative !important;
+            z-index: 10 !important;
+        }
+        
         /* Uniform image areas */
         .property-card .aspect-video {
             height: 240px !important;
@@ -196,7 +206,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
             <!-- Property Card 1 - Casa Infonavit Solidaridad -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" data-href="culiacan/infonavit-solidaridad/index.html">
                 <div class="relative aspect-video">
                     <div class="carousel-container" data-current="0">
                         <img src="images/optimized/exterior.jpg" 
@@ -261,14 +271,16 @@
                     
                     <!-- CTA Button -->
                     <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20la%20casa%20Infonavit%20Solidaridad%20Mazatl%C3%A1n%20de%20%241%2C750%2C000" 
-                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors"
+                       onclick="event.stopPropagation()">
                         Solicitar tour
                     </a>
                 </div>
+                
             </div>
 
             <!-- Property Card 2 - Casa Valle Alto Verde -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" data-href="casa-venta-valle-alto-verde.html">
                 <div class="relative aspect-video">
                     <div class="carousel-container" data-current="0">
                         <img src="images/valle-alto-verde/valle-alto-culiacan-sinaloa-30086313-foto-01.jpg" 
@@ -333,14 +345,16 @@
                     
                     <!-- CTA Button -->
                     <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20la%20casa%20Valle%20Alto%20Verde%20Mazatl%C3%A1n%20de%20%241%2C300%2C000" 
-                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors"
+                       onclick="event.stopPropagation()">
                         Solicitar tour
                     </a>
                 </div>
+                
             </div>
 
             <!-- Property Card 3 - Casa Privada Acacia -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" data-href="casa-privada-acacia-zona-norte.html">
                 <div class="relative aspect-video">
                     <div class="carousel-container" data-current="0">
                         <img src="images/acacia-kenya/01_fachada.jpg" 
@@ -410,14 +424,16 @@
                     
                     <!-- CTA Button -->
                     <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20la%20Casa%20Modelo%20Arrecife%20Mazatl%C3%A1n%20de%20%244%2C100%2C000" 
-                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors"
+                       onclick="event.stopPropagation()">
                         Solicitar tour
                     </a>
                 </div>
+                
             </div>
 
             <!-- Property Card 4 - Casa Amueblada Barcelona Villa -->
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" data-href="casa-renta-barcelona-villa.html">
                 <div class="relative aspect-video">
                     <div class="carousel-container" data-current="0">
                         <img src="images/barcelona/Sinaloa-Barcelona-Sección-Villa-Barcelona-Boulevard-Cantabria-Culiacán-3115-0-30102005 copia.jpeg" 
@@ -487,7 +503,8 @@
                     
                     <!-- CTA Button -->
                     <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20la%20casa%20amueblada%20en%20Boulevard%20Cantabria%20Mazatl%C3%A1n%20de%20%2420%2C000%2Fmes" 
-                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors"
+                       onclick="event.stopPropagation()">
                         Solicitar tour
                     </a>
                 </div>
@@ -616,6 +633,25 @@
                     }
                 });
             }
+            
+            // Property card click functionality
+            const propertyCards = document.querySelectorAll('.property-card[data-href]');
+            propertyCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't navigate if clicking on WhatsApp button or carousel controls
+                    if (e.target.closest('a[href*="wa.me"]') || 
+                        e.target.closest('.carousel-prev') || 
+                        e.target.closest('.carousel-next') ||
+                        e.target.closest('.favorite-btn')) {
+                        return;
+                    }
+                    
+                    const href = this.getAttribute('data-href');
+                    if (href) {
+                        window.location.href = href;
+                    }
+                });
+            });
         });
     </script>
 </body>
