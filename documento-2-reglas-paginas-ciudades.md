@@ -639,7 +639,7 @@ indicators.forEach((indicator, index) => {
 });
 ```
 
-### Propiedades con Carrusel Implementado
+### Propiedades con Carrusel Implementado - TODAS FUNCIONALES
 - **Casa Infonavit Solidaridad**: 5 imágenes (fachada, exterior, sala, cocina, recámara)
 - **Casa Barcelona Villa**: 8 imágenes (fachada, interior, sala, cocina, recámara, baño, patio, área social)
 - **Casa Urbivilla del Roble**: 8 imágenes (fachada, interior, sala, cocina, recámara, baño, patio, área común)
@@ -648,9 +648,9 @@ indicators.forEach((indicator, index) => {
 - **Casa Zona Dorada**: 6 imágenes (fachada, interior, sala, cocina, recámara, vista exterior)
 - **Casa Santa Fe**: 5 imágenes (fachada, interior, sala, cocina, recámara)
 - **Casa Privada Acacia Cotos**: 7 imágenes (fachada, exterior, sala, recámara principal, cocina, cochera, patio)
-- **Casa Hacienda de La Mora**: 6 imágenes disponibles
-- **Casa La Estancia I**: 11 imágenes disponibles
-- **Casa Infonavit Barrancos**: 11 imágenes disponibles
+- ✅ **Casa Hacienda de La Mora**: 6 imágenes (fachada, interior, sala, cocina, recámara, patio)
+- ✅ **Casa La Estancia I**: 8 imágenes (fachada, interior, sala, cocina, recámara, baño, patio, área social)
+- ✅ **Casa Infonavit Barrancos**: 7 imágenes (fachada, interior, sala, cocina, recámara, baño, patio)
 
 ## 🔍 REGLAS DE VALIDACIÓN Y CONSISTENCIA
 
@@ -726,6 +726,403 @@ Read(file_path: "casa-[nombre-propiedad].html")
 - ✅ **Casa Urbivilla del Roble**: Carrusel implementado con 8 imágenes (era la única que faltaba)
 - ✅ **Corrección Precios Críticos**: 4 propiedades tenían precios incorrectos, todas corregidas
 - ✅ **Validación de Precios**: Sistema para verificar consistencia entre tarjetas y páginas individuales
+- ✅ **Iconos SVG Minimalistas**: Implementados iconos vectoriales monoline en chips de propiedades
+- ✅ **Sistema de Iconos Unificado**: 4 iconos SVG aplicados a todas las 12 propiedades de Culiacán
+
+## 🎨 REGLA #13: SISTEMA DE ICONOS SVG PARA PROPERTY CHIPS
+
+### Especificaciones de Iconos Obligatorias
+**IMPORTANTE: Usar estos iconos SVG exactos con estilo monoline para todas las property chips.**
+
+#### 1. Icono RECÁMARAS (rec)
+```html
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 7v4"/>
+    <path d="M18 7v4"/>
+    <rect x="4" y="11" width="16" height="6" rx="1"/>
+    <path d="M6 17v3"/>
+    <path d="M18 17v3"/>
+</svg>
+```
+
+#### 2. Icono BAÑOS
+```html
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="3" width="14" height="5" rx="1"/>
+    <path d="M8 5.5h8"/>
+    <path d="M10.5 9h3"/>
+    <path d="M12 9v2"/>
+    <path d="M9 11h6"/>
+    <path d="M7 14a5 5 0 0 0 10 0"/>
+    <path d="M12 14v5"/>
+    <path d="M10.5 19h3"/>
+</svg>
+```
+
+#### 3. Icono METROS CUADRADOS (m²)
+```html
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2"/>
+    <text x="7" y="15" font-size="8" font-family="Inter, Arial, sans-serif" fill="none" stroke="#1C1C1B" stroke-width="1.2" paint-order="stroke">m</text>
+    <text x="14.6" y="10" font-size="5" font-family="Inter, Arial, sans-serif" fill="none" stroke="#1C1C1B" stroke-width="1.2" paint-order="stroke">2</text>
+    <path d="M6 19v-1 M9 19v-1 M12 19v-1 M15 19v-1 M18 19v-1"/>
+</svg>
+```
+
+#### 4. Icono SEGURIDAD/CARACTERÍSTICAS
+```html
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l6 2v6c0 5-3.5 7.5-6 9c-2.5-1.5-6-4-6-9V5l6-2z"/>
+</svg>
+```
+
+### Estructura HTML Obligatoria para Chips con Iconos
+```html
+<div class="flex flex-wrap gap-2 mb-4 property-details-chips">
+    <!-- RECÁMARAS -->
+    <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium font-poppins flex items-center gap-1.5">
+        [ICONO RECÁMARAS SVG]
+        X rec
+    </span>
+    
+    <!-- BAÑOS -->
+    <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium font-poppins flex items-center gap-1.5">
+        [ICONO BAÑOS SVG]
+        X baños
+    </span>
+    
+    <!-- METROS CUADRADOS -->
+    <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium font-poppins flex items-center gap-1.5">
+        [ICONO M² SVG]
+        X m²
+    </span>
+    
+    <!-- CARACTERÍSTICAS -->
+    <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium font-poppins flex items-center gap-1.5">
+        [ICONO SEGURIDAD SVG]
+        [CARACTERÍSTICA]
+    </span>
+</div>
+```
+
+### Características de los Iconos SVG
+- **Estilo**: Monoline minimalista con contorno fino uniforme
+- **Color**: #1C1C1B (negro marca)
+- **Grosor**: stroke-width="1.75" para consistencia
+- **Sin rellenos**: fill="none" en todos
+- **Tamaño**: 14x14px con viewBox 24x24
+- **Spacing**: gap-1.5 entre icono y texto
+
+### Propiedades con Iconos SVG Implementados
+**Página Culiacán (12/12 propiedades actualizadas):**
+- ✅ **Casa Infonavit Solidaridad**: 2 rec, 2 baños, 112.5 m², Cochera
+- ✅ **Casa Barcelona Villa**: 3 rec, 2 baños, 198 m², Amueblada  
+- ✅ **Casa Urbivilla del Roble**: 1 rec, 1 baño, 77 m², Cochera
+- ✅ **Casa Hacienda de La Mora**: 1 baño, 55 m², Estacionamiento, A/A
+- ✅ **Casa La Estancia I**: 2 rec, 1.5 baños, 82 m², Seguridad
+- ✅ **Casa Infonavit Barrancos**: 1.5 baños, 79 m², 2 Autos, A/A
+- ✅ **Casa Valle Alto Verde**: 2 rec, 1 baño, 120 m², Seguridad
+- ✅ **Casa Lázaro Cárdenas**: 3 rec, 2.5 baños, 225 m², 2 Autos
+- ✅ **Casa Zona Dorada**: 2 rec, 1.5 baños, 90 m², Cochera
+- ✅ **Casa Santa Fe**: 3 rec, 2.5 baños, 145 m², Jardín
+- ✅ **Casa Privada Acacia Cotos**: 3 rec, 3.5 baños, 2 Autos, Vigilancia
+
+## 📋 REGLA #14: CHECKLIST OBLIGATORIO PARA NUEVAS PROPIEDADES
+
+### ⚠️ PROCESO MANDATORIO PARA CADA NUEVA PROPIEDAD
+**SIEMPRE seguir este checklist COMPLETO antes de agregar cualquier propiedad nueva:**
+
+#### ✅ **1. ESTRUCTURA BASE DE TARJETA**
+```html
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" 
+     data-href="../[ruta-archivo-individual].html">
+    
+    <!-- IMAGEN CON CARRUSEL -->
+    <div class="relative aspect-video">
+        <div class="carousel-container" data-current="0">
+            <!-- MÍNIMO 1 imagen, óptimo 3-8 imágenes -->
+            <img src="[ruta-imagen]" alt="[Descripción detallada]" loading="lazy" decoding="async" class="w-full h-full object-cover carousel-image active">
+            <!-- Más imágenes si están disponibles -->
+        </div>
+        
+        <!-- CONTROLES CARRUSEL (solo si >1 imagen) -->
+        <button class="carousel-prev" aria-label="Imagen anterior">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-next" aria-label="Siguiente imagen">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- DOTS CARRUSEL (solo si >1 imagen) -->
+        <div class="carousel-indicators">
+            <!-- Un button.indicator por cada imagen -->
+        </div>
+        
+        <!-- BADGES OBLIGATORIOS -->
+        <div class="absolute top-3 left-3 flex gap-2">
+            <span class="bg-green-500 text-white px-2 py-1 rounded-lg text-xs font-medium font-poppins">[VENTA/RENTA]</span>
+            <span class="bg-hector text-white px-2 py-1 rounded-lg text-xs font-medium font-poppins">Disponible</span>
+        </div>
+        
+        <!-- BOTÓN FAVORITOS -->
+        <button class="favorite-btn absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.7-3.9-9.3-8A5.5 5.5 0 0 1 12 6.2 5.5 5.5 0 0 1 21.3 13c-2.6 4.1-9.3 8-9.3 8Z"/>
+            </svg>
+        </button>
+    </div>
+</div>
+```
+
+#### ✅ **2. SECCIÓN DE CONTENIDO OBLIGATORIA**
+```html
+<div class="p-6">
+    <!-- PRECIO (verificado contra página individual) -->
+    <h3 class="text-2xl font-bold text-gray-900 mb-1 font-poppins">$[PRECIO-EXACTO]</h3>
+    
+    <!-- DESCRIPCIÓN (según clasificación de precio) -->
+    <p class="text-gray-600 mb-4 font-poppins">[Casa Económica/Familiar/Espectacular/Premium] en [Ubicación] · [Detalles adicionales], [Ciudad]</p>
+    
+    <!-- PROPERTY CHIPS CON ICONOS SVG OBLIGATORIOS -->
+    <div class="flex flex-wrap gap-2 mb-4 property-details-chips">
+        <!-- RECÁMARAS (si aplica) -->
+        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium font-poppins flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 7v4"/><path d="M18 7v4"/><rect x="4" y="11" width="16" height="6" rx="1"/><path d="M6 17v3"/><path d="M18 17v3"/>
+            </svg>
+            [#] rec
+        </span>
+        
+        <!-- BAÑOS (siempre incluir) -->
+        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium font-poppins flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="3" width="14" height="5" rx="1"/><path d="M8 5.5h8"/><path d="M10.5 9h3"/><path d="M12 9v2"/><path d="M9 11h6"/><path d="M7 14a5 5 0 0 0 10 0"/><path d="M12 14v5"/><path d="M10.5 19h3"/>
+            </svg>
+            [#] baños
+        </span>
+        
+        <!-- METROS CUADRADOS (si está disponible) -->
+        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium font-poppins flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><text x="7" y="15" font-size="8" font-family="Inter, Arial, sans-serif" fill="none" stroke="#1C1C1B" stroke-width="1.2" paint-order="stroke">m</text><text x="14.6" y="10" font-size="5" font-family="Inter, Arial, sans-serif" fill="none" stroke="#1C1C1B" stroke-width="1.2" paint-order="stroke">2</text><path d="M6 19v-1 M9 19v-1 M12 19v-1 M15 19v-1 M18 19v-1"/>
+            </svg>
+            [#] m²
+        </span>
+        
+        <!-- CARACTERÍSTICAS (1-2 principales) -->
+        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium font-poppins flex items-center gap-1.5">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1B" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l6 2v6c0 5-3.5 7.5-6 9c-2.5-1.5-6-4-6-9V5l6-2z"/>
+            </svg>
+            [Cochera/Seguridad/Amueblada/A-A/etc]
+        </span>
+    </div>
+    
+    <!-- CTA BUTTON CON WHATSAPP PERSONALIZADO -->
+    <a href="https://wa.me/526671631231?text=Hola%20Hector,%20me%20interesa%20la%20[Descripción Propiedad]%20de%20$[PRECIO].%20¿Podrías%20darme%20más%20información?" 
+       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors font-poppins"
+       onclick="event.stopPropagation()">
+        Solicitar tour
+    </a>
+</div>
+```
+
+#### ✅ **3. VALIDACIONES OBLIGATORIAS ANTES DE PUBLICAR**
+
+##### **A. Validación de Precio**
+```bash
+# 1. Leer página individual
+Read(file_path: "casa-[nombre].html")
+# 2. Buscar precio en <title> o <div class="price">
+# 3. Comparar con precio en tarjeta
+# 4. CORREGIR si hay discrepancia
+```
+
+##### **B. Validación de Archivo Individual**
+```bash
+# Verificar que existe el archivo:
+ls casa-[nombre].html
+# Verificar que data-href apunta correctamente:
+data-href="../casa-[nombre].html"
+```
+
+##### **C. Validación de Imágenes**
+```bash
+# Verificar que existen las imágenes:
+ls images/[carpeta-propiedad]/
+# Mínimo 1 imagen, óptimo 3-8 imágenes
+# Primera imagen = fachada principal
+```
+
+##### **D. Validación de Características**
+- **Baños**: SIEMPRE incluir (ej: "1 baño", "2.5 baños")  
+- **Recámaras**: Solo si aplica (ej: "2 rec", "3 rec")
+- **m²**: Incluir si está disponible
+- **Características**: Máximo 1-2 principales (Cochera, Seguridad, Amueblada, etc.)
+
+#### ✅ **4. POST-IMPLEMENTACIÓN**
+```bash
+# 1. Abrir página local para verificar
+open culiacan/index.html
+
+# 2. Verificar elementos críticos:
+- ✅ Carrusel funcional (flechas + dots)
+- ✅ Tarjeta clickeable (excepto WhatsApp)
+- ✅ Iconos SVG visibles y alineados
+- ✅ Precio correcto
+- ✅ WhatsApp link personalizado
+
+# 3. Deploy y verificación final
+# 4. Probar en https://casasenventa.info
+```
+
+### 🚨 **ELEMENTOS NO NEGOCIABLES**
+- **Iconos SVG**: OBLIGATORIOS en todos los chips
+- **Precio validado**: DEBE coincidir con página individual  
+- **WhatsApp personalizado**: Mensaje específico por propiedad
+- **Carrusel funcional**: Si hay >1 imagen
+- **Tarjeta clickeable**: Navegación a página individual
+- **CSS uniforme**: Usar structure base obligatoria
+
+### ⏱️ **TIEMPO ESTIMADO POR PROPIEDAD**
+- **Preparación**: 10 minutos (imágenes, datos)
+- **Implementación**: 15 minutos (código, validaciones)  
+- **Testing**: 5 minutos (local + deployed)
+- **Total**: ~30 minutos por propiedad nueva
+
+## 🎨 REGLA #15: SISTEMA DE BOTONES Y ELEMENTOS UI MODERNOS
+
+### Especificaciones de Diseño Obligatorias
+**IMPORTANTE: Usar estos estilos exactos para todos los botones y elementos UI.**
+
+#### CSS Obligatorio para Botones Modernos
+```css
+/* New Button Styles from JSON */
+.btn-primary {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, #FF6A1A 0%, #FF8A2B 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #E65F17 0%, #FF7C1F 100%) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(255, 106, 26, 0.3) !important;
+}
+
+.btn-primary:active {
+    background: linear-gradient(135deg, #CC5415 0%, #F36E17 100%) !important;
+    transform: translateY(0px) !important;
+}
+
+/* Badge Styles from JSON */
+.badge-venta {
+    font-family: 'Inter', system-ui, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    background: #F97316 !important;
+    color: #FFFFFF !important;
+    padding: 6px 12px !important;
+    border-radius: 20px !important;
+}
+
+/* Icon Button (Favorite) Styles from JSON */
+.btn-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background: #FFFFFF !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-icon:hover {
+    background: #F6F6F6 !important;
+}
+
+.btn-icon:active {
+    background: #ECECEC !important;
+}
+
+.btn-icon svg {
+    color: #1C1C1B !important;
+}
+```
+
+#### HTML Estructurado para Botones Modernos
+```html
+<!-- BOTÓN CTA PRINCIPAL -->
+<a href="[URL-WHATSAPP]" class="w-full btn-primary text-center block" onclick="event.stopPropagation()">
+    Solicitar Tour
+</a>
+
+<!-- BADGE VENTA -->
+<span class="badge-venta">VENTA</span>
+
+<!-- BOTÓN FAVORITO -->
+<button class="btn-icon absolute top-3 right-3">
+    <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21s-6.7-3.9-9.3-8A5.5 5.5 0 0 1 12 6.2 5.5 5.5 0 0 1 21.3 13c-2.6 4.1-9.3 8-9.3 8Z"/>
+    </svg>
+</button>
+```
+
+### Especificaciones Técnicas de Botones
+
+#### 1. **Botón Primary (CTA)**
+- **Dimensiones**: 48px altura, border-radius 12px
+- **Tipografía**: Inter, peso 600, tamaño 16px
+- **Gradiente**: #FF6A1A → #FF8A2B (135° diagonal)
+- **Hover**: Gradiente más oscuro + elevación (-1px) + sombra naranja
+- **Active**: Gradiente aún más oscuro + posición normal
+- **Transición**: 0.2s ease en todas las propiedades
+
+#### 2. **Badge Tag (VENTA)**
+- **Forma**: Pill (border-radius 20px)
+- **Tipografía**: Inter, peso 700, tamaño 12px
+- **Color**: #F97316 fondo, #FFFFFF texto
+- **Padding**: 6px horizontal, 12px vertical
+- **Sin efectos hover** (elemento informativo)
+
+#### 3. **Icon Button (Favorito)**
+- **Forma**: Círculo perfecto (40x40px)
+- **Fondo**: #FFFFFF con sombra suave
+- **Hover**: #F6F6F6 (gris muy claro)
+- **Active**: #ECECEC (gris claro)
+- **Icono**: #1C1C1B (negro marca)
+- **Sombra**: 0 2px 8px rgba(0,0,0,0.1)
+
+### Implementación en Propiedades Existentes
+**Página Culiacán - Botones Modernos Aplicados (32 elementos actualizados):**
+- ✅ **11 Botones CTA**: Gradiente naranja con efectos hover
+- ✅ **10 Badges VENTA**: Estilo pill moderno
+- ✅ **11 Botones Favorito**: Circulares con sombra
+
+### Diferencias con Sistema Anterior
+| Elemento | Antes | Ahora |
+|----------|-------|-------|
+| **CTA Button** | Verde sólido + Tailwind | Gradiente naranja + Inter |
+| **Badge** | Rectangular verde | Pill naranja |
+| **Favorito** | Semi-transparente | Circular blanco con sombra |
+| **Tipografía** | Poppins | Inter (botones) |
+| **Efectos** | Básicos | Elevación + sombras |
+
+### Beneficios del Nuevo Sistema
+- **Coherencia visual** con especificaciones JSON
+- **Mejor UX** con efectos hover/active claros
+- **Diseño moderno** con gradientes y sombras
+- **Accesibilidad** mejorada con contrastes apropiados
+- **Performance** optimizada con transiciones suaves
 
 ### Problemas Comunes Resueltos
 - **Error 404 en propiedades**: Verificar que los archivos HTML individuales existen y están deployados

@@ -16,6 +16,14 @@
 - **Propiedad:** https://casasenventa.info/casa-privada-acacia-zona-norte.html
 - **Estado:** ✅ INFORMACIÓN COMPLETA
 
+## Casa Stanza Corcega
+- **Propietario:** Jomasr
+- **Celular:** +52 667 143 4567
+- **Email:** No proporcionado
+- **Fecha:** 2025-01-19
+- **Propiedad:** https://casasenventa.info/casa-venta-stanza-corcega.html
+- **Estado:** ✅ INFORMACIÓN COMPLETA
+
 ---
 
 **NOTA:** Este archivo contiene información sensible de propietarios.
