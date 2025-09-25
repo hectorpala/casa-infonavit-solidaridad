@@ -298,20 +298,26 @@
                         <img src="images/circuito-canarias/circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-14.jpg" alt="Área común">
                     </div>
                 </div>
-                <button class="carousel-btn prev" onclick="changeSlide(-1)">&#8249;</button>
-                <button class="carousel-btn next" onclick="changeSlide(1)">&#8250;</button>
+                    <!-- Navigation arrows -->
+                    <button class="carousel-arrow carousel-prev" onclick="changeSlide(-1)" aria-label="Foto anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow carousel-next" onclick="changeSlide(1)" aria-label="Siguiente foto">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                <!-- Dots indicators -->
                 <div class="carousel-dots">
-                    <span class="carousel-dot active" onclick="goToSlide(0)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(1)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(2)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(3)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(4)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(5)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(6)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(7)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(8)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(9)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(10)"></span>
+                    <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Ir a foto 1"></button>
+                    <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Ir a foto 2"></button>
+                    <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Ir a foto 3"></button>
+                    <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Ir a foto 4"></button>
+                    <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Ir a foto 5"></button>
+                    <button class="carousel-dot" onclick="goToSlide(5)" aria-label="Ir a foto 6"></button>
+                    <button class="carousel-dot" onclick="goToSlide(6)" aria-label="Ir a foto 7"></button>
+                    <button class="carousel-dot" onclick="goToSlide(7)" aria-label="Ir a foto 8"></button>
+                    <button class="carousel-dot" onclick="goToSlide(8)" aria-label="Ir a foto 9"></button>
+                    <button class="carousel-dot" onclick="goToSlide(9)" aria-label="Ir a foto 10"></button>
+                    <button class="carousel-dot" onclick="goToSlide(10)" aria-label="Ir a foto 11"></button>
                 </div>
             </div>
         </div>
