@@ -3925,3 +3925,44 @@ img {
 }
 
 /* CULIACAN INDEX CAROUSEL FIX - Sept 25 2025 - v2.6 */
+
+/* REAL CAROUSEL CLASSES USED IN CULIACAN PAGE - FORCE VISIBLE */
+.carousel-prev, .carousel-next {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(255, 78, 0, 0.95) !important;
+    border: 3px solid white !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    z-index: 9999 !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: rgba(255, 78, 0, 1) !important;
+    transform: translateY(-50%) scale(1.2) !important;
+    box-shadow: 0 8px 25px rgba(255, 78, 0, 0.8) !important;
+}
+
+.carousel-prev {
+    left: 15px !important;
+}
+
+.carousel-next {
+    right: 15px !important;
+}
+
+/* FORCE VISIBLE ARROWS - FINAL FIX - Sept 25 2025 - v2.7 */
