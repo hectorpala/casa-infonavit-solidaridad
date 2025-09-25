@@ -1,0 +1,41 @@
+
+🏠 REPORTE DE ACTUALIZACIÓN MANUAL DE ÍNDICES
+=============================================
+
+Nueva propiedad generada: Casa en Venta - Acacia Kenya Modelo Arrecife
+Archivo creado: casa-venta-acacia-kenya.html
+
+📝 ARCHIVOS QUE NECESITAN ACTUALIZACIÓN MANUAL:
+
+1. culiacan/index.html
+2. index.html (si existe)
+
+🔧 HTML A AGREGAR:
+
+                <!-- Casa Casa en Venta - Acacia Kenya Modelo Arrecife -->
+                <a href="casa-venta-acacia-kenya.html" class="property-card">
+                    <img src="images/acacia-kenya/01_fachada.jpg" alt="Casa en Venta - Acacia Kenya Modelo Arrecife" class="property-image" loading="lazy">
+                    <div class="property-content">
+                        <div class="property-badge sale">VENTA</div>
+                        <h3 class="property-title">Casa Modelo Arrecife en Acacia Kenya</h3>
+                        <p class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Acacia Kenya (Acacia Cotos), Sector USE, Culiacán, Sinaloa
+                        </p>
+                        <div class="property-price">$4,100,000</div>
+                        <div class="property-features">
+                            <span class="feature">3 Recámaras</span>
+                            <span class="feature">3.5 Baños</span>
+                            <span class="feature">190 m² de construcción</span><span class="feature">Modelo Arrecife</span>
+                        </div>
+                        <div class="property-cta">Ver Detalles Completos</div>
+                    </div>
+                </a>
+
+⚠️ INSTRUCCIONES:
+1. Abrir cada archivo de índice
+2. Buscar la sección de propiedades
+3. Agregar el HTML de arriba después de la última propiedad
+4. Guardar y verificar
+
+✅ SEGURIDAD: Esta propiedad NO modificará archivos existentes automáticamente.

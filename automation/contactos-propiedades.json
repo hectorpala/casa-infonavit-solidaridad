@@ -21,7 +21,7 @@
       }
     },
     "privada-puntazul": {
-      "titulo": "Casa de 2 Niveles en Privada Puntazul", 
+      "titulo": "Casa de 2 Niveles en Privada Puntazul",
       "precio": "Consultar precio",
       "ubicacion": "Privada Puntazul, Culiacán",
       "contacto": {
@@ -39,7 +39,27 @@
         "comision": "1 mes",
         "disponible": true
       }
+    },
+    "acacia-kenya": {
+      "titulo": "Casa en Venta - Acacia Kenya Modelo Arrecife",
+      "precio": "$4,100,000",
+      "ubicacion": "Acacia Kenya (Acacia Cotos), Sector USE, Culiacán, Sinaloa",
+      "contacto": {
+        "propietario": "Desarrollos Lafher",
+        "telefono": "Por especificar",
+        "telefono_whatsapp": "Por especificar",
+        "email": "Por especificar",
+        "notas": "Desarrollo nuevo - Modelo Arrecife. Último modelo disponible con entrega inmediata. Sector USE Culiacán."
+      },
+      "detalles": {
+        "recamaras": 3,
+        "banos": 3.5,
+        "tipo": "venta",
+        "comision": "3%",
+        "disponible": true
+      },
+      "fecha_agregada": "2025-09-25"
     }
   },
-  "ultima_actualizacion": "2024-09-23T18:30:00Z"
+  "ultima_actualizacion": "2025-09-25T01:12:45.162Z"
 }
