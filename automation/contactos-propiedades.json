@@ -1,0 +1,45 @@
+{
+  "propiedades": {
+    "villas-del-real": {
+      "titulo": "Casa 1 Piso en Villas del Real",
+      "precio": "$1,240,000",
+      "ubicacion": "Fraccionamiento Villas del Real, Culiacán",
+      "contacto": {
+        "propietario": "Nombre del Propietario",
+        "telefono": "811-xxx-xxxx",
+        "telefono_whatsapp": "6671234567",
+        "email": "propietario@email.com",
+        "notas": "Acepta solo Infonavit y contado"
+      },
+      "detalles": {
+        "recamaras": 2,
+        "banos": 1,
+        "tipo": "venta",
+        "fecha_agregada": "2024-09-23",
+        "comision": "3%",
+        "disponible": true
+      }
+    },
+    "privada-puntazul": {
+      "titulo": "Casa de 2 Niveles en Privada Puntazul", 
+      "precio": "Consultar precio",
+      "ubicacion": "Privada Puntazul, Culiacán",
+      "contacto": {
+        "propietario": "Nombre del Propietario",
+        "telefono": "811-xxx-xxxx",
+        "telefono_whatsapp": "6671234567",
+        "email": "propietario@email.com",
+        "notas": "Disponible para renta"
+      },
+      "detalles": {
+        "recamaras": 2,
+        "banos": 2.5,
+        "tipo": "renta",
+        "fecha_agregada": "2024-09-20",
+        "comision": "1 mes",
+        "disponible": true
+      }
+    }
+  },
+  "ultima_actualizacion": "2024-09-23T18:30:00Z"
+}
