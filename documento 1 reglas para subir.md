@@ -192,6 +192,37 @@ El sistema usa:
 - Mantener: Fotos de baño con papel tapiz
 ```
 
+## 👤 REGLA #5: CRM INTERNO OBLIGATORIO
+**ANTES de generar cualquier propiedad, SIEMPRE preguntar y guardar:**
+
+### 📋 INFORMACIÓN OBLIGATORIA DEL PROPIETARIO:
+1. **Nombre completo del dueño** de la propiedad
+2. **Número de celular** (con formato +52 si es México)
+3. **Correo electrónico** (si lo tiene)
+
+### ⚠️ PROCESO OBLIGATORIO:
+```
+ANTES de crear la página, SIEMPRE preguntar:
+"Para el CRM interno necesito:
+- Nombre del propietario: 
+- Celular: 
+- Email (opcional): "
+
+GUARDAR en archivo: propietarios-crm.md
+FORMATO:
+## [Nombre de Propiedad]
+- **Propietario:** [Nombre Completo]  
+- **Celular:** [Número con formato]
+- **Email:** [correo@ejemplo.com o "No proporcionado"]
+- **Fecha:** [YYYY-MM-DD]
+- **Propiedad:** [URL de la página generada]
+```
+
+### 🚫 NO PROCEDER SIN ESTA INFORMACIÓN
+- **Si no proporcionan el nombre:** NO crear la propiedad
+- **Si no proporcionan celular:** NO crear la propiedad  
+- **Email es opcional** pero preguntar siempre
+
 ## 📞 CONFIGURACIÓN WHATSAPP
 - Mensajes personalizados por propiedad
 - Botón flotante con texto específico
@@ -232,7 +263,15 @@ El sistema usa:
 
 ### Para invocar reglas:
 ```
-Lee REGLAS_SUBIR_PROPIEDADES.md
+Lee documento 1 reglas para subir.md
+```
+
+### NUEVO: Para CRM obligatorio (SIEMPRE PRIMERO):
+```
+Para el CRM interno necesito:
+- Nombre del propietario: 
+- Celular: 
+- Email (opcional):
 ```
 
 ### Para identificar fotos:
