@@ -62,6 +62,16 @@ tailwind.config = {
         z-index: 10 !important;
     }
     
+    /* Carousel dots styling - OBLIGATORIO */
+    .carousel-dot {
+        opacity: 0.6;
+    }
+    
+    .carousel-dot.active {
+        opacity: 1;
+        background-color: white !important;
+    }
+    
     /* Uniform image areas */
     .property-card .aspect-video {
         height: 240px !important;
@@ -250,6 +260,15 @@ tailwind.config = {
             </svg>
         </button>
         
+        <!-- Carousel dots - OBLIGATORIO para múltiples imágenes -->
+        <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-1">
+            <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot active"></button>
+            <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+            <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+            <button class="w-2 h-2 bg-white/60 hover:bg-white rounded-full transition-colors carousel-dot"></button>
+            <!-- Agregar más dots según el número de imágenes -->
+        </div>
+        
         <!-- Badges -->
         <div class="absolute top-3 left-3 flex gap-2">
             <span class="bg-[COLOR] text-white px-2 py-1 rounded-lg text-xs font-medium">[ESTADO]</span>
@@ -341,12 +360,14 @@ tailwind.config = {
             const images = container.querySelectorAll('.carousel-image');
             const prevBtn = container.parentNode.querySelector('.carousel-prev');
             const nextBtn = container.parentNode.querySelector('.carousel-next');
+            const dots = container.parentNode.querySelectorAll('.carousel-dot');
             let currentIndex = 0;
             
             // Hide carousel controls if only one image
             if (images.length <= 1) {
                 if (prevBtn) prevBtn.style.display = 'none';
                 if (nextBtn) nextBtn.style.display = 'none';
+                dots.forEach(dot => dot.style.display = 'none');
                 return;
             }
             
@@ -360,11 +381,21 @@ tailwind.config = {
                         img.classList.remove('active');
                     }
                 });
+                
+                // Update dots - OBLIGATORIO
+                dots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
             }
             
             if (prevBtn) {
                 prevBtn.addEventListener('click', (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
                     currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
                     showImage(currentIndex);
                 });
@@ -373,10 +404,21 @@ tailwind.config = {
             if (nextBtn) {
                 nextBtn.addEventListener('click', (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
                     currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
                     showImage(currentIndex);
                 });
             }
+            
+            // Add dot functionality - OBLIGATORIO
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    currentIndex = index;
+                    showImage(currentIndex);
+                });
+            });
         });
         
         // Favorite functionality
@@ -408,10 +450,11 @@ tailwind.config = {
         const propertyCards = document.querySelectorAll('.property-card[data-href]');
         propertyCards.forEach(card => {
             card.addEventListener('click', function(e) {
-                // Don't navigate if clicking on WhatsApp button or carousel controls
+                // Don't navigate if clicking on WhatsApp button, carousel controls, or dots
                 if (e.target.closest('a[href*="wa.me"]') || 
                     e.target.closest('.carousel-prev') || 
                     e.target.closest('.carousel-next') ||
+                    e.target.closest('.carousel-dot') ||
                     e.target.closest('.favorite-btn')) {
                     return;
                 }
@@ -477,6 +520,7 @@ Antes de publicar una página de ciudad, verificar:
 ✅ **WhatsApp**: Links personalizados por propiedad
 ✅ **CSS**: Tarjetas uniformes aplicadas
 ✅ **JavaScript**: Carruseles funcionando
+✅ **Carousel Dots**: Indicadores visuales funcionando (bolitas)
 ✅ **Clickeable**: Tarjetas navegan a páginas individuales correctamente
 ✅ **Footer**: Información de contacto actualizada
 ✅ **Index**: Enlace desde página principal agregado
@@ -486,6 +530,119 @@ Antes de publicar una página de ciudad, verificar:
 ## 🚀 EJEMPLO COMPLETO
 Ver `propiedades-mazatlan.html` como referencia completa de implementación.
 
+## 🎛️ ESPECIFICACIONES TÉCNICAS CARRUSEL
+
+### CSS Obligatorio para Carruseles Funcionales
+```css
+/* Carousel Controls Styling - OBLIGATORIO */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-prev i, .carousel-next i {
+    color: #ff4e00;
+    font-size: 16px;
+}
+
+/* Carousel Indicators (Dots) */
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+```
+
+### JavaScript Handlers para Múltiples Tipos de Dots
+```javascript
+// Handle indicators (dots) para carruseles con clase .indicator
+const indicators = document.querySelectorAll('.indicator');
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const container = this.closest('.property-card').querySelector('.carousel-container');
+        const images = container.querySelectorAll('.carousel-image');
+        const allIndicators = this.closest('.carousel-indicators').querySelectorAll('.indicator');
+        
+        // Update images
+        images.forEach((img, i) => {
+            if (i === index) {
+                img.classList.remove('hidden');
+                img.classList.add('active');
+            } else {
+                img.classList.add('hidden');
+                img.classList.remove('active');
+            }
+        });
+        
+        // Update indicators
+        allIndicators.forEach((ind, i) => {
+            if (i === index) {
+                ind.classList.add('active');
+            } else {
+                ind.classList.remove('active');
+            }
+        });
+    });
+});
+```
+
+### Propiedades con Carrusel Implementado
+- **Casa Infonavit Solidaridad**: 5 imágenes (fachada, exterior, sala, cocina, recámara)
+- **Casa Barcelona Villa**: 8 imágenes (fachada, interior, sala, cocina, recámara, baño, patio, área social)
+
 ## 📝 ACTUALIZACIONES RECIENTES
 
 ### Septiembre 2025
@@ -494,12 +651,23 @@ Ver `propiedades-mazatlan.html` como referencia completa de implementación.
 - ✅ **Uniformidad Visual**: Se mantuvo la alineación perfecta mientras se agregó clickeabilidad
 - ✅ **Exclusión de Elementos**: WhatsApp buttons y carousel controls no activan la navegación
 - ✅ **JavaScript Optimizado**: Click handlers limpios sin conflictos con otros elementos
+- ✅ **Carousel Dots**: Se agregaron indicadores visuales (bolitas) para mostrar múltiples fotos
+- ✅ **Navegación por Dots**: Funcionalidad clickeable en bolitas para navegación directa
+- ✅ **Auto-hide**: Dots se ocultan automáticamente cuando hay solo 1 imagen
+- ✅ **Sincronización**: Dots y flechas mantienen el estado sincronizado
+- ✅ **Casa Infonavit Solidaridad**: Implementado carrusel completo con 5 imágenes y estructura uniforme
+- ✅ **Casa Barcelona Villa**: Agregado carrusel con 8 imágenes disponibles, flechas y dots funcionales
+- ✅ **CSS Carrusel Uniforme**: Botones circulares blancos con iconos naranjas, hover effects
+- ✅ **Estructura Consistente**: Todas las propiedades con múltiples imágenes usan la misma estructura
 
 ### Problemas Comunes Resueltos
 - **Error 404 en propiedades**: Verificar que los archivos HTML individuales existen y están deployados
 - **Cache del navegador**: Usar Ctrl+Shift+R o ventana incógnita para probar después de deployment
 - **Rutas incorrectas**: Validar que `data-href` apunta a archivos existentes
 - **Alineación rota**: El CSS uniforme debe aplicarse ANTES de agregar funcionalidad clickeable
+- **Dots no aparecen**: Verificar que hay múltiples imágenes en el carousel (auto-hide si hay solo 1)
+- **Dots no clickeables**: Asegurar que tienen `e.stopPropagation()` para no activar navegación de tarjeta
+- **Dots desincronizados**: Verificar que `showImage()` actualiza tanto imágenes como dots
 
 ---
 
