@@ -9,12 +9,12 @@
 - **Estado:** ✅ INFORMACIÓN COMPLETA
 
 ## Casa Privada Acacia Cotos
-- **Propietario:** [PENDIENTE - No proporcionado aún]
-- **Celular:** [PENDIENTE - No proporcionado aún]
-- **Email:** [PENDIENTE - No proporcionado aún]
+- **Propietario:** Kenya Gutierrez
+- **Celular:** +52 667 224 0496
+- **Email:** No proporcionado
 - **Fecha:** 2025-09-25
 - **Propiedad:** https://casasenventa.info/casa-privada-acacia-zona-norte.html
-- **Estado:** ⚠️ INFORMACIÓN FALTANTE
+- **Estado:** ✅ INFORMACIÓN COMPLETA
 
 ---
 
