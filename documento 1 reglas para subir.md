@@ -53,10 +53,162 @@ Quiero la misma estructura y optimización que las otras propiedades.
 ```
 
 ### 3. ESTRUCTURA DE ARCHIVOS GENERADOS
-- `casa-[venta/renta]-[nombre-slug].html` (página principal)
+- `casa-[venta/renta]-[nombre-slug].html` (página individual completa)
 - `images/[nombre-slug]/` (carpeta de fotos)
-- Actualización automática en `culiacan/index.html`
-- Actualización automática en `index.html`
+- **OBLIGATORIO:** Actualización automática en `culiacan/index.html` (tarjeta con carrusel)
+- **OBLIGATORIO:** Actualización automática en `index.html` (tarjeta principal grid)
+
+#### 📋 REGLA CRÍTICA: DOBLE INTEGRACIÓN OBLIGATORIA
+**⚠️ TODA nueva propiedad DEBE aparecer en AMBAS páginas:**
+
+1. **Página Principal (`index.html`)**: 
+   - Tarjeta simple en grid principal de propiedades
+   - Imagen de fachada como preview
+   - Precio, ubicación y características básicas
+   - Enlace directo a página individual
+
+2. **Página Culiacán (`culiacan/index.html`)**: 
+   - Tarjeta avanzada con carrusel funcional (6+ imágenes)
+   - SVG icons para características
+   - Botones modernos con gradiente
+   - Dots indicators y navegación arrows
+
+**🔧 PROCEDIMIENTO ESPECÍFICO DE INTEGRACIÓN:**
+```
+1. Crear página individual casa-[tipo]-[nombre].html
+2. Agregar tarjeta AVANZADA en culiacan/index.html (con carrusel completo)
+3. Agregar tarjeta SIMPLE en index.html (imagen única + datos básicos)
+4. Verificar enlaces bidireccionales funcionando correctamente
+5. Testear carrusel y navegación en ambas páginas
+6. Verificar WhatsApp links personalizados
+7. Publicar cambios con "PUBLICA YA"
+8. Verificar ambas páginas live en producción
+```
+
+**✅ VERIFICACIÓN POST-INTEGRACIÓN (OBLIGATORIA):**
+- [ ] La propiedad aparece en https://casasenventa.info (página principal)
+- [ ] La propiedad aparece en https://casasenventa.info/culiacan (página Culiacán)
+- [ ] El carrusel funciona correctamente en página Culiacán (arrows + dots)
+- [ ] Los enlaces entre páginas funcionan bidireccionales
+- [ ] WhatsApp abre con mensaje personalizado correcto
+- [ ] Precio es consistente en todas las ubicaciones
+- [ ] Características y ubicación son precisas
+- [ ] Responsive design funciona en móvil y desktop
+- [ ] Lazy loading está activo en todas las imágenes
+- [ ] Price badge naranja visible en carrusel
+
+**⚠️ CASOS DE ÉXITO DOCUMENTADOS:**
+- **Casa Stanza Corcega**: ✅ Integrada exitosamente en ambas páginas (Commit: f95e56b)
+  - Tarjeta principal: Imagen fachada, $1,690,000, características básicas
+  - Tarjeta Culiacán: Carrusel 6 imágenes, SVG icons, botones modernos
+  - ✅ Verificación completa: Ambas páginas funcionando, carrusel operativo, enlaces correctos
+
+#### 🎨 FORMATOS DE TARJETAS ESPECÍFICOS:
+
+**A) TEMPLATE EXACTO TARJETA PÁGINA PRINCIPAL (`index.html`):**
+```html
+<!-- INSERTAR EN SECCIÓN: <div class="properties-grid"> -->
+<a href="casa-venta-[nombre].html" class="property-card">
+    <img src="images/[nombre]/fachada.jpg" alt="Casa Venta [Nombre]" class="property-image" loading="lazy">
+    <div class="property-content">
+        <div class="property-badge sale">VENTA</div>
+        <h3 class="property-title">Casa [Descripción] en [Zona]</h3>
+        <p class="property-location">
+            <i class="fas fa-map-marker-alt"></i>
+            [Dirección específica]
+        </p>
+        <div class="property-price">$[Precio]</div>
+        <div class="property-features">
+            <span class="feature">[X] Recámaras</span>
+            <span class="feature">[X] Baños</span>
+            <span class="feature">[Característica]</span>
+            <span class="feature">[Característica]</span>
+        </div>
+        <div class="property-cta">Ver Detalles Completos</div>
+    </div>
+</a>
+```
+
+**B) TEMPLATE EXACTO TARJETA PÁGINA CULIACÁN (`culiacan/index.html`):**
+```html
+<!-- INSERTAR EN SECCIÓN: <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" 
+     data-href="../casa-venta-[nombre].html">
+    <div class="relative aspect-video">
+        <!-- PRICE BADGE OBLIGATORIO -->
+        <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+            $[Precio]
+        </div>
+        
+        <!-- CAROUSEL CONTAINER CON NAVEGACIÓN -->
+        <div class="carousel-container" data-current="0">
+            <div class="carousel-track" style="transform: translateX(0%)">
+                <!-- MÍNIMO 6 IMÁGENES -->
+                <img src="images/[nombre]/foto1.jpg" alt="[Descripción]" class="carousel-slide w-full h-full object-cover" loading="lazy">
+                <img src="images/[nombre]/foto2.jpg" alt="[Descripción]" class="carousel-slide w-full h-full object-cover" loading="lazy">
+                <!-- ... más imágenes -->
+            </div>
+            
+            <!-- NAVIGATION ARROWS -->
+            <button class="carousel-btn prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors z-10">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button class="carousel-btn next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors z-10">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- DOTS INDICATORS -->
+        <div class="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+            <!-- GENERAR DOTS DINÁMICAMENTE SEGÚN NÚMERO DE FOTOS -->
+        </div>
+        
+        <!-- FAVORITE ICON -->
+        <button class="absolute top-3 left-3 bg-white/80 hover:bg-white rounded-full p-2 transition-colors z-10">
+            <svg class="w-5 h-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- CONTENT SECTION -->
+    <div class="p-6">
+        <h3 class="text-2xl font-bold text-gray-900 mb-1 font-poppins">$[Precio]</h3>
+        <p class="text-gray-600 mb-4 font-poppins">Casa [Descripción] en [Zona] · [Ciudad]</p>
+        
+        <!-- PROPERTY DETAILS CON SVG ICONS -->
+        <div class="flex flex-wrap gap-3 mb-6">
+            <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                </svg>
+                [X] Recámaras
+            </div>
+            <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M9 7l3-3 3 3M5 10v11a1 1 0 001 1h3M20 10v11a1 1 0 01-1 1h-3"></path>
+                </svg>
+                [X] Baños
+            </div>
+            <!-- MÁS CARACTERÍSTICAS SEGÚN LA PROPIEDAD -->
+        </div>
+        
+        <!-- WHATSAPP BUTTON -->
+        <a href="https://wa.me/526671234567?text=Hola%2C%20me%20interesa%20la%20casa%20en%20[zona]%20por%20$[precio]" 
+           class="w-full btn-primary text-center block" 
+           target="_blank" rel="noopener noreferrer">
+            <svg class="w-5 h-5 inline mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.109"></path>
+            </svg>
+            Solicitar tour
+        </a>
+    </div>
+</div>
+```
 
 ### 4. OPTIMIZACIONES INCLUIDAS
 ✅ SEO completo (meta tags, structured data, Open Graph)
