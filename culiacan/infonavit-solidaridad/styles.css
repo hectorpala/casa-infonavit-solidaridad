@@ -3704,6 +3704,124 @@ img {
     }
 }
 
+/* Carousel Buttons for Property Pages */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 78, 0, 0.9);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    visibility: visible;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 78, 0, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 78, 0, 0.5);
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: #ff4e00;
+    transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 78, 0, 0.8);
+}
+
+/* Mobile adjustments for carousel buttons */
+@media (max-width: 768px) {
+    .carousel-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .carousel-btn.prev {
+        left: 15px;
+    }
+    
+    .carousel-btn.next {
+        right: 15px;
+    }
+    
+    .carousel-dots {
+        bottom: 15px;
+    }
+    
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .carousel-btn.prev {
+        left: 10px;
+    }
+    
+    .carousel-btn.next {
+        right: 10px;
+    }
+    
+    .carousel-dots {
+        bottom: 10px;
+        gap: 8px;
+    }
+    
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
 /* Force cache refresh Sat Sep 20 22:40:03 MST 2025 */
 /* Force update Sat Sep 20 23:27:42 MST 2025 */
 /* Cache buster 1758436392 */
@@ -3711,3 +3829,4 @@ img {
 /* BLINKING ARROWS SUPER VISIBLE - Sept 22 2025 - v2.1 */
 /* Mobile optimizations - Sept 22 2025 - v2.2 */
 /* WhatsApp floating button deployed - Sept 22 2025 - v2.3 */
+/* CAROUSEL BUTTONS FIX - Sept 25 2025 - v2.4 */
