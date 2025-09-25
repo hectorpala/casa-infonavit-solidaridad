@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazatlán · Propiedades en venta y renta | Hector es Bienes Raíces</title>
+    <meta name="description" content="Explora propiedades en Mazatlán con fotos, precios y tours por WhatsApp.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mazatlán · Propiedades en venta y renta | Hector es Bienes Raíces">
+    <meta property="og:description" content="Explora propiedades en Mazatlán con fotos, precios y tours por WhatsApp.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://casasenventa.info/propiedades-mazatlan.html">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#ff4e00',
+                        'info': '#e63900',
+                        'hector': '#ff4e00',
+                        'hector-dark': '#e63900',
+                    },
+                    fontFamily: {
+                        'system': ['system-ui', 'Arial', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- JSON-LD Breadcrumb -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://casasenventa.info/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Mazatlán",
+                "item": "https://casasenventa.info/mazatlan/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Propiedades",
+                "item": "https://casasenventa.info/propiedades-mazatlan.html"
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-gray-50 font-system">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <!-- Logo y navegación principal -->
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-hector/10 p-2 rounded-lg">
+                        <svg class="w-6 h-6 text-hector" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8L18 11v8h-2v-6h-6v6H8v-8l4-5.2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">Hector es Bienes Raíces</h1>
+                        <p class="text-sm text-gray-600">Propiedades en Mazatlán</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-hector">Inicio</a>
+                    <a href="#" class="text-gray-600 hover:text-hector">Contacto</a>
+                    <a href="https://wa.me/526671631231" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Buscador y filtros -->
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1 relative">
+                    <input 
+                        type="text" 
+                        placeholder="Buscar en Mazatlán, Sinaloa..." 
+                        class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hector focus:border-transparent"
+                    >
+                    <svg class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="m21 20-5.6-5.6A7.5 7.5 0 1 0 9.5 17a7.45 7.45 0 0 0 4.9-1.8L20 21l1-1ZM4 9.5A5.5 5.5 0 1 1 9.5 15 5.51 5.51 0 0 1 4 9.5Z"/>
+                    </svg>
+                </div>
+                
+                <div class="flex gap-2">
+                    <button class="px-4 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 font-medium">
+                        En Venta
+                    </button>
+                    <button class="px-4 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 font-medium">
+                        En Renta
+                    </button>
+                    <button class="px-4 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 font-medium">
+                        Filtros
+                    </button>
+                    <button class="px-4 py-3 bg-hector text-white rounded-xl hover:bg-hector-dark font-medium">
+                        Guardar búsqueda
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Results header -->
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Propiedades en Mazatlán</h2>
+            <p class="text-gray-600">24 propiedades disponibles · Ordenado por más recientes</p>
+        </div>
+
+        <!-- Properties Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Property Card 1 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative aspect-video">
+                    <div class="carousel-container" data-current="0">
+                        <img src="https://via.placeholder.com/400x225/0B5FFF/ffffff?text=Casa+Zona+Dorada" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image active">
+                        <img src="https://via.placeholder.com/400x225/1D4ED8/ffffff?text=Interior+Casa" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image hidden">
+                        <img src="https://via.placeholder.com/400x225/3B82F6/ffffff?text=Cocina" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image hidden">
+                    </div>
+                    
+                    <!-- Carousel controls -->
+                    <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Badges -->
+                    <div class="absolute top-3 left-3 flex gap-2">
+                        <span class="bg-green-500 text-white px-2 py-1 rounded-lg text-xs font-medium">Actualizado hoy</span>
+                        <span class="bg-hector text-white px-2 py-1 rounded-lg text-xs font-medium">Disponible</span>
+                    </div>
+                    
+                    <!-- Favorite icon -->
+                    <button class="favorite-btn absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                        <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21s-6.7-3.9-9.3-8A5.5 5.5 0 0 1 12 6.2 5.5 5.5 0 0 1 21.3 13c-2.6 4.1-9.3 8-9.3 8Z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">$2,850,000</h3>
+                    <p class="text-gray-600 mb-4">Casa en Zona Dorada · Av. Playa Gaviotas, Mazatlán</p>
+                    
+                    <!-- Property details chips -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">3 rec</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">2.5 baños</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">220 m²</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">Vista al mar</span>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20la%20casa%20en%20Zona%20Dorada%20Mazatl%C3%A1n%20de%20%242%2C850%2C000" 
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                        Solicitar tour
+                    </a>
+                </div>
+            </div>
+
+            <!-- Property Card 2 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative aspect-video">
+                    <div class="carousel-container" data-current="0">
+                        <img src="https://via.placeholder.com/400x225/1D4ED8/ffffff?text=Departamento+Centro" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image active">
+                        <img src="https://via.placeholder.com/400x225/3B82F6/ffffff?text=Sala+Comedor" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image hidden">
+                    </div>
+                    
+                    <!-- Carousel controls -->
+                    <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Badges -->
+                    <div class="absolute top-3 left-3 flex gap-2">
+                        <span class="bg-blue-500 text-white px-2 py-1 rounded-lg text-xs font-medium">En Renta</span>
+                        <span class="bg-yellow-500 text-black px-2 py-1 rounded-lg text-xs font-medium">Amueblado</span>
+                    </div>
+                    
+                    <!-- Favorite icon -->
+                    <button class="favorite-btn absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                        <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21s-6.7-3.9-9.3-8A5.5 5.5 0 0 1 12 6.2 5.5 5.5 0 0 1 21.3 13c-2.6 4.1-9.3 8-9.3 8Z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">$18,500/mes</h3>
+                    <p class="text-gray-600 mb-4">Departamento Centro · Calle Constitución, Mazatlán</p>
+                    
+                    <!-- Property details chips -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">2 rec</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">1 baño</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">85 m²</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">Centro histórico</span>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20el%20departamento%20en%20Centro%20Mazatl%C3%A1n%20de%20%2418%2C500%2Fmes" 
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                        Solicitar tour
+                    </a>
+                </div>
+            </div>
+
+            <!-- Property Card 3 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative aspect-video">
+                    <div class="carousel-container" data-current="0">
+                        <img src="https://via.placeholder.com/400x225/3B82F6/ffffff?text=Casa+Frente+Mar" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image active">
+                        <img src="https://via.placeholder.com/400x225/60A5FA/ffffff?text=Alberca+Privada" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image hidden">
+                        <img src="https://via.placeholder.com/400x225/93C5FD/ffffff?text=Terraza+Vista+Mar" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image hidden">
+                        <img src="https://via.placeholder.com/400x225/DBEAFE/000000?text=Recamara+Principal" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image hidden">
+                    </div>
+                    
+                    <!-- Carousel controls -->
+                    <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Badges -->
+                    <div class="absolute top-3 left-3 flex gap-2">
+                        <span class="bg-purple-500 text-white px-2 py-1 rounded-lg text-xs font-medium">Premium</span>
+                        <span class="bg-green-500 text-white px-2 py-1 rounded-lg text-xs font-medium">Actualizado hoy</span>
+                    </div>
+                    
+                    <!-- Favorite icon -->
+                    <button class="favorite-btn absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                        <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21s-6.7-3.9-9.3-8A5.5 5.5 0 0 1 12 6.2 5.5 5.5 0 0 1 21.3 13c-2.6 4.1-9.3 8-9.3 8Z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">$4,200,000</h3>
+                    <p class="text-gray-600 mb-4">Casa Frente al Mar · Playa Norte, Mazatlán</p>
+                    
+                    <!-- Property details chips -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">4 rec</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">3 baños</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">300 m²</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">Alberca</span>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20la%20casa%20frente%20al%20mar%20en%20Mazatl%C3%A1n%20de%20%244%2C200%2C000" 
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                        Solicitar tour
+                    </a>
+                </div>
+            </div>
+
+            <!-- Property Card 4 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative aspect-video">
+                    <div class="carousel-container" data-current="0">
+                        <img src="https://via.placeholder.com/400x225/60A5FA/ffffff?text=Condominio+El+Cid" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image active">
+                    </div>
+                    
+                    <!-- Badges -->
+                    <div class="absolute top-3 left-3 flex gap-2">
+                        <span class="bg-teal-500 text-white px-2 py-1 rounded-lg text-xs font-medium">Resort</span>
+                    </div>
+                    
+                    <!-- Favorite icon -->
+                    <button class="favorite-btn absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                        <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21s-6.7-3.9-9.3-8A5.5 5.5 0 0 1 12 6.2 5.5 5.5 0 0 1 21.3 13c-2.6 4.1-9.3 8-9.3 8Z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">$35,000/mes</h3>
+                    <p class="text-gray-600 mb-4">Condominio Resort · El Cid, Mazatlán</p>
+                    
+                    <!-- Property details chips -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">1 suite</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">1 baño</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">65 m²</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">Todo incluido</span>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20el%20condominio%20en%20El%20Cid%20Mazatl%C3%A1n%20de%20%2435%2C000%2Fmes" 
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                        Solicitar tour
+                    </a>
+                </div>
+            </div>
+
+            <!-- Property Card 5 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative aspect-video">
+                    <div class="carousel-container" data-current="0">
+                        <img src="https://via.placeholder.com/400x225/93C5FD/000000?text=Casa+Cerritos" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image active">
+                        <img src="https://via.placeholder.com/400x225/BFDBFE/000000?text=Jardin+Privado" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image hidden">
+                    </div>
+                    
+                    <!-- Carousel controls -->
+                    <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Badges -->
+                    <div class="absolute top-3 left-3">
+                        <span class="bg-orange-500 text-white px-2 py-1 rounded-lg text-xs font-medium">Precio especial</span>
+                    </div>
+                    
+                    <!-- Favorite icon -->
+                    <button class="favorite-btn absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                        <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21s-6.7-3.9-9.3-8A5.5 5.5 0 0 1 12 6.2 5.5 5.5 0 0 1 21.3 13c-2.6 4.1-9.3 8-9.3 8Z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">$1,850,000</h3>
+                    <p class="text-gray-600 mb-4">Casa en Cerritos · Av. Cerritos, Mazatlán</p>
+                    
+                    <!-- Property details chips -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">3 rec</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">2 baños</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">180 m²</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">Jardín</span>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20la%20casa%20en%20Cerritos%20Mazatl%C3%A1n%20de%20%241%2C850%2C000" 
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                        Solicitar tour
+                    </a>
+                </div>
+            </div>
+
+            <!-- Property Card 6 -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                <div class="relative aspect-video">
+                    <div class="carousel-container" data-current="0">
+                        <img src="https://via.placeholder.com/400x225/DBEAFE/000000?text=Villa+Marina" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image active">
+                        <img src="https://via.placeholder.com/400x225/EBF4FF/000000?text=Marina+Privada" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-ull object-cover carousel-image hidden">
+                        <img src="https://via.placeholder.com/400x225/F0F9FF/000000?text=Muelle+Propio" 
+                             alt="Foto de propiedad en Mazatlán" 
+                             loading="lazy" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image hidden">
+                    </div>
+                    
+                    <!-- Carousel controls -->
+                    <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                        </svg>
+                    </button>
+                    <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-1 rounded-full shadow-md">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                        </svg>
+                    </button>
+                    
+                    <!-- Badges -->
+                    <div class="absolute top-3 left-3 flex gap-2">
+                        <span class="bg-indigo-500 text-white px-2 py-1 rounded-lg text-xs font-medium">Exclusivo</span>
+                        <span class="bg-hector text-white px-2 py-1 rounded-lg text-xs font-medium">Disponible</span>
+                    </div>
+                    
+                    <!-- Favorite icon -->
+                    <button class="favorite-btn absolute top-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full shadow-md">
+                        <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 21s-6.7-3.9-9.3-8A5.5 5.5 0 0 1 12 6.2 5.5 5.5 0 0 1 21.3 13c-2.6 4.1-9.3 8-9.3 8Z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">$8,500,000</h3>
+                    <p class="text-gray-600 mb-4">Villa Marina · Puerto Marina, Mazatlán</p>
+                    
+                    <!-- Property details chips -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">5 rec</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">4.5 baños</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">450 m²</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-lg text-sm font-medium">Muelle</span>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <a href="https://wa.me/526671631231?text=Hola%2C%20me%20interesa%20la%20villa%20marina%20en%20Mazatl%C3%A1n%20de%20%248%2C500%2C000" 
+                       class="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-4 rounded-xl text-center block transition-colors">
+                        Solicitar tour
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Load more button -->
+        <div class="text-center mt-12">
+            <button class="bg-white border border-gray-300 hover:bg-gray-50 px-8 py-3 rounded-xl font-medium">
+                Ver más propiedades
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Hector es Bienes Raíces</h3>
+                    <p class="text-gray-400 mb-4">Especialistas en propiedades en Mazatlán y Culiacán</p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/526671631231" class="text-green-400 hover:text-green-300">WhatsApp</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Propiedades</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">En Venta</a></li>
+                        <li><a href="#" class="hover:text-white">En Renta</a></li>
+                        <li><a href="#" class="hover:text-white">Comerciales</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Ubicaciones</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Mazatlán</a></li>
+                        <li><a href="#" class="hover:text-white">Culiacán</a></li>
+                        <li><a href="#" class="hover:text-white">Otras ciudades</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>+52 667 163 1231</li>
+                        <li>hector.palazuelos@gmail.com</li>
+                        <li>Mazatlán, Sinaloa</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Hector es Bienes Raíces. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselContainers = document.querySelectorAll('.carousel-container');
+            
+            carouselContainers.forEach(container => {
+                const images = container.querySelectorAll('.carousel-image');
+                const prevBtn = container.parentNode.querySelector('.carousel-prev');
+                const nextBtn = container.parentNode.querySelector('.carousel-next');
+                let currentIndex = 0;
+                
+                // Hide carousel controls if only one image
+                if (images.length <= 1) {
+                    if (prevBtn) prevBtn.style.display = 'none';
+                    if (nextBtn) nextBtn.style.display = 'none';
+                    return;
+                }
+                
+                function showImage(index) {
+                    images.forEach((img, i) => {
+                        if (i === index) {
+                            img.classList.remove('hidden');
+                            img.classList.add('active');
+                        } else {
+                            img.classList.add('hidden');
+                            img.classList.remove('active');
+                        }
+                    });
+                }
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+                        showImage(currentIndex);
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+                        showImage(currentIndex);
+                    });
+                }
+            });
+            
+            // Favorite functionality
+            const favoriteButtons = document.querySelectorAll('.favorite-btn');
+            favoriteButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const heart = this.querySelector('svg');
+                    if (heart.classList.contains('text-gray-400')) {
+                        heart.classList.remove('text-gray-400');
+                        heart.classList.add('text-red-500');
+                    } else {
+                        heart.classList.remove('text-red-500');
+                        heart.classList.add('text-gray-400');
+                    }
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('input[placeholder*="Mazatlán"]');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        alert('Buscando: ' + this.value);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
