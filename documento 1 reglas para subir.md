@@ -163,24 +163,33 @@ El sistema usa:
 3. **Si la fachada no está primera**, reorganizar el orden de las fotos
 4. **En listings principales**, usar siempre la fachada como imagen de preview
 
-### 📝 REGLA #3: DESCRIPCIONES PRECISAS
-**Para cada foto, la descripción debe:**
-1. **Coincidir exactamente** con lo que se ve en la imagen
-2. **Ser específica**: "Recámara Principal con Closet" vs "Habitación" 
-3. **Incluir elementos visibles**: "Sala con Minisplit" si se ve el aire acondicionado
-4. **Usar términos consistentes**: "Cochera" no "Garage", "Recámara" no "Cuarto"
+### 📝 REGLA #3: SIN DESCRIPCIONES EN IMÁGENES
+**NUEVA REGLA OBLIGATORIA:**
+1. **NO incluir descripciones de fotos** en los carruseles (sin `<div class="image-caption">`)
+2. **Eliminar todos los textos** bajo las imágenes
+3. **Las fotos hablan por sí solas** - no necesitan etiquetas
+4. **Mantener solo alt text** para SEO y accesibilidad
+
+### 🚫 REGLA #4: FILTRO DE FOTOS INAPROPIADAS  
+**ELIMINAR OBLIGATORIAMENTE:**
+1. **Fotos de baños con elementos decorativos excesivos** (papel tapiz, diseños llamativos)
+2. **Imágenes repetitivas** que no aportan valor
+3. **Fotos borrosas** o de mala calidad
+4. **Mantener solo 12-15 fotos máximo** de las más importantes y representativas
 
 ### ⚠️ EJEMPLO DE VERIFICACIÓN CORRECTA:
 ```
 ✅ CORRECTO:
 - Leer imagen: images/propiedad/foto1.jpg
 - Ver: Exterior de casa con portón
-- Descripción: "Fachada Principal"
+- Acción: Poner como primera foto SIN descripción
+- Resultado: Fachada primera, sin texto bajo la imagen
 
 ❌ INCORRECTO:
 - NO leer imagen
 - Asumir: "Debe ser la fachada"
-- Descripción: "Fachada Principal" (sin verificar)
+- Incluir: <div class="image-caption">Fachada Principal</div>
+- Mantener: Fotos de baño con papel tapiz
 ```
 
 ## 📞 CONFIGURACIÓN WHATSAPP
