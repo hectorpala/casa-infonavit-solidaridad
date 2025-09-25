@@ -3704,41 +3704,61 @@ img {
     }
 }
 
-/* Carousel Buttons for Property Pages */
+/* Carousel Buttons for Property Pages - SUPER VISIBLE */
 .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 78, 0, 0.9);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    opacity: 1;
-    visibility: visible;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(255, 78, 0, 0.95) !important;
+    border: 3px solid white !important;
+    width: 55px !important;
+    height: 55px !important;
+    border-radius: 50% !important;
+    color: white !important;
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    z-index: 999 !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    backdrop-filter: blur(5px) !important;
+    animation: pulseArrow 2s infinite !important;
+}
+
+@keyframes pulseArrow {
+    0% {
+        box-shadow: 0 6px 20px rgba(255, 78, 0, 0.5);
+        background: rgba(255, 78, 0, 0.95);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(255, 78, 0, 0.8);
+        background: rgba(255, 78, 0, 1);
+        transform: translateY(-50%) scale(1.1);
+    }
+    100% {
+        box-shadow: 0 6px 20px rgba(255, 78, 0, 0.5);
+        background: rgba(255, 78, 0, 0.95);
+    }
 }
 
 .carousel-btn:hover {
-    background: rgba(255, 78, 0, 1);
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 6px 20px rgba(255, 78, 0, 0.5);
+    background: rgba(255, 78, 0, 1) !important;
+    transform: translateY(-50%) scale(1.2) !important;
+    box-shadow: 0 8px 25px rgba(255, 78, 0, 0.8) !important;
+    animation: none !important;
 }
 
 .carousel-btn.prev {
-    left: 20px;
+    left: 20px !important;
 }
 
 .carousel-btn.next {
-    right: 20px;
+    right: 20px !important;
 }
 
 .carousel-dots {
@@ -3830,3 +3850,4 @@ img {
 /* Mobile optimizations - Sept 22 2025 - v2.2 */
 /* WhatsApp floating button deployed - Sept 22 2025 - v2.3 */
 /* CAROUSEL BUTTONS FIX - Sept 25 2025 - v2.4 */
+/* SUPER VISIBLE ARROWS WITH !IMPORTANT - Sept 25 2025 - v2.5 */
