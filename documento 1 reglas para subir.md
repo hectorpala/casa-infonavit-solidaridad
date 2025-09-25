@@ -177,6 +177,24 @@ El sistema usa:
 3. **Fotos borrosas** o de mala calidad
 4. **Mantener solo 12-15 fotos máximo** de las más importantes y representativas
 
+### 🚫 REGLA #5: NO ELEMENTOS EXTRA
+**PROHIBIDO agregar elementos que NO estén en las especificaciones:**
+1. **NO Google Maps** embeds, links o iframes
+2. **NO secciones de amenidades del área** (educación, salud, comercios)
+3. **NO estadísticas del área** (habitantes, comercios, etc.)
+4. **NO property cards** de otras propiedades
+5. **NO carruseles duplicados** - solo UN carrusel principal
+6. **NO secciones informativas extra** no especificadas
+
+**✅ ELEMENTOS PERMITIDOS ÚNICAMENTE:**
+- SEO completo (meta tags, structured data, Open Graph)
+- Carrusel único de fotos (máximo 12-15)
+- WhatsApp floating button personalizado  
+- Calculadora de hipoteca (venta) o renta
+- Sección de contacto básica
+- Price badge naranja
+- Optimizaciones de performance
+
 ### ⚠️ EJEMPLO DE VERIFICACIÓN CORRECTA:
 ```
 ✅ CORRECTO:
@@ -192,7 +210,7 @@ El sistema usa:
 - Mantener: Fotos de baño con papel tapiz
 ```
 
-## 👤 REGLA #5: CRM INTERNO OBLIGATORIO
+## 👤 REGLA #6: CRM INTERNO OBLIGATORIO
 **ANTES de generar cualquier propiedad, SIEMPRE preguntar y guardar:**
 
 ### 📋 INFORMACIÓN OBLIGATORIA DEL PROPIETARIO:
