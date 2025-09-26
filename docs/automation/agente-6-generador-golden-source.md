@@ -76,9 +76,43 @@ Generar el código HTML completo de la página individual y tarjetas de integrac
 - Adaptar structured data JSON-LD según tipo
 
 ### 4. GENERACIÓN DE TARJETAS
-- Crear tarjeta simple para página principal
-- Generar tarjeta avanzada con carrusel para Culiacán
-- Asegurar enlaces correctos a página individual
+
+#### Tarjeta Simple (Home - index.html):
+```html
+<a href="casa-[tipo]-[slug].html" class="property-card">
+    <img src="images/[slug]/[foto-01].jpeg" alt="[Título Propiedad]" class="property-image" loading="lazy">
+    <div class="property-content">
+        <div class="property-badge [rent/sale]">[RENTA/VENTA]</div>
+        <h3 class="property-title">[Título Propiedad]</h3>
+        <p class="property-location">🏠 [Ubicación]</p>
+        <div class="property-features">
+            <span>🛏️ [X] Recámaras</span>
+            <span>🚿 [X] Baños</span>
+            <span>🚗 [X] Estacionamientos</span>
+        </div>
+        <div class="property-price">$[PRECIO] <span>/[periodo]</span></div>
+        <p class="property-description">[Descripción breve]</p>
+    </div>
+</a>
+```
+
+#### Tarjeta Avanzada (Culiacán - culiacan/index.html):
+**IMPORTANTE:** Esta tarjeta será refinada por Agente 8 con template específico.
+El Agente 6 solo genera la estructura básica de datos:
+```html
+<!-- DATOS PARA AGENTE 8 -->
+<!-- SLUG: [slug] -->
+<!-- PRECIO: $[precio]/[periodo] -->
+<!-- TITULO: [titulo] -->
+<!-- UBICACION: [ubicacion] -->
+<!-- CARACTERISTICAS: [recamaras]|[baños]|[estacionamientos]|[extras] -->
+<!-- FOTOS: [lista de archivos] -->
+<!-- WHATSAPP: [mensaje personalizado] -->
+<!-- END DATOS -->
+```
+
+**REGLA CRÍTICA:** El Agente 6 NO genera el HTML final de la tarjeta Culiacán.
+Solo prepara los datos estructurados para que Agente 8 aplique el template correcto.
 
 ### 5. VALIDACIÓN TÉCNICA
 - Verificar SEO completo (title, meta, OG, canonical)

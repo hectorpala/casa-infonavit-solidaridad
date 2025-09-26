@@ -70,9 +70,33 @@ Generar y verificar el/los enlaces de WhatsApp de la propiedad para contacto inm
 - Aplicar URL-encode completo al mensaje
 
 ### 3. GENERACIÓN DE ENLACES
-- Construir URLs canónicas para cada punto de contacto
-- Diferentes mensajes según contexto (página vs flotante vs tarjeta)
-- Validar formato `https://wa.me/` correcto
+
+#### TELÉFONO ESTÁNDAR:
+- **SIEMPRE:** `+528111652545` (formato E.164)
+- **BASE URL:** `https://wa.me/528111652545?text=`
+
+#### MENSAJES ESPECÍFICOS POR CONTEXTO:
+
+**Página Individual (botón principal + flotante):**
+```
+Hola, me interesa la [casa en renta/casa en venta] en [UBICACIÓN] por $[PRECIO] [mensuales/]. ¿Podría darme más información y agendar una visita?
+```
+
+**Tarjeta Home (index.html):**
+```
+Me interesa la [casa en renta/casa en venta] en [UBICACIÓN] por $[PRECIO] [mensuales/]. ¿Podría agendar una visita?
+```
+
+**Tarjeta Culiacán (avanzada):**
+```
+Hola, me interesa la [casa en renta/casa en venta] en [UBICACIÓN], [BREVE_DESCRIPCIÓN] por $[PRECIO] [mensuales/]. ¿Podría darme más información?
+```
+
+#### REGLAS DE URL ENCODING:
+- Espacios → `%20`
+- Comas → `%2C`
+- Interrogaciones → `%3F`
+- Acentos → UTF-8 encoded (ó → `%C3%B3`, í → `%C3%AD`)
 
 ### 4. INSERCIÓN
 - Asignar enlaces en puntos definidos por #6
