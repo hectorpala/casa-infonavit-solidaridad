@@ -498,6 +498,64 @@ tailwind.config = {
 - Casa Privada Acacia: `casa-privada-acacia-zona-norte.html`
 - Casa Barcelona Villa (renta): `culiacan-casaenrenta-barcelona-villa.html`
 
+## 🔥 SOLUCIÓN DEFINITIVA: FLECHAS CARRUSEL EN PÁGINAS DE CIUDADES
+**⚠️ PROBLEMA CRÍTICO RESUELTO - Sept 25 2025 - v3.0**
+
+### 🚨 REGLA OBLIGATORIA PARA CARRUSELES EN TODAS LAS PÁGINAS DE CIUDADES
+**SIEMPRE usar esta estructura EXACTA para que las flechas sean VISIBLES:**
+
+```html
+<!-- ✅ CORRECTO - FLECHAS VISIBLES -->
+<button class="carousel-prev" aria-label="Imagen anterior">
+    <i class="fas fa-chevron-left"></i>
+</button>
+<button class="carousel-next" aria-label="Siguiente imagen">
+    <i class="fas fa-chevron-right"></i>
+</button>
+```
+
+### ❌ NUNCA USAR EN PÁGINAS DE CIUDADES (NO FUNCIONA)
+```html
+<!-- ❌ INCORRECTO - FLECHAS INVISIBLES -->
+<button class="carousel-btn-index prev-btn-index" onclick="previousImage(this)">
+<button class="carousel-btn-index next-btn-index" onclick="nextImage(this)">
+```
+
+### ✅ VERIFICACIÓN OBLIGATORIA PARA CARRUSELES
+- **CSS requerido:** `.carousel-prev` y `.carousel-next` con estilos `!important`
+- **Iconos obligatorios:** Font Awesome `fas fa-chevron-left/right`
+- **Sin onclick:** Las clases CSS manejan la funcionalidad automáticamente
+- **Estilo consistente:** Naranja (rgba(255, 78, 0, 0.95)) con bordes blancos
+- **Tamaño estándar:** 50px × 50px con z-index alto
+
+### 🎯 CASOS DE ÉXITO VERIFICADOS
+- **Página Culiacán**: ✅ Todas las propiedades funcionan con `.carousel-prev/.carousel-next`
+- **Casa Circuito Canarias**: ✅ Flechas completamente visibles
+- **Casa Los Pinos**: ✅ Flechas completamente visibles
+- **Todas las casas de venta**: ✅ Estructura estándar que siempre funciona
+
+### 💡 REGLA DE ORO: COPIAR DE LO QUE FUNCIONA
+**Siempre usar la misma estructura que las casas de venta exitosas. NO inventar nuevas clases o métodos JavaScript complejos.**
+
+### 🔧 CSS NECESARIO PARA FLECHAS (YA DISPONIBLE)
+El CSS ya está implementado en `styles.css` con máxima prioridad:
+```css
+.carousel-prev, .carousel-next {
+    position: absolute !important;
+    background: rgba(255, 78, 0, 0.95) !important;
+    color: white !important;
+    border: 3px solid white !important;
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+    z-index: 9999 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+```
+
+**⭐ NOTA CRÍTICA:** Esta solución se aplicó tras identificar que las propiedades de renta tenían clases diferentes que causaban invisibilidad de flechas. La solución fue estandarizar con las clases que YA funcionaban en propiedades de venta.
+
 ## 🔗 INTEGRACIÓN CON INDEX PRINCIPAL
 
 ### REGLA #9: ENLACE EN INDEX.HTML

@@ -498,9 +498,47 @@ ls -la "/Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/"
 - Comprobar que las funciones estén expuestas globalmente  
 - Revisar que el conteo de fotos sea correcto en totalSlides
 
+## 🔥 SOLUCIÓN DEFINITIVA: FLECHAS CARRUSEL PÁGINA CULIACÁN
+**⚠️ PROBLEMA CRÍTICO RESUELTO - Sept 25 2025 - v3.0**
+
+### 🚨 REGLA OBLIGATORIA PARA CARRUSELES EN PÁGINA CULIACÁN
+**SIEMPRE usar esta estructura EXACTA para que las flechas sean VISIBLES:**
+
+```html
+<!-- CORRECTO - FLECHAS VISIBLES -->
+<button class="carousel-prev" aria-label="Imagen anterior">
+    <i class="fas fa-chevron-left"></i>
+</button>
+<button class="carousel-next" aria-label="Siguiente imagen">
+    <i class="fas fa-chevron-right"></i>
+</button>
+```
+
+### ❌ NUNCA USAR (NO FUNCIONA)
+```html
+<!-- INCORRECTO - FLECHAS INVISIBLES -->
+<button class="carousel-btn-index prev-btn-index" onclick="..." style="...">
+<button class="carousel-btn-index next-btn-index" onclick="...">
+```
+
+### ✅ VERIFICACIÓN OBLIGATORIA
+- **CSS disponible:** `.carousel-prev` y `.carousel-next` ya están en styles.css con `!important`
+- **Estilos**: Naranja (rgba(255, 78, 0, 0.95)) con bordes blancos
+- **Tamaño**: 50px × 50px con z-index 9999
+- **Iconos**: Font Awesome `fas fa-chevron-left/right`
+- **Sin JavaScript**: Las clases funcionan automáticamente
+
+### 🎯 CASOS DE ÉXITO DOCUMENTADOS
+- **Casa Circuito Canarias**: ✅ Flechas visibles usando `.carousel-prev/.carousel-next`
+- **Casa Los Pinos**: ✅ Flechas visibles usando `.carousel-prev/.carousel-next`
+- **Todas las casas de venta**: ✅ Funcionan perfecto con esta estructura
+
+**💡 NOTA:** Esta estructura es IDÉNTICA a la que usan las casas de venta que siempre han funcionado correctamente.
+
 ## 🎯 CONVENCIONES FINALES
 - **Archivos HTML:** casa-[venta/renta]-[slug].html
 - **Carpetas imágenes:** images/[property-slug]/
 - **URLs:** Todas apuntan a https://casasenventa.info
 - **WhatsApp:** Mensajes URL-encoded específicos por propiedad
 - **Deployment:** Siempre a rama main → GitHub Pages → casasenventa.info
+- **⭐ FLECHAS CARRUSEL:** SIEMPRE usar `.carousel-prev/.carousel-next` en página Culiacán
