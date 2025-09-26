@@ -29,27 +29,33 @@
     <meta property="og:title" content="Casa en Renta Privada Albacete - 3 Recámaras">
     <meta property="og:description" content="Casa de 3 recámaras en Privada Albacete, Desarrollo Urbano 3 Ríos, Culiacán. 2 baños completos, cochera para 2 autos, privada con caseta de vigilancia y área social.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://casasenventa.info/casa-renta-privada-albacete.html">
     <meta property="og:image" content="https://casasenventa.info/images/privada-albacete/villa-albaceta-15-fachada.jpg">
     
-    <!-- Schema.org Structured Data for Rental Property -->
+    <!-- Schema.org Structured Data for Property -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SingleFamilyResidence",
-      "name": "Casa en Renta Privada Albacete - 3 Recámaras",
+      "name": "Casa en Renta Privada Albacete",
       "description": "Casa de 3 recámaras en Privada Albacete, Desarrollo Urbano 3 Ríos, Culiacán. 2 baños completos, cochera para 2 autos, privada con caseta de vigilancia y área social.",
       "url": "https://casasenventa.info/casa-renta-privada-albacete.html",
-      "image": "https://casasenventa.info/images/privada-albacete/villa-albaceta-15-fachada.jpg",
+      "image": [
+        "https://casasenventa.info/images/privada-albacete/villa-albaceta-15-fachada.jpg",
+        "https://casasenventa.info/images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-02.jpg",
+        "https://casasenventa.info/images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-03.jpg"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Privada Albacete #15, Desarrollo Urbano 3 Ríos",
         "addressLocality": "Culiacán",
         "addressRegion": "Sinaloa",
+        "postalCode": "80000",
         "addressCountry": "MX"
       },
+      "numberOfRooms": 5,
       "numberOfBedrooms": 3,
       "numberOfBathroomsTotal": 2,
+      "numberOfFullBathrooms": 2,
       "petsAllowed": false,
       "offers": {
         "@type": "Offer",
@@ -58,7 +64,7 @@
           "unitText": "MONTH"
         },
         "availability": "https://schema.org/InStock",
-        "priceValidUntil": "2025-12-31",
+        "validThrough": "2025-12-31",
         "seller": {
           "@type": "RealEstateAgent",
           "name": "Hector es Bienes Raíces",
@@ -66,10 +72,31 @@
           "email": "hector@bienesraices.mx",
           "url": "https://casasenventa.info"
         }
-      }
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Cochera para 2 autos",
+          "value": "2 autos"
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Caseta de vigilancia",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Área social",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Privada exclusiva",
+          "value": true
+        }
+      ]
     }
     </script>
-    
     <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,16 +125,10 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <img src="images/logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" width="150" height="60" loading="eager">
-                </div>
-                <nav class="nav">
-                    <ul class="nav-list">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="index.html#properties">Propiedades</a></li>
-                        <li><a href="#contact">Contacto</a></li>
-                    </ul>
-                </nav>
+                <picture>
+                    <img src="images/optimized/Logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" class="logo">
+                </picture>
+                <a href="#contact" class="cta-button">Contactar</a>
             </div>
         </div>
     </header>
@@ -115,57 +136,66 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Tu Nuevo Hogar en Privada Albacete Te Está Esperando</h1>
+            <h1 class="hero-title">Tu Nuevo Hogar Te Está Esperando en Privada Albacete</h1>
             <p class="hero-subtitle">Casa de 3 recámaras en Privada Albacete, Desarrollo Urbano 3 Ríos, Culiacán. 2 baños completos, cochera para 2 autos, privada con caseta de vigilancia y área social. Ubicación estratégica en uno de los desarrollos más prestigiosos.</p>
             <a href="#gallery" class="hero-cta">Ver Fotos</a>
         </div>
-                <div class="hero-image">
+        <div class="hero-image">
             <div class="carousel-container">
                 <div class="carousel-wrapper">
                     <div class="carousel-slide active" data-slide="0">
                         <picture>
-                            <img src="images/privada-albacete/villa-albaceta-15-fachada.jpg" alt="Casa Privada albacete - Fachada" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/privada-albacete/villa-albaceta-15-fachada.jpg" alt="Privada Albacete - Fachada principal" class="carousel-image gallery-image main-image" loading="lazy">
                         </picture>
+                        <div class="image-caption">Fachada Principal</div>
                     </div>
                     <div class="carousel-slide" data-slide="1">
                         <picture>
-                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-02.jpg" alt="Casa Privada albacete - Imagen 2" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-02.jpg" alt="Privada Albacete - Interior amplio" class="carousel-image gallery-image" loading="lazy">
                         </picture>
+                        <div class="image-caption">Interior Amplio</div>
                     </div>
                     <div class="carousel-slide" data-slide="2">
                         <picture>
-                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-03.jpg" alt="Casa Privada albacete - Imagen 3" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-03.jpg" alt="Privada Albacete - Sala comedor" class="carousel-image gallery-image" loading="lazy">
                         </picture>
+                        <div class="image-caption">Sala Comedor</div>
                     </div>
                     <div class="carousel-slide" data-slide="3">
                         <picture>
-                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-04.jpg" alt="Casa Privada albacete - Imagen 4" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-04.jpg" alt="Privada Albacete - Área de estar" class="carousel-image gallery-image" loading="lazy">
                         </picture>
+                        <div class="image-caption">Área de Estar</div>
                     </div>
                     <div class="carousel-slide" data-slide="4">
                         <picture>
-                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-05.jpg" alt="Casa Privada albacete - Imagen 5" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-05.jpg" alt="Privada Albacete - Escaleras interiores" class="carousel-image gallery-image" loading="lazy">
                         </picture>
+                        <div class="image-caption">Escaleras Interiores</div>
                     </div>
                     <div class="carousel-slide" data-slide="5">
                         <picture>
-                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-06.jpg" alt="Casa Privada albacete - Imagen 6" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-06.jpg" alt="Privada Albacete - Baño completo" class="carousel-image gallery-image" loading="lazy">
                         </picture>
+                        <div class="image-caption">Baño Completo</div>
                     </div>
                     <div class="carousel-slide" data-slide="6">
                         <picture>
-                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-07.jpg" alt="Casa Privada albacete - Imagen 7" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-07.jpg" alt="Privada Albacete - Cocina equipada" class="carousel-image gallery-image" loading="lazy">
                         </picture>
+                        <div class="image-caption">Cocina Equipada</div>
                     </div>
                     <div class="carousel-slide" data-slide="7">
                         <picture>
-                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-08.jpg" alt="Casa Privada albacete - Imagen 8" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-08.jpg" alt="Privada Albacete - Área exterior" class="carousel-image gallery-image" loading="lazy">
                         </picture>
+                        <div class="image-caption">Área Exterior</div>
                     </div>
                     <div class="carousel-slide" data-slide="8">
                         <picture>
-                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-09.jpg" alt="Casa Privada albacete - Imagen 9" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-09.jpg" alt="Privada Albacete - Vista general" class="carousel-image gallery-image" loading="lazy">
                         </picture>
+                        <div class="image-caption">Vista General</div>
                     </div>
                     
                     <!-- Navigation arrows -->
@@ -180,7 +210,7 @@
                 <!-- Price Badge -->
                 <div class="price-badge">
                     <span class="price-amount">Consultar precio</span>
-                    <span class="price-label">RENTA Mensual</span>
+                    <span class="price-label">Renta Mensual</span>
                 </div>
                 
                 <!-- Dots indicators -->
@@ -196,9 +226,49 @@
                     <button class="carousel-dot" onclick="goToSlideHero(8)" aria-label="Ir a foto 9"></button>
                 </div>
             </div>
+        </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Características Principales</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bed"></i>
+                    <h3>3 Recámaras</h3>
+                    <p>Habitaciones amplias con excelente iluminación natural y diseño cómodo</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bath"></i>
+                    <h3>2 Baños Completos</h3>
+                    <p>Baños completos perfectamente acondicionados con acabados de calidad</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Cochera para 2 Autos</h3>
+                    <p>Espacio seguro para proteger 2 vehículos</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Caseta de Vigilancia</h3>
+                    <p>Seguridad las 24 horas para mayor tranquilidad de toda la familia</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Área Social</h3>
+                    <p>Espacio común para convivir con vecinos y disfrutar de momentos especiales</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Ubicación Estratégica</h3>
+                    <p>Desarrollo Urbano 3 Ríos con acceso a centros comerciales y servicios</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Carousel Section -->
     <section class="gallery" id="gallery">
         <div class="container">
             <h2 class="section-title">Galería de Fotos</h2>
@@ -206,40 +276,40 @@
                 <!-- Main carousel display -->
                 <div class="carousel-wrapper">
                     <div class="carousel-slide active" data-slide="0">
-                        <img src="images/privada-albacete/villa-albaceta-15-fachada.jpg" alt="Casa Privada albacete - Fachada" class="carousel-image gallery-image" loading="lazy">
+                        <img src="images/privada-albacete/villa-albaceta-15-fachada.jpg" alt="Privada Albacete - Fachada principal" class="carousel-image gallery-image" loading="lazy">
                         <div class="image-caption">Fachada Principal</div>
                     </div>
                     <div class="carousel-slide" data-slide="1">
-                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-02.jpg" alt="Casa Privada albacete - Imagen 2" class="carousel-image gallery-image" loading="lazy">
-                        <div class="image-caption">Interior</div>
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-02.jpg" alt="Privada Albacete - Interior amplio" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Interior Amplio</div>
                     </div>
                     <div class="carousel-slide" data-slide="2">
-                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-03.jpg" alt="Casa Privada albacete - Imagen 3" class="carousel-image gallery-image" loading="lazy">
-                        <div class="image-caption">Espacio amplio</div>
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-03.jpg" alt="Privada Albacete - Sala comedor" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Sala Comedor</div>
                     </div>
                     <div class="carousel-slide" data-slide="3">
-                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-04.jpg" alt="Casa Privada albacete - Imagen 4" class="carousel-image gallery-image" loading="lazy">
-                        <div class="image-caption">Área social</div>
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-04.jpg" alt="Privada Albacete - Área de estar" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Área de Estar</div>
                     </div>
                     <div class="carousel-slide" data-slide="4">
-                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-05.jpg" alt="Casa Privada albacete - Imagen 5" class="carousel-image gallery-image" loading="lazy">
-                        <div class="image-caption">Recámara</div>
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-05.jpg" alt="Privada Albacete - Escaleras interiores" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Escaleras Interiores</div>
                     </div>
                     <div class="carousel-slide" data-slide="5">
-                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-06.jpg" alt="Casa Privada albacete - Imagen 6" class="carousel-image gallery-image" loading="lazy">
-                        <div class="image-caption">Baño</div>
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-06.jpg" alt="Privada Albacete - Baño completo" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Baño Completo</div>
                     </div>
                     <div class="carousel-slide" data-slide="6">
-                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-07.jpg" alt="Casa Privada albacete - Imagen 7" class="carousel-image gallery-image" loading="lazy">
-                        <div class="image-caption">Cocina</div>
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-07.jpg" alt="Privada Albacete - Cocina equipada" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Cocina Equipada</div>
                     </div>
                     <div class="carousel-slide" data-slide="7">
-                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-08.jpg" alt="Casa Privada albacete - Imagen 8" class="carousel-image gallery-image" loading="lazy">
-                        <div class="image-caption">Área exterior</div>
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-08.jpg" alt="Privada Albacete - Área exterior" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Área Exterior</div>
                     </div>
                     <div class="carousel-slide" data-slide="8">
-                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-09.jpg" alt="Casa Privada albacete - Imagen 9" class="carousel-image gallery-image" loading="lazy">
-                        <div class="image-caption">Vista general</div>
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-09.jpg" alt="Privada Albacete - Vista general" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Vista General</div>
                     </div>
                     
                     <!-- Navigation arrows -->
@@ -267,380 +337,291 @@
         </div>
     </section>
 
-    <!-- Property Details -->
-    <section class="property-details">
+    <!-- Details Section -->
+    <section class="details">
         <div class="container">
-            <div class="details-grid">
-                <div class="main-details">
-                    <h2>Detalles de la Propiedad</h2>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <i class="fas fa-bed"></i>
-                            <span>3 Recámaras</span>
+            <div class="details-content">
+                <div class="details-info">
+                    <h2>Información Detallada</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>Recámaras:</strong>
+                            <span>3 amplias habitaciones</span>
                         </div>
-                        <div class="feature-item">
-                            <i class="fas fa-bath"></i>
-                            <span>2 Baños completos</span>
+                        <div class="info-item">
+                            <strong>Baños:</strong>
+                            <span>2 completos</span>
                         </div>
-                        <div class="feature-item">
-                            <i class="fas fa-car"></i>
-                            <span>Cochera para 2 autos</span>
+                        <div class="info-item">
+                            <strong>Cochera:</strong>
+                            <span>Para 2 autos</span>
                         </div>
-                        <div class="feature-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Caseta de vigilancia</span>
+                        <div class="info-item">
+                            <strong>Seguridad:</strong>
+                            <span>Caseta de vigilancia 24/7</span>
                         </div>
-                        <div class="feature-item">
-                            <i class="fas fa-users"></i>
-                            <span>Área social</span>
+                        <div class="info-item">
+                            <strong>Ubicación:</strong>
+                            <span>Desarrollo Urbano 3 Ríos</span>
                         </div>
-                        <div class="feature-item">
-                            <i class="fas fa-home"></i>
-                            <span>Privada exclusiva</span>
+                        <div class="info-item">
+                            <strong>Ideal para:</strong>
+                            <span>Familias que buscan comodidad y seguridad</span>
                         </div>
-                    </div>
-
-                    <div class="description">
-                        <h3>Descripción</h3>
-                        <p><strong>Casa de 3 recámaras en Privada Albacete</strong> ubicada en el exclusivo Desarrollo Urbano 3 Ríos de Culiacán, Sinaloa.</p>
-                        
-                        <p>Esta hermosa propiedad cuenta con <strong>2 baños completos</strong> con acabados de calidad, <strong>cochera para 2 autos</strong> que brinda comodidad y seguridad para tus vehículos.</p>
-                        
-                        <p>La privada cuenta con <strong>caseta de vigilancia</strong> las 24 horas para mayor tranquilidad de toda la familia, además de un <strong>área social</strong> donde podrás convivir con tus vecinos y disfrutar de momentos especiales.</p>
-                        
-                        <p><strong>Ubicación estratégica</strong> en 3 Ríos, uno de los desarrollos más prestigiosos de Culiacán, con fácil acceso a centros comerciales, escuelas y servicios.</p>
-                        
-                        <p><strong>¡Ideal para familias!</strong> Esta casa en renta te ofrece el equilibrio perfecto entre comodidad, seguridad y ubicación privilegiada.</p>
                     </div>
                 </div>
-
-                <div class="sidebar">
-                    <div class="contact-card">
-                        <h3>¿Interesado en esta propiedad?</h3>
-                        <p>Contáctanos para agendar una visita</p>
-                        <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20la%20casa%20en%20renta%20en%20Privada%20Albacete%20#15,%20Desarrollo%20Urbano%203%20Ríos.%20¿Podrías%20darme%20más%20información%20sobre%20el%20precio%20y%20disponibilidad?" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-whatsapp"></i>
-                            WhatsApp
-                        </a>
-                        <a href="tel:+528111652545" class="phone-btn">
-                            <i class="fas fa-phone"></i>
-                            Llamar ahora
-                        </a>
-                    </div>
-
-                    <!-- Rental Calculator -->
-                    <div class="calculator-card">
-                        <h3>Calculadora de Renta</h3>
-                        <div class="calculator-form">
-                            <label for="rental-price">Precio de renta mensual:</label>
-                            <input type="number" id="rental-price" placeholder="Ingresa el precio" min="1">
-                            
-                            <label for="rental-months">Meses de renta:</label>
-                            <input type="number" id="rental-months" value="12" min="1">
-                            
-                            <div class="calculator-results">
-                                <div class="result-item">
-                                    <span>Total anual:</span>
-                                    <span id="annual-total">$0</span>
-                                </div>
-                                <div class="result-item">
-                                    <span>Depósito sugerido (2 meses):</span>
-                                    <span id="suggested-deposit">$0</span>
-                                </div>
-                            </div>
-                            
-                            <button onclick="calculateRental()" class="calculate-btn">
-                                <i class="fas fa-calculator"></i>
-                                Calcular
-                            </button>
-                        </div>
-                    </div>
+                <div class="price-card">
+                    <h3>Renta Mensual</h3>
+                    <div class="price">Consultar precio</div>
+                    <p class="price-note">Casa lista para habitar - Privada exclusiva</p>
+                    <a href="#contact" class="price-cta">Más Información</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Simple Working Calculator -->
+    <section class="simple-calc" id="calculadora">
+        <div class="container">
+            <h2>🏠 Calculadora de Renta</h2>
+            <div class="calc-box">
+                <div class="input-group">
+                    <label>Precio de renta mensual:</label>
+                    <input type="number" id="precio" placeholder="Ingresa el precio" min="1000" step="500">
+                </div>
+                
+                <div class="input-group">
+                    <label>Meses de contrato:</label>
+                    <input type="range" id="meses" min="6" max="24" value="12" oninput="updateMeses()">
+                    <span id="mesesDisplay">12 meses</span>
+                </div>
+                
+                <button onclick="calcularRenta()" class="calc-btn">🧮 CALCULAR</button>
+                
+                <div class="result-box">
+                    <h3>📊 Total del contrato: <span id="resultado">$0</span></h3>
+                    <p>💎 Depósito sugerido (2 meses): <span id="deposito">$0</span></p>
+                    <p>🔒 Total inicial (primer mes + depósito): <span id="inicial">$0</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">¿Interesado en Esta Propiedad?</h2>
+            <p class="contact-subtitle">Contáctanos para agendar una visita a esta increíble casa en Privada Albacete</p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20la%20casa%20en%20renta%20en%20Privada%20Albacete%20#15,%20Desarrollo%20Urbano%203%20Ríos.%20¿Podrías%20darme%20más%20información%20sobre%20el%20precio%20y%20disponibilidad?" 
+                   class="whatsapp-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Contactar por WhatsApp
+                </a>
+                <a href="tel:+528111652545" class="phone-button">
+                    <i class="fas fa-phone"></i>
+                    Llamar Ahora
+                </a>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Privada Albacete #15, Desarrollo Urbano 3 Ríos, Culiacán, Sin.</p>
+                <p><i class="fas fa-phone"></i> +52 811 165 2545</p>
+                <p><i class="fas fa-envelope"></i> hector@bienesraices.mx</p>
+            </div>
+        </div>
+    </section>
+
     <!-- WhatsApp Floating Button -->
-    <div class="whatsapp-float">
-        <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20la%20casa%20en%20renta%20en%20Privada%20Albacete%20#15,%20Desarrollo%20Urbano%203%20Ríos.%20¿Podrías%20darme%20más%20información%20sobre%20el%20precio%20y%20disponibilidad?" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
+    <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20la%20casa%20en%20renta%20en%20Privada%20Albacete%20#15,%20Desarrollo%20Urbano%203%20Ríos.%20¿Podrías%20darme%20más%20información%20sobre%20el%20precio%20y%20disponibilidad?" 
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-text">Escríbenos en WhatsApp</span>
+    </a>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="images/logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" width="200" height="80" loading="lazy">
-                    </div>
-                    <p>Especialistas en compra, remodelación y venta/renta de propiedades en Culiacán, Sinaloa.</p>
-                </div>
-                
-                <div class="footer-section" id="contact">
-                    <h4>Contacto</h4>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <a href="tel:+528111652545">+52 811 165 2545</a>
-                        </li>
-                        <li>
-                            <i class="fab fa-whatsapp"></i>
-                            <a href="https://wa.me/528111652545" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:hector@bienesraices.mx">hector@bienesraices.mx</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Culiacán, Sinaloa</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Enlaces Útiles</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="index.html#properties">Propiedades</a></li>
-                        <li><a href="culiacan/index.html">Propiedades Culiacán</a></li>
-                        <li><a href="#contact">Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Hector es Bienes Raíces. Todos los derechos reservados.</p>
-                <p>Sitio web optimizado para mejor experiencia de usuario.</p>
-            </div>
+            <p>&copy; 2024 Hector es Bienes Raíces. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Carousel and Calculator -->
     <script>
-        // Hero Carousel Variables
-        let currentSlideHero = 0;
-        const totalSlidesHero = 9;
-        
-        // Hero Carousel Functions
-        function changeSlideHero(direction) {
-            const slides = document.querySelectorAll('.hero-image .carousel-slide');
-            const dots = document.querySelectorAll('.hero-image .carousel-dot');
-            
-            // Remove active class from current slide and dot
-            slides[currentSlideHero].classList.remove('active');
-            dots[currentSlideHero].classList.remove('active');
-            
-            // Calculate new slide index
-            currentSlideHero += direction;
-            
-            if (currentSlideHero >= totalSlidesHero) {
-                currentSlideHero = 0;
-            } else if (currentSlideHero < 0) {
-                currentSlideHero = totalSlidesHero - 1;
-            }
-            
-            // Add active class to new slide and dot
-            slides[currentSlideHero].classList.add('active');
-            dots[currentSlideHero].classList.add('active');
-        }
-        
-        function goToSlideHero(slideIndex) {
-            const slides = document.querySelectorAll('.hero-image .carousel-slide');
-            const dots = document.querySelectorAll('.hero-image .carousel-dot');
-            
-            // Remove active class from current slide and dot
-            slides[currentSlideHero].classList.remove('active');
-            dots[currentSlideHero].classList.remove('active');
-            
-            // Set new slide
-            currentSlideHero = slideIndex;
-            
-            // Add active class to new slide and dot
-            slides[currentSlideHero].classList.add('active');
-            dots[currentSlideHero].classList.add('active');
-        }
-        
-        // Auto-advance carousel every 8 seconds
-        setInterval(() => {
-            changeSlideHero(1);
-        }, 8000);
-        
-        // Gallery Carousel Variables
+document.addEventListener("DOMContentLoaded", function() {
+        // GALLERY CAROUSEL (main gallery)
         let currentSlide = 0;
         const totalSlides = 9;
+        let touchStartX = 0;
+        let touchEndX = 0;
         
-        // Gallery Carousel Functions
-        function changeSlide(direction) {
+        function showSlide(n) {
             const slides = document.querySelectorAll('.gallery .carousel-slide');
             const dots = document.querySelectorAll('.gallery .carousel-dot');
             
-            // Remove active class from current slide and dot
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
+            if (n >= totalSlides) currentSlide = 0;
+            if (n < 0) currentSlide = totalSlides - 1;
             
-            // Calculate new slide index
-            currentSlide += direction;
-            
-            if (currentSlide >= totalSlides) {
-                currentSlide = 0;
-            } else if (currentSlide < 0) {
-                currentSlide = totalSlides - 1;
-            }
-            
-            // Add active class to new slide and dot
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        function goToSlide(slideIndex) {
-            const slides = document.querySelectorAll('.gallery .carousel-slide');
-            const dots = document.querySelectorAll('.gallery .carousel-dot');
-            
-            // Remove active class from current slide and dot
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            
-            // Set new slide
-            currentSlide = slideIndex;
-            
-            // Add active class to new slide and dot
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-        
-        // Touch/Swipe Support for Mobile
-        let startX = 0;
-        let endX = 0;
-        
-        const heroCarousel = document.querySelector('.hero-image .carousel-wrapper');
-        const galleryCarousel = document.querySelector('.gallery .carousel-wrapper');
-        
-        // Hero carousel touch events
-        heroCarousel.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-        
-        heroCarousel.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            handleHeroSwipe();
-        });
-        
-        // Gallery carousel touch events
-        galleryCarousel.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-        
-        galleryCarousel.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            handleGallerySwipe();
-        });
-        
-        function handleHeroSwipe() {
-            const swipeThreshold = 50;
-            const diff = startX - endX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    // Swipe left - next slide
-                    changeSlideHero(1);
-                } else {
-                    // Swipe right - previous slide
-                    changeSlideHero(-1);
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
                 }
-            }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                }
+            });
         }
         
-        function handleGallerySwipe() {
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+        
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+        
+        // Touch/swipe support for mobile - GALLERY CAROUSEL ONLY
+        const carouselWrapper = document.querySelector('.gallery .carousel-wrapper');
+        
+        if (carouselWrapper) {
+            carouselWrapper.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            carouselWrapper.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+        }
+        
+        function handleSwipe() {
             const swipeThreshold = 50;
-            const diff = startX - endX;
+            const diff = touchStartX - touchEndX;
             
             if (Math.abs(diff) > swipeThreshold) {
                 if (diff > 0) {
-                    // Swipe left - next slide
                     changeSlide(1);
                 } else {
-                    // Swipe right - previous slide
                     changeSlide(-1);
                 }
             }
         }
         
-        // Rental Calculator
-        function calculateRental() {
-            const rentalPrice = parseFloat(document.getElementById('rental-price').value);
-            const rentalMonths = parseInt(document.getElementById('rental-months').value) || 12;
-            
-            if (rentalPrice && rentalPrice > 0) {
-                const annualTotal = rentalPrice * rentalMonths;
-                const suggestedDeposit = rentalPrice * 2;
-                
-                document.getElementById('annual-total').textContent = 
-                    '$' + annualTotal.toLocaleString('es-MX');
-                document.getElementById('suggested-deposit').textContent = 
-                    '$' + suggestedDeposit.toLocaleString('es-MX');
-            } else {
-                document.getElementById('annual-total').textContent = '$0';
-                document.getElementById('suggested-deposit').textContent = '$0';
-            }
-        }
-        
-        // Auto-calculate on input change
-        document.getElementById('rental-price').addEventListener('input', calculateRental);
-        document.getElementById('rental-months').addEventListener('input', calculateRental);
-        
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
-                changeSlideHero(-1);
+                changeSlide(-1);
             } else if (e.key === 'ArrowRight') {
-                changeSlideHero(1);
+                changeSlide(1);
             }
         });
 
-        // Lazy loading optimization
-        window.addEventListener('load', () => {
-            const images = document.querySelectorAll('img[loading="lazy"]');
-            images.forEach(img => {
-                if (img.complete && img.naturalHeight !== 0) {
-                    img.classList.add('loaded');
-                } else {
-                    img.addEventListener('load', () => {
-                        img.classList.add('loaded');
-                    });
+        // HERO CAROUSEL FUNCTIONS (separate from gallery carousel)
+        let currentSlideHero = 0;
+        const totalSlidesHero = 9;
+        let touchStartXHero = 0;
+        let touchEndXHero = 0;
+        
+        function showSlideHero(n) {
+            const slides = document.querySelectorAll('.hero-image .carousel-slide');
+            const dots = document.querySelectorAll('.hero-image .carousel-dot');
+            
+            if (n >= totalSlidesHero) currentSlideHero = 0;
+            if (n < 0) currentSlideHero = totalSlidesHero - 1;
+            
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlideHero) {
+                    slide.classList.add('active');
                 }
             });
-        });
-    </script>
-    
-    <!-- Structured Data for Better SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Inicio",
-          "item": "https://casasenventa.info"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Propiedades en Renta",
-          "item": "https://casasenventa.info/#properties"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Casa Renta Privada Albacete",
-          "item": "https://casasenventa.info/casa-renta-privada-albacete.html"
+            
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlideHero) {
+                    dot.classList.add('active');
+                }
+            });
         }
-      ]
-    }
+        
+        function changeSlideHero(direction) {
+            currentSlideHero += direction;
+            showSlideHero(currentSlideHero);
+        }
+        
+        function goToSlideHero(n) {
+            currentSlideHero = n;
+            showSlideHero(currentSlideHero);
+        }
+        
+        // Touch/swipe support for hero carousel
+        const carouselWrapperHero = document.querySelector('.hero-image .carousel-wrapper');
+        
+        if (carouselWrapperHero) {
+            carouselWrapperHero.addEventListener('touchstart', (e) => {
+                touchStartXHero = e.changedTouches[0].screenX;
+            });
+            
+            carouselWrapperHero.addEventListener('touchend', (e) => {
+                touchEndXHero = e.changedTouches[0].screenX;
+                handleSwipeHero();
+            });
+        }
+        
+        function handleSwipeHero() {
+            const swipeThreshold = 50;
+            const diff = touchStartXHero - touchEndXHero;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeSlideHero(1);
+                } else {
+                    changeSlideHero(-1);
+                }
+            }
+        }
+
+        // Calculator functions for rental
+        function updateMeses() {
+            const meses = document.getElementById('meses').value;
+            document.getElementById('mesesDisplay').textContent = meses + ' meses';
+        }
+
+        function calcularRenta() {
+            const precioMensual = parseFloat(document.getElementById('precio').value) || 0;
+            const meses = parseInt(document.getElementById('meses').value) || 12;
+
+            if (precioMensual > 0) {
+                const totalContrato = precioMensual * meses;
+                const deposito = precioMensual * 2;
+                const inicial = precioMensual + deposito;
+
+                document.getElementById('resultado').textContent = '$' + totalContrato.toLocaleString('es-MX');
+                document.getElementById('deposito').textContent = '$' + deposito.toLocaleString('es-MX');
+                document.getElementById('inicial').textContent = '$' + inicial.toLocaleString('es-MX');
+            } else {
+                document.getElementById('resultado').textContent = '$0';
+                document.getElementById('deposito').textContent = '$0';
+                document.getElementById('inicial').textContent = '$0';
+            }
+        }
+
+        // Initialize calculator
+        updateMeses();
+
+        // Expose functions globally for onclick handlers
+        window.changeSlide = changeSlide;
+        window.goToSlide = goToSlide;
+        window.changeSlideHero = changeSlideHero;
+        window.goToSlideHero = goToSlideHero;
+        window.updateMeses = updateMeses;
+        window.calcularRenta = calcularRenta;
+});
     </script>
 </body>
 </html>
