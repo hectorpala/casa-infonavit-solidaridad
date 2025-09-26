@@ -81,6 +81,79 @@ class PropertyPageGenerator {
     }
 
     /**
+     * Auto-detect facade photo from property folder
+     * Returns the filename of the most likely facade photo
+     */
+    detectFacadePhoto(photosPath) {
+        console.log('🏠 DETECTANDO FACHADA AUTOMÁTICAMENTE...');
+        
+        try {
+            const files = fs.readdirSync(photosPath)
+                .filter(file => /\.(jpg|jpeg|png)$/i.test(file))
+                .sort(); // Sort alphabetically first
+            
+            if (files.length === 0) {
+                console.warn('⚠️  No se encontraron fotos en la carpeta');
+                return null;
+            }
+            
+            // Priority patterns for facade detection
+            const facadePatterns = [
+                /fachada/i,           // Contains "fachada"
+                /exterior/i,          // Contains "exterior" 
+                /frente/i,            // Contains "frente"
+                /-01\./i,            // Ends with -01.
+                /foto-01/i,          // Contains "foto-01"
+                /^01/i,              // Starts with 01
+                /privada.*foto.*01/i // Privada pattern like "privada-agua-marina-938...foto-..."
+            ];
+            
+            // Try to find facade by pattern
+            for (const pattern of facadePatterns) {
+                const facadeFile = files.find(file => pattern.test(file));
+                if (facadeFile) {
+                    console.log(`✅ FACHADA DETECTADA POR PATRÓN: ${facadeFile}`);
+                    return facadeFile;
+                }
+            }
+            
+            // If no pattern matches, use first file alphabetically (often the facade)
+            const firstFile = files[0];
+            console.log(`📍 USANDO PRIMERA FOTO COMO FACHADA: ${firstFile}`);
+            return firstFile;
+            
+        } catch (error) {
+            console.error('❌ Error al detectar fachada:', error.message);
+            return null;
+        }
+    }
+
+    /**
+     * Get organized photo list with facade first
+     */
+    getOrganizedPhotoList(photosPath) {
+        try {
+            const allFiles = fs.readdirSync(photosPath)
+                .filter(file => /\.(jpg|jpeg|png)$/i.test(file))
+                .sort();
+            
+            const facadeFile = this.detectFacadePhoto(photosPath);
+            
+            if (!facadeFile) {
+                return allFiles;
+            }
+            
+            // Put facade first, then the rest
+            const otherFiles = allFiles.filter(file => file !== facadeFile);
+            return [facadeFile, ...otherFiles];
+            
+        } catch (error) {
+            console.error('❌ Error al organizar fotos:', error.message);
+            return [];
+        }
+    }
+
+    /**
      * Run automatic optimization check
      */
     runOptimizationCheck(filepath) {

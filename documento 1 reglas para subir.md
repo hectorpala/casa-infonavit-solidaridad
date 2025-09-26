@@ -411,6 +411,44 @@ FORMATO:
 - Botón flotante con texto específico
 - Enlaces directos con información pre-llenada
 
+## 🤖 DETECCIÓN AUTOMÁTICA DE FACHADA (NUEVA MEJORA)
+
+### ✅ USO DEL DETECTOR AUTOMÁTICO
+**Comando:**
+```bash
+node automation/detectar-fachada.js "images/[propiedad]"
+# O desde carpeta PROYECTOS:
+node automation/detectar-fachada.js "/Users/.../PROYECTOS/casa renta [nombre]"
+```
+
+### 🎯 PATRONES DE DETECCIÓN AUTOMÁTICA
+El sistema detecta la fachada automáticamente usando estos patrones (en orden de prioridad):
+
+**📋 PATRONES PRINCIPALES:**
+1. **Contains "fachada"** - Archivos con "fachada" en el nombre
+2. **Contains "exterior"** - Archivos con "exterior" en el nombre  
+3. **Contains "frente"** - Archivos con "frente" en el nombre
+4. **Ends with -01.** - Archivos que terminan en "-01.jpg"
+5. **Contains "foto-01"** - Archivos con "foto-01" en el nombre
+
+**⚠️ PATRONES SECUNDARIOS:**
+6. **Starts with 01** - Archivos que empiezan con "01"
+7. **Specific patterns** - Patrones específicos por tipo de propiedad
+
+**📍 FALLBACK:**
+8. **Primera foto alfabéticamente** - Si no encuentra patrones específicos
+
+### 🎯 CASOS DE ÉXITO PROBADOS:
+- ✅ **Circuito Canarias**: Detectó `foto-01` correctamente
+- ✅ **3 Ríos**: Detectó fachada específica por patrón personalizado
+- ✅ **Cualquier propiedad**: Usa primera foto como fallback seguro
+
+### 💡 BENEFICIOS:
+- **Elimina** la necesidad de identificar manualmente la fachada
+- **Organiza** automáticamente las fotos con fachada primera  
+- **Ahorra tiempo** en cada nueva propiedad
+- **Consistencia** en la presentación de propiedades
+
 ## 🚀 DEPLOYMENT
 - **Dominio**: https://casasenventa.info
 - **Git commit** automático con cambios
