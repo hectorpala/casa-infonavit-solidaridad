@@ -112,23 +112,13 @@
         </div>
     </header>
 
-    <!-- Hero Section with Carousel -->
-    <section class="hero-property">
-        <div class="container">
-            <div class="hero-content">
-                <div class="property-header">
-                    <h1>Casa en Renta Privada Albacete</h1>
-                    <p class="property-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Privada Albacete #15, Desarrollo Urbano 3 Ríos, Culiacán, Sinaloa
-                    </p>
-                    <div class="property-price-hero">
-                        <span class="price">Consultar precio</span>
-                        <span class="price-label">Renta Mensual</span>
-                    </div>
-                </div>
-                
-                <!-- Hero Carousel with automated generation -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Tu Nuevo Hogar en Privada Albacete Te Está Esperando</h1>
+            <p class="hero-subtitle">Casa de 3 recámaras en Privada Albacete, Desarrollo Urbano 3 Ríos, Culiacán. 2 baños completos, cochera para 2 autos, privada con caseta de vigilancia y área social. Ubicación estratégica en uno de los desarrollos más prestigiosos.</p>
+            <a href="#gallery" class="hero-cta">Ver Fotos</a>
+        </div>
                 <div class="hero-image">
             <div class="carousel-container">
                 <div class="carousel-wrapper">
@@ -206,6 +196,72 @@
                     <button class="carousel-dot" onclick="goToSlideHero(8)" aria-label="Ir a foto 9"></button>
                 </div>
             </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería de Fotos</h2>
+            <div class="carousel-container">
+                <!-- Main carousel display -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-slide active" data-slide="0">
+                        <img src="images/privada-albacete/villa-albaceta-15-fachada.jpg" alt="Casa Privada albacete - Fachada" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Fachada Principal</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="1">
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-02.jpg" alt="Casa Privada albacete - Imagen 2" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Interior</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="2">
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-03.jpg" alt="Casa Privada albacete - Imagen 3" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Espacio amplio</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="3">
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-04.jpg" alt="Casa Privada albacete - Imagen 4" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Área social</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="4">
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-05.jpg" alt="Casa Privada albacete - Imagen 5" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Recámara</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="5">
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-06.jpg" alt="Casa Privada albacete - Imagen 6" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Baño</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="6">
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-07.jpg" alt="Casa Privada albacete - Imagen 7" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Cocina</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="7">
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-08.jpg" alt="Casa Privada albacete - Imagen 8" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Área exterior</div>
+                    </div>
+                    <div class="carousel-slide" data-slide="8">
+                        <img src="images/privada-albacete/villa-albaceta-15-villas-del-rio-culiacan-sinaloa-30286323-foto-09.jpg" alt="Casa Privada albacete - Imagen 9" class="carousel-image gallery-image" loading="lazy">
+                        <div class="image-caption">Vista general</div>
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="carousel-arrow carousel-prev" onclick="changeSlide(-1)" aria-label="Foto anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-arrow carousel-next" onclick="changeSlide(1)" aria-label="Siguiente foto">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Dots indicators -->
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Ir a foto 1"></button>
+                    <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Ir a foto 2"></button>
+                    <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Ir a foto 3"></button>
+                    <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Ir a foto 4"></button>
+                    <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Ir a foto 5"></button>
+                    <button class="carousel-dot" onclick="goToSlide(5)" aria-label="Ir a foto 6"></button>
+                    <button class="carousel-dot" onclick="goToSlide(6)" aria-label="Ir a foto 7"></button>
+                    <button class="carousel-dot" onclick="goToSlide(7)" aria-label="Ir a foto 8"></button>
+                    <button class="carousel-dot" onclick="goToSlide(8)" aria-label="Ir a foto 9"></button>
                 </div>
             </div>
         </div>
@@ -412,22 +468,77 @@
             changeSlideHero(1);
         }, 8000);
         
+        // Gallery Carousel Variables
+        let currentSlide = 0;
+        const totalSlides = 9;
+        
+        // Gallery Carousel Functions
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.gallery .carousel-slide');
+            const dots = document.querySelectorAll('.gallery .carousel-dot');
+            
+            // Remove active class from current slide and dot
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            // Calculate new slide index
+            currentSlide += direction;
+            
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            
+            // Add active class to new slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        function goToSlide(slideIndex) {
+            const slides = document.querySelectorAll('.gallery .carousel-slide');
+            const dots = document.querySelectorAll('.gallery .carousel-dot');
+            
+            // Remove active class from current slide and dot
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            // Set new slide
+            currentSlide = slideIndex;
+            
+            // Add active class to new slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
         // Touch/Swipe Support for Mobile
         let startX = 0;
         let endX = 0;
         
-        const carousel = document.querySelector('.hero-gallery .carousel-wrapper');
+        const heroCarousel = document.querySelector('.hero-image .carousel-wrapper');
+        const galleryCarousel = document.querySelector('.gallery .carousel-wrapper');
         
-        carousel.addEventListener('touchstart', (e) => {
+        // Hero carousel touch events
+        heroCarousel.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
         });
         
-        carousel.addEventListener('touchend', (e) => {
+        heroCarousel.addEventListener('touchend', (e) => {
             endX = e.changedTouches[0].clientX;
-            handleSwipe();
+            handleHeroSwipe();
         });
         
-        function handleSwipe() {
+        // Gallery carousel touch events
+        galleryCarousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        
+        galleryCarousel.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleGallerySwipe();
+        });
+        
+        function handleHeroSwipe() {
             const swipeThreshold = 50;
             const diff = startX - endX;
             
@@ -438,6 +549,21 @@
                 } else {
                     // Swipe right - previous slide
                     changeSlideHero(-1);
+                }
+            }
+        }
+        
+        function handleGallerySwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - next slide
+                    changeSlide(1);
+                } else {
+                    // Swipe right - previous slide
+                    changeSlide(-1);
                 }
             }
         }
