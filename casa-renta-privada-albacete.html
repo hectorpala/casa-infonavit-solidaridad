@@ -129,7 +129,7 @@
                 </div>
                 
                 <!-- Hero Carousel with automated generation -->
-                <div class="hero-gallery">
+                <div class="hero-image">
             <div class="carousel-container">
                 <div class="carousel-wrapper">
                     <div class="carousel-slide active" data-slide="0">
@@ -370,8 +370,8 @@
         
         // Hero Carousel Functions
         function changeSlideHero(direction) {
-            const slides = document.querySelectorAll('.hero-gallery .carousel-slide');
-            const dots = document.querySelectorAll('.hero-gallery .carousel-dot');
+            const slides = document.querySelectorAll('.hero-image .carousel-slide');
+            const dots = document.querySelectorAll('.hero-image .carousel-dot');
             
             // Remove active class from current slide and dot
             slides[currentSlideHero].classList.remove('active');
@@ -392,8 +392,8 @@
         }
         
         function goToSlideHero(slideIndex) {
-            const slides = document.querySelectorAll('.hero-gallery .carousel-slide');
-            const dots = document.querySelectorAll('.hero-gallery .carousel-dot');
+            const slides = document.querySelectorAll('.hero-image .carousel-slide');
+            const dots = document.querySelectorAll('.hero-image .carousel-dot');
             
             // Remove active class from current slide and dot
             slides[currentSlideHero].classList.remove('active');
