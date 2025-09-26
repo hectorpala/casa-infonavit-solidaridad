@@ -738,10 +738,10 @@ ${caracteristicasHTML}
         const contenido = fs.readFileSync(culiacanPath, 'utf8');
         const tarjetaAvanzada = this.generarTarjetaAvanzada(datos);
         
-        // Buscar donde insertar (grid de Culiacán)
-        const patron = /(<div[^>]*class="grid[^"]*grid-cols[^>]*>)/i;
-        if (patron.test(contenido)) {
-            const nuevoContenido = contenido.replace(patron, `$1\n${tarjetaAvanzada}`);
+        // Buscar donde insertar (después del div grid pero antes del cierre)
+        const patronGrid = /(<div[^>]*class="[^"]*grid[^"]*grid-cols[^>]*>)(\s*)/i;
+        if (patronGrid.test(contenido)) {
+            const nuevoContenido = contenido.replace(patronGrid, `$1$2\n${tarjetaAvanzada}\n`);
             fs.writeFileSync(culiacanPath, nuevoContenido, 'utf8');
             console.log(`   ✅ Tarjeta avanzada agregada a culiacan/index.html`);
         } else {
