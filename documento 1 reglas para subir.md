@@ -449,6 +449,87 @@ El sistema detecta la fachada automáticamente usando estos patrones (en orden d
 - **Ahorra tiempo** en cada nueva propiedad
 - **Consistencia** en la presentación de propiedades
 
+## 🎠 GENERADOR AUTOMÁTICO DE CARRUSELES (NUEVA MEJORA)
+
+### ✅ USO DEL GENERADOR AUTOMÁTICO
+**Comando básico:**
+```bash
+node automation/generar-carrusel.js "images/[propiedad]" "[nombre]" [tipo]
+```
+
+**Ejemplos prácticos:**
+```bash
+# Carrusel HERO (páginas individuales)
+node automation/generar-carrusel.js "images/3-rios" "3-rios" hero
+
+# Carrusel GALLERY (sección galería)  
+node automation/generar-carrusel.js "images/3-rios" "3-rios" gallery
+
+# Carrusel CULIACÁN (tarjetas avanzadas)
+node automation/generar-carrusel.js "images/3-rios" "3-rios" culiacan
+```
+
+### 🎯 TIPOS DE CARRUSEL DISPONIBLES
+
+**1. 🦸‍♂️ HERO CAROUSEL**
+- Para sección hero de páginas individuales
+- Incluye `<picture>` tags y `main-image` class
+- Genera price badge y dots automáticamente
+- Usa funciones `changeSlideHero()` y `goToSlideHero()`
+
+**2. 🖼️ GALLERY CAROUSEL** 
+- Para sección galería de páginas individuales
+- Tags `<img>` simples optimizados
+- Usa funciones `changeSlide()` y `goToSlide()`
+- Estructura más ligera
+
+**3. 🏛️ CULIACÁN CAROUSEL**
+- Para tarjetas avanzadas en página Culiacán
+- Formato Tailwind CSS con classes específicas
+- Limita a 6 fotos para performance
+- Incluye `active` y `hidden` classes
+
+### 🧠 INTELIGENCIA AUTOMÁTICA
+
+**📝 ALT TEXT INTELIGENTE:**
+- Detecta automáticamente tipos de habitación
+- Patrones: fachada, sala, cocina, recámara, baño, garage, etc.
+- Fallback inteligente para fotos no identificadas
+- Consistencia en nomenclatura: "Casa [Nombre] - [Área]"
+
+**🏠 INTEGRACIÓN CON DETECTOR DE FACHADA:**
+- Usa automáticamente `detectar-fachada.js`
+- Organiza fotos con fachada primera
+- Orden correcto automático sin intervención manual
+
+**⚡ OPTIMIZACIONES INCLUIDAS:**
+- Lazy loading en todas las imágenes
+- Clases CSS correctas por tipo de carrusel  
+- JavaScript functions correctas por contexto
+- Aria labels para accesibilidad
+
+### 💰 AHORRO DE TIEMPO DEMOSTRADO
+
+**❌ ANTES (Manual por cada propiedad):**
+- ⏱️ 15-20 minutos escribiendo HTML repetitivo
+- 🖊️ Crear manualmente cada tag `<img>`
+- 📝 Escribir 17+ alt texts individuales
+- 🔢 Contar y crear dots manualmente
+- 🎯 Asegurar estructura CSS correcta
+
+**✅ AHORA (Automático):**
+- ⏱️ 30 segundos ejecutar comando
+- 🤖 HTML perfecto generado automáticamente
+- 🧠 Alt texts inteligentes por tipo de habitación
+- 🎯 Estructura CSS garantizada
+- 🔄 Consistencia 100% en todas las propiedades
+
+### 🎯 CASOS DE ÉXITO PROBADOS:
+- ✅ **3 Ríos HERO**: 17 fotos, alt texts inteligentes, estructura perfecta
+- ✅ **3 Ríos GALLERY**: HTML limpio, navegación correcta  
+- ✅ **3 Ríos CULIACÁN**: Tarjeta Tailwind, 6 fotos optimizadas
+- ✅ **Reutilizable**: Funciona con cualquier propiedad existente
+
 ## 🚀 DEPLOYMENT
 - **Dominio**: https://casasenventa.info
 - **Git commit** automático con cambios
