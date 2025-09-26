@@ -373,17 +373,38 @@
                 </div>
                 
                 <div class="input-group">
-                    <label>Meses de contrato:</label>
-                    <input type="range" id="meses" min="6" max="24" value="12" oninput="updateMeses()">
-                    <span id="mesesDisplay">12 meses</span>
+                    <label>Depósito (meses):</label>
+                    <input type="range" id="deposito" min="1" max="4" value="2" oninput="updateDeposito()">
+                    <span id="depositoDisplay">2 meses = $0</span>
                 </div>
                 
-                <button onclick="calcularRenta()" class="calc-btn">🧮 CALCULAR</button>
+                <div class="input-group">
+                    <label>Contrato:</label>
+                    <select id="contrato">
+                        <option value="6">6 meses</option>
+                        <option value="12" selected>12 meses</option>
+                        <option value="18">18 meses</option>
+                        <option value="24">24 meses</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Gastos adicionales:</label>
+                    <select id="gastos">
+                        <option value="0">Sin gastos adicionales</option>
+                        <option value="1000">Servicios básicos - $1,000</option>
+                        <option value="2000">Internet + servicios - $2,000</option>
+                        <option value="3000" selected>Mantenimiento completo - $3,000</option>
+                    </select>
+                </div>
+                
+                <button onclick="calcular()" class="calc-btn">🧮 CALCULAR</button>
                 
                 <div class="result-box">
-                    <h3>📊 Total del contrato: <span id="resultado">$0</span></h3>
-                    <p>💎 Depósito sugerido (2 meses): <span id="deposito">$0</span></p>
-                    <p>🔒 Total inicial (primer mes + depósito): <span id="inicial">$0</span></p>
+                    <h3>💳 Para entrar: <span id="resultado">$0</span></h3>
+                    <p>📊 Renta mensual: <span id="credito">$0</span></p>
+                    <p>📈 Gastos adicionales: <span id="tasa">$0</span></p>
+                    <p>💎 Total mensual: <span id="total">$0</span></p>
                 </div>
             </div>
         </div>
@@ -568,41 +589,42 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        // Calculator functions for rental
-        function updateMeses() {
-            const meses = document.getElementById('meses').value;
-            document.getElementById('mesesDisplay').textContent = meses + ' meses';
+        // Calculator functions
+        function updateDeposito() {
+            const precio = document.getElementById('precio').value || 0;
+            const mesesDeposito = document.getElementById('deposito').value;
+            const monto = precio * mesesDeposito;
+            document.getElementById('depositoDisplay').textContent = 
+                mesesDeposito + ' meses = $' + monto.toLocaleString('es-MX');
         }
 
-        function calcularRenta() {
-            const precioMensual = parseFloat(document.getElementById('precio').value) || 0;
-            const meses = parseInt(document.getElementById('meses').value) || 12;
+        function calcular() {
+            const precio = parseFloat(document.getElementById('precio').value) || 0;
+            const mesesDeposito = parseFloat(document.getElementById('deposito').value) || 2;
+            const contrato = parseInt(document.getElementById('contrato').value) || 12;
+            const gastosAdicionales = parseFloat(document.getElementById('gastos').value) || 0;
 
-            if (precioMensual > 0) {
-                const totalContrato = precioMensual * meses;
-                const deposito = precioMensual * 2;
-                const inicial = precioMensual + deposito;
+            const depositoMonto = precio * mesesDeposito;
+            const paraEntrar = precio + depositoMonto;
+            const totalMensual = precio + gastosAdicionales;
 
-                document.getElementById('resultado').textContent = '$' + totalContrato.toLocaleString('es-MX');
-                document.getElementById('deposito').textContent = '$' + deposito.toLocaleString('es-MX');
-                document.getElementById('inicial').textContent = '$' + inicial.toLocaleString('es-MX');
-            } else {
-                document.getElementById('resultado').textContent = '$0';
-                document.getElementById('deposito').textContent = '$0';
-                document.getElementById('inicial').textContent = '$0';
-            }
+            document.getElementById('resultado').textContent = '$' + Math.round(paraEntrar).toLocaleString('es-MX');
+            document.getElementById('credito').textContent = '$' + Math.round(precio).toLocaleString('es-MX');
+            document.getElementById('tasa').textContent = '$' + gastosAdicionales.toLocaleString('es-MX');
+            document.getElementById('total').textContent = '$' + Math.round(totalMensual).toLocaleString('es-MX');
         }
 
         // Initialize calculator
-        updateMeses();
+        updateDeposito();
+        calcular();
 
         // Expose functions globally for onclick handlers
         window.changeSlide = changeSlide;
         window.goToSlide = goToSlide;
         window.changeSlideHero = changeSlideHero;
         window.goToSlideHero = goToSlideHero;
-        window.updateMeses = updateMeses;
-        window.calcularRenta = calcularRenta;
+        window.updateDeposito = updateDeposito;
+        window.calcular = calcular;
 });
     </script>
 </body>
