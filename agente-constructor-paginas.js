@@ -66,7 +66,8 @@ class AgenteConstructorPaginas {
             console.log('✅ ¡PÁGINA CREADA EXITOSAMENTE!');
             console.log('================================');
             console.log(`📄 Página: ${datos.slug}.html`);
-            console.log(`🖼️  Fotos: images/${datos.slugDir}/`);
+            console.log(`🖼️  Fotos: images/${datos.slugDir}/ (${datos.fotos.length} fotos)`);
+            console.log(`🏠 Fachada principal: ${datos.fotos[0].archivo}`);
             console.log(`🔗 URL: https://casasenventa.info/${datos.slug}/`);
             console.log(`${colors.reset}`);
             
@@ -157,6 +158,19 @@ class AgenteConstructorPaginas {
         
         console.log(`   ✅ Encontradas ${fotos.length} fotos`);
         
+        // 🏠 DETECTAR FACHADA AUTOMÁTICAMENTE
+        console.log(`${colors.cyan}   🔍 Detectando fachada automáticamente...${colors.reset}`);
+        const fachada = this.detectarFachada(fotos);
+        
+        if (fachada.encontrada) {
+            console.log(`   ✅ Fachada detectada: ${fachada.archivo}`);
+        } else {
+            console.log(`   ⚠️  Fachada no detectada, usando primera foto como fallback`);
+        }
+        
+        // Reordenar fotos con fachada primera
+        const fotosOrdenadas = this.organizarFotosConFachada(fotos, fachada);
+        
         // Crear directorio de destino
         const destinoDir = path.join(this.imagesPath, datos.slugDir);
         if (!fs.existsSync(destinoDir)) {
@@ -165,7 +179,7 @@ class AgenteConstructorPaginas {
         
         // Copiar y optimizar fotos (simulado - en producción usaría ImageMagick)
         datos.fotos = [];
-        fotos.forEach((foto, index) => {
+        fotosOrdenadas.forEach((foto, index) => {
             const origen = path.join(datos.rutaFotos, foto);
             const destino = path.join(destinoDir, foto);
             
@@ -175,11 +189,12 @@ class AgenteConstructorPaginas {
             datos.fotos.push({
                 archivo: foto,
                 ruta: `images/${datos.slugDir}/${foto}`,
-                alt: this.generarAltText(foto, datos.nombre, index)
+                alt: this.generarAltText(foto, datos.nombre, index),
+                esFachada: index === 0 // La primera siempre es la fachada
             });
         });
         
-        console.log(`   ✅ ${fotos.length} fotos copiadas y optimizadas`);
+        console.log(`   ✅ ${fotosOrdenadas.length} fotos copiadas y optimizadas (fachada primera)`);
     }
 
     async generarPaginaIndividual(datos) {
@@ -848,30 +863,130 @@ ${caracteristicasHTML}
     generarAltText(archivo, nombrePropiedad, index) {
         const nombre = archivo.toLowerCase();
         
-        if (index === 0 || nombre.includes('fachada') || nombre.includes('exterior')) {
+        // La primera foto siempre es la fachada (ya organizada)
+        if (index === 0) {
             return `Fachada ${nombrePropiedad}`;
-        } else if (nombre.includes('sala')) {
+        }
+        
+        // Detectar tipo de habitación por nombre de archivo
+        if (nombre.includes('sala') || nombre.includes('living')) {
             return `Sala ${nombrePropiedad}`;
-        } else if (nombre.includes('cocina')) {
+        } else if (nombre.includes('cocina') || nombre.includes('kitchen')) {
             return `Cocina ${nombrePropiedad}`;
-        } else if (nombre.includes('comedor')) {
+        } else if (nombre.includes('comedor') || nombre.includes('dining')) {
             return `Comedor ${nombrePropiedad}`;
-        } else if (nombre.includes('recamara') || nombre.includes('bedroom')) {
+        } else if (nombre.includes('recamara') || nombre.includes('bedroom') || nombre.includes('dormit')) {
             return `Recámara ${nombrePropiedad}`;
-        } else if (nombre.includes('bano') || nombre.includes('bath')) {
+        } else if (nombre.includes('bano') || nombre.includes('baño') || nombre.includes('bath')) {
             return `Baño ${nombrePropiedad}`;
-        } else if (nombre.includes('garage') || nombre.includes('cochera')) {
+        } else if (nombre.includes('garage') || nombre.includes('cochera') || nombre.includes('estacion')) {
             return `Cochera ${nombrePropiedad}`;
-        } else if (nombre.includes('patio') || nombre.includes('jardin')) {
+        } else if (nombre.includes('patio') || nombre.includes('jardin') || nombre.includes('garden')) {
             return `Patio ${nombrePropiedad}`;
+        } else if (nombre.includes('pasillo') || nombre.includes('hall')) {
+            return `Pasillo ${nombrePropiedad}`;
+        } else if (nombre.includes('escalera') || nombre.includes('stair')) {
+            return `Escaleras ${nombrePropiedad}`;
+        } else if (nombre.includes('terraza') || nombre.includes('balcon')) {
+            return `Terraza ${nombrePropiedad}`;
+        } else if (nombre.includes('exterior') || nombre.includes('frente')) {
+            return `Vista exterior ${nombrePropiedad}`;
         } else {
-            return `Vista interior ${nombrePropiedad}`;
+            // Para fotos sin patrón específico, usar numeración
+            return `Vista interior ${nombrePropiedad} - Foto ${index + 1}`;
         }
     }
 
     generarWhatsAppDefault(datos) {
         const mensaje = `Hola%2C%20me%20interesa%20la%20casa%20en%20${datos.tipo}%20en%20${encodeURIComponent(datos.ubicacion)}%20por%20${encodeURIComponent(datos.precio)}.%20%C2%BFPodr%C3%ADa%20darme%20m%C3%A1s%20informaci%C3%B3n%3F`;
         return `https://wa.me/528111652545?text=${mensaje}`;
+    }
+
+    /**
+     * 🏠 DETECTOR AUTOMÁTICO DE FACHADA
+     * Basado en los patrones exitosos del documento 1
+     */
+    detectarFachada(fotos) {
+        console.log(`${colors.blue}   📋 Analizando ${fotos.length} fotos para detectar fachada...${colors.reset}`);
+        
+        // PATRONES DE DETECCIÓN (en orden de prioridad)
+        const patrones = [
+            // Patrones principales
+            { patron: /fachada/i, prioridad: 1, descripcion: 'Contains "fachada"' },
+            { patron: /exterior/i, prioridad: 2, descripcion: 'Contains "exterior"' },
+            { patron: /frente/i, prioridad: 3, descripcion: 'Contains "frente"' },
+            { patron: /-01\./i, prioridad: 4, descripcion: 'Ends with "-01."' },
+            { patron: /foto-01/i, prioridad: 5, descripcion: 'Contains "foto-01"' },
+            
+            // Patrones secundarios
+            { patron: /^01/i, prioridad: 6, descripcion: 'Starts with "01"' },
+            { patron: /entrada/i, prioridad: 7, descripcion: 'Contains "entrada"' },
+            { patron: /casa/i, prioridad: 8, descripcion: 'Contains "casa"' }
+        ];
+        
+        let mejorCoincidencia = null;
+        
+        // Buscar la mejor coincidencia
+        for (const foto of fotos) {
+            for (const { patron, prioridad, descripcion } of patrones) {
+                if (patron.test(foto)) {
+                    console.log(`   🎯 Coincidencia encontrada: "${foto}" (${descripcion})`);
+                    
+                    if (!mejorCoincidencia || prioridad < mejorCoincidencia.prioridad) {
+                        mejorCoincidencia = {
+                            archivo: foto,
+                            prioridad,
+                            descripcion,
+                            encontrada: true
+                        };
+                    }
+                }
+            }
+        }
+        
+        // Si no se encontró ningún patrón, usar fallback
+        if (!mejorCoincidencia) {
+            console.log(`   📍 Usando fallback: primera foto alfabéticamente`);
+            const primeraFoto = fotos.sort()[0];
+            return {
+                archivo: primeraFoto,
+                prioridad: 99,
+                descripcion: 'Primera foto alfabéticamente (fallback)',
+                encontrada: false
+            };
+        }
+        
+        console.log(`   ✅ Mejor coincidencia: "${mejorCoincidencia.archivo}" (${mejorCoincidencia.descripcion})`);
+        return mejorCoincidencia;
+    }
+
+    /**
+     * 📁 ORGANIZADOR DE FOTOS CON FACHADA PRIMERA
+     * Coloca la fachada detectada como primera foto
+     */
+    organizarFotosConFachada(fotos, fachada) {
+        const fotosOrganizadas = [...fotos];
+        
+        // Si se detectó una fachada específica, moverla al inicio
+        if (fachada.encontrada && fachada.archivo) {
+            // Remover la fachada de su posición actual
+            const indiceFachada = fotosOrganizadas.indexOf(fachada.archivo);
+            if (indiceFachada > 0) {
+                fotosOrganizadas.splice(indiceFachada, 1);
+                // Insertar al inicio
+                fotosOrganizadas.unshift(fachada.archivo);
+                console.log(`   🔄 Fachada movida a posición principal`);
+            } else if (indiceFachada === 0) {
+                console.log(`   ✅ Fachada ya está en primera posición`);
+            }
+        } else {
+            // Fallback: ordenar alfabéticamente para consistencia
+            fotosOrganizadas.sort();
+            console.log(`   📋 Fotos ordenadas alfabéticamente (fallback)`);
+        }
+        
+        console.log(`   📊 Orden final: ${fotosOrganizadas.slice(0, 3).join(', ')}${fotosOrganizadas.length > 3 ? '...' : ''}`);
+        return fotosOrganizadas;
     }
 
     async pregunta(texto) {
