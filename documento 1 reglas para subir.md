@@ -561,6 +561,16 @@ node automation/generar-carrusel.js "images/3-rios" "3-rios" culiacan
 - **Características**: 2 recámaras, 1 baño, 2 pisos, completamente remodelada
 - **Status**: ✅ Deployed successfully - ✅ Con calculadora de hipoteca
 
+### ✅ Casa Renta Privada Albacete (Renta) - CASO DE ESTUDIO CRÍTICO
+- **Commit Final**: 4c41200
+- **Precio**: Consultar precio
+- **Características**: 3 recámaras, 2 baños, cochera 2 autos, caseta vigilancia, área social
+- **Status**: ✅ Deployed successfully - ✅ LECCIÓN APRENDIDA CRÍTICA
+- **Problema**: Generación automática NO se veía igual a referencia
+- **Solución**: Copiar EXACTAMENTE código de casa-venta-urbivilla-del-roble-zona-sur.html
+- **Resultado**: "porfin ... quiero que actualices el documento 1"
+- **Nueva Regla**: REGLA CRÍTICA #7 - CÓDIGO IDÉNTICO A REFERENCIA
+
 ## 🔧 COMANDOS ESENCIALES
 
 ### Para invocar reglas:
@@ -594,6 +604,18 @@ si (actualiza las descripciones de fotos)
 ### Para publicar (solo si verificación es ✅):
 ```
 publica ya
+```
+
+### NUEVO: Para verificar similitud visual (OBLIGATORIO):
+```
+abre
+```
+**Después preguntar:** "¿Se ve exactamente igual a [página de referencia]?"
+
+### NUEVO: Para copiar código de referencia (si NO se ve igual):
+```
+Lee [página-de-referencia].html completo y copia la estructura EXACTA, 
+solo cambiando textos y fotos para [nueva-propiedad]
 ```
 
 ## ⚠️ TROUBLESHOOTING
@@ -654,6 +676,83 @@ ls -la "/Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/"
 
 **💡 NOTA:** Esta estructura es IDÉNTICA a la que usan las casas de venta que siempre han funcionado correctamente.
 
+## 🚨 REGLA CRÍTICA #7: CÓDIGO IDÉNTICO A REFERENCIA (NUEVA - SEPT 2025)
+**⚠️ LECCIÓN APRENDIDA DE CASA PRIVADA ALBACETE - OBLIGATORIO APLICAR**
+
+### 🎯 PROBLEMA IDENTIFICADO: 
+Las páginas creadas automáticamente NO se veían igual que las páginas de referencia funcionando (ej: Urbivilla) debido a diferencias sutiles en estructura HTML, JavaScript y CSS.
+
+### ✅ SOLUCIÓN DEFINITIVA:
+**COPIAR EXACTAMENTE EL CÓDIGO DE UNA PÁGINA DE REFERENCIA FUNCIONANDO**
+
+### 📋 PROCESO OBLIGATORIO:
+1. **Identificar página de referencia:**
+   - **Para VENTA:** `casa-venta-urbivilla-del-roble-zona-sur.html`
+   - **Para RENTA:** Usar la misma estructura de venta adaptada
+
+2. **Leer código completo de referencia:**
+   ```bash
+   Read casa-venta-urbivilla-del-roble-zona-sur.html
+   ```
+
+3. **Copiar estructura EXACTA:**
+   - ✅ **Mismas secciones HTML** (hero, features, gallery, details, calculator, contact)
+   - ✅ **Mismo JavaScript** con funciones idénticas
+   - ✅ **Mismas clases CSS** y estructura de elementos
+   - ✅ **Mismo layout y diseño**
+
+4. **Solo cambiar contenido específico:**
+   - Textos descriptivos de la propiedad
+   - Rutas de fotos (images/[propiedad]/)
+   - Información de contacto WhatsApp
+   - Calculadora (renta vs hipoteca)
+
+### ⚠️ ELEMENTOS QUE DEBEN SER IDÉNTICOS:
+- `<section class="hero">` estructura
+- `<section class="features">` con features-grid
+- `<section class="gallery">` con carousel-container
+- `<section class="details">` con details-content
+- `<section class="simple-calc">` estructura
+- JavaScript functions: `changeSlide()`, `goToSlide()`, `changeSlideHero()`, `goToSlideHero()`
+- Event listeners y touch support
+- CSS classes y IDs
+
+### 🔍 VERIFICACIÓN OBLIGATORIA:
+**Después de crear la página, SIEMPRE preguntar:**
+```
+"¿Se ve exactamente igual a [página de referencia]?"
+```
+
+**Si la respuesta es NO:**
+1. Leer nuevamente el código de referencia completo
+2. Identificar diferencias específicas
+3. Reemplazar COMPLETAMENTE con código idéntico
+4. Solo cambiar textos y fotos específicas
+5. Re-deploy y verificar nuevamente
+
+### 🎯 CASOS DE ÉXITO DOCUMENTADOS:
+- ✅ **Casa Privada Albacete (Final)**: Commit 4c41200
+  - ❌ **Error inicial**: Usó PropertyPageGenerator con estructura diferente
+  - ✅ **Solución**: Copió EXACTAMENTE código de Urbivilla
+  - ✅ **Resultado**: Se ve idéntico en todas las secciones
+  - ✅ **Verificación**: "porfin ... quiero que actualices el documento 1"
+
+### 🚫 ERRORES COMUNES A EVITAR:
+- ❌ **Asumir que PropertyPageGenerator genera código idéntico**
+- ❌ **Hacer cambios "pequeños" sin verificar el resultado visual**
+- ❌ **No comparar visualmente con página de referencia**
+- ❌ **Usar templates automáticos sin validación visual**
+
+### ✅ PROCESO CORRECTO:
+1. Usar PropertyPageGenerator para generación inicial
+2. **OBLIGATORIO**: Verificar visualmente vs página de referencia
+3. Si NO se ve igual: Copiar código EXACTO de referencia
+4. Cambiar solo contenido específico de la propiedad
+5. Re-deploy y verificar hasta que sea visualmente idéntico
+
+### 💡 REGLA DE ORO:
+**"EL CÓDIGO DEBE SER IDÉNTICO, SOLO EL CONTENIDO DEBE CAMBIAR"**
+
 ## 🎯 CONVENCIONES FINALES
 - **Archivos HTML:** casa-[venta/renta]-[slug].html
 - **Carpetas imágenes:** images/[property-slug]/
@@ -661,3 +760,4 @@ ls -la "/Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/"
 - **WhatsApp:** Mensajes URL-encoded específicos por propiedad
 - **Deployment:** Siempre a rama main → GitHub Pages → casasenventa.info
 - **⭐ FLECHAS CARRUSEL:** SIEMPRE usar `.carousel-prev/.carousel-next` en página Culiacán
+- **🚨 CÓDIGO REFERENCIA:** SIEMPRE copiar estructura EXACTA de página funcionando
