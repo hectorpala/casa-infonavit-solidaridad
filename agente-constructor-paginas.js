@@ -152,8 +152,8 @@ class AgenteConstructorPaginas {
             /\.(jpg|jpeg|png)$/i.test(archivo)
         );
         
-        if (fotos.length < 6) {
-            throw new Error(`Se encontraron ${fotos.length} fotos, mínimo requerido: 6`);
+        if (fotos.length < 3) {
+            throw new Error(`Se encontraron ${fotos.length} fotos, mínimo requerido: 3`);
         }
         
         console.log(`   ✅ Encontradas ${fotos.length} fotos`);
@@ -1013,6 +1013,21 @@ ${caracteristicasHTML}
         
         console.log(`   📊 Orden final: ${fotosOrganizadas.slice(0, 3).join(', ')}${fotosOrganizadas.length > 3 ? '...' : ''}`);
         return fotosOrganizadas;
+    }
+
+    /**
+     * 📝 FUNCIONES DE ACORTADO PARA TARJETAS
+     */
+    acortarTitulo(titulo) {
+        return titulo.length > 35 ? titulo.substring(0, 35) + '...' : titulo;
+    }
+
+    acortarUbicacion(ubicacion) {
+        return ubicacion.length > 25 ? ubicacion.substring(0, 25) + '...' : ubicacion;
+    }
+
+    acortarCaracteristica(caracteristica) {
+        return caracteristica.length > 15 ? caracteristica.substring(0, 15) + '...' : caracteristica;
     }
 
     async pregunta(texto) {
