@@ -556,6 +556,70 @@ El CSS ya está implementado en `styles.css` con máxima prioridad:
 
 **⭐ NOTA CRÍTICA:** Esta solución se aplicó tras identificar que las propiedades de renta tenían clases diferentes que causaban invisibilidad de flechas. La solución fue estandarizar con las clases que YA funcionaban en propiedades de venta.
 
+## 🏷️ BADGES OBLIGATORIOS PARA PROPIEDADES DE RENTA
+**⚠️ REGLA CRÍTICA - Sept 26 2025 - v3.1**
+
+### 🚨 BADGES REQUERIDOS EN PROPIEDADES DE RENTA
+**TODAS las propiedades de renta DEBEN tener estos badges en la esquina superior izquierda:**
+
+```html
+<!-- ✅ ESTRUCTURA OBLIGATORIA PARA RENTAS -->
+<div class="absolute top-3 left-3 flex gap-2">
+    <span class="bg-green-500 text-white px-3 py-1 rounded-lg text-xs font-medium font-poppins">RENTA</span>
+    <span class="bg-hector text-white px-2 py-1 rounded-lg text-xs font-medium font-poppins">Disponible</span>
+</div>
+```
+
+### 🔄 BOTÓN DE FAVORITOS OBLIGATORIO
+**Agregar también el botón de favoritos (esquina superior derecha):**
+
+```html
+<!-- Favorite icon -->
+<button class="btn-icon absolute top-3 right-3">
+    <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 21s-6.7-3.9-9.3-8A5.5 5.5 0 0 1 12 6.2 5.5 5.5 0 0 1 21.3 13c-2.6 4.1-9.3 8-9.3 8Z"/>
+    </svg>
+</button>
+```
+
+### ✅ CONSISTENCIA CON PROPIEDADES DE VENTA
+**Las propiedades de venta tienen esta estructura (para comparar):**
+```html
+<div class="absolute top-3 left-3 flex gap-2">
+    <span class="badge-venta">VENTA</span>
+    <span class="bg-hector text-white px-2 py-1 rounded-lg text-xs font-medium font-poppins">Disponible</span>
+</div>
+```
+
+### 🎯 CASOS DE ÉXITO VERIFICADOS
+- **Casa Circuito Canarias**: ✅ Badges RENTA + Disponible + favoritos implementados
+- **Casa Los Pinos**: ✅ Badges RENTA + Disponible + favoritos implementados
+- **Página Culiacán**: ✅ Consistencia visual completa entre ventas y rentas
+
+### ❌ NO USAR BADGES CON EMOJIS
+**Reemplazar estos badges obsoletos:**
+```html
+<!-- ❌ OBSOLETO - NO USAR -->
+<span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium font-poppins">
+    🏠 RENTA
+</span>
+```
+
+**Por estos badges profesionales:**
+```html
+<!-- ✅ CORRECTO - USAR SIEMPRE -->
+<span class="bg-green-500 text-white px-3 py-1 rounded-lg text-xs font-medium font-poppins">RENTA</span>
+<span class="bg-hector text-white px-2 py-1 rounded-lg text-xs font-medium font-poppins">Disponible</span>
+```
+
+### 💡 REGLA DE CONSISTENCIA
+**TODAS las propiedades (venta y renta) deben tener:**
+1. **Badge de tipo** (VENTA o RENTA)
+2. **Badge de estado** (Disponible)  
+3. **Botón de favoritos**
+4. **Misma posición** (top-3 left-3 y top-3 right-3)
+5. **Mismos estilos** de badges
+
 ## 🔗 INTEGRACIÓN CON INDEX PRINCIPAL
 
 ### REGLA #9: ENLACE EN INDEX.HTML
