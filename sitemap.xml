@@ -1,36 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Página principal -->
-  <url>
-    <loc>https://casasenventa.info/</loc>
-    <lastmod>2024-09-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://casasenventa.info/culiacan-infonavit-solidaridad/images/optimized/exterior-new.jpg</image:loc>
-      <image:title>Casa en Venta Infonavit Solidaridad</image:title>
-      <image:caption>Casa remodelada en venta en Culiacán, Sinaloa</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- Página de la propiedad -->
-  <url>
-    <loc>https://casasenventa.info/culiacan-infonavit-solidaridad/</loc>
-    <lastmod>2024-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>https://casasenventa.info/culiacan-infonavit-solidaridad/images/optimized/sala.jpg</image:loc>
-      <image:title>Interior Casa Infonavit Solidaridad</image:title>
-      <image:caption>Interior de casa remodelada con sala y comedor</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://casasenventa.info/culiacan-infonavit-solidaridad/images/optimized/1.jpg</image:loc>
-      <image:title>Galería Casa Infonavit Solidaridad</image:title>
-      <image:caption>Fotos de la propiedad en venta</image:caption>
-    </image:image>
-  </url>
-  
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://casasenventa.info/</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/culiacan/</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-privada-la-estancia-santa-barbara.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-infonavit-barrancos-culiacan.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-santa-fe-culiacan-sinaloa.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-villas-del-rio-culiacan.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-zona-dorada.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-lazaro-cardenas.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-villa-bonita-culiacan.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-urbivilla-del-roble-zona-sur.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-villas-del-real.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-cocotera-hacienda-de-la-mora.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-valle-alto-verde.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-venta-stanza-corcega.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-privada-acacia-zona-norte.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-renta-villa-primavera.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-renta-privada-puntazul.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-renta-los-pinos.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-renta-circuito-canarias.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://casasenventa.info/casa-renta-3-rios.html</loc>
+<lastmod>2025-09-26</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
 </urlset>
