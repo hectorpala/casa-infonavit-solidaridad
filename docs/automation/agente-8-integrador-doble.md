@@ -99,6 +99,8 @@ Insertar, en ambas vistas del sitio, los bloques de la propiedad y dejar enlaces
 - ❌ **NUEVO:** Carrusel usa divs anidados en lugar de imágenes directas
 - ❌ **NUEVO:** JavaScript NO usa `changeImage()` en controles de carrusel
 - ❌ **NUEVO:** Iconos usan Font Awesome en lugar de SVG
+- ❌ **NUEVO:** Badge RENTA faltante en tarjetas de renta en index.html
+- ❌ **NUEVO:** Clase badge inconsistente (rental vs rent)
 
 ### GO Permitido si:
 - ✅ PASS #7 confirmado para carrusel
@@ -115,23 +117,52 @@ Insertar, en ambas vistas del sitio, los bloques de la propiedad y dejar enlaces
 - Cada tarjeta una sola vez (sin duplicación)
 - Ambos links al detalle correctos y funcionales
 - Coexistencia verificada en ambas páginas
+- **NUEVO:** Badges RENTA/VENTA aplicados correctamente según tipo
+- **NUEVO:** Clases badge consistentes (rent/sale únicamente)
 
 ### NO OK:
 - Falta una tarjeta en cualquier página
 - Duplicación detectada
 - Enlaces incorrectos o rotos
 - Inserción fuera de marcadores
+- **NUEVO:** Badges de estado faltantes en propiedades index.html
+- **NUEVO:** Inconsistencias en clases CSS de badges
 
 ## Zonas de Inserción Específicas
 
 ### Home (`index.html`):
 ```html
 <!-- MARCADOR: INICIO PROPERTIES GRID -->
-<div class="properties-grid">
+<div class="property-grid">
     <!-- INSERCIÓN: tarjetas simples aquí -->
+    <!-- TEMPLATE OBLIGATORIO PARA HOME: -->
+    <a href="casa-[tipo]-[slug].html" class="property-card">
+        <img src="images/[slug]/[foto-01].jpg" alt="[Título]" class="property-image" loading="lazy">
+        <div class="property-content">
+            <div class="property-badge [rent/sale]">[RENTA/VENTA]</div>
+            <h3 class="property-title">[Título]</h3>
+            <p class="property-location">
+                <i class="fas fa-map-marker-alt"></i>
+                [Ubicación]
+            </p>
+            <div class="property-price">$[PRECIO]/[PERIODO]</div>
+            <div class="property-features">
+                <span class="feature">[X] Recámaras</span>
+                <span class="feature">[X] Baños</span>
+                <span class="feature">[Característica]</span>
+            </div>
+            <div class="property-cta">Ver Detalles Completos</div>
+        </div>
+    </a>
 </div>
 <!-- MARCADOR: FIN PROPERTIES GRID -->
 ```
+
+### REGLAS CRÍTICAS PARA INDEX.HTML:
+1. **Badge obligatorio**: SIEMPRE incluir `<div class="property-badge [rent/sale]">`
+2. **Clases válidas**: Solo `rent` para rentas, `sale` para ventas
+3. **Nunca usar**: `rental`, `selling`, u otras variaciones
+4. **Posición**: Badge debe ir después de `property-content` y antes de `property-title`
 
 ### Culiacán (`culiacan/index.html`):
 ```html
@@ -233,12 +264,20 @@ Insertar, en ambas vistas del sitio, los bloques de la propiedad y dejar enlaces
 
 ### REGLAS CRÍTICAS PARA EVITAR ERRORES:
 
+#### **Para Culiacán (culiacan/index.html):**
 1. **Badge de precio:** SIEMPRE `bg-orange-500` (nunca azul)
 2. **Botón WhatsApp:** SIEMPRE `btn-primary` (nunca colores personalizados)
 3. **Carrusel:** Imágenes directas con `changeImage()` (no divs anidados)
 4. **JavaScript:** SIEMPRE `onclick="changeImage(this.parentElement, -1)"` 
 5. **Iconos:** SIEMPRE SVG (nunca Font Awesome en características)
 6. **Estructura:** NUNCA inventar, SIEMPRE usar el template exacto
+
+#### **Para Index.html (página principal):**
+7. **Badge RENTA/VENTA:** OBLIGATORIO en todas las propiedades
+8. **Clases válidas:** Solo `rent` para renta, `sale` para venta (NO `rental`)
+9. **Texto badge:** "RENTA" o "VENTA" en mayúsculas
+10. **Posición:** Dentro de `property-content`, antes de `property-title`
+11. **Template Home:** Seguir estructura exacta definida arriba
 
 ## Interfaz con Otros Agentes
 
@@ -298,6 +337,8 @@ Insertar, en ambas vistas del sitio, los bloques de la propiedad y dejar enlaces
 - **Duplicado:** [SÍ/NO]
 - **Link detalle OK:** [SÍ/NO]
 - **Zona inserción:** [dentro/fuera de marcadores]
+- **Badge RENTA aplicado:** [SÍ/NO] (para propiedades de renta)
+- **Badge clase consistente:** [rent/sale correcto]
 
 ### Integración Culiacán (culiacan/index.html):
 - **Presente:** [SÍ/NO]
@@ -351,6 +392,13 @@ Insertar, en ambas vistas del sitio, los bloques de la propiedad y dejar enlaces
 - [ ] Coexistencia Home + Culiacán confirmada
 - [ ] Zona inserción dentro de marcadores
 - [ ] Datos consistentes entre tarjetas
+
+### Validaciones NUEVAS Index.html:
+- [ ] **Badge RENTA/VENTA presente**: Todas las propiedades tienen badge de estado
+- [ ] **Clase badge correcta**: Solo `rent` o `sale` (no `rental` u otras)
+- [ ] **Posición badge**: Después de `property-content`, antes de `property-title`
+- [ ] **Texto badge**: "RENTA" para rentas, "VENTA" para ventas
+- [ ] **Consistencia visual**: Todos los badges siguen el mismo patrón
 
 ### Validaciones Específicas Culiacán (CRÍTICAS):
 - [ ] **Badge precio:** Contiene `bg-orange-500` (NO azul/blue)
