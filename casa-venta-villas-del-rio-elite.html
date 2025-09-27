@@ -430,13 +430,14 @@
 
     <!-- JavaScript -->
     <script>
+    document.addEventListener("DOMContentLoaded", function() {
         // Hero Carousel functionality
         let currentSlideHero = 0;
         const totalSlidesHero = 6;
 
         function changeSlideHero(direction) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
+            const slides = document.querySelectorAll('.hero-image .carousel-slide');
+            const dots = document.querySelectorAll('.hero-image .carousel-dot');
             
             slides[currentSlideHero].classList.remove('active');
             dots[currentSlideHero].classList.remove('active');
@@ -448,8 +449,8 @@
         }
 
         function goToSlideHero(index) {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
+            const slides = document.querySelectorAll('.hero-image .carousel-slide');
+            const dots = document.querySelectorAll('.hero-image .carousel-dot');
             
             slides[currentSlideHero].classList.remove('active');
             dots[currentSlideHero].classList.remove('active');
@@ -465,8 +466,8 @@
         const totalSlidesGallery = 6;
 
         function changeSlide(direction) {
-            const slides = document.querySelectorAll('.gallery-slide');
-            const dots = document.querySelectorAll('.gallery-dot');
+            const slides = document.querySelectorAll('.gallery .gallery-slide');
+            const dots = document.querySelectorAll('.gallery .gallery-dot');
             
             slides[currentSlideGallery].classList.remove('active');
             dots[currentSlideGallery].classList.remove('active');
@@ -478,8 +479,8 @@
         }
 
         function goToSlide(index) {
-            const slides = document.querySelectorAll('.gallery-slide');
-            const dots = document.querySelectorAll('.gallery-dot');
+            const slides = document.querySelectorAll('.gallery .gallery-slide');
+            const dots = document.querySelectorAll('.gallery .gallery-dot');
             
             slides[currentSlideGallery].classList.remove('active');
             dots[currentSlideGallery].classList.remove('active');
@@ -489,6 +490,12 @@
             slides[currentSlideGallery].classList.add('active');
             dots[currentSlideGallery].classList.add('active');
         }
+
+        // Make functions globally accessible for onclick handlers
+        window.changeSlideHero = changeSlideHero;
+        window.goToSlideHero = goToSlideHero;
+        window.changeSlide = changeSlide;
+        window.goToSlide = goToSlide;
 
         // Auto-advance carousel every 5 seconds
         setInterval(() => {
@@ -548,6 +555,9 @@
             document.getElementById('totalPagar').textContent = '$' + totalPagar.toLocaleString('es-MX', {minimumFractionDigits: 0, maximumFractionDigits: 0});
         }
 
+        // Make calculator function globally accessible
+        window.calcularHipoteca = calcularHipoteca;
+
         // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -561,6 +571,7 @@
                 }
             });
         });
+    });
     </script>
 </body>
 </html>
