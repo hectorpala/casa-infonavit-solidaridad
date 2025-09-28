@@ -610,11 +610,74 @@
         <!-- Results header -->
         <div class="mb-8">
             <h2 class="text-3xl font-bold text-gray-900 mb-2 font-poppins">Propiedades en Culiacán</h2>
-            <p class="text-gray-600 font-poppins">20 propiedades · Ordenado por más recientes</p>
+            <p class="text-gray-600 font-poppins">21 propiedades · Ordenado por más recientes</p>
         </div>
 
         <!-- Properties Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- BEGIN CARD-ADV casa-venta-bosques-del-rey -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" 
+                 data-href="../casa-venta-bosques-del-rey.html">
+                <div class="relative aspect-video">
+                    <!-- PRICE BADGE OBLIGATORIO -->
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $2,250,000
+                    </div>
+                    
+                    <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
+                    <div class="carousel-container" data-current="0">
+                        <img src="../images/bosques-del-rey/1546374146.jpg" 
+                             alt="Fachada Casa Bosques del Rey" 
+                             loading="lazy" 
+                             class="w-full h-full object-cover cursor-pointer">
+                        
+                        <!-- NAVIGATION BUTTONS -->
+                        <button class="carousel-prev" onclick="previousImage(this)">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-next" onclick="nextImage(this)">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <!-- INDICATORS -->
+                        <div class="carousel-indicators">
+                            <button class="indicator active" onclick="showImage(this, 0)"></button>
+                            <button class="indicator" onclick="showImage(this, 1)"></button>
+                            <button class="indicator" onclick="showImage(this, 2)"></button>
+                            <button class="indicator" onclick="showImage(this, 3)"></button>
+                            <button class="indicator" onclick="showImage(this, 4)"></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold mb-2 font-poppins">Casa en Venta Bosque Olivos Bosques del Rey</h3>
+                    <p class="text-gray-600 text-sm mb-3 font-poppins">
+                        <i class="fas fa-map-marker-alt text-red-500"></i>
+                        Bosque Olivos, Bosques del Rey, Culiacán
+                    </p>
+                    
+                    <div class="flex items-center justify-between text-sm text-gray-600 mb-3">
+                        <span class="font-poppins"><i class="fas fa-bed text-blue-500"></i> 3 rec</span>
+                        <span class="font-poppins"><i class="fas fa-bath text-blue-500"></i> 2.5 baños</span>
+                        <span class="font-poppins"><i class="fas fa-car text-blue-500"></i> Cochera</span>
+                    </div>
+                    
+                    <p class="text-gray-700 text-sm mb-4 font-poppins line-clamp-2">
+                        Casa funcional con 3 habitaciones en privada con vigilancia 24hrs. Privada con casetas de vigilancia y 2 áreas comunes. Se acepta crédito Infonavit o Bancario.
+                    </p>
+                    
+                    <div class="flex justify-between items-center">
+                        <span class="text-green-600 font-bold text-lg font-poppins">$2,250,000</span>
+                        <button class="bg-hector text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors font-poppins" 
+                                onclick="window.open('../casa-venta-bosques-del-rey.html', '_blank')">
+                            Ver detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- END CARD-ADV casa-venta-bosques-del-rey -->
 
             <!-- BEGIN CARD-ADV casa-renta-la-campiña-cerca-forum -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" 
