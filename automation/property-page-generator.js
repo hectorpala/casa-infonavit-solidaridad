@@ -575,9 +575,8 @@ ${slides}
         // Insert optimizations in head
         html = html.replace('</head>', `    ${headOptimizations}\n</head>`);
 
-        // Wrap JavaScript in DOMContentLoaded
-        html = html.replace('<script>', '<script>\ndocument.addEventListener("DOMContentLoaded", function() {');
-        html = html.replace('</script>', '\n});\n</script>');
+        // NOTE: DOMContentLoaded wrapper is already included in the template
+        // No need to add it here to avoid duplication
 
         return html;
     }
