@@ -1,4 +1,5 @@
 # 📋 REGLAS PARA SUBIR PROPIEDADES NUEVAS
+**SPEC:** props-v3.3
 
 ## 🎯 Proceso Completo Automatizado
 
