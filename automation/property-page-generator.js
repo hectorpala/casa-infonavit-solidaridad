@@ -117,10 +117,46 @@ class PropertyPageGenerator {
                 }
             }
             
-            // If no pattern matches, use first file alphabetically (often the facade)
-            const firstFile = files[0];
-            console.log(`📍 USANDO PRIMERA FOTO COMO FACHADA: ${firstFile}`);
-            return firstFile;
+            // ENHANCED DETECTION FOR FACEBOOK/INSTAGRAM STYLE NAMES
+            console.log('🔍 APLICANDO DETECCIÓN AVANZADA PARA FOTOS FACEBOOK/INSTAGRAM...');
+            
+            // Get file stats for size-based detection
+            const filesWithStats = files.map(file => {
+                const filePath = path.join(photosPath, file);
+                const stats = fs.statSync(filePath);
+                return {
+                    name: file,
+                    size: stats.size,
+                    path: filePath
+                };
+            }).sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically
+            
+            // Strategy 1: First file alphabetically (Facebook/Instagram often uploads in photo order)
+            const firstAlphabetical = filesWithStats[0];
+            console.log(`📊 PRIMERA FOTO ALFABÉTICAMENTE: ${firstAlphabetical.name} (${(firstAlphabetical.size/1024/1024).toFixed(2)}MB)`);
+            
+            // Strategy 2: Largest file (facade photos are often higher quality/resolution)
+            const largestFile = filesWithStats.reduce((max, current) => 
+                current.size > max.size ? current : max
+            );
+            console.log(`📊 FOTO MÁS GRANDE: ${largestFile.name} (${(largestFile.size/1024/1024).toFixed(2)}MB)`);
+            
+            // Strategy 3: Check if first file is also reasonably large
+            const averageSize = filesWithStats.reduce((sum, file) => sum + file.size, 0) / filesWithStats.length;
+            const isFirstFileLarge = firstAlphabetical.size >= averageSize * 0.8; // At least 80% of average
+            
+            // Decision logic
+            if (isFirstFileLarge) {
+                console.log(`✅ FACHADA DETECTADA: ${firstAlphabetical.name} (primera + tamaño adecuado)`);
+                return firstAlphabetical.name;
+            } else if (largestFile.size > averageSize * 1.2) { // 20% larger than average
+                console.log(`✅ FACHADA DETECTADA: ${largestFile.name} (archivo más grande)`);
+                return largestFile.name;
+            } else {
+                // Fallback to first file
+                console.log(`📍 USANDO PRIMERA FOTO COMO FACHADA: ${firstAlphabetical.name}`);
+                return firstAlphabetical.name;
+            }
             
         } catch (error) {
             console.error('❌ Error al detectar fachada:', error.message);
