@@ -5422,7 +5422,7 @@
       }
 
       // ===== Listeners
-      // Listener especial para filterType que sincroniza con price slider
+      // Listener para filterType
       filterType?.addEventListener('change', () => {
         const typeValue = filterType.value;
         if (typeValue === 'venta' || typeValue === 'renta') {
@@ -5435,6 +5435,7 @@
           }
         }
         filterProperties();
+        saveState();
       });
       
       
