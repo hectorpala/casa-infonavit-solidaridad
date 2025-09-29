@@ -622,13 +622,13 @@
                             <label class="flex-1 relative">
                                 <input type="radio" name="price-mode" value="venta" checked class="sr-only">
                                 <div class="price-tab text-center py-2 px-4 rounded-md cursor-pointer transition-all duration-200 text-sm font-medium">
-                                    🏠 Venta
+                                    Venta
                                 </div>
                             </label>
                             <label class="flex-1 relative">
                                 <input type="radio" name="price-mode" value="renta" class="sr-only">
                                 <div class="price-tab text-center py-2 px-4 rounded-md cursor-pointer transition-all duration-200 text-sm font-medium">
-                                    🏢 Renta
+                                    Renta
                                 </div>
                             </label>
                         </div>
@@ -5394,7 +5394,22 @@
       }
 
       // ===== Listeners
-      [filterType, filterBedrooms, filterFeatures, sortPrice]
+      // Listener especial para filterType que sincroniza con price slider
+      filterType?.addEventListener('change', () => {
+        const typeValue = filterType.value;
+        if (typeValue === 'venta' || typeValue === 'renta') {
+          // Sincronizar el price slider con el tipo seleccionado
+          const targetRadio = document.querySelector(`input[name="price-mode"][value="${typeValue}"]`);
+          if (targetRadio) {
+            targetRadio.checked = true;
+            togglePriceSlider();
+            saveState();
+          }
+        }
+        filterProperties();
+      });
+      
+      [filterBedrooms, filterFeatures, sortPrice]
         .forEach(el => el && el.addEventListener('change', filterProperties));
       
       // Price slider listeners
