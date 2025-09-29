@@ -567,26 +567,6 @@
                 </div>
             </div>
             
-            <!-- Buscador y filtros -->
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="flex-1 relative">
-                    <input 
-                        type="text" 
-                        placeholder="Buscar en Culiacán, Sinaloa..." 
-                        class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-hector focus:border-transparent font-poppins"
-                    >
-                    <svg class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="m21 20-5.6-5.6A7.5 7.5 0 1 0 9.5 17a7.45 7.45 0 0 0 4.9-1.8L20 21l1-1ZM4 9.5A5.5 5.5 0 1 1 9.5 15 5.51 5.51 0 0 1 4 9.5Z"/>
-                    </svg>
-                </div>
-                
-                <div class="flex gap-2">
-                    <button class="px-4 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 font-medium font-poppins">En Venta</button>
-                    <button class="px-4 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 font-medium font-poppins">En Renta</button>
-                    <button class="px-4 py-3 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 font-medium font-poppins">Filtros</button>
-                    <button class="px-4 py-3 bg-hector text-white rounded-xl hover:bg-hector-dark font-medium font-poppins">Guardar búsqueda</button>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -635,16 +615,70 @@
 
                 <!-- Rango de Precio -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Precio</label>
-                    <select id="filter-price" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
-                        <option value="">Cualquier precio</option>
-                        <option value="renta-bajo">Renta: Hasta $12,000</option>
-                        <option value="renta-medio">Renta: $12,000 - $20,000</option>
-                        <option value="renta-alto">Renta: Más de $20,000</option>
-                        <option value="venta-bajo">Venta: Hasta $1,500,000</option>
-                        <option value="venta-medio">Venta: $1,500,000 - $2,500,000</option>
-                        <option value="venta-alto">Venta: Más de $2,500,000</option>
-                    </select>
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Rango de Precio</label>
+                    <div class="bg-gray-50 rounded-lg p-4 space-y-4">
+                        <!-- Toggle Venta/Renta con mejor diseño -->
+                        <div class="flex bg-white rounded-lg p-1 relative">
+                            <label class="flex-1 relative">
+                                <input type="radio" name="price-mode" value="venta" checked class="sr-only">
+                                <div class="price-tab text-center py-2 px-4 rounded-md cursor-pointer transition-all duration-200 text-sm font-medium">
+                                    🏠 Venta
+                                </div>
+                            </label>
+                            <label class="flex-1 relative">
+                                <input type="radio" name="price-mode" value="renta" class="sr-only">
+                                <div class="price-tab text-center py-2 px-4 rounded-md cursor-pointer transition-all duration-200 text-sm font-medium">
+                                    🏢 Renta
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <!-- Slider para Venta -->
+                        <div id="venta-slider" class="price-slider-container">
+                            <div class="flex justify-between text-xs text-gray-500 mb-3">
+                                <span class="font-medium">$500K</span>
+                                <span class="font-medium">$5M+</span>
+                            </div>
+                            <div class="relative">
+                                <input type="range" 
+                                    id="venta-range" 
+                                    min="500000" 
+                                    max="5000000" 
+                                    step="100000"
+                                    value="5000000"
+                                    class="price-slider w-full">
+                                <div class="slider-track"></div>
+                                <div class="slider-fill"></div>
+                            </div>
+                            <div class="text-center mt-3 bg-white rounded-md py-2 px-3 border border-gray-200">
+                                <span id="venta-display" class="text-lg font-bold text-hector">Hasta $5.0M</span>
+                                <div class="text-xs text-gray-500 mt-1">Precio máximo de venta</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slider para Renta -->
+                        <div id="renta-slider" class="price-slider-container hidden">
+                            <div class="flex justify-between text-xs text-gray-500 mb-3">
+                                <span class="font-medium">$5K</span>
+                                <span class="font-medium">$50K+</span>
+                            </div>
+                            <div class="relative">
+                                <input type="range" 
+                                    id="renta-range" 
+                                    min="5000" 
+                                    max="50000" 
+                                    step="1000"
+                                    value="50000"
+                                    class="price-slider w-full">
+                                <div class="slider-track"></div>
+                                <div class="slider-fill"></div>
+                            </div>
+                            <div class="text-center mt-3 bg-white rounded-md py-2 px-3 border border-gray-200">
+                                <span id="renta-display" class="text-lg font-bold text-hector">Hasta $50K</span>
+                                <div class="text-xs text-gray-500 mt-1">Renta máxima mensual</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Recámaras -->
@@ -5060,23 +5094,35 @@
 
       // ===== DOM
       const filterType = document.getElementById('filter-type');
-      const filterPrice = document.getElementById('filter-price');
       const filterBedrooms = document.getElementById('filter-bedrooms');
       const filterFeatures = document.getElementById('filter-features');
-      const sortPrice = document.getElementById('sort-price');          // NUEVO
+      const sortPrice = document.getElementById('sort-price');
       const clearFiltersBtn = document.getElementById('clear-filters');
       const filterResults = document.getElementById('filter-results');
       const resultsCount = document.getElementById('results-count');
-      const grid = document.querySelector('.properties-grid') || document.querySelector('.grid') || document.body; // contenedor de cards
+      const grid = document.querySelector('.properties-grid') || document.querySelector('.grid') || document.body;
       const cardsNodeList = document.querySelectorAll('.property-card');
-      const allCards = Array.from(cardsNodeList); // para ordenar sin perder referencia
+      const allCards = Array.from(cardsNodeList);
+      
+      // ===== Elementos de Price Slider
+      const priceModeRadios = document.querySelectorAll('input[name="price-mode"]');
+      const priceTabs = document.querySelectorAll('.price-tab');
+      const ventaSlider = document.getElementById('venta-slider');
+      const rentaSlider = document.getElementById('renta-slider');
+      const ventaRange = document.getElementById('venta-range');
+      const rentaRange = document.getElementById('renta-range');
+      const ventaDisplay = document.getElementById('venta-display');
+      const rentaDisplay = document.getElementById('renta-display');
 
       // ===== Persistencia
       const LS_KEY = 'propertyFiltersV1';
       function saveState() {
+        const currentPriceMode = document.querySelector('input[name="price-mode"]:checked')?.value || 'venta';
+        const priceValue = currentPriceMode === 'venta' ? ventaRange?.value : rentaRange?.value;
         const state = {
           type: filterType?.value || '',
-          price: filterPrice?.value || '',
+          priceMode: currentPriceMode,
+          priceValue: priceValue || '',
           bedrooms: filterBedrooms?.value || '',
           features: filterFeatures?.value || '',
           sort: sortPrice?.value || ''
@@ -5089,11 +5135,93 @@
           if (!raw) return;
           const s = JSON.parse(raw);
           if (filterType) filterType.value = s.type || '';
-          if (filterPrice) filterPrice.value = s.price || '';
+          if (s.priceMode) {
+            const modeRadio = document.querySelector(`input[name="price-mode"][value="${s.priceMode}"]`);
+            if (modeRadio) modeRadio.checked = true;
+            togglePriceSlider();
+          }
+          if (s.priceValue) {
+            if (s.priceMode === 'venta' && ventaRange) ventaRange.value = s.priceValue;
+            if (s.priceMode === 'renta' && rentaRange) rentaRange.value = s.priceValue;
+            updatePriceDisplay();
+          }
           if (filterBedrooms) filterBedrooms.value = s.bedrooms || '';
           if (filterFeatures) filterFeatures.value = s.features || '';
           if (sortPrice) sortPrice.value = s.sort || '';
         } catch {}
+      }
+      
+      // ===== Funciones de Price Slider
+      function togglePriceSlider() {
+        const mode = document.querySelector('input[name="price-mode"]:checked')?.value;
+        
+        // Actualizar tabs visuales
+        priceTabs.forEach((tab, index) => {
+          const input = tab.parentElement.querySelector('input');
+          if (input.checked) {
+            tab.classList.add('tab-active');
+            tab.classList.remove('tab-inactive');
+          } else {
+            tab.classList.remove('tab-active');
+            tab.classList.add('tab-inactive');
+          }
+        });
+        
+        // Mostrar/ocultar sliders
+        if (mode === 'venta') {
+          ventaSlider?.classList.remove('hidden');
+          rentaSlider?.classList.add('hidden');
+        } else {
+          ventaSlider?.classList.add('hidden');
+          rentaSlider?.classList.remove('hidden');
+        }
+        
+        updatePriceDisplay();
+        updateSliderFill();
+        filterProperties();
+      }
+      
+      function updatePriceDisplay() {
+        if (ventaRange && ventaDisplay) {
+          const value = parseInt(ventaRange.value);
+          ventaDisplay.textContent = `Hasta $${(value / 1000000).toFixed(1)}M`;
+        }
+        if (rentaRange && rentaDisplay) {
+          const value = parseInt(rentaRange.value);
+          rentaDisplay.textContent = `Hasta $${(value / 1000).toFixed(0)}K`;
+        }
+      }
+      
+      function updateSliderFill() {
+        // Actualizar el fill del slider de venta
+        if (ventaRange) {
+          const value = ventaRange.value;
+          const min = ventaRange.min;
+          const max = ventaRange.max;
+          const percentage = ((value - min) / (max - min)) * 100;
+          const fill = ventaSlider?.querySelector('.slider-fill');
+          if (fill) fill.style.width = percentage + '%';
+        }
+        
+        // Actualizar el fill del slider de renta
+        if (rentaRange) {
+          const value = rentaRange.value;
+          const min = rentaRange.min;
+          const max = rentaRange.max;
+          const percentage = ((value - min) / (max - min)) * 100;
+          const fill = rentaSlider?.querySelector('.slider-fill');
+          if (fill) fill.style.width = percentage + '%';
+        }
+      }
+      
+      function formatPrice(price) {
+        if (price >= 1000000) {
+          return `$${(price / 1000000).toFixed(1)}M`;
+        } else if (price >= 1000) {
+          return `$${(price / 1000).toFixed(0)}K`;
+        } else {
+          return `$${price}`;
+        }
       }
 
       // ===== Extraer datos de cada card (type, price, bedrooms, features)
@@ -5136,7 +5264,11 @@
       // ===== Filtrado
       function filterProperties() {
         const typeFilter = norm(filterType?.value);
-        const priceFilter = norm(filterPrice?.value);
+        // Obtener valores del price slider
+        const currentPriceMode = document.querySelector('input[name="price-mode"]:checked')?.value;
+        const maxPrice = currentPriceMode === 'venta' ? 
+          parseInt(ventaRange?.value || 5000000) : 
+          parseInt(rentaRange?.value || 50000);
         const bedroomsFilter = norm(filterBedrooms?.value);
         const featuresFilter = norm(filterFeatures?.value);
 
@@ -5148,18 +5280,17 @@
           // Tipo
           if (typeFilter && norm(card.getAttribute('data-type')) !== typeFilter) show = false;
 
-          // Precio
-          if (show && priceFilter) {
+          // Precio con slider
+          if (show) {
             const price = toNum(card.getAttribute('data-price'));
-            const isRenta = norm(card.getAttribute('data-type')) === 'renta';
-            switch (priceFilter) {
-              case 'renta-bajo':   show = isRenta && price > 0 && price <= 12000; break;
-              case 'renta-medio':  show = isRenta && price > 12000 && price <= 20000; break;
-              case 'renta-alto':   show = isRenta && price > 20000; break;
-              case 'venta-bajo':   show = !isRenta && price > 0 && price <= 1500000; break;
-              case 'venta-medio':  show = !isRenta && price > 1500000 && price <= 2500000; break;
-              case 'venta-alto':   show = !isRenta && price > 2500000; break;
-              default:             show = true;
+            const cardType = norm(card.getAttribute('data-type'));
+            
+            if (currentPriceMode === 'venta' && cardType === 'venta') {
+              show = price <= maxPrice;
+            } else if (currentPriceMode === 'renta' && cardType === 'renta') {
+              show = price <= maxPrice;
+            } else if (currentPriceMode !== cardType) {
+              show = false; // No mostrar ventas cuando está en modo renta y viceversa
             }
           }
 
@@ -5237,10 +5368,18 @@
 
       function clearAllFilters() {
         filterType && (filterType.value = '');
-        filterPrice && (filterPrice.value = '');
         filterBedrooms && (filterBedrooms.value = '');
         filterFeatures && (filterFeatures.value = '');
         sortPrice && (sortPrice.value = '');
+        
+        // Reset price sliders
+        if (ventaRange) ventaRange.value = ventaRange.max;
+        if (rentaRange) rentaRange.value = rentaRange.max;
+        const ventaModeRadio = document.querySelector('input[name="price-mode"][value="venta"]');
+        if (ventaModeRadio) ventaModeRadio.checked = true;
+        togglePriceSlider();
+        updatePriceDisplay();
+        
         allCards.forEach(card => { 
           card.style.display = 'block'; 
           card.style.visibility = 'visible';
@@ -5248,7 +5387,6 @@
           card.classList.remove('hidden');
         });
         if (grid && grid !== document.body) {
-          // Reordena a estado original (opcional: omitir si no guardaste orden inicial)
           allCards.forEach(card => grid.appendChild(card));
         }
         updateResultsDisplay(allCards.length);
@@ -5256,13 +5394,50 @@
       }
 
       // ===== Listeners
-      [filterType, filterPrice, filterBedrooms, filterFeatures, sortPrice]
+      [filterType, filterBedrooms, filterFeatures, sortPrice]
         .forEach(el => el && el.addEventListener('change', filterProperties));
+      
+      // Price slider listeners
+      priceModeRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+          togglePriceSlider();
+          saveState();
+        });
+      });
+      
+      // Tab click listeners
+      priceTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const input = tab.parentElement.querySelector('input');
+          if (input) {
+            input.checked = true;
+            togglePriceSlider();
+            saveState();
+          }
+        });
+      });
+      
+      ventaRange?.addEventListener('input', () => {
+        updatePriceDisplay();
+        updateSliderFill();
+        filterProperties();
+        saveState();
+      });
+      
+      rentaRange?.addEventListener('input', () => {
+        updatePriceDisplay();
+        updateSliderFill();
+        filterProperties();
+        saveState();
+      });
+      
       clearFiltersBtn?.addEventListener('click', clearAllFilters);
 
       // ===== Init
       loadState();
       extractPropertyData();
+      togglePriceSlider(); // Inicializar estado visual de tabs
+      updateSliderFill(); // Inicializar fill del slider
       filterProperties();
       // ===== Estilos CSS para filtros
       const style = document.createElement('style');
@@ -5278,6 +5453,106 @@
         
         .property-card {
           transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Price Tab Styles */
+        .price-tab {
+          position: relative;
+          z-index: 1;
+        }
+        
+        .tab-active {
+          background-color: #ff4e00 !important;
+          color: white !important;
+          box-shadow: 0 2px 4px rgba(255, 78, 0, 0.3);
+        }
+        
+        .tab-inactive {
+          background-color: transparent !important;
+          color: #6b7280 !important;
+        }
+        
+        .tab-inactive:hover {
+          background-color: #f9fafb !important;
+          color: #374151 !important;
+        }
+        
+        /* Custom Range Slider Styles */
+        .price-slider-container {
+          padding: 16px 0;
+        }
+        
+        .price-slider {
+          -webkit-appearance: none;
+          appearance: none;
+          height: 8px;
+          background: transparent;
+          outline: none;
+          position: relative;
+          z-index: 3;
+          cursor: pointer;
+        }
+        
+        .slider-track {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          height: 8px;
+          background: #e5e7eb;
+          border-radius: 4px;
+          transform: translateY(-50%);
+          z-index: 1;
+        }
+        
+        .slider-fill {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          height: 8px;
+          background: linear-gradient(90deg, #ff4e00 0%, #ff6b2d 100%);
+          border-radius: 4px;
+          transform: translateY(-50%);
+          z-index: 2;
+          width: 100%;
+          transition: width 0.2s ease;
+        }
+        
+        .price-slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 24px;
+          height: 24px;
+          background: linear-gradient(135deg, #ff4e00 0%, #e63900 100%);
+          cursor: pointer;
+          border-radius: 50%;
+          box-shadow: 0 4px 12px rgba(255, 78, 0, 0.4), 0 2px 4px rgba(0,0,0,0.1);
+          border: 3px solid white;
+          position: relative;
+          z-index: 3;
+          transition: all 0.2s ease;
+        }
+        
+        .price-slider::-webkit-slider-thumb:hover {
+          transform: scale(1.1);
+          box-shadow: 0 6px 16px rgba(255, 78, 0, 0.5), 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .price-slider::-moz-range-thumb {
+          width: 24px;
+          height: 24px;
+          background: linear-gradient(135deg, #ff4e00 0%, #e63900 100%);
+          cursor: pointer;
+          border-radius: 50%;
+          border: 3px solid white;
+          box-shadow: 0 4px 12px rgba(255, 78, 0, 0.4), 0 2px 4px rgba(0,0,0,0.1);
+          position: relative;
+          z-index: 3;
+          transition: all 0.2s ease;
+        }
+        
+        .price-slider::-moz-range-thumb:hover {
+          transform: scale(1.1);
         }
         
         .property-card:not(.hidden) {
