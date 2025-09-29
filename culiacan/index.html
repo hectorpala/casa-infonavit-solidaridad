@@ -5301,6 +5301,17 @@
             const looksRenta = /\/mes|mes|renta|mensual/.test(priceText.toLowerCase()) || /renta|mensual/.test(detailsText);
             const looksVenta = (/\$/.test(priceText) || /venta/.test(detailsText)) && !looksRenta;
             const type = looksRenta ? 'renta' : (looksVenta ? 'venta' : '');
+            
+            // Debug para las primeras 5 propiedades
+            if (i < 5) {
+              console.log(`🏠 Card ${i}:`, {
+                priceText: priceText,
+                looksRenta: looksRenta,
+                looksVenta: looksVenta,
+                finalType: type
+              });
+            }
+            
             if (type) card.setAttribute('data-type', type);
 
             // Precio numérico
@@ -5325,58 +5336,46 @@
 
       // ===== Filtrado
       function filterProperties() {
-        const typeFilter = norm(filterType?.value);
-
-        let visible = [];
-
-        allCards.forEach(card => {
+        console.log('⚡ FILTER EJECUTÁNDOSE');
+        const typeValue = filterType?.value || '';
+        console.log('⚡ Tipo seleccionado:', typeValue);
+        
+        let visibleCount = 0;
+        
+        allCards.forEach((card, index) => {
           let show = true;
-
-          // Tipo
-          if (typeFilter && norm(card.getAttribute('data-type')) !== typeFilter) show = false;
-
-
-
-          // Mostrar/ocultar y acumular visibles - Método más robusto
+          
+          // Si hay filtro de tipo
+          if (typeValue && typeValue !== '') {
+            const priceText = card.querySelector('.bg-orange-500')?.textContent || '';
+            const isRenta = priceText.includes('/mes');
+            const isVenta = !isRenta;
+            
+            if (typeValue === 'renta' && !isRenta) show = false;
+            if (typeValue === 'venta' && !isVenta) show = false;
+          }
+          
+          // Mostrar/ocultar
           if (show) {
             card.style.display = 'block';
-            card.style.visibility = 'visible';
-            card.style.opacity = '1';
             card.classList.remove('hidden');
-            visible.push(card);
+            visibleCount++;
           } else {
             card.style.display = 'none';
-            card.style.visibility = 'hidden';
-            card.style.opacity = '0';
             card.classList.add('hidden');
           }
+          
+          // Debug primeras 3
+          if (index < 3) {
+            const priceText = card.querySelector('.bg-orange-500')?.textContent || '';
+            console.log(`⚡ Card ${index}: "${priceText}" → ${show}`);
+          }
         });
-
-        // Ordenar visibles por precio si aplica
-        applySort(visible);
-
-        updateResultsDisplay(visible.length);
-        saveState();
+        
+        console.log(`⚡ Mostrando: ${visibleCount}/${allCards.length}`);
+        updateResultsDisplay(visibleCount);
       }
 
-      // ===== Orden por precio (asc/desc)
-      function applySort(visibleCards) {
-        const sortMode = norm(sortPrice?.value);
-        if (!sortMode || visibleCards.length === 0) return;
-
-        visibleCards.sort((a, b) => {
-          const pa = toNum(a.getAttribute('data-price'));
-          const pb = toNum(b.getAttribute('data-price'));
-          if (sortMode === 'precio-asc')  return pa - pb;
-          if (sortMode === 'precio-desc') return pb - pa;
-          return 0;
-        });
-
-        // Re-ordenar en el DOM: mover visibles al final del contenedor, en orden
-        if (grid && grid !== document.body) {
-          visibleCards.forEach(card => grid.appendChild(card));
-        }
-      }
 
       // ===== UI
       function updateResultsDisplay(count) {
@@ -5424,7 +5423,10 @@
       // ===== Listeners
       // Listener para filterType
       filterType?.addEventListener('change', () => {
+        console.log('🎯 Event listener disparado!');
         const typeValue = filterType.value;
+        console.log('🎯 Valor seleccionado:', typeValue);
+        
         if (typeValue === 'venta' || typeValue === 'renta') {
           // Sincronizar el price slider con el tipo seleccionado
           const targetRadio = document.querySelector(`input[name="price-mode"][value="${typeValue}"]`);
@@ -5476,6 +5478,7 @@
       clearFiltersBtn?.addEventListener('click', clearAllFilters);
 
       // ===== Init
+      console.log('🚀 Iniciando filtros, cards encontradas:', allCards.length);
       loadState();
       extractPropertyData();
       togglePriceSlider(); // Inicializar estado visual de tabs
