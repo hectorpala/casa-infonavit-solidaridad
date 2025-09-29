@@ -1349,6 +1349,81 @@ class PipelineAgentes {
     }
     
     /**
+     * AGENTE 12 - GUARDIA PRE-PUBLICACIÓN
+     * SPEC: orchestration-v1.1
+     * Rol: Validación final antes de publicación con verificación de imágenes
+     */
+    async agente12_guardiaPrePublicacion() {
+        console.log('🔍 AGENTE 12 — GuardiaPrePublicacion');
+        console.log('SPEC: orchestration-v1.1');
+        console.log('Rol: Validación final con verificación de imágenes reales');
+        
+        try {
+            // FASE 1: Validar assets
+            const validacionAssets = this.validacionFinalAssets();
+            console.log(`📁 Assets: ${validacionAssets.valido ? '✅' : '❌'} (${validacionAssets.fotos} fotos)`);
+            
+            // FASE 2: Validar integración
+            const validacionIntegracion = this.validacionFinalIntegracion();
+            console.log(`🔗 Integración: ${validacionIntegracion.valido ? '✅' : '❌'}`);
+            
+            // FASE 3: Validar carrusel
+            const validacionCarrusel = this.validacionFinalCarrusel();
+            console.log(`🎠 Carrusel: ${validacionCarrusel.valido ? '✅' : '❌'}`);
+            
+            // FASE 4: Validar WhatsApp
+            const validacionWhatsapp = this.validacionFinalWhatsapp();
+            console.log(`📱 WhatsApp: ${validacionWhatsapp.valido ? '✅' : '❌'}`);
+            
+            // FASE 5: Validar SEO
+            const validacionSeo = this.validacionFinalSeo();
+            console.log(`🔍 SEO: ${validacionSeo.valido ? '✅' : '❌'}`);
+            
+            // FASE 6: NUEVA - Validar existencia física de imágenes
+            const validacionImagenesReales = this.validacionImagenesReales();
+            console.log(`🖼️ Imágenes reales: ${validacionImagenesReales.valido ? '✅' : '❌'} (${validacionImagenesReales.existentes}/${validacionImagenesReales.total})`);
+            
+            // COMPUERTA GO/NO-GO
+            const todasValidacionesOk = 
+                validacionAssets.valido &&
+                validacionIntegracion.valido &&
+                validacionCarrusel.valido &&
+                validacionWhatsapp.valido &&
+                validacionSeo.valido &&
+                validacionImagenesReales.valido;
+            
+            if (!todasValidacionesOk) {
+                console.log('❌ GATE: NO-GO - Fallos en validación final');
+                console.log('🔧 Acción: Revisar issues detectados');
+                this.estado.orquestador.fases.agente12 = 'FAIL';
+                return false;
+            }
+            
+            // Actualizar handoff para agente 13
+            this.estado.orquestador.handoffs.agente12 = {
+                assets_ok: validacionAssets.valido ? 1 : 0,
+                integracion_ok: validacionIntegracion.valido ? 1 : 0,
+                carrusel_ok: validacionCarrusel.valido ? 1 : 0,
+                whatsapp_ok: validacionWhatsapp.valido ? 1 : 0,
+                seo_ok: validacionSeo.valido ? 1 : 0,
+                imagenes_reales_ok: validacionImagenesReales.valido ? 1 : 0,
+                total_fotos: validacionImagenesReales.total,
+                fotos_existentes: validacionImagenesReales.existentes
+            };
+            
+            this.estado.orquestador.fases.agente12 = 'OK';
+            console.log('✅ AGENTE 12 COMPLETADO - Listo para publicación');
+            
+            return true;
+            
+        } catch (error) {
+            console.log('💥 ERROR EN AGENTE 12:', error.message);
+            this.estado.orquestador.fases.agente12 = 'ERROR';
+            return false;
+        }
+    }
+    
+    /**
      * AUXILIARES AGENTE 12 - GUARDIA PRE-PUBLICACIÓN
      */
     validacionFinalAssets() {
@@ -1416,6 +1491,74 @@ class PipelineAgentes {
         return {
             valido: marcadoresOk >= 2 // Al menos Home y Culiacán
         };
+    }
+    
+    /**
+     * Validación de existencia física de imágenes referenciadas en HTML
+     * Implementación mejorada para Agent 12 - previene errores de rutas de imagen
+     */
+    validacionImagenesReales() {
+        try {
+            // Leer archivo HTML generado
+            const rutaHTML = `casa-${this.estado.tipo}-${this.estado.slug}.html`;
+            
+            if (!fs.existsSync(rutaHTML)) {
+                return {
+                    valido: false,
+                    total: 0,
+                    existentes: 0,
+                    error: 'Archivo HTML no encontrado'
+                };
+            }
+            
+            const contenidoHTML = fs.readFileSync(rutaHTML, 'utf8');
+            
+            // Extraer todas las rutas de imágenes usando regex
+            const patronImagenes = /src="(images\/[^"]*\.jpg)"/g;
+            const rutasEncontradas = [];
+            let match;
+            
+            while ((match = patronImagenes.exec(contenidoHTML)) !== null) {
+                rutasEncontradas.push(match[1]);
+            }
+            
+            // Eliminar duplicados
+            const rutasUnicas = [...new Set(rutasEncontradas)];
+            
+            // Verificar existencia física de cada imagen
+            let imagenesExistentes = 0;
+            const imagenesNoEncontradas = [];
+            
+            rutasUnicas.forEach(ruta => {
+                if (fs.existsSync(ruta)) {
+                    imagenesExistentes++;
+                } else {
+                    imagenesNoEncontradas.push(ruta);
+                }
+            });
+            
+            const validacion = {
+                valido: imagenesExistentes === rutasUnicas.length && rutasUnicas.length > 0,
+                total: rutasUnicas.length,
+                existentes: imagenesExistentes,
+                faltantes: imagenesNoEncontradas
+            };
+            
+            if (!validacion.valido && imagenesNoEncontradas.length > 0) {
+                console.log('⚠️  IMÁGENES NO ENCONTRADAS:');
+                imagenesNoEncontradas.forEach(img => console.log(`   - ${img}`));
+            }
+            
+            return validacion;
+            
+        } catch (error) {
+            return {
+                valido: false,
+                total: 0,
+                existentes: 0,
+                error: error.message
+            };
+        }
     }
     
     /**

@@ -1,0 +1,37 @@
+
+🎯 AGENTE 12 - GUARDIA PRE-PUBLICACIÓN
+═══════════════════════════════════════
+
+✅ MEJORA IMPLEMENTADA: Validación de Imágenes Reales
+
+📋 FUNCIONALIDAD AGREGADA:
+- Método: validacionImagenesReales()
+- Objetivo: Prevenir errores de rutas de imagen antes de publicación
+- Proceso: Leer HTML → Extraer rutas img src → Verificar existencia física
+
+🔍 IMPLEMENTACIÓN:
+- Regex pattern: /src="(images\/[^"]*\.jpg)"/g
+- Extracción de rutas únicas desde HTML generado
+- Verificación fs.existsSync() para cada imagen
+- Reporte detallado de imágenes faltantes
+
+📊 INTEGRACIÓN EN PIPELINE:
+- Ejecuta en Agente 12 junto a otras validaciones
+- Actualiza handoff con imagenes_reales_ok, total_fotos, fotos_existentes
+- Bloquea publicación si validacion.valido === false
+
+✅ PRUEBAS REALIZADAS:
+- ✅ Detección exitosa: 9/9 imágenes Las Glorias
+- ✅ Detección de errores: identifica rutas inexistentes
+- ✅ Reporte detallado de imágenes faltantes
+
+🛡️ BENEFICIOS:
+- Previene error 'Golden Source mapping inconsistente'
+- Evita páginas publicadas sin imágenes visibles
+- Detecta problemas antes de deployment
+- Mejora confiabilidad del pipeline automatizado
+
+🔗 CASO DE USO:
+Implementado después del error en Las Glorias donde HTML contenía 
+'images/las-glorias/' pero carpeta real era 'images/casa-venta-las-glorias/'
+
