@@ -504,8 +504,8 @@ ${carouselImages}${navigationArrows}
         // Procesar fotos primero
         this.processPropertyPhotos(config);
         
-        // Generar página individual usando template
-        const template = this.isRental ? 'rental-template.html' : 'property-template.html';
+        // Generar página individual usando template PERFECTO
+        const template = this.isRental ? 'rental-template-perfect.html' : 'property-template.html';
         const templatePath = path.join(this.templatesDir, template);
         
         if (!fs.existsSync(templatePath)) {
@@ -597,6 +597,7 @@ ${carouselImages}${navigationArrows}
             '{{PROPERTY_PRICE_NUMBER}}': config.price || 0,
             '{{PROPERTY_FEATURES}}': config.features ? config.features.join(', ') : '',
             '{{CANONICAL_URL}}': config.canonicalURL || '',
+            '{{PROPERTY_KEY}}': config.key || '',
             '{{OG_IMAGE}}': mainPhoto,
             '{{WHATSAPP_URL}}': this.generateWhatsAppURL(config),
             '{{HERO_CAROUSEL}}': this.generateCarousel(photos, config.key, 'hero'),
