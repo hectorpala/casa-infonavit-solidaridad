@@ -5326,11 +5326,6 @@
       // ===== Filtrado
       function filterProperties() {
         const typeFilter = norm(filterType?.value);
-        // Obtener valores del price slider
-        const currentPriceMode = document.querySelector('input[name="price-mode"]:checked')?.value;
-        const maxPrice = currentPriceMode === 'venta' ? 
-          parseInt(ventaRange?.value || 5000000) : 
-          parseInt(rentaRange?.value || 50000);
 
         let visible = [];
 
@@ -5340,19 +5335,6 @@
           // Tipo
           if (typeFilter && norm(card.getAttribute('data-type')) !== typeFilter) show = false;
 
-          // Precio con slider
-          if (show) {
-            const price = toNum(card.getAttribute('data-price'));
-            const cardType = norm(card.getAttribute('data-type'));
-            
-            if (currentPriceMode === 'venta' && cardType === 'venta') {
-              show = price <= maxPrice;
-            } else if (currentPriceMode === 'renta' && cardType === 'renta') {
-              show = price <= maxPrice;
-            } else if (currentPriceMode !== cardType) {
-              show = false; // No mostrar ventas cuando está en modo renta y viceversa
-            }
-          }
 
 
           // Mostrar/ocultar y acumular visibles - Método más robusto
