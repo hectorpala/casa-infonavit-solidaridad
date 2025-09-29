@@ -1,0 +1,47 @@
+🔧 RENTAL-TEMPLATE ACTUALIZADO A SISTEMA V2.1
+═══════════════════════════════════════════════
+
+✅ CORRECCIÓN APLICADA:
+- Archivo: automation/templates/rental-template.html
+- Sistema: Actualizado de {{CAROUSEL_JAVASCRIPT}} a v2.1 completo
+- Funciones: changeSlideHero, goToSlideHero, changeSlideGallery, goToSlideGallery
+
+🎯 PROBLEMA PREVIO:
+- rental-template usaba {{CAROUSEL_JAVASCRIPT}} placeholder
+- Dependía de automation/generar-carrusel.js que tenía structure bugs
+- Sistema obsoleto: changeImage, changeSlide genérico
+
+✅ SISTEMA V2.1 IMPLEMENTADO:
+1. **Hero Carousel Independiente:**
+   - changeSlideHero(-1/1) para navegación
+   - goToSlideHero(index) para dots
+   - currentHeroIndex tracking
+
+2. **Gallery Carousel Independiente:**
+   - changeSlideGallery(-1/1) para navegación  
+   - goToSlideGallery(index) para dots
+   - currentGalleryIndex tracking
+
+3. **Variables Dinámicas:**
+   - totalSlides = {{TOTAL_IMAGES}} (se sustituye por Agente 6)
+   - calcularRenta preservada para rental functionality
+
+🛡️ PREVENCIÓN GARANTIZADA:
+- NO más dependencia de generar-carrusel.js
+- NO más estructura HTML invertida
+- NO más funciones undefined
+- Compatible con Agente 12 validación mejorada
+
+🔗 TEMPLATES CONSISTENCY:
+- ✅ property-template.html: Sistema v2.1 completo
+- ✅ rental-template.html: Sistema v2.1 completo
+- ✅ Ambos: Estructura carousel-container > carousel-wrapper
+
+🎯 RESULTADO:
+Rental-template ahora usa sistema v2.1 completo y autónomo.
+Próximas propiedades de RENTA tendrán carruseles funcionando.
+
+📋 VALIDADO CONTRA:
+- casa-renta-espacios-marsella.html ✅
+- casa-venta-bosque-monarca.html ✅
+- Estructura correcta en ambos casos
