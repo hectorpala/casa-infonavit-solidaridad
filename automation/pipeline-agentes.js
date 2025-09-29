@@ -1383,6 +1383,10 @@ class PipelineAgentes {
             const validacionImagenesReales = this.validacionImagenesReales();
             console.log(`🖼️ Imágenes reales: ${validacionImagenesReales.valido ? '✅' : '❌'} (${validacionImagenesReales.existentes}/${validacionImagenesReales.total})`);
             
+            // FASE 7: NUEVA - Validar estructura HTML del carrusel
+            const validacionEstructuraCarrusel = this.validacionEstructuraCarrusel();
+            console.log(`🏗️ Estructura carrusel: ${validacionEstructuraCarrusel.valido ? '✅' : '❌'} (container→wrapper: ${validacionEstructuraCarrusel.estructura_ok}, clases: ${validacionEstructuraCarrusel.clases_css_ok})`);
+            
             // COMPUERTA GO/NO-GO
             const todasValidacionesOk = 
                 validacionAssets.valido &&
@@ -1390,7 +1394,8 @@ class PipelineAgentes {
                 validacionCarrusel.valido &&
                 validacionWhatsapp.valido &&
                 validacionSeo.valido &&
-                validacionImagenesReales.valido;
+                validacionImagenesReales.valido &&
+                validacionEstructuraCarrusel.valido;
             
             if (!todasValidacionesOk) {
                 console.log('❌ GATE: NO-GO - Fallos en validación final');
@@ -1407,8 +1412,11 @@ class PipelineAgentes {
                 whatsapp_ok: validacionWhatsapp.valido ? 1 : 0,
                 seo_ok: validacionSeo.valido ? 1 : 0,
                 imagenes_reales_ok: validacionImagenesReales.valido ? 1 : 0,
+                estructura_carrusel_ok: validacionEstructuraCarrusel.valido ? 1 : 0,
                 total_fotos: validacionImagenesReales.total,
-                fotos_existentes: validacionImagenesReales.existentes
+                fotos_existentes: validacionImagenesReales.existentes,
+                estructura_ok: validacionEstructuraCarrusel.estructura_ok,
+                clases_css_ok: validacionEstructuraCarrusel.clases_css_ok
             };
             
             this.estado.orquestador.fases.agente12 = 'OK';
@@ -1556,6 +1564,87 @@ class PipelineAgentes {
                 valido: false,
                 total: 0,
                 existentes: 0,
+                error: error.message
+            };
+        }
+    }
+    
+    /**
+     * Validación de estructura HTML del carrusel
+     * Implementación preventiva para Agente 12 - previene estructura invertida
+     */
+    validacionEstructuraCarrusel() {
+        try {
+            // Leer archivo HTML generado
+            const rutaHTML = `casa-${this.estado.tipo}-${this.estado.slug}.html`;
+            
+            if (!fs.existsSync(rutaHTML)) {
+                return {
+                    valido: false,
+                    estructura_ok: 0,
+                    clases_css_ok: 0,
+                    error: 'Archivo HTML no encontrado'
+                };
+            }
+            
+            const contenidoHTML = fs.readFileSync(rutaHTML, 'utf8');
+            
+            // VALIDACIÓN 1: Estructura correcta carousel-container > carousel-wrapper
+            // Buscar patrones específicos de anidamiento directo
+            const patronCorrecto = /<div class="carousel-container"[^>]*>\s*<div class="carousel-wrapper"/g;
+            const patronIncorrecto = /<div class="carousel-wrapper"[^>]*>\s*<div class="carousel-container"/g;
+            
+            const estructuraCorrecta = patronCorrecto.test(contenidoHTML);
+            const estructuraIncorrecta = patronIncorrecto.test(contenidoHTML);
+            
+            // VALIDACIÓN 2: Clases CSS requeridas en imágenes
+            const clasesImagenes = /class="[^"]*carousel-image[^"]*gallery-image/g;
+            const imagenesConClases = (contenidoHTML.match(clasesImagenes) || []).length;
+            
+            // VALIDACIÓN 3: Picture tags para mejor renderizado
+            const pictureTags = /<picture>/g;
+            const pictureCount = (contenidoHTML.match(pictureTags) || []).length;
+            
+            // VALIDACIÓN 4: Image captions descriptivos
+            const imageCaptions = /class="image-caption"/g;
+            const captionCount = (contenidoHTML.match(imageCaptions) || []).length;
+            
+            const validacion = {
+                valido: estructuraCorrecta && !estructuraIncorrecta && imagenesConClases >= 10,
+                estructura_ok: (estructuraCorrecta && !estructuraIncorrecta) ? 1 : 0,
+                clases_css_ok: imagenesConClases >= 10 ? 1 : 0,
+                imagenes_con_clases: imagenesConClases,
+                picture_tags: pictureCount,
+                captions: captionCount,
+                detalles: {
+                    estructura_correcta: estructuraCorrecta,
+                    estructura_incorrecta: estructuraIncorrecta,
+                    esperado_imagenes: 20, // 10 hero + 10 gallery
+                    encontrado_imagenes: imagenesConClases
+                }
+            };
+            
+            // Reportar problemas específicos
+            if (!validacion.valido) {
+                console.log('⚠️  PROBLEMAS DE ESTRUCTURA CARRUSEL:');
+                if (estructuraIncorrecta) {
+                    console.log('   ❌ Estructura invertida: carousel-wrapper > carousel-container');
+                }
+                if (!estructuraCorrecta) {
+                    console.log('   ❌ Estructura no encontrada: carousel-container > carousel-wrapper');
+                }
+                if (imagenesConClases < 10) {
+                    console.log(`   ❌ Clases CSS faltantes: ${imagenesConClases}/20 imágenes con clases correctas`);
+                }
+            }
+            
+            return validacion;
+            
+        } catch (error) {
+            return {
+                valido: false,
+                estructura_ok: 0,
+                clases_css_ok: 0,
                 error: error.message
             };
         }

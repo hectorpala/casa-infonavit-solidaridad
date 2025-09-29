@@ -100,8 +100,7 @@ function generateHeroCarousel(photosPath, propertyName) {
         const slides = generateCarouselSlides(photos, propertyName, 'hero');
         const dots = generateCarouselDots(photos.length, 'goToSlideHero');
         
-        const carouselHTML = `            <div class="carousel-container">
-                <div class="carousel-wrapper">
+        const carouselHTML = `                <div class="carousel-wrapper">
 ${slides}
                     
                     <!-- Navigation arrows -->
@@ -122,8 +121,7 @@ ${slides}
                 <!-- Dots indicators -->
                 <div class="carousel-dots">
 ${dots}
-                </div>
-            </div>`;
+                </div>`;
         
         return carouselHTML;
         
@@ -148,10 +146,9 @@ function generateGalleryCarousel(photosPath, propertyName) {
         const slides = generateCarouselSlides(photos, propertyName, 'gallery');
         const dots = generateCarouselDots(photos.length, 'goToSlide');
         
-        const carouselHTML = `            <div class="carousel-container">
-                <div class="carousel-wrapper">
+        const carouselHTML = `                <div class="carousel-wrapper">
 ${slides}
-                </div>
+                
                     <!-- Navigation arrows -->
                     <button class="carousel-arrow carousel-prev" onclick="changeSlide(-1)" aria-label="Foto anterior">
                         <i class="fas fa-chevron-left"></i>
@@ -159,11 +156,11 @@ ${slides}
                     <button class="carousel-arrow carousel-next" onclick="changeSlide(1)" aria-label="Siguiente foto">
                         <i class="fas fa-chevron-right"></i>
                     </button>
+                </div>
                 <!-- Dots indicators -->
                 <div class="carousel-dots">
 ${dots}
-                </div>
-            </div>`;
+                </div>`;
         
         return carouselHTML;
         
