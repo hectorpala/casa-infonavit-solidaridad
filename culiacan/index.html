@@ -5,9 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Propiedades en Culiacán - Hector es Bienes Raíces</title>
     <meta name="description" content="Propiedades disponibles en Culiacán, Sinaloa">
+    <meta name="keywords" content="propiedades Culiacán, casas venta renta, bienes raíces Sinaloa">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://casasenventa.info/culiacan/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="HectorBR">
+    <meta name="theme-color" content="#ff4e00">
+    <meta name="msapplication-TileColor" content="#ff4e00">
+    <meta name="msapplication-TileImage" content="../pwa-icon-144x144.png">
+    <link rel="manifest" href="../manifest.json">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Propiedades en Culiacán - Hector es Bienes Raíces">
+    <meta property="og:description" content="Encuentra las mejores propiedades en venta y renta en Culiacán, Sinaloa">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://casasenventa.info/culiacan/">
+    <meta property="og:image" content="https://casasenventa.info/images/Logo-hector-es-bienes-raices.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../styles.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'hector': '#ff4e00',
+                        'hector-dark': '#e6460a'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <h1>Propiedades en Culiacán</h1>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="../images/Logo-hector-es-bienes-raices.png" alt="Hector es Bienes Raíces" class="h-12 w-auto">
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">Hector es Bienes Raíces</h1>
+                        <p class="text-sm text-gray-600">Propiedades en Culiacán</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="../" class="text-gray-700 hover:text-hector transition-colors">Inicio</a>
+                    <a href="./" class="text-hector font-semibold">Culiacán</a>
+                    <a href="tel:+528111652545" class="bg-hector text-white px-4 py-2 rounded-lg hover:bg-hector-dark transition-colors">
+                        <i class="fas fa-phone mr-2"></i>Contacto
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Propiedades en Culiacán</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Descubre las mejores propiedades disponibles en Culiacán, Sinaloa. Encuentra tu próximo hogar o inversión.</p>
+        </div>
     
     <!-- BEGIN: GRID CULIACAN -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -157,5 +237,138 @@
 
         <!-- Las propiedades se insertan aquí automáticamente -->
     </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <img src="../images/Logo-hector-es-bienes-raices-blanco.png" alt="Hector es Bienes Raíces" class="h-8 w-auto">
+                <span class="text-lg font-semibold">Hector es Bienes Raíces</span>
+            </div>
+            <p class="text-gray-400 mb-4">Tu socio de confianza en bienes raíces en Culiacán, Sinaloa</p>
+            <div class="flex justify-center space-x-6">
+                <a href="tel:+528111652545" class="text-hector hover:text-white transition-colors">
+                    <i class="fas fa-phone mr-2"></i>811 165 2545
+                </a>
+                <a href="https://wa.me/528111652545" target="_blank" class="text-hector hover:text-white transition-colors">
+                    <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carousel JavaScript -->
+    <script>
+        function changeImage(carousel, direction) {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = carousel.querySelectorAll('.slide');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            const totalSlides = slides.length;
+            
+            let currentSlide = parseInt(carousel.dataset.current || '0');
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            
+            carousel.dataset.current = currentSlide;
+            
+            // Update slide visibility
+            slides.forEach((slide, index) => {
+                const img = slide.querySelector('img');
+                if (index === currentSlide) {
+                    img.classList.remove('hidden');
+                    img.classList.add('active');
+                } else {
+                    img.classList.add('hidden');
+                    img.classList.remove('active');
+                }
+            });
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        function goToSlide(carousel, slideIndex) {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = carousel.querySelectorAll('.slide');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            
+            carousel.dataset.current = slideIndex;
+            
+            // Update slide visibility
+            slides.forEach((slide, index) => {
+                const img = slide.querySelector('img');
+                if (index === slideIndex) {
+                    img.classList.remove('hidden');
+                    img.classList.add('active');
+                } else {
+                    img.classList.add('hidden');
+                    img.classList.remove('active');
+                }
+            });
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === slideIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Auto-play for carousels
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousels = document.querySelectorAll('.carousel');
+            
+            carousels.forEach(carousel => {
+                // Auto-advance every 5 seconds
+                setInterval(() => {
+                    changeImage(carousel, 1);
+                }, 5000);
+                
+                // Touch support for mobile
+                let startX = 0;
+                let endX = 0;
+                
+                carousel.addEventListener('touchstart', e => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                carousel.addEventListener('touchend', e => {
+                    endX = e.changedTouches[0].clientX;
+                    const diffX = startX - endX;
+                    
+                    if (Math.abs(diffX) > 50) { // Minimum swipe distance
+                        if (diffX > 0) {
+                            changeImage(carousel, 1); // Swipe left - next image
+                        } else {
+                            changeImage(carousel, -1); // Swipe right - previous image
+                        }
+                    }
+                });
+            });
+            
+            // Property card click handler
+            document.querySelectorAll('.property-card[data-href]').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't navigate if clicking on carousel controls
+                    if (e.target.closest('.carousel-arrow') || e.target.closest('.carousel-dot')) {
+                        e.preventDefault();
+                        return;
+                    }
+                    
+                    const href = this.dataset.href;
+                    if (href) {
+                        window.location.href = href;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
