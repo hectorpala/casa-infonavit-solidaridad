@@ -610,7 +610,77 @@
         <!-- Results header -->
         <div class="mb-8">
             <h2 class="text-3xl font-bold text-gray-900 mb-2 font-poppins">Propiedades en Culiacán</h2>
-            <p class="text-gray-600 font-poppins">22 propiedades · Ordenado por más recientes</p>
+            <p class="text-gray-600 font-poppins" id="results-count">22 propiedades · Ordenado por más recientes</p>
+        </div>
+
+        <!-- Filtros de Búsqueda -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border border-gray-100">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4 font-poppins flex items-center">
+                <svg class="w-5 h-5 mr-2 text-hector" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+                </svg>
+                Filtrar Propiedades
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Tipo de Operación -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Tipo</label>
+                    <select id="filter-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                        <option value="">Todos</option>
+                        <option value="renta">Renta</option>
+                        <option value="venta">Venta</option>
+                    </select>
+                </div>
+
+                <!-- Rango de Precio -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Precio</label>
+                    <select id="filter-price" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                        <option value="">Cualquier precio</option>
+                        <option value="renta-bajo">Renta: Hasta $12,000</option>
+                        <option value="renta-medio">Renta: $12,000 - $20,000</option>
+                        <option value="renta-alto">Renta: Más de $20,000</option>
+                        <option value="venta-bajo">Venta: Hasta $1,500,000</option>
+                        <option value="venta-medio">Venta: $1,500,000 - $2,500,000</option>
+                        <option value="venta-alto">Venta: Más de $2,500,000</option>
+                    </select>
+                </div>
+
+                <!-- Recámaras -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Recámaras</label>
+                    <select id="filter-bedrooms" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                        <option value="">Cualquier cantidad</option>
+                        <option value="2">2 recámaras</option>
+                        <option value="3">3 recámaras</option>
+                        <option value="4">4+ recámaras</option>
+                    </select>
+                </div>
+
+                <!-- Características -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Características</label>
+                    <select id="filter-features" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                        <option value="">Todas</option>
+                        <option value="alberca">Con alberca</option>
+                        <option value="aire">Aire acondicionado</option>
+                        <option value="jardin">Jardín</option>
+                        <option value="garage">Garage/Cochera</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="flex flex-wrap gap-3 mt-6">
+                <button id="clear-filters" class="px-4 py-2 text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors font-medium">
+                    Limpiar filtros
+                </button>
+                <div class="flex-1"></div>
+                <span id="filter-results" class="text-sm text-gray-500 self-center font-medium">
+                    Mostrando todas las propiedades
+                </span>
+            </div>
         </div>
 
         <!-- Properties Grid -->
@@ -4965,6 +5035,182 @@
                 }
             });
         });
+    });
+
+    // Sistema de Filtros Inteligente
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterType = document.getElementById('filter-type');
+        const filterPrice = document.getElementById('filter-price');
+        const filterBedrooms = document.getElementById('filter-bedrooms');
+        const filterFeatures = document.getElementById('filter-features');
+        const clearFiltersBtn = document.getElementById('clear-filters');
+        const filterResults = document.getElementById('filter-results');
+        const resultsCount = document.getElementById('results-count');
+        
+        const propertyCards = document.querySelectorAll('.property-card');
+        
+        function extractPropertyData() {
+            propertyCards.forEach(card => {
+                const priceText = card.querySelector('.bg-orange-500').textContent.trim();
+                const detailsText = card.textContent.toLowerCase();
+                
+                // Determinar tipo (renta/venta)
+                const isRenta = priceText.includes('/mes') || priceText.includes('mes');
+                card.setAttribute('data-type', isRenta ? 'renta' : 'venta');
+                
+                // Extraer precio numérico
+                const priceNumbers = priceText.match(/[\d,]+/g);
+                if (priceNumbers) {
+                    const price = parseInt(priceNumbers[0].replace(/,/g, ''));
+                    card.setAttribute('data-price', price);
+                }
+                
+                // Extraer recámaras
+                const bedroomMatch = detailsText.match(/(\d+)\s*recámaras?/);
+                if (bedroomMatch) {
+                    card.setAttribute('data-bedrooms', bedroomMatch[1]);
+                }
+                
+                // Detectar características
+                const features = [];
+                if (detailsText.includes('alberca') || detailsText.includes('piscina')) features.push('alberca');
+                if (detailsText.includes('aire acondicionado') || detailsText.includes('clima')) features.push('aire');
+                if (detailsText.includes('jardín') || detailsText.includes('jardin')) features.push('jardin');
+                if (detailsText.includes('garage') || detailsText.includes('cochera') || detailsText.includes('estacionamiento')) features.push('garage');
+                
+                card.setAttribute('data-features', features.join(','));
+            });
+        }
+        
+        function filterProperties() {
+            const typeFilter = filterType.value;
+            const priceFilter = filterPrice.value;
+            const bedroomsFilter = filterBedrooms.value;
+            const featuresFilter = filterFeatures.value;
+            
+            let visibleCount = 0;
+            
+            propertyCards.forEach(card => {
+                let show = true;
+                
+                // Filtro por tipo
+                if (typeFilter && card.getAttribute('data-type') !== typeFilter) {
+                    show = false;
+                }
+                
+                // Filtro por precio
+                if (priceFilter && show) {
+                    const price = parseInt(card.getAttribute('data-price') || '0');
+                    const isRenta = card.getAttribute('data-type') === 'renta';
+                    
+                    switch (priceFilter) {
+                        case 'renta-bajo':
+                            show = isRenta && price <= 12000;
+                            break;
+                        case 'renta-medio':
+                            show = isRenta && price > 12000 && price <= 20000;
+                            break;
+                        case 'renta-alto':
+                            show = isRenta && price > 20000;
+                            break;
+                        case 'venta-bajo':
+                            show = !isRenta && price <= 1500000;
+                            break;
+                        case 'venta-medio':
+                            show = !isRenta && price > 1500000 && price <= 2500000;
+                            break;
+                        case 'venta-alto':
+                            show = !isRenta && price > 2500000;
+                            break;
+                    }
+                }
+                
+                // Filtro por recámaras
+                if (bedroomsFilter && show) {
+                    const bedrooms = parseInt(card.getAttribute('data-bedrooms') || '0');
+                    if (bedroomsFilter === '4') {
+                        show = bedrooms >= 4;
+                    } else {
+                        show = bedrooms === parseInt(bedroomsFilter);
+                    }
+                }
+                
+                // Filtro por características
+                if (featuresFilter && show) {
+                    const features = card.getAttribute('data-features') || '';
+                    show = features.includes(featuresFilter);
+                }
+                
+                // Mostrar/ocultar tarjeta con animación
+                if (show) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.3s ease-in';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Actualizar contador de resultados
+            updateResultsDisplay(visibleCount);
+        }
+        
+        function updateResultsDisplay(count) {
+            resultsCount.textContent = `${count} propiedades · Filtrado`;
+            
+            if (count === 0) {
+                filterResults.textContent = 'No se encontraron propiedades con estos filtros';
+                filterResults.className = 'text-sm text-orange-600 self-center font-medium';
+            } else if (count === propertyCards.length) {
+                filterResults.textContent = 'Mostrando todas las propiedades';
+                filterResults.className = 'text-sm text-gray-500 self-center font-medium';
+                resultsCount.textContent = `${count} propiedades · Ordenado por más recientes`;
+            } else {
+                filterResults.textContent = `Filtros aplicados - ${count} de ${propertyCards.length}`;
+                filterResults.className = 'text-sm text-hector self-center font-medium';
+            }
+        }
+        
+        function clearAllFilters() {
+            filterType.value = '';
+            filterPrice.value = '';
+            filterBedrooms.value = '';
+            filterFeatures.value = '';
+            
+            propertyCards.forEach(card => {
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.3s ease-in';
+            });
+            
+            updateResultsDisplay(propertyCards.length);
+        }
+        
+        // Agregar estilos CSS para animaciones
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .property-card {
+                transition: all 0.3s ease;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Event listeners
+        filterType.addEventListener('change', filterProperties);
+        filterPrice.addEventListener('change', filterProperties);
+        filterBedrooms.addEventListener('change', filterProperties);
+        filterFeatures.addEventListener('change', filterProperties);
+        clearFiltersBtn.addEventListener('click', clearAllFilters);
+        
+        // Inicializar datos de propiedades
+        extractPropertyData();
+        
+        console.log('🔍 Sistema de filtros inicializado correctamente');
+        console.log(`📊 ${propertyCards.length} propiedades detectadas`);
     });
     </script>
 </body>
