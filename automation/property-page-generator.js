@@ -524,7 +524,8 @@ ${carouselImages}${navigationArrows}
             '{{WHATSAPP_URL}}': this.generateWhatsAppURL(config),
             '{{HERO_CAROUSEL}}': this.generateCarousel(photos, config.key, 'hero'),
             '{{GALLERY_CAROUSEL}}': this.generateCarousel(photos, config.key, 'gallery'),
-            '{{CAROUSEL_JAVASCRIPT}}': this.generateCarouselJS()
+            '{{CAROUSEL_JAVASCRIPT}}': this.generateCarouselJS(),
+            '{{TOTAL_IMAGES}}': photos.length
         };
         
         let result = content;
