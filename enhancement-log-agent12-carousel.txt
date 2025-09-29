@@ -1,0 +1,44 @@
+
+🛡️ AGENTE 12 - GUARDIA PRE-PUBLICACIÓN MEJORADO
+═══════════════════════════════════════════════════
+
+✅ NUEVA FUNCIONALIDAD: Validación Estructura Carrusel
+
+📋 PREVENCIÓN IMPLEMENTADA:
+- Método: validacionEstructuraCarrusel()
+- Objetivo: Prevenir estructura HTML invertida en carruseles
+- Bloqueo: Deployment se cancela si hay problemas estructurales
+
+🔍 VALIDACIONES ESPECÍFICAS:
+1. Estructura correcta: carousel-container > carousel-wrapper
+2. Estructura incorrecta: carousel-wrapper > carousel-container (BLOQUEADO)
+3. Clases CSS requeridas: carousel-image gallery-image (mínimo 10)
+4. Picture tags y captions (métricas adicionales)
+
+📊 INTEGRACIÓN EN PIPELINE:
+- Ejecuta en Fase 7 del Agente 12 después de validación imágenes
+- Actualiza handoff con: estructura_carrusel_ok, estructura_ok, clases_css_ok
+- Bloquea publicación si validacion.valido === false
+
+✅ PRUEBAS REALIZADAS:
+- ✅ Detección exitosa: Casa Bosque Monarca (estructura correcta)
+- ✅ Detección exitosa: Casa Las Glorias (estructura correcta)  
+- ✅ Detección de errores: HTML con estructura invertida (BLOQUEADO)
+- ✅ Reportes detallados de problemas específicos
+
+🛡️ BENEFICIOS:
+- Previene error 'estructura HTML invertida' antes de deployment
+- Evita páginas con carruseles rotos (fondo negro)
+- Detecta clases CSS faltantes críticas
+- Mejora confiabilidad del Agente 6 GoldenSource
+
+🔗 CASO DE USO:
+Implementado después del error en Casa Bosque Monarca donde estructura 
+'carousel-wrapper > carousel-container' causaba imágenes negras.
+Ahora se detecta y bloquea automáticamente.
+
+🎯 PRÓXIMOS PASOS RECOMENDADOS:
+- Auditar templates en automation/templates/
+- Considerar Agente 18 Template Validator si persisten problemas
+- Monitorear reportes de validación en futuras propiedades
+

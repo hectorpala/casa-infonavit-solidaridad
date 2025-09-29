@@ -1,0 +1,59 @@
+
+📋 AUDITORÍA Y CORRECCIÓN DE TEMPLATES - REPORTE COMPLETO
+═════════════════════════════════════════════════════════
+
+🔍 PROBLEMA IDENTIFICADO:
+- Root cause: Estructura carrusel duplicada e incorrecta
+- Ubicación: automation/generar-carrusel.js líneas 103 y 149
+- Síntoma: carousel-container > carousel-container > carousel-wrapper
+
+🏗️ ESTRUCTURA ANALIZADA:
+
+TEMPLATES (✅ CORRECTOS):
+- property-template.html línea 115: <div class="carousel-container">{{HERO_CAROUSEL}}</div>
+- property-template.html línea 154: <div class="carousel-container">{{GALLERY_CAROUSEL}}</div>  
+- rental-template.html línea 121: <div class="carousel-container">{{HERO_CAROUSEL}}</div>
+- rental-template.html línea 170: <div class="carousel-container">{{GALLERY_CAROUSEL}}</div>
+
+GENERADOR (❌ ERA INCORRECTO):
+ANTES: generar-carrusel.js generaba <div class="carousel-container"><div class="carousel-wrapper">
+DESPUÉS: generar-carrusel.js genera <div class="carousel-wrapper"> solamente
+
+📊 RESULTADO FINAL:
+
+❌ ANTES (ESTRUCTURA DUPLICADA):
+<div class="carousel-container">        ← Del template
+    <div class="carousel-container">    ← Del generador (DUPLICADO)
+        <div class="carousel-wrapper">  ← Del generador
+
+✅ DESPUÉS (ESTRUCTURA CORRECTA):  
+<div class="carousel-container">        ← Del template
+    <div class="carousel-wrapper">      ← Del generador (CORRECTO)
+
+🔧 CORRECCIONES APLICADAS:
+
+1. automation/generar-carrusel.js - generateHeroCarousel():
+   - Removido: <div class="carousel-container"> duplicado
+   - Mantenido: <div class="carousel-wrapper"> + contenido interno
+
+2. automation/generar-carrusel.js - generateGalleryCarousel():  
+   - Removido: <div class="carousel-container"> duplicado
+   - Mantenido: <div class="carousel-wrapper"> + contenido interno
+
+🛡️ BENEFICIOS:
+- Previene estructura carousel-wrapper > carousel-container
+- Elimina duplicación de carousel-container  
+- Garantiza estructura correcta: container > wrapper
+- Compatible con Agente 12 validación mejorada
+- Funciona para ambos templates (property + rental)
+
+✅ VERIFICACIÓN:
+- Template + Generador = Estructura CSS correcta
+- Compatible con culiacan/infonavit-solidaridad/styles.css
+- Agente 12 validará estructura automáticamente
+- Futuras propiedades tendrán carrusel funcionando
+
+🎯 RESULTADO:
+Templates auditados y generador corregido. Root cause eliminado.
+Próximas propiedades NO tendrán problema de fotos negras.
+
