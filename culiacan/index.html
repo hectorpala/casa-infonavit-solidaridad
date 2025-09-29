@@ -622,7 +622,7 @@
                 Filtrar Propiedades
             </h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <!-- Tipo de Operación -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Tipo</label>
@@ -667,6 +667,16 @@
                         <option value="aire">Aire acondicionado</option>
                         <option value="jardin">Jardín</option>
                         <option value="garage">Garage/Cochera</option>
+                    </select>
+                </div>
+
+                <!-- Ordenar por Precio -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Ordenar</label>
+                    <select id="sort-price" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                        <option value="">Más recientes</option>
+                        <option value="precio-asc">Precio: Menor a mayor</option>
+                        <option value="precio-desc">Precio: Mayor a menor</option>
                     </select>
                 </div>
             </div>
@@ -5037,180 +5047,257 @@
         });
     });
 
-    // Sistema de Filtros Inteligente
-    document.addEventListener('DOMContentLoaded', function() {
-        const filterType = document.getElementById('filter-type');
-        const filterPrice = document.getElementById('filter-price');
-        const filterBedrooms = document.getElementById('filter-bedrooms');
-        const filterFeatures = document.getElementById('filter-features');
-        const clearFiltersBtn = document.getElementById('clear-filters');
-        const filterResults = document.getElementById('filter-results');
-        const resultsCount = document.getElementById('results-count');
-        
-        const propertyCards = document.querySelectorAll('.property-card');
-        
-        function extractPropertyData() {
-            propertyCards.forEach(card => {
-                const priceText = card.querySelector('.bg-orange-500').textContent.trim();
-                const detailsText = card.textContent.toLowerCase();
-                
-                // Determinar tipo (renta/venta)
-                const isRenta = priceText.includes('/mes') || priceText.includes('mes');
-                card.setAttribute('data-type', isRenta ? 'renta' : 'venta');
-                
-                // Extraer precio numérico
-                const priceNumbers = priceText.match(/[\d,]+/g);
-                if (priceNumbers) {
-                    const price = parseInt(priceNumbers[0].replace(/,/g, ''));
-                    card.setAttribute('data-price', price);
-                }
-                
-                // Extraer recámaras
-                const bedroomMatch = detailsText.match(/(\d+)\s*recámaras?/);
-                if (bedroomMatch) {
-                    card.setAttribute('data-bedrooms', bedroomMatch[1]);
-                }
-                
-                // Detectar características
-                const features = [];
-                if (detailsText.includes('alberca') || detailsText.includes('piscina')) features.push('alberca');
-                if (detailsText.includes('aire acondicionado') || detailsText.includes('clima')) features.push('aire');
-                if (detailsText.includes('jardín') || detailsText.includes('jardin')) features.push('jardin');
-                if (detailsText.includes('garage') || detailsText.includes('cochera') || detailsText.includes('estacionamiento')) features.push('garage');
-                
-                card.setAttribute('data-features', features.join(','));
-            });
-        }
-        
-        function filterProperties() {
-            const typeFilter = filterType.value;
-            const priceFilter = filterPrice.value;
-            const bedroomsFilter = filterBedrooms.value;
-            const featuresFilter = filterFeatures.value;
-            
-            let visibleCount = 0;
-            
-            propertyCards.forEach(card => {
-                let show = true;
-                
-                // Filtro por tipo
-                if (typeFilter && card.getAttribute('data-type') !== typeFilter) {
-                    show = false;
-                }
-                
-                // Filtro por precio
-                if (priceFilter && show) {
-                    const price = parseInt(card.getAttribute('data-price') || '0');
-                    const isRenta = card.getAttribute('data-type') === 'renta';
-                    
-                    switch (priceFilter) {
-                        case 'renta-bajo':
-                            show = isRenta && price <= 12000;
-                            break;
-                        case 'renta-medio':
-                            show = isRenta && price > 12000 && price <= 20000;
-                            break;
-                        case 'renta-alto':
-                            show = isRenta && price > 20000;
-                            break;
-                        case 'venta-bajo':
-                            show = !isRenta && price <= 1500000;
-                            break;
-                        case 'venta-medio':
-                            show = !isRenta && price > 1500000 && price <= 2500000;
-                            break;
-                        case 'venta-alto':
-                            show = !isRenta && price > 2500000;
-                            break;
-                    }
-                }
-                
-                // Filtro por recámaras
-                if (bedroomsFilter && show) {
-                    const bedrooms = parseInt(card.getAttribute('data-bedrooms') || '0');
-                    if (bedroomsFilter === '4') {
-                        show = bedrooms >= 4;
-                    } else {
-                        show = bedrooms === parseInt(bedroomsFilter);
-                    }
-                }
-                
-                // Filtro por características
-                if (featuresFilter && show) {
-                    const features = card.getAttribute('data-features') || '';
-                    show = features.includes(featuresFilter);
-                }
-                
-                // Mostrar/ocultar tarjeta con animación
-                if (show) {
-                    card.style.display = 'block';
-                    card.style.animation = 'fadeIn 0.3s ease-in';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            // Actualizar contador de resultados
-            updateResultsDisplay(visibleCount);
-        }
-        
-        function updateResultsDisplay(count) {
-            resultsCount.textContent = `${count} propiedades · Filtrado`;
-            
-            if (count === 0) {
-                filterResults.textContent = 'No se encontraron propiedades con estos filtros';
-                filterResults.className = 'text-sm text-orange-600 self-center font-medium';
-            } else if (count === propertyCards.length) {
-                filterResults.textContent = 'Mostrando todas las propiedades';
-                filterResults.className = 'text-sm text-gray-500 self-center font-medium';
-                resultsCount.textContent = `${count} propiedades · Ordenado por más recientes`;
-            } else {
-                filterResults.textContent = `Filtros aplicados - ${count} de ${propertyCards.length}`;
-                filterResults.className = 'text-sm text-hector self-center font-medium';
+    // Sistema de Filtros Avanzado - Con ordenamiento y persistencia
+    document.addEventListener('DOMContentLoaded', () => {
+      // ===== Helpers
+      const norm = (v) => (v || '').toLowerCase().replace(/\s+/g, '');
+      const toNum = (v) => {
+        if (v == null) return 0;
+        const m = String(v).match(/\$?[\d,.]+/);
+        if (!m) return 0;
+        return parseInt(m[0].replace(/[,$]/g, ''), 10) || 0;
+      };
+
+      // ===== DOM
+      const filterType = document.getElementById('filter-type');
+      const filterPrice = document.getElementById('filter-price');
+      const filterBedrooms = document.getElementById('filter-bedrooms');
+      const filterFeatures = document.getElementById('filter-features');
+      const sortPrice = document.getElementById('sort-price');          // NUEVO
+      const clearFiltersBtn = document.getElementById('clear-filters');
+      const filterResults = document.getElementById('filter-results');
+      const resultsCount = document.getElementById('results-count');
+      const grid = document.querySelector('.properties-grid') || document.querySelector('.grid') || document.body; // contenedor de cards
+      const cardsNodeList = document.querySelectorAll('.property-card');
+      const allCards = Array.from(cardsNodeList); // para ordenar sin perder referencia
+
+      // ===== Persistencia
+      const LS_KEY = 'propertyFiltersV1';
+      function saveState() {
+        const state = {
+          type: filterType?.value || '',
+          price: filterPrice?.value || '',
+          bedrooms: filterBedrooms?.value || '',
+          features: filterFeatures?.value || '',
+          sort: sortPrice?.value || ''
+        };
+        localStorage.setItem(LS_KEY, JSON.stringify(state));
+      }
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(LS_KEY);
+          if (!raw) return;
+          const s = JSON.parse(raw);
+          if (filterType) filterType.value = s.type || '';
+          if (filterPrice) filterPrice.value = s.price || '';
+          if (filterBedrooms) filterBedrooms.value = s.bedrooms || '';
+          if (filterFeatures) filterFeatures.value = s.features || '';
+          if (sortPrice) sortPrice.value = s.sort || '';
+        } catch {}
+      }
+
+      // ===== Extraer datos de cada card (type, price, bedrooms, features)
+      function extractPropertyData() {
+        allCards.forEach((card, i) => {
+          try {
+            const priceEl =
+              card.querySelector('.bg-orange-500') ||
+              card.querySelector('[class*="price"]') ||
+              card.querySelector('[class*="badge"]');
+            const priceText = priceEl ? priceEl.textContent.trim() : '';
+            const detailsText = (card.textContent || '').toLowerCase();
+
+            // Tipo
+            const looksRenta = /\/mes|mes|renta|mensual/.test(priceText.toLowerCase()) || /renta|mensual/.test(detailsText);
+            const looksVenta = (/\$/.test(priceText) || /venta/.test(detailsText)) && !looksRenta;
+            const type = looksRenta ? 'renta' : (looksVenta ? 'venta' : '');
+            if (type) card.setAttribute('data-type', type);
+
+            // Precio numérico
+            const priceVal = toNum(priceText);
+            if (priceVal > 0) card.setAttribute('data-price', String(priceVal));
+            else card.removeAttribute('data-price');
+
+            // Recámaras
+            const bMatch = detailsText.match(/(\d+)\s*(?:recámaras?|cuartos?|habitaciones?|bedrooms?)/);
+            if (bMatch) card.setAttribute('data-bedrooms', bMatch[1]);
+
+            // Features
+            const feats = [];
+            if (/alberca|piscina|pool/.test(detailsText)) feats.push('alberca');
+            if (/aire\s*acondicionado|clima|a\/c|\bac\b/.test(detailsText)) feats.push('aire');
+            if (/jardín|jardin|garden|patio/.test(detailsText)) feats.push('jardin');
+            if (/garage|cochera|estacionamiento|parking/.test(detailsText)) feats.push('garage');
+            if (feats.length) card.setAttribute('data-features', feats.join(','));
+          } catch (e) { /* no-op */ }
+        });
+      }
+
+      // ===== Filtrado
+      function filterProperties() {
+        const typeFilter = norm(filterType?.value);
+        const priceFilter = norm(filterPrice?.value);
+        const bedroomsFilter = norm(filterBedrooms?.value);
+        const featuresFilter = norm(filterFeatures?.value);
+
+        let visible = [];
+
+        allCards.forEach(card => {
+          let show = true;
+
+          // Tipo
+          if (typeFilter && norm(card.getAttribute('data-type')) !== typeFilter) show = false;
+
+          // Precio
+          if (show && priceFilter) {
+            const price = toNum(card.getAttribute('data-price'));
+            const isRenta = norm(card.getAttribute('data-type')) === 'renta';
+            switch (priceFilter) {
+              case 'renta-bajo':   show = isRenta && price > 0 && price <= 12000; break;
+              case 'renta-medio':  show = isRenta && price > 12000 && price <= 20000; break;
+              case 'renta-alto':   show = isRenta && price > 20000; break;
+              case 'venta-bajo':   show = !isRenta && price > 0 && price <= 1500000; break;
+              case 'venta-medio':  show = !isRenta && price > 1500000 && price <= 2500000; break;
+              case 'venta-alto':   show = !isRenta && price > 2500000; break;
+              default:             show = true;
             }
+          }
+
+          // Recámaras
+          if (show && bedroomsFilter) {
+            const bedrooms = parseInt(card.getAttribute('data-bedrooms') || '0', 10);
+            show = bedroomsFilter === '4' ? bedrooms >= 4 : bedrooms === parseInt(bedroomsFilter, 10);
+          }
+
+          // Features
+          if (show && featuresFilter) {
+            const feats = (card.getAttribute('data-features') || '').toLowerCase();
+            show = feats.includes(featuresFilter);
+          }
+
+          // Mostrar/ocultar y acumular visibles - Método más robusto
+          if (show) {
+            card.style.display = 'block';
+            card.style.visibility = 'visible';
+            card.style.opacity = '1';
+            card.classList.remove('hidden');
+            visible.push(card);
+          } else {
+            card.style.display = 'none';
+            card.style.visibility = 'hidden';
+            card.style.opacity = '0';
+            card.classList.add('hidden');
+          }
+        });
+
+        // Ordenar visibles por precio si aplica
+        applySort(visible);
+
+        updateResultsDisplay(visible.length);
+        saveState();
+      }
+
+      // ===== Orden por precio (asc/desc)
+      function applySort(visibleCards) {
+        const sortMode = norm(sortPrice?.value);
+        if (!sortMode || visibleCards.length === 0) return;
+
+        visibleCards.sort((a, b) => {
+          const pa = toNum(a.getAttribute('data-price'));
+          const pb = toNum(b.getAttribute('data-price'));
+          if (sortMode === 'precio-asc')  return pa - pb;
+          if (sortMode === 'precio-desc') return pb - pa;
+          return 0;
+        });
+
+        // Re-ordenar en el DOM: mover visibles al final del contenedor, en orden
+        if (grid && grid !== document.body) {
+          visibleCards.forEach(card => grid.appendChild(card));
+        }
+      }
+
+      // ===== UI
+      function updateResultsDisplay(count) {
+        const total = allCards.length;
+        if (resultsCount) resultsCount.textContent = `${count} propiedades · Filtrado`;
+        if (!filterResults) return;
+
+        if (count === 0) {
+          filterResults.textContent = 'No se encontraron propiedades con estos filtros';
+          filterResults.className = 'text-sm text-orange-600 self-center font-medium';
+        } else if (count === total) {
+          filterResults.textContent = 'Mostrando todas las propiedades';
+          filterResults.className = 'text-sm text-gray-500 self-center font-medium';
+          if (resultsCount) resultsCount.textContent = `${count} propiedades · Ordenado por más recientes`;
+        } else {
+          filterResults.textContent = `Filtros aplicados - ${count} de ${total}`;
+          filterResults.className = 'text-sm text-hector self-center font-medium';
+        }
+      }
+
+      function clearAllFilters() {
+        filterType && (filterType.value = '');
+        filterPrice && (filterPrice.value = '');
+        filterBedrooms && (filterBedrooms.value = '');
+        filterFeatures && (filterFeatures.value = '');
+        sortPrice && (sortPrice.value = '');
+        allCards.forEach(card => { 
+          card.style.display = 'block'; 
+          card.style.visibility = 'visible';
+          card.style.opacity = '1';
+          card.classList.remove('hidden');
+        });
+        if (grid && grid !== document.body) {
+          // Reordena a estado original (opcional: omitir si no guardaste orden inicial)
+          allCards.forEach(card => grid.appendChild(card));
+        }
+        updateResultsDisplay(allCards.length);
+        saveState();
+      }
+
+      // ===== Listeners
+      [filterType, filterPrice, filterBedrooms, filterFeatures, sortPrice]
+        .forEach(el => el && el.addEventListener('change', filterProperties));
+      clearFiltersBtn?.addEventListener('click', clearAllFilters);
+
+      // ===== Init
+      loadState();
+      extractPropertyData();
+      filterProperties();
+      // ===== Estilos CSS para filtros
+      const style = document.createElement('style');
+      style.textContent = `
+        .property-card.hidden {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          height: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
         }
         
-        function clearAllFilters() {
-            filterType.value = '';
-            filterPrice.value = '';
-            filterBedrooms.value = '';
-            filterFeatures.value = '';
-            
-            propertyCards.forEach(card => {
-                card.style.display = 'block';
-                card.style.animation = 'fadeIn 0.3s ease-in';
-            });
-            
-            updateResultsDisplay(propertyCards.length);
+        .property-card {
+          transition: opacity 0.3s ease, transform 0.3s ease;
         }
         
-        // Agregar estilos CSS para animaciones
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fadeIn {
-                from { opacity: 0; transform: translateY(10px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-            
-            .property-card {
-                transition: all 0.3s ease;
-            }
-        `;
-        document.head.appendChild(style);
+        .property-card:not(.hidden) {
+          animation: fadeInUp 0.4s ease-out;
+        }
         
-        // Event listeners
-        filterType.addEventListener('change', filterProperties);
-        filterPrice.addEventListener('change', filterProperties);
-        filterBedrooms.addEventListener('change', filterProperties);
-        filterFeatures.addEventListener('change', filterProperties);
-        clearFiltersBtn.addEventListener('click', clearAllFilters);
-        
-        // Inicializar datos de propiedades
-        extractPropertyData();
-        
-        console.log('🔍 Sistema de filtros inicializado correctamente');
-        console.log(`📊 ${propertyCards.length} propiedades detectadas`);
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `;
+      document.head.appendChild(style);
+
+      console.log('✅ Filtros con orden y persistencia listos');
     });
     </script>
 </body>
