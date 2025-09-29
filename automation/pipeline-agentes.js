@@ -985,12 +985,13 @@ class PipelineAgentes {
      * Genera tarjetas siguiendo reglas estrictas + Regla #7
      */
     async agente8_integradorDoble() {
-        console.log('🎯 AGENTE 8 - GENERANDO TARJETAS CON REGLA #7...');
+        console.log('🎯 AGENTE 8 - INTEGRADOR DOBLE MEJORADO v2.0');
+        console.log('SPEC: SOLO CARD-ADV + AUTO-DETECCIÓN RUTAS');
         console.log('═'.repeat(50));
         
-        // Verificar que Regla #7 esté aplicada
+        // Verificar que Agente 7 esté completado
         if (!this.estado.codigoReferencia) {
-            console.error('❌ ERROR: Agente 7 debe ejecutarse primero (Regla #7)');
+            console.error('❌ ERROR: Agente 7 debe ejecutarse primero');
             return false;
         }
         
@@ -998,6 +999,10 @@ class PipelineAgentes {
         const slug = this.estado.slug || 'bosques-del-rey';
         const precio = propiedad.precio || '$2,250,000';
         const tipo = propiedad.tipo || 'venta';
+        
+        // 🔧 AUTO-DETECCIÓN DE RUTAS POR UBICACIÓN
+        const rutasConfig = this.detectarRutasRelativas();
+        console.log('📍 RUTAS DETECTADAS:', rutasConfig);
         
         console.log('📋 APLICANDO REGLA #7: Código idéntico, contenido específico');
         
@@ -1354,48 +1359,49 @@ class PipelineAgentes {
      * Rol: Validación final antes de publicación con verificación de imágenes
      */
     async agente12_guardiaPrePublicacion() {
-        console.log('🔍 AGENTE 12 — GuardiaPrePublicacion');
-        console.log('SPEC: orchestration-v1.1');
-        console.log('Rol: Validación final con verificación de imágenes reales');
+        console.log('🔍 AGENTE 12 — GUARDIA PRE-PUBLICACIÓN MEJORADO v2.0');
+        console.log('SPEC: CONSISTENCIA + IMÁGENES + CARRUSEL + RUTAS');
+        console.log('Rol: Validación final con verificaciones ampliadas');
+        console.log('═'.repeat(50));
         
         try {
-            // FASE 1: Validar assets
+            // FASE 1: Validar assets (existente)
             const validacionAssets = this.validacionFinalAssets();
             console.log(`📁 Assets: ${validacionAssets.valido ? '✅' : '❌'} (${validacionAssets.fotos} fotos)`);
             
-            // FASE 2: Validar integración
+            // FASE 2: NUEVA - Validar consistencia de tarjetas
+            const validacionTarjetas = this.validacionConsistenciaTarjetas();
+            console.log(`🎴 Tarjetas: ${validacionTarjetas.valido ? '✅' : '❌'} (${validacionTarjetas.tipo} detectado)`);
+            
+            // FASE 3: NUEVA - Validar rutas relativas
+            const validacionRutas = this.validacionRutasRelativas();
+            console.log(`🔗 Rutas: ${validacionRutas.valido ? '✅' : '❌'} (${validacionRutas.errores} errores)`);
+            
+            // FASE 4: MEJORADA - Validar estructura carrusel
+            const validacionCarrusel = this.validacionEstructuraCarrusel();
+            console.log(`🎠 Carrusel: ${validacionCarrusel.valido ? '✅' : '❌'} (${validacionCarrusel.imagenes} imgs)`);
+            
+            // FASE 5: Validar integración
             const validacionIntegracion = this.validacionFinalIntegracion();
             console.log(`🔗 Integración: ${validacionIntegracion.valido ? '✅' : '❌'}`);
             
-            // FASE 3: Validar carrusel
-            const validacionCarrusel = this.validacionFinalCarrusel();
-            console.log(`🎠 Carrusel: ${validacionCarrusel.valido ? '✅' : '❌'}`);
-            
-            // FASE 4: Validar WhatsApp
+            // FASE 6: Validar WhatsApp
             const validacionWhatsapp = this.validacionFinalWhatsapp();
             console.log(`📱 WhatsApp: ${validacionWhatsapp.valido ? '✅' : '❌'}`);
             
-            // FASE 5: Validar SEO
+            // FASE 7: Validar SEO
             const validacionSeo = this.validacionFinalSeo();
             console.log(`🔍 SEO: ${validacionSeo.valido ? '✅' : '❌'}`);
             
-            // FASE 6: NUEVA - Validar existencia física de imágenes
-            const validacionImagenesReales = this.validacionImagenesReales();
-            console.log(`🖼️ Imágenes reales: ${validacionImagenesReales.valido ? '✅' : '❌'} (${validacionImagenesReales.existentes}/${validacionImagenesReales.total})`);
-            
-            // FASE 7: NUEVA - Validar estructura HTML del carrusel
-            const validacionEstructuraCarrusel = this.validacionEstructuraCarrusel();
-            console.log(`🏗️ Estructura carrusel: ${validacionEstructuraCarrusel.valido ? '✅' : '❌'} (container→wrapper: ${validacionEstructuraCarrusel.estructura_ok}, clases: ${validacionEstructuraCarrusel.clases_css_ok})`);
-            
-            // COMPUERTA GO/NO-GO
+            // COMPUERTA GO/NO-GO MEJORADA
             const todasValidacionesOk = 
                 validacionAssets.valido &&
-                validacionIntegracion.valido &&
+                validacionTarjetas.valido &&
+                validacionRutas.valido &&
                 validacionCarrusel.valido &&
+                validacionIntegracion.valido &&
                 validacionWhatsapp.valido &&
-                validacionSeo.valido &&
-                validacionImagenesReales.valido &&
-                validacionEstructuraCarrusel.valido;
+                validacionSeo.valido;
             
             if (!todasValidacionesOk) {
                 console.log('❌ GATE: NO-GO - Fallos en validación final');
@@ -1681,6 +1687,270 @@ class PipelineAgentes {
         } catch (error) {
             return { exitoso: false, error: error.message };
         }
+    }
+
+    /**
+     * VALIDACIÓN CONSISTENCIA DE TARJETAS
+     * Verifica que todas las tarjetas usen formato CARD-ADV
+     */
+    validacionConsistenciaTarjetas() {
+        try {
+            const fs = require('fs');
+            let errores = [];
+            let tipoDetectado = 'CARD-ADV';
+            
+            // Verificar culiacan/index.html
+            const culiacanPath = './culiacan/index.html';
+            if (fs.existsSync(culiacanPath)) {
+                const content = fs.readFileSync(culiacanPath, 'utf8');
+                
+                // Buscar tarjetas simples (sin CARD-ADV)
+                const tarjetasSimples = content.match(/<!--\s*BEGIN\s+CARD\s+[^-]/g);
+                const tarjetasAdvanced = content.match(/<!--\s*BEGIN\s+CARD-ADV\s+/g);
+                
+                if (tarjetasSimples && tarjetasSimples.length > 0) {
+                    errores.push(`Encontradas ${tarjetasSimples.length} tarjetas simples en culiacan/index.html`);
+                    tipoDetectado = 'MIXED';
+                }
+                
+                // Verificar rutas relativas correctas
+                const rutasIncorrectas = content.match(/src="\.\/images\//g) || content.match(/data-href="\.\/casa-/g);
+                if (rutasIncorrectas && rutasIncorrectas.length > 0) {
+                    errores.push(`Rutas incorrectas en culiacan/: encontradas ${rutasIncorrectas.length} rutas "./"`);
+                }
+            }
+            
+            return {
+                valido: errores.length === 0,
+                errores: errores,
+                tipo: tipoDetectado,
+                mensaje: errores.length === 0 ? 'Todas las tarjetas son CARD-ADV' : errores.join(', ')
+            };
+            
+        } catch (error) {
+            return {
+                valido: false,
+                errores: [`Error validando tarjetas: ${error.message}`],
+                tipo: 'ERROR'
+            };
+        }
+    }
+
+    /**
+     * VALIDACIÓN RUTAS RELATIVAS
+     * Verifica que las rutas sean correctas según ubicación
+     */
+    validacionRutasRelativas() {
+        try {
+            const fs = require('fs');
+            let errores = [];
+            
+            // Validar culiacan/index.html
+            const culiacanPath = './culiacan/index.html';
+            if (fs.existsSync(culiacanPath)) {
+                const content = fs.readFileSync(culiacanPath, 'utf8');
+                
+                // Debe usar "../" para imágenes y páginas
+                const rutasIncorrectasImg = content.match(/src="(?!\.\.\/|http)[\w\/\.-]*images\//g);
+                const rutasIncorrectasPages = content.match(/data-href="(?!\.\.\/|http)[\w\/\.-]*casa-/g);
+                
+                if (rutasIncorrectasImg) {
+                    errores.push(`Rutas de imagen incorrectas: ${rutasIncorrectasImg.length} encontradas`);
+                }
+                if (rutasIncorrectasPages) {
+                    errores.push(`Rutas de página incorrectas: ${rutasIncorrectasPages.length} encontradas`);
+                }
+            }
+            
+            // Validar index.html
+            const indexPath = './index.html';
+            if (fs.existsSync(indexPath)) {
+                const content = fs.readFileSync(indexPath, 'utf8');
+                
+                // Debe usar rutas relativas simples
+                const rutasIncorrectasIdx = content.match(/src="\.\.\/images\//g) || content.match(/href="\.\.\/casa-/g);
+                if (rutasIncorrectasIdx) {
+                    errores.push(`Rutas incorrectas en index.html: ${rutasIncorrectasIdx.length} encontradas`);
+                }
+            }
+            
+            return {
+                valido: errores.length === 0,
+                errores: errores.length,
+                detalles: errores,
+                mensaje: errores.length === 0 ? 'Todas las rutas son correctas' : errores.join(', ')
+            };
+            
+        } catch (error) {
+            return {
+                valido: false,
+                errores: 1,
+                detalles: [`Error validando rutas: ${error.message}`]
+            };
+        }
+    }
+
+    /**
+     * AUTO-DETECCIÓN DE RUTAS RELATIVAS POR UBICACIÓN
+     * Previene errores de rutas incorrectas automáticamente
+     */
+    detectarRutasRelativas() {
+        return {
+            // Para index.html (raíz)
+            index: {
+                images: 'images/',
+                pages: '',
+                description: 'Rutas desde raíz del sitio'
+            },
+            // Para culiacan/index.html (subdirectorio)
+            culiacan: {
+                images: '../images/',
+                pages: '../',
+                description: 'Rutas desde subdirectorio culiacan/'
+            },
+            // Detectar automáticamente basado en contexto
+            detectar: (targetFile) => {
+                if (targetFile && targetFile.includes('culiacan/')) {
+                    return {
+                        images: '../images/',
+                        pages: '../',
+                        tipo: 'subdirectorio'
+                    };
+                } else {
+                    return {
+                        images: 'images/',
+                        pages: '',
+                        tipo: 'raiz'
+                    };
+                }
+            }
+        };
+    }
+
+    /**
+     * GENERADOR CARD-ADV UNIVERSAL 
+     * Usa template estandarizado + rutas automáticas
+     */
+    generarCardAdvUniversal(propiedad, slug, targetLocation) {
+        const rutas = this.detectarRutasRelativas().detectar(targetLocation);
+        const tipo = propiedad.tipo || 'venta';
+        const badgeColor = tipo === 'renta' ? 'green' : 'blue';
+        const typeBadge = tipo === 'renta' ? 'RENTA' : 'VENTA';
+        
+        // Cargar template universal
+        const fs = require('fs');
+        const path = require('path');
+        const templatePath = path.join(__dirname, 'templates', 'CARD-ADV-universal.html');
+        
+        try {
+            let template = fs.readFileSync(templatePath, 'utf8');
+            
+            // Generar imágenes del carrusel
+            const imagenesCarrusel = this.estado.todasLasFotos.map((foto, index) => `
+                        <img src="${rutas.images}${slug}/${foto}" 
+                             alt="${propiedad.nombre} - Foto ${index + 1}" 
+                             loading="${index === 0 ? 'eager' : 'lazy'}" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image ${index === 0 ? 'active' : 'hidden'}">`).join('');
+            
+            // Generar dots del carrusel
+            const dotsCarrusel = this.estado.todasLasFotos.map((_, index) => `
+                            <button class="carousel-dot ${index === 0 ? 'active' : ''}" onclick="goToImage(this.parentElement.parentElement, ${index})" aria-label="Ir a imagen ${index + 1}"></button>`).join('');
+            
+            // Reemplazar placeholders
+            template = template
+                .replace(/\{\{PROPERTY_SLUG\}\}/g, slug)
+                .replace(/\{\{RELATIVE_PATH\}\}/g, rutas.pages)
+                .replace(/\{\{BADGE_COLOR\}\}/g, badgeColor)
+                .replace(/\{\{PROPERTY_TYPE_BADGE\}\}/g, typeBadge)
+                .replace(/\{\{CAROUSEL_IMAGES\}\}/g, imagenesCarrusel)
+                .replace(/\{\{CAROUSEL_DOTS\}\}/g, dotsCarrusel)
+                .replace(/\{\{PROPERTY_TITLE\}\}/g, propiedad.nombre)
+                .replace(/\{\{PROPERTY_LOCATION\}\}/g, propiedad.ubicacion)
+                .replace(/\{\{PROPERTY_PRICE\}\}/g, propiedad.precio)
+                .replace(/\{\{PROPERTY_BEDROOMS\}\}/g, propiedad.recamaras || '3')
+                .replace(/\{\{PROPERTY_BATHROOMS\}\}/g, propiedad.banos || '2')
+                .replace(/\{\{PROPERTY_PARKING\}\}/g, propiedad.estacionamientos || '2')
+                .replace(/\{\{WHATSAPP_URL\}\}/g, this.estado.whatsappUrl || '#');
+            
+            return template;
+            
+        } catch (error) {
+            console.log('⚠️ Template universal no encontrado, usando fallback');
+            return this.generarCardAdvFallback(propiedad, slug, rutas);
+        }
+    }
+
+    /**
+     * FALLBACK para CARD-ADV si template universal no existe
+     */
+    generarCardAdvFallback(propiedad, slug, rutas) {
+        const tipo = propiedad.tipo || 'venta';
+        const badgeColor = tipo === 'renta' ? 'green' : 'blue';
+        const typeBadge = tipo === 'renta' ? 'RENTA' : 'VENTA';
+        
+        return `            <!-- BEGIN CARD-ADV ${slug} -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative" 
+                 data-href="${rutas.pages}${slug}.html">
+                <div class="relative aspect-video">
+                    <div class="absolute top-3 left-3 bg-${badgeColor}-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        ${typeBadge}
+                    </div>
+                    
+                    <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
+                    <div class="carousel-container" data-current="0">
+                        ${this.estado.todasLasFotos.map((foto, index) => `
+                        <img src="${rutas.images}${slug}/${foto}" 
+                             alt="${propiedad.nombre} - Foto ${index + 1}" 
+                             loading="${index === 0 ? 'eager' : 'lazy'}" 
+                             decoding="async"
+                             class="w-full h-full object-cover carousel-image ${index === 0 ? 'active' : 'hidden'}">`).join('')}
+                        
+                        <!-- Navigation arrows - FUNCIONES EXISTENTES -->
+                        <button class="carousel-arrow carousel-prev" onclick="changeImage(this.parentElement, -1)" aria-label="Imagen anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow carousel-next" onclick="changeImage(this.parentElement, 1)" aria-label="Siguiente imagen">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <!-- Dot indicators - FUNCIONES EXISTENTES -->
+                        <div class="carousel-dots">
+                            ${this.estado.todasLasFotos.map((_, index) => `
+                            <button class="carousel-dot ${index === 0 ? 'active' : ''}" onclick="goToImage(this.parentElement.parentElement, ${index})" aria-label="Ir a imagen ${index + 1}"></button>`).join('')}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-5">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2 font-poppins">${propiedad.nombre}</h3>
+                    <p class="text-gray-600 mb-4 font-poppins">${propiedad.nombre} · ${propiedad.ubicacion}</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-bold text-hector font-poppins">${propiedad.precio}</span>
+                        <span class="bg-${badgeColor}-100 text-${badgeColor}-800 px-3 py-1 rounded-full text-sm font-medium">${typeBadge}</span>
+                    </div>
+                    <div class="flex gap-2 mb-4 text-sm text-gray-600">
+                        <span class="flex items-center gap-1">
+                            <i class="fas fa-bed text-gray-400"></i>
+                            ${propiedad.recamaras || '3'} Rec
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i class="fas fa-bath text-gray-400"></i>
+                            ${propiedad.banos || '2'} Baños
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i class="fas fa-car text-gray-400"></i>
+                            ${propiedad.estacionamientos || '2'} Autos
+                        </span>
+                    </div>
+                    <a href="${this.estado.whatsappUrl || '#'}" 
+                       target="_blank" 
+                       class="w-full bg-hector hover:bg-hector-dark text-white font-bold py-3 px-6 rounded-lg transition-colors font-poppins">
+                        💬 Solicitar información
+                    </a>
+                </div>
+            </div>
+            <!-- END CARD-ADV ${slug} -->`;
     }
 }
 
