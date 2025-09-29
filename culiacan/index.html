@@ -5354,17 +5354,6 @@
             }
           }
 
-          // Recámaras
-          if (show && bedroomsFilter) {
-            const bedrooms = parseInt(card.getAttribute('data-bedrooms') || '0', 10);
-            show = bedroomsFilter === '4' ? bedrooms >= 4 : bedrooms === parseInt(bedroomsFilter, 10);
-          }
-
-          // Features
-          if (show && featuresFilter) {
-            const feats = (card.getAttribute('data-features') || '').toLowerCase();
-            show = feats.includes(featuresFilter);
-          }
 
           // Mostrar/ocultar y acumular visibles - Método más robusto
           if (show) {
@@ -5504,7 +5493,6 @@
       clearFiltersBtn?.addEventListener('click', clearAllFilters);
 
       // ===== Init
-      console.log('🔍 Cards encontradas:', allCards.length);
       loadState();
       extractPropertyData();
       togglePriceSlider(); // Inicializar estado visual de tabs
