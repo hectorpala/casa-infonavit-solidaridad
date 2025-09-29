@@ -274,33 +274,86 @@ ${carouselImages}${navigationArrows}
             let match, beforeGrid, afterGrid, newGridContent, updatedHtml;
             
             if (isCuliacanPage) {
-                // Para culiacan/index.html, buscar la primera tarjeta existente y reemplazar todo el bloque
-                const firstCardRegex = /<!-- BEGIN CARD-ADV [^>]+ -->/;
-                const lastCardRegex = /<!-- END CARD-ADV [^>]+ -->(?![\s\S]*<!-- END CARD-ADV)/;
+                // Para culiacan/index.html, usar un enfoque más seguro que evite duplicaciones
+                // Verificar si la propiedad ya existe antes de agregarla
+                const propertyKey = newProperty.key;
+                const existingPropertyIndex = existingProperties.findIndex(prop => 
+                    prop.fullCard && prop.fullCard.includes(`BEGIN CARD-ADV ${propertyKey}`)
+                );
                 
-                const firstCardMatch = htmlContent.match(firstCardRegex);
-                const lastCardMatch = htmlContent.match(lastCardRegex);
-                
-                if (firstCardMatch && lastCardMatch) {
-                    const startIndex = firstCardMatch.index;
-                    const endIndex = lastCardMatch.index + lastCardMatch[0].length;
+                if (existingPropertyIndex !== -1) {
+                    console.log(`⚠️  Property ${propertyKey} already exists in Culiacán, updating existing entry...`);
+                    // Reemplazar la propiedad existente en lugar de agregar una nueva
+                    existingProperties[existingPropertyIndex].fullCard = newPropertyCard;
                     
-                    // Combinar properties existentes con la nueva (la nueva al principio)
-                    const allPropertyCards = [newPropertyCard];
+                    // Reconstruir con propiedades existentes (incluye la actualizada)
+                    const allPropertyCards = [];
                     existingProperties.forEach(prop => {
                         allPropertyCards.push(prop.fullCard);
                     });
                     
-                    // Reemplazar toda la sección de tarjetas
-                    updatedHtml = htmlContent.substring(0, startIndex) +
-                                 allPropertyCards.join('\n            ') +
-                                 htmlContent.substring(endIndex);
+                    // Encontrar límites de las tarjetas
+                    const firstCardRegex = /<!-- BEGIN CARD-ADV [^>]+ -->/;
+                    const lastCardRegex = /<!-- END CARD-ADV [^>]+ -->/g;
+                    
+                    const firstCardMatch = htmlContent.match(firstCardRegex);
+                    let lastCardMatch;
+                    let match;
+                    while ((match = lastCardRegex.exec(htmlContent)) !== null) {
+                        lastCardMatch = match;
+                    }
+                    
+                    if (firstCardMatch && lastCardMatch) {
+                        const startIndex = firstCardMatch.index;
+                        const endIndex = lastCardMatch.index + lastCardMatch[0].length;
+                        
+                        updatedHtml = htmlContent.substring(0, startIndex) +
+                                     allPropertyCards.join('\n            ') +
+                                     htmlContent.substring(endIndex);
+                    } else {
+                        throw new Error('Could not find property cards section in Culiacán HTML');
+                    }
                 } else {
-                    throw new Error('Could not find property cards section in Culiacán HTML');
+                    console.log(`✅ Adding new property ${propertyKey} to Culiacán...`);
+                    // Agregar nueva propiedad al principio
+                    const firstCardRegex = /<!-- BEGIN CARD-ADV [^>]+ -->/;
+                    const lastCardRegex = /<!-- END CARD-ADV [^>]+ -->/g;
+                    
+                    const firstCardMatch = htmlContent.match(firstCardRegex);
+                    let lastCardMatch;
+                    let match;
+                    while ((match = lastCardRegex.exec(htmlContent)) !== null) {
+                        lastCardMatch = match;
+                    }
+                    
+                    if (firstCardMatch && lastCardMatch) {
+                        const startIndex = firstCardMatch.index;
+                        const endIndex = lastCardMatch.index + lastCardMatch[0].length;
+                        
+                        // Combinar nueva propiedad con existentes
+                        const allPropertyCards = [newPropertyCard];
+                        existingProperties.forEach(prop => {
+                            allPropertyCards.push(prop.fullCard);
+                        });
+                        
+                        updatedHtml = htmlContent.substring(0, startIndex) +
+                                     allPropertyCards.join('\n            ') +
+                                     htmlContent.substring(endIndex);
+                    } else {
+                        throw new Error('Could not find property cards section in Culiacán HTML');
+                    }
                 }
             } else {
-                // Para index.html, estructura property-grid
-                // Enfoque simplificado: buscar los marcadores específicos del grid
+                // Para index.html, estructura property-grid - aplicar misma lógica anti-duplicación
+                const propertyKey = newProperty.key;
+                const propertyHref = this.isRental ? 
+                    `casa-renta-${propertyKey}.html` : 
+                    `casa-venta-${propertyKey}.html`;
+                    
+                const existingPropertyIndex = existingProperties.findIndex(prop => 
+                    prop.href && prop.href.includes(propertyHref)
+                );
+                
                 const gridStartMarker = '<div class="property-grid">';
                 const gridEndMarker = '            </div>\n        </div>\n    </section>';
                 
@@ -311,11 +364,25 @@ ${carouselImages}${navigationArrows}
                     throw new Error('Property grid boundaries not found in HTML');
                 }
                 
-                // Construir el nuevo contenido del grid con todas las propiedades
-                const allPropertyCards = [newPropertyCard];
-                existingProperties.forEach(prop => {
-                    allPropertyCards.push(prop.fullCard);
-                });
+                let allPropertyCards;
+                
+                if (existingPropertyIndex !== -1) {
+                    console.log(`⚠️  Property ${propertyKey} already exists in main index, updating existing entry...`);
+                    // Reemplazar la propiedad existente
+                    existingProperties[existingPropertyIndex].fullCard = newPropertyCard;
+                    
+                    allPropertyCards = [];
+                    existingProperties.forEach(prop => {
+                        allPropertyCards.push(prop.fullCard);
+                    });
+                } else {
+                    console.log(`✅ Adding new property ${propertyKey} to main index...`);
+                    // Agregar nueva propiedad al principio
+                    allPropertyCards = [newPropertyCard];
+                    existingProperties.forEach(prop => {
+                        allPropertyCards.push(prop.fullCard);
+                    });
+                }
                 
                 const newGridSection = gridStartMarker + '\n' +
                     allPropertyCards.join('\n\n') + '\n\n' +
@@ -330,8 +397,18 @@ ${carouselImages}${navigationArrows}
             // Escribir archivo actualizado
             fs.writeFileSync(htmlFilePath, updatedHtml, 'utf8');
             
-            const totalProperties = existingProperties.length + 1;
-            console.log(`✅ Updated ${htmlFilePath} with ${totalProperties} properties (${existingProperties.length} existing + 1 new)`);
+            // Calcular total correcto basado en si se agregó o actualizó
+            const propertyKey = newProperty.key;
+            const wasUpdated = isCuliacanPage ? 
+                existingProperties.some(prop => prop.fullCard && prop.fullCard.includes(`BEGIN CARD-ADV ${propertyKey}`)) :
+                existingProperties.some(prop => {
+                    const propertyHref = this.isRental ? `casa-renta-${propertyKey}.html` : `casa-venta-${propertyKey}.html`;
+                    return prop.href && prop.href.includes(propertyHref);
+                });
+            
+            const totalProperties = wasUpdated ? existingProperties.length : existingProperties.length + 1;
+            const actionText = wasUpdated ? 'updated existing' : `${existingProperties.length} existing + 1 new`;
+            console.log(`✅ Updated ${htmlFilePath} with ${totalProperties} properties (${actionText})`);
             
             return totalProperties;
 
