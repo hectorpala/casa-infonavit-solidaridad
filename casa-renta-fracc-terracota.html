@@ -413,13 +413,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // Modern Carousel System with Independent Hero and Gallery
     let currentHeroIndex = 0;
     let currentGalleryIndex = 0;
-    const totalSlides = {{TOTAL_IMAGES}};
+    const totalSlides = 13;
     
     // Hero Carousel Functions
     function changeSlideHero(direction) {
         const heroContainer = document.querySelector('.hero .carousel-container');
-        const slides = heroContainer.querySelectorAll('.carousel-slide');
-        const dots = heroContainer.parentElement.querySelectorAll('.carousel-dot');
+        const slides = heroContainer.querySelectorAll('.slide');
+        const dots = heroContainer.querySelectorAll('.indicator');
         
         // Hide current slide
         slides[currentHeroIndex].classList.remove('active');
@@ -435,8 +435,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function goToSlideHero(index) {
         const heroContainer = document.querySelector('.hero .carousel-container');
-        const slides = heroContainer.querySelectorAll('.carousel-slide');
-        const dots = heroContainer.parentElement.querySelectorAll('.carousel-dot');
+        const slides = heroContainer.querySelectorAll('.slide');
+        const dots = heroContainer.querySelectorAll('.indicator');
         
         // Hide current slide
         slides[currentHeroIndex].classList.remove('active');
@@ -453,8 +453,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // Gallery Carousel Functions
     function changeSlideGallery(direction) {
         const galleryContainer = document.querySelector('.gallery .carousel-container');
-        const slides = galleryContainer.querySelectorAll('.carousel-slide');
-        const dots = galleryContainer.parentElement.querySelectorAll('.carousel-dot');
+        const slides = galleryContainer.querySelectorAll('.slide');
+        const dots = galleryContainer.querySelectorAll('.indicator');
         
         // Hide current slide
         slides[currentGalleryIndex].classList.remove('active');
@@ -470,8 +470,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function goToSlideGallery(index) {
         const galleryContainer = document.querySelector('.gallery .carousel-container');
-        const slides = galleryContainer.querySelectorAll('.carousel-slide');
-        const dots = galleryContainer.parentElement.querySelectorAll('.carousel-dot');
+        const slides = galleryContainer.querySelectorAll('.slide');
+        const dots = galleryContainer.querySelectorAll('.indicator');
         
         // Hide current slide
         slides[currentGalleryIndex].classList.remove('active');
@@ -504,11 +504,23 @@ document.addEventListener("DOMContentLoaded", function() {
         // Initialize calculator
         calcularRenta();
 
-        // Make functions globally available
-        window.changeSlideHero = changeSlideHero;
-        window.goToSlideHero = goToSlideHero;
-        window.changeSlideGallery = changeSlideGallery;
-        window.goToSlideGallery = goToSlideGallery;
+        // Universal changeImage function for compatibility
+        window.changeImage = function(carouselElement, direction) {
+            if (carouselElement.closest('.hero')) {
+                changeSlideHero(direction);
+            } else if (carouselElement.closest('.gallery')) {
+                changeSlideGallery(direction);
+            }
+        };
+        
+        window.goToSlide = function(carouselElement, index) {
+            if (carouselElement.closest('.hero')) {
+                goToSlideHero(index);
+            } else if (carouselElement.closest('.gallery')) {
+                goToSlideGallery(index);
+            }
+        };
+        
         window.calcularRenta = calcularRenta;
 });
     </script>
