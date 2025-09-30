@@ -696,19 +696,20 @@
             <p class="text-gray-600 font-poppins" id="results-count">22 propiedades · Ordenado por más recientes</p>
         </div>
 
-        <!-- Filtros de Búsqueda -->
+        <!-- Sistema de Filtros Avanzado -->
         <div class="bg-white rounded-xl shadow-lg p-6 mb-8 border border-gray-100">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4 font-poppins flex items-center">
+            <h3 class="text-lg font-semibold text-gray-900 mb-6 font-poppins flex items-center">
                 <svg class="w-5 h-5 mr-2 text-hector" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
                 </svg>
                 Filtrar Propiedades
             </h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Filtros Principales -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 <!-- Tipo de Operación -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Tipo</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Operación</label>
                     <select id="filter-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
                         <option value="">Todos</option>
                         <option value="renta">Renta</option>
@@ -716,80 +717,111 @@
                     </select>
                 </div>
 
-                <!-- Rango de Precio -->
+                <!-- Precio Mínimo -->
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-3">Rango de Precio</label>
-                    <div class="bg-gray-50 rounded-lg p-4 space-y-4">
-                        <!-- Toggle Venta/Renta con mejor diseño -->
-                        <div class="flex bg-white rounded-lg p-1 relative">
-                            <label class="flex-1 relative">
-                                <input type="radio" name="price-mode" value="venta" checked class="sr-only">
-                                <div class="price-tab text-center py-2 px-4 rounded-md cursor-pointer transition-all duration-200 text-sm font-medium">
-                                    Venta
-                                </div>
-                            </label>
-                            <label class="flex-1 relative">
-                                <input type="radio" name="price-mode" value="renta" class="sr-only">
-                                <div class="price-tab text-center py-2 px-4 rounded-md cursor-pointer transition-all duration-200 text-sm font-medium">
-                                    Renta
-                                </div>
-                            </label>
-                        </div>
-                        
-                        <!-- Slider para Venta -->
-                        <div id="venta-slider" class="price-slider-container">
-                            <div class="flex justify-between text-xs text-gray-500 mb-3">
-                                <span class="font-medium">$500K</span>
-                                <span class="font-medium">$5M+</span>
-                            </div>
-                            <div class="relative">
-                                <input type="range" 
-                                    id="venta-range" 
-                                    min="500000" 
-                                    max="5000000" 
-                                    step="100000"
-                                    value="5000000"
-                                    class="price-slider w-full">
-                                <div class="slider-track"></div>
-                                <div class="slider-fill"></div>
-                            </div>
-                            <div class="text-center mt-3 bg-white rounded-md py-2 px-3 border border-gray-200">
-                                <span id="venta-display" class="text-lg font-bold text-hector">Hasta $5.0M</span>
-                                <div class="text-xs text-gray-500 mt-1">Precio máximo de venta</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Slider para Renta -->
-                        <div id="renta-slider" class="price-slider-container hidden">
-                            <div class="flex justify-between text-xs text-gray-500 mb-3">
-                                <span class="font-medium">$5K</span>
-                                <span class="font-medium">$50K+</span>
-                            </div>
-                            <div class="relative">
-                                <input type="range" 
-                                    id="renta-range" 
-                                    min="5000" 
-                                    max="50000" 
-                                    step="1000"
-                                    value="50000"
-                                    class="price-slider w-full">
-                                <div class="slider-track"></div>
-                                <div class="slider-fill"></div>
-                            </div>
-                            <div class="text-center mt-3 bg-white rounded-md py-2 px-3 border border-gray-200">
-                                <span id="renta-display" class="text-lg font-bold text-hector">Hasta $50K</span>
-                                <div class="text-xs text-gray-500 mt-1">Renta máxima mensual</div>
-                            </div>
-                        </div>
-                    </div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Precio Mínimo</label>
+                    <input type="number" id="price-min" placeholder="Ej: 500000" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
                 </div>
 
+                <!-- Precio Máximo -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Precio Máximo</label>
+                    <input type="number" id="price-max" placeholder="Ej: 2000000" 
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                </div>
+
+                <!-- Recámaras -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Recámaras</label>
+                    <select id="filter-beds" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                        <option value="">Cualquiera</option>
+                        <option value="1">1+</option>
+                        <option value="2">2+</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                        <option value="5">5+</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Filtros Secundarios -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <!-- Baños -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Baños</label>
+                    <select id="filter-baths" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                        <option value="">Cualquiera</option>
+                        <option value="1">1+</option>
+                        <option value="1.5">1.5+</option>
+                        <option value="2">2+</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                    </select>
+                </div>
+
+                <!-- Tipo de Propiedad -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Propiedad</label>
+                    <select id="filter-home-type" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                        <option value="">Todos</option>
+                        <option value="casa">Casa</option>
+                        <option value="departamento">Departamento</option>
+                        <option value="condominio">Condominio</option>
+                        <option value="townhouse">Townhouse</option>
+                    </select>
+                </div>
+
+                <!-- Ordenar por -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Ordenar por</label>
+                    <select id="filter-sort" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
+                        <option value="relevance">Más relevantes</option>
+                        <option value="newest">Más recientes</option>
+                        <option value="price_low">Precio: menor a mayor</option>
+                        <option value="price_high">Precio: mayor a menor</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Características Especiales -->
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-3">Características</label>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="checkbox" id="filter-pool" class="rounded border-gray-300 text-hector focus:ring-hector">
+                        <span class="text-sm text-gray-700">Alberca</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="checkbox" id="filter-garage" class="rounded border-gray-300 text-hector focus:ring-hector">
+                        <span class="text-sm text-gray-700">Garage</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="checkbox" id="filter-ac" class="rounded border-gray-300 text-hector focus:ring-hector">
+                        <span class="text-sm text-gray-700">Aire A/C</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="checkbox" id="filter-furnished" class="rounded border-gray-300 text-hector focus:ring-hector">
+                        <span class="text-sm text-gray-700">Amueblado</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="checkbox" id="filter-garden" class="rounded border-gray-300 text-hector focus:ring-hector">
+                        <span class="text-sm text-gray-700">Jardín</span>
+                    </label>
+                    <label class="flex items-center space-x-2 cursor-pointer">
+                        <input type="checkbox" id="filter-security" class="rounded border-gray-300 text-hector focus:ring-hector">
+                        <span class="text-sm text-gray-700">Seguridad</span>
+                    </label>
+                </div>
             </div>
 
             <!-- Botones de acción -->
-            <div class="flex flex-wrap gap-3 mt-6">
+            <div class="flex flex-wrap gap-3 items-center">
+                <button id="apply-filters" class="px-6 py-2 bg-hector text-white rounded-lg hover:bg-hector-dark transition-colors font-medium">
+                    Aplicar filtros
+                </button>
                 <button id="clear-filters" class="px-4 py-2 text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors font-medium">
-                    Limpiar filtros
+                    Limpiar todo
                 </button>
                 <div class="flex-1"></div>
                 <span id="filter-results" class="text-sm text-gray-500 self-center font-medium">
@@ -5156,7 +5188,7 @@
         });
     });
 
-    // Sistema de Filtros Avanzado - Con ordenamiento y persistencia
+    // Sistema de Filtros Avanzado - Completamente rediseñado
     document.addEventListener('DOMContentLoaded', () => {
       // ===== Helpers
       const norm = (v) => (v || '').toLowerCase().replace(/\s+/g, '');
@@ -5167,128 +5199,31 @@
         return parseInt(m[0].replace(/[,$]/g, ''), 10) || 0;
       };
 
-      // ===== DOM
+      // ===== DOM - Nuevo Sistema Avanzado
       const filterType = document.getElementById('filter-type');
+      const priceMin = document.getElementById('price-min');
+      const priceMax = document.getElementById('price-max');
+      const filterBeds = document.getElementById('filter-beds');
+      const filterBaths = document.getElementById('filter-baths');
+      const filterHomeType = document.getElementById('filter-home-type');
+      const filterSort = document.getElementById('filter-sort');
+      
+      // Características
+      const filterPool = document.getElementById('filter-pool');
+      const filterGarage = document.getElementById('filter-garage');
+      const filterAC = document.getElementById('filter-ac');
+      const filterFurnished = document.getElementById('filter-furnished');
+      const filterGarden = document.getElementById('filter-garden');
+      const filterSecurity = document.getElementById('filter-security');
+      
+      // UI
+      const applyFiltersBtn = document.getElementById('apply-filters');
       const clearFiltersBtn = document.getElementById('clear-filters');
       const filterResults = document.getElementById('filter-results');
       const resultsCount = document.getElementById('results-count');
       const grid = document.querySelector('.properties-grid') || document.querySelector('.grid') || document.body;
       const cardsNodeList = document.querySelectorAll('.property-card');
       const allCards = Array.from(cardsNodeList);
-      
-      // ===== Elementos de Price Slider
-      const priceModeRadios = document.querySelectorAll('input[name="price-mode"]');
-      const priceTabs = document.querySelectorAll('.price-tab');
-      const ventaSlider = document.getElementById('venta-slider');
-      const rentaSlider = document.getElementById('renta-slider');
-      const ventaRange = document.getElementById('venta-range');
-      const rentaRange = document.getElementById('renta-range');
-      const ventaDisplay = document.getElementById('venta-display');
-      const rentaDisplay = document.getElementById('renta-display');
-
-      // ===== Persistencia
-      const LS_KEY = 'propertyFiltersV1';
-      function saveState() {
-        const currentPriceMode = document.querySelector('input[name="price-mode"]:checked')?.value || 'venta';
-        const priceValue = currentPriceMode === 'venta' ? ventaRange?.value : rentaRange?.value;
-        const state = {
-          type: filterType?.value || '',
-          priceMode: currentPriceMode,
-          priceValue: priceValue || ''
-        };
-        localStorage.setItem(LS_KEY, JSON.stringify(state));
-      }
-      function loadState() {
-        try {
-          const raw = localStorage.getItem(LS_KEY);
-          if (!raw) return;
-          const s = JSON.parse(raw);
-          if (filterType) filterType.value = s.type || '';
-          if (s.priceMode) {
-            const modeRadio = document.querySelector(`input[name="price-mode"][value="${s.priceMode}"]`);
-            if (modeRadio) modeRadio.checked = true;
-            togglePriceSlider();
-          }
-          if (s.priceValue) {
-            if (s.priceMode === 'venta' && ventaRange) ventaRange.value = s.priceValue;
-            if (s.priceMode === 'renta' && rentaRange) rentaRange.value = s.priceValue;
-            updatePriceDisplay();
-          }
-        } catch {}
-      }
-      
-      // ===== Funciones de Price Slider
-      function togglePriceSlider() {
-        const mode = document.querySelector('input[name="price-mode"]:checked')?.value;
-        
-        // Actualizar tabs visuales
-        priceTabs.forEach((tab, index) => {
-          const input = tab.parentElement.querySelector('input');
-          if (input.checked) {
-            tab.classList.add('tab-active');
-            tab.classList.remove('tab-inactive');
-          } else {
-            tab.classList.remove('tab-active');
-            tab.classList.add('tab-inactive');
-          }
-        });
-        
-        // Mostrar/ocultar sliders
-        if (mode === 'venta') {
-          ventaSlider?.classList.remove('hidden');
-          rentaSlider?.classList.add('hidden');
-        } else {
-          ventaSlider?.classList.add('hidden');
-          rentaSlider?.classList.remove('hidden');
-        }
-        
-        updatePriceDisplay();
-        updateSliderFill();
-        filterProperties();
-      }
-      
-      function updatePriceDisplay() {
-        if (ventaRange && ventaDisplay) {
-          const value = parseInt(ventaRange.value);
-          ventaDisplay.textContent = `Hasta $${(value / 1000000).toFixed(1)}M`;
-        }
-        if (rentaRange && rentaDisplay) {
-          const value = parseInt(rentaRange.value);
-          rentaDisplay.textContent = `Hasta $${(value / 1000).toFixed(0)}K`;
-        }
-      }
-      
-      function updateSliderFill() {
-        // Actualizar el fill del slider de venta
-        if (ventaRange) {
-          const value = ventaRange.value;
-          const min = ventaRange.min;
-          const max = ventaRange.max;
-          const percentage = ((value - min) / (max - min)) * 100;
-          const fill = ventaSlider?.querySelector('.slider-fill');
-          if (fill) fill.style.width = percentage + '%';
-        }
-        
-        // Actualizar el fill del slider de renta
-        if (rentaRange) {
-          const value = rentaRange.value;
-          const min = rentaRange.min;
-          const max = rentaRange.max;
-          const percentage = ((value - min) / (max - min)) * 100;
-          const fill = rentaSlider?.querySelector('.slider-fill');
-          if (fill) fill.style.width = percentage + '%';
-        }
-      }
-      
-      function formatPrice(price) {
-        if (price >= 1000000) {
-          return `$${(price / 1000000).toFixed(1)}M`;
-        } else if (price >= 1000) {
-          return `$${(price / 1000).toFixed(0)}K`;
-        } else {
-          return `$${price}`;
-        }
-      }
 
       // ===== Extraer datos de cada card (type, price, bedrooms, features)
       function extractPropertyData() {
@@ -5338,66 +5273,131 @@
         });
       }
 
-      // ===== Filtrado
+      // ===== Filtrado Avanzado
       function filterProperties() {
-        console.log('⚡ FILTER EJECUTÁNDOSE');
-        const typeValue = filterType?.value || '';
-        console.log('⚡ Tipo seleccionado:', typeValue);
+        console.log('🔥 SISTEMA AVANZADO - FILTRANDO');
         
-        // Obtener modo de precio actual y valor máximo
-        const currentPriceMode = document.querySelector('input[name="price-mode"]:checked')?.value || 'venta';
-        const maxPrice = currentPriceMode === 'venta' 
-          ? (ventaRange?.value ? parseInt(ventaRange.value) : 999999999)
-          : (rentaRange?.value ? parseInt(rentaRange.value) : 999999999);
+        // Obtener todos los valores de filtros
+        const filters = {
+          type: filterType?.value || '',
+          priceMin: priceMin?.value ? parseInt(priceMin.value) : null,
+          priceMax: priceMax?.value ? parseInt(priceMax.value) : null,
+          beds: filterBeds?.value ? parseInt(filterBeds.value) : null,
+          baths: filterBaths?.value ? parseFloat(filterBaths.value) : null,
+          homeType: filterHomeType?.value || '',
+          features: {
+            pool: filterPool?.checked || false,
+            garage: filterGarage?.checked || false,
+            ac: filterAC?.checked || false,
+            furnished: filterFurnished?.checked || false,
+            garden: filterGarden?.checked || false,
+            security: filterSecurity?.checked || false
+          }
+        };
         
-        console.log('⚡ Filtro precio:', currentPriceMode, 'máximo:', maxPrice);
+        console.log('🔥 Filtros activos:', filters);
         
-        let visibleCount = 0;
+        let visibleCards = [];
         
         allCards.forEach((card, index) => {
           let show = true;
           const priceText = card.querySelector('.bg-orange-500')?.textContent || '';
           const isRenta = priceText.includes('/mes');
           const isVenta = !isRenta;
+          const priceNumber = parseInt(priceText.replace(/[^\d]/g, '')) || 0;
+          const cardText = card.textContent.toLowerCase();
           
-          // Filtro por tipo
-          if (typeValue && typeValue !== '') {
-            if (typeValue === 'renta' && !isRenta) show = false;
-            if (typeValue === 'venta' && !isVenta) show = false;
+          // 1. Filtro por tipo de operación
+          if (filters.type) {
+            if (filters.type === 'renta' && !isRenta) show = false;
+            if (filters.type === 'venta' && !isVenta) show = false;
           }
           
-          // Filtro por precio - extraer número del precio
-          if (show && priceText) {
-            const priceNumber = parseInt(priceText.replace(/[^\d]/g, '')) || 0;
-            
-            // Aplicar filtro de precio según el modo activo
-            if (currentPriceMode === 'renta' && isRenta && priceNumber > maxPrice) {
-              show = false;
-            }
-            if (currentPriceMode === 'venta' && isVenta && priceNumber > maxPrice) {
-              show = false;
-            }
+          // 2. Filtro por precio mínimo
+          if (show && filters.priceMin && priceNumber < filters.priceMin) {
+            show = false;
           }
           
-          // Mostrar/ocultar
+          // 3. Filtro por precio máximo
+          if (show && filters.priceMax && priceNumber > filters.priceMax) {
+            show = false;
+          }
+          
+          // 4. Filtro por recámaras
+          if (show && filters.beds) {
+            const bedMatch = cardText.match(/(\d+)\s*(?:recámaras?|rec\b|cuartos?|habitaciones?|bedrooms?)/);
+            const cardBeds = bedMatch ? parseInt(bedMatch[1]) : 0;
+            if (cardBeds < filters.beds) show = false;
+          }
+          
+          // 5. Filtro por baños
+          if (show && filters.baths) {
+            const bathMatch = cardText.match(/(\d+(?:\.\d+)?)\s*(?:baños?|bath)/);
+            const cardBaths = bathMatch ? parseFloat(bathMatch[1]) : 0;
+            if (cardBaths < filters.baths) show = false;
+          }
+          
+          // 6. Filtros de características
+          if (show) {
+            if (filters.features.pool && !/alberca|piscina|pool/.test(cardText)) show = false;
+            if (filters.features.garage && !/garage|cochera|estacionamiento|parking/.test(cardText)) show = false;
+            if (filters.features.ac && !/aire.*acondicionado|clima|a\/c|\bac\b/.test(cardText)) show = false;
+            if (filters.features.furnished && !/amueblad|furnished|mobiliario/.test(cardText)) show = false;
+            if (filters.features.garden && !/jardín|jardin|garden|patio/.test(cardText)) show = false;
+            if (filters.features.security && !/seguridad|privada|control.*acceso|vigilancia/.test(cardText)) show = false;
+          }
+          
+          // Aplicar visibilidad
           if (show) {
             card.style.display = 'block';
             card.classList.remove('hidden');
-            visibleCount++;
+            visibleCards.push(card);
           } else {
             card.style.display = 'none';
             card.classList.add('hidden');
           }
           
-          // Debug primeras 3
+          // Debug para primeras 3 cards
           if (index < 3) {
-            const priceNumber = parseInt(priceText.replace(/[^\d]/g, '')) || 0;
-            console.log(`⚡ Card ${index}: "${priceText}" (${priceNumber}) → ${show}`);
+            console.log(`🔥 Card ${index}: precio=${priceNumber}, mostrar=${show}`);
           }
         });
         
-        console.log(`⚡ Mostrando: ${visibleCount}/${allCards.length}`);
-        updateResultsDisplay(visibleCount);
+        // Aplicar ordenamiento
+        applySort(visibleCards);
+        
+        console.log(`🔥 Total visible: ${visibleCards.length}/${allCards.length}`);
+        updateResultsDisplay(visibleCards.length);
+      }
+      
+      // ===== Función de ordenamiento
+      function applySort(visibleCards) {
+        const sortValue = filterSort?.value || 'relevance';
+        if (!sortValue || sortValue === 'relevance' || visibleCards.length === 0) return;
+        
+        console.log('🔥 Aplicando orden:', sortValue);
+        
+        visibleCards.sort((a, b) => {
+          const priceA = toNum(a.querySelector('.bg-orange-500')?.textContent || '0');
+          const priceB = toNum(b.querySelector('.bg-orange-500')?.textContent || '0');
+          
+          switch (sortValue) {
+            case 'price_low':
+              return priceA - priceB;
+            case 'price_high':
+              return priceB - priceA;
+            case 'newest':
+              // Por ahora mantener orden actual
+              return 0;
+            default:
+              return 0;
+          }
+        });
+        
+        // Reordenar en el DOM
+        if (grid && grid !== document.body) {
+          visibleCards.forEach(card => grid.appendChild(card));
+        }
       }
 
 
@@ -5421,92 +5421,67 @@
       }
 
       function clearAllFilters() {
-        filterType && (filterType.value = '');
+        // Limpiar todos los filtros
+        if (filterType) filterType.value = '';
+        if (priceMin) priceMin.value = '';
+        if (priceMax) priceMax.value = '';
+        if (filterBeds) filterBeds.value = '';
+        if (filterBaths) filterBaths.value = '';
+        if (filterHomeType) filterHomeType.value = '';
+        if (filterSort) filterSort.value = 'relevance';
         
-        // Reset price sliders
-        if (ventaRange) ventaRange.value = ventaRange.max;
-        if (rentaRange) rentaRange.value = rentaRange.max;
-        const ventaModeRadio = document.querySelector('input[name="price-mode"][value="venta"]');
-        if (ventaModeRadio) ventaModeRadio.checked = true;
-        togglePriceSlider();
-        updatePriceDisplay();
+        // Limpiar checkboxes
+        if (filterPool) filterPool.checked = false;
+        if (filterGarage) filterGarage.checked = false;
+        if (filterAC) filterAC.checked = false;
+        if (filterFurnished) filterFurnished.checked = false;
+        if (filterGarden) filterGarden.checked = false;
+        if (filterSecurity) filterSecurity.checked = false;
         
+        // Mostrar todas las propiedades
         allCards.forEach(card => { 
           card.style.display = 'block'; 
           card.style.visibility = 'visible';
           card.style.opacity = '1';
           card.classList.remove('hidden');
         });
-        if (grid && grid !== document.body) {
-          allCards.forEach(card => grid.appendChild(card));
-        }
+        
         updateResultsDisplay(allCards.length);
-        saveState();
       }
 
-      // ===== Listeners
-      // Listener para filterType
-      filterType?.addEventListener('change', () => {
-        console.log('🎯 Event listener disparado!');
-        const typeValue = filterType.value;
-        console.log('🎯 Valor seleccionado:', typeValue);
-        
-        if (typeValue === 'venta' || typeValue === 'renta') {
-          // Sincronizar el price slider con el tipo seleccionado
-          const targetRadio = document.querySelector(`input[name="price-mode"][value="${typeValue}"]`);
-          if (targetRadio) {
-            targetRadio.checked = true;
-            togglePriceSlider();
-            saveState();
+      // ===== Event Listeners - Sistema Avanzado
+      
+      // Aplicar filtros automáticamente cuando cambian
+      const autoFilterElements = [filterType, priceMin, priceMax, filterBeds, filterBaths, filterHomeType, filterSort];
+      autoFilterElements.forEach(element => {
+        if (element) {
+          element.addEventListener('change', filterProperties);
+          if (element.type === 'number') {
+            element.addEventListener('input', filterProperties);
           }
         }
-        filterProperties();
-        saveState();
       });
       
-      
-      // Price slider listeners
-      priceModeRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-          togglePriceSlider();
-          saveState();
-        });
+      // Checkboxes de características
+      const checkboxes = [filterPool, filterGarage, filterAC, filterFurnished, filterGarden, filterSecurity];
+      checkboxes.forEach(checkbox => {
+        if (checkbox) {
+          checkbox.addEventListener('change', filterProperties);
+        }
       });
       
-      // Tab click listeners
-      priceTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const input = tab.parentElement.querySelector('input');
-          if (input) {
-            input.checked = true;
-            togglePriceSlider();
-            saveState();
-          }
-        });
-      });
+      // Botón aplicar filtros (redundante pero útil para mobile)
+      applyFiltersBtn?.addEventListener('click', filterProperties);
       
-      ventaRange?.addEventListener('input', () => {
-        updatePriceDisplay();
-        updateSliderFill();
-        filterProperties();
-        saveState();
-      });
-      
-      rentaRange?.addEventListener('input', () => {
-        updatePriceDisplay();
-        updateSliderFill();
-        filterProperties();
-        saveState();
-      });
-      
+      // Botón limpiar filtros
       clearFiltersBtn?.addEventListener('click', clearAllFilters);
 
-      // ===== Init
-      console.log('🚀 Iniciando filtros, cards encontradas:', allCards.length);
-      loadState();
+      // ===== Init - Sistema Avanzado
+      console.log('🔥 INICIANDO SISTEMA AVANZADO DE FILTROS');
+      console.log('🔥 Cards encontradas:', allCards.length);
+      
+      // Extraer datos de propiedades para filtrado
       extractPropertyData();
-      togglePriceSlider(); // Inicializar estado visual de tabs
-      updateSliderFill(); // Inicializar fill del slider
       
       // Asegurar que todas las cards sean visibles inicialmente
       allCards.forEach(card => { 
@@ -5519,7 +5494,10 @@
         card.classList.remove('hidden');
       });
       
-      console.log('⚡ Cards inicializadas:', allCards.length, 'visibles');
+      // Inicializar display de resultados
+      updateResultsDisplay(allCards.length);
+      
+      console.log('🔥 Sistema de filtros avanzado listo');
       // ===== Estilos CSS para filtros
       const style = document.createElement('style');
       style.textContent = `
