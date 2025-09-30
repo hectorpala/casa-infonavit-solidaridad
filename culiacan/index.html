@@ -807,7 +807,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO (estructura EXACTA La Campiña) -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        $$18,000/mes
+                        $18,000/mes
                     </div>
                     
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -5486,11 +5486,16 @@
       
       // Asegurar que todas las cards sean visibles inicialmente
       allCards.forEach(card => { 
-        card.style.display = 'block'; 
-        card.style.visibility = 'visible';
-        card.style.opacity = '1';
+        card.style.display = 'block !important'; 
+        card.style.visibility = 'visible !important';
+        card.style.opacity = '1 !important';
+        card.style.height = 'auto !important';
+        card.style.margin = '';
+        card.style.padding = '';
         card.classList.remove('hidden');
       });
+      
+      console.log('⚡ Cards inicializadas:', allCards.length, 'visibles');
       // ===== Estilos CSS para filtros
       const style = document.createElement('style');
       style.textContent = `
