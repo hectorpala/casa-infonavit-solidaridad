@@ -2899,82 +2899,98 @@
                         $50,000/mes
                     </div>
 
+                    <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
                     <div class="carousel-container" data-current="0">
-                        <img src="colinas-san-miguel/images/foto-1.jpg"
-                             alt="Casa en Renta Colinas de San Miguel - Fachada"
-                             loading="lazy"
-                             decoding="async"
-                             class="w-full h-full object-cover carousel-image active">
-                        <img src="colinas-san-miguel/images/foto-2.jpg"
-                             alt="Casa en Renta Colinas de San Miguel - Vista 2"
-                             loading="lazy"
-                             decoding="async"
-                             class="w-full h-full object-cover carousel-image hidden">
-                        <img src="colinas-san-miguel/images/foto-3.jpg"
-                             alt="Casa en Renta Colinas de San Miguel - Vista 3"
-                             loading="lazy"
-                             decoding="async"
-                             class="w-full h-full object-cover carousel-image hidden">
-                        <img src="colinas-san-miguel/images/foto-7.jpg"
-                             alt="Casa en Renta Colinas de San Miguel - Interior"
-                             loading="lazy"
-                             decoding="async"
-                             class="w-full h-full object-cover carousel-image hidden">
-                        <img src="colinas-san-miguel/images/foto-10.jpg"
-                             alt="Casa en Renta Colinas de San Miguel - Recámara"
-                             loading="lazy"
-                             decoding="async"
-                             class="w-full h-full object-cover carousel-image hidden">
+                        <img src="../images/colinas-san-miguel/foto-1.jpg"
+                 alt="Casa en Renta Colinas de San Miguel - Foto 1"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover carousel-image active">
+                        <img src="../images/colinas-san-miguel/foto-2.jpg"
+                 alt="Casa en Renta Colinas de San Miguel - Foto 2"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover carousel-image hidden">
+                        <img src="../images/colinas-san-miguel/foto-3.jpg"
+                 alt="Casa en Renta Colinas de San Miguel - Foto 3"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover carousel-image hidden">
+                        <img src="../images/colinas-san-miguel/foto-4.jpg"
+                 alt="Casa en Renta Colinas de San Miguel - Foto 4"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover carousel-image hidden">
+                        <img src="../images/colinas-san-miguel/foto-5.jpg"
+                 alt="Casa en Renta Colinas de San Miguel - Foto 5"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover carousel-image hidden">
+                        <img src="../images/colinas-san-miguel/foto-6.jpg"
+                 alt="Casa en Renta Colinas de San Miguel - Foto 6"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover carousel-image hidden">
+                        <img src="../images/colinas-san-miguel/foto-7.jpg"
+                 alt="Casa en Renta Colinas de San Miguel - Foto 7"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover carousel-image hidden">
+                        <img src="../images/colinas-san-miguel/foto-8.jpg"
+                 alt="Casa en Renta Colinas de San Miguel - Foto 8"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover carousel-image hidden">
+
+                        <!-- Navigation arrows - FUNCIONES EXISTENTES -->
+                        <button class="carousel-arrow carousel-prev" onclick="changeImage(this.parentElement, -1)" aria-label="Imagen anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow carousel-next" onclick="changeImage(this.parentElement, 1)" aria-label="Siguiente imagen">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
 
-                    <!-- Carousel controls -->
-                    <button class="carousel-prev" aria-label="Imagen anterior">
-                        <i class="fas fa-chevron-left"></i>
+                    <!-- Favoritos button -->
+                    <button class="favorite-btn absolute top-3 left-3 bg-white bg-opacity-80 hover:bg-opacity-100 p-2 rounded-full transition-all duration-300 z-20">
+                        <svg class="w-5 h-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
                     </button>
-                    <button class="carousel-next" aria-label="Siguiente imagen">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
-                    <!-- Carousel dots -->
-                    <div class="carousel-indicators">
-                        <button class="indicator active"></button>
-                        <button class="indicator"></button>
-                        <button class="indicator"></button>
-                        <button class="indicator"></button>
-                        <button class="indicator"></button>
-                    </div>
-
                 </div>
 
+                <!-- CONTENT SECTION -->
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Casa en Renta Colinas de San Miguel</h3>
-                    <p class="text-gray-600 mb-4 flex items-center">
-                        <i class="fas fa-map-marker-alt mr-2 text-hector"></i>
-                        Colinas de San Miguel, Culiacán
-                    </p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1 font-poppins">$50,000/mes</h3>
+                    <p class="text-gray-600 mb-4 font-poppins">Casa en Renta Colinas de San Miguel · Culiacán</p>
 
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-2xl font-bold text-hector">$50,000/mes</div>
+                    <!-- PROPERTY DETAILS CON SVG ICONS (estructura EXACTA La Campiña) -->
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                            </svg>
+                            5 Recámaras
+                        </div>
+                        <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            5 Baños
+                        </div>
+                        <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                            411m²
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-4 mb-4 text-center">
-                        <div>
-                            <i class="fas fa-bed text-gray-400 mb-1"></i>
-                            <div class="text-sm font-semibold">5 rec</div>
-                        </div>
-                        <div>
-                            <i class="fas fa-bath text-gray-400 mb-1"></i>
-                            <div class="text-sm font-semibold">5 baños</div>
-                        </div>
-                        <div>
-                            <i class="fas fa-ruler-combined text-gray-400 mb-1"></i>
-                            <div class="text-sm font-semibold">411m²</div>
-                        </div>
-                    </div>
-
-                    <button class="w-full bg-hector hover:bg-hector-dark text-white font-semibold py-3 rounded-lg transition-colors">
+                    <!-- CTA BUTTON -->
+                    <a href="../casa-renta-colinas-san-miguel.html"
+                       class="block w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-center font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                         Ver Detalles
-                    </button>
+                    </a>
                 </div>
             </div>
             <!-- END CARD-ADV colinas-san-miguel -->
