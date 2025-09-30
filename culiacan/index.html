@@ -5340,19 +5340,39 @@
         const typeValue = filterType?.value || '';
         console.log('⚡ Tipo seleccionado:', typeValue);
         
+        // Obtener modo de precio actual y valor máximo
+        const currentPriceMode = document.querySelector('input[name="price-mode"]:checked')?.value || 'venta';
+        const maxPrice = currentPriceMode === 'venta' 
+          ? (ventaRange?.value ? parseInt(ventaRange.value) : 999999999)
+          : (rentaRange?.value ? parseInt(rentaRange.value) : 999999999);
+        
+        console.log('⚡ Filtro precio:', currentPriceMode, 'máximo:', maxPrice);
+        
         let visibleCount = 0;
         
         allCards.forEach((card, index) => {
           let show = true;
+          const priceText = card.querySelector('.bg-orange-500')?.textContent || '';
+          const isRenta = priceText.includes('/mes');
+          const isVenta = !isRenta;
           
-          // Si hay filtro de tipo
+          // Filtro por tipo
           if (typeValue && typeValue !== '') {
-            const priceText = card.querySelector('.bg-orange-500')?.textContent || '';
-            const isRenta = priceText.includes('/mes');
-            const isVenta = !isRenta;
-            
             if (typeValue === 'renta' && !isRenta) show = false;
             if (typeValue === 'venta' && !isVenta) show = false;
+          }
+          
+          // Filtro por precio - extraer número del precio
+          if (show && priceText) {
+            const priceNumber = parseInt(priceText.replace(/[^\d]/g, '')) || 0;
+            
+            // Aplicar filtro de precio según el modo activo
+            if (currentPriceMode === 'renta' && isRenta && priceNumber > maxPrice) {
+              show = false;
+            }
+            if (currentPriceMode === 'venta' && isVenta && priceNumber > maxPrice) {
+              show = false;
+            }
           }
           
           // Mostrar/ocultar
@@ -5367,8 +5387,8 @@
           
           // Debug primeras 3
           if (index < 3) {
-            const priceText = card.querySelector('.bg-orange-500')?.textContent || '';
-            console.log(`⚡ Card ${index}: "${priceText}" → ${show}`);
+            const priceNumber = parseInt(priceText.replace(/[^\d]/g, '')) || 0;
+            console.log(`⚡ Card ${index}: "${priceText}" (${priceNumber}) → ${show}`);
           }
         });
         
