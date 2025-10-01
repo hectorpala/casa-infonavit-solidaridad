@@ -517,20 +517,57 @@ ${carouselImages}${navigationArrows}
         }
         
         let htmlContent = fs.readFileSync(templatePath, 'utf8');
-        
+
         // Reemplazar placeholders
         htmlContent = this.replaceTemplatePlaceholders(htmlContent, config);
-        
+
+        // Add lightbox component if not already present
+        if (!htmlContent.includes('id="lightbox"')) {
+            const lightboxPath = path.join(this.templatesDir, 'lightbox-component.html');
+            if (fs.existsSync(lightboxPath)) {
+                const lightboxComponent = fs.readFileSync(lightboxPath, 'utf8');
+                htmlContent = htmlContent.replace('</body>', `${lightboxComponent}\n</body>`);
+            }
+        }
+
+        // Add onclick handlers to carousel images for lightbox
+        htmlContent = htmlContent.replace(
+            /<img([^>]*?)class="([^"]*carousel-image[^"]*)"([^>]*?)>/g,
+            (match, before, classNames, after) => {
+                // Skip if already has onclick
+                if (match.includes('onclick=')) {
+                    return match;
+                }
+
+                // Extract data-slide if available
+                const slideMatch = match.match(/data-slide="(\d+)"/);
+                const slideIndex = slideMatch ? slideMatch[1] : '0';
+
+                return `<img${before}class="${classNames}"${after} onclick="openLightbox(${slideIndex})">`;
+            }
+        );
+
+        // Add lightbox open to carousel arrows
+        htmlContent = htmlContent.replace(
+            /onclick="changeSlide\((-?\d+)\)"/g,
+            'onclick="changeSlide($1); openLightboxFromGallery();"'
+        );
+
+        htmlContent = htmlContent.replace(
+            /onclick="changeSlideHero\((-?\d+)\)"/g,
+            'onclick="changeSlideHero($1); openLightboxFromCarousel();"'
+        );
+
         // Generar filename con precio incluido
         const priceForUrl = config.price ? `-${config.price}` : '';
         const filename = this.isRental ?
             `casa-renta-${config.key}${priceForUrl}.html` :
             `casa-venta-${config.key}${priceForUrl}.html`;
-        
+
         // Escribir archivo
         fs.writeFileSync(filename, htmlContent, 'utf8');
-        
-        console.log(`✅ Individual page generated: ${filename}`);
+
+        console.log(`✅ Individual page generated: ${filename} (with lightbox)`);
         return filename;
     }
 

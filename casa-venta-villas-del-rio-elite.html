@@ -213,40 +213,40 @@
                 <div class="carousel-wrapper">
                     <div class="carousel-slide active" data-slide="0">
                         <picture>
-                            <img src="images/villas-del-rio-elite/551591169_4011143629147092_8128717036008563701_n.jpg" alt="Villas del Rio Elite - Fachada principal" class="carousel-image gallery-image main-image" loading="lazy">
+                            <img src="images/villas-del-rio-elite/551591169_4011143629147092_8128717036008563701_n.jpg" alt="Villas del Rio Elite - Fachada principal" class="carousel-image gallery-image main-image" loading="lazy" onclick="openLightbox(0)">
                         </picture>
                     </div>
                     <div class="carousel-slide" data-slide="1">
                         <picture>
-                            <img src="images/villas-del-rio-elite/553529341_837076445339840_6799564124679172394_n.jpg" alt="Villas del Rio Elite - Vista exterior lateral" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/villas-del-rio-elite/553529341_837076445339840_6799564124679172394_n.jpg" alt="Villas del Rio Elite - Vista exterior lateral" class="carousel-image gallery-image" loading="lazy" onclick="openLightbox(0)">
                         </picture>
                     </div>
                     <div class="carousel-slide" data-slide="2">
                         <picture>
-                            <img src="images/villas-del-rio-elite/551491820_1082889926970540_5824911623062388811_n.jpg" alt="Villas del Rio Elite - Sala principal" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/villas-del-rio-elite/551491820_1082889926970540_5824911623062388811_n.jpg" alt="Villas del Rio Elite - Sala principal" class="carousel-image gallery-image" loading="lazy" onclick="openLightbox(0)">
                         </picture>
                     </div>
                     <div class="carousel-slide" data-slide="3">
                         <picture>
-                            <img src="images/villas-del-rio-elite/551393505_1335444741302137_4456410280030112833_n.jpg" alt="Villas del Rio Elite - Estancia" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/villas-del-rio-elite/551393505_1335444741302137_4456410280030112833_n.jpg" alt="Villas del Rio Elite - Estancia" class="carousel-image gallery-image" loading="lazy" onclick="openLightbox(0)">
                         </picture>
                     </div>
                     <div class="carousel-slide" data-slide="4">
                         <picture>
-                            <img src="images/villas-del-rio-elite/552358772_770102868976058_8411396434105085922_n.jpg" alt="Villas del Rio Elite - Cocina integral" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/villas-del-rio-elite/552358772_770102868976058_8411396434105085922_n.jpg" alt="Villas del Rio Elite - Cocina integral" class="carousel-image gallery-image" loading="lazy" onclick="openLightbox(0)">
                         </picture>
                     </div>
                     <div class="carousel-slide" data-slide="5">
                         <picture>
-                            <img src="images/villas-del-rio-elite/552406565_810166761476374_3106172842394083268_n.jpg" alt="Villas del Rio Elite - Baño completo" class="carousel-image gallery-image" loading="lazy">
+                            <img src="images/villas-del-rio-elite/552406565_810166761476374_3106172842394083268_n.jpg" alt="Villas del Rio Elite - Baño completo" class="carousel-image gallery-image" loading="lazy" onclick="openLightbox(0)">
                         </picture>
                     </div>
                     
                     <!-- Navigation arrows -->
-                    <button class="carousel-arrow carousel-prev" onclick="changeSlideHero(-1)" aria-label="Foto anterior">
+                    <button class="carousel-arrow carousel-prev" onclick="changeSlideHero(-1); openLightboxFromCarousel();" aria-label="Foto anterior">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <button class="carousel-arrow carousel-next" onclick="changeSlideHero(1)" aria-label="Siguiente foto">
+                    <button class="carousel-arrow carousel-next" onclick="changeSlideHero(1); openLightboxFromCarousel();" aria-label="Siguiente foto">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -371,10 +371,10 @@
                     </div>
                     
                     <!-- Navigation arrows -->
-                    <button class="gallery-arrow gallery-prev" onclick="changeSlide(-1)" aria-label="Foto anterior">
+                    <button class="gallery-arrow gallery-prev" onclick="changeSlide(-1); openLightboxFromGallery();" aria-label="Foto anterior">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <button class="gallery-arrow gallery-next" onclick="changeSlide(1)" aria-label="Siguiente foto">
+                    <button class="gallery-arrow gallery-next" onclick="changeSlide(1); openLightboxFromGallery();" aria-label="Siguiente foto">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -673,5 +673,285 @@
         });
     });
     </script>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar galería">&times;</button>
+        <button class="lightbox-prev" onclick="changeLightboxSlide(-1)" aria-label="Foto anterior">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-next" onclick="changeLightboxSlide(1)" aria-label="Siguiente foto">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-counter">
+                <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            font-weight: 300;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 10000;
+            transition: transform 0.2s ease;
+            padding: 10px;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            transform: scale(1.2);
+            color: #ddd;
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 20px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            z-index: 10000;
+        }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-counter {
+            color: #fff;
+            font-size: 18px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Cursor pointer for clickable images */
+        .carousel-image {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .carousel-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .lightbox-prev,
+            .lightbox-next {
+                padding: 15px 10px;
+                font-size: 24px;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 15px;
+                font-size: 35px;
+            }
+
+            .lightbox-counter {
+                font-size: 16px;
+                margin-top: 10px;
+            }
+
+            .lightbox-content {
+                max-width: 95%;
+            }
+        }
+    </style>
+
+    <script>
+        // Lightbox functionality
+        let lightboxImages = [];
+        let currentLightboxIndex = 0;
+
+        // Initialize lightbox images from carousel
+        function initLightbox() {
+            lightboxImages = [];
+            const images = document.querySelectorAll('.carousel-image');
+            images.forEach(img => {
+                if (!lightboxImages.some(item => item.src === img.src)) {
+                    lightboxImages.push({
+                        src: img.src,
+                        alt: img.alt
+                    });
+                }
+            });
+        }
+
+        // Call init when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initLightbox);
+        } else {
+            initLightbox();
+        }
+
+        function openLightbox(index) {
+            if (lightboxImages.length === 0) initLightbox();
+
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCurrent = document.getElementById('lightbox-current');
+            const lightboxTotal = document.getElementById('lightbox-total');
+
+            lightboxImg.src = lightboxImages[index].src;
+            lightboxImg.alt = lightboxImages[index].alt;
+            lightboxCurrent.textContent = index + 1;
+            lightboxTotal.textContent = lightboxImages.length;
+
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function changeLightboxSlide(direction) {
+            currentLightboxIndex += direction;
+
+            if (currentLightboxIndex >= lightboxImages.length) {
+                currentLightboxIndex = 0;
+            } else if (currentLightboxIndex < 0) {
+                currentLightboxIndex = lightboxImages.length - 1;
+            }
+
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCurrent = document.getElementById('lightbox-current');
+
+            lightboxImg.src = lightboxImages[currentLightboxIndex].src;
+            lightboxImg.alt = lightboxImages[currentLightboxIndex].alt;
+            lightboxCurrent.textContent = currentLightboxIndex + 1;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox && lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    changeLightboxSlide(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeLightboxSlide(1);
+                }
+            }
+        });
+
+        // Close lightbox when clicking outside the image
+        if (document.getElementById('lightbox')) {
+            document.getElementById('lightbox').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeLightbox();
+                }
+            });
+        }
+
+        // Open lightbox from carousel arrows
+        function openLightboxFromCarousel() {
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                const activeSlide = heroSection.querySelector('.carousel-slide.active');
+                if (activeSlide) {
+                    const slideIndex = parseInt(activeSlide.getAttribute('data-slide'));
+                    setTimeout(() => {
+                        openLightbox(slideIndex);
+                    }, 50);
+                }
+            }
+        }
+
+        function openLightboxFromGallery() {
+            const gallerySection = document.querySelector('.gallery');
+            if (gallerySection) {
+                const activeSlide = gallerySection.querySelector('.carousel-slide.active');
+                if (activeSlide) {
+                    const slideIndex = parseInt(activeSlide.getAttribute('data-slide'));
+                    setTimeout(() => {
+                        openLightbox(slideIndex);
+                    }, 50);
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>
