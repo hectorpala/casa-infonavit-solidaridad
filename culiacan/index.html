@@ -1078,7 +1078,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO (estructura EXACTA La Campiña) -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        $12,000/mes
+                        RENTA · $12,000/mes
                     </div>
                     
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -2399,7 +2399,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO (estructura EXACTA La Campiña) -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        $12,000/mes
+                        RENTA · $12,000/mes
                     </div>
 
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -2504,7 +2504,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO (estructura EXACTA La Campiña) -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        $12,000/mes
+                        RENTA · $12,000/mes
                     </div>
 
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -2609,7 +2609,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        $6,550,000
+                        VENTA · $6,550,000
                     </div>
 
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -5486,11 +5486,12 @@
         allCards.forEach((card, index) => {
           let show = true;
           const priceText = card.querySelector('.bg-orange-500')?.textContent || '';
-          const isRenta = priceText.includes('/mes');
-          const isVenta = !isRenta;
+          // Detectar por palabra RENTA o VENTA en el badge, o por /mes como fallback
+          const isRenta = priceText.toUpperCase().includes('RENTA') || priceText.includes('/mes');
+          const isVenta = priceText.toUpperCase().includes('VENTA') || !isRenta;
           const priceNumber = parseInt(priceText.replace(/[^\d]/g, '')) || 0;
           const cardText = card.textContent.toLowerCase();
-          
+
           // 1. Filtro por tipo de operación
           if (filters.type) {
             if (filters.type === 'renta' && !isRenta) show = false;
