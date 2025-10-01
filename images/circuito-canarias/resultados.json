@@ -1,0 +1,74 @@
+{
+  "cover": "cover.jpg",
+  "selected_from": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-01.jpg",
+  "fallback": true,
+  "threshold": 0.6,
+  "ranked": [
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-01.jpg",
+      "score": 0.1302659498692468,
+      "positives_avg": 0.25616429020551346,
+      "negatives_avg": 0.22589834033626666
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-03.jpg",
+      "score": 0.102315379173665,
+      "positives_avg": 0.26459261359305003,
+      "negatives_avg": 0.21227723441938504
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-14.jpg",
+      "score": 0.07917687991818435,
+      "positives_avg": 0.2608589571868352,
+      "negatives_avg": 0.23168207726865087
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-04.jpg",
+      "score": 0.030785506006339933,
+      "positives_avg": 0.23732884608756258,
+      "negatives_avg": 0.25654334008122265
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-11.jpg",
+      "score": 0.03043288032287826,
+      "positives_avg": 0.23735148790218238,
+      "negatives_avg": 0.2569186075793041
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-02.jpg",
+      "score": 0.030004563262164677,
+      "positives_avg": 0.24865229717984527,
+      "negatives_avg": 0.2686477339176806
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-09.jpg",
+      "score": 0.027778251344817553,
+      "positives_avg": 0.22562750432315992,
+      "negatives_avg": 0.24784925297834237
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-05.jpg",
+      "score": 0.010309234224265398,
+      "positives_avg": 0.23423202298320778,
+      "negatives_avg": 0.2739227887589424
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-06.jpg",
+      "score": 0,
+      "positives_avg": 0.2336015516487713,
+      "negatives_avg": 0.2708456118489268
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-07.jpg",
+      "score": 0,
+      "positives_avg": 0.23122541127212623,
+      "negatives_avg": 0.26849589919990224
+    },
+    {
+      "file": "circuito-canarias-5981-bachigualato-culiacan-sinaloa-29297475-foto-10.jpg",
+      "score": 0,
+      "positives_avg": 0.2350723283188194,
+      "negatives_avg": 0.26013292424688045
+    }
+  ]
+}
