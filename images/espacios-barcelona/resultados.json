@@ -1,0 +1,62 @@
+{
+  "cover": "cover.jpg",
+  "selected_from": "Sinaloa-Espacios-Barcelona-Blvd-Circuito-Interior-Culiacán-16-28718521.jpeg",
+  "fallback": true,
+  "threshold": 0.6,
+  "ranked": [
+    {
+      "file": "Sinaloa-Espacios-Barcelona-Blvd-Circuito-Interior-Culiacán-16-28718521.jpeg",
+      "score": 0,
+      "positives_avg": 0.25751241627537413,
+      "negatives_avg": 0.27469900975966405
+    },
+    {
+      "file": "Sinaloa-Espacios-Barcelona-Blvd-Circuito-Interior-Culiacán-16-28718521.jpg",
+      "score": 0,
+      "positives_avg": 0.25963500164061476,
+      "negatives_avg": 0.2762093729341402
+    },
+    {
+      "file": "Sinaloa-Espacios-Barcelona-Blvd-Circuito-Interior-Culiacán-19-28718521.jpeg",
+      "score": 0,
+      "positives_avg": 0.2444228083608602,
+      "negatives_avg": 0.26944671843473406
+    },
+    {
+      "file": "Sinaloa-Espacios-Barcelona-Blvd-Circuito-Interior-Culiacán-19-28718521.jpg",
+      "score": 0,
+      "positives_avg": 0.24521323263562167,
+      "negatives_avg": 0.27769758597236
+    },
+    {
+      "file": "Sinaloa-Espacios-Barcelona-Blvd-Circuito-Interior-Culiacán-27-28718521.jpeg",
+      "score": 0,
+      "positives_avg": 0.25446563307994785,
+      "negatives_avg": 0.2751292052433518
+    },
+    {
+      "file": "Sinaloa-Espacios-Barcelona-Blvd-Circuito-Interior-Culiacán-27-28718521.jpg",
+      "score": 0,
+      "positives_avg": 0.25208095948864045,
+      "negatives_avg": 0.27292599011961294
+    },
+    {
+      "file": "Sinaloa-Espacios-Barcelona-Blvd-Circuito-Interior-Culiacán-8-28718521.jpeg",
+      "score": 0,
+      "positives_avg": 0.2639996805458538,
+      "negatives_avg": 0.23319538511067606
+    },
+    {
+      "file": "Sinaloa-Espacios-Barcelona-Blvd-Circuito-Interior-Culiacán-8-28718521.jpg",
+      "score": 0,
+      "positives_avg": 0.2626568478724632,
+      "negatives_avg": 0.23110320552075844
+    },
+    {
+      "file": "blvd-circuito-interior-espacios-barcelona-culiacan-sinaloa-28718521-foto-49fa390c-5cd1-4714-941b-328e9d1467be.jpg",
+      "score": 0,
+      "positives_avg": 0.28001622926832853,
+      "negatives_avg": 0.22770725906579237
+    }
+  ]
+}
