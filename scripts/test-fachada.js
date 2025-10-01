@@ -2,12 +2,13 @@
 
 /**
  * Test script para detección automática de fachada
- * Uso: npm run test:fachada
+ * Uso: npm run test:fachada [carpeta]
+ *
+ * Versión CLIP offline (sin API key necesaria)
  */
 
-require('dotenv').config();
 const path = require('path');
-const { setCoverFromBatch } = require('../automation/fachada-detector');
+const { setCoverFromBatch } = require('../automation/fachada-detector-clip');
 
 async function testFachada() {
     try {
@@ -27,13 +28,13 @@ async function testFachada() {
             console.log('📊 RESULTADOS:');
             console.log(`   Cover generado: ${result.coverPath}`);
             console.log(`   Archivo seleccionado: ${result.winner.file}`);
-            console.log(`   Score: ${result.winner.finalScore.toFixed(3)}`);
+            console.log(`   Score: ${result.winner.score.toFixed(3)}`);
             console.log(`   Fallback: ${result.fallback ? 'Sí' : 'No'}`);
             console.log(`   Total imágenes analizadas: ${result.ranked.length}`);
 
             console.log('\n📸 TOP 5:');
             result.ranked.slice(0, 5).forEach((r, idx) => {
-                console.log(`   ${idx + 1}. ${r.file} - Score: ${r.finalScore.toFixed(3)}`);
+                console.log(`   ${idx + 1}. ${r.file} - Score: ${r.score.toFixed(3)}`);
             });
         } else {
             console.log('\n⚠️  TEST FALLIDO: No se pudo generar cover\n');
@@ -42,7 +43,7 @@ async function testFachada() {
     } catch (error) {
         console.error('\n❌ ERROR EN TEST:', error.message);
         console.error('\n💡 POSIBLES CAUSAS:');
-        console.error('   1. ANTHROPIC_API_KEY no configurada en .env');
+        console.error('   1. @xenova/transformers no instalado (npm install @xenova/transformers)');
         console.error('   2. Carpeta de fotos no existe');
         console.error('   3. No hay imágenes válidas en la carpeta\n');
         process.exit(1);
