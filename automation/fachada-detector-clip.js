@@ -89,33 +89,16 @@ async function embedTextBatch(prompts) {
  */
 async function embedImage(imagePath) {
     const { model, processor } = await loadClip();
+    const { RawImage } = require('@xenova/transformers');
 
-    // Leer y preprocesar imagen
-    const imageBuffer = await fs.promises.readFile(imagePath);
-    const image = await sharp(imageBuffer)
-        .resize(224, 224, { fit: 'cover' })
-        .removeAlpha()
-        .raw()
-        .toBuffer({ resolveWithObject: true });
+    // Leer imagen usando RawImage de transformers
+    const image = await RawImage.read(imagePath);
 
-    const { data, info } = image;
+    // Procesar imagen
+    const imageInputs = await processor(image);
 
-    // Convertir a tensor
-    const pixelData = new Float32Array(3 * 224 * 224);
-    for (let i = 0; i < 224 * 224; i++) {
-        pixelData[i] = data[i * 3] / 255.0;                    // R
-        pixelData[224 * 224 + i] = data[i * 3 + 1] / 255.0;    // G
-        pixelData[224 * 224 * 2 + i] = data[i * 3 + 2] / 255.0; // B
-    }
-
-    const inputTensor = {
-        pixel_values: {
-            data: pixelData,
-            dims: [1, 3, 224, 224]
-        }
-    };
-
-    const output = await model.visionModel(inputTensor);
+    // Generar embedding
+    const output = await model.visionModel(imageInputs);
 
     return output.image_embeds.tolist()[0];
 }
