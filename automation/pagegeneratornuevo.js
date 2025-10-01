@@ -22,10 +22,22 @@
  * - Detecta RENTA con regex: /\/mes|mes|renta|mensual/.test(priceText)
  * - Sin badge naranja = NO se detecta como RENTA = aparece en VENTA
  *
- * VENTAS:
+ * VENTAS (ACTUALIZADO):
  * - Archivo en carpeta: culiacan/[slug]/index.html
  * - Fotos en: culiacan/[slug]/images/
- * - Badge verde: bg-green-600
+ * - Badge VERDE OBLIGATORIO: bg-green-600 con precio (para detección de filtro)
+ * - Formato precio: $2,500,000 EN UN SOLO ELEMENTO (sin /mes)
+ * - Tarjeta debe tener onclick="changeImage()" en arrows
+ * - Debe incluir botón de favoritos con SVG
+ * - Usar font-poppins en título y descripción
+ * - SVG icons para recámaras/baños/m² (no FontAwesome)
+ * - Botón CTA con gradiente verde
+ * - Rutas relativas: ${datos.slug}/images/ y ${datos.slug}/index.html
+ *
+ * FILTRO JAVASCRIPT:
+ * - VENTA: Badge verde bg-green-600 SIN "/mes" en el texto
+ * - RENTA: Badge naranja bg-orange-500 CON "/mes" en el texto
+ * - El filtro detecta por clase de badge y presencia de "/mes"
  *
  * USO: node automation/pagegeneratornuevo.js
  */
@@ -441,68 +453,75 @@ class PageGeneratorNuevo {
             </div>
             <!-- END CARD-ADV ${datos.slug} -->`;
         } else {
-            // TARJETA VENTA - Estructura básica
+            // TARJETA VENTA - ESTRUCTURA EXACTA CON BADGE VERDE OBLIGATORIO
             tarjetaHtml = `
             <!-- BEGIN CARD-ADV ${datos.slug} -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="${datos.slug}/index.html">
                 <div class="relative aspect-video">
+                    <!-- PRICE BADGE VERDE OBLIGATORIO para VENTA -->
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        ${precioFormateado}
+                    </div>
+
+                    <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
                     <div class="carousel-container" data-current="0">
-                        ${fotos.slice(0, 5).map((foto, index) => `
+                        ${fotos.slice(0, 8).map((foto, index) => `
                         <img src="${datos.slug}/images/${foto}"
-                             alt="${datos.titulo} - Foto ${index + 1}"
-                             loading="lazy"
-                             decoding="async"
-                             class="w-full h-full object-cover carousel-image ${index === 0 ? 'active' : 'hidden'}">`).join('')}
+                 alt="Casa en Venta ${datos.ubicacion} - Foto ${index + 1}"
+                 loading="lazy"
+                 decoding="async"
+                 class="w-full h-full object-cover carousel-image ${index === 0 ? 'active' : 'hidden'}">`).join('')}
+
+                        <!-- Navigation arrows - FUNCIONES EXISTENTES -->
+                        <button class="carousel-arrow carousel-prev" onclick="changeImage(this.parentElement, -1)" aria-label="Imagen anterior">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-arrow carousel-next" onclick="changeImage(this.parentElement, 1)" aria-label="Siguiente imagen">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
 
-                    <button class="carousel-prev" aria-label="Imagen anterior">
-                        <i class="fas fa-chevron-left"></i>
+                    <!-- Favoritos button -->
+                    <button class="favorite-btn absolute top-3 left-3 bg-white bg-opacity-80 hover:bg-opacity-100 p-2 rounded-full transition-all duration-300 z-20">
+                        <svg class="w-5 h-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
                     </button>
-                    <button class="carousel-next" aria-label="Siguiente imagen">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-
-                    <div class="carousel-indicators">
-                        ${fotos.slice(0, 5).map((_, index) =>
-                            `<button class="indicator ${index === 0 ? 'active' : ''}"></button>`
-                        ).join('')}
-                    </div>
-
-                    <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                        VENTA
-                    </div>
                 </div>
 
+                <!-- CONTENT SECTION -->
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">${datos.titulo}</h3>
-                    <p class="text-gray-600 mb-4 flex items-center">
-                        <i class="fas fa-map-marker-alt mr-2 text-hector"></i>
-                        ${datos.ubicacion}
-                    </p>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1 font-poppins">${precioFormateado}</h3>
+                    <p class="text-gray-600 mb-4 font-poppins">Casa en Venta ${datos.ubicacion} · Culiacán</p>
 
-                    <div class="flex justify-between items-center mb-4">
-                        <div class="text-2xl font-bold text-hector">${precioFormateado}</div>
+                    <!-- PROPERTY DETAILS CON SVG ICONS (estructura EXACTA) -->
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                            </svg>
+                            ${datos.recamaras} Recámaras
+                        </div>
+                        <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            ${datos.banos} Baños
+                        </div>
+                        <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                            </svg>
+                            ${datos.terreno}m²
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-4 mb-4 text-center">
-                        <div>
-                            <i class="fas fa-bed text-gray-400 mb-1"></i>
-                            <div class="text-sm font-semibold">${datos.recamaras} rec</div>
-                        </div>
-                        <div>
-                            <i class="fas fa-bath text-gray-400 mb-1"></i>
-                            <div class="text-sm font-semibold">${datos.banos} baños</div>
-                        </div>
-                        <div>
-                            <i class="fas fa-ruler-combined text-gray-400 mb-1"></i>
-                            <div class="text-sm font-semibold">${datos.terreno}m²</div>
-                        </div>
-                    </div>
-
-                    <button class="w-full bg-hector hover:bg-hector-dark text-white font-semibold py-3 rounded-lg transition-colors">
+                    <!-- CTA BUTTON CON GRADIENTE VERDE -->
+                    <a href="${datos.slug}/index.html"
+                       class="block w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white text-center font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                         Ver Detalles
-                    </button>
+                    </a>
                 </div>
             </div>
             <!-- END CARD-ADV ${datos.slug} -->`;
