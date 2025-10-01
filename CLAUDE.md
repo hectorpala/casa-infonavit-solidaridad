@@ -9,7 +9,7 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 **Comando usuario:** "Vamos a subir una nueva propiedad"
 **Acción:** Usar automation/property-page-generator.js para crear página optimizada
 
-### PUBLICAR CAMBIOS  
+### PUBLICAR CAMBIOS
 **Comando usuario:** "publica ya"
 **Acción:** Usar gitops-publicador para deployment directo
 
@@ -26,68 +26,185 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 - **🔧 NUEVO:** Validación pre-deploy para evitar pérdida de propiedades
 - **Función:** PROCESO 100% AUTOMÁTICO - Solo requiere fotos en PROYECTOS
 
-### Estructura de Fotos
+### 📸 Estructura de Fotos - **CRÍTICO**
+
+#### VENTA:
 - **Origen:** `/Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/[carpeta]/`
-- **Destino:** `images/[property-slug]/`
-- **🤖 PROCESO 100% AUTOMÁTICO:**
-  1. Auto-detecta carpeta en PROYECTOS por nombre/título
-  2. Copia + optimiza automáticamente (PNG→JPG, 85% calidad, 1200px max)
-  3. Verifica optimizaciones automáticamente
-  4. Muestra "READY TO PUBLISH" si todo correcto
-- **Generación:** Carruseles automáticos con fotos optimizadas
+- **Destino:** `culiacan/[slug]/images/`
+- **Archivo HTML:** `culiacan/[slug]/index.html`
+- **⚠️ REGLA FACHADA:** La foto-1.jpg SIEMPRE debe ser la fachada de la casa
+- **Proceso optimización:**
+  1. Auto-detecta carpeta en PROYECTOS
+  2. Optimiza: PNG→JPG, 85% calidad, 1200px max
+  3. Renombra: foto-1.jpg, foto-2.jpg, ... foto-N.jpg
+  4. **VERIFICAR**: Identificar manualmente cuál es la fachada
+  5. **REORGANIZAR**: Swap de fotos para poner fachada como foto-1.jpg
+
+#### RENTA:
+- **Origen:** `/Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS/[carpeta]/`
+- **Destino:** `images/[slug]/`
+- **Archivo HTML:** `casa-renta-[slug].html` (ROOT)
+- **⚠️ REGLA FACHADA:** La foto-1.jpg SIEMPRE debe ser la fachada de la casa
+
+### 🎨 TEMPLATES DE REFERENCIA
+
+#### Template VENTA - **La Perla Premium** ✅
+- **Archivo:** `casa-venta-casa-en-venta-privada-la-perla-premium.html`
+- **Ubicación:** ROOT
+- **Estructura completa:**
+  - ✅ Hero Section con dual carousel (10 fotos) + price badge
+  - ✅ Features Section (6 tarjetas Font Awesome icons)
+  - ✅ Gallery Carousel (independiente del hero)
+  - ✅ Details Section (info grid + price card)
+  - ✅ Calculator Section (hipoteca completa)
+  - ✅ Contact Section (WhatsApp + teléfono)
+  - ✅ WhatsApp Floating Button
+  - ✅ Footer
+  - ✅ Dual Carousel JavaScript (hero + gallery separados)
+  - ✅ Touch/swipe support móvil
+
+#### Template RENTA - **Privanzas Natura** ✅
+- **Archivo:** `casa-renta-privanzas-natura.html`
+- **Ubicación:** ROOT
+- **Estructura:** Similar a VENTA pero con badge naranja
 
 ## 📄 ARCHIVOS CRÍTICOS
 
 ### Páginas Principales
 - `culiacan/index.html` - **PÁGINA PRINCIPAL QUE SIRVE EL SITIO**
 - `index.html` - Backup/landing principal
-- `casa-[tipo]-[nombre].html` - Páginas individuales de propiedades
+- **VENTA:** `culiacan/[slug]/index.html`
+- **RENTA:** `casa-renta-[slug].html` (ROOT)
 
 ### Estilos y Scripts
-- `culiacan/infonavit-solidaridad/styles.css` - CSS principal
+- `culiacan/infonavit-solidaridad/styles.css` - CSS principal compartido
 - Carruseles JavaScript embebidos en cada página
+- Font: Poppins (Google Fonts)
+- Icons: Font Awesome 6.0.0
 
 ## ⚙️ OPTIMIZACIONES IMPLEMENTADAS
-- SEO completo (meta tags, structured data, Open Graph)
+- SEO completo (meta tags, structured data Schema.org, Open Graph)
 - Performance (preloading, DNS prefetch, lazy loading)
-- WhatsApp integration con mensajes personalizados
-- Dual carousel system (hero + gallery)
-- Responsive design
-- Rental calculators para propiedades de renta
+- WhatsApp integration con mensajes personalizados URL-encoded
+- Dual carousel system (hero + gallery independientes)
+- Responsive design mobile-first
+- Calculadoras hipoteca/renta interactivas
+- PWA meta tags y manifest.json
 
 ## 🚀 DEPLOYMENT
 - **Servicio:** GitHub Pages
 - **URL Principal:** https://casasenventa.info (NO zasakitchenstudio.mx)
 - **Comando:** "publica ya" → gitops-publicador → merge directo a main
+- **Tiempo deploy:** 1-2 minutos
 - **Verificación:** Siempre verificar en casasenventa.info después del deployment
 
 ## 📱 CARACTERÍSTICAS ESPECIALES
 - Botones WhatsApp flotantes personalizados por propiedad
-- Calculadoras de renta interactivas
+- Calculadoras de renta/hipoteca interactivas
 - Carruseles touch/swipe para móvil
-- Optimización de imágenes automática
-- Cache busting para actualizaciones
+- Optimización de imágenes automática (sips)
+- Cache busting para actualizaciones (?v=hash)
 
 ## 🎨 CONVENCIONES DE CÓDIGO
-- **Archivos HTML:** casa-[venta/renta]-[slug].html
-- **Carpetas imágenes:** images/[property-slug]/
-- **Clase CSS:** .property-card para listings
-- **WhatsApp:** Mensajes URL-encoded específicos por propiedad
-- **🔧 NUEVO:** Estructura dual compatible: clásica (index.html) + Tailwind CSS (culiacan/index.html)
-- **🔧 NUEVO:** Template Culiacán replica EXACTAMENTE formato Casa La Campiña
 
-## 📋 PROCESO VERIFICACIÓN
-1. Revisar fotos y descripciones precisas
-2. Confirmar fachada como imagen principal  
-3. Validar aparición en ambos index
-4. Verificar WhatsApp y contacto
-5. Publicar con "publica ya"
-6. **IMPORTANTE**: Verificar en https://casasenventa.info que se vea la propiedad
+### Archivos y Carpetas:
+- **VENTA:** `culiacan/[slug]/index.html` + `culiacan/[slug]/images/`
+- **RENTA:** `casa-renta-[slug].html` (ROOT) + `images/[slug]/`
+- **Slug:** lowercase, sin acentos, guiones (ej: "san-agustin-primavera")
+
+### Tarjetas en culiacan/index.html:
+
+#### VENTA (badge verde):
+```html
+<!-- BEGIN CARD-ADV [slug] -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
+     data-href="[slug]/index.html">
+    <div class="relative aspect-video">
+        <!-- PRICE BADGE VERDE OBLIGATORIO -->
+        <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+            $X,XXX,XXX
+        </div>
+
+        <!-- CAROUSEL con onclick="changeImage()" -->
+        <div class="carousel-container" data-current="0">
+            <img src="[slug]/images/foto-1.jpg" ... class="carousel-image active">
+            <!-- ... más fotos ... -->
+            <button class="carousel-arrow carousel-prev" onclick="changeImage(this.parentElement, -1)">
+            <button class="carousel-arrow carousel-next" onclick="changeImage(this.parentElement, 1)">
+        </div>
+
+        <!-- Favoritos SVG -->
+        <button class="favorite-btn absolute top-3 left-3 ...">
+            <svg class="w-5 h-5 text-gray-600 hover:text-red-500" ...>
+        </button>
+    </div>
+
+    <div class="p-6">
+        <h3 class="text-2xl font-bold text-gray-900 mb-1 font-poppins">$X,XXX,XXX</h3>
+        <p class="text-gray-600 mb-4 font-poppins">Casa en Venta [Ubicación] · Culiacán</p>
+
+        <!-- SVG ICONS (NO Font Awesome en tarjetas) -->
+        <div class="flex flex-wrap gap-3 mb-6">
+            <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                <svg class="w-4 h-4" ...><!-- bed icon --></svg>
+                X Recámaras
+            </div>
+            <!-- ... baños, m² ... -->
+        </div>
+
+        <!-- CTA VERDE -->
+        <a href="[slug]/index.html"
+           class="block w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white text-center font-semibold py-3 px-6 rounded-lg ...">
+            Ver Detalles
+        </a>
+    </div>
+</div>
+<!-- END CARD-ADV [slug] -->
+```
+
+#### RENTA (badge naranja):
+```html
+<!-- Igual estructura pero: -->
+- Badge: bg-orange-500
+- Precio: $XX,XXX/mes
+- CTA: from-orange-500 to-orange-600
+- href: ../casa-renta-[slug].html
+- images: ../images/[slug]/foto-X.jpg
+```
+
+### Filtros JavaScript Automáticos:
+- **VENTA**: Detecta badge `bg-green-600` + precio SIN "/mes"
+- **RENTA**: Detecta badge `bg-orange-500` + precio CON "/mes"
+- El sistema filtra automáticamente por clase CSS del badge
+
+## 📋 PROCESO VERIFICACIÓN - **CHECKLIST OBLIGATORIO**
+
+### Antes de crear propiedad:
+1. ✅ Fotos en carpeta PROYECTOS
+2. ✅ Identificar cuál foto es la FACHADA
+3. ✅ Datos completos: título, ubicación, precio, recámaras, baños, m²
+
+### Durante creación:
+1. ✅ Optimizar fotos (automation/optimizar-fotos.sh)
+2. ✅ Renombrar a foto-1.jpg, foto-2.jpg, etc.
+3. ✅ **CRÍTICO:** Poner FACHADA como foto-1.jpg (swap si es necesario)
+4. ✅ Crear página con template correcto (La Perla Premium para VENTA)
+5. ✅ Verificar meta tags, Schema.org, WhatsApp links
+6. ✅ Agregar tarjeta en culiacan/index.html con badge correcto
+
+### Después de publicar:
+1. ✅ Verificar en https://casasenventa.info/culiacan/[slug]/
+2. ✅ Confirmar fachada como imagen principal
+3. ✅ Validar aparición en filtro correcto (VENTA o RENTA)
+4. ✅ Verificar WhatsApp links funcionan
+5. ✅ Probar carruseles (flechas + dots + swipe móvil)
+6. ✅ Validar calculadora hipoteca con precio correcto
 
 ## 🔧 COMANDOS CLAVE
 - **Invocar instrucciones**: "Lee INSTRUCCIONES_AGREGAR_PROPIEDADES.md"
 - **Identificar fotos**: "puedes identificar las fotos osea saber que son?"
-- **Corregir descripciones**: "si"
+- **Reorganizar fachada**: "pon la fachada como foto-1"
+- **Crear propiedad**: "sube esta nueva propiedad en venta/renta"
 - **Publicar**: "publica ya"
 
 ## 🧠 SISTEMA INTEGRACIÓN INTELIGENTE - DETALLES TÉCNICOS
@@ -107,15 +224,94 @@ const isCuliacanPage = htmlFilePath.includes('culiacan');
 
 ### Preservación de Contenido:
 - ✅ Lee propiedades existentes ANTES de integrar
-- ✅ Combina nueva propiedad con todas las existentes  
+- ✅ Combina nueva propiedad con todas las existentes
 - ✅ Usa string replacement para evitar corrupción de regex
 - ✅ Valida count de propiedades antes de deployment
 
+## 📐 REGLAS DE ESTRUCTURA HTML - VENTA
+
+### Meta Tags OBLIGATORIOS:
+```html
+<title>Casa en Venta $X,XXX,XXX - [Ubicación] | Hector es Bienes Raíces</title>
+<meta name="description" content="[Descripción con recámaras, baños, amenidades]">
+<meta name="keywords" content="casa venta [ubicación], X recámaras, X baños, [amenidades]">
+<link rel="canonical" href="https://casasenventa.info/culiacan/[slug]/">
+```
+
+### Schema.org OBLIGATORIO:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SingleFamilyResidence",
+  "name": "[Título propiedad]",
+  "numberOfBedrooms": X,
+  "numberOfBathroomsTotal": X.X,
+  "floorSize": {"value": XXX, "unitCode": "MTK"},
+  "offers": {
+    "price": "XXXXXXX",
+    "priceCurrency": "MXN"
+  },
+  "amenityFeature": [...]
+}
+```
+
+### Carruseles Duales:
+```javascript
+// HERO CAROUSEL
+let currentSlideHero = 0;
+const totalSlidesHero = 10; // Actualizar según cantidad de fotos
+function changeSlideHero(direction) { ... }
+
+// GALLERY CAROUSEL
+let currentSlide = 0;
+const totalSlides = 10; // Actualizar según cantidad de fotos
+function changeSlide(direction) { ... }
+```
+
+### Calculadora Hipoteca:
+```javascript
+// Precio default debe coincidir con el de la propiedad
+<input type="number" id="precio" value="6550000" ...>
+<span id="engancheDisplay">5% = $327,500</span>
+```
+
 ## 📈 HISTORIAL DE ÉXITO
+
+### Propiedades Implementadas:
 - **Casa Privada Puntazul**: Commit 48ec161 ✅
 - **Casa Zona Dorada**: Commit 7df9bcf ✅
-- **Villa Andalucía**: Commit 1e9183c ✅ - OPCIÓN 1 implementada exitosamente
-  - ✅ Sistema de integración inteligente funcionando
-  - ✅ Preservación de todas las propiedades existentes
-  - ✅ Estructura dual compatible (clásica + Tailwind CSS)
-  - ✅ Template Culiacán mejorado con formato Casa La Campiña
+- **Villa Andalucía**: Commit 1e9183c ✅
+- **Casa Colinas San Miguel**: RENTA con badge naranja ✅
+- **Casa Viñedos de Vascos**: Commit d04e1e3 - RENTA ✅
+- **Casa San Agustín La Primavera**: Commits 73e5121 + 70aabb3 + 7c31f60 ✅
+  - ✅ Template La Perla Premium replicado
+  - ✅ Estructura completa: Hero + Features + Gallery + Calculator
+  - ✅ Fachada como foto-1.jpg (reorganizada)
+  - ✅ Badge verde bg-green-600 para VENTA
+  - ✅ Dual carousel con touch/swipe
+  - ✅ Schema.org completo con amenidades
+
+### Lecciones Aprendidas:
+- ✅ Sistema de integración inteligente funcionando
+- ✅ Preservación de todas las propiedades existentes
+- ✅ Estructura dual compatible (clásica + Tailwind CSS)
+- ✅ Template La Perla Premium como estándar VENTA
+- ✅ **CRÍTICO**: Siempre verificar y poner fachada como foto-1.jpg
+- ✅ Badge verde (VENTA) vs naranja (RENTA) para filtros
+
+## 🎯 PRÓXIMAS PROPIEDADES
+
+### Checklist rápido:
+1. ✅ Fotos en PROYECTOS
+2. ✅ Identificar FACHADA visualmente
+3. ✅ Optimizar con `automation/optimizar-fotos.sh`
+4. ✅ **Reorganizar**: fachada = foto-1.jpg
+5. ✅ Template La Perla Premium (VENTA) o Privanzas (RENTA)
+6. ✅ Tarjeta con badge correcto en culiacan/index.html
+7. ✅ Commit + "publica ya"
+8. ✅ Verificar en casasenventa.info
+
+### Documentación Adicional:
+- `automation/RESUMEN_ACTUALIZACION.md` - Guía estructura La Perla Premium
+- `automation/pagegeneratornuevo.js` - Generator automatizado
+- `automation/pagegeneratornuevo.js.backup` - Respaldo del generator
