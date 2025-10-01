@@ -3343,8 +3343,7 @@ img {
     justify-content: center;
     gap: 12px;
     padding: 25px 20px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
+    background: transparent;
 }
 
 .carousel-dot {
