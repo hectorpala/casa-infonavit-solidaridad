@@ -53,7 +53,7 @@
       "petsAllowed": false,
       "offers": {
         "@type": "Offer",
-        "price": "4100000",
+        "price": "3850000",
         "priceCurrency": "MXN",
         "availability": "https://schema.org/InStock",
         "priceValidUntil": "2025-12-31",
@@ -505,7 +505,7 @@
                 </div>
                 <div class="price-card">
                     <h3>Precio</h3>
-                    <div class="price">$4,100,000</div>
+                    <div class="price">$3,850,000</div>
                     <p class="price-note">Se acepta contado y todos los créditos</p>
                     <a href="#contact" class="price-cta">Más Información</a>
                 </div>
@@ -520,7 +520,7 @@
             <div class="calc-box">
                 <div class="input-group">
                     <label>Precio de la casa:</label>
-                    <input type="number" id="precio" value="4100000" min="100000" step="10000">
+                    <input type="number" id="precio" value="3850000" min="100000" step="10000">
                 </div>
                 
                 <div class="input-group">
@@ -753,7 +753,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Calculator functions
         function updateEnganche() {
-            const precio = document.getElementById('precio').value || 4100000;
+            const precio = document.getElementById('precio').value || 3850000;
             const porcentaje = document.getElementById('enganche').value;
             const monto = precio * (porcentaje / 100);
             document.getElementById('engancheDisplay').textContent = 
@@ -761,7 +761,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         function calcular() {
-            const precio = parseFloat(document.getElementById('precio').value) || 4100000;
+            const precio = parseFloat(document.getElementById('precio').value) || 3850000;
             const enganchePorcentaje = parseFloat(document.getElementById('enganche').value) || 5;
             const anos = parseInt(document.getElementById('anos').value) || 20;
             const tasaAnual = parseFloat(document.getElementById('banco').value) || 10.45;
