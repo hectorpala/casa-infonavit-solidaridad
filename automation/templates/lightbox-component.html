@@ -167,8 +167,13 @@
         // Initialize lightbox images from carousel
         function initLightbox() {
             lightboxImages = [];
-            const images = document.querySelectorAll('.carousel-image, .gallery-image');
+            // Find all property images (include .slide img for properties without carousel-image class)
+            const images = document.querySelectorAll('.carousel-image, .gallery-image, .slide img, .carousel img');
             images.forEach(img => {
+                // Skip logos and non-property images
+                if (img.src.includes('Logo') || img.classList.contains('logo')) {
+                    return;
+                }
                 if (!lightboxImages.some(item => item.src === img.src)) {
                     lightboxImages.push({
                         src: img.src,

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Lightbox</title>
+</head>
+<body>
+    <div class="carousel">
+        <div class="slide">
+            <img src="images/centenario/foto-01.jpeg" alt="Foto 1" onclick="openLightbox(0)">
+        </div>
+        <div class="slide">
+            <img src="images/centenario/foto-02.jpeg" alt="Foto 2" onclick="openLightbox(1)">
+        </div>
+    </div>
+
+    <div class="carousel">
+        <div class="slide">
+            <img src="images/centenario/foto-01.jpeg" alt="Foto 1" onclick="openLightbox(2)">
+        </div>
+    </div>
+
+    <script>
+        let lightboxImages = [];
+
+        function initLightbox() {
+            lightboxImages = [];
+            const images = document.querySelectorAll('.slide img');
+            images.forEach(img => {
+                if (!lightboxImages.some(item => item.src === img.src)) {
+                    lightboxImages.push({
+                        src: img.src,
+                        alt: img.alt
+                    });
+                }
+            });
+            console.log('Total images in array:', lightboxImages.length);
+            console.log('Images:', lightboxImages);
+        }
+
+        initLightbox();
+
+        function openLightbox(index) {
+            console.log('Opening index:', index);
+            console.log('Image at index:', lightboxImages[index]);
+            if (lightboxImages[index]) {
+                alert('Would show: ' + lightboxImages[index].alt);
+            } else {
+                alert('ERROR: No image at index ' + index);
+            }
+        }
+    </script>
+</body>
+</html>
