@@ -1,0 +1,104 @@
+{
+  "cover": "cover.jpg",
+  "selected_from": "687a8bc6f18f0.jpg",
+  "fallback": true,
+  "threshold": 0.6,
+  "ranked": [
+    {
+      "file": "687a8bc6f18f0.jpg",
+      "score": 0.1637714999106647,
+      "positives_avg": 0.2827075406481431,
+      "negatives_avg": 0.21893604073747838
+    },
+    {
+      "file": "687806d796e3c.jpg",
+      "score": 0.16315515169379458,
+      "positives_avg": 0.25540933372722846,
+      "negatives_avg": 0.1922541820334339
+    },
+    {
+      "file": "687806dcce09a.jpg",
+      "score": 0.15638692980549251,
+      "positives_avg": 0.24832962943227066,
+      "negatives_avg": 0.19194269962677815
+    },
+    {
+      "file": "687806c34d006.jpg",
+      "score": 0.152065911935648,
+      "positives_avg": 0.2725913710073959,
+      "negatives_avg": 0.2205254590717479
+    },
+    {
+      "file": "687a8bafb6b50.jpg",
+      "score": 0.14734967016123676,
+      "positives_avg": 0.24720997773806605,
+      "negatives_avg": 0.1998603075768293
+    },
+    {
+      "file": "687806ebaaad9.jpg",
+      "score": 0.1328764312555098,
+      "positives_avg": 0.24794083076344478,
+      "negatives_avg": 0.215064399507935
+    },
+    {
+      "file": "687a8bd87bfdd.jpg",
+      "score": 0.11340756140909997,
+      "positives_avg": 0.2595281923700328,
+      "negatives_avg": 0.2461206309609328
+    },
+    {
+      "file": "687a8bc940f6a.jpg",
+      "score": 0.10880573996757287,
+      "positives_avg": 0.24706415231538484,
+      "negatives_avg": 0.23825841234781198
+    },
+    {
+      "file": "687a8bbe25c17.jpg",
+      "score": 0.10638886270850743,
+      "positives_avg": 0.28670221299986615,
+      "negatives_avg": 0.23031335029135871
+    },
+    {
+      "file": "687a8bb28479d.jpg",
+      "score": 0.10094589776708336,
+      "positives_avg": 0.2651859975372921,
+      "negatives_avg": 0.21424009977020875
+    },
+    {
+      "file": "687a8baa6a657.jpg",
+      "score": 0.0718275565555218,
+      "positives_avg": 0.27060440837464333,
+      "negatives_avg": 0.24877685181912154
+    },
+    {
+      "file": "687a8bcba9797.jpg",
+      "score": 0.06673067537883916,
+      "positives_avg": 0.2578058479490392,
+      "negatives_avg": 0.24107517257020006
+    },
+    {
+      "file": "687a8b9d3df76.jpg",
+      "score": 0.0559981733651584,
+      "positives_avg": 0.2641086956945882,
+      "negatives_avg": 0.2581105223294298
+    },
+    {
+      "file": "687a8bd3e9281.jpg",
+      "score": 0.051001347729547716,
+      "positives_avg": 0.2504854718458555,
+      "negatives_avg": 0.2494841241163078
+    },
+    {
+      "file": "687a8bad289ba.jpg",
+      "score": 0.0433707614454039,
+      "positives_avg": 0.24961169841945421,
+      "negatives_avg": 0.2562409369740503
+    },
+    {
+      "file": "687a8ba7c7900.jpg",
+      "score": 0.03973106276788281,
+      "positives_avg": 0.2551861723637386,
+      "negatives_avg": 0.2654551095958558
+    }
+  ]
+}
