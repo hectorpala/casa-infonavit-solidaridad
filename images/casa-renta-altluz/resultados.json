@@ -1,0 +1,104 @@
+{
+  "cover": "cover.jpg",
+  "selected_from": "6ecd6a55-7230-11f0-bc69-656478b750c8 (1).jpeg",
+  "fallback": true,
+  "threshold": 0.6,
+  "ranked": [
+    {
+      "file": "6ecd6a55-7230-11f0-bc69-656478b750c8 (1).jpeg",
+      "score": 0.0942844719895966,
+      "positives_avg": 0.29081544750057814,
+      "negatives_avg": 0.24653097551098155
+    },
+    {
+      "file": "6ecd6a55-7230-11f0-bc69-656478b750c8.jpeg",
+      "score": 0.0942844719895966,
+      "positives_avg": 0.29081544750057814,
+      "negatives_avg": 0.24653097551098155
+    },
+    {
+      "file": "6ecdedfd-7230-11f0-9694-656478b750c8.jpeg",
+      "score": 0.07643529382760253,
+      "positives_avg": 0.25111723417601045,
+      "negatives_avg": 0.2746819403484079
+    },
+    {
+      "file": "6ecd7cda-7230-11f0-8351-656478b750c8.jpeg",
+      "score": 0.06753536904330641,
+      "positives_avg": 0.2609683973509945,
+      "negatives_avg": 0.24343302830768807
+    },
+    {
+      "file": "6ecde0a9-7230-11f0-87d3-656478b750c8.jpeg",
+      "score": 0.03275034609731255,
+      "positives_avg": 0.25421814229512885,
+      "negatives_avg": 0.2714677961978163
+    },
+    {
+      "file": "6ecda6b4-7230-11f0-a249-656478b750c8.jpeg",
+      "score": 0.027047080873260312,
+      "positives_avg": 0.2648697824022605,
+      "negatives_avg": 0.2878227015290002
+    },
+    {
+      "file": "6ecd992a-7230-11f0-956a-656478b750c8.jpeg",
+      "score": 0.025946018122608397,
+      "positives_avg": 0.24345396948295228,
+      "negatives_avg": 0.2675079513603439
+    },
+    {
+      "file": "6ecd0fdd-7230-11f0-8f9a-656478b750c8.jpeg",
+      "score": 0.014664551981670437,
+      "positives_avg": 0.23361070716182838,
+      "negatives_avg": 0.21894615518015795
+    },
+    {
+      "file": "6ecd8b64-7230-11f0-add7-656478b750c8.jpeg",
+      "score": 0,
+      "positives_avg": 0.23377087348806516,
+      "negatives_avg": 0.276145256460034
+    },
+    {
+      "file": "6ecdc472-7230-11f0-be32-656478b750c8.jpeg",
+      "score": 0,
+      "positives_avg": 0.2406429234950057,
+      "negatives_avg": 0.27640976319733557
+    },
+    {
+      "file": "6ecdd311-7230-11f0-9cbb-656478b750c8.jpeg",
+      "score": 0,
+      "positives_avg": 0.24042092688924974,
+      "negatives_avg": 0.265980618632407
+    },
+    {
+      "file": "6ecdfbb5-7230-11f0-af1e-656478b750c8.jpeg",
+      "score": 0,
+      "positives_avg": 0.25739413045649334,
+      "negatives_avg": 0.2733754233183798
+    },
+    {
+      "file": "6ece0aa1-7230-11f0-8f55-656478b750c8.jpeg",
+      "score": 0,
+      "positives_avg": 0.2295363421781406,
+      "negatives_avg": 0.26702223330627317
+    },
+    {
+      "file": "6ece1840-7230-11f0-bcab-656478b750c8.jpeg",
+      "score": 0,
+      "positives_avg": 0.23987461174007474,
+      "negatives_avg": 0.27455250253380264
+    },
+    {
+      "file": "6ece258b-7230-11f0-8ade-656478b750c8.jpeg",
+      "score": 0,
+      "positives_avg": 0.24913543860112067,
+      "negatives_avg": 0.2618850913495922
+    },
+    {
+      "file": "6ece34fd-7230-11f0-90a1-656478b750c8.jpeg",
+      "score": 0,
+      "positives_avg": 0.2417275638191145,
+      "negatives_avg": 0.27498399319461336
+    }
+  ]
+}

@@ -7,7 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { setCoverFromBatch } = require('./fachada-detector');
+const { setCoverFromBatch } = require('./fachada-detector-clip');
 
 class PropertyPageGenerator {
     constructor(isRental = false) {
@@ -561,16 +561,16 @@ ${carouselImages}${navigationArrows}
                 }
             });
 
-            // 🤖 DETECCIÓN AUTOMÁTICA DE FACHADA
+            // 🤖 DETECCIÓN AUTOMÁTICA DE FACHADA (CLIP OFFLINE)
             // Ejecutar después de copiar todas las fotos
             if (files.length > 0) {
                 try {
-                    console.log('\n🤖 Iniciando detección automática de fachada...');
+                    console.log('\n🤖 Iniciando detección automática de fachada (CLIP offline)...');
                     await setCoverFromBatch(targetDir, targetDir);
                     console.log('✅ Detección de fachada completada\n');
                 } catch (error) {
                     console.warn(`⚠️  No se pudo ejecutar detección de fachada: ${error.message}`);
-                    console.warn('💡 Asegúrate de configurar ANTHROPIC_API_KEY en .env\n');
+                    console.warn('💡 Asegúrate de tener instalado: npm install @xenova/transformers\n');
                 }
             }
         }

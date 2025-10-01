@@ -39,7 +39,7 @@ console.log(`🚿 Baños: ${villaPrimaveraConfig.bathrooms}`);
         console.log('✅ WhatsApp flotante con mensaje de renta');
         console.log('✅ Todas las optimizaciones de performance');
         console.log('✅ SEO y Schema.org para propiedades en renta');
-        console.log('✅ Detección automática de fachada integrada');
+        console.log('✅ Detección automática de fachada (CLIP offline) integrada');
 
     } catch (error) {
         console.error(`❌ Error: ${error.message}`);

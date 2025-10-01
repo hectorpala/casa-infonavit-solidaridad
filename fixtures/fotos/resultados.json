@@ -1,0 +1,56 @@
+{
+  "cover": "cover.jpg",
+  "selected_from": "01_fachada.jpg",
+  "fallback": true,
+  "threshold": 0.6,
+  "ranked": [
+    {
+      "file": "01_fachada.jpg",
+      "score": 0.2507853529865689,
+      "positives_avg": 0.2875854978337952,
+      "negatives_avg": 0.2368001448472263
+    },
+    {
+      "file": "02_exterior.jpg",
+      "score": 0.12204008264668713,
+      "positives_avg": 0.24059666909261357,
+      "negatives_avg": 0.26855658644592645
+    },
+    {
+      "file": "09_cochera.jpg",
+      "score": 0.05834989088950149,
+      "positives_avg": 0.24164698698853496,
+      "negatives_avg": 0.2832970960990335
+    },
+    {
+      "file": "03_sala.jpg",
+      "score": 0.031435627209630876,
+      "positives_avg": 0.24792729876606515,
+      "negatives_avg": 0.2664916715564343
+    },
+    {
+      "file": "06_bano.jpg",
+      "score": 0.010757296350714471,
+      "positives_avg": 0.22378255562487906,
+      "negatives_avg": 0.2630252592741646
+    },
+    {
+      "file": "10_patio.jpg",
+      "score": 0.007013678348714927,
+      "positives_avg": 0.2463805487115185,
+      "negatives_avg": 0.28936687036280356
+    },
+    {
+      "file": "04_recamara_principal.jpg",
+      "score": 0,
+      "positives_avg": 0.27055659339046834,
+      "negatives_avg": 0.25448065165515715
+    },
+    {
+      "file": "07_cocina.jpg",
+      "score": 0,
+      "positives_avg": 0.23049821286189834,
+      "negatives_avg": 0.27559819208112113
+    }
+  ]
+}
