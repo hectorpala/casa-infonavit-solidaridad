@@ -1,0 +1,62 @@
+{
+  "cover": "cover.jpg",
+  "selected_from": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-10.jpg",
+  "fallback": true,
+  "threshold": 0.6,
+  "ranked": [
+    {
+      "file": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-10.jpg",
+      "score": 0.09537440708602964,
+      "positives_avg": 0.2691148591023606,
+      "negatives_avg": 0.22374045201633097
+    },
+    {
+      "file": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-01.jpg",
+      "score": 0.09261627011040574,
+      "positives_avg": 0.24095473958132094,
+      "negatives_avg": 0.2483384694709152
+    },
+    {
+      "file": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-08.jpg",
+      "score": 0.02251046212476411,
+      "positives_avg": 0.255518529924813,
+      "negatives_avg": 0.2830080678000489
+    },
+    {
+      "file": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-06.jpg",
+      "score": 0.022473526523235296,
+      "positives_avg": 0.2211222451800167,
+      "negatives_avg": 0.2486487186567814
+    },
+    {
+      "file": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-09.jpg",
+      "score": 0.01515592738003245,
+      "positives_avg": 0.22706650697149575,
+      "negatives_avg": 0.2619105795914633
+    },
+    {
+      "file": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-02.jpg",
+      "score": 0,
+      "positives_avg": 0.2452848627519316,
+      "negatives_avg": 0.2659318031540675
+    },
+    {
+      "file": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-03.jpg",
+      "score": 0,
+      "positives_avg": 0.21858923946490952,
+      "negatives_avg": 0.2731818621283288
+    },
+    {
+      "file": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-04.jpg",
+      "score": 0,
+      "positives_avg": 0.24459414062645046,
+      "negatives_avg": 0.24699512137702276
+    },
+    {
+      "file": "rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-05.jpg",
+      "score": 0,
+      "positives_avg": 0.24838755303902418,
+      "negatives_avg": 0.2716360303923493
+    }
+  ]
+}
