@@ -1,0 +1,56 @@
+{
+  "cover": "cover.jpg",
+  "selected_from": "f1191fef-8dba-11f0-9a82-813b6b24b2ff.jpg",
+  "fallback": true,
+  "threshold": 0.6,
+  "ranked": [
+    {
+      "file": "f1191fef-8dba-11f0-9a82-813b6b24b2ff.jpg",
+      "score": 0.16397011771299858,
+      "positives_avg": 0.2913841998930565,
+      "negatives_avg": 0.2274140821800579
+    },
+    {
+      "file": "1a3758b6-8dbb-11f0-b9cb-813b6b24b2ff.jpg",
+      "score": 0.04875912512926596,
+      "positives_avg": 0.25266369174093595,
+      "negatives_avg": 0.25390456661167
+    },
+    {
+      "file": "1a35d473-8dbb-11f0-a346-813b6b24b2ff.jpg",
+      "score": 0.03289326660038329,
+      "positives_avg": 0.24609207906957364,
+      "negatives_avg": 0.26319881246919036
+    },
+    {
+      "file": "1a35b91a-8dbb-11f0-bda3-813b6b24b2ff.jpg",
+      "score": 0.029677549788462834,
+      "positives_avg": 0.2576704697835508,
+      "negatives_avg": 0.27799291999508796
+    },
+    {
+      "file": "1a348856-8dbb-11f0-977c-813b6b24b2ff.jpg",
+      "score": 0,
+      "positives_avg": 0.2578435731854148,
+      "negatives_avg": 0.285381587342085
+    },
+    {
+      "file": "1a3589b3-8dbb-11f0-a039-813b6b24b2ff.jpg",
+      "score": 0,
+      "positives_avg": 0.24160885764726145,
+      "negatives_avg": 0.2697646809424699
+    },
+    {
+      "file": "1a35ab00-8dbb-11f0-8e92-813b6b24b2ff.jpg",
+      "score": 0,
+      "positives_avg": 0.25799476568728874,
+      "negatives_avg": 0.27266110363528856
+    },
+    {
+      "file": "1a35c6ca-8dbb-11f0-9611-813b6b24b2ff.jpg",
+      "score": 0,
+      "positives_avg": 0.26498979310907755,
+      "negatives_avg": 0.27375982177651637
+    }
+  ]
+}
