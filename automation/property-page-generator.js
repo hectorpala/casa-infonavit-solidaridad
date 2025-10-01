@@ -100,9 +100,10 @@ class PropertyPageGenerator {
      * Función para generar nueva property card manteniendo el formato existente
      */
     generatePropertyCard(config, isForCuliacan = false) {
-        const href = this.isRental ? 
-            `casa-renta-${config.key}.html` : 
-            `casa-venta-${config.key}.html`;
+        const priceForUrl = config.price ? `-${config.price}` : '';
+        const href = this.isRental ?
+            `casa-renta-${config.key}${priceForUrl}.html` :
+            `casa-venta-${config.key}${priceForUrl}.html`;
         
         const badge = this.isRental ? 'RENTA' : 'VENTA';
         const badgeClass = this.isRental ? 'rent' : 'sale';
@@ -347,9 +348,10 @@ ${carouselImages}${navigationArrows}
             } else {
                 // Para index.html, estructura property-grid - aplicar misma lógica anti-duplicación
                 const propertyKey = newProperty.key;
-                const propertyHref = this.isRental ? 
-                    `casa-renta-${propertyKey}.html` : 
-                    `casa-venta-${propertyKey}.html`;
+                const priceForUrl = newProperty.price ? `-${newProperty.price}` : '';
+                const propertyHref = this.isRental ?
+                    `casa-renta-${propertyKey}${priceForUrl}.html` :
+                    `casa-venta-${propertyKey}${priceForUrl}.html`;
                     
                 const existingPropertyIndex = existingProperties.findIndex(prop => 
                     prop.href && prop.href.includes(propertyHref)
@@ -400,10 +402,11 @@ ${carouselImages}${navigationArrows}
             
             // Calcular total correcto basado en si se agregó o actualizó
             const propertyKey = newProperty.key;
-            const wasUpdated = isCuliacanPage ? 
+            const priceForUrl = newProperty.price ? `-${newProperty.price}` : '';
+            const wasUpdated = isCuliacanPage ?
                 existingProperties.some(prop => prop.fullCard && prop.fullCard.includes(`BEGIN CARD-ADV ${propertyKey}`)) :
                 existingProperties.some(prop => {
-                    const propertyHref = this.isRental ? `casa-renta-${propertyKey}.html` : `casa-venta-${propertyKey}.html`;
+                    const propertyHref = this.isRental ? `casa-renta-${propertyKey}${priceForUrl}.html` : `casa-venta-${propertyKey}${priceForUrl}.html`;
                     return prop.href && prop.href.includes(propertyHref);
                 });
             
@@ -518,10 +521,11 @@ ${carouselImages}${navigationArrows}
         // Reemplazar placeholders
         htmlContent = this.replaceTemplatePlaceholders(htmlContent, config);
         
-        // Generar filename
-        const filename = this.isRental ? 
-            `casa-renta-${config.key}.html` : 
-            `casa-venta-${config.key}.html`;
+        // Generar filename con precio incluido
+        const priceForUrl = config.price ? `-${config.price}` : '';
+        const filename = this.isRental ?
+            `casa-renta-${config.key}${priceForUrl}.html` :
+            `casa-venta-${config.key}${priceForUrl}.html`;
         
         // Escribir archivo
         fs.writeFileSync(filename, htmlContent, 'utf8');
