@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { setCoverFromBatch } = require('./fachada-detector');
 
 class PropertyPageGenerator {
     constructor(isRental = false) {
@@ -442,17 +443,17 @@ ${carouselImages}${navigationArrows}
     /**
      * Función principal de generación con integración inteligente
      */
-    generate(config) {
+    async generate(config) {
         console.log(`🏠 Generating property with intelligent integration: ${config.title}`);
-        
+
         // 1. Extraer propiedades existentes de ambos archivos
         console.log('\n📖 Step 1: Reading existing properties...');
         const existingIndexProperties = this.extractExistingProperties('./index.html');
         const existingCuliacanProperties = this.extractExistingProperties('./culiacan/index.html');
-        
-        // 2. Generar página individual
+
+        // 2. Generar página individual (con detección automática de fachada)
         console.log('\n📄 Step 2: Generating individual property page...');
-        const individualPagePath = this.generateIndividualPage(config);
+        const individualPagePath = await this.generateIndividualPage(config);
         
         // 3. Actualizar listados preservando contenido existente
         console.log('\n🔗 Step 3: Updating property listings...');
@@ -500,9 +501,9 @@ ${carouselImages}${navigationArrows}
     /**
      * Generar página individual de la propiedad
      */
-    generateIndividualPage(config) {
-        // Procesar fotos primero
-        this.processPropertyPhotos(config);
+    async generateIndividualPage(config) {
+        // Procesar fotos primero (ahora con detección automática de fachada)
+        await this.processPropertyPhotos(config);
         
         // Generar página individual usando template PERFECTO
         const template = this.isRental ? 'rental-template-perfect.html' : 'property-template.html';
@@ -532,33 +533,46 @@ ${carouselImages}${navigationArrows}
     /**
      * Procesar fotos de la propiedad (auto-detección y optimización)
      */
-    processPropertyPhotos(config) {
+    async processPropertyPhotos(config) {
         const sourceDir = config.fotos_origen || path.join(this.projectsDir, config.key);
         const targetDir = path.join(this.imagesDir, config.key);
-        
+
         console.log(`📸 Processing photos: ${sourceDir} → ${targetDir}`);
-        
+
         // Crear directorio destino si no existe
         if (!fs.existsSync(targetDir)) {
             fs.mkdirSync(targetDir, { recursive: true });
         }
-        
+
         // Auto-detectar y copiar fotos (simplificado por ahora)
         if (fs.existsSync(sourceDir)) {
             const files = fs.readdirSync(sourceDir)
                 .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file));
-                
+
             console.log(`📸 Found ${files.length} photos to process`);
-            
+
             files.forEach(file => {
                 const sourcePath = path.join(sourceDir, file);
                 const targetPath = path.join(targetDir, file);
-                
+
                 if (!fs.existsSync(targetPath)) {
                     fs.copyFileSync(sourcePath, targetPath);
                     console.log(`   ✅ Copied: ${file}`);
                 }
             });
+
+            // 🤖 DETECCIÓN AUTOMÁTICA DE FACHADA
+            // Ejecutar después de copiar todas las fotos
+            if (files.length > 0) {
+                try {
+                    console.log('\n🤖 Iniciando detección automática de fachada...');
+                    await setCoverFromBatch(targetDir, targetDir);
+                    console.log('✅ Detección de fachada completada\n');
+                } catch (error) {
+                    console.warn(`⚠️  No se pudo ejecutar detección de fachada: ${error.message}`);
+                    console.warn('💡 Asegúrate de configurar ANTHROPIC_API_KEY en .env\n');
+                }
+            }
         }
     }
 
