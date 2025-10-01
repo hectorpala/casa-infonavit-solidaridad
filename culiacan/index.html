@@ -731,14 +731,14 @@
                 <!-- Precio Mínimo -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Precio Mínimo</label>
-                    <input type="number" id="price-min" placeholder="Ej: 500000" 
+                    <input type="text" id="price-min" placeholder="Ej: $500,000"
                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
                 </div>
 
                 <!-- Precio Máximo -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Precio Máximo</label>
-                    <input type="number" id="price-max" placeholder="Ej: 2000000" 
+                    <input type="text" id="price-max" placeholder="Ej: $2,000,000"
                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-hector focus:border-hector transition-colors">
                 </div>
 
@@ -5464,8 +5464,8 @@
         // Obtener todos los valores de filtros
         const filters = {
           type: filterType?.value || '',
-          priceMin: priceMin?.value ? parseInt(priceMin.value) : null,
-          priceMax: priceMax?.value ? parseInt(priceMax.value) : null,
+          priceMin: priceMin ? getPriceValue(priceMin) : null,
+          priceMax: priceMax ? getPriceValue(priceMax) : null,
           beds: filterBeds?.value ? parseInt(filterBeds.value) : null,
           baths: filterBaths?.value ? parseFloat(filterBaths.value) : null,
           homeType: filterHomeType?.value || '',
@@ -5634,10 +5634,47 @@
         updateResultsDisplay(allCards.length);
       }
 
+      // ===== Funciones de formateo de precio
+      function formatPriceInput(input) {
+        let value = input.value.replace(/[^0-9]/g, '');
+        if (value === '') {
+          input.value = '';
+          return;
+        }
+        const formatted = '$' + parseInt(value).toLocaleString('es-MX');
+        input.value = formatted;
+      }
+
+      function getPriceValue(input) {
+        const value = input.value.replace(/[^0-9]/g, '');
+        return value ? parseInt(value) : null;
+      }
+
       // ===== Event Listeners - Sistema Avanzado
-      
+
+      // Formateo automático de inputs de precio
+      if (priceMin) {
+        priceMin.addEventListener('input', function() {
+          formatPriceInput(this);
+          filterProperties();
+        });
+        priceMin.addEventListener('blur', function() {
+          formatPriceInput(this);
+        });
+      }
+
+      if (priceMax) {
+        priceMax.addEventListener('input', function() {
+          formatPriceInput(this);
+          filterProperties();
+        });
+        priceMax.addEventListener('blur', function() {
+          formatPriceInput(this);
+        });
+      }
+
       // Aplicar filtros automáticamente cuando cambian
-      const autoFilterElements = [filterType, priceMin, priceMax, filterBeds, filterBaths, filterHomeType, filterSort];
+      const autoFilterElements = [filterType, filterBeds, filterBaths, filterHomeType, filterSort];
       autoFilterElements.forEach(element => {
         if (element) {
           element.addEventListener('change', filterProperties);
