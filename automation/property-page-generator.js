@@ -578,17 +578,27 @@ ${carouselImages}${navigationArrows}
 
     /**
      * Escanear fotos de la propiedad
+     * Prioriza cover.jpg (generado por CLIP) como primera foto
      */
     scanPropertyPhotos(propertyKey) {
         const photosDir = path.join(this.imagesDir, propertyKey);
-        
+
         if (!fs.existsSync(photosDir)) {
             return [];
         }
-        
-        return fs.readdirSync(photosDir)
+
+        const allPhotos = fs.readdirSync(photosDir)
             .filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file))
             .sort();
+
+        // Si existe cover.jpg (generado por CLIP), ponerlo primero
+        const coverIndex = allPhotos.findIndex(f => f.toLowerCase() === 'cover.jpg');
+        if (coverIndex > 0) {
+            const cover = allPhotos.splice(coverIndex, 1)[0];
+            allPhotos.unshift(cover);
+        }
+
+        return allPhotos;
     }
 
     /**
