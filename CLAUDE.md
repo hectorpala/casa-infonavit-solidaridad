@@ -84,7 +84,8 @@ Todas las nuevas propiedades generadas incluyen automáticamente:
 - ✅ Mensajes WhatsApp personalizados
 - ✅ `totalSlidesHero` según número de fotos
 - ✅ Rutas de imágenes → `images/[slug]/foto-X.jpg`
-- ✅ Elimina slides/dots/lightbox extras si hay menos de 14 fotos
+- ✅ Elimina slides/dots extras si hay menos de 14 fotos
+- ✅ **LIMPIA array lightboxImages** automáticamente (solo fotos existentes)
 
 **Qué se preserva 100%:**
 - ✅ Sticky Price Bar

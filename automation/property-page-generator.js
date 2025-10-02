@@ -1002,19 +1002,22 @@ ${carouselImages}${navigationArrows}
             }
 
             // Limpiar array de lightbox (eliminar entries extra)
-            // Buscar el array galleryImages y reconstruirlo solo con las fotos necesarias
-            const lightboxArrayRegex = /const galleryImages = \[(.*?)\];/s;
+            // Buscar el array lightboxImages y reconstruirlo solo con las fotos necesarias
+            const lightboxArrayRegex = /const lightboxImages = \[(.*?)\];/s;
             const match = htmlContent.match(lightboxArrayRegex);
 
             if (match) {
                 const arrayContent = match[1];
                 const entries = arrayContent.match(/\{[^}]+\}/g) || [];
                 const newEntries = entries.slice(0, photoCount);
-                const newArrayContent = newEntries.join(',\n                ');
+                const newArrayContent = newEntries.join(',\n            ');
                 htmlContent = htmlContent.replace(
                     lightboxArrayRegex,
-                    `const galleryImages = [\n                ${newArrayContent}\n            ];`
+                    `const lightboxImages = [\n            ${newArrayContent}\n        ];`
                 );
+                console.log(`   🖼️  Array lightboxImages limpiado: ${photoCount} entradas`);
+            } else {
+                console.log('   ⚠️  No se encontró array lightboxImages para limpiar');
             }
         }
 
