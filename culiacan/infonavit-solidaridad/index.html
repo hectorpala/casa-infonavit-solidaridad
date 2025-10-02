@@ -147,7 +147,7 @@
         <div class="hero-content">
             <h1 class="hero-title">Tu Nuevo Hogar Te Está Esperando</h1>
             <p class="hero-subtitle">Se vende Casa en Infonavit Solidaridad, en Avenida principal. 7.5mt x 15mt = 112.5 mt², 91.60 mt² de construcción, 2 recámaras, 2 baños completos, cuarto tv una sola planta</p>
-            <a href="#gallery" class="hero-cta">Ver Fotos</a>
+            <a href="#contact" class="hero-cta">Contactar</a>
         </div>
         <div class="hero-image">
             <div class="carousel-container">
@@ -357,85 +357,6 @@
         }
     </style>
 
-    <!-- Gallery Carousel Section -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <h2 class="section-title">Galería de Fotos</h2>
-            <div class="carousel-container">
-                <!-- Main carousel display -->
-                <div class="carousel-wrapper">
-                    <div class="carousel-slide active" data-slide="0">
-                        <img src="images/fachada1.jpg" alt="Fachada Principal" class="carousel-image gallery-image" loading="eager" decoding="async" width="800" height="600" onclick="openLightbox(0)">
-                    </div>
-                    <div class="carousel-slide" data-slide="1">
-                        <img src="images/fachada2.jpg" alt="Fachada Vista 2" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(1)">
-                    </div>
-                    <div class="carousel-slide" data-slide="2">
-                        <img src="images/fachada3.jpg" alt="Fachada Vista 3" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(2)">
-                    </div>
-                    <div class="carousel-slide" data-slide="3">
-                        <img src="images/20250915_134401.jpg" alt="Vista Exterior" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(3)">
-                    </div>
-                    <div class="carousel-slide" data-slide="4">
-                        <img src="images/20250915_134444.jpg" alt="Interior 1" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(4)">
-                    </div>
-                    <div class="carousel-slide" data-slide="5">
-                        <img src="images/20250915_134455.jpg" alt="Interior 2" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(5)">
-                    </div>
-                    <div class="carousel-slide" data-slide="6">
-                        <img src="images/20250915_134516.jpg" alt="Sala" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(6)">
-                    </div>
-                    <div class="carousel-slide" data-slide="7">
-                        <img src="images/20250915_134637.jpg" alt="Comedor" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(7)">
-                    </div>
-                    <div class="carousel-slide" data-slide="8">
-                        <img src="images/20250915_134648.jpg" alt="Cocina" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(8)">
-                    </div>
-                    <div class="carousel-slide" data-slide="9">
-                        <img src="images/20250915_134702.jpg" alt="Recámara Principal" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(9)">
-                    </div>
-                    <div class="carousel-slide" data-slide="10">
-                        <img src="images/20250915_134718.jpg" alt="Recámara 2" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(10)">
-                    </div>
-                    <div class="carousel-slide" data-slide="11">
-                        <img src="images/20250915_134734.jpg" alt="Baño" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(11)">
-                    </div>
-                    <div class="carousel-slide" data-slide="12">
-                        <img src="images/20250915_134752.jpg" alt="Patio" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(12)">
-                    </div>
-                    <div class="carousel-slide" data-slide="13">
-                        <img src="images/20250915_134815.jpg" alt="Vista Trasera" class="carousel-image gallery-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(13)">
-                    </div>
-
-                    <!-- Navigation arrows -->
-                    <button class="carousel-arrow carousel-prev" onclick="changeSlide(-1); openLightboxFromGallery();" aria-label="Foto anterior">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-arrow carousel-next" onclick="changeSlide(1); openLightboxFromGallery();" aria-label="Siguiente foto">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-
-                <!-- Dots indicators -->
-                <div class="carousel-dots">
-                    <button class="carousel-dot active" onclick="goToSlide(0)" aria-label="Ir a foto 1"></button>
-                    <button class="carousel-dot" onclick="goToSlide(1)" aria-label="Ir a foto 2"></button>
-                    <button class="carousel-dot" onclick="goToSlide(2)" aria-label="Ir a foto 3"></button>
-                    <button class="carousel-dot" onclick="goToSlide(3)" aria-label="Ir a foto 4"></button>
-                    <button class="carousel-dot" onclick="goToSlide(4)" aria-label="Ir a foto 5"></button>
-                    <button class="carousel-dot" onclick="goToSlide(5)" aria-label="Ir a foto 6"></button>
-                    <button class="carousel-dot" onclick="goToSlide(6)" aria-label="Ir a foto 7"></button>
-                    <button class="carousel-dot" onclick="goToSlide(7)" aria-label="Ir a foto 8"></button>
-                    <button class="carousel-dot" onclick="goToSlide(8)" aria-label="Ir a foto 9"></button>
-                    <button class="carousel-dot" onclick="goToSlide(9)" aria-label="Ir a foto 10"></button>
-                    <button class="carousel-dot" onclick="goToSlide(10)" aria-label="Ir a foto 11"></button>
-                    <button class="carousel-dot" onclick="goToSlide(11)" aria-label="Ir a foto 12"></button>
-                    <button class="carousel-dot" onclick="goToSlide(12)" aria-label="Ir a foto 13"></button>
-                    <button class="carousel-dot" onclick="goToSlide(13)" aria-label="Ir a foto 14"></button>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Details Section - Zillow Style Compact -->
     <section class="details-zillow">
@@ -627,8 +548,7 @@
                 <div class="zil-input-group">
                     <label class="zil-label">Precio de la casa</label>
                     <div class="zil-input-wrapper">
-                        <span class="zil-currency">$</span>
-                        <input type="number" id="precio-zil" value="1750000" min="100000" step="10000" class="zil-input" oninput="calcularZillow()">
+                        <input type="text" id="precio-zil" value="$1,750,000" class="zil-input" oninput="formatPrecio(this); calcularZillow()">
                     </div>
                 </div>
 
@@ -743,19 +663,9 @@
             position: relative;
         }
 
-        .zil-currency {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 13px;
-            color: #6b7280;
-            font-weight: 500;
-        }
-
         .zil-input {
             width: 100%;
-            padding: 8px 8px 8px 24px;
+            padding: 8px 10px;
             border: 1px solid #d1d5db;
             border-radius: 6px;
             font-size: 13px;
@@ -894,8 +804,22 @@
     </style>
 
     <script>
+        function formatPrecio(input) {
+            // Remove all non-digit characters
+            let value = input.value.replace(/[^\d]/g, '');
+
+            // Convert to number and format with commas
+            if (value) {
+                const numValue = parseInt(value);
+                input.value = '$' + numValue.toLocaleString('es-MX');
+            }
+        }
+
         function calcularZillow() {
-            const precio = parseFloat(document.getElementById('precio-zil').value) || 1750000;
+            // Get precio value and clean it
+            const precioInput = document.getElementById('precio-zil').value;
+            const precio = parseFloat(precioInput.replace(/[^\d]/g, '')) || 1750000;
+
             const enganchePorcentaje = parseFloat(document.getElementById('enganche-zil').value) || 5;
             const anos = parseInt(document.getElementById('anos-zil').value) || 20;
             const tasaAnual = parseFloat(document.getElementById('banco-zil').value) || 10.45;
