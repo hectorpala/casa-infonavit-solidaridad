@@ -64,6 +64,62 @@ Todas las nuevas propiedades generadas incluyen automáticamente:
    - Layout horizontal compacto
    - Badges Zillow-style para detalles
 
+#### 🆕 MÉTODO DE COPIA EXACTA (2025)
+**USO:** Para propiedades que necesitan EXACTAMENTE la misma estructura que Casa Solidaridad
+
+**Función:** `generateFromSolidaridadTemplate(config)`
+
+**Proceso:**
+1. **Copia completa** de `culiacan/infonavit-solidaridad/index.html`
+2. **Cambios SOLO de datos** (preserva toda la estructura, código, estilos)
+3. **Auto-adaptación** de carrusel según número de fotos
+
+**Qué cambia automáticamente:**
+- ✅ Precio (todos los formatos: $X,XXX,XXX y números)
+- ✅ Título de propiedad (todos los lugares)
+- ✅ Ubicación (dirección completa y corta)
+- ✅ Recámaras (cantidad + singular/plural)
+- ✅ Baños (cantidad + singular/plural)
+- ✅ M² construcción y terreno
+- ✅ Mensajes WhatsApp personalizados
+- ✅ `totalSlidesHero` según número de fotos
+- ✅ Rutas de imágenes → `images/[slug]/foto-X.jpg`
+- ✅ Elimina slides/dots/lightbox extras si hay menos de 14 fotos
+
+**Qué se preserva 100%:**
+- ✅ Sticky Price Bar
+- ✅ Scroll Animations
+- ✅ Haptic Feedback
+- ✅ Calculadora Zillow
+- ✅ Hero reducido
+- ✅ Características compactas
+- ✅ Estructura HTML completa
+- ✅ Todo el CSS y JavaScript
+
+**Config mínima requerida:**
+```javascript
+{
+    key: 'casa-venta-nombre-slug',
+    title: 'Casa Nombre Completo',
+    price: '$X,XXX,XXX',
+    location: 'Colonia, CP',
+    bedrooms: 2,
+    bathrooms: 2,
+    construction_area: 100.5,
+    land_area: 120.0,
+    photoCount: 7  // Número de fotos disponibles
+}
+```
+
+**Llamada:**
+```javascript
+const generator = new PropertyPageGenerator();
+const html = generator.generateFromSolidaridadTemplate(config);
+fs.writeFileSync('casa-venta-nueva.html', html);
+```
+
+**VENTAJA:** Garantiza consistencia total con Casa Solidaridad (todas las features modernas)
+
 - **Función:** PROCESO 100% AUTOMÁTICO - Solo requiere fotos en PROYECTOS
 
 ### 📸 Estructura de Fotos - **CRÍTICO**

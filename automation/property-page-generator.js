@@ -858,6 +858,174 @@ ${carouselImages}${navigationArrows}
         }, 5000);
     });`;
     }
+
+    /**
+     * 🆕 MÉTODO DE COPIA EXACTA (2025)
+     * Copia la estructura COMPLETA de Casa Solidaridad y solo cambia datos específicos
+     *
+     * USO: Cuando quieres que la nueva propiedad tenga EXACTAMENTE la misma estructura
+     *      que Casa Solidaridad (sticky bar, animaciones, haptic, calculadora, etc.)
+     *
+     * @param {Object} config - Configuración de la nueva propiedad
+     * @returns {string} - HTML completo de la nueva propiedad
+     */
+    generateFromSolidaridadTemplate(config) {
+        console.log('🏗️  Generando desde template Casa Solidaridad (copia exacta)...');
+
+        const solidaridadPath = './culiacan/infonavit-solidaridad/index.html';
+
+        if (!fs.existsSync(solidaridadPath)) {
+            throw new Error('❌ Template Casa Solidaridad no encontrado en: ' + solidaridadPath);
+        }
+
+        // 1. Leer template completo de Solidaridad
+        let htmlContent = fs.readFileSync(solidaridadPath, 'utf8');
+
+        // 2. Preparar datos de reemplazo
+        const slug = config.key || config.slug;
+        const photoCount = config.photoCount || 7;
+
+        // URLs de WhatsApp encoded
+        const titleEncoded = encodeURIComponent(config.title || config.nombre);
+        const priceEncoded = encodeURIComponent(config.price);
+
+        console.log('📝 Aplicando cambios de datos...');
+
+        // 3. CAMBIOS GLOBALES (títulos, precios, ubicación)
+
+        // Precio (todos los formatos)
+        htmlContent = htmlContent.replace(/\$1,750,000/g, config.price);
+        htmlContent = htmlContent.replace(/1750000/g, config.price.replace(/[$,]/g, ''));
+
+        // Título
+        htmlContent = htmlContent.replace(/Casa Infonavit Solidaridad/g, config.title || config.nombre);
+
+        // Ubicación
+        const locationShort = config.location.split(',')[0]; // Ej: "Hacienda del Rio"
+        htmlContent = htmlContent.replace(/Blvrd Elbert 2609, Infonavit Solidaridad/g, config.location);
+        htmlContent = htmlContent.replace(/Blvrd Elbert 2609/g, locationShort);
+        htmlContent = htmlContent.replace(/Infonavit Solidaridad, 80200/g, config.location);
+
+        // 4. FEATURES (recámaras, baños, m²)
+
+        // Recámaras (cambiar de "2" a config.bedrooms)
+        htmlContent = htmlContent.replace(
+            /<span class="feature-value">2<\/span>\s*recámaras?/gi,
+            `<span class="feature-value">${config.bedrooms}</span> recámara${config.bedrooms > 1 ? 's' : ''}`
+        );
+
+        // Baños (cambiar de "2" a config.bathrooms)
+        htmlContent = htmlContent.replace(
+            /<span class="feature-value">2<\/span>\s*baños?/gi,
+            `<span class="feature-value">${config.bathrooms}</span> baño${config.bathrooms > 1 ? 's' : ''}`
+        );
+
+        // M² construcción (de 91.6 a config.construction_area)
+        htmlContent = htmlContent.replace(/91\.6 m²/g, `${config.construction_area} m²`);
+        htmlContent = htmlContent.replace(/91\.6m²/g, `${config.construction_area}m²`);
+
+        // M² terreno (de 112.5 a config.land_area)
+        htmlContent = htmlContent.replace(/112\.5 m²/g, `${config.land_area} m²`);
+        htmlContent = htmlContent.replace(/112\.5m²/g, `${config.land_area}m²`);
+
+        // 5. WHATSAPP MESSAGES (personalizar)
+
+        // Mensaje sticky bar
+        const stickyMsg = `Me%20interesa%20${titleEncoded}%20de%20${priceEncoded}`;
+        htmlContent = htmlContent.replace(
+            /Me%20interesa%20Casa%20Infonavit%20Solidaridad%20de%20.*?"/g,
+            `${stickyMsg}"`
+        );
+
+        // Mensajes del hero
+        const heroMsg = encodeURIComponent(`Hola, me interesa ${config.title || config.nombre} por ${config.price}. ¿Podría agendar una visita?`);
+        htmlContent = htmlContent.replace(
+            /Hola,%20me%20interesa%20.*?%20¿Podría%20agendar%20una%20visita\?/g,
+            heroMsg
+        );
+
+        // 6. CARRUSEL - Actualizar totalSlidesHero
+        htmlContent = htmlContent.replace(
+            /const totalSlidesHero = \d+;/,
+            `const totalSlidesHero = ${photoCount};`
+        );
+
+        // 7. FOTOS - Cambiar rutas de imágenes
+        console.log('🖼️  Actualizando rutas de fotos...');
+
+        // Mapeo de fotos antiguas a nuevas
+        const oldPhotos = [
+            'images/fachada1.jpg',
+            'images/fachada2.jpg',
+            'images/fachada3.jpg',
+            'images/20250915_134401.jpg',
+            'images/20250915_134444.jpg',
+            'images/20250915_134455.jpg',
+            'images/20250915_134516.jpg',
+            'images/20250915_134535.jpg',
+            'images/20250915_134600.jpg',
+            'images/20250915_134617.jpg',
+            'images/20250915_134637.jpg',
+            'images/20250915_134732.jpg',
+            'images/20250915_134753.jpg',
+            'images/20250915_134815.jpg'
+        ];
+
+        // Reemplazar cada foto antigua por la nueva
+        oldPhotos.forEach((oldPath, index) => {
+            const newPath = `images/${slug}/foto-${index + 1}.jpg`;
+            const escapedOldPath = oldPath.replace(/\//g, '\\/').replace(/\./g, '\\.');
+            const regex = new RegExp(escapedOldPath, 'g');
+            htmlContent = htmlContent.replace(regex, newPath);
+        });
+
+        // 8. ELIMINAR SLIDES EXTRA si photoCount < 14
+        if (photoCount < 14) {
+            console.log(`🗑️  Eliminando slides ${photoCount + 1}-14...`);
+
+            // Eliminar slides extra (desde photoCount hasta 13)
+            for (let i = photoCount; i <= 13; i++) {
+                const slideRegex = new RegExp(
+                    `<div class="carousel-slide" data-slide="${i}">.*?</div>\\s*(?=<div class="carousel-slide"|<!-- Navigation arrows -->|</div>\\s*<!-- Navigation)`,
+                    'gs'
+                );
+                htmlContent = htmlContent.replace(slideRegex, '');
+            }
+
+            // Eliminar dots extra
+            for (let i = photoCount; i <= 13; i++) {
+                const dotRegex = new RegExp(
+                    `<button class="carousel-dot"[^>]*onclick="goToSlideHero\\(${i}\\)"[^>]*>.*?</button>\\s*`,
+                    'gs'
+                );
+                htmlContent = htmlContent.replace(dotRegex, '');
+            }
+
+            // Limpiar array de lightbox (eliminar entries extra)
+            // Buscar el array galleryImages y reconstruirlo solo con las fotos necesarias
+            const lightboxArrayRegex = /const galleryImages = \[(.*?)\];/s;
+            const match = htmlContent.match(lightboxArrayRegex);
+
+            if (match) {
+                const arrayContent = match[1];
+                const entries = arrayContent.match(/\{[^}]+\}/g) || [];
+                const newEntries = entries.slice(0, photoCount);
+                const newArrayContent = newEntries.join(',\n                ');
+                htmlContent = htmlContent.replace(
+                    lightboxArrayRegex,
+                    `const galleryImages = [\n                ${newArrayContent}\n            ];`
+                );
+            }
+        }
+
+        console.log('✅ Template de Solidaridad adaptado exitosamente');
+        console.log(`   📸 ${photoCount} fotos`);
+        console.log(`   💰 ${config.price}`);
+        console.log(`   🛏️  ${config.bedrooms} recámara${config.bedrooms > 1 ? 's' : ''}`);
+        console.log(`   🛁 ${config.bathrooms} baño${config.bathrooms > 1 ? 's' : ''}`);
+
+        return htmlContent;
+    }
 }
 
 module.exports = PropertyPageGenerator;
