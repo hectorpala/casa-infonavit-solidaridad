@@ -566,41 +566,90 @@
         }
     </style>
 </head>
-<body class="font-poppins bg-white text-gray-900">
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4">
-            <div class="flex items-center justify-between mb-4">
-                <div class="flex items-center space-x-3">
-                    <div class="bg-hector/10 p-2 rounded-lg">
-                        <svg class="w-6 h-6 text-hector" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8L18 11v8h-2v-6h-6v6H8v-8l4-5.2z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h1 class="text-xl font-bold text-gray-900 font-poppins">Hector es Bienes Raíces</h1>
-                        <p class="text-sm text-gray-600 font-poppins">Propiedades en Culiacán</p>
+<body class="font-poppins bg-gray-50 text-gray-900">
+    <!-- Zillow-Style App Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+            <!-- Top Row: Logo + Search + Sign In -->
+            <div class="flex items-center justify-between gap-4">
+                <!-- Logo (Left) -->
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <svg class="w-7 h-7 text-hector" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8L18 11v8h-2v-6h-6v6H8v-8l4-5.2z"/>
+                    </svg>
+                    <span class="text-lg font-bold text-gray-900 hidden md:inline">Hector BR</span>
+                </div>
+
+                <!-- Search Input (Center) -->
+                <div class="flex-1 max-w-2xl">
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="search-location"
+                            placeholder="Culiacán, Sinaloa"
+                            value="Culiacán, Sinaloa"
+                            class="w-full pl-4 pr-20 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-hector focus:border-transparent text-sm"
+                        />
+                        <div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                            <button onclick="document.getElementById('search-location').value=''" class="text-gray-400 hover:text-gray-600">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+                            <button class="text-gray-600 hover:text-hector">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="#" class="text-gray-600 hover:text-hector font-poppins">Inicio</a>
-                    <a href="#" class="text-gray-600 hover:text-hector font-poppins">Contacto</a>
-                    <a href="https://wa.me/526671631231" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 font-poppins">
-                        WhatsApp
-                    </a>
-                </div>
+
+                <!-- Sign In (Right) -->
+                <a href="https://wa.me/526671631231" class="text-sm font-medium text-hector hover:text-hector-dark hidden md:block whitespace-nowrap">
+                    Contactar
+                </a>
             </div>
-            
+
+            <!-- Controls Bar (Chips Row) -->
+            <div class="flex items-center gap-3 mt-3 overflow-x-auto pb-2 -mb-2">
+                <!-- For Sale Chip -->
+                <button class="inline-flex items-center gap-2 px-4 py-2 bg-hector text-white rounded-full text-sm font-medium hover:bg-hector-dark transition-colors whitespace-nowrap">
+                    <span>En Venta</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+
+                <!-- Filters Chip -->
+                <button onclick="toggleFilters()" class="inline-flex items-center gap-2 px-4 py-2 border border-gray-300 bg-white rounded-full text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
+                    <span>Filtros</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+
+                <!-- Save Search Button -->
+                <button class="inline-flex items-center gap-2 px-4 py-2 bg-hector text-white rounded-full text-sm font-medium hover:bg-hector-dark transition-colors whitespace-nowrap">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+                    </svg>
+                    <span>Guardar búsqueda</span>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main id="listado" class="max-w-7xl mx-auto px-4 py-8">
-        <!-- Results header -->
-        <div class="mb-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-2 font-poppins">Propiedades en Culiacán</h2>
-            <p class="text-gray-600 font-poppins" id="results-count">22 propiedades · Ordenado por más recientes</p>
+    <main id="listado" class="max-w-7xl mx-auto px-4 py-6">
+        <!-- Results Header (Zillow Style) -->
+        <div class="mb-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2 font-poppins">Culiacán, Sinaloa · Casas en Venta</h1>
+            <div class="flex items-center gap-3 text-sm text-gray-600">
+                <span id="results-count" class="font-medium">38 resultados</span>
+                <span class="text-gray-400">|</span>
+                <span id="sort-label">Ordenado por: Casas para Ti</span>
+            </div>
         </div>
 
         <!-- Sistema de Filtros Avanzado -->
@@ -5470,6 +5519,14 @@
             if (feats.length) card.setAttribute('data-features', feats.join(','));
           } catch (e) { /* no-op */ }
         });
+      }
+
+      // ===== Toggle Filters (Zillow Style)
+      function toggleFilters() {
+        const filtersSection = document.querySelector('.bg-white.rounded-xl.shadow-lg');
+        if (filtersSection) {
+          filtersSection.classList.toggle('hidden');
+        }
       }
 
       // ===== Filtrado Avanzado
