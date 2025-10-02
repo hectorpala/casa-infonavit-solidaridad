@@ -269,7 +269,7 @@
     </section>
 
     <!-- Features Section - Zillow Style Compact -->
-    <section class="features-compact" id="features">
+    <section class="features-compact scroll-animate" id="features">
         <div class="container">
             <div class="features-inline">
                 <div class="feature-item">
@@ -359,7 +359,7 @@
 
 
     <!-- Details Section - Zillow Style Compact -->
-    <section class="details-zillow">
+    <section class="details-zillow scroll-animate">
         <div class="container">
             <!-- Info Badges Horizontal -->
             <div class="info-badges">
@@ -538,7 +538,7 @@
     </style>
 
     <!-- Calculadora de Hipoteca - Zillow Style -->
-    <section class="zillow-calculator" id="calculadora">
+    <section class="zillow-calculator scroll-animate" id="calculadora">
         <div class="container" style="max-width: 600px;">
             <h2 style="text-align: center; font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-bottom: 8px; font-family: 'Poppins', sans-serif;">Calculadora de Hipoteca</h2>
             <p style="text-align: center; color: #6b7280; margin-bottom: 32px; font-size: 0.95rem; font-family: 'Poppins', sans-serif;">Estima tu pago mensual</p>
@@ -803,6 +803,165 @@
         }
     </style>
 
+    <style>
+        /* Scroll Animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation for feature items */
+        .features-compact.animated .feature-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .features-compact.animated .feature-item:nth-child(1) { animation-delay: 0.1s; }
+        .features-compact.animated .feature-item:nth-child(2) { animation-delay: 0.2s; }
+        .features-compact.animated .feature-item:nth-child(3) { animation-delay: 0.3s; }
+        .features-compact.animated .feature-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Badge items staggered animation */
+        .details-zillow.animated .badge-item {
+            opacity: 0;
+            transform: scale(0.9);
+            animation: scaleIn 0.4s ease-out forwards;
+        }
+
+        .details-zillow.animated .badge-item:nth-child(1) { animation-delay: 0.05s; }
+        .details-zillow.animated .badge-item:nth-child(2) { animation-delay: 0.1s; }
+        .details-zillow.animated .badge-item:nth-child(3) { animation-delay: 0.15s; }
+        .details-zillow.animated .badge-item:nth-child(4) { animation-delay: 0.2s; }
+        .details-zillow.animated .badge-item:nth-child(5) { animation-delay: 0.25s; }
+        .details-zillow.animated .badge-item:nth-child(6) { animation-delay: 0.3s; }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+
+    <style>
+        /* Sticky Price Bar */
+        .sticky-price-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #ff4e00, #ff6b2b);
+            padding: 12px 16px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .sticky-price-bar.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-price-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .sticky-price-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .sticky-price-label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sticky-price-amount {
+            font-size: 20px;
+            color: #ffffff;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .sticky-whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D366;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+            white-space: nowrap;
+        }
+
+        .sticky-whatsapp-btn:hover {
+            background: #20ba5a;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
+        }
+
+        .sticky-whatsapp-btn i {
+            font-size: 18px;
+        }
+
+        @media (max-width: 640px) {
+            .sticky-price-bar {
+                padding: 10px 12px;
+            }
+
+            .sticky-price-label {
+                font-size: 9px;
+            }
+
+            .sticky-price-amount {
+                font-size: 16px;
+            }
+
+            .sticky-whatsapp-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .sticky-whatsapp-btn span {
+                display: none;
+            }
+
+            .sticky-whatsapp-btn i {
+                font-size: 20px;
+            }
+        }
+    </style>
+
     <script>
         // Haptic feedback helper function
         function vibrate(duration = 50) {
@@ -878,10 +1037,57 @@
             }
         }
 
+        // Scroll animations with Intersection Observer
+        function initScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                        // Vibrate when section comes into view
+                        vibrate(20);
+                    }
+                });
+            }, observerOptions);
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Sticky price bar on scroll
+        function initStickyPriceBar() {
+            const stickyBar = document.getElementById('sticky-price-bar');
+            const heroSection = document.querySelector('.hero');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                const heroHeight = heroSection ? heroSection.offsetHeight : 500;
+
+                // Show sticky bar after scrolling past hero section
+                if (currentScroll > heroHeight && currentScroll > lastScroll) {
+                    stickyBar.classList.add('visible');
+                } else if (currentScroll < 100) {
+                    stickyBar.classList.remove('visible');
+                }
+
+                lastScroll = currentScroll;
+            });
+        }
+
         // Calculate on page load
         window.addEventListener('DOMContentLoaded', () => {
             calcularZillow();
             addSliderVibration();
+            initStickyPriceBar();
+            initScrollAnimations();
         });
     </script>
 
@@ -889,8 +1095,23 @@
 
 
 
+    <!-- Sticky Price Bar (hidden by default, shows on scroll) -->
+    <div id="sticky-price-bar" class="sticky-price-bar">
+        <div class="sticky-price-content">
+            <div class="sticky-price-info">
+                <span class="sticky-price-label">Casa Infonavit Solidaridad</span>
+                <span class="sticky-price-amount">$1,750,000</span>
+            </div>
+            <a href="https://wa.me/528111652545?text=Me%20interesa%20la%20casa%20en%20Infonavit%20Solidaridad%20de%20%241%2C750%2C000"
+               class="sticky-whatsapp-btn" target="_blank" onclick="vibrate(50)">
+                <i class="fab fa-whatsapp"></i>
+                <span>Contactar</span>
+            </a>
+        </div>
+    </div>
+
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact scroll-animate" id="contact">
         <div class="container">
             <h2 class="section-title">¿Interesado?</h2>
             <p class="contact-subtitle">Contáctanos para más información o para agendar una visita</p>
