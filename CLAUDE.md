@@ -15,15 +15,55 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 
 ## 🔧 SISTEMA DE AUTOMATIZACIÓN
 
-### PropertyPageGenerator - **OPCIÓN 1: INTEGRACIÓN INTELIGENTE** ✅
+### PropertyPageGenerator - **OPCIÓN 1: INTEGRACIÓN INTELIGENTE + MODERN FEATURES** ✅
 - **Ubicación:** `automation/property-page-generator.js`
 - **Templates:** `automation/templates/rental-template.html` y `property-template.html`
+- **Modern Features:** `automation/templates/modern-features.js` (nuevo)
 - **🤖 AUTOMÁTICO:** Auto-detecta fotos en carpeta PROYECTOS
 - **🤖 AUTOMÁTICO:** Ejecuta `automation/optimizar-fotos.sh` sin intervención
 - **🤖 AUTOMÁTICO:** Ejecuta `verificar-optimizaciones.sh` pre-publicación
-- **🔧 NUEVO:** Sistema de integración inteligente que preserva todas las propiedades existentes
-- **🔧 NUEVO:** Detecta estructura dual (clásica vs Tailwind CSS) automáticamente
-- **🔧 NUEVO:** Validación pre-deploy para evitar pérdida de propiedades
+- **🔧 INTEGRACIÓN:** Sistema que preserva todas las propiedades existentes
+- **🔧 INTEGRACIÓN:** Detecta estructura dual (clásica vs Tailwind CSS) automáticamente
+- **🔧 INTEGRACIÓN:** Validación pre-deploy para evitar pérdida de propiedades
+
+#### ✨ MODERN FEATURES (Actualización 2025) - AUTOMÁTICO
+Todas las nuevas propiedades generadas incluyen automáticamente:
+
+1. **📌 Sticky Price Bar**
+   - Barra fija superior con precio + botón WhatsApp
+   - Aparece al hacer scroll pasado el hero
+   - Responsive: mobile muestra solo ícono WhatsApp
+   - Vibración al clickear (50ms)
+
+2. **🎬 Scroll Animations**
+   - Fade-in suave para todas las secciones
+   - Animaciones escalonadas (features, badges)
+   - Intersection Observer API (alto rendimiento)
+   - Vibración sutil al entrar en vista (20ms)
+
+3. **📳 Haptic Feedback (Vibración)**
+   - Carrusel de fotos: 40ms al cambiar
+   - Lightbox: 50ms al abrir, 40ms al navegar
+   - Calculadora: 30ms en sliders y inputs
+   - Compatible con Android, limitado en iOS
+
+4. **💰 Calculadora Zillow Reducida**
+   - Tamaño: 70% del original
+   - Estilo moderno vertical
+   - Input de precio con formato $X,XXX,XXX
+   - Sliders naranjas interactivos
+
+5. **📦 Hero Compacto**
+   - Description box 50% más pequeño
+   - Título: 4rem → 2rem
+   - Subtítulo: 1.3rem → 0.65rem
+   - Botón CTA reducido proporcionalmente
+
+6. **🎨 Características Mejoradas**
+   - Iconos 15% más grandes (mejor visibilidad)
+   - Layout horizontal compacto
+   - Badges Zillow-style para detalles
+
 - **Función:** PROCESO 100% AUTOMÁTICO - Solo requiere fotos en PROYECTOS
 
 ### 📸 Estructura de Fotos - **CRÍTICO**

@@ -1,13 +1,23 @@
 #!/usr/bin/env node
 
 /**
- * Property Page Generator - Opción 1: Integración Inteligente
+ * Property Page Generator - Opción 1: Integración Inteligente + Modern Features
  * Genera páginas individuales y actualiza listados existentes preservando todo el contenido
+ *
+ * NUEVAS CARACTERÍSTICAS (2025):
+ * - Sticky Price Bar con WhatsApp flotante
+ * - Scroll Animations suaves (fade-in)
+ * - Haptic Feedback (vibración en móviles)
+ * - Calculadora Zillow reducida 70%
+ * - Hero description reducido 50%
+ * - Características compactas (iconos 15% más grandes)
+ * - Details con badges horizontales Zillow-style
  */
 
 const fs = require('fs');
 const path = require('path');
 const { setCoverFromBatch } = require('./fachada-detector-clip');
+const modernFeatures = require('./templates/modern-features');
 
 class PropertyPageGenerator {
     constructor(isRental = false) {
@@ -15,6 +25,7 @@ class PropertyPageGenerator {
         this.templatesDir = './automation/templates';
         this.imagesDir = './images';
         this.projectsDir = '/Users/hectorpc/Documents/Hector Palazuelos/PROYECTOS';
+        this.modernFeatures = modernFeatures; // Cargar modern features
     }
 
     /**
@@ -558,6 +569,10 @@ ${carouselImages}${navigationArrows}
             'onclick="changeSlideHero($1); openLightboxFromCarousel();"'
         );
 
+        // ===== INJECT MODERN FEATURES =====
+        console.log('🎨 Injecting modern features (sticky bar, animations, haptic)...');
+        htmlContent = this.injectModernFeatures(htmlContent, config);
+
         // Generar filename con precio incluido
         const priceForUrl = config.price ? `-${config.price}` : '';
         const filename = this.isRental ?
@@ -569,6 +584,62 @@ ${carouselImages}${navigationArrows}
 
         console.log(`✅ Individual page generated: ${filename} (with lightbox)`);
         return filename;
+    }
+
+    /**
+     * NUEVA FUNCIÓN: Inyectar Modern Features (Sticky Bar, Animations, Haptic)
+     */
+    injectModernFeatures(htmlContent, config) {
+        // 1. Inyectar Sticky Price Bar HTML (antes del Contact Section)
+        let stickyBarHTML = this.modernFeatures.stickyPriceBarHTML
+            .replace(/\{\{PROPERTY_TITLE\}\}/g, config.title || config.nombre)
+            .replace(/\{\{PROPERTY_PRICE\}\}/g, config.price || '$0')
+            .replace(/\{\{PROPERTY_TITLE_ENCODED\}\}/g, encodeURIComponent(config.title || config.nombre))
+            .replace(/\{\{PROPERTY_PRICE_ENCODED\}\}/g, encodeURIComponent(config.price || '$0'));
+
+        htmlContent = htmlContent.replace(
+            /<!-- Contact Section -->/,
+            stickyBarHTML + '\n    <!-- Contact Section -->'
+        );
+
+        // 2. Agregar clase scroll-animate a secciones
+        htmlContent = htmlContent.replace(
+            /<section class="features-compact"/g,
+            '<section class="features-compact scroll-animate"'
+        );
+        htmlContent = htmlContent.replace(
+            /<section class="details-zillow"/g,
+            '<section class="details-zillow scroll-animate"'
+        );
+        htmlContent = htmlContent.replace(
+            /<section class="zillow-calculator"/g,
+            '<section class="zillow-calculator scroll-animate"'
+        );
+        htmlContent = htmlContent.replace(
+            /<section class="contact"/g,
+            '<section class="contact scroll-animate"'
+        );
+
+        // 3. Inyectar CSS Styles (antes de </head>)
+        const allCSS =
+            this.modernFeatures.stickyPriceBarCSS +
+            this.modernFeatures.scrollAnimationsCSS +
+            this.modernFeatures.reducedHeroCSS +
+            this.modernFeatures.compactFeaturesCSS;
+
+        htmlContent = htmlContent.replace(
+            '</head>',
+            `${allCSS}\n</head>`
+        );
+
+        // 4. Inyectar JavaScript (antes de </body>)
+        htmlContent = htmlContent.replace(
+            '</body>',
+            `${this.modernFeatures.modernFeaturesJS}\n</body>`
+        );
+
+        console.log('✅ Modern features injected successfully');
+        return htmlContent;
     }
 
     /**
