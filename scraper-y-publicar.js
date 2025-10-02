@@ -54,12 +54,52 @@ async function scrapearPropiedad(url) {
             return images.slice(0, 10); // Máximo 10 fotos
         };
 
+        // Extraer características (recámaras, baños, m²)
+        const getCharacteristics = () => {
+            const chars = {};
+            document.querySelectorAll('.characteristic').forEach(char => {
+                const text = char.textContent.toLowerCase();
+
+                // Recámaras
+                if (text.includes('recámara') || text.includes('recamara')) {
+                    const match = text.match(/(\d+)/);
+                    if (match) chars.bedrooms = parseInt(match[1]);
+                }
+
+                // Baños
+                if (text.includes('baño') || text.includes('bano')) {
+                    const match = text.match(/(\d+)/);
+                    if (match) chars.bathrooms = parseInt(match[1]);
+                }
+
+                // Construcción (m²)
+                if (text.includes('construc') || text.includes('construida')) {
+                    const match = text.match(/(\d+\.?\d*)\s*m/);
+                    if (match) chars.construction = parseFloat(match[1]);
+                }
+
+                // Terreno (m²)
+                if (text.includes('terreno')) {
+                    const match = text.match(/(\d+\.?\d*)\s*m/);
+                    if (match) chars.land = parseFloat(match[1]);
+                }
+
+                // Estacionamientos
+                if (text.includes('estacionamiento') || text.includes('cochera')) {
+                    const match = text.match(/(\d+)/);
+                    if (match) chars.parking = parseInt(match[1]);
+                }
+            });
+            return chars;
+        };
+
         return {
             title: getText('h1'),
             price: getText('[class*="price"]') || getText('strong'),
             location: getText('h2'),
             description: getText('[class*="description"]') || getText('p[data-testid="property-description"]'),
-            images: getImages()
+            images: getImages(),
+            characteristics: getCharacteristics()
         };
     });
 
@@ -86,33 +126,39 @@ function extraerDatosPropiedad(scraped) {
     // Crear slug
     const slug = `casa-venta-${colonia.toLowerCase().replace(/\s+/g, '-').replace(/[áàäâã]/g, 'a').replace(/[éèëê]/g, 'e').replace(/[íìïî]/g, 'i').replace(/[óòöôõ]/g, 'o').replace(/[úùüû]/g, 'u')}`;
 
-    // Extraer features de la descripción
+    // Usar características scrapeadas o extraer de descripción como fallback
+    const chars = scraped.characteristics || {};
     const desc = scraped.description.toLowerCase();
-    const bedrooms = desc.match(/(\d+)\s*recamar/)?.[1] || 2;
-    const bathrooms = desc.match(/(\d+)\s*baño/)?.[1] || 1;
+
+    const bedrooms = chars.bedrooms || parseInt(desc.match(/(\d+)\s*recamar/)?.[1] || 2);
+    const bathrooms = chars.bathrooms || parseInt(desc.match(/(\d+)\s*baño/)?.[1] || 1);
+    const area = chars.construction || chars.land || parseFloat(desc.match(/(\d+\.?\d*)\s*m/)?.[1] || 140);
+    const landArea = chars.land || area;
+    const parking = chars.parking || 2;
 
     return {
         title: `Casa en Venta ${colonia}`,
         location: `${colonia}, Culiacán, Sinaloa`,
         price: scraped.price.includes('$') ? scraped.price.split(' ')[0] : `$${priceNumber.toLocaleString('es-MX')}`,
         priceNumber: priceNumber,
-        bedrooms: parseInt(bedrooms),
-        bathrooms: parseInt(bathrooms),
-        parking: 2,
-        area: 140,
-        landArea: 140,
+        bedrooms: bedrooms,
+        bathrooms: bathrooms,
+        parking: parking,
+        area: area,
+        landArea: landArea,
         yearBuilt: "2023",
         slug: slug,
         key: slug,
         propertyType: "venta",
         description: scraped.description,
         features: [
-            `${bedrooms} Recámaras`,
+            `${bedrooms} Recámara${bedrooms > 1 ? 's' : ''}`,
             `${bathrooms} Baño${bathrooms > 1 ? 's' : ''} Completo${bathrooms > 1 ? 's' : ''}`,
-            "140 m² de Terreno",
-            "Patio Amplio",
-            "2 Estacionamientos"
-        ],
+            `${area} m² de ${chars.construction ? 'Construcción' : 'Terreno'}`,
+            landArea !== area ? `${landArea} m² de Terreno` : null,
+            parking ? `${parking} Estacionamiento${parking > 1 ? 's' : ''}` : null,
+            "Patio Amplio"
+        ].filter(Boolean),
         whatsappMessage: `Hola, me interesa la casa en ${colonia} de ${scraped.price.split(' ')[0]}`,
         photoCount: scraped.images.length,
         imageUrls: scraped.images
