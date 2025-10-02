@@ -93,13 +93,50 @@ async function scrapearPropiedad(url) {
             return chars;
         };
 
+        // Extraer datos de contacto del propietario (NO del agente inmobiliario)
+        const getOwnerContact = () => {
+            const contact = {};
+
+            // Buscar código de propiedad
+            const codeElements = document.querySelectorAll('[class*="code"], [class*="codigo"], [class*="reference"]');
+            codeElements.forEach(el => {
+                const text = el.textContent;
+                if (text.includes('Código') || text.includes('código')) {
+                    const match = text.match(/(\d+)/);
+                    if (match) contact.propertyCode = match[1];
+                }
+            });
+
+            // Buscar nombre del contacto (evitar "Hector" para no incluir datos propios)
+            const nameElements = document.querySelectorAll('[class*="contact"] h3, [class*="contact"] h4, [class*="agent"] h3, [class*="seller"] h3');
+            nameElements.forEach(el => {
+                const name = el.textContent.trim();
+                if (name && !name.toLowerCase().includes('hector') && name.length > 2 && name.length < 50) {
+                    contact.ownerName = name;
+                }
+            });
+
+            // Buscar teléfono del contacto (evitar 8111652545 que es el tuyo)
+            const phoneElements = document.querySelectorAll('[href^="tel:"], [class*="phone"], [class*="telefono"], [class*="celular"]');
+            phoneElements.forEach(el => {
+                const text = el.textContent || el.getAttribute('href') || '';
+                const phoneMatch = text.match(/(\d{10})/);
+                if (phoneMatch && phoneMatch[1] !== '8111652545') {
+                    contact.ownerPhone = phoneMatch[1];
+                }
+            });
+
+            return contact;
+        };
+
         return {
             title: getText('h1'),
             price: getText('[class*="price"]') || getText('strong'),
             location: getText('h2'),
             description: getText('[class*="description"]') || getText('p[data-testid="property-description"]'),
             images: getImages(),
-            characteristics: getCharacteristics()
+            characteristics: getCharacteristics(),
+            ownerContact: getOwnerContact()
         };
     });
 
@@ -108,7 +145,8 @@ async function scrapearPropiedad(url) {
     console.log('✅ Datos scrapeados:', {
         title: data.title,
         price: data.price,
-        fotos: data.images.length
+        fotos: data.images.length,
+        contacto: data.ownerContact
     });
 
     return data;
@@ -161,7 +199,8 @@ function extraerDatosPropiedad(scraped) {
         ].filter(Boolean),
         whatsappMessage: `Hola, me interesa la casa en ${colonia} de ${scraped.price.split(' ')[0]}`,
         photoCount: scraped.images.length,
-        imageUrls: scraped.images
+        imageUrls: scraped.images,
+        ownerContact: scraped.ownerContact || {}
     };
 }
 
@@ -394,10 +433,30 @@ ${propertyData.imageUrls.slice(0, 5).map((url, i) => `                        <i
         // 5. Generar tarjeta
         generarTarjeta(propertyData);
 
+        // 6. Guardar datos de contacto en JSON
+        const contactFile = `contacto-${propertyData.slug}.json`;
+        const contactData = {
+            slug: propertyData.slug,
+            property: propertyData.title,
+            price: propertyData.price,
+            ownerContact: propertyData.ownerContact,
+            scrapedDate: new Date().toISOString()
+        };
+        fs.writeFileSync(contactFile, JSON.stringify(contactData, null, 2));
+        console.log(`\n📞 Datos de contacto guardados: ${contactFile}`);
+        if (propertyData.ownerContact.ownerName || propertyData.ownerContact.ownerPhone) {
+            console.log(`   👤 Nombre: ${propertyData.ownerContact.ownerName || 'No encontrado'}`);
+            console.log(`   📱 Teléfono: ${propertyData.ownerContact.ownerPhone || 'No encontrado'}`);
+            console.log(`   🔢 Código: ${propertyData.ownerContact.propertyCode || 'No encontrado'}`);
+        } else {
+            console.log(`   ⚠️  No se encontraron datos de contacto del propietario`);
+        }
+
         console.log('\n✅ PROCESO COMPLETADO');
         console.log('\n📦 Archivos generados:');
         console.log(`   - ${htmlFile}`);
         console.log(`   - tarjeta-${propertyData.slug}.html`);
+        console.log(`   - ${contactFile}`);
         console.log(`   - images/${propertyData.slug}/ (${propertyData.photoCount} fotos)`);
         console.log('\n🎯 Próximo paso:');
         console.log(`   1. Revisar: open ${htmlFile}`);
