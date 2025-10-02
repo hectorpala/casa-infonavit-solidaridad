@@ -5,10 +5,27 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 
 ## 🎯 COMANDOS PRINCIPALES
 
-### 🚀 AGREGAR NUEVA PROPIEDAD (MÉTODO RÁPIDO - 5-7 MIN)
+### ⚡ SCRAPER AUTOMÁTICO - MÉTODO MÁS RÁPIDO (3 MINUTOS) ✨
+**Comando usuario:** Pasa la URL de propiedades.com
+**Ejemplo:** "https://propiedades.com/inmuebles/casa-en-venta-culiacan-..."
+**Script:** `node scraper-y-publicar.js "URL"`
+**Tiempo:** ~3 minutos (¡TODO automatizado!)
+
+**Proceso 100% automático:**
+1. ✅ Scrapea datos de propiedades.com con Puppeteer
+2. ✅ Descarga TODAS las fotos automáticamente
+3. ✅ Genera HTML con PropertyPageGenerator
+4. ✅ Corrige TODOS los badges automáticamente (recámaras, baños, m²)
+5. ✅ Corrige TODOS los metadatos (title, description, Schema.org, OG, hero)
+6. ✅ Genera tarjeta para culiacan/index.html
+7. ✅ Listo para "publica ya"
+
+**Documentación completa:** Ver `INSTRUCCIONES_SCRAPER.md`
+
+### 🚀 AGREGAR PROPIEDAD DESDE PROYECTOS (5-7 MIN)
 **Comando:** `node add-property.js`
-**Acción:** CLI Universal automatizado que hace TODO el proceso
-**Tiempo:** 5-7 minutos (vs 18 minutos manual)
+**Cuándo usar:** Cuando tienes fotos en carpeta PROYECTOS (no en propiedades.com)
+**Tiempo:** 5-7 minutos
 **Incluye:**
 - ✅ Auto-detecta fotos en PROYECTOS
 - ✅ Optimiza automáticamente
@@ -17,11 +34,6 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 - ✅ Commit y push automático
 
 **Documentación completa:** Ver `ADD-PROPERTY-README.md`
-
-### AGREGAR NUEVA PROPIEDAD (MÉTODO MANUAL)
-**Comando usuario:** "Vamos a subir una nueva propiedad"
-**Acción:** Usar automation/property-page-generator.js para crear página optimizada
-**Tiempo:** ~18 minutos
 
 ### PUBLICAR CAMBIOS
 **Comando usuario:** "publica ya"
