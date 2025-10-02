@@ -1018,11 +1018,19 @@ ${carouselImages}${navigationArrows}
             }
         }
 
+        // 9. CORREGIR RUTA DE CSS (crítico para que funcione el carrusel)
+        // El archivo generado está en root, pero styles.css está en culiacan/infonavit-solidaridad/
+        htmlContent = htmlContent.replace(
+            /href="styles\.css"/g,
+            'href="culiacan/infonavit-solidaridad/styles.css"'
+        );
+
         console.log('✅ Template de Solidaridad adaptado exitosamente');
         console.log(`   📸 ${photoCount} fotos`);
         console.log(`   💰 ${config.price}`);
         console.log(`   🛏️  ${config.bedrooms} recámara${config.bedrooms > 1 ? 's' : ''}`);
         console.log(`   🛁 ${config.bathrooms} baño${config.bathrooms > 1 ? 's' : ''}`);
+        console.log(`   🎨 Ruta CSS corregida: culiacan/infonavit-solidaridad/styles.css`);
 
         return htmlContent;
     }
