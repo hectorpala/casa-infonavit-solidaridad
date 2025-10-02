@@ -5,9 +5,23 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 
 ## 🎯 COMANDOS PRINCIPALES
 
-### AGREGAR NUEVA PROPIEDAD
+### 🚀 AGREGAR NUEVA PROPIEDAD (MÉTODO RÁPIDO - 5-7 MIN)
+**Comando:** `node add-property.js`
+**Acción:** CLI Universal automatizado que hace TODO el proceso
+**Tiempo:** 5-7 minutos (vs 18 minutos manual)
+**Incluye:**
+- ✅ Auto-detecta fotos en PROYECTOS
+- ✅ Optimiza automáticamente
+- ✅ Genera página HTML
+- ✅ Inserta en listings
+- ✅ Commit y push automático
+
+**Documentación completa:** Ver `ADD-PROPERTY-README.md`
+
+### AGREGAR NUEVA PROPIEDAD (MÉTODO MANUAL)
 **Comando usuario:** "Vamos a subir una nueva propiedad"
 **Acción:** Usar automation/property-page-generator.js para crear página optimizada
+**Tiempo:** ~18 minutos
 
 ### PUBLICAR CAMBIOS
 **Comando usuario:** "publica ya"
