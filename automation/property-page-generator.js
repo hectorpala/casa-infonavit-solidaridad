@@ -908,25 +908,66 @@ ${carouselImages}${navigationArrows}
 
         // 4. FEATURES (recámaras, baños, m²)
 
-        // Recámaras (cambiar de "2" a config.bedrooms)
+        // BADGES NARANJAS (feature-item) - arriba del hero
+        // Recámaras
         htmlContent = htmlContent.replace(
-            /<span class="feature-value">2<\/span>\s*recámaras?/gi,
-            `<span class="feature-value">${config.bedrooms}</span> recámara${config.bedrooms > 1 ? 's' : ''}`
+            /<span class="feature-value">2<\/span>\s*<span class="feature-label">rec<\/span>/gi,
+            `<span class="feature-value">${config.bedrooms}</span>\n                    <span class="feature-label">rec</span>`
         );
 
-        // Baños (cambiar de "2" a config.bathrooms)
+        // Baños (cambiar de 2 a config.bathrooms)
+        const bathLabel = config.bathrooms > 1 ? 'baños' : 'baño';
         htmlContent = htmlContent.replace(
-            /<span class="feature-value">2<\/span>\s*baños?/gi,
-            `<span class="feature-value">${config.bathrooms}</span> baño${config.bathrooms > 1 ? 's' : ''}`
+            /<span class="feature-value">2<\/span>\s*<span class="feature-label">baños?<\/span>/gi,
+            `<span class="feature-value">${config.bathrooms}</span>\n                    <span class="feature-label">${bathLabel}</span>`
         );
 
-        // M² construcción (de 91.6 a config.construction_area)
-        htmlContent = htmlContent.replace(/91\.6 m²/g, `${config.construction_area} m²`);
-        htmlContent = htmlContent.replace(/91\.6m²/g, `${config.construction_area}m²`);
+        // M² (cambiar de 112.5 a config.area)
+        const areaValue = config.area || config.landArea || config.land_area || 140;
+        htmlContent = htmlContent.replace(
+            /<span class="feature-value">112\.5<\/span>\s*<span class="feature-label">m²<\/span>/gi,
+            `<span class="feature-value">${areaValue}</span>\n                    <span class="feature-label">m²</span>`
+        );
 
-        // M² terreno (de 112.5 a config.land_area)
-        htmlContent = htmlContent.replace(/112\.5 m²/g, `${config.land_area} m²`);
-        htmlContent = htmlContent.replace(/112\.5m²/g, `${config.land_area}m²`);
+        // BADGES GRISES (info-badges) - debajo del hero
+        // Reemplazar badges hardcodeados con dinámicos
+        htmlContent = htmlContent.replace(
+            /<div class="info-badges">[\s\S]*?<\/div>\s*<\/div>\s*<!-- Price Card Compact -->/,
+            `<div class="info-badges">
+                <div class="badge-item">
+                    <i class="fas fa-bed"></i>
+                    <span>${config.bedrooms} Recámara${config.bedrooms > 1 ? 's' : ''}</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-bath"></i>
+                    <span>${config.bathrooms} Baño${config.bathrooms > 1 ? 's' : ''}</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-car"></i>
+                    <span>${config.parking || 2} Estacionamiento${(config.parking || 2) > 1 ? 's' : ''}</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span>${areaValue} m²</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-couch"></i>
+                    <span>${config.features && config.features[4] ? config.features[4] : 'Patio Amplio'}</span>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-door-open"></i>
+                    <span>${config.features && config.features[5] ? config.features[5] : 'Acceso controlado'}</span>
+                </div>
+            </div>
+
+            <!-- Price Card Compact -->`
+        );
+
+        // M² construcción y terreno en Schema/textos
+        htmlContent = htmlContent.replace(/91\.6 m²/g, `${config.construction_area || areaValue} m²`);
+        htmlContent = htmlContent.replace(/91\.6m²/g, `${config.construction_area || areaValue}m²`);
+        htmlContent = htmlContent.replace(/112\.5 m²/g, `${config.land_area || areaValue} m²`);
+        htmlContent = htmlContent.replace(/112\.5m²/g, `${config.land_area || areaValue}m²`);
 
         // 5. WHATSAPP MESSAGES (personalizar)
 
