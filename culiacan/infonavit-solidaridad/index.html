@@ -268,34 +268,94 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Features Section - Zillow Style Compact -->
+    <section class="features-compact" id="features">
         <div class="container">
-            <h2 class="section-title">Características Principales</h2>
-            <div class="features-grid">
-                <div class="feature-card">
+            <div class="features-inline">
+                <div class="feature-item">
                     <i class="fas fa-bed"></i>
-                    <h3>2 Recámaras y una Sala de Estancia</h3>
-                    <p>Espaciosas habitaciones con excelente iluminación natural</p>
+                    <span class="feature-value">2</span>
+                    <span class="feature-label">rec</span>
                 </div>
-                <div class="feature-card">
+                <div class="feature-item">
                     <i class="fas fa-bath"></i>
-                    <h3>2 Baños Completos</h3>
-                    <p>Baños completos con acabados de primera calidad</p>
+                    <span class="feature-value">2</span>
+                    <span class="feature-label">baños</span>
                 </div>
-                <div class="feature-card">
+                <div class="feature-item">
                     <i class="fas fa-car"></i>
-                    <h3>Cochera y Portón Techado para Dos Autos</h3>
-                    <p>Espacio seguro y techado para dos vehículos</p>
+                    <span class="feature-value">2</span>
+                    <span class="feature-label">autos</span>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Excelente Ubicación</h3>
-                    <p>Cerca de escuelas, centros comerciales y transporte</p>
+                <div class="feature-item">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span class="feature-value">112.5</span>
+                    <span class="feature-label">m²</span>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        .features-compact {
+            padding: 20px 0;
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .features-inline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .feature-item i {
+            font-size: 18px;
+            color: #ff4e00;
+        }
+
+        .feature-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .feature-label {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 640px) {
+            .features-inline {
+                gap: 16px;
+            }
+
+            .feature-item {
+                gap: 6px;
+            }
+
+            .feature-item i {
+                font-size: 16px;
+            }
+
+            .feature-value {
+                font-size: 15px;
+            }
+
+            .feature-label {
+                font-size: 13px;
+            }
+        }
+    </style>
 
     <!-- Gallery Carousel Section -->
     <section class="gallery" id="gallery">
