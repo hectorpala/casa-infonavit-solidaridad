@@ -51,7 +51,7 @@ async function scrapearPropiedad(url) {
                     images.push(img.src);
                 }
             });
-            return images.slice(0, 10); // Máximo 10 fotos
+            return images.slice(0, 9); // Máximo 9 fotos
         };
 
         // Extraer características (recámaras, baños, m²)
