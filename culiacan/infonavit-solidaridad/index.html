@@ -804,6 +804,13 @@
     </style>
 
     <script>
+        // Haptic feedback helper function
+        function vibrate(duration = 50) {
+            if (navigator.vibrate) {
+                navigator.vibrate(duration);
+            }
+        }
+
         function formatPrecio(input) {
             // Remove all non-digit characters
             let value = input.value.replace(/[^\d]/g, '');
@@ -813,6 +820,9 @@
                 const numValue = parseInt(value);
                 input.value = '$' + numValue.toLocaleString('es-MX');
             }
+
+            // Vibrate on input
+            vibrate(30);
         }
 
         function calcularZillow() {
@@ -849,10 +859,30 @@
             document.getElementById('principal-interes').textContent = '$' + Math.round(pagoMensual).toLocaleString('es-MX');
             document.getElementById('monto-credito').textContent = '$' + Math.round(montoCredito).toLocaleString('es-MX');
             document.getElementById('total-pagar').textContent = '$' + Math.round(totalPagar).toLocaleString('es-MX');
+
+            // Vibrate on calculation
+            vibrate(30);
+        }
+
+        // Add vibration to sliders
+        function addSliderVibration() {
+            const sliders = document.querySelectorAll('.zil-slider');
+            sliders.forEach(slider => {
+                slider.addEventListener('input', () => vibrate(30));
+            });
+
+            // Add vibration to select
+            const selectBanco = document.getElementById('banco-zil');
+            if (selectBanco) {
+                selectBanco.addEventListener('change', () => vibrate(40));
+            }
         }
 
         // Calculate on page load
-        window.addEventListener('DOMContentLoaded', calcularZillow);
+        window.addEventListener('DOMContentLoaded', () => {
+            calcularZillow();
+            addSliderVibration();
+        });
     </script>
 
 
@@ -1009,11 +1039,13 @@
         function changeSlideHero(direction) {
             currentSlideHero += direction;
             showSlideHero(currentSlideHero);
+            vibrate(40); // Vibrate on carousel navigation
         }
-        
+
         function goToSlideHero(n) {
             currentSlideHero = n;
             showSlideHero(currentSlideHero);
+            vibrate(40); // Vibrate on dot navigation
         }
         
         // Expose hero carousel functions globally for onclick handlers
@@ -1541,12 +1573,14 @@
 
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            vibrate(50); // Vibrate when opening lightbox
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
             document.body.style.overflow = ''; // Restore scrolling
+            vibrate(30); // Small vibrate when closing
         }
 
         function changeLightboxSlide(direction) {
@@ -1565,6 +1599,7 @@
             lightboxImg.src = lightboxImages[currentLightboxIndex].src;
             lightboxImg.alt = lightboxImages[currentLightboxIndex].alt;
             lightboxCurrent.textContent = currentLightboxIndex + 1;
+            vibrate(40); // Vibrate when changing lightbox image
         }
 
         // Keyboard navigation
