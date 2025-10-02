@@ -513,80 +513,80 @@
         }
     </style>
 
-    <!-- Calculadora de Hipoteca - Zillow Style -->
-    <section class="zillow-calculator scroll-animate" id="calculadora">
+    <!-- Calculadora de Affordability - Rental -->
+    <section class="zillow-calculator scroll-animate" id="calculadora" style="background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);">
         <div class="container" style="max-width: 600px;">
-            <h2 style="text-align: center; font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-bottom: 8px; font-family: 'Poppins', sans-serif;">Calculadora de Hipoteca</h2>
-            <p style="text-align: center; color: #6b7280; margin-bottom: 32px; font-size: 0.95rem; font-family: 'Poppins', sans-serif;">Estima tu pago mensual</p>
+            <h2 style="text-align: center; font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-bottom: 8px; font-family: 'Poppins', sans-serif;">
+                ¿Puedo pagar esta renta?
+            </h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 32px; font-size: 0.95rem; font-family: 'Poppins', sans-serif;">
+                Calcula si esta propiedad está dentro de tu presupuesto
+            </p>
 
             <div class="calc-zillow-card">
-                <!-- Precio de Casa -->
+                <!-- Ingreso Mensual -->
                 <div class="zil-input-group">
-                    <label class="zil-label">Precio de la casa</label>
+                    <label class="zil-label">Tu ingreso mensual neto</label>
                     <div class="zil-input-wrapper">
-                        <input type="text" id="precio-zil" value="$18,000" class="zil-input" oninput="formatPrecio(this); calcularZillow()">
+                        <input type="text" id="ingreso-mensual" value="$50,000" class="zil-input" oninput="formatPrecioRenta(this); calcularAffordability()">
                     </div>
+                    <p style="font-size: 11px; color: #6b7280; margin-top: 4px;">Después de impuestos</p>
                 </div>
 
-                <!-- Enganche Slider -->
+                <!-- Porcentaje Recomendado Slider -->
                 <div class="zil-input-group">
                     <div class="zil-label-row">
-                        <label class="zil-label">Enganche</label>
-                        <span class="zil-value" id="enganche-display">$87,500</span>
+                        <label class="zil-label">% de ingreso para renta</label>
+                        <span class="zil-value" id="porcentaje-display">30%</span>
                     </div>
-                    <input type="range" id="enganche-zil" min="5" max="50" value="5" class="zil-slider" oninput="calcularZillow()">
+                    <input type="range" id="porcentaje-renta" min="20" max="50" value="30" step="5" class="zil-slider" oninput="calcularAffordability()">
                     <div class="zil-slider-labels">
-                        <span id="enganche-percent">5%</span>
+                        <span>20%</span>
                         <span>50%</span>
                     </div>
+                    <p style="font-size: 11px; color: #6b7280; margin-top: 4px;">Recomendado: 30% máximo</p>
                 </div>
 
-                <!-- Plazo Slider -->
+                <!-- Gastos Adicionales -->
                 <div class="zil-input-group">
-                    <div class="zil-label-row">
-                        <label class="zil-label">Plazo del préstamo</label>
-                        <span class="zil-value" id="anos-display">20 años</span>
+                    <label class="zil-label">Gastos adicionales estimados</label>
+                    <div class="zil-input-wrapper">
+                        <input type="text" id="gastos-adicionales" value="$3,000" class="zil-input" oninput="formatPrecioRenta(this); calcularAffordability()">
                     </div>
-                    <input type="range" id="anos-zil" min="5" max="30" value="20" step="5" class="zil-slider" oninput="calcularZillow()">
-                    <div class="zil-slider-labels">
-                        <span>5</span>
-                        <span>30 años</span>
-                    </div>
-                </div>
-
-                <!-- Tasa de Interés -->
-                <div class="zil-input-group">
-                    <label class="zil-label">Tasa de interés</label>
-                    <select id="banco-zil" class="zil-select" oninput="calcularZillow()">
-                        <option value="3.76">INFONAVIT Bajo - 3.76%</option>
-                        <option value="6.5">INFONAVIT Medio - 6.5%</option>
-                        <option value="10.45" selected>INFONAVIT Alto - 10.45%</option>
-                        <option value="9.9">FOVISSSTE - 9.9%</option>
-                        <option value="10.45">HSBC - 10.45%</option>
-                        <option value="11.75">Banamex - 11.75%</option>
-                        <option value="13.25">Santander - 13.25%</option>
-                    </select>
+                    <p style="font-size: 11px; color: #6b7280; margin-top: 4px;">Servicios (luz, agua, gas, internet)</p>
                 </div>
 
                 <!-- Resultado Principal -->
-                <div class="zil-result-main">
-                    <div class="zil-result-label">Pago mensual estimado</div>
-                    <div class="zil-result-value" id="pago-mensual-zil">$0</div>
+                <div class="zil-result-main" id="resultado-affordability" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05)); border: 1px solid rgba(34, 197, 94, 0.3);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                        <div id="indicator-icon" style="font-size: 32px;">✅</div>
+                        <div style="flex: 1;">
+                            <div class="zil-result-label">Renta máxima recomendada</div>
+                            <div class="zil-result-value" id="renta-maxima" style="font-size: 24px;">$15,000</div>
+                        </div>
+                    </div>
+                    <div id="verdict-message" style="font-size: 14px; color: #059669; font-weight: 600; font-family: 'Poppins', sans-serif;">
+                        ✓ Esta propiedad está dentro de tu presupuesto
+                    </div>
                 </div>
 
                 <!-- Desglose -->
                 <div class="zil-breakdown">
-                    <div class="zil-breakdown-item">
-                        <span class="zil-breakdown-label">Principal e interés</span>
-                        <span class="zil-breakdown-value" id="principal-interes">$0</span>
+                    <div class="zil-breakdown-row">
+                        <span>Renta de esta propiedad</span>
+                        <span id="renta-propiedad-display">$18,000</span>
                     </div>
-                    <div class="zil-breakdown-item">
-                        <span class="zil-breakdown-label">Monto del crédito</span>
-                        <span class="zil-breakdown-value" id="monto-credito">$0</span>
+                    <div class="zil-breakdown-row">
+                        <span>Gastos adicionales</span>
+                        <span id="gastos-display">$3,000</span>
                     </div>
-                    <div class="zil-breakdown-item">
-                        <span class="zil-breakdown-label">Total a pagar</span>
-                        <span class="zil-breakdown-value" id="total-pagar">$0</span>
+                    <div class="zil-breakdown-row" style="border-top: 1px solid #e5e7eb; padding-top: 12px; margin-top: 8px; font-weight: 600;">
+                        <span>Costo total mensual</span>
+                        <span id="costo-total-display">$0</span>
+                    </div>
+                    <div class="zil-breakdown-row" style="color: #6b7280; font-size: 13px;">
+                        <span>Te sobraría aproximadamente</span>
+                        <span id="sobrante-display" style="color: #059669; font-weight: 600;">$0</span>
                     </div>
                 </div>
             </div>
@@ -960,43 +960,78 @@
             vibrate(30);
         }
 
-        function calcularZillow() {
-            // Get precio value and clean it
-            const precioInput = document.getElementById('precio-zil').value;
-            const precio = parseFloat(precioInput.replace(/[^\d]/g, '')) || 18000;
+        // Affordability Calculator for Rental
+        const rentaPropiedadAffordability = 18000;
 
-            const enganchePorcentaje = parseFloat(document.getElementById('enganche-zil').value) || 5;
-            const anos = parseInt(document.getElementById('anos-zil').value) || 20;
-            const tasaAnual = parseFloat(document.getElementById('banco-zil').value) || 10.45;
+        function formatPrecioRenta(input) {
+            let valor = input.value.replace(/[^0-9]/g, '');
+            if (valor) {
+                valor = parseInt(valor).toLocaleString('es-MX');
+                input.value = '$' + valor;
+            }
+            vibrate(30);
+        }
 
-            // Update displays
-            const engancheMonto = precio * (enganchePorcentaje / 100);
-            document.getElementById('enganche-display').textContent = '$' + Math.round(engancheMonto).toLocaleString('es-MX');
-            document.getElementById('enganche-percent').textContent = enganchePorcentaje + '%';
-            document.getElementById('anos-display').textContent = anos + ' años';
+        function calcularAffordability() {
+            // Obtener valores
+            const ingresoStr = document.getElementById('ingreso-mensual').value.replace(/[^0-9]/g, '');
+            const ingreso = parseInt(ingresoStr) || 0;
 
-            // Calculate mortgage
-            const montoCredito = precio - engancheMonto;
-            const tasaMensual = tasaAnual / 100 / 12;
-            const numeroPagos = anos * 12;
+            const porcentaje = parseInt(document.getElementById('porcentaje-renta').value);
+            document.getElementById('porcentaje-display').textContent = porcentaje + '%';
 
-            let pagoMensual;
-            if (tasaMensual === 0) {
-                pagoMensual = montoCredito / numeroPagos;
+            const gastosStr = document.getElementById('gastos-adicionales').value.replace(/[^0-9]/g, '');
+            const gastos = parseInt(gastosStr) || 0;
+
+            // Calcular renta máxima recomendada
+            const rentaMaxima = (ingreso * porcentaje) / 100;
+
+            // Costo total de esta propiedad
+            const costoTotal = rentaPropiedadAffordability + gastos;
+
+            // Sobrante después de pagar renta y gastos
+            const sobrante = ingreso - costoTotal;
+
+            // Actualizar displays
+            document.getElementById('renta-maxima').textContent = '$' + rentaMaxima.toLocaleString('es-MX', {maximumFractionDigits: 0});
+            document.getElementById('renta-propiedad-display').textContent = '$' + rentaPropiedadAffordability.toLocaleString('es-MX');
+            document.getElementById('gastos-display').textContent = '$' + gastos.toLocaleString('es-MX');
+            document.getElementById('costo-total-display').textContent = '$' + costoTotal.toLocaleString('es-MX');
+            document.getElementById('sobrante-display').textContent = '$' + sobrante.toLocaleString('es-MX');
+
+            // Determinar veredicto
+            const resultBox = document.getElementById('resultado-affordability');
+            const icon = document.getElementById('indicator-icon');
+            const message = document.getElementById('verdict-message');
+            const sobranteDisplay = document.getElementById('sobrante-display');
+
+            if (rentaPropiedadAffordability <= rentaMaxima && sobrante > 5000) {
+                // VERDE - Puede pagar cómodamente
+                resultBox.style.background = 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05))';
+                resultBox.style.borderColor = 'rgba(34, 197, 94, 0.3)';
+                icon.textContent = '✅';
+                message.textContent = '✓ Esta propiedad está dentro de tu presupuesto';
+                message.style.color = '#059669';
+                sobranteDisplay.style.color = '#059669';
+            } else if (rentaPropiedadAffordability <= rentaMaxima * 1.1 && sobrante > 0) {
+                // AMARILLO - Justo en el límite
+                resultBox.style.background = 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05))';
+                resultBox.style.borderColor = 'rgba(251, 191, 36, 0.3)';
+                icon.textContent = '⚠️';
+                message.textContent = '⚠ Esta propiedad está en el límite de tu presupuesto';
+                message.style.color = '#d97706';
+                sobranteDisplay.style.color = '#d97706';
             } else {
-                pagoMensual = montoCredito * (tasaMensual * Math.pow(1 + tasaMensual, numeroPagos)) / (Math.pow(1 + tasaMensual, numeroPagos) - 1);
+                // ROJO - No puede pagar
+                resultBox.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05))';
+                resultBox.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+                icon.textContent = '❌';
+                message.textContent = '✗ Esta propiedad está fuera de tu presupuesto';
+                message.style.color = '#dc2626';
+                sobranteDisplay.style.color = '#dc2626';
             }
 
-            const totalPagar = pagoMensual * numeroPagos;
-
-            // Update results
-            document.getElementById('pago-mensual-zil').textContent = '$' + Math.round(pagoMensual).toLocaleString('es-MX');
-            document.getElementById('principal-interes').textContent = '$' + Math.round(pagoMensual).toLocaleString('es-MX');
-            document.getElementById('monto-credito').textContent = '$' + Math.round(montoCredito).toLocaleString('es-MX');
-            document.getElementById('total-pagar').textContent = '$' + Math.round(totalPagar).toLocaleString('es-MX');
-
-            // Vibrate on calculation
-            vibrate(30);
+            vibrate(20);
         }
 
         // Add vibration to sliders
@@ -1005,12 +1040,6 @@
             sliders.forEach(slider => {
                 slider.addEventListener('input', () => vibrate(30));
             });
-
-            // Add vibration to select
-            const selectBanco = document.getElementById('banco-zil');
-            if (selectBanco) {
-                selectBanco.addEventListener('change', () => vibrate(40));
-            }
         }
 
         // Scroll animations with Intersection Observer
@@ -1060,7 +1089,7 @@
 
         // Calculate on page load
         window.addEventListener('DOMContentLoaded', () => {
-            calcularZillow();
+            calcularAffordability(); // Initialize affordability calculator
             addSliderVibration();
             initStickyPriceBar();
             initScrollAnimations();
