@@ -709,12 +709,16 @@ function generarHTML(propertyData) {
         }
     }
 
-    // CREAR ESTRUCTURA culiacan/[slug]/ para VENTA
+    // CREAR ESTRUCTURA culiacan/[slug]/ para VENTA y COPIAR CSS
     if (!propertyData.esRenta) {
         const propertyDir = `culiacan/${propertyData.slug}`;
         if (!fs.existsSync(propertyDir)) {
             fs.mkdirSync(propertyDir, { recursive: true });
         }
+
+        // COPIAR styles.css a la carpeta de la propiedad
+        execSync(`cp culiacan/infonavit-solidaridad/styles.css ${propertyDir}/styles.css`);
+        console.log(`   ✅ styles.css copiado a ${propertyDir}/`);
     }
 
     // CORRECCIONES AUTOMÁTICAS DE METADATOS
