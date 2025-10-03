@@ -152,50 +152,80 @@ async function scrapeInmuebles24(url) {
         console.log(`   📐 Área: ${data.area} m²`);
         console.log(`   📸 Fotos encontradas: ${data.photos.length}`);
 
-        // Try to get more photos by clicking gallery
-        if (data.photos.length < 5) {
-            console.log('\n   🔄 Intentando obtener más fotos del carrusel...');
+        // ALWAYS try to get more photos by clicking gallery
+        console.log('\n   🔄 Intentando obtener MÁS fotos del carrusel...');
 
-            try {
-                // Click on first image to open gallery
-                const firstImg = await page.$('img[src*="cloudfront"], img[src*="inmuebles24"]');
+        try {
+            // Wait for gallery to load
+            await page.waitForSelector('img', { timeout: 5000 });
+
+            // Try multiple selectors for the main photo
+            const selectors = [
+                '[data-qa="POSTING_PICTURES_SLIDESHOW"]',
+                '.gallery img:first-child',
+                '[class*="gallery"] img:first-child',
+                '[class*="slider"] img:first-child',
+                'img[src*="cloudfront"]:first-of-type',
+                'img[src*="inmuebles24"]:first-of-type',
+                'main img:first-of-type'
+            ];
+
+            let firstImg = null;
+            for (const selector of selectors) {
+                firstImg = await page.$(selector);
                 if (firstImg) {
-                    await firstImg.click();
-                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    console.log(`   ✅ Encontrada foto con selector: ${selector}`);
+                    break;
+                }
+            }
 
-                    // Click next button multiple times
-                    for (let i = 0; i < 20; i++) {
-                        const morePhotos = await page.evaluate(() => {
-                            const photos = [];
-                            document.querySelectorAll('img').forEach(img => {
-                                let src = img.src || img.dataset.src;
-                                if (src && src.includes('http') && !src.includes('logo') && !src.includes('icon')) {
-                                    src = src.replace(/\/\d+x\d+\//, '/1200x800/');
-                                    photos.push(src);
-                                }
-                            });
-                            return photos;
-                        });
+            if (firstImg) {
+                console.log('   👆 Click 1/3 en foto de portada...');
+                await firstImg.click({ delay: 100 });
+                await new Promise(resolve => setTimeout(resolve, 2000));
 
-                        morePhotos.forEach(photo => {
-                            if (!data.photos.includes(photo)) {
-                                data.photos.push(photo);
+                console.log('   👆 Click 2/3 en foto de portada...');
+                await firstImg.click({ delay: 100 });
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                console.log('   👆 Click 3/3 en foto de portada...');
+                await firstImg.click({ delay: 100 });
+                await new Promise(resolve => setTimeout(resolve, 3000));
+
+                // Click next button multiple times (aumentado a 30 clicks)
+                for (let i = 0; i < 30; i++) {
+                    const morePhotos = await page.evaluate(() => {
+                        const photos = [];
+                        document.querySelectorAll('img').forEach(img => {
+                            let src = img.src || img.dataset.src;
+                            if (src && src.includes('http') && !src.includes('logo') && !src.includes('icon')) {
+                                src = src.replace(/\/\d+x\d+\//, '/1200x800/');
+                                photos.push(src);
                             }
                         });
+                        return photos;
+                    });
 
-                        // Try to click next button
-                        const nextBtn = await page.$('[class*="next"], button[aria-label*="next"], button[aria-label*="siguiente"]');
-                        if (nextBtn) {
-                            await nextBtn.click();
-                            await new Promise(resolve => setTimeout(resolve, 500));
+                    morePhotos.forEach(photo => {
+                        if (!data.photos.includes(photo)) {
+                            data.photos.push(photo);
                         }
+                    });
+
+                    // Try to click next button
+                    const nextBtn = await page.$('[class*="next"], button[aria-label*="next"], button[aria-label*="siguiente"]');
+                    if (nextBtn) {
+                        await nextBtn.click();
+                        await new Promise(resolve => setTimeout(resolve, 1000));
                     }
 
-                    console.log(`   ✅ Total fotos después del carrusel: ${data.photos.length}`);
+                    console.log(`   📸 Click ${i+1}/30 - Total fotos: ${data.photos.length}`);
                 }
-            } catch (e) {
-                console.log('   ⚠️  No se pudo acceder al carrusel');
+
+                console.log(`   ✅ Total fotos después del carrusel: ${data.photos.length}`);
             }
+        } catch (e) {
+            console.log('   ⚠️  No se pudo acceder al carrusel:', e.message);
         }
 
         return { data, browser, page };
