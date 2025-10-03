@@ -1,0 +1,59 @@
+        function formatPrecioRenta(input) {
+            let valor = input.value.replace(/[^0-9]/g, '');
+            if (valor) {
+                valor = parseInt(valor).toLocaleString('es-MX');
+                input.value = '$' + valor;
+            }
+            vibrate(30);
+        }
+
+        function calcularAffordability() {
+            const ingresoStr = document.getElementById('ingreso-mensual').value.replace(/[^0-9]/g, '');
+            const ingreso = parseInt(ingresoStr) || 0;
+
+            const porcentaje = parseInt(document.getElementById('porcentaje-renta').value);
+            document.getElementById('porcentaje-display').textContent = porcentaje + '%';
+
+            const gastosStr = document.getElementById('gastos-adicionales').value.replace(/[^0-9]/g, '');
+            const gastos = parseInt(gastosStr) || 0;
+
+            const rentaMaxima = (ingreso * porcentaje) / 100;
+            const costoTotal = rentaPropiedadAffordability + gastos;
+            const sobrante = ingreso - costoTotal;
+
+            document.getElementById('renta-maxima').textContent = '$' + rentaMaxima.toLocaleString('es-MX', {maximumFractionDigits: 0});
+            document.getElementById('renta-propiedad-display').textContent = '$' + rentaPropiedadAffordability.toLocaleString('es-MX');
+            document.getElementById('gastos-display').textContent = '$' + gastos.toLocaleString('es-MX');
+            document.getElementById('costo-total-display').textContent = '$' + costoTotal.toLocaleString('es-MX');
+            document.getElementById('sobrante-display').textContent = '$' + sobrante.toLocaleString('es-MX');
+
+            const resultBox = document.getElementById('resultado-affordability');
+            const icon = document.getElementById('indicator-icon');
+            const message = document.getElementById('verdict-message');
+            const sobranteDisplay = document.getElementById('sobrante-display');
+
+            if (rentaPropiedadAffordability <= rentaMaxima && sobrante > 5000) {
+                resultBox.style.background = 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05))';
+                resultBox.style.borderColor = 'rgba(34, 197, 94, 0.3)';
+                icon.textContent = '✅';
+                message.textContent = '✓ Esta propiedad está dentro de tu presupuesto';
+                message.style.color = '#059669';
+                sobranteDisplay.style.color = '#059669';
+            } else if (rentaPropiedadAffordability <= rentaMaxima * 1.1 && sobrante > 0) {
+                resultBox.style.background = 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05))';
+                resultBox.style.borderColor = 'rgba(251, 191, 36, 0.3)';
+                icon.textContent = '⚠️';
+                message.textContent = '⚠ Esta propiedad está en el límite de tu presupuesto';
+                message.style.color = '#d97706';
+                sobranteDisplay.style.color = '#d97706';
+            } else {
+                resultBox.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05))';
+                resultBox.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+                icon.textContent = '❌';
+                message.textContent = '✗ Esta propiedad está fuera de tu presupuesto';
+                message.style.color = '#dc2626';
+                sobranteDisplay.style.color = '#dc2626';
+            }
+
+            vibrate(20);
+        }

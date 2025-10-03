@@ -65,52 +65,130 @@ async function scrapearPropiedad(url) {
     // Esperar 2 segundos para que carguen las imágenes
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // Intentar hacer click en el botón "siguiente" 30 veces para cargar TODAS las fotos
-    for (let i = 0; i < 30; i++) {
+    // ESTRATEGIA MEJORADA: Click agresivo en el carrusel + dots + thumbnails
+    console.log('   🔄 Cargando todas las fotos con clicks en carrusel...');
+
+    // Primero, intentar hacer click en TODOS los dots/thumbnails del carrusel
+    await page.evaluate(() => {
+        // Buscar todos los dots/thumbnails
+        const dotSelectors = [
+            '[class*="slick-dots"] button',
+            '[class*="carousel-indicators"] button',
+            '[class*="thumbnail"]',
+            '[data-slide-to]',
+            '.swiper-pagination-bullet'
+        ];
+
+        dotSelectors.forEach(selector => {
+            const dots = document.querySelectorAll(selector);
+            dots.forEach((dot, index) => {
+                setTimeout(() => dot.click(), index * 200);
+            });
+        });
+    });
+
+    await new Promise(resolve => setTimeout(resolve, 3000));
+
+    // Segundo, hacer click en el botón "siguiente" 40 veces (aumentado de 30)
+    for (let i = 0; i < 40; i++) {
         try {
-            // Buscar el botón "siguiente" con múltiples selectores
+            // Buscar el botón "siguiente" con selectores expandidos
             const clicked = await page.evaluate(() => {
                 const selectors = [
                     'button[aria-label*="next"]',
                     'button[aria-label*="siguiente"]',
                     'button[class*="next"]',
+                    'button[class*="Next"]',
                     '[class*="slick-next"]',
                     '[class*="carousel-next"]',
                     'button:has(svg[data-icon="chevron-right"])',
-                    'button:has([class*="arrow-right"])'
+                    'button:has([class*="arrow-right"])',
+                    '[data-action="next"]',
+                    '[class*="swiper-button-next"]',
+                    // Selector más genérico para flechas
+                    'button svg[class*="chevron"]',
+                    'button svg[class*="arrow"]'
                 ];
 
                 for (let selector of selectors) {
-                    const btn = document.querySelector(selector);
-                    if (btn && !btn.disabled) {
-                        btn.click();
-                        return true;
+                    try {
+                        const btn = document.querySelector(selector);
+                        if (btn) {
+                            // Si es un SVG, hacer click en el botón padre
+                            const button = btn.tagName === 'svg' ? btn.closest('button') : btn;
+                            if (button && !button.disabled && !button.classList.contains('disabled')) {
+                                button.click();
+                                return true;
+                            }
+                        }
+                    } catch (e) {
+                        continue;
                     }
                 }
                 return false;
             });
 
             if (clicked) {
-                await new Promise(resolve => setTimeout(resolve, 800));
+                await new Promise(resolve => setTimeout(resolve, 600));
             } else {
-                break; // Si no encuentra más botones, salir
+                // Si no encuentra botón, intentar con las teclas de navegación
+                await page.keyboard.press('ArrowRight');
+                await new Promise(resolve => setTimeout(resolve, 600));
             }
         } catch (e) {
             // Continuar aunque falle un click
         }
     }
 
-    // Esperar más tiempo para que carguen todas las imágenes (especialmente si hay 11+ fotos)
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    // Esperar más tiempo para que carguen todas las imágenes
+    await new Promise(resolve => setTimeout(resolve, 8000));
 
     // Extraer el ID de la propiedad de la URL para filtrar solo sus fotos
     const propertyIdMatch = url.match(/-(\d{7,9})$/);
     const propertyId = propertyIdMatch ? propertyIdMatch[1] : null;
 
-    // MÉTODO ALTERNATIVO: Extraer URLs de fotos directamente del HTML source
+    // MÉTODO MEJORADO: Extraer URLs del JavaScript/JSON embebido + HTML
     const htmlContent = await page.content();
 
-    // Múltiples regex para capturar todos los formatos posibles
+    console.log('   🔍 Buscando fotos en JSON embebido...');
+
+    // 1. BUSCAR EN NEXT_DATA (JSON embebido en el HTML)
+    let nextDataPhotos = [];
+    try {
+        const nextDataMatch = htmlContent.match(/<script[^>]*id="__NEXT_DATA__"[^>]*>(.*?)<\/script>/s);
+        if (nextDataMatch) {
+            const jsonData = JSON.parse(nextDataMatch[1]);
+
+            // Buscar recursivamente todas las URLs de fotos en el JSON
+            const findPhotos = (obj) => {
+                if (typeof obj === 'string' && obj.includes('cdn.propiedades.com') && /\.(jpg|jpeg|png|webp)/.test(obj)) {
+                    nextDataPhotos.push(obj);
+                } else if (typeof obj === 'object' && obj !== null) {
+                    Object.values(obj).forEach(findPhotos);
+                }
+            };
+
+            findPhotos(jsonData);
+            console.log(`   ✅ Encontradas ${nextDataPhotos.length} fotos en __NEXT_DATA__`);
+        }
+    } catch (e) {
+        console.log(`   ⚠️  No se pudo parsear __NEXT_DATA__`);
+    }
+
+    // 2. BUSCAR EN SCRIPTS CON REGEX (fotos que puedan estar en otros scripts)
+    const scriptMatches = htmlContent.match(/<script[^>]*>(.*?)<\/script>/gs) || [];
+    let scriptPhotos = [];
+
+    scriptMatches.forEach(script => {
+        const photoMatches = script.match(/https?:\/\/cdn\.propiedades\.com\/files\/[^\s"'<>)]+\.(?:jpg|jpeg|png|webp)/gi);
+        if (photoMatches) {
+            scriptPhotos.push(...photoMatches);
+        }
+    });
+
+    console.log(`   ✅ Encontradas ${scriptPhotos.length} fotos en scripts`);
+
+    // 3. BUSCAR EN HTML con múltiples regex
     const patterns = [
         /https?:\/\/cdn\.propiedades\.com\/files\/[^\s"'<>)]+\.(?:jpg|jpeg|png|webp)/gi,
         /cdn\.propiedades\.com\/files\/[^\s"'<>)]+\.jpg/gi,
@@ -118,15 +196,20 @@ async function scrapearPropiedad(url) {
         /'(https?:\/\/[^']*propiedades\.com[^']*\.jpg[^']*)'/gi
     ];
 
-    let allMatches = [];
+    let htmlMatches = [];
     patterns.forEach(pattern => {
         const found = htmlContent.match(pattern) || [];
-        allMatches.push(...found);
+        htmlMatches.push(...found);
     });
+
+    // Combinar todas las fuentes
+    let allMatches = [...nextDataPhotos, ...scriptPhotos, ...htmlMatches];
 
     // Limpiar URLs que puedan estar incompletas o con prefijos
     const cleanedUrls = allMatches.map(url => {
         url = url.replace(/^["']|["']$/g, ''); // Quitar comillas
+        url = url.replace(/\\"/g, ''); // Quitar escapes
+        url = url.replace(/\\\//g, '/'); // Quitar escapes de slashes
         if (!url.startsWith('http')) {
             url = 'https://' + url;
         }
@@ -137,7 +220,8 @@ async function scrapearPropiedad(url) {
     let uniqueImages = [...new Set(cleanedUrls)]
         .filter(url => url.includes('cdn.propiedades.com'))
         .filter(url => url.includes('1200x') || url.includes('800x') || url.includes('files/'))
-        .filter(url => !url.includes('logo') && !url.includes('avatar') && !url.includes('thumbnail'));
+        .filter(url => !url.includes('logo') && !url.includes('avatar') && !url.includes('thumbnail'))
+        .filter(url => !url.includes('placeholder'));
 
     // CRÍTICO: Filtrar solo fotos que contengan el ID de esta propiedad
     if (propertyId) {
