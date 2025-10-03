@@ -645,7 +645,11 @@ function extraerDatosPropiedad(scraped) {
 function descargarFotos(propertyData) {
     console.log(`\n📸 Descargando ${propertyData.photoCount} fotos...`);
 
-    const imageDir = `images/${propertyData.slug}`;
+    // ESTRUCTURA CORRECTA: culiacan/[slug]/images/ para VENTA, images/[slug]/ para RENTA
+    const imageDir = propertyData.esRenta
+        ? `images/${propertyData.slug}`
+        : `culiacan/${propertyData.slug}/images`;
+
     if (!fs.existsSync(imageDir)) {
         fs.mkdirSync(imageDir, { recursive: true });
     }
@@ -702,6 +706,14 @@ function generarHTML(propertyData) {
         } catch (error) {
             console.error('❌ Error en validación:', error.message);
             throw error;
+        }
+    }
+
+    // CREAR ESTRUCTURA culiacan/[slug]/ para VENTA
+    if (!propertyData.esRenta) {
+        const propertyDir = `culiacan/${propertyData.slug}`;
+        if (!fs.existsSync(propertyDir)) {
+            fs.mkdirSync(propertyDir, { recursive: true });
         }
     }
 
@@ -851,10 +863,18 @@ function generarHTML(propertyData) {
         `<meta name="keywords" content="${tipoInmuebleLower} ${tipoLower} Culiacán, ${propertyData.location.split(',')[0]}, ${propertyData.bedrooms} recámaras, patio amplio">`
     );
 
+    // URLs para canonical, OG y Schema
+    const canonicalUrl = propertyData.esRenta
+        ? `https://casasenventa.info/${propertyData.slug}.html`
+        : `https://casasenventa.info/culiacan/${propertyData.slug}/`;
+    const imageUrl = propertyData.esRenta
+        ? `https://casasenventa.info/images/${propertyData.slug}/foto-1.jpg`
+        : `https://casasenventa.info/culiacan/${propertyData.slug}/images/foto-1.jpg`;
+
     // 4. Canonical
     htmlContent = htmlContent.replace(
         /<link rel="canonical" href=".*?">/,
-        `<link rel="canonical" href="https://casasenventa.info/${propertyData.slug}.html">`
+        `<link rel="canonical" href="${canonicalUrl}">`
     );
 
     // 5. Open Graph - CON TIPO CORRECTO
@@ -870,26 +890,30 @@ function generarHTML(propertyData) {
 
     htmlContent = htmlContent.replace(
         /<meta property="og:url" content=".*?">/,
-        `<meta property="og:url" content="https://casasenventa.info/${propertyData.slug}.html">`
+        `<meta property="og:url" content="${canonicalUrl}">`
     );
 
     htmlContent = htmlContent.replace(
         /<meta property="og:image" content=".*?">/,
-        `<meta property="og:image" content="https://casasenventa.info/images/${propertyData.slug}/foto-1.jpg">`
+        `<meta property="og:image" content="${imageUrl}">`
     );
 
     // 6. Schema.org - CORRECCIÓN COMPLETA CON TIPO CORRECTO
     const schemaRegex = /"@context":\s*"https:\/\/schema\.org"[\s\S]*?"offers":\s*{[\s\S]*?}/;
     const schemaType = propertyData.isDepartamento ? "Apartment" : "SingleFamilyResidence";
+    const schemaImagePrefix = propertyData.esRenta
+        ? `https://casasenventa.info/images/${propertyData.slug}/`
+        : `https://casasenventa.info/culiacan/${propertyData.slug}/images/`;
+
     const newSchema = `"@context": "https://schema.org",
       "@type": "${schemaType}",
       "name": "${propertyData.title}",
       "description": "${propertyData.description}",
-      "url": "https://casasenventa.info/${propertyData.slug}.html",
+      "url": "${canonicalUrl}",
       "image": [
-        "https://casasenventa.info/images/${propertyData.slug}/foto-1.jpg",
-        "https://casasenventa.info/images/${propertyData.slug}/foto-2.jpg",
-        "https://casasenventa.info/images/${propertyData.slug}/foto-3.jpg"
+        "${schemaImagePrefix}foto-1.jpg",
+        "${schemaImagePrefix}foto-2.jpg",
+        "${schemaImagePrefix}foto-3.jpg"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -935,7 +959,11 @@ function generarHTML(propertyData) {
         console.log('   ✅ Calculadora de RENTA ya incluida en template');
     }
 
-    const filename = `${propertyData.slug}.html`;
+    // GUARDAR EN ESTRUCTURA CORRECTA
+    const filename = propertyData.esRenta
+        ? `${propertyData.slug}.html`  // RENTA: ROOT
+        : `culiacan/${propertyData.slug}/index.html`;  // VENTA: culiacan/[slug]/index.html
+
     fs.writeFileSync(filename, htmlContent);
 
     console.log(`✅ HTML generado: ${filename}`);
@@ -954,16 +982,25 @@ function generarHTML(propertyData) {
 function generarTarjeta(propertyData) {
     console.log('\n🎴 Generando tarjeta para culiacan/index.html...');
 
+    // Detectar badge color y rutas según tipo
+    const badgeColor = propertyData.esRenta ? 'bg-orange-500' : 'bg-green-600';
+    const cardHref = propertyData.esRenta
+        ? `../${propertyData.slug}.html`
+        : `${propertyData.slug}/index.html`;
+    const imagePathPrefix = propertyData.esRenta
+        ? `../images/${propertyData.slug}/`
+        : `${propertyData.slug}/images/`;
+
     const tarjeta = `
             <!-- BEGIN CARD-ADV ${propertyData.slug} -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
-                 data-href="../${propertyData.slug}.html">
+                 data-href="${cardHref}">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                    <div class="absolute top-3 right-3 ${badgeColor} text-white px-3 py-1 rounded-full text-sm font-bold z-20">
                         ${propertyData.price}
                     </div>
                     <div class="carousel-container" data-current="0">
-${propertyData.imageUrls.slice(0, 5).map((url, i) => `                        <img src="../images/${propertyData.slug}/foto-${i + 1}.jpg"
+${propertyData.imageUrls.slice(0, 5).map((url, i) => `                        <img src="${imagePathPrefix}foto-${i + 1}.jpg"
                              alt="${propertyData.title} - Foto ${i + 1}"
                              loading="lazy"
                              decoding="async"
@@ -999,10 +1036,9 @@ ${propertyData.imageUrls.slice(0, 5).map((url, i) => `                        <i
                             ${propertyData.area} m²
                         </div>
                     </div>
-                    <a href="https://wa.me/528111652545?text=${encodeURIComponent(propertyData.whatsappMessage)}"
-                       class="w-full btn-primary text-center block"
-                       target="_blank" rel="noopener noreferrer">
-                        Contactar por WhatsApp
+                    <a href="${cardHref}"
+                       class="block w-full bg-gradient-to-r from-${propertyData.esRenta ? 'orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700' : 'green-600 to-green-700 hover:from-green-700 hover:to-green-800'} text-white text-center font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+                        Ver Detalles
                     </a>
                 </div>
             </div>
