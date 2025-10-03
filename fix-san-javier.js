@@ -3,12 +3,12 @@ const fs = require('fs');
 let html = fs.readFileSync('culiacan/casa-venta-san-javier/index.html', 'utf8');
 
 // 1. Replace all prices
-html = html.replace(/\$1,750,000/g, '$3,500,000');
+html = html.replace(/\$1,750,000/g, '$13,859,000');
 
 // 2. Meta tags
 html = html.replace(
     /<title>Casa en Venta \$1,750,000 - Infonavit Solidaridad, Culiacán \| Hector es Bienes Raíces<\/title>/,
-    '<title>Casa en Venta $3,500,000 - San Javier La Primavera, Culiacán | Hector es Bienes Raíces</title>'
+    '<title>Casa en Venta $13,859,000 - San Javier La Primavera, Culiacán | Hector es Bienes Raíces</title>'
 );
 
 html = html.replace(
@@ -27,7 +27,7 @@ html = html.replace(
 );
 
 // 3. Open Graph
-html = html.replace(/Casa en Venta \$\d+,\d+,\d+ - Infonavit Solidaridad/g, 'Casa en Venta $3,500,000 - San Javier La Primavera');
+html = html.replace(/Casa en Venta \$\d+,\d+,\d+ - Infonavit Solidaridad/g, 'Casa en Venta $13,859,000 - San Javier La Primavera');
 html = html.replace(/Hermosa casa remodelada con 2 recámaras, 2 baños completos y cochera techada para 2 autos\./,
     'Casa nueva con 3 recámaras, 3 baños y cochera techada para 2 autos.');
 
@@ -51,7 +51,7 @@ html = html.replace(/"numberOfFullBathrooms": 2,/, '"numberOfFullBathrooms": 3,'
 html = html.replace(/"numberOfRooms": 4,/, '"numberOfRooms": 6,');
 
 html = html.replace(/"yearBuilt": 2020,/, '"yearBuilt": 2024,');
-html = html.replace(/"price": "1750000",/, '"price": "3500000",');
+html = html.replace(/"price": "1750000",/, '"price": "13859000",');
 
 // 5. CSS paths
 html = html.replace(/href="styles\.css"/g, 'href="../infonavit-solidaridad/styles.css"');
@@ -83,16 +83,16 @@ html = html.replace(/const totalSlidesHero = 14;/, 'const totalSlidesHero = 10;'
 
 // 11. WhatsApp links
 html = html.replace(/Me%20interesa%20la%20casa%20en%20Infonavit%20Solidaridad%20de%20%24\d+%2C\d+%2C\d+/g,
-    'Me%20interesa%20la%20casa%20en%20San%20Javier%20La%20Primavera%20de%20%243%2C500%2C000');
+    'Me%20interesa%20la%20casa%20en%20San%20Javier%20La%20Primavera%20de%20%2413%2C859%2C000');
 
 html = html.replace(/Me%20interesan%20informes%20de%20la%20casa%20remodelada%20en%20Infonavit%20Solidaridad/g,
     'Me%20interesan%20informes%20de%20la%20casa%20nueva%20en%20San%20Javier%20La%20Primavera');
 
 html = html.replace(/¡Mira esta increíble casa en venta en Infonavit Solidaridad! \$\d+,\d+,\d+/,
-    '¡Mira esta increíble casa en venta en San Javier La Primavera! $3,500,000');
+    '¡Mira esta increíble casa en venta en San Javier La Primavera! $13,859,000');
 
 html = html.replace(/Casa en Infonavit Solidaridad\\nPrecio: \$\d+,\d+,\d+\\n2 recámaras, 2 baños completos\\n112\.5 m² terreno/,
-    'Casa en San Javier La Primavera\\nPrecio: $3,500,000\\n3 recámaras, 3 baños\\n362 m² construcción');
+    'Casa en San Javier La Primavera\\nPrecio: $13,859,000\\n3 recámaras, 3 baños\\n362 m² construcción');
 
 html = html.replace(/Casa en venta - Infonavit Solidaridad/, 'Casa en venta - San Javier La Primavera');
 

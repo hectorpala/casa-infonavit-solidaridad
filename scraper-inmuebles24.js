@@ -64,11 +64,29 @@ async function scrapeInmuebles24(url) {
                            document.querySelector('h1');
             if (titleEl) result.title = titleEl.textContent.trim();
 
-            // Price
-            const priceEl = document.querySelector('[data-qa="POSTING_CARD_PRICE"]') ||
-                           document.querySelector('.price-tag') ||
-                           document.querySelector('[class*="price"]');
-            if (priceEl) result.price = priceEl.textContent.trim();
+            // Price - comprehensive search
+            let priceEl = document.querySelector('[data-qa="POSTING_CARD_PRICE"]') ||
+                         document.querySelector('.price-tag') ||
+                         document.querySelector('[class*="price"]') ||
+                         document.querySelector('[class*="Price"]') ||
+                         document.querySelector('h2');
+
+            if (priceEl) {
+                let priceText = priceEl.textContent.trim();
+                const priceMatch = priceText.match(/\$\s*([\d,\.]+)/);
+                if (priceMatch) {
+                    result.price = '$' + priceMatch[1].replace(/\./g, ',');
+                } else {
+                    result.price = priceText;
+                }
+            }
+
+            // Fallback: search in all text for price pattern
+            if (!result.price || result.price === 'Ocultar aviso') {
+                const bodyText = document.body.textContent;
+                const priceInBody = bodyText.match(/\$\s*([\d,\.]{7,})/);
+                if (priceInBody) result.price = '$' + priceInBody[1].replace(/\./g, ',');
+            }
 
             // Location
             const locationEl = document.querySelector('[data-qa="POSTING_CARD_LOCATION"]') ||
