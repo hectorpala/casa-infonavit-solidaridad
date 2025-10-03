@@ -939,8 +939,8 @@
                  data-href="../casa-venta-natura-perisur.html">
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO (estructura EXACTA La Campiña) -->
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $4,200,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $4,200,000
                     </div>
 
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -1602,8 +1602,8 @@
                  data-href="../casa-venta-las-glorias.html">
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO - COLOR FIJO NARANJA -->
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,400,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,400,000
                     </div>
                     
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -1734,8 +1734,8 @@
                  data-href="../casa-venta-hacienda-del-rio.html">
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO - COLOR FIJO NARANJA -->
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,200,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,200,000
                     </div>
                     
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -2596,7 +2596,7 @@
                  data-href="san-agustin-primavera/index.html">
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
                         VENTA · $6,550,000
                     </div>
 
@@ -2723,8 +2723,8 @@
                  data-href="../casa-venta-casa-en-venta-privada-la-perla-premium.html">
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $3,400,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $3,400,000
                     </div>
                     
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -2831,7 +2831,7 @@
                  data-href="../casa-venta-villas-del-rio-elite.html">
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
                         Consultar precio
                     </div>
                     
@@ -2945,8 +2945,8 @@
                  data-href="../casa-venta-bosque-monarca.html">
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $2,195,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $2,195,000
                     </div>
                     
                     <!-- CAROUSEL CONTAINER -->
@@ -3236,7 +3236,7 @@
                     
                     <!-- PRICE BADGE OBLIGATORIO - COLOR FIJO NARANJA -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,750,000
+                        $1,750,000
                     </div>
                     
                     <!-- Favoritos button - OBLIGATORIO -->
@@ -3308,7 +3308,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $2,850,000
+                        $2,850,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/portabelo-privada/cover.jpg"
@@ -3414,7 +3414,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $4,499,000
+                        $4,499,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/espacios-barcelona/cover.jpg"
@@ -3891,7 +3891,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,550,000
+                        $1,550,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/villa-del-roble/f4011276-2f4b-11f0-973f-9b94169f1182.jpeg" 
@@ -4030,7 +4030,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,280,000
+                        $1,280,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/hacienda-de-la-mora/a0cb287c-50ba-11f0-9944-1797c82b2b95.jpeg" 
@@ -4153,7 +4153,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,850,000
+                        $1,850,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/la-estancia-1/521ab8e3-823b-11f0-a6a1-7b4ef5ab5e53.jpeg" 
@@ -4300,8 +4300,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-valles-del-sol-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,250,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,250,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-valles-del-sol-culiacan/foto-1.jpg"
@@ -4373,8 +4373,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-villas-del-rio-elite-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,650,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,650,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-villas-del-rio-elite-culiacan/foto-1.jpg"
@@ -4447,8 +4447,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-camino-real-portareal-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,900,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,900,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-camino-real-portareal-culiacan/foto-1.jpg"
@@ -4521,8 +4521,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-san-luis-residencial-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,450,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,450,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-san-luis-residencial-culiacan/foto-1.jpg"
@@ -4594,8 +4594,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-infonavit-barrancos-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,900,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,900,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-infonavit-barrancos-culiacan/foto-1.jpg"
@@ -4667,8 +4667,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-villa-del-cedro-2-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,990,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,990,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-villa-del-cedro-2-culiacan/foto-1.jpg"
@@ -4740,8 +4740,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-rincon-real-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,799,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,799,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-rincon-real-culiacan/foto-1.jpg"
@@ -4813,8 +4813,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-santa-fe-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,950,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,950,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-santa-fe-culiacan/foto-1.jpg"
@@ -4886,8 +4886,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-villa-del-cedro-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,190,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,190,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-villa-del-cedro-culiacan/foto-1.jpg"
@@ -4959,8 +4959,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../departamento-venta-tierra-blanca-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,990,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,990,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/departamento-venta-tierra-blanca-culiacan/foto-1.jpg"
@@ -5030,8 +5030,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-los-angeles-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,570,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,570,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-los-angeles-culiacan/foto-1.jpg"
@@ -5101,8 +5101,8 @@
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
                  data-href="../casa-venta-la-conquista-culiacan.html">
                 <div class="relative aspect-video">
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,600,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,600,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/casa-venta-la-conquista-culiacan/foto-1.jpg"
@@ -5191,8 +5191,8 @@
                  data-href="../casa-venta-stanza-toscana.html">
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO (estructura EXACTA La Campiña) -->
-                    <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,990,000
+                    <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                        $1,990,000
                     </div>
 
                     <!-- CAROUSEL CONTAINER - ESTRUCTURA COMPATIBLE CON JS EXISTENTE -->
@@ -5829,7 +5829,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,590,000
+                        $1,590,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/infonavit-barrancos/infonavit-barrancos-culiacan-sinaloa-29960702-foto-01.jpg" 
@@ -5958,7 +5958,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,300,000
+                        $1,300,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/valle-alto-verde/valle-alto-culiacan-sinaloa-30086313-foto-01.jpg" 
@@ -6085,7 +6085,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $2,100,000
+                        $2,100,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/lazaro-cardenas/551501214_1306174290991402_4361815059884523523_n.jpg" 
@@ -6206,7 +6206,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,300,000
+                        $1,300,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/zona-dorada/543672725_1747498112624618_4105227695550429596_n.jpg" 
@@ -6333,7 +6333,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,375,000
+                        $1,375,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/santa-fe/c1c5775b-8a82-11f0-8364-0b8ecc5151e4.jpeg" 
@@ -6585,7 +6585,7 @@
                 <div class="relative aspect-video">
                     <!-- PRICE BADGE OBLIGATORIO -->
                     <div class="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        VENTA $1,690,000
+                        $1,690,000
                     </div>
                     <div class="carousel-container" data-current="0">
                         <img src="../images/stanza-corcega/cover.jpg"
@@ -7011,7 +7011,7 @@
         
         allCards.forEach((card, index) => {
           let show = true;
-          const priceText = card.querySelector('.bg-orange-500')?.textContent || '';
+          const priceText = card.querySelector('.bg-orange-500, .bg-green-600')?.textContent || '';
           // Detectar por palabra RENTA o VENTA en el badge, o por /mes como fallback
           const isRenta = priceText.toUpperCase().includes('RENTA') || priceText.includes('/mes');
           const isVenta = priceText.toUpperCase().includes('VENTA') || !isRenta;
