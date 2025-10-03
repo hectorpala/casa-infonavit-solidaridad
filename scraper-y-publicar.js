@@ -5,6 +5,11 @@
  *
  * Este script:
  * 1. Scrapea propiedad de propiedades.com
+ *    - Copia título completo (h1, og:title, document.title)
+ *    - Click en imagen más grande
+ *    - Click en primera foto
+ *    - Navega con flechas (40 clicks) para cargar TODAS las fotos
+ *    - Click en "Mostrar más" para descripción completa
  * 2. Descarga fotos con curl
  * 3. Genera HTML con PropertyPageGenerator (template Solidaridad)
  * 4. Corrige TODOS los metadatos (title, description, Schema.org, Open Graph, hero)
@@ -65,31 +70,62 @@ async function scrapearPropiedad(url) {
     // Esperar 2 segundos para que carguen las imágenes
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // ESTRATEGIA MEJORADA: Click agresivo en el carrusel + dots + thumbnails
-    console.log('   🔄 Cargando todas las fotos con clicks en carrusel...');
+    // NUEVA ESTRATEGIA: Click en imagen grande → primera foto → navegar con flechas
+    console.log('   🔄 Cargando todas las fotos con clicks optimizados...');
 
-    // Primero, intentar hacer click en TODOS los dots/thumbnails del carrusel
-    await page.evaluate(() => {
-        // Buscar todos los dots/thumbnails
-        const dotSelectors = [
-            '[class*="slick-dots"] button',
-            '[class*="carousel-indicators"] button',
-            '[class*="thumbnail"]',
-            '[data-slide-to]',
-            '.swiper-pagination-bullet'
+    // PASO 1: Click en la imagen más grande (para abrir galería)
+    console.log('   📸 PASO 1: Click en imagen grande...');
+    const clickedMainImage = await page.evaluate(() => {
+        const selectors = [
+            'img[class*="main"]',
+            'img[class*="hero"]',
+            'img[class*="principal"]',
+            'img[class*="large"]',
+            'img[src*="1200x"]',
+            'img[alt*="principal"]',
+            '.carousel-image',
+            '[class*="carousel"] img:first-child',
+            '[class*="gallery"] img:first-child'
         ];
 
-        dotSelectors.forEach(selector => {
-            const dots = document.querySelectorAll(selector);
-            dots.forEach((dot, index) => {
-                setTimeout(() => dot.click(), index * 200);
-            });
-        });
+        for (let selector of selectors) {
+            const img = document.querySelector(selector);
+            if (img && img.offsetWidth > 400) { // Solo imágenes grandes
+                img.click();
+                console.log('Click en imagen grande:', selector);
+                return true;
+            }
+        }
+        return false;
     });
 
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    await new Promise(resolve => setTimeout(resolve, 1500));
 
-    // Segundo, hacer click en el botón "siguiente" 40 veces (aumentado de 30)
+    // PASO 2: Click en la primera foto del carrusel/galería
+    console.log('   📸 PASO 2: Click en primera foto...');
+    await page.evaluate(() => {
+        const selectors = [
+            '[class*="carousel"] img:first-child',
+            '[class*="gallery"] img:first-child',
+            '[class*="slider"] img:first-child',
+            '.carousel-slide:first-child img',
+            '[data-slide="0"] img'
+        ];
+
+        for (let selector of selectors) {
+            const img = document.querySelector(selector);
+            if (img) {
+                img.click();
+                console.log('Click en primera foto:', selector);
+                break;
+            }
+        }
+    });
+
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // PASO 3: Navegar con flechas para cargar TODAS las fotos
+    console.log('   📸 PASO 3: Navegando con flechas (40 clicks)...');
     for (let i = 0; i < 40; i++) {
         try {
             // Buscar el botón "siguiente" con selectores expandidos
@@ -142,6 +178,58 @@ async function scrapearPropiedad(url) {
 
     // Esperar más tiempo para que carguen todas las imágenes
     await new Promise(resolve => setTimeout(resolve, 8000));
+
+    // PASO 4: Click en "Mostrar más" de la descripción para obtener texto completo
+    console.log('   📝 PASO 4: Click en "Mostrar más" de la descripción...');
+    const clickedShowMore = await page.evaluate(() => {
+        const selectors = [
+            'button:has-text("Mostrar más")',
+            'button:has-text("Ver más")',
+            'a:has-text("Mostrar más")',
+            'a:has-text("Ver más")',
+            '[class*="show-more"]',
+            '[class*="read-more"]',
+            '[class*="expand"]',
+            'button[class*="description"] span',
+            // Selectores más específicos
+            'button[aria-label*="más"]',
+            'button[aria-label*="expand"]'
+        ];
+
+        // Intentar con textContent también
+        const buttons = document.querySelectorAll('button, a');
+        for (let btn of buttons) {
+            const text = btn.textContent.toLowerCase().trim();
+            if (text.includes('mostrar más') || text.includes('ver más') || text.includes('leer más')) {
+                btn.click();
+                console.log('Click en botón "Mostrar más":', btn.textContent);
+                return true;
+            }
+        }
+
+        // Si no encuentra por texto, intentar selectores genéricos
+        for (let selector of selectors) {
+            try {
+                const btn = document.querySelector(selector);
+                if (btn) {
+                    btn.click();
+                    console.log('Click en botón "Mostrar más" con selector:', selector);
+                    return true;
+                }
+            } catch (e) {
+                continue;
+            }
+        }
+
+        return false;
+    });
+
+    if (clickedShowMore) {
+        console.log('   ✅ Click en "Mostrar más" exitoso, esperando contenido...');
+        await new Promise(resolve => setTimeout(resolve, 2000));
+    } else {
+        console.log('   ⚠️  No se encontró botón "Mostrar más" (puede que la descripción ya esté completa)');
+    }
 
     // Extraer el ID de la propiedad de la URL para filtrar solo sus fotos
     const propertyIdMatch = url.match(/-(\d{7,9})$/);
@@ -386,7 +474,28 @@ async function scrapearPropiedad(url) {
             return meta ? meta.getAttribute('content') : null;
         };
 
-        const title = getText('h1') || getMetaContent('og:title') || document.title;
+        // Extraer título completo de múltiples fuentes
+        const getTitleComplete = () => {
+            // 1. H1 principal
+            const h1 = document.querySelector('h1');
+            if (h1 && h1.textContent.length > 10) return h1.textContent.trim();
+
+            // 2. Meta tag og:title (más completo)
+            const ogTitle = getMetaContent('og:title');
+            if (ogTitle && ogTitle.length > 10) return ogTitle;
+
+            // 3. Title del documento (sin "| Propiedades.com")
+            const docTitle = document.title.split('|')[0].split('-')[0].trim();
+            if (docTitle && docTitle.length > 10) return docTitle;
+
+            // 4. Buscar en breadcrumbs
+            const breadcrumb = document.querySelector('[class*="breadcrumb"] a:last-child');
+            if (breadcrumb) return breadcrumb.textContent.trim();
+
+            return 'Casa en Venta';
+        };
+
+        const title = getTitleComplete();
         const description = getText('[class*="description"]') || getText('p[data-testid="property-description"]') || getMetaContent('og:description') || '';
         const price = getText('[class*="price"]') || getText('[class*="Price"]') || getText('strong') || '$20,000';
 
@@ -423,6 +532,13 @@ async function scrapearPropiedad(url) {
 function extraerDatosPropiedad(scraped) {
     const esRenta = scraped.esRenta || false;
 
+    // DETECTAR TIPO DE PROPIEDAD desde el título
+    const isDepartamento = scraped.title.toLowerCase().includes('departamento');
+    const tipoPropiedad = isDepartamento ? 'Departamento' : 'Casa';
+    const tipoPropiedadLower = isDepartamento ? 'departamento' : 'casa';
+
+    console.log(`   🏠 Tipo detectado: ${tipoPropiedad} (título: "${scraped.title}")`);
+
     // Extraer precio numérico
     const priceMatch = scraped.price.match(/[\d,]+/);
     const priceNumber = priceMatch ? parseInt(priceMatch[0].replace(/,/g, '')) : 0;
@@ -451,8 +567,9 @@ function extraerDatosPropiedad(scraped) {
         ? `${developmentType.charAt(0).toUpperCase() + developmentType.slice(1)} ${colonia}`
         : colonia;
 
-    // Crear slug ÚNICO usando colonia + timestamp
+    // Crear slug ÚNICO usando colonia + timestamp + TIPO DE PROPIEDAD
     const tipo = esRenta ? 'renta' : 'venta';
+    const tipoSlug = isDepartamento ? 'departamento' : 'casa';
     const coloniaSlug = colonia.toLowerCase()
         .replace(/\s+/g, '-')
         .replace(/[áàäâã]/g, 'a')
@@ -463,7 +580,7 @@ function extraerDatosPropiedad(scraped) {
         .replace(/[^a-z0-9-]/g, '');
 
     const timestamp = Date.now().toString().slice(-6); // Últimos 6 dígitos
-    const slug = `casa-${tipo}-${coloniaSlug}-${timestamp}`;
+    const slug = `${tipoSlug}-${tipo}-${coloniaSlug}-${timestamp}`;
 
     // Usar DESCRIPCIÓN como fuente primaria (más confiable que .characteristic del DOM)
     const chars = scraped.characteristics || {};
@@ -483,15 +600,17 @@ function extraerDatosPropiedad(scraped) {
     const landArea = chars.land || area;
     const parking = chars.parking || 2;
 
-    // Generar descripción completa y profesional
+    // Generar descripción completa y profesional usando TIPO CORRECTO
     const fullDescription = scraped.description ||
-        `Hermosa casa en ${esRenta ? 'renta' : 'venta'} en ${fullLocationName}, Culiacán. ` +
+        `Hermoso ${tipoPropiedadLower} en ${esRenta ? 'renta' : 'venta'} en ${fullLocationName}, Culiacán. ` +
         `Cuenta con ${bedrooms} recámara${bedrooms > 1 ? 's' : ''}, ${bathrooms} baño${bathrooms > 1 ? 's' : ''} completo${bathrooms > 1 ? 's' : ''}, ` +
         `${area} m² de construcción${landArea !== area ? ` y ${landArea} m² de terreno` : ''}. ` +
         `Excelente ubicación y acabados de calidad.`;
 
     return {
-        title: `Casa en ${esRenta ? 'Renta' : 'Venta'} ${fullLocationName}`,
+        title: `${tipoPropiedad} en ${esRenta ? 'Renta' : 'Venta'} ${fullLocationName}`,
+        tipoPropiedad: tipoPropiedad,
+        isDepartamento: isDepartamento,
         location: `${fullLocationName}, Culiacán, Sinaloa`,
         price: scraped.price.includes('$') ? scraped.price.split(' ')[0] : `$${priceNumber.toLocaleString('es-MX')}`,
         priceNumber: priceNumber,
@@ -516,7 +635,7 @@ function extraerDatosPropiedad(scraped) {
             parking ? `${parking} Estacionamiento${parking > 1 ? 's' : ''}` : null,
             "Patio Amplio"
         ].filter(Boolean),
-        whatsappMessage: `Hola, me interesa la casa en ${tipo} en ${colonia} de ${scraped.price.split(' ')[0]}`,
+        whatsappMessage: `Hola, me interesa el ${tipoPropiedadLower} en ${tipo} en ${colonia} de ${scraped.price.split(' ')[0]}`,
         photoCount: scraped.images.length,
         imageUrls: scraped.images,
         ownerContact: scraped.ownerContact || {}
@@ -710,22 +829,26 @@ function generarHTML(propertyData) {
         console.log('   ✅ Datos del template RENTA reemplazados');
     }
 
-    // 1. Title tag
+    // Detectar tipo de propiedad (Casa vs Departamento)
+    const tipoInmueble = propertyData.isDepartamento ? 'Departamento' : 'Casa';
+    const tipoInmuebleLower = propertyData.isDepartamento ? 'departamento' : 'casa';
+
+    // 1. Title tag - CON TIPO CORRECTO
     htmlContent = htmlContent.replace(
         /<title>.*?<\/title>/,
-        `<title>Casa en ${tipoPropiedad} ${propertyData.price} - ${propertyData.location.split(',')[0]}, Culiacán | Hector es Bienes Raíces</title>`
+        `<title>${tipoInmueble} en ${tipoPropiedad} ${propertyData.price} - ${propertyData.location.split(',')[0]}, Culiacán | Hector es Bienes Raíces</title>`
     );
 
-    // 2. Meta description
+    // 2. Meta description - CON TIPO CORRECTO
     htmlContent = htmlContent.replace(
         /<meta name="description" content=".*?">/,
-        `<meta name="description" content="Casa en ${tipoLower} en ${propertyData.location.split(',')[0]}, Culiacán. ${propertyData.bedrooms} recámaras, ${propertyData.bathrooms} baño${propertyData.bathrooms > 1 ? 's' : ''}, ${propertyData.area}m² terreno. ¡Contáctanos!">`
+        `<meta name="description" content="${tipoInmueble} en ${tipoLower} en ${propertyData.location.split(',')[0]}, Culiacán. ${propertyData.bedrooms} recámaras, ${propertyData.bathrooms} baño${propertyData.bathrooms > 1 ? 's' : ''}, ${propertyData.area}m² terreno. ¡Contáctanos!">`
     );
 
-    // 3. Keywords
+    // 3. Keywords - CON TIPO CORRECTO
     htmlContent = htmlContent.replace(
         /<meta name="keywords" content=".*?">/,
-        `<meta name="keywords" content="casa ${tipoLower} Culiacán, ${propertyData.location.split(',')[0]}, ${propertyData.bedrooms} recámaras, patio amplio">`
+        `<meta name="keywords" content="${tipoInmuebleLower} ${tipoLower} Culiacán, ${propertyData.location.split(',')[0]}, ${propertyData.bedrooms} recámaras, patio amplio">`
     );
 
     // 4. Canonical
@@ -734,10 +857,10 @@ function generarHTML(propertyData) {
         `<link rel="canonical" href="https://casasenventa.info/${propertyData.slug}.html">`
     );
 
-    // 5. Open Graph
+    // 5. Open Graph - CON TIPO CORRECTO
     htmlContent = htmlContent.replace(
         /<meta property="og:title" content=".*?">/,
-        `<meta property="og:title" content="Casa en ${tipoPropiedad} ${propertyData.price} - ${propertyData.location.split(',')[0]}">`
+        `<meta property="og:title" content="${tipoInmueble} en ${tipoPropiedad} ${propertyData.price} - ${propertyData.location.split(',')[0]}">`
     );
 
     htmlContent = htmlContent.replace(
@@ -755,10 +878,11 @@ function generarHTML(propertyData) {
         `<meta property="og:image" content="https://casasenventa.info/images/${propertyData.slug}/foto-1.jpg">`
     );
 
-    // 6. Schema.org - CORRECCIÓN COMPLETA
+    // 6. Schema.org - CORRECCIÓN COMPLETA CON TIPO CORRECTO
     const schemaRegex = /"@context":\s*"https:\/\/schema\.org"[\s\S]*?"offers":\s*{[\s\S]*?}/;
+    const schemaType = propertyData.isDepartamento ? "Apartment" : "SingleFamilyResidence";
     const newSchema = `"@context": "https://schema.org",
-      "@type": "SingleFamilyResidence",
+      "@type": "${schemaType}",
       "name": "${propertyData.title}",
       "description": "${propertyData.description}",
       "url": "https://casasenventa.info/${propertyData.slug}.html",
