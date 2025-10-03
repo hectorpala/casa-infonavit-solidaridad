@@ -41,16 +41,24 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 
 ## 🔧 SISTEMA DE AUTOMATIZACIÓN
 
-### PropertyPageGenerator - **OPCIÓN 1: INTEGRACIÓN INTELIGENTE + MODERN FEATURES** ✅
-- **Ubicación:** `automation/property-page-generator.js`
-- **Templates:** `automation/templates/rental-template.html` y `property-template.html`
-- **Modern Features:** `automation/templates/modern-features.js` (nuevo)
+### 🛡️ Generador de Propiedades - **MASTER TEMPLATE CON VALIDACIÓN AUTOMÁTICA** ✅
+- **Ubicación:** `automation/generador-de-propiedades.js`
+- **Template Base:** `automation/templates/master-template.html` (estructura 100% fija)
+- **Método Principal:** `generateFromMasterTemplateWithValidation(config)` ⭐
+- **🛡️ VALIDACIÓN AUTOMÁTICA:** 7 verificaciones antes de generar HTML
+- **🛡️ PROTECCIÓN TOTAL:** Imposible generar HTML con errores o placeholders sin reemplazar
 - **🤖 AUTOMÁTICO:** Auto-detecta fotos en carpeta PROYECTOS
-- **🤖 AUTOMÁTICO:** Ejecuta `automation/optimizar-fotos.sh` sin intervención
-- **🤖 AUTOMÁTICO:** Ejecuta `verificar-optimizaciones.sh` pre-publicación
+
+### ⚠️ **REQUISITO CRÍTICO: CSS ACTUALIZADO EN ROOT**
+- **Archivo:** `styles.css` (87KB - versión completa con carrusel)
+- **Origen:** Debe copiarse desde `culiacan/infonavit-solidaridad/styles.css`
+- **Comando:** `cp culiacan/infonavit-solidaridad/styles.css styles.css`
+- **¿Por qué?** El CSS en ROOT contiene todos los estilos del carrusel, lightbox, y modern features
+- **❌ PROBLEMA:** Si usas el CSS viejo (20KB), las fotos se ven gigantes y el carrusel NO funciona
+- **✅ SOLUCIÓN:** Siempre mantener el CSS actualizado desde Casa Solidaridad
+- **🤖 AUTOMÁTICO:** Genera carrusel, dots, lightbox dinámicamente según photoCount
 - **🔧 INTEGRACIÓN:** Sistema que preserva todas las propiedades existentes
-- **🔧 INTEGRACIÓN:** Detecta estructura dual (clásica vs Tailwind CSS) automáticamente
-- **🔧 INTEGRACIÓN:** Validación pre-deploy para evitar pérdida de propiedades
+- **✅ TODOS LOS SCRIPTS ACTUALIZADOS:** add-property.js, scraper-y-publicar.js, scraper-propiedad-especifica.js, etc.
 
 #### ✨ MODERN FEATURES (Actualización 2025) - AUTOMÁTICO
 Todas las nuevas propiedades generadas incluyen automáticamente:
@@ -90,38 +98,34 @@ Todas las nuevas propiedades generadas incluyen automáticamente:
    - Layout horizontal compacto
    - Badges Zillow-style para detalles
 
-#### 🆕 MÉTODO DE COPIA EXACTA (2025)
-**USO:** Para propiedades que necesitan EXACTAMENTE la misma estructura que Casa Solidaridad
+#### 🆕 MASTER TEMPLATE SYSTEM (2025) - ⭐ RECOMENDADO
+**USO:** Método principal para generar TODAS las nuevas propiedades
 
-**Función:** `generateFromSolidaridadTemplate(config)`
+**Función:** `generateFromMasterTemplate(config)`
+
+**Ventajas:**
+- ✅ **Estructura 100% fija** - Basada en `master-template.html` con placeholders
+- ✅ **Mantenible** - Solo actualizar master template para cambiar todas las futuras propiedades
+- ✅ **Sin errores** - Sistema de reemplazo limpio de placeholders `{{VARIABLE}}`
+- ✅ **Completo** - Incluye todas las modern features automáticamente
+- ✅ **Extensible** - Fácil agregar nuevos placeholders
 
 **Proceso:**
-1. **Copia completa** de `culiacan/infonavit-solidaridad/index.html`
-2. **Cambios SOLO de datos** (preserva toda la estructura, código, estilos)
-3. **Auto-adaptación** de carrusel según número de fotos
+1. Lee `automation/templates/master-template.html`
+2. Reemplaza todos los placeholders `{{VARIABLE}}` con datos del config
+3. Genera dinámicamente: carousel slides, dots, lightbox array
+4. Retorna HTML completo listo para usar
 
-**Qué cambia automáticamente:**
-- ✅ Precio (todos los formatos: $X,XXX,XXX y números)
-- ✅ Título de propiedad (todos los lugares)
-- ✅ Ubicación (dirección completa y corta)
-- ✅ Recámaras (cantidad + singular/plural)
-- ✅ Baños (cantidad + singular/plural)
-- ✅ M² construcción y terreno
-- ✅ Mensajes WhatsApp personalizados
-- ✅ `totalSlidesHero` según número de fotos
-- ✅ Rutas de imágenes → `images/[slug]/foto-X.jpg`
-- ✅ Elimina slides/dots extras si hay menos de 14 fotos
-- ✅ **LIMPIA array lightboxImages** automáticamente (solo fotos existentes)
-
-**Qué se preserva 100%:**
-- ✅ Sticky Price Bar
-- ✅ Scroll Animations
-- ✅ Haptic Feedback
-- ✅ Calculadora Zillow
-- ✅ Hero reducido
-- ✅ Características compactas
-- ✅ Estructura HTML completa
-- ✅ Todo el CSS y JavaScript
+**Qué incluye automáticamente:**
+- ✅ Sticky Price Bar con WhatsApp
+- ✅ Scroll Animations (fade-in)
+- ✅ Haptic Feedback (vibración móvil)
+- ✅ Calculadora Zillow reducida 70%
+- ✅ Hero compacto (50% más pequeño)
+- ✅ Features compactas (iconos 15% más grandes)
+- ✅ Lightbox gallery expandible
+- ✅ Share buttons (WhatsApp, Facebook, Email, Copy)
+- ✅ SEO completo (meta tags, Schema.org, Open Graph)
 
 **Config mínima requerida:**
 ```javascript
@@ -129,23 +133,90 @@ Todas las nuevas propiedades generadas incluyen automáticamente:
     key: 'casa-venta-nombre-slug',
     title: 'Casa Nombre Completo',
     price: '$X,XXX,XXX',
-    location: 'Colonia, CP',
-    bedrooms: 2,
+    location: 'Fracc. Mi Fracc, Culiacán',
+    bedrooms: 3,
     bathrooms: 2,
-    construction_area: 100.5,
-    land_area: 120.0,
-    photoCount: 7  // Número de fotos disponibles
+    construction_area: 200,
+    land_area: 250,
+    photoCount: 8,  // Número de fotos disponibles
+
+    // Opcionales (con valores default)
+    parking: 2,
+    floors: 2,
+    yearBuilt: 2024,
+    postalCode: '80000',
+    latitude: 24.8091,
+    longitude: -107.3940
 }
 ```
 
 **Llamada:**
 ```javascript
-const generator = new PropertyPageGenerator();
-const html = generator.generateFromSolidaridadTemplate(config);
-fs.writeFileSync('casa-venta-nueva.html', html);
+const PropertyPageGenerator = require('./automation/generador-de-propiedades');
+const generator = new PropertyPageGenerator(false); // false = venta
+const html = generator.generateFromMasterTemplate(config);
+fs.writeFileSync('culiacan/mi-propiedad/index.html', html);
 ```
 
-**VENTAJA:** Garantiza consistencia total con Casa Solidaridad (todas las features modernas)
+#### 🔧 **CORRECCIONES APLICADAS AL MASTER TEMPLATE (OCT 2025)**
+
+**Problemas resueltos:**
+
+1. **❌ Flechas del carrusel faltantes**
+   - **Solución:** Agregadas dentro del `<div class="carousel-wrapper">` después del placeholder `{{CAROUSEL_SLIDES}}`
+   - **Código:**
+     ```html
+     <!-- Navigation arrows -->
+     <button class="carousel-arrow carousel-prev" onclick="changeSlideHero(-1); openLightboxFromCarousel();">
+         <i class="fas fa-chevron-left"></i>
+     </button>
+     <button class="carousel-arrow carousel-next" onclick="changeSlideHero(1); openLightboxFromCarousel();">
+         <i class="fas fa-chevron-right"></i>
+     </button>
+     ```
+
+2. **❌ Lightbox array con 14 imágenes hardcodeadas**
+   - **Solución:** Reemplazado con placeholder `{{LIGHTBOX_IMAGES_ARRAY}}`
+   - **Antes:** 14 entradas hardcodeadas de Casa Solidaridad
+   - **Ahora:** Array dinámico generado según `photoCount`
+
+3. **❌ Textos hardcodeados de "Infonavit Solidaridad"**
+   - **Solución:** 15+ replacements en `generador-de-propiedades.js`:
+     - "Infonavit Solidaridad" → `config.location.split(',')[0]`
+     - "Casa Remodelada en Infonavit Solidaridad" → `config.title`
+     - "Blvrd Elbert 2609" → `config.location`
+     - "$1,750,000" → `config.price`
+     - "91.6m²" → `config.construction_area`
+     - "112.5m²" → `config.land_area`
+     - "780 mt² de construcción" → `${config.construction_area}m²`
+     - Meta description, keywords, Schema.org, WhatsApp links, etc.
+
+4. **❌ CSS desactualizado en ROOT**
+   - **Problema:** `styles.css` en ROOT era versión vieja (20KB) sin estilos de carrusel
+   - **Solución:** `cp culiacan/infonavit-solidaridad/styles.css styles.css`
+   - **Resultado:** CSS actualizado (87KB) con todos los estilos del carrusel, lightbox, modern features
+
+**Archivos actualizados:**
+- ✅ `automation/templates/master-template.html` - Flechas agregadas, lightbox placeholder corregido
+- ✅ `automation/generador-de-propiedades.js` - 15+ replacements para textos hardcodeados
+- ✅ `styles.css` - CSS completo copiado desde Casa Solidaridad
+
+**Validación:**
+- ✅ Carrusel funcionando con flechas ← →
+- ✅ Lightbox dinámico según photoCount
+- ✅ Todos los textos personalizados por propiedad
+- ✅ CSS completo en ROOT (87KB)
+
+**Documentación completa:** Ver `MASTER-TEMPLATE-README.md`
+
+**VENTAJA:** Sistema moderno, limpio y mantenible para generar propiedades consistentes
+
+---
+
+#### 🔧 MÉTODO LEGACY: generateFromSolidaridadTemplate() - ⚠️ DEPRECATED
+**Status:** Mantener solo para compatibilidad con propiedades antiguas
+**Recomendación:** Usar `generateFromMasterTemplate()` para TODAS las nuevas propiedades
+**Razón:** Sistema de buscar/reemplazar frágil vs placeholders limpios
 
 - **Función:** PROCESO 100% AUTOMÁTICO - Solo requiere fotos en PROYECTOS
 
