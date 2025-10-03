@@ -347,9 +347,15 @@ function extraerDatosPropiedad(scraped) {
     const locationParts = scraped.location.split(',');
     const coloniaFromLocation = locationParts[0]?.replace('Municipio', '').trim() || 'Culiacán';
 
-    // Extraer colonia del título (ej: "Renta de casa en Valle Alto" → "valle-alto")
-    const titleMatch = scraped.title.match(/colonia\s+([^,]+)|en\s+([^,]{5,30})\s*,/i);
-    const colonia = titleMatch ? (titleMatch[1] || titleMatch[2]).trim() : coloniaFromLocation;
+    // Extraer colonia/condominio/fraccionamiento del título
+    // Ej: "Renta de casa en condominio , Colonia Portabelo" → "Portabelo"
+    // Ej: "Renta de casa en Valle Alto" → "Valle Alto"
+    const titleMatch = scraped.title.match(/colonia\s+([^,]+)|fraccionamiento\s+([^,]+)|condominio\s+([^,]+)|en\s+([^,]{5,30})\s*,/i);
+    const colonia = titleMatch ? (titleMatch[1] || titleMatch[2] || titleMatch[3] || titleMatch[4]).trim() : coloniaFromLocation;
+
+    // Extraer también el tipo de desarrollo (condominio, fraccionamiento, privada)
+    const developmentType = scraped.title.match(/(condominio|fraccionamiento|privada|residencial)/i)?.[1] || '';
+    const fullLocationName = developmentType ? `${developmentType} ${colonia}` : colonia;
 
     // Crear slug ÚNICO usando colonia + timestamp
     const tipo = esRenta ? 'renta' : 'venta';
@@ -383,9 +389,16 @@ function extraerDatosPropiedad(scraped) {
     const landArea = chars.land || area;
     const parking = chars.parking || 2;
 
+    // Generar descripción completa y profesional
+    const fullDescription = scraped.description ||
+        `Hermosa casa en ${esRenta ? 'renta' : 'venta'} en ${fullLocationName}, Culiacán. ` +
+        `Cuenta con ${bedrooms} recámara${bedrooms > 1 ? 's' : ''}, ${bathrooms} baño${bathrooms > 1 ? 's' : ''} completo${bathrooms > 1 ? 's' : ''}, ` +
+        `${area} m² de construcción${landArea !== area ? ` y ${landArea} m² de terreno` : ''}. ` +
+        `Excelente ubicación y acabados de calidad.`;
+
     return {
-        title: `Casa en ${esRenta ? 'Renta' : 'Venta'} ${colonia}`,
-        location: `${colonia}, Culiacán, Sinaloa`,
+        title: `Casa en ${esRenta ? 'Renta' : 'Venta'} ${fullLocationName}`,
+        location: `${fullLocationName}, Culiacán, Sinaloa`,
         price: scraped.price.includes('$') ? scraped.price.split(' ')[0] : `$${priceNumber.toLocaleString('es-MX')}`,
         priceNumber: priceNumber,
         bedrooms: bedrooms,
@@ -398,7 +411,9 @@ function extraerDatosPropiedad(scraped) {
         key: slug,
         propertyType: tipo,
         esRenta: esRenta,
-        description: scraped.description,
+        description: fullDescription,
+        colonia: colonia,
+        fullLocationName: fullLocationName,
         features: [
             `${bedrooms} Recámara${bedrooms > 1 ? 's' : ''}`,
             `${bathrooms} Baño${bathrooms > 1 ? 's' : ''} Completo${bathrooms > 1 ? 's' : ''}`,
