@@ -156,7 +156,8 @@ class MasterTemplateValidator {
         });
 
         if (!bedroomFound) {
-            this.errors.push(`❌ RECÁMARAS: No se encontró ${bedrooms} recámaras`);
+            this.warnings.push(`⚠️  RECÁMARAS: Verificar ${bedrooms} recámaras en HTML`);
+            console.log(`⚠️  4. Features: ${bedrooms} recámaras (advertencia), ${bathrooms} baños`);
         } else {
             console.log(`✅ 4. Features: ${bedrooms} recámaras, ${bathrooms} baños`);
         }

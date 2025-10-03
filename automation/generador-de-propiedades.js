@@ -1091,8 +1091,9 @@ ${carouselImages}${navigationArrows}
         let slides = '';
         for (let i = 0; i < photoCount; i++) {
             const activeClass = i === 0 ? ' active' : '';
+            // RUTA RELATIVA: solo images/foto-X.jpg (no images/slug/)
             slides += `                <div class="carousel-slide${activeClass}" data-slide="${i}">
-                    <img src="images/${slug}/foto-${i + 1}.jpg"
+                    <img src="images/foto-${i + 1}.jpg"
                          alt="${slug} - Vista ${i + 1}"
                          loading="${i === 0 ? 'eager' : 'lazy'}"
                          decoding="async"
@@ -1121,7 +1122,8 @@ ${carouselImages}${navigationArrows}
         let array = '';
         for (let i = 0; i < photoCount; i++) {
             const comma = i < photoCount - 1 ? ',' : '';
-            array += `            { src: 'images/${slug}/foto-${i + 1}.jpg', alt: '${slug} - Vista ${i + 1}' }${comma}\n`;
+            // RUTA RELATIVA: solo images/foto-X.jpg
+            array += `            { src: 'images/foto-${i + 1}.jpg', alt: '${slug} - Vista ${i + 1}' }${comma}\n`;
         }
         return array.trimEnd();
     }
