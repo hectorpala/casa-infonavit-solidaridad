@@ -1,0 +1,24 @@
+# Jekyll configuration for GitHub Pages
+# Exclude technical documentation files from build
+
+exclude:
+  - MASTER-TEMPLATE-README.md
+  - COMO-FUNCIONA-PROTECCION-SIMPLE.md
+  - CORRECCIONES-MASTER-TEMPLATE-OCT-2025.md
+  - METODOS-SUBIR-PROPIEDAD-URL.md
+  - PROCESO-SCRAPER-AUTOMATICO.md
+  - SISTEMA-PROTECCION-GENERADOR.md
+  - ACTUALIZACION-MASTER-TEMPLATE.md
+  - ACTUALIZACION-TODOS-LOS-SCRIPTS.md
+  - COMO-AGREGAR-PROPIEDAD.md
+  - ADD-PROPERTY-README.md
+  - DETECCION_FACHADA_README.md
+  - FACHADA_DETECTOR_CLIP.md
+  - CLAUDE.md
+  - automation/
+  - node_modules/
+  - "*.sh"
+  - package.json
+  - package-lock.json
+  - .gitignore
+  - .jekyllignore
