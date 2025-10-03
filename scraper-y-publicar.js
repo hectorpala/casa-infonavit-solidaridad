@@ -612,6 +612,8 @@ function generarHTML(propertyData) {
         // Reemplazar mensajes de compartir que digan "venta" por "renta"
         htmlContent = htmlContent.replace(/casa en venta/gi, 'casa en renta');
         htmlContent = htmlContent.replace(/Casa en Venta/g, 'Casa en Renta');
+        htmlContent = htmlContent.replace(/En Venta/g, 'En Renta');
+        htmlContent = htmlContent.replace(/en venta/g, 'en renta');
         htmlContent = htmlContent.replace(/Infonavit Solidaridad/g, propertyData.location.split(',')[0]);
 
         console.log('   ✅ Datos del template RENTA reemplazados');
