@@ -17,7 +17,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const { execSync } = require('child_process');
-const PropertyPageGenerator = require('./automation/property-page-generator');
+const PropertyPageGenerator = require('./automation/generador-de-propiedades'); // ✅ Actualizado a generador nuevo
 
 async function scrapearPropiedad(url) {
     console.log('🔍 Scrapeando:', url);
@@ -574,9 +574,16 @@ function generarHTML(propertyData) {
         console.log('🏠 Usando template RENTA (Privanzas Natura)...');
         htmlContent = fs.readFileSync('casa-renta-privanzas-natura.html', 'utf-8');
     } else {
-        // Para VENTA: usar template Solidaridad
+        // Para VENTA: usar MASTER TEMPLATE CON VALIDACIÓN ✅
         const generator = new PropertyPageGenerator(false);
-        htmlContent = generator.generateFromSolidaridadTemplate(propertyData);
+        console.log('🛡️  Generando con validación automática...');
+        try {
+            htmlContent = generator.generateFromMasterTemplateWithValidation(propertyData);
+            console.log('✅ HTML generado y validado (100% correcto)');
+        } catch (error) {
+            console.error('❌ Error en validación:', error.message);
+            throw error;
+        }
     }
 
     // CORRECCIONES AUTOMÁTICAS DE METADATOS

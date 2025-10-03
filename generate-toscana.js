@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const PropertyPageGenerator = require('./automation/property-page-generator');
+const PropertyPageGenerator = require('./automation/generador-de-propiedades') // ✅ Actualizado;
 
 const propertyData = {
     title: "Casa en Venta Stanza Toscana",
@@ -34,7 +34,7 @@ const propertyData = {
 };
 
 const generator = new PropertyPageGenerator(false);
-const htmlContent = generator.generateFromSolidaridadTemplate(propertyData);
+const htmlContent = generator.generateFromMasterTemplateWithValidation(propertyData);
 
 // Guardar archivo HTML
 const outputPath = `${propertyData.slug}.html`;

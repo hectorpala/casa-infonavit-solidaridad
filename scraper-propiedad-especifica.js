@@ -10,7 +10,7 @@ const https = require('https');
 const http = require('http');
 const path = require('path');
 const { execSync } = require('child_process');
-const PropertyPageGenerator = require('./automation/property-page-generator');
+const PropertyPageGenerator = require('./automation/generador-de-propiedades'); // ✅ Actualizado a generador nuevo
 
 const colors = {
     reset: '\x1b[0m',
@@ -191,10 +191,21 @@ async function scrapeProperty() {
             log('\n📄 Paso 5: Generando página HTML...', 'yellow');
 
             const generator = new PropertyPageGenerator(false);
-            const htmlContent = generator.generateFromSolidaridadTemplate(generatorData);
+
+            // ✅ USAR MÉTODO NUEVO CON VALIDACIÓN AUTOMÁTICA
+            log('🛡️  Generando con validación automática...', 'cyan');
+            let htmlContent;
+            try {
+                htmlContent = generator.generateFromMasterTemplateWithValidation(generatorData);
+                log('✅ HTML generado y validado (100% correcto)', 'green');
+            } catch (error) {
+                log('❌ Error en validación:', 'red');
+                log(error.message, 'red');
+                throw error;
+            }
 
             fs.writeFileSync(`${slug}.html`, htmlContent);
-            log(`✅ Página generada: ${slug}.html`, 'green');
+            log(`✅ Página guardada: ${slug}.html`, 'green');
 
             // Guardar config para referencia
             fs.writeFileSync(`${slug}-config.json`, JSON.stringify(generatorData, null, 2));

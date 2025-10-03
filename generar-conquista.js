@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const PropertyPageGenerator = require('./automation/property-page-generator');
+const PropertyPageGenerator = require('./automation/generador-de-propiedades') // ✅ Actualizado;
 
 // Datos scrapeados de propiedades.com
 const propertyData = {
@@ -36,7 +36,7 @@ const propertyData = {
 console.log('\n📄 Generando página HTML con PropertyPageGenerator...\n');
 
 const generator = new PropertyPageGenerator(false);
-const htmlContent = generator.generateFromSolidaridadTemplate(propertyData);
+const htmlContent = generator.generateFromMasterTemplateWithValidation(propertyData);
 
 const filename = `${propertyData.slug}.html`;
 fs.writeFileSync(filename, htmlContent);

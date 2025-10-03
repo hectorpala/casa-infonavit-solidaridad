@@ -16,7 +16,7 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const readline = require('readline');
 const path = require('path');
-const PropertyPageGenerator = require('./automation/property-page-generator');
+const PropertyPageGenerator = require('./automation/generador-de-propiedades'); // ✅ Actualizado a generador nuevo
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -372,10 +372,22 @@ async function main() {
         };
 
         const generator = new PropertyPageGenerator(propertyType === 'renta');
-        const htmlContent = generator.generateFromSolidaridadTemplate(propertyData);
+
+        // ✅ USAR MÉTODO NUEVO CON VALIDACIÓN AUTOMÁTICA
+        log('\n🛡️  Generando con validación automática...', 'cyan');
+        let htmlContent;
+        try {
+            htmlContent = generator.generateFromMasterTemplateWithValidation(propertyData);
+            log('✅ HTML generado y validado (100% correcto)', 'green');
+        } catch (error) {
+            log('❌ Error en validación:', 'red');
+            log(error.message, 'red');
+            log('\n🔧 Revisa los datos ingresados y corrige los errores', 'yellow');
+            process.exit(1);
+        }
 
         fs.writeFileSync(`${slug}.html`, htmlContent);
-        log('✅ Página HTML generada', 'green');
+        log('✅ Página HTML guardada', 'green');
 
         // 10. Insertar en listing
         await insertIntoListing(slug, propertyData);
