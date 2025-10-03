@@ -5,7 +5,7 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 
 ## 🎯 COMANDOS PRINCIPALES
 
-### ⚡ SCRAPER AUTOMÁTICO - MÉTODO MÁS RÁPIDO (3 MINUTOS) ✨
+### ⚡ SCRAPER AUTOMÁTICO - MÉTODO MÁS RÁPIDO (3 MINUTOS) ✨ **[RECOMENDADO]**
 **Comando usuario:** Pasa la URL de propiedades.com
 **Ejemplo:** "https://propiedades.com/inmuebles/casa-en-venta-culiacan-..."
 **Script:** `node scraper-y-publicar.js "URL"`
@@ -14,11 +14,17 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 **Proceso 100% automático:**
 1. ✅ Scrapea datos de propiedades.com con Puppeteer
 2. ✅ Descarga TODAS las fotos automáticamente
-3. ✅ Genera HTML con PropertyPageGenerator
-4. ✅ Corrige TODOS los badges automáticamente (recámaras, baños, m²)
+3. ✅ Genera HTML con Master Template corregido
+4. ✅ Valida automáticamente (7 checks)
 5. ✅ Corrige TODOS los metadatos (title, description, Schema.org, OG, hero)
 6. ✅ Genera tarjeta para culiacan/index.html
 7. ✅ Listo para "publica ya"
+
+**⚠️ IMPORTANTE - El scraper NO se detiene después de scrapear:**
+- El sistema continúa automáticamente hasta generar el HTML completo
+- Solo se detiene cuando está 100% listo para revisar
+- **Razón:** Ahorra tiempo y garantiza validación automática
+- **Workflow:** URL → 3 min → Revisar → "publica ya"
 
 **Documentación completa:** Ver `INSTRUCCIONES_SCRAPER.md`
 
