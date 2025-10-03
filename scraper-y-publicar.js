@@ -350,12 +350,22 @@ function extraerDatosPropiedad(scraped) {
     // Extraer colonia/condominio/fraccionamiento del título
     // Ej: "Renta de casa en condominio , Colonia Portabelo" → "Portabelo"
     // Ej: "Renta de casa en Valle Alto" → "Valle Alto"
-    const titleMatch = scraped.title.match(/colonia\s+([^,]+)|fraccionamiento\s+([^,]+)|condominio\s+([^,]+)|en\s+([^,]{5,30})\s*,/i);
-    const colonia = titleMatch ? (titleMatch[1] || titleMatch[2] || titleMatch[3] || titleMatch[4]).trim() : coloniaFromLocation;
+    const coloniaMatch = scraped.title.match(/colonia\s+([^,]+)/i);
+    const fraccionamientoMatch = scraped.title.match(/fraccionamiento\s+([^,]+)/i);
+    const genericMatch = scraped.title.match(/en\s+([^,]{5,30})\s*,/i);
 
-    // Extraer también el tipo de desarrollo (condominio, fraccionamiento, privada)
-    const developmentType = scraped.title.match(/(condominio|fraccionamiento|privada|residencial)/i)?.[1] || '';
-    const fullLocationName = developmentType ? `${developmentType} ${colonia}` : colonia;
+    let colonia = coloniaMatch ? coloniaMatch[1].trim() :
+                  fraccionamientoMatch ? fraccionamientoMatch[1].trim() :
+                  genericMatch ? genericMatch[1].trim() :
+                  coloniaFromLocation;
+
+    // Extraer también el tipo de desarrollo (si no viene en el nombre ya)
+    const developmentType = scraped.title.match(/(condominio|fraccionamiento|privada|residencial)/i)?.[1].toLowerCase() || '';
+
+    // Solo agregar tipo si la colonia no lo incluye ya
+    const fullLocationName = (developmentType && !colonia.toLowerCase().includes(developmentType))
+        ? `${developmentType.charAt(0).toUpperCase() + developmentType.slice(1)} ${colonia}`
+        : colonia;
 
     // Crear slug ÚNICO usando colonia + timestamp
     const tipo = esRenta ? 'renta' : 'venta';
@@ -599,6 +609,11 @@ function generarHTML(propertyData) {
             propertyData.whatsappMessage
         );
 
+        // Reemplazar mensajes de compartir que digan "venta" por "renta"
+        htmlContent = htmlContent.replace(/casa en venta/gi, 'casa en renta');
+        htmlContent = htmlContent.replace(/Casa en Venta/g, 'Casa en Renta');
+        htmlContent = htmlContent.replace(/Infonavit Solidaridad/g, propertyData.location.split(',')[0]);
+
         console.log('   ✅ Datos del template RENTA reemplazados');
     }
 
@@ -617,7 +632,7 @@ function generarHTML(propertyData) {
     // 3. Keywords
     htmlContent = htmlContent.replace(
         /<meta name="keywords" content=".*?">/,
-        `<meta name="keywords" content="casa venta Culiacán, ${propertyData.location.split(',')[0]}, ${propertyData.bedrooms} recámaras, patio amplio">`
+        `<meta name="keywords" content="casa ${tipoLower} Culiacán, ${propertyData.location.split(',')[0]}, ${propertyData.bedrooms} recámaras, patio amplio">`
     );
 
     // 4. Canonical
@@ -629,7 +644,7 @@ function generarHTML(propertyData) {
     // 5. Open Graph
     htmlContent = htmlContent.replace(
         /<meta property="og:title" content=".*?">/,
-        `<meta property="og:title" content="Casa en Venta ${propertyData.price} - ${propertyData.location.split(',')[0]}">`
+        `<meta property="og:title" content="Casa en ${tipoPropiedad} ${propertyData.price} - ${propertyData.location.split(',')[0]}">`
     );
 
     htmlContent = htmlContent.replace(
