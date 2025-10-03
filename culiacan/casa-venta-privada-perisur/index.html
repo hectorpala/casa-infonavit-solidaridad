@@ -188,15 +188,6 @@
                     <div class="carousel-slide" data-slide="4">
                         <img src="images/foto-5.jpg" alt="Comedor" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(4)">
                     </div>
-                    <div class="carousel-slide" data-slide="5">
-                        <img src="images/foto-6.jpg" alt="Cocina" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(5)">
-                    </div>
-                    <div class="carousel-slide" data-slide="6">
-                        <img src="images/foto-7.jpg" alt="Recámara Principal" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(6)">
-                    </div>
-                    <div class="carousel-slide" data-slide="7">
-                        <img src="images/foto-8.jpg" alt="Baño" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(7)">
-                    </div>
                     
                     <!-- Navigation arrows -->
                     <button class="carousel-arrow carousel-prev" onclick="changeSlideHero(-1); openLightboxFromCarousel();" aria-label="Foto anterior">
@@ -220,9 +211,6 @@
                     <button class="carousel-dot" onclick="goToSlideHero(2)" aria-label="Ir a foto 3"></button>
                     <button class="carousel-dot" onclick="goToSlideHero(3)" aria-label="Ir a foto 4"></button>
                     <button class="carousel-dot" onclick="goToSlideHero(4)" aria-label="Ir a foto 5"></button>
-                    <button class="carousel-dot" onclick="goToSlideHero(5)" aria-label="Ir a foto 6"></button>
-                    <button class="carousel-dot" onclick="goToSlideHero(6)" aria-label="Ir a foto 7"></button>
-                    <button class="carousel-dot" onclick="goToSlideHero(7)" aria-label="Ir a foto 8"></button>
                 </div>
             </div>
         </div>
@@ -1227,7 +1215,7 @@
 
         // Hero carousel functions (separate from gallery carousel)
         let currentSlideHero = 0;
-        const totalSlidesHero = 8;
+        const totalSlidesHero = 5;
         let touchStartXHero = 0;
         let touchEndXHero = 0;
         
@@ -1763,9 +1751,6 @@
             { src: 'images/foto-3.jpg', alt: 'Interior 1' },
             { src: 'images/foto-4.jpg', alt: 'Sala' },
             { src: 'images/foto-5.jpg', alt: 'Comedor' },
-            { src: 'images/foto-6.jpg', alt: 'Cocina' },
-            { src: 'images/foto-7.jpg', alt: 'Recámara Principal' },
-            { src: 'images/foto-8.jpg', alt: 'Baño' }
         ];
 
         let currentLightboxIndex = 0;

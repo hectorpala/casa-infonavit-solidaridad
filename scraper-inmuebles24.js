@@ -198,8 +198,7 @@ async function scrapeInmuebles24(url) {
             }
         }
 
-        await browser.close();
-        return data;
+        return { data, browser, page };
 
     } catch (error) {
         console.error('❌ Error:', error.message);
@@ -208,21 +207,17 @@ async function scrapeInmuebles24(url) {
     }
 }
 
-// Download photos
-function downloadPhoto(url, filepath) {
-    return new Promise((resolve, reject) => {
-        const file = fs.createWriteStream(filepath);
-        https.get(url, (response) => {
-            response.pipe(file);
-            file.on('finish', () => {
-                file.close();
-                resolve();
-            });
-        }).on('error', (err) => {
-            fs.unlink(filepath, () => {});
-            reject(err);
-        });
-    });
+// Download photos using fetch with browser context
+async function downloadPhoto(url, filepath, page) {
+    try {
+        const viewSource = await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+        const buffer = await viewSource.buffer();
+        fs.writeFileSync(filepath, buffer);
+        return true;
+    } catch (e) {
+        console.log(`   ⚠️  Error descargando: ${e.message}`);
+        return false;
+    }
 }
 
 // Main execution
@@ -235,7 +230,7 @@ function downloadPhoto(url, filepath) {
     }
 
     try {
-        const data = await scrapeInmuebles24(url);
+        const { data, browser, page } = await scrapeInmuebles24(url);
 
         // Create slug
         const slug = `casa-venta-privada-perisur-${Date.now().toString().slice(-6)}`;
@@ -250,13 +245,15 @@ function downloadPhoto(url, filepath) {
         console.log(`\n📸 Descargando ${data.photos.length} fotos...`);
         for (let i = 0; i < data.photos.length; i++) {
             const photoPath = path.join(imagesDir, `foto-${i + 1}.jpg`);
-            try {
-                await downloadPhoto(data.photos[i], photoPath);
+            const success = await downloadPhoto(data.photos[i], photoPath, page);
+            if (success) {
                 console.log(`   ✅ foto-${i + 1}.jpg descargada`);
-            } catch (e) {
+            } else {
                 console.log(`   ❌ Error descargando foto-${i + 1}.jpg`);
             }
         }
+
+        await browser.close();
 
         // Save data for property generator
         const propertyData = {
