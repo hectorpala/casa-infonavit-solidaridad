@@ -385,7 +385,8 @@ async function scrapearPropiedad(url) {
         .filter(url => url.includes('cdn.propiedades.com'))
         .filter(url => url.includes('1200x') || url.includes('800x') || url.includes('files/'))
         .filter(url => !url.includes('logo') && !url.includes('avatar') && !url.includes('thumbnail'))
-        .filter(url => !url.includes('placeholder'));
+        .filter(url => !url.includes('placeholder'))
+        .filter(url => !url.includes('336x200')); // ✅ FILTRAR THUMBNAILS 336x200
 
     // CRÍTICO: Filtrar solo fotos que contengan el ID de esta propiedad
     if (propertyId) {
@@ -682,9 +683,33 @@ function extraerDatosPropiedad(scraped) {
 
     // Extraer m² de construcción de la descripción primero
     const construccionMatch = desc.match(/[\*\-\s]*construcci[oó]n:\s*(\d+\.?\d*)\s*m2?/) || desc.match(/(\d+\.?\d*)\s*m2?\s*de\s*construcci[oó]n/);
-    const area = construccionMatch ? parseFloat(construccionMatch[1]) : (chars.construction || chars.land || 140);
 
-    const landArea = chars.land || area;
+    // ✅ CORREGIDO: Si chars tiene construcción Y terreno, usar esos valores directamente
+    // Si solo tiene uno, usar ese como construcción y estimar terreno como +20%
+    let area, landArea;
+
+    if (chars.construction && chars.land) {
+        // ✅ CASO IDEAL: Ambos valores presentes
+        area = chars.construction;
+        landArea = chars.land;
+    } else if (construccionMatch) {
+        // Construcción desde descripción
+        area = parseFloat(construccionMatch[1]);
+        landArea = chars.land || Math.round(area * 1.2); // Estimar terreno +20%
+    } else if (chars.construction) {
+        // Solo construcción disponible
+        area = chars.construction;
+        landArea = chars.land || Math.round(area * 1.2);
+    } else if (chars.land) {
+        // ⚠️ Solo terreno disponible - INVERTIR es incorrecto
+        // Asumir que "land" es realmente construcción si no hay chars.construction
+        area = chars.land;
+        landArea = Math.round(area * 1.2);
+    } else {
+        // Sin datos, usar default
+        area = 140;
+        landArea = 160;
+    }
     const parking = chars.parking || 2;
 
     // Generar descripción completa y profesional usando TIPO CORRECTO
