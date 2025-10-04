@@ -1,163 +1,55 @@
 {
   "results": [
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-urbi-villa-del-sol-real-del-parque-sinaloa-30115358",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 638000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.38 mil MN",
-        "title": "Casa en venta disponible en urbi villa del sol, Colonia Real D..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-portalegre-sinaloa-30070073",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "inPriceRange": false,
-      "priceNumber": 2012000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 20.12 mil MN",
-        "title": "Se vende casa , Colonia Portalegre, C.P. 80058"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-colinas-de-ambar-4606-lomas-de-san-isidro-sinaloa-30002333",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 823000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 8.23 mil MN",
-        "title": "Casa en venta disponible en Colinas de Ambar #4606, Colonia Lo..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-los-huertos-sinaloa-29449759",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 622000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.22 mil MN",
-        "title": "Casa en venta disponible en , Colonia Los Huertos, C.P. 80019"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-encinos-4847-villa-del-roble-sinaloa-29728974",
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-alcazar-del-rey-2012-riberas-de-tamazula-sinaloa-30011671",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1027000,
+      "priceNumber": 2000000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.27 mil MN",
-        "title": "Se vende casa Encinos #4847, Colonia Villa del Roble, C.P. 80184"
+        "price": "$ 20.00 mil MN",
+        "title": "Se vende departamento en Alcazar del Rey #2012, Colonia Ribera..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-boulevard-perisur-perisur-sinaloa-30151481",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-san-pedro-de-san-jose-7788-san-luis-residencial-ii-sinaloa-28729193",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": false,
-      "priceNumber": 2318000,
+      "priceNumber": 770000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 23.18 mil MN",
-        "title": "Venta de casa en Boulevard Perisur, Colonia Perisur, C.P. 80197"
+        "price": "$ 7.70 mil MN",
+        "title": "Venta de casa en San Pedro de San José #7788, Colonia San Luis..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-sacramento-sn-country-del-rio-iv-sinaloa-29946773",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-vistas-del-lago-vistas-del-lago-sinaloa-28204145",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1780000,
+      "priceNumber": 1182000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 17.80 mil MN",
-        "title": "Se vende casa en Sacramento #s/n, Colonia Country del Río IV"
+        "price": "$ 11.82 mil MN",
+        "title": "Casa en venta disponible en Vistas del Lago, Colonia Vistas de..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-villas-del-rio-elite-sinaloa-30334779",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "inPriceRange": true,
-      "priceNumber": 1002000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.02 mil MN",
-        "title": "Casa disponible en venta en , Colonia Villas Del Rio Elite"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-san-juan-bautista-4106-villa-del-real-sinaloa-30267680",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-cerro-cabazan-3363-loma-linda-sinaloa-28446239",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1231000,
+      "priceNumber": 1440000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 12.31 mil MN",
-        "title": "Venta de casa en San Juan Bautista #4106, Colonia Villa Del Real"
+        "price": "$ 14.40 mil MN",
+        "title": "Venta de casa en cerro cabazan #3363, Colonia Loma Linda"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-rosales-sinaloa-30284036",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1399000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 13.99 mil MN",
-        "title": "Casa disponible en venta en , Colonia Rosales, C.P. 80300"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-daizal-san-fermin-sinaloa-29403317",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 440000.00000000006,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 4.40 mil MN",
-        "title": "Casa en venta, daizal, Colonia San Fermín, C.P. 80019"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-urbi-villa-del-sol-urbi-villa-del-sol-sinaloa-30115369",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 566000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 5.66 mil MN",
-        "title": "Casa en venta disponible en urbi villa del sol, Colonia Urbi V..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-infonavit-barrancos-sinaloa-30284034",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1039000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.39 mil MN",
-        "title": "Casa en venta disponible en , Colonia INFONAVIT Barrancos"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-desarrollo-urbano-3-rios-sinaloa-30283900",
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-desarrollo-urbano-3-rios-sinaloa-30283916",
       "isCuliacan": true,
       "alreadyExists": true,
       "inPriceRange": false,
@@ -165,81 +57,273 @@
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
         "price": "$ 27.15 mil MN",
-        "title": "Venta de departamento en , Colonia Desarrollo Urbano 3 Ríos"
+        "title": "Departamento disponible en venta en , Colonia Desarrollo Urba..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-la-campina-sinaloa-30284028",
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-de-los-empaques-infonavit-barrancos-sinaloa-29068794",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": true,
+      "priceNumber": 1195000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 11.95 mil MN",
+        "title": "Se vende departamento De Los Empaques, Colonia INFONAVIT Barra..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-samoa-perisur-sinaloa-28840298",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": false,
-      "priceNumber": 918000,
+      "priceNumber": 2318000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 9.18 mil MN",
-        "title": "Departamento en venta, , Colonia La Campiña, C.P. 80060"
+        "price": "$ 23.18 mil MN",
+        "title": "Casa en venta, Samoa, Colonia Perisur, C.P. 80197"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-san-juan-bautista-4204-camino-real-sinaloa-30190659",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 2157000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 21.57 mil MN",
+        "title": "Casa en venta disponible en San Juan Bautista #4204, Colonia C..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-villa-del-cedro-sinaloa-30371864",
+      "isCuliacan": true,
+      "alreadyExists": true,
+      "inPriceRange": false,
+      "priceNumber": 890000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 8.90 mil MN",
+        "title": "Casa en venta disponible en , Colonia Villa del Cedro"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-belisario-dominguez-sn-chulavista-sinaloa-30167651",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 335000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 3.35 mil MN",
+        "title": "Venta de casa Belisario Dominguez #s/n, Colonia Chulavista"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-camino-real-sinaloa-30179634",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 2157000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 21.57 mil MN",
+        "title": "Se vende casa , Colonia Camino Real, C.P. 80247"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-ruben-jaramillo-sinaloa-30231222",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": true,
+      "priceNumber": 1112000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 11.12 mil MN",
+        "title": "Casa en venta disponible en , Colonia Ruben Jaramillo"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-sin-ubicacion--valle-alto-sinaloa-28704583",
+      "isCuliacan": true,
+      "alreadyExists": true,
+      "inPriceRange": false,
+      "priceNumber": 2350000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 23.50 mil MN",
+        "title": "Venta de departamento Sin ubicación , Colonia Valle Alto"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-las-ilusiones-residencial-las-ilusiones-sinaloa-28718419",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": true,
+      "priceNumber": 1832000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 18.32 mil MN",
+        "title": "Casa en venta disponible en Las Ilusiones Residencial, Colonia..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-terrones-766-buenos-aires-sinaloa-27644510",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 608000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 6.08 mil MN",
+        "title": "Venta casa en TERRONES #766, Colonia Buenos Aires, C.P. 80199"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-espadin-459-los-mezcales-sinaloa-29728953",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 927999.9999999999,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 9.28 mil MN",
+        "title": "Se vende casa en Espadin #459, Colonia Los Mezcales, C.P. 80019"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-salvador-elizondo-5839-finisterra-sinaloa-29780618",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 959000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 9.59 mil MN",
+        "title": "Casa en venta disponible en Calle Salvador Elizondo #5839, Co..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-aurora-6-de-enero-sinaloa-28732962",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 594000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 5.94 mil MN",
+        "title": "Casa en venta, Aurora, Colonia 6 de Enero, C.P. 80010"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-centro-sinaloa-sinaloa-29810046",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": true,
+      "priceNumber": 1590000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$1,590,000 MXN",
+        "title": "Se vende casa CENTRO, Colonia Sinaloa, C.P. 80430"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-torres-portalegre-portalegre-sinaloa-27993167",
+      "isCuliacan": true,
+      "alreadyExists": true,
+      "inPriceRange": true,
+      "priceNumber": 1897000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 18.97 mil MN",
+        "title": "Se vende departamento torres portalegre, Colonia Portalegre"
       }
     }
   ],
   "newCuliacanProperties": [
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-encinos-4847-villa-del-roble-sinaloa-29728974",
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-alcazar-del-rey-2012-riberas-de-tamazula-sinaloa-30011671",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1027000,
+      "priceNumber": 2000000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.27 mil MN",
-        "title": "Se vende casa Encinos #4847, Colonia Villa del Roble, C.P. 80184"
+        "price": "$ 20.00 mil MN",
+        "title": "Se vende departamento en Alcazar del Rey #2012, Colonia Ribera..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-sacramento-sn-country-del-rio-iv-sinaloa-29946773",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-vistas-del-lago-vistas-del-lago-sinaloa-28204145",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1780000,
+      "priceNumber": 1182000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 17.80 mil MN",
-        "title": "Se vende casa en Sacramento #s/n, Colonia Country del Río IV"
+        "price": "$ 11.82 mil MN",
+        "title": "Casa en venta disponible en Vistas del Lago, Colonia Vistas de..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-san-juan-bautista-4106-villa-del-real-sinaloa-30267680",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-cerro-cabazan-3363-loma-linda-sinaloa-28446239",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1231000,
+      "priceNumber": 1440000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 12.31 mil MN",
-        "title": "Venta de casa en San Juan Bautista #4106, Colonia Villa Del Real"
+        "price": "$ 14.40 mil MN",
+        "title": "Venta de casa en cerro cabazan #3363, Colonia Loma Linda"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-rosales-sinaloa-30284036",
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-de-los-empaques-infonavit-barrancos-sinaloa-29068794",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1399000,
+      "priceNumber": 1195000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 13.99 mil MN",
-        "title": "Casa disponible en venta en , Colonia Rosales, C.P. 80300"
+        "price": "$ 11.95 mil MN",
+        "title": "Se vende departamento De Los Empaques, Colonia INFONAVIT Barra..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-infonavit-barrancos-sinaloa-30284034",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-ruben-jaramillo-sinaloa-30231222",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1039000,
+      "priceNumber": 1112000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.39 mil MN",
-        "title": "Casa en venta disponible en , Colonia INFONAVIT Barrancos"
+        "price": "$ 11.12 mil MN",
+        "title": "Casa en venta disponible en , Colonia Ruben Jaramillo"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-las-ilusiones-residencial-las-ilusiones-sinaloa-28718419",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": true,
+      "priceNumber": 1832000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 18.32 mil MN",
+        "title": "Casa en venta disponible en Las Ilusiones Residencial, Colonia..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-centro-sinaloa-sinaloa-29810046",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": true,
+      "priceNumber": 1590000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$1,590,000 MXN",
+        "title": "Se vende casa CENTRO, Colonia Sinaloa, C.P. 80430"
       }
     }
   ]
