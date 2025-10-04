@@ -60,10 +60,10 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 
 **PARA RENTA:**
 - **Método:** `generateFromSolidaridadTemplate(config)` ⭐
-- **Template:** Copia EXACTA de `culiacan/infonavit-solidaridad/index.html`
+- **Template:** Copia EXACTA de `casa-renta-rincon-colonial-697816.html`
 - **Estructura:** Hero + Contact (SOLO 2 secciones)
-- **Garantía:** 100% idéntica a Casa Solidaridad
-- **Tamaño:** ~66KB (igual a Solidaridad)
+- **Garantía:** 100% idéntica a Casa Rincón Colonial
+- **Fotos:** 12 fotos (estructura completa con carrusel)
 
 #### ⚠️ **MÉTODOS OBSOLETOS - NO USAR:**
 - ❌ `generateIndividualPage()` - Genera estructura incorrecta para RENTA (5 secciones en vez de 2)

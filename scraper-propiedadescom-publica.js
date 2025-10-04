@@ -667,16 +667,18 @@ function extraerDatosPropiedad(scraped) {
     const timestamp = Date.now().toString().slice(-6); // Últimos 6 dígitos
     const slug = `${tipoSlug}-${tipo}-${coloniaSlug}-${timestamp}`;
 
-    // Usar DESCRIPCIÓN como fuente primaria (más confiable que .characteristic del DOM)
+    // Usar TÍTULO + DESCRIPCIÓN como fuente primaria (más confiable que .characteristic del DOM)
     const chars = scraped.characteristics || {};
+    const title = scraped.title.toLowerCase();
     const desc = scraped.description.toLowerCase();
+    const fullText = title + ' ' + desc; // Combinar título y descripción
 
     // Mejorar regex para capturar recámaras/baños con o sin acentos
-    const bedroomsMatch = desc.match(/(\d+)\s*rec[aá]maras?/);
-    const bedrooms = bedroomsMatch ? parseInt(bedroomsMatch[1]) : (chars.bedrooms || 2);
+    const bedroomsMatch = fullText.match(/(\d+)\s*rec[aá]maras?/);
+    const bedrooms = bedroomsMatch ? parseInt(bedroomsMatch[1]) : (chars.bedrooms || 3);
 
-    const bathroomsMatch = desc.match(/(\d+)\s*ba[ñn]os?/);
-    const bathrooms = bathroomsMatch ? parseInt(bathroomsMatch[1]) : (chars.bathrooms || 1);
+    const bathroomsMatch = fullText.match(/(\d+)\s*ba[ñn]os?/);
+    const bathrooms = bathroomsMatch ? parseInt(bathroomsMatch[1]) : (chars.bathrooms || 2);
 
     // Extraer m² de construcción de la descripción primero
     const construccionMatch = desc.match(/[\*\-\s]*construcci[oó]n:\s*(\d+\.?\d*)\s*m2?/) || desc.match(/(\d+\.?\d*)\s*m2?\s*de\s*construcci[oó]n/);

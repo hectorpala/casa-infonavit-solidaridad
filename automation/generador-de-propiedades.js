@@ -1144,16 +1144,16 @@ ${carouselImages}${navigationArrows}
      * @deprecated Use generateFromMasterTemplate() instead
      */
     generateFromSolidaridadTemplate(config) {
-        console.log('🏗️  Generando desde template Casa Solidaridad (copia exacta)...');
+        console.log('🏗️  Generando desde template Casa Rincón Colonial (copia exacta)...');
 
-        const solidaridadPath = './culiacan/infonavit-solidaridad/index.html';
+        const templatePath = './casa-renta-rincon-colonial-697816.html';
 
-        if (!fs.existsSync(solidaridadPath)) {
-            throw new Error('❌ Template Casa Solidaridad no encontrado en: ' + solidaridadPath);
+        if (!fs.existsSync(templatePath)) {
+            throw new Error('❌ Template Casa Rincón Colonial no encontrado en: ' + templatePath);
         }
 
-        // 1. Leer template completo de Solidaridad
-        let htmlContent = fs.readFileSync(solidaridadPath, 'utf8');
+        // 1. Leer template completo de Rincón Colonial
+        let htmlContent = fs.readFileSync(templatePath, 'utf8');
 
         // 2. Preparar datos de reemplazo
         const slug = config.key || config.slug;
@@ -1168,17 +1168,16 @@ ${carouselImages}${navigationArrows}
         // 3. CAMBIOS GLOBALES (títulos, precios, ubicación)
 
         // Precio (todos los formatos)
-        htmlContent = htmlContent.replace(/\$1,750,000/g, config.price);
-        htmlContent = htmlContent.replace(/1750000/g, config.price.replace(/[$,]/g, ''));
+        htmlContent = htmlContent.replace(/\$12,700/g, config.price);
+        htmlContent = htmlContent.replace(/12700/g, config.price.replace(/[$,]/g, ''));
 
         // Título
-        htmlContent = htmlContent.replace(/Casa Infonavit Solidaridad/g, config.title || config.nombre);
+        htmlContent = htmlContent.replace(/Casa en Renta Rincón Colonial/g, config.title || config.nombre);
 
         // Ubicación
         const locationShort = config.location.split(',')[0]; // Ej: "Hacienda del Rio"
-        htmlContent = htmlContent.replace(/Blvrd Elbert 2609, Infonavit Solidaridad/g, config.location);
-        htmlContent = htmlContent.replace(/Blvrd Elbert 2609/g, locationShort);
-        htmlContent = htmlContent.replace(/Infonavit Solidaridad, 80200/g, config.location);
+        htmlContent = htmlContent.replace(/Rincón Colonial, Culiacán/g, config.location);
+        htmlContent = htmlContent.replace(/Rincón Colonial/g, locationShort);
 
         // 4. FEATURES (recámaras, baños, m²)
 
@@ -1196,10 +1195,10 @@ ${carouselImages}${navigationArrows}
             `<span class="feature-value">${config.bathrooms}</span>\n                    <span class="feature-label">${bathLabel}</span>`
         );
 
-        // M² (cambiar de 112.5 a config.area)
-        const areaValue = config.area || config.landArea || config.land_area || 140;
+        // M² (cambiar de 185 a config.area)
+        const areaValue = config.area || config.landArea || config.land_area || 185;
         htmlContent = htmlContent.replace(
-            /<span class="feature-value">112\.5<\/span>\s*<span class="feature-label">m²<\/span>/gi,
+            /<span class="feature-value">185<\/span>\s*<span class="feature-label">m²<\/span>/gi,
             `<span class="feature-value">${areaValue}</span>\n                    <span class="feature-label">m²</span>`
         );
 
@@ -1238,17 +1237,17 @@ ${carouselImages}${navigationArrows}
         );
 
         // M² construcción y terreno en Schema/textos
-        htmlContent = htmlContent.replace(/91\.6 m²/g, `${config.construction_area || areaValue} m²`);
-        htmlContent = htmlContent.replace(/91\.6m²/g, `${config.construction_area || areaValue}m²`);
-        htmlContent = htmlContent.replace(/112\.5 m²/g, `${config.land_area || areaValue} m²`);
-        htmlContent = htmlContent.replace(/112\.5m²/g, `${config.land_area || areaValue}m²`);
+        htmlContent = htmlContent.replace(/118 m²/g, `${config.construction_area || areaValue} m²`);
+        htmlContent = htmlContent.replace(/118m²/g, `${config.construction_area || areaValue}m²`);
+        htmlContent = htmlContent.replace(/185 m²/g, `${config.land_area || areaValue} m²`);
+        htmlContent = htmlContent.replace(/185m²/g, `${config.land_area || areaValue}m²`);
 
         // 5. WHATSAPP MESSAGES (personalizar)
 
         // Mensaje sticky bar
         const stickyMsg = `Me%20interesa%20${titleEncoded}%20de%20${priceEncoded}`;
         htmlContent = htmlContent.replace(
-            /Me%20interesa%20Casa%20Infonavit%20Solidaridad%20de%20.*?"/g,
+            /Me%20interesa%20Casa%20en%20Renta%20Rincón%20Colonial%20de%20.*?"/g,
             `${stickyMsg}"`
         );
 
@@ -1268,38 +1267,18 @@ ${carouselImages}${navigationArrows}
         // 7. FOTOS - Cambiar rutas de imágenes
         console.log('🖼️  Actualizando rutas de fotos...');
 
-        // Mapeo de fotos antiguas a nuevas
-        const oldPhotos = [
-            'images/fachada1.jpg',
-            'images/fachada2.jpg',
-            'images/fachada3.jpg',
-            'images/20250915_134401.jpg',
-            'images/20250915_134444.jpg',
-            'images/20250915_134455.jpg',
-            'images/20250915_134516.jpg',
-            'images/20250915_134535.jpg',
-            'images/20250915_134600.jpg',
-            'images/20250915_134617.jpg',
-            'images/20250915_134637.jpg',
-            'images/20250915_134732.jpg',
-            'images/20250915_134753.jpg',
-            'images/20250915_134815.jpg'
-        ];
+        // Reemplazar todas las rutas de fotos antiguas de Rincón Colonial
+        const oldFolderPath = 'images/casa-renta-rincon-colonial-697816/';
+        const newFolderPath = `images/${slug}/`;
 
-        // Reemplazar cada foto antigua por la nueva
-        oldPhotos.forEach((oldPath, index) => {
-            const newPath = `images/${slug}/foto-${index + 1}.jpg`;
-            const escapedOldPath = oldPath.replace(/\//g, '\\/').replace(/\./g, '\\.');
-            const regex = new RegExp(escapedOldPath, 'g');
-            htmlContent = htmlContent.replace(regex, newPath);
-        });
+        htmlContent = htmlContent.replace(new RegExp(oldFolderPath.replace(/\//g, '\\/'), 'g'), newFolderPath);
 
-        // 8. ELIMINAR SLIDES EXTRA si photoCount < 14
-        if (photoCount < 14) {
-            console.log(`🗑️  Eliminando slides ${photoCount + 1}-14...`);
+        // 8. ELIMINAR SLIDES EXTRA si photoCount < 12 (Rincón Colonial tiene 12 fotos)
+        if (photoCount < 12) {
+            console.log(`🗑️  Eliminando slides ${photoCount + 1}-12...`);
 
-            // Eliminar slides extra (desde photoCount hasta 13)
-            for (let i = photoCount; i <= 13; i++) {
+            // Eliminar slides extra (desde photoCount hasta 11)
+            for (let i = photoCount; i <= 11; i++) {
                 const slideRegex = new RegExp(
                     `<div class="carousel-slide" data-slide="${i}">.*?</div>\\s*(?=<div class="carousel-slide"|<!-- Navigation arrows -->|</div>\\s*<!-- Navigation)`,
                     'gs'
@@ -1308,7 +1287,7 @@ ${carouselImages}${navigationArrows}
             }
 
             // Eliminar dots extra
-            for (let i = photoCount; i <= 13; i++) {
+            for (let i = photoCount; i <= 11; i++) {
                 const dotRegex = new RegExp(
                     `<button class="carousel-dot"[^>]*onclick="goToSlideHero\\(${i}\\)"[^>]*>.*?</button>\\s*`,
                     'gs'
