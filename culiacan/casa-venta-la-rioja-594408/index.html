@@ -55,16 +55,16 @@
       },
       "floorSize": {
         "@type": "QuantitativeValue",
-        "value": 78,
+        "value": 110,
         "unitCode": "MTK"
       },
       "lotSize": {
         "@type": "QuantitativeValue",
-        "value": 110,
+        "value": 120,
         "unitCode": "MTK"
       },
       "numberOfBedrooms": 3,
-      "numberOfBathroomsTotal": 1,
+      "numberOfBathroomsTotal": 1.5,
       "numberOfFullBathrooms": 1,
       "offers": {
         "@type": "Offer",
@@ -375,11 +375,11 @@
             <div class="info-badges">
                 <div class="badge-item">
                     <i class="fas fa-ruler-combined"></i>
-                    <span>78 m² construcción</span>
+                    <span>110 m² construcción</span>
                 </div>
                 <div class="badge-item">
                     <i class="fas fa-border-all"></i>
-                    <span>78 m² terreno</span>
+                    <span>120 m² terreno</span>
                 </div>
                 <div class="badge-item">
                     <i class="fas fa-building"></i>
@@ -1586,7 +1586,7 @@
         function shareEmail() {
             const shareUrl = getShareUrl();
             const subject = encodeURIComponent('Casa en venta - La Rioja');
-            const body = encodeURIComponent(`Hola,\n\nQuiero compartir contigo esta casa en venta:\n\nCasa en La Rioja\nPrecio: $1,990,000\n2 recámaras, 2 baños completos\n78 m² terreno\n\nVer más detalles: ${shareUrl}\n\nSaludos!`);
+            const body = encodeURIComponent(`Hola,\n\nQuiero compartir contigo esta casa en venta:\n\nCasa en La Rioja\nPrecio: $1,990,000\n3 recámaras, 1.5 baños\n110 m² construcción, 120 m² terreno\n\nVer más detalles: ${shareUrl}\n\nSaludos!`);
             window.location.href = `mailto:?subject=${subject}&body=${body}`;
         }
 
