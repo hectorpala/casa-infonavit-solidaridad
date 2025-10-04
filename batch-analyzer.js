@@ -3,16 +3,16 @@ const fs = require('fs');
 
 // URLs encontradas en el listado
 const propertyUrls = [
-    "https://propiedades.com/inmuebles/casa-en-venta-alejandria-vinoramas-sinaloa-28718607",
-    "https://propiedades.com/inmuebles/casa-en-venta-constituyente-andres-magallon-libertad-sinaloa-28817577",
-    "https://propiedades.com/inmuebles/casa-en-venta-circuito-san-francisco-12-la-primavera-sinaloa-30181775",
-    "https://propiedades.com/inmuebles/casa-en-venta-mariano-escobedo-356-centro-sinaloa-sinaloa-30263072",
-    "https://propiedades.com/inmuebles/casa-en-venta-andador-agrapando-6138-bugambilias-sinaloa-30226154",
-    "https://propiedades.com/inmuebles/casa-en-venta-rivallagigedo-la-campina-sinaloa-30181774",
-    "https://propiedades.com/inmuebles/casa-en-venta-blvd-circuito-interior-espacios-barcelona-sinaloa-28718521",
-    "https://propiedades.com/inmuebles/casa-en-venta-privada-riace-2956-residencial-san-jose-sinaloa-30154064",
-    "https://propiedades.com/inmuebles/casa-en-venta-benevento-residencial-80014-culiacan-rosales-sin-sn-benevento-residencial-sinaloa-30238219",
-    "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-toscana-80050-culiacan-rosales-sin-sn-stanza-toscana-sinaloa-30255870"
+    "https://propiedades.com/inmuebles/casa-en-venta-chiapas-116-satelite-sinaloa-30205838",
+    "https://propiedades.com/inmuebles/casa-en-venta-infonavit-humaya-80020-culiacan-rosales-sin-sn-infonavit-humaya-sinaloa-30260155",
+    "https://propiedades.com/inmuebles/casa-en-venta-calle-1-santa-fe-sinaloa-30227406",
+    "https://propiedades.com/inmuebles/casa-en-venta-ruiseñor-341-infonavit-humaya-sinaloa-30227365",
+    "https://propiedades.com/inmuebles/casa-en-venta-abedul-142-infonavit-humaya-sinaloa-30227253",
+    "https://propiedades.com/inmuebles/casa-en-venta-lote-33-francisco-villa-sinaloa-30227184",
+    "https://propiedades.com/inmuebles/casa-en-venta-5ta-cda-de-abeja-1614-los-fresnos-sinaloa-30227069",
+    "https://propiedades.com/inmuebles/casa-en-venta-blvrd-elbert-2609-infonavit-solidaridad-sinaloa-30181773",
+    "https://propiedades.com/inmuebles/casa-en-venta-heroe-de-nacozari-398-buenos-aires-sinaloa-30241936",
+    "https://propiedades.com/inmuebles/casa-en-venta-loma-de-rodriguera-lomas-de-agua-caliente-sinaloa-30245014"
 ];
 
 // Propiedades existentes en nuestro sistema (extraídas de culiacan/index.html)

@@ -1,146 +1,105 @@
 {
   "results": [
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-alejandria-vinoramas-sinaloa-28718607",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.67 mil MN",
-        "title": "Venta de casa en Alejandría, Colonia Vinoramas, C.P. 80184"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-constituyente-andres-magallon-libertad-sinaloa-28817577",
-      "isCuliacan": true,
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-chiapas-116-satelite-sinaloa-30205838",
+      "isCuliacan": false,
       "alreadyExists": false,
       "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 5.25 mil MN",
-        "title": "Venta de casa en Constituyente Andrés Magallon, Colonia Libertad"
+        "location": "Delegación Coyoacán, DF / CDMX",
+        "price": "$ 38.83 mil MN",
+        "title": "Venta de casa en CERRO DE DIOS DEL HACHA, Colonia Romero de Te..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-circuito-san-francisco-12-la-primavera-sinaloa-30181775",
-      "isCuliacan": true,
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-infonavit-humaya-80020-culiacan-rosales-sin-sn-infonavit-humaya-sinaloa-30260155",
+      "isCuliacan": false,
       "alreadyExists": true,
       "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 22.87 mil MN",
-        "title": "Casa en venta disponible en Circuito San Francisco #12, Coloni..."
+        "location": "Municipio Tijuana, Baja California",
+        "price": "$ 810 USD",
+        "title": "Renta de oficina Zona Urbana Río Tijuana, Colonia Zona Urbana ..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-mariano-escobedo-356-centro-sinaloa-sinaloa-30263072",
-      "isCuliacan": true,
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-1-santa-fe-sinaloa-30227406",
+      "isCuliacan": false,
       "alreadyExists": false,
       "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 8.61 mil MN",
-        "title": "Se vende casa Mariano Escobedo #356, Colonia Centro Sinaloa"
+        "location": "Municipio Guadalajara, Jalisco",
+        "price": "$ 67.0 MN",
+        "title": "Casa en renta disponible en Estudiantes, Colonia Jardines de G..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-andador-agrapando-6138-bugambilias-sinaloa-30226154",
-      "isCuliacan": true,
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-ruiseñor-341-infonavit-humaya-sinaloa-30227365",
+      "isCuliacan": false,
+      "alreadyExists": true,
+      "data": {
+        "location": "Municipio Mulegé, Baja California Sur",
+        "price": "$63,000,000 MXN",
+        "title": "Terreno en venta disponible en Bahía Asunción, Colonia Bahía A..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-abedul-142-infonavit-humaya-sinaloa-30227253",
+      "isCuliacan": false,
+      "alreadyExists": true,
+      "data": {
+        "location": "Municipio El Marqués, Querétaro",
+        "price": "$ 24.55 mil MN",
+        "title": "Venta departamento en Cto. Valle de Locumba, Colonia Zibatá"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-lote-33-francisco-villa-sinaloa-30227184",
+      "isCuliacan": false,
       "alreadyExists": false,
       "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 8.78 mil MN",
-        "title": "Casa en venta, Andador Agrapando #6138, Colonia Bugambilias"
+        "location": "Municipio Puebla, Puebla",
+        "price": "$ 184.0 MN",
+        "title": "Departamento en renta disponible en Boudica, Colonia Corredeor..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-rivallagigedo-la-campina-sinaloa-30181774",
-      "isCuliacan": true,
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-5ta-cda-de-abeja-1614-los-fresnos-sinaloa-30227069",
+      "isCuliacan": false,
       "alreadyExists": false,
       "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 13.68 mil MN",
-        "title": "Casa en venta disponible en Rivallagigedo, Colonia La Campiña"
+        "location": "Municipio El Salto, Jalisco",
+        "price": "$ 9.32 mil MN",
+        "title": "Venta de departamento en circuito ebano, Colonia La Purísima"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvd-circuito-interior-espacios-barcelona-sinaloa-28718521",
-      "isCuliacan": true,
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvrd-elbert-2609-infonavit-solidaridad-sinaloa-30181773",
+      "isCuliacan": false,
       "alreadyExists": true,
       "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 21.52 mil MN",
-        "title": "Venta de casa Blvd. Circuito Interior, Colonia Espacios Barcelona"
+        "location": "Municipio Tlalnepantla de Baz, México",
+        "price": "$7,500 MXN",
+        "title": "Renta de oficina en , Colonia Viveros de La Loma, C.P. 54080"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-privada-riace-2956-residencial-san-jose-sinaloa-30154064",
-      "isCuliacan": true,
-      "alreadyExists": true,
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-heroe-de-nacozari-398-buenos-aires-sinaloa-30241936",
+      "isCuliacan": false,
+      "alreadyExists": false,
       "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 19.64 mil MN",
-        "title": "Casa disponible en venta en Privada Riace #2956, Colonia Resid..."
+        "location": "Municipio Atizapán de Zaragoza, México",
+        "price": "$ 61.0 MN",
+        "title": "Se renta casa en Priv. Sheffield #117, Colonia Condado de Saya..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-benevento-residencial-80014-culiacan-rosales-sin-sn-benevento-residencial-sinaloa-30238219",
-      "isCuliacan": true,
-      "alreadyExists": true,
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-loma-de-rodriguera-lomas-de-agua-caliente-sinaloa-30245014",
+      "isCuliacan": false,
+      "alreadyExists": false,
       "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 18.31 mil MN",
-        "title": "Casa disponible en venta en Benevento Residencial, 80014 Culia..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-toscana-80050-culiacan-rosales-sin-sn-stanza-toscana-sinaloa-30255870",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 11.71 mil MN",
-        "title": "Venta de casa Blvd. Paseo Toscana, 80050 Culiacán Rosales, Sin..."
+        "location": "Municipio Benito Juárez, Quintana Roo",
+        "price": "$ 30.88 mil MN",
+        "title": "Se vende casa , Colonia Aqua Residencial, C.P. 77560"
       }
     }
   ],
-  "newCuliacanProperties": [
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-constituyente-andres-magallon-libertad-sinaloa-28817577",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 5.25 mil MN",
-        "title": "Venta de casa en Constituyente Andrés Magallon, Colonia Libertad"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-mariano-escobedo-356-centro-sinaloa-sinaloa-30263072",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 8.61 mil MN",
-        "title": "Se vende casa Mariano Escobedo #356, Colonia Centro Sinaloa"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-andador-agrapando-6138-bugambilias-sinaloa-30226154",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 8.78 mil MN",
-        "title": "Casa en venta, Andador Agrapando #6138, Colonia Bugambilias"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-rivallagigedo-la-campina-sinaloa-30181774",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 13.68 mil MN",
-        "title": "Casa en venta disponible en Rivallagigedo, Colonia La Campiña"
-      }
-    }
-  ]
+  "newCuliacanProperties": []
 }
