@@ -8622,7 +8622,9 @@
         
         allCards.forEach((card, index) => {
           let show = true;
-          const priceText = card.querySelector('.bg-orange-500')?.textContent || '';
+          // Buscar badge de precio (verde para venta, naranja para renta)
+          const priceBadge = card.querySelector('.bg-green-600, .bg-orange-500');
+          const priceText = priceBadge?.textContent || '';
           // Detectar por palabra RENTA o VENTA en el badge, o por /mes como fallback
           const isRenta = priceText.toUpperCase().includes('RENTA') || priceText.includes('/mes');
           const isVenta = priceText.toUpperCase().includes('VENTA') || !isRenta;
@@ -8700,8 +8702,8 @@
         console.log('🔥 Aplicando orden:', sortValue);
         
         visibleCards.sort((a, b) => {
-          const priceA = toNum(a.querySelector('.bg-orange-500')?.textContent || '0');
-          const priceB = toNum(b.querySelector('.bg-orange-500')?.textContent || '0');
+          const priceA = toNum(a.querySelector('.bg-green-600, .bg-orange-500')?.textContent || '0');
+          const priceB = toNum(b.querySelector('.bg-green-600, .bg-orange-500')?.textContent || '0');
           
           switch (sortValue) {
             case 'price_low':
