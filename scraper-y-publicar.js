@@ -42,6 +42,25 @@ async function scrapearPropiedad(url) {
 
     const page = await browser.newPage();
 
+    // 🚀 INTERCEPCIÓN DE RED: Capturar TODAS las URLs de imágenes
+    const interceptedImages = new Set();
+
+    await page.setRequestInterception(true);
+    page.on('request', (request) => {
+        request.continue();
+    });
+
+    page.on('response', async (response) => {
+        const url = response.url();
+        const contentType = response.headers()['content-type'] || '';
+
+        // Capturar TODAS las imágenes de cdn.propiedades.com
+        if (url.includes('cdn.propiedades.com') &&
+            (contentType.includes('image') || url.match(/\.(jpg|jpeg|png|webp)$/i))) {
+            interceptedImages.add(url);
+        }
+    });
+
     await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
     await page.setViewport({ width: 1920, height: 1080 });
 
@@ -124,11 +143,59 @@ async function scrapearPropiedad(url) {
 
     await new Promise(resolve => setTimeout(resolve, 1500));
 
-    // PASO 3: Navegar con flechas para cargar TODAS las fotos
-    console.log('   📸 PASO 3: Navegando con flechas (40 clicks)...');
-    for (let i = 0; i < 40; i++) {
+    // Extraer el ID de la propiedad ANTES del loop
+    const propertyIdMatch = url.match(/-(\d{7,9})$/);
+    const propertyId = propertyIdMatch ? propertyIdMatch[1] : null;
+    console.log(`   🔑 ID de propiedad: ${propertyId}`);
+
+    // PASO 3: Navegar con flechas CAPTURANDO URLs en tiempo real
+    console.log('   📸 PASO 3: Navegando y capturando fotos en tiempo real (100 clicks)...');
+
+    const capturedImages = new Set();
+
+    for (let i = 0; i < 100; i++) {
         try {
-            // Buscar el botón "siguiente" con selectores expandidos
+            // CAPTURAR URLs de imágenes visibles ANTES de hacer click
+            const currentImages = await page.evaluate((propId) => {
+                const images = new Set();
+
+                // Buscar todas las imágenes en el DOM
+                document.querySelectorAll('img').forEach(img => {
+                    if (img.src && img.src.includes('cdn.propiedades.com') && img.src.includes(propId)) {
+                        images.add(img.src);
+                    }
+                    if (img.srcset) {
+                        const urls = img.srcset.split(',').map(s => s.trim().split(' ')[0]);
+                        urls.forEach(url => {
+                            if (url.includes('cdn.propiedades.com') && url.includes(propId)) {
+                                images.add(url);
+                            }
+                        });
+                    }
+                });
+
+                // Buscar en atributos data-*
+                document.querySelectorAll('[data-src], [data-image], [style*="background-image"]').forEach(el => {
+                    const dataSrc = el.getAttribute('data-src') || el.getAttribute('data-image');
+                    if (dataSrc && dataSrc.includes('cdn.propiedades.com') && dataSrc.includes(propId)) {
+                        images.add(dataSrc);
+                    }
+
+                    const bgImage = el.style.backgroundImage;
+                    if (bgImage) {
+                        const match = bgImage.match(/url\(['"]?([^'"]+)['"]?\)/);
+                        if (match && match[1].includes('cdn.propiedades.com') && match[1].includes(propId)) {
+                            images.add(match[1]);
+                        }
+                    }
+                });
+
+                return Array.from(images);
+            }, propertyId);
+
+            currentImages.forEach(img => capturedImages.add(img));
+
+            // Hacer click en siguiente
             const clicked = await page.evaluate(() => {
                 const selectors = [
                     'button[aria-label*="next"]',
@@ -141,7 +208,6 @@ async function scrapearPropiedad(url) {
                     'button:has([class*="arrow-right"])',
                     '[data-action="next"]',
                     '[class*="swiper-button-next"]',
-                    // Selector más genérico para flechas
                     'button svg[class*="chevron"]',
                     'button svg[class*="arrow"]'
                 ];
@@ -150,7 +216,6 @@ async function scrapearPropiedad(url) {
                     try {
                         const btn = document.querySelector(selector);
                         if (btn) {
-                            // Si es un SVG, hacer click en el botón padre
                             const button = btn.tagName === 'svg' ? btn.closest('button') : btn;
                             if (button && !button.disabled && !button.classList.contains('disabled')) {
                                 button.click();
@@ -165,19 +230,25 @@ async function scrapearPropiedad(url) {
             });
 
             if (clicked) {
-                await new Promise(resolve => setTimeout(resolve, 600));
+                await new Promise(resolve => setTimeout(resolve, 800));
             } else {
-                // Si no encuentra botón, intentar con las teclas de navegación
                 await page.keyboard.press('ArrowRight');
-                await new Promise(resolve => setTimeout(resolve, 600));
+                await new Promise(resolve => setTimeout(resolve, 800));
+            }
+
+            // Cada 10 clicks, mostrar progreso
+            if ((i + 1) % 10 === 0) {
+                console.log(`      ... ${i + 1}/100 clicks (${capturedImages.size} fotos capturadas)`);
             }
         } catch (e) {
-            // Continuar aunque falle un click
+            // Continuar aunque falle
         }
     }
 
-    // Esperar más tiempo para que carguen todas las imágenes
-    await new Promise(resolve => setTimeout(resolve, 8000));
+    console.log(`   ✅ Capturadas ${capturedImages.size} fotos durante navegación`);
+
+    // Esperar y capturar una vez más
+    await new Promise(resolve => setTimeout(resolve, 3000));
 
     // PASO 4: Click en "Mostrar más" de la descripción para obtener texto completo
     console.log('   📝 PASO 4: Click en "Mostrar más" de la descripción...');
@@ -230,10 +301,6 @@ async function scrapearPropiedad(url) {
     } else {
         console.log('   ⚠️  No se encontró botón "Mostrar más" (puede que la descripción ya esté completa)');
     }
-
-    // Extraer el ID de la propiedad de la URL para filtrar solo sus fotos
-    const propertyIdMatch = url.match(/-(\d{7,9})$/);
-    const propertyId = propertyIdMatch ? propertyIdMatch[1] : null;
 
     // MÉTODO MEJORADO: Extraer URLs del JavaScript/JSON embebido + HTML
     const htmlContent = await page.content();
@@ -290,8 +357,17 @@ async function scrapearPropiedad(url) {
         htmlMatches.push(...found);
     });
 
-    // Combinar todas las fuentes
-    let allMatches = [...nextDataPhotos, ...scriptPhotos, ...htmlMatches];
+    // COMBINAR: Intercepción de red + Captura en tiempo real + HTML/JSON
+    let allMatches = [
+        ...Array.from(interceptedImages),  // 🚀 FOTOS INTERCEPTADAS DE LA RED!
+        ...Array.from(capturedImages),     // FOTOS CAPTURADAS DURANTE NAVEGACIÓN!
+        ...nextDataPhotos,
+        ...scriptPhotos,
+        ...htmlMatches
+    ];
+
+    console.log(`   🚀 Fotos interceptadas de red: ${interceptedImages.size}`);
+    console.log(`   📊 Fotos capturadas en tiempo real: ${capturedImages.size}`);
 
     // Limpiar URLs que puedan estar incompletas o con prefijos
     const cleanedUrls = allMatches.map(url => {
@@ -320,34 +396,43 @@ async function scrapearPropiedad(url) {
         }
     }
 
-    console.log(`   🔍 Total fotos encontradas: ${uniqueImages.length}`);
+    console.log(`   🔍 Total fotos únicas encontradas: ${uniqueImages.length}`);
 
     // ESTRATEGIA ALTERNATIVA: Si encontró menos de 10 fotos, generar URLs basándose en el patrón
     if (uniqueImages.length > 0 && uniqueImages.length < 15 && propertyId) {
         console.log(`   ⚠️  Solo ${uniqueImages.length} fotos encontradas, intentando generar más...`);
 
-        // Extraer el patrón de la primera foto (ej: valle-alto-culiacan-sinaloa-28481539-foto-01.jpg)
+        const generatedUrls = [];
+
+        // PATRÓN 1: foto-01.jpg, foto-02.jpg (estilo antiguo)
         const firstPhoto = uniqueImages[0];
-        const basePattern = firstPhoto.match(/(.*-)\d{2}\.jpg/);
+        const basePattern1 = firstPhoto.match(/(.*-foto-)\d{2}\.jpg/);
 
-        if (basePattern) {
-            const baseUrl = basePattern[1]; // "https://cdn.propiedades.com/.../valle-alto-culiacan-sinaloa-28481539-foto-"
-            const generatedUrls = [];
-
-            // Intentar generar URLs para fotos 01 hasta 15
+        if (basePattern1) {
+            const baseUrl = basePattern1[1];
             for (let i = 1; i <= 15; i++) {
                 const photoNum = i.toString().padStart(2, '0');
                 const generatedUrl = `${baseUrl}${photoNum}.jpg`;
-
-                // Solo agregar si no existe ya
                 if (!uniqueImages.includes(generatedUrl)) {
                     generatedUrls.push(generatedUrl);
                 }
             }
+        }
 
+        // PATRÓN 2: 0-30154064.jpeg, 1-30154064.jpeg (estilo nuevo con índice)
+        const basePattern2 = firstPhoto.match(/(.*\/)([^\/]+)-(\d)-(\d{8})\.jpeg$/);
+        if (basePattern2) {
+            const [, basePath, locationName, , propId] = basePattern2;
+            for (let i = 0; i <= 20; i++) {
+                const generatedUrl = `${basePath}${locationName}-${i}-${propId}.jpeg`;
+                if (!uniqueImages.includes(generatedUrl)) {
+                    generatedUrls.push(generatedUrl);
+                }
+            }
+        }
+
+        if (generatedUrls.length > 0) {
             console.log(`   🔧 Generadas ${generatedUrls.length} URLs adicionales para verificar`);
-
-            // Agregar las URLs generadas a la lista
             uniqueImages = [...uniqueImages, ...generatedUrls];
         }
     }
