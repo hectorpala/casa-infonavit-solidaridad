@@ -75,6 +75,7 @@ async function scrapeInmuebles24(url) {
                 bedrooms: 0,
                 bathrooms: 0,
                 area: 0,
+                landArea: 0,
                 description: '',
                 photos: []
             };
@@ -115,42 +116,84 @@ async function scrapeInmuebles24(url) {
                               document.querySelector('[class*="location"]');
             if (locationEl) result.location = locationEl.textContent.trim();
 
-            // Bedrooms
-            const bedroomEl = document.querySelector('[data-qa="POSTING_CARD_FEATURES"] [title*="dormitorio"]') ||
-                             document.querySelector('[title*="recámara"]') ||
-                             Array.from(document.querySelectorAll('[class*="feature"]')).find(el =>
-                                 el.textContent.match(/(\d+)\s*(rec|dorm|hab)/i)
-                             );
-            if (bedroomEl) {
-                const match = bedroomEl.textContent.match(/(\d+)/);
-                if (match) result.bedrooms = parseInt(match[1]);
+            // 🔍 MÉTODO MEJORADO: Buscar en Bing tracker metadata (tiene datos precisos)
+            const bingTrackerUrl = Array.from(document.querySelectorAll('img')).find(img =>
+                img.src && img.src.includes('bat.bing.com')
+            )?.src;
+
+            if (bingTrackerUrl) {
+                // Extraer datos del tracker de Bing
+                const urlParams = new URLSearchParams(bingTrackerUrl.split('?')[1]);
+                const keywords = urlParams.get('kw') || '';
+
+                // Recámaras: "Recámaras 3"
+                const bedroomsMatch = keywords.match(/Rec[aá]maras?\s+(\d+)/i);
+                if (bedroomsMatch) result.bedrooms = parseInt(bedroomsMatch[1]);
+
+                // Baños: "Baños 3" + "Medios baños 2" = 3.5 total
+                const fullBathsMatch = keywords.match(/Ba[ñn]os?\s+(\d+)/i);
+                const halfBathsMatch = keywords.match(/Medios?\s+ba[ñn]os?\s+(\d+)/i);
+
+                let fullBaths = fullBathsMatch ? parseInt(fullBathsMatch[1]) : 0;
+                let halfBaths = halfBathsMatch ? parseInt(halfBathsMatch[1]) : 0;
+                result.bathrooms = fullBaths + (halfBaths * 0.5);
+
+                // Área construida: "Construidos 182"
+                const areaMatch = keywords.match(/Construidos?\s+(\d+)/i);
+                if (areaMatch) result.area = parseInt(areaMatch[1]);
+
+                // Terreno: "Terreno 170"
+                const landMatch = keywords.match(/Terreno\s+(\d+)/i);
+                if (landMatch) result.landArea = parseInt(landMatch[1]);
             }
 
-            // Bathrooms
-            const bathroomEl = document.querySelector('[data-qa="POSTING_CARD_FEATURES"] [title*="baño"]') ||
+            // Fallback: búsqueda tradicional si Bing tracker no funcionó
+            if (!result.bedrooms) {
+                const bedroomEl = document.querySelector('[data-qa="POSTING_CARD_FEATURES"] [title*="dormitorio"]') ||
+                                 document.querySelector('[title*="recámara"]') ||
+                                 Array.from(document.querySelectorAll('[class*="feature"]')).find(el =>
+                                     el.textContent.match(/(\d+)\s*(rec|dorm|hab)/i)
+                                 );
+                if (bedroomEl) {
+                    const match = bedroomEl.textContent.match(/(\d+)/);
+                    if (match) result.bedrooms = parseInt(match[1]);
+                }
+            }
+
+            if (!result.bathrooms) {
+                const bathroomEl = document.querySelector('[data-qa="POSTING_CARD_FEATURES"] [title*="baño"]') ||
+                                  Array.from(document.querySelectorAll('[class*="feature"]')).find(el =>
+                                      el.textContent.match(/(\d+)\s*baño/i)
+                                  );
+                if (bathroomEl) {
+                    const match = bathroomEl.textContent.match(/(\d+)/);
+                    if (match) result.bathrooms = parseInt(match[1]);
+                }
+            }
+
+            if (!result.area) {
+                const areaEl = document.querySelector('[data-qa="POSTING_CARD_FEATURES"] [title*="m²"]') ||
+                              document.querySelector('[title*="superficie"]') ||
                               Array.from(document.querySelectorAll('[class*="feature"]')).find(el =>
-                                  el.textContent.match(/(\d+)\s*baño/i)
+                                  el.textContent.match(/(\d+)\s*m/i)
                               );
-            if (bathroomEl) {
-                const match = bathroomEl.textContent.match(/(\d+)/);
-                if (match) result.bathrooms = parseInt(match[1]);
+                if (areaEl) {
+                    const match = areaEl.textContent.match(/(\d+)/);
+                    if (match) result.area = parseInt(match[1]);
+                }
             }
 
-            // Area
-            const areaEl = document.querySelector('[data-qa="POSTING_CARD_FEATURES"] [title*="m²"]') ||
-                          document.querySelector('[title*="superficie"]') ||
-                          Array.from(document.querySelectorAll('[class*="feature"]')).find(el =>
-                              el.textContent.match(/(\d+)\s*m/i)
-                          );
-            if (areaEl) {
-                const match = areaEl.textContent.match(/(\d+)/);
-                if (match) result.area = parseInt(match[1]);
+            // Description - expandir "Ver más" automáticamente
+            const verMasBtn = document.querySelector('[class*="showMore"], [class*="expand"], button:contains("Ver más")');
+            if (verMasBtn) {
+                try { verMasBtn.click(); } catch(e) {}
             }
 
-            // Description
+            // Esperar un momento para que cargue el texto completo
             const descEl = document.querySelector('[data-qa="POSTING_DESCRIPTION"]') ||
                           document.querySelector('.description') ||
-                          document.querySelector('[class*="description"]');
+                          document.querySelector('[class*="description"]') ||
+                          document.querySelector('[class*="Description"]');
             if (descEl) result.description = descEl.textContent.trim();
 
             // Photos - try multiple selectors
@@ -409,7 +452,7 @@ async function downloadPhoto(url, filepath, page) {
             bathrooms: data.bathrooms || 2,
             parking: 2,
             area: data.area || 100,
-            landArea: data.area || 100,
+            landArea: data.landArea || data.area || 100,
             yearBuilt: '2023',
             slug: slug,
             key: slug,
