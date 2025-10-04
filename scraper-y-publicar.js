@@ -1001,7 +1001,7 @@ function generarTarjeta(propertyData) {
                  data-href="${cardHref}">
                 <div class="relative aspect-video">
                     <div class="absolute top-3 right-3 ${badgeColor} text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                        ${propertyData.price}
+                        ${propertyData.price}${propertyData.esRenta ? '/mes' : ''}
                     </div>
                     <div class="carousel-container" data-current="0">
 ${propertyData.imageUrls.slice(0, 5).map((url, i) => `                        <img src="${imagePathPrefix}foto-${i + 1}.jpg"
