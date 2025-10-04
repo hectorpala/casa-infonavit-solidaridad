@@ -338,6 +338,47 @@ async function downloadPhoto(url, filepath, page) {
             }
         }
 
+        // 🧹 FILTRAR: Eliminar iconos/logos pequeños (< 30KB)
+        console.log('\n   🧹 Filtrando iconos y logos pequeños...');
+        const files = fs.readdirSync(imagesDir).filter(f => f.endsWith('.jpg'));
+        const realPhotos = [];
+
+        for (const file of files) {
+            const filePath = path.join(imagesDir, file);
+            const stats = fs.statSync(filePath);
+            if (stats.size > 30000) { // Solo fotos > 30KB
+                realPhotos.push(file);
+            } else {
+                fs.unlinkSync(filePath); // Eliminar iconos pequeños
+            }
+        }
+
+        // Reorganizar fotos
+        console.log(`   ✅ ${realPhotos.length} fotos reales encontradas (${files.length - realPhotos.length} iconos eliminados)`);
+
+        realPhotos.sort((a, b) => {
+            const numA = parseInt(a.match(/\d+/)[0]);
+            const numB = parseInt(b.match(/\d+/)[0]);
+            return numA - numB;
+        });
+
+        const tempDir = path.join(imagesDir, 'temp');
+        fs.mkdirSync(tempDir, { recursive: true });
+
+        realPhotos.forEach((file, index) => {
+            const oldPath = path.join(imagesDir, file);
+            const newPath = path.join(tempDir, `foto-${index + 1}.jpg`);
+            fs.renameSync(oldPath, newPath);
+        });
+
+        // Mover fotos reorganizadas de vuelta
+        fs.readdirSync(tempDir).forEach(file => {
+            fs.renameSync(path.join(tempDir, file), path.join(imagesDir, file));
+        });
+        fs.rmdirSync(tempDir);
+
+        console.log(`   ✅ Fotos reorganizadas: foto-1.jpg a foto-${realPhotos.length}.jpg`);
+
         await browser.close();
 
         // Save data for property generator
