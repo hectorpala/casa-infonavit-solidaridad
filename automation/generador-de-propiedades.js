@@ -725,6 +725,7 @@ ${carouselImages}${navigationArrows}
             '{{PROPERTY_TITLE}}': config.title || '',
             '{{PROPERTY_SUBTITLE}}': config.subtitle || '',
             '{{PROPERTY_DESCRIPTION}}': config.description || '',
+            '{{PROPERTY_DESCRIPTION_SHORT}}': (config.description || '').substring(0, 160) + '...',
             '{{PROPERTY_LOCATION}}': config.location || '',
             '{{PROPERTY_BEDROOMS}}': config.bedrooms || 0,
             '{{PROPERTY_BATHROOMS}}': config.bathrooms || 0,
