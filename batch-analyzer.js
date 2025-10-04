@@ -1,24 +1,28 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-// URLs encontradas en el listado - PÁGINA 2 (URLs 21-36 PENDIENTES)
+// URLs encontradas en el listado - PÁGINA 3 (URLs 1-20)
 const propertyUrls = [
-    "https://propiedades.com/inmuebles/casa-en-venta-mision-urbi-villa-del-sol-sinaloa-30053177",
-    "https://propiedades.com/inmuebles/departamento-en-venta-psicologos-557-chapultepec-sinaloa-29945316",
-    "https://propiedades.com/inmuebles/casa-en-venta-avenida-vinoramas-4686-infonavit-barrancos-iv-sinaloa-30123612",
-    "https://propiedades.com/inmuebles/casa-en-venta-avenida-san-antonio-providencia-sinaloa-27809272",
-    "https://propiedades.com/inmuebles/casa-en-venta-6-de-enero-sinaloa-30284093",
-    "https://propiedades.com/inmuebles/casa-en-venta-urbivilla-del-cedro-80058-culiacan-rosales-sin-sn-villa-del-cedro-sinaloa-30367066",
-    "https://propiedades.com/inmuebles/casa-en-venta-av-de-los-tules-2161-bonaterra-sinaloa-29696553",
-    "https://propiedades.com/inmuebles/casa-en-venta-primera--issstesin-sinaloa-26881569",
-    "https://propiedades.com/inmuebles/casa-en-venta-calle-mariano-paredes--568-francisco-i-madero-sinaloa-28865012",
-    "https://propiedades.com/inmuebles/casa-en-venta-av-noche-buena-terranova-80143-culiacan-rosales-sin-terranova-sinaloa-30383674",
-    "https://propiedades.com/inmuebles/casa-en-venta-el-mirador-sinaloa-30284085",
-    "https://propiedades.com/inmuebles/casa-en-venta-cerro-algodones-buenos-aires-sinaloa-28864962",
-    "https://propiedades.com/inmuebles/casa-en-venta-olmecas-sn-valle-bonito-sinaloa-29931876",
-    "https://propiedades.com/inmuebles/casa-en-venta-jardin-de-las-orquideas-3115-laureles-sinaloa-28865008",
-    "https://propiedades.com/inmuebles/casa-en-venta-manantial-de-sanalona-7970-real-san-angel-sinaloa-30154051",
-    "https://propiedades.com/inmuebles/casa-en-venta-el-vallado-sinaloa-30283990"
+    "https://propiedades.com/inmuebles/casa-en-venta-capistrano-residencial-sinaloa-30334781",
+    "https://propiedades.com/inmuebles/casa-en-venta-blvrd-alfonso-g-calderon-3104-valle-alto-sinaloa-30187163",
+    "https://propiedades.com/inmuebles/casa-en-venta-augusta-3864-albaterra-sinaloa-29990169",
+    "https://propiedades.com/inmuebles/casa-en-venta-prol-alvaro-obregon-6377-los-mezcales-sinaloa-28899365",
+    "https://propiedades.com/inmuebles/departamento-en-venta-bosque-magnolia-bosques-del-rey-sinaloa-28536270",
+    "https://propiedades.com/inmuebles/casa-en-venta-las-vegas-sinaloa-30284143",
+    "https://propiedades.com/inmuebles/casa-en-venta-san-javier-sinaloa-30283997",
+    "https://propiedades.com/inmuebles/casa-en-venta-paseo-belcantto-sn-belcantto-sinaloa-30167828",
+    "https://propiedades.com/inmuebles/casa-en-venta-carmen-serdan-y-josefina-chan-sn-vicente-lombardo-toledano-sinaloa-28839441",
+    "https://propiedades.com/inmuebles/casa-en-venta-munich-lomas-del-sol-sinaloa-29769962",
+    "https://propiedades.com/inmuebles/departamento-en-venta-calle-privada-de-los-empaques-4750-4750-mont-blanc-sinaloa-29206393",
+    "https://propiedades.com/inmuebles/casa-en-venta-calle-lago-dove-4230-centro-sinaloa-sinaloa-30262723",
+    "https://propiedades.com/inmuebles/casa-en-venta-29-de-diciembre-1484-5-de-mayo-sinaloa-28719498",
+    "https://propiedades.com/inmuebles/casa-en-venta-girasoles-sinaloa-30283965",
+    "https://propiedades.com/inmuebles/casa-en-venta-valle-alto-sinaloa-30086313",
+    "https://propiedades.com/inmuebles/casa-en-venta-infonavit-barrancos-sinaloa-30284031",
+    "https://propiedades.com/inmuebles/casa-en-venta-estrella-polar-3469-humaya-sinaloa-28569051",
+    "https://propiedades.com/inmuebles/casa-en-venta-prolongacion-alvaro-obregon-1880-colinas-de-san-miguel-sinaloa-28944339",
+    "https://propiedades.com/inmuebles/casa-en-venta-santo-domingo-1602-portareal-sinaloa-29881790",
+    "https://propiedades.com/inmuebles/departamento-en-venta-villa-universidad-villa-universidad-sinaloa-28402172"
 ];
 
 // Propiedades existentes en nuestro sistema (extraídas de culiacan/index.html)
