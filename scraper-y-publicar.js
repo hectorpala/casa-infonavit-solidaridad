@@ -1052,29 +1052,27 @@ ${propertyData.imageUrls.slice(0, 5).map((url, i) => `                        <i
     fs.writeFileSync(`tarjeta-${propertyData.slug}.html`, tarjeta);
     console.log(`✅ Tarjeta generada: tarjeta-${propertyData.slug}.html`);
 
-    // INSERTAR AUTOMÁTICAMENTE EN culiacan/index.html (solo VENTA)
-    if (!propertyData.esRenta) {
-        try {
-            const indexPath = 'culiacan/index.html';
-            let indexContent = fs.readFileSync(indexPath, 'utf8');
+    // ✅ INSERTAR AUTOMÁTICAMENTE EN culiacan/index.html (VENTA Y RENTA)
+    try {
+        const indexPath = 'culiacan/index.html';
+        let indexContent = fs.readFileSync(indexPath, 'utf8');
 
-            // Buscar el primer <!-- BEGIN CARD-ADV
-            const insertPoint = indexContent.indexOf('<!-- BEGIN CARD-ADV');
+        // Buscar el primer <!-- BEGIN CARD-ADV
+        const insertPoint = indexContent.indexOf('<!-- BEGIN CARD-ADV');
 
-            if (insertPoint !== -1) {
-                // Insertar ANTES de la primera tarjeta existente
-                indexContent = indexContent.slice(0, insertPoint) +
-                               tarjeta + '\n\n' +
-                               indexContent.slice(insertPoint);
+        if (insertPoint !== -1) {
+            // Insertar ANTES de la primera tarjeta existente
+            indexContent = indexContent.slice(0, insertPoint) +
+                           tarjeta + '\n\n' +
+                           indexContent.slice(insertPoint);
 
-                fs.writeFileSync(indexPath, indexContent);
-                console.log(`✅ Tarjeta insertada automáticamente en culiacan/index.html`);
-            } else {
-                console.log(`⚠️  No se encontró punto de inserción en culiacan/index.html`);
-            }
-        } catch (error) {
-            console.log(`⚠️  Error insertando tarjeta: ${error.message}`);
+            fs.writeFileSync(indexPath, indexContent);
+            console.log(`✅ Tarjeta insertada AUTOMÁTICAMENTE en culiacan/index.html`);
+        } else {
+            console.log(`⚠️  No se encontró punto de inserción en culiacan/index.html`);
         }
+    } catch (error) {
+        console.log(`⚠️  Error insertando tarjeta: ${error.message}`);
     }
 }
 
