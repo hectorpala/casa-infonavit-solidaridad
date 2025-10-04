@@ -1,14 +1,28 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-// URLs encontradas en el listado
+// URLs encontradas en el listado - PÁGINA 2
 const propertyUrls = [
-    "https://propiedades.com/inmuebles/casa-en-venta-porta-real-residencial-sn-portareal-sinaloa-29880610",
-    "https://propiedades.com/inmuebles/casa-en-venta-carr-a-imala-culiacan-rosales-sin-sn-benevento-residencial-sinaloa-30238202",
-    "https://propiedades.com/inmuebles/casa-en-venta-ruben-jaramillo-ruben-jaramillo-80015-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30238180",
-    "https://propiedades.com/inmuebles/casa-en-venta-paseo-belcantto-sn-belcantto-sinaloa-29706991",
-    "https://propiedades.com/inmuebles/casa-en-venta-blvd-plan-de-ayala-emiliano-zapata-culiacan-rosales-sin-sn-guadalupe-victoria-sinaloa-30318117",
-    "https://propiedades.com/inmuebles/departamento-en-venta-arquitectos-tierra-blanca-tierra-blanca-sinaloa-30013963"
+    "https://propiedades.com/inmuebles/casa-en-venta-general-rosendo-rodriguez-4660-infonavit-barrancos-sinaloa-30263120",
+    "https://propiedades.com/inmuebles/departamento-en-venta-c-francisco-villa-las-vegas-culiacan-rosales-sin-1190-las-vegas-sinaloa-30338371",
+    "https://propiedades.com/inmuebles/casa-en-venta-avenida-aztlan-2264-industrial-el-palmito-sinaloa-30290582",
+    "https://propiedades.com/inmuebles/departamento-en-venta-prolongacion-alvaro-obregon-tierra-blanca-sinaloa-28283577",
+    "https://propiedades.com/inmuebles/casa-en-venta-calzada-del-ecuador-santa-fe-sinaloa-29384688",
+    "https://propiedades.com/inmuebles/departamento-en-venta-guadalupe-victoria-sn-jorge-almada-sinaloa-30115051",
+    "https://propiedades.com/inmuebles/casa-en-venta-islas-nicobar-sn-prados-del-sur-sinaloa-29082517",
+    "https://propiedades.com/inmuebles/casa-en-venta-fuerte-san-fernando-2646-floresta-sinaloa-30261580",
+    "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-del-roble-urbivilla-del-cedro-80058-culiacan-rosales-sin-sn-stanza-castilla-sinaloa-30309397",
+    "https://propiedades.com/inmuebles/casa-en-venta-barranca-del-cobre-184-renato-vega-alvarado-sinaloa-28846358",
+    "https://propiedades.com/inmuebles/casa-en-venta-islas-frisias-sn-prados-del-sur-sinaloa-29464506",
+    "https://propiedades.com/inmuebles/casa-en-venta-rinconada-del-principado-3697-rincon-real-sinaloa-30007332",
+    "https://propiedades.com/inmuebles/casa-en-venta-san-luis-residencial-sinaloa-30388097",
+    "https://propiedades.com/inmuebles/departamento-en-venta-virgo-los-alamitos-sinaloa-30075512",
+    "https://propiedades.com/inmuebles/casa-en-venta-terranova-sinaloa-30360969",
+    "https://propiedades.com/inmuebles/departamento-en-venta-vinorama-villa-del-roble-sinaloa-30315243",
+    "https://propiedades.com/inmuebles/casa-en-venta-guadalupe-rojo-viuda-de-alvarado-el-mirador-culiacan-rosales-sin-el-mirador-sinaloa-30230098",
+    "https://propiedades.com/inmuebles/casa-en-venta-culiacan-culiacan-sinaloa-30371612",
+    "https://propiedades.com/inmuebles/casa-en-venta-camino-a-la-guasima-heraclio-bernal-sinaloa-30263107",
+    "https://propiedades.com/inmuebles/departamento-en-venta-valle-de-chihuahua-sn-valle-alto-sinaloa-28960156"
 ];
 
 // Propiedades existentes en nuestro sistema (extraídas de culiacan/index.html)
