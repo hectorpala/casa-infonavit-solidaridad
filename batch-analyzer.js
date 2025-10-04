@@ -3,16 +3,16 @@ const fs = require('fs');
 
 // URLs encontradas en el listado
 const propertyUrls = [
-    "https://propiedades.com/inmuebles/casa-en-venta-chiapas-116-satelite-sinaloa-30205838",
-    "https://propiedades.com/inmuebles/casa-en-venta-infonavit-humaya-80020-culiacan-rosales-sin-sn-infonavit-humaya-sinaloa-30260155",
-    "https://propiedades.com/inmuebles/casa-en-venta-calle-1-santa-fe-sinaloa-30227406",
-    "https://propiedades.com/inmuebles/casa-en-venta-ruiseñor-341-infonavit-humaya-sinaloa-30227365",
-    "https://propiedades.com/inmuebles/casa-en-venta-abedul-142-infonavit-humaya-sinaloa-30227253",
-    "https://propiedades.com/inmuebles/casa-en-venta-lote-33-francisco-villa-sinaloa-30227184",
-    "https://propiedades.com/inmuebles/casa-en-venta-5ta-cda-de-abeja-1614-los-fresnos-sinaloa-30227069",
-    "https://propiedades.com/inmuebles/casa-en-venta-blvrd-elbert-2609-infonavit-solidaridad-sinaloa-30181773",
-    "https://propiedades.com/inmuebles/casa-en-venta-heroe-de-nacozari-398-buenos-aires-sinaloa-30241936",
-    "https://propiedades.com/inmuebles/casa-en-venta-loma-de-rodriguera-lomas-de-agua-caliente-sinaloa-30245014"
+    "https://propiedades.com/inmuebles/casa-en-venta-galaxia-ruben-jaramillo-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30238190",
+    "https://propiedades.com/inmuebles/casa-en-venta-carr-a-imala-culiacan-rosales-sin-sn-sfera-residencial-sinaloa-30237531",
+    "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-toscana-80050-culiacan-rosales-sin-sn-la-rioja-sinaloa-30255861",
+    "https://propiedades.com/inmuebles/casa-en-venta-galaxia-ruben-jaramillo-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30346292",
+    "https://propiedades.com/inmuebles/casa-en-venta-calle-blvd-de-las-torres-nueva-galicia-80295-culiacan-rosales-sin-sn-nueva-galicia-sinaloa-30211840",
+    "https://propiedades.com/inmuebles/casa-en-venta-avenida-revolucion-sn-emiliano-zapata-sinaloa-29707018",
+    "https://propiedades.com/inmuebles/casa-en-venta-emiliano-zapata-culiacan-emiliano-zapata-sinaloa-30014075",
+    "https://propiedades.com/inmuebles/terreno-habitacional-en-venta-salida-norte-culiacan-mochis-sn-la-presita-sinaloa-30173782",
+    "https://propiedades.com/inmuebles/departamento-en-venta-av-benjamin-hill-barrancos-culiacan-rosales-sin-sn-finisterra-sinaloa-30373807",
+    "https://propiedades.com/inmuebles/casa-en-venta-nueva-galicia-80295-culiacan-rosales-sin-sn-nueva-galicia-sinaloa-30211839"
 ];
 
 // Propiedades existentes en nuestro sistema (extraídas de culiacan/index.html)
