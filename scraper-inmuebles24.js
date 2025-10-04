@@ -184,7 +184,12 @@ async function scrapeInmuebles24(url) {
             }
 
             // Description - expandir "Ver más" automáticamente
-            const verMasBtn = document.querySelector('[class*="showMore"], [class*="expand"], button:contains("Ver más")');
+            const verMasBtn = document.querySelector('[class*="showMore"]') ||
+                             document.querySelector('[class*="expand"]') ||
+                             Array.from(document.querySelectorAll('button')).find(btn =>
+                                 btn.textContent.toLowerCase().includes('ver más') ||
+                                 btn.textContent.toLowerCase().includes('ver mas')
+                             );
             if (verMasBtn) {
                 try { verMasBtn.click(); } catch(e) {}
             }
@@ -470,21 +475,28 @@ async function downloadPhoto(url, filepath, page) {
             ],
             whatsappMessage: `Hola, me interesa la casa en ${esRenta ? 'renta' : 'venta'} en ${data.location} de ${data.price}`,
             photoCount: realPhotos.length,
+            photos: realPhotos.map((_, i) => `foto-${i + 1}.jpg`),
             imageUrls: []
         };
 
         console.log('\n📄 Generando HTML con PropertyPageGenerator...');
 
+        const generator = new PropertyPageGenerator(esRenta);
         let htmlContent;
 
         if (esRenta) {
-            // Para RENTA: usar casa-renta-privanzas-natura.html como base
-            console.log('🏠 Usando template RENTA (Privanzas Natura)...');
-            htmlContent = fs.readFileSync('casa-renta-privanzas-natura.html', 'utf-8');
+            // Para RENTA: Usar método Solidaridad (estructura EXACTA a Casa Solidaridad)
+            console.log('🏠 Generando RENTA con generateFromSolidaridadTemplate()...');
+            try {
+                htmlContent = generator.generateFromSolidaridadTemplate(propertyData);
+                console.log('✅ HTML RENTA generado (estructura idéntica a Casa Solidaridad)');
+            } catch (error) {
+                console.error('❌ Error generando RENTA:', error.message);
+                throw error;
+            }
         } else {
             // Para VENTA: usar MASTER TEMPLATE CON VALIDACIÓN ✅
-            const generator = new PropertyPageGenerator(false);
-            console.log('🛡️  Generando con validación automática...');
+            console.log('🛡️  Generando VENTA con validación automática...');
             try {
                 htmlContent = generator.generateFromMasterTemplateWithValidation(propertyData);
                 console.log('✅ HTML generado y validado (100% correcto)');
@@ -524,7 +536,6 @@ async function downloadPhoto(url, filepath, page) {
         // GENERAR E INSERTAR TARJETA
         console.log('\n🎴 Generando tarjeta para culiacan/index.html...');
 
-        const generator = new PropertyPageGenerator(esRenta);
         const tarjeta = generator.generatePropertyCard(propertyData, 'culiacan/index.html');
 
         fs.writeFileSync(`tarjeta-${slug}.html`, tarjeta, 'utf-8');

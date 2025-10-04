@@ -373,14 +373,20 @@ async function main() {
 
         const generator = new PropertyPageGenerator(propertyType === 'renta');
 
-        // ✅ USAR MÉTODO NUEVO CON VALIDACIÓN AUTOMÁTICA
-        log('\n🛡️  Generando con validación automática...', 'cyan');
+        // ✅ GENERAR HTML CON MÉTODO CORRECTO SEGÚN TIPO
         let htmlContent;
         try {
-            htmlContent = generator.generateFromMasterTemplateWithValidation(propertyData);
-            log('✅ HTML generado y validado (100% correcto)', 'green');
+            if (propertyType === 'renta') {
+                log('\n🏠 Generando RENTA con método Solidaridad...', 'cyan');
+                htmlContent = generator.generateFromSolidaridadTemplate(propertyData);
+                log('✅ HTML RENTA generado (estructura idéntica a Casa Solidaridad)', 'green');
+            } else {
+                log('\n🛡️  Generando VENTA con validación automática...', 'cyan');
+                htmlContent = generator.generateFromMasterTemplateWithValidation(propertyData);
+                log('✅ HTML VENTA generado y validado (100% correcto)', 'green');
+            }
         } catch (error) {
-            log('❌ Error en validación:', 'red');
+            log('❌ Error en generación:', 'red');
             log(error.message, 'red');
             log('\n🔧 Revisa los datos ingresados y corrige los errores', 'yellow');
             process.exit(1);

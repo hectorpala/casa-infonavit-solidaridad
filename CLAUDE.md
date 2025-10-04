@@ -47,13 +47,28 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 
 ## 🔧 SISTEMA DE AUTOMATIZACIÓN
 
-### 🛡️ Generador de Propiedades - **MASTER TEMPLATE CON VALIDACIÓN AUTOMÁTICA** ✅
+### 🛡️ Generador de Propiedades - **MÉTODOS CORRECTOS POR TIPO** ✅
 - **Ubicación:** `automation/generador-de-propiedades.js`
-- **Template Base:** `automation/templates/master-template.html` (estructura 100% fija)
-- **Método Principal:** `generateFromMasterTemplateWithValidation(config)` ⭐
-- **🛡️ VALIDACIÓN AUTOMÁTICA:** 7 verificaciones antes de generar HTML
-- **🛡️ PROTECCIÓN TOTAL:** Imposible generar HTML con errores o placeholders sin reemplazar
-- **🤖 AUTOMÁTICO:** Auto-detecta fotos en carpeta PROYECTOS
+
+#### 📋 **REGLA DE ORO: Método según tipo de propiedad**
+
+**PARA VENTA:**
+- **Método:** `generateFromMasterTemplateWithValidation(config)` ⭐
+- **Template:** `automation/templates/master-template.html`
+- **Validación:** 7 verificaciones automáticas
+- **Estructura:** Hero + Contact + todas las modern features
+
+**PARA RENTA:**
+- **Método:** `generateFromSolidaridadTemplate(config)` ⭐
+- **Template:** Copia EXACTA de `culiacan/infonavit-solidaridad/index.html`
+- **Estructura:** Hero + Contact (SOLO 2 secciones)
+- **Garantía:** 100% idéntica a Casa Solidaridad
+- **Tamaño:** ~66KB (igual a Solidaridad)
+
+#### ⚠️ **MÉTODOS OBSOLETOS - NO USAR:**
+- ❌ `generateIndividualPage()` - Genera estructura incorrecta para RENTA (5 secciones en vez de 2)
+- ❌ `rental-template-perfect.html` - Template con secciones extra que no deben estar
+- ❌ `replaceTemplatePlaceholders()` directo - Requiere trabajo manual adicional
 
 ### ⚠️ **REQUISITO CRÍTICO: CSS ACTUALIZADO EN ROOT**
 - **Archivo:** `styles.css` (87KB - versión completa con carrusel)

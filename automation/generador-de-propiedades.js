@@ -718,7 +718,8 @@ ${carouselImages}${navigationArrows}
      * Reemplazar placeholders en template
      */
     replaceTemplatePlaceholders(content, config) {
-        const photos = this.scanPropertyPhotos(config.key);
+        // Usar config.photos si está disponible, si no escanear
+        const photos = config.photos || this.scanPropertyPhotos(config.key);
         const mainPhoto = photos.length > 0 ? `images/${config.key}/${photos[0]}` : '';
         
         const replacements = {
