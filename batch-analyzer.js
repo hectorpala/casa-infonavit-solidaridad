@@ -1,28 +1,24 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-// URLs encontradas en el listado - PÁGINA 2
+// URLs encontradas en el listado - PÁGINA 2 (URLs 21-36 PENDIENTES)
 const propertyUrls = [
-    "https://propiedades.com/inmuebles/casa-en-venta-general-rosendo-rodriguez-4660-infonavit-barrancos-sinaloa-30263120",
-    "https://propiedades.com/inmuebles/departamento-en-venta-c-francisco-villa-las-vegas-culiacan-rosales-sin-1190-las-vegas-sinaloa-30338371",
-    "https://propiedades.com/inmuebles/casa-en-venta-avenida-aztlan-2264-industrial-el-palmito-sinaloa-30290582",
-    "https://propiedades.com/inmuebles/departamento-en-venta-prolongacion-alvaro-obregon-tierra-blanca-sinaloa-28283577",
-    "https://propiedades.com/inmuebles/casa-en-venta-calzada-del-ecuador-santa-fe-sinaloa-29384688",
-    "https://propiedades.com/inmuebles/departamento-en-venta-guadalupe-victoria-sn-jorge-almada-sinaloa-30115051",
-    "https://propiedades.com/inmuebles/casa-en-venta-islas-nicobar-sn-prados-del-sur-sinaloa-29082517",
-    "https://propiedades.com/inmuebles/casa-en-venta-fuerte-san-fernando-2646-floresta-sinaloa-30261580",
-    "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-del-roble-urbivilla-del-cedro-80058-culiacan-rosales-sin-sn-stanza-castilla-sinaloa-30309397",
-    "https://propiedades.com/inmuebles/casa-en-venta-barranca-del-cobre-184-renato-vega-alvarado-sinaloa-28846358",
-    "https://propiedades.com/inmuebles/casa-en-venta-islas-frisias-sn-prados-del-sur-sinaloa-29464506",
-    "https://propiedades.com/inmuebles/casa-en-venta-rinconada-del-principado-3697-rincon-real-sinaloa-30007332",
-    "https://propiedades.com/inmuebles/casa-en-venta-san-luis-residencial-sinaloa-30388097",
-    "https://propiedades.com/inmuebles/departamento-en-venta-virgo-los-alamitos-sinaloa-30075512",
-    "https://propiedades.com/inmuebles/casa-en-venta-terranova-sinaloa-30360969",
-    "https://propiedades.com/inmuebles/departamento-en-venta-vinorama-villa-del-roble-sinaloa-30315243",
-    "https://propiedades.com/inmuebles/casa-en-venta-guadalupe-rojo-viuda-de-alvarado-el-mirador-culiacan-rosales-sin-el-mirador-sinaloa-30230098",
-    "https://propiedades.com/inmuebles/casa-en-venta-culiacan-culiacan-sinaloa-30371612",
-    "https://propiedades.com/inmuebles/casa-en-venta-camino-a-la-guasima-heraclio-bernal-sinaloa-30263107",
-    "https://propiedades.com/inmuebles/departamento-en-venta-valle-de-chihuahua-sn-valle-alto-sinaloa-28960156"
+    "https://propiedades.com/inmuebles/casa-en-venta-mision-urbi-villa-del-sol-sinaloa-30053177",
+    "https://propiedades.com/inmuebles/departamento-en-venta-psicologos-557-chapultepec-sinaloa-29945316",
+    "https://propiedades.com/inmuebles/casa-en-venta-avenida-vinoramas-4686-infonavit-barrancos-iv-sinaloa-30123612",
+    "https://propiedades.com/inmuebles/casa-en-venta-avenida-san-antonio-providencia-sinaloa-27809272",
+    "https://propiedades.com/inmuebles/casa-en-venta-6-de-enero-sinaloa-30284093",
+    "https://propiedades.com/inmuebles/casa-en-venta-urbivilla-del-cedro-80058-culiacan-rosales-sin-sn-villa-del-cedro-sinaloa-30367066",
+    "https://propiedades.com/inmuebles/casa-en-venta-av-de-los-tules-2161-bonaterra-sinaloa-29696553",
+    "https://propiedades.com/inmuebles/casa-en-venta-primera--issstesin-sinaloa-26881569",
+    "https://propiedades.com/inmuebles/casa-en-venta-calle-mariano-paredes--568-francisco-i-madero-sinaloa-28865012",
+    "https://propiedades.com/inmuebles/casa-en-venta-av-noche-buena-terranova-80143-culiacan-rosales-sin-terranova-sinaloa-30383674",
+    "https://propiedades.com/inmuebles/casa-en-venta-el-mirador-sinaloa-30284085",
+    "https://propiedades.com/inmuebles/casa-en-venta-cerro-algodones-buenos-aires-sinaloa-28864962",
+    "https://propiedades.com/inmuebles/casa-en-venta-olmecas-sn-valle-bonito-sinaloa-29931876",
+    "https://propiedades.com/inmuebles/casa-en-venta-jardin-de-las-orquideas-3115-laureles-sinaloa-28865008",
+    "https://propiedades.com/inmuebles/casa-en-venta-manantial-de-sanalona-7970-real-san-angel-sinaloa-30154051",
+    "https://propiedades.com/inmuebles/casa-en-venta-el-vallado-sinaloa-30283990"
 ];
 
 // Propiedades existentes en nuestro sistema (extraídas de culiacan/index.html)

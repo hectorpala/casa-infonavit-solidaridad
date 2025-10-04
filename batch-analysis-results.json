@@ -1,175 +1,115 @@
 {
   "results": [
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-general-rosendo-rodriguez-4660-infonavit-barrancos-sinaloa-30263120",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1039000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.39 mil MN",
-        "title": "Se vende casa General Rosendo Rodríguez #4660, Colonia INFONAV..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-c-francisco-villa-las-vegas-culiacan-rosales-sin-1190-las-vegas-sinaloa-30338371",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1337000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 13.37 mil MN",
-        "title": "Departamento en venta disponible en C. Francisco Villa, Las Ve..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-avenida-aztlan-2264-industrial-el-palmito-sinaloa-30290582",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-mision-urbi-villa-del-sol-sinaloa-30053177",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": false,
-      "priceNumber": 681000,
+      "priceNumber": 566000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.81 mil MN",
-        "title": "Venta de casa en AVENIDA AZTLAN #2264Int. SN, Colonia Industri..."
+        "price": "$ 5.66 mil MN",
+        "title": "Se vende casa Mision, Colonia Urbi Villa del Sol, C.P. 80194"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-prolongacion-alvaro-obregon-tierra-blanca-sinaloa-28283577",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 2951000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 29.51 mil MN",
-        "title": "Venta de departamento Prolongación Álvaro Obregón , Colonia Ti..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-calzada-del-ecuador-santa-fe-sinaloa-29384688",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 992000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 9.92 mil MN",
-        "title": "Se vende casa en Calzada del Ecuador, Colonia Santa Fe"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-guadalupe-victoria-sn-jorge-almada-sinaloa-30115051",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 678000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.78 mil MN",
-        "title": "Se vende departamento guadalupe victoria #s/n, Colonia Jorge A..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-islas-nicobar-sn-prados-del-sur-sinaloa-29082517",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 819999.9999999999,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 8.20 mil MN",
-        "title": "Venta de casa Islas Nicobar #s/n, Colonia Prados Del Sur"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-fuerte-san-fernando-2646-floresta-sinaloa-30261580",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 956000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 9.56 mil MN",
-        "title": "Se vende casa en Fuerte San Fernando #2646, Colonia Floresta"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-del-roble-urbivilla-del-cedro-80058-culiacan-rosales-sin-sn-stanza-castilla-sinaloa-30309397",
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-psicologos-557-chapultepec-sinaloa-29945316",
       "isCuliacan": true,
       "alreadyExists": true,
-      "inPriceRange": true,
-      "priceNumber": 1892000.0000000002,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 18.92 mil MN",
-        "title": "Venta de casa en Blvd. Paseo del Roble, Urbivilla del Cedro, 8..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-barranca-del-cobre-184-renato-vega-alvarado-sinaloa-28846358",
-      "isCuliacan": true,
-      "alreadyExists": false,
       "inPriceRange": false,
-      "priceNumber": 813000.0000000001,
+      "priceNumber": 3200000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 8.13 mil MN",
-        "title": "Casa en venta, Barranca del Cobre #184, Colonia Renato Vega A..."
+        "price": "$ 32.00 mil MN",
+        "title": "Se vende departamento en Psicólogos #557, Colonia Chapultepec"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-islas-frisias-sn-prados-del-sur-sinaloa-29464506",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-avenida-vinoramas-4686-infonavit-barrancos-iv-sinaloa-30123612",
       "isCuliacan": true,
-      "alreadyExists": false,
+      "alreadyExists": true,
       "inPriceRange": false,
-      "priceNumber": 819999.9999999999,
+      "priceNumber": 690000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 8.20 mil MN",
-        "title": "Venta de casa en islas frisias #s/n, Colonia Prados Del Sur"
+        "price": "$ 6.90 mil MN",
+        "title": "Se vende casa Avenida Vinoramas #4686Int. 82, Colonia INFONAVI..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-rinconada-del-principado-3697-rincon-real-sinaloa-30007332",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 901000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 9.01 mil MN",
-        "title": "Se vende casa en Rinconada del Principado #3697, Colonia Rincó..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-san-luis-residencial-sinaloa-30388097",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 729000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 7.29 mil MN",
-        "title": "Venta de casa , Colonia San Luis Residencial, C.P. 80140"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-virgo-los-alamitos-sinaloa-30075512",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-avenida-san-antonio-providencia-sinaloa-27809272",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1220000,
+      "priceNumber": 1033000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,220,000 MXN",
-        "title": "Venta departamento en virgo, Colonia Los Alamitos, C.P. 80018"
+        "price": "$ 10.33 mil MN",
+        "title": "Casa disponible en venta en Avenida San Antonio, Colonia Provi..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-terranova-sinaloa-30360969",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-6-de-enero-sinaloa-30284093",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 594000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 5.94 mil MN",
+        "title": "Venta casa en , Colonia 6 de Enero, C.P. 80010"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-urbivilla-del-cedro-80058-culiacan-rosales-sin-sn-villa-del-cedro-sinaloa-30367066",
+      "isCuliacan": true,
+      "alreadyExists": true,
+      "inPriceRange": false,
+      "priceNumber": 890000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 8.90 mil MN",
+        "title": "Casa en venta, Urbivilla del Cedro, 80058 Culiacán Rosales, Si..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-av-de-los-tules-2161-bonaterra-sinaloa-29696553",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": true,
+      "priceNumber": 1426000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 14.26 mil MN",
+        "title": "Casa disponible en venta en AV DE LOS TULES #2161, Colonia Bon..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-primera--issstesin-sinaloa-26881569",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 775000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 7.75 mil MN",
+        "title": "Venta casa en Primera , Colonia ISSSTESIN, C.P. 80026"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-mariano-paredes--568-francisco-i-madero-sinaloa-28865012",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 552000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 5.52 mil MN",
+        "title": "Se vende casa en CALLE mariano paredes #568, Colonia Francisc..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-av-noche-buena-terranova-80143-culiacan-rosales-sin-terranova-sinaloa-30383674",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
@@ -177,23 +117,11 @@
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
         "price": "$ 10.44 mil MN",
-        "title": "Venta de casa , Colonia Terranova, C.P. 80143"
+        "title": "Venta de casa Av Noche Buena, Terranova, 80143 Culiacán Rosale..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-vinorama-villa-del-roble-sinaloa-30315243",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1650000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,650,000 MXN",
-        "title": "Venta departamento en vinorama, Colonia Villa del Roble"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-guadalupe-rojo-viuda-de-alvarado-el-mirador-culiacan-rosales-sin-el-mirador-sinaloa-30230098",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-el-mirador-sinaloa-30284085",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": false,
@@ -201,85 +129,97 @@
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
         "price": "$ 2.68 mil MN",
-        "title": "Se vende casa Guadalupe Rojo Viuda de Alvarado, El Mirador, Cu..."
+        "title": "Se vende casa en , Colonia El Mirador, C.P. 80017"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-culiacan-culiacan-sinaloa-30371612",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-cerro-algodones-buenos-aires-sinaloa-28864962",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 608000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 6.08 mil MN",
+        "title": "Se vende casa CERRO ALGODONES, Colonia Buenos Aires, C.P. 80199"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-olmecas-sn-valle-bonito-sinaloa-29931876",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1504000,
+      "priceNumber": 1745000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 15.04 mil MN",
-        "title": "Venta casa en , Colonia Culiacán (Culiacán), C.P. 80139"
+        "price": "$ 17.45 mil MN",
+        "title": "Venta de casa Olmecas #s/n, Colonia Valle Bonito, C.P. 80140"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-camino-a-la-guasima-heraclio-bernal-sinaloa-30263107",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-jardin-de-las-orquideas-3115-laureles-sinaloa-28865008",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": false,
-      "priceNumber": 713000,
+      "priceNumber": 2473000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 7.13 mil MN",
-        "title": "Se vende casa en Camino a la Guasima, Colonia Heraclio Bernal"
+        "price": "$ 24.73 mil MN",
+        "title": "Venta de casa en JARDIN DE LAS ORQUIDEAS #3115, Colonia Laureles"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-valle-de-chihuahua-sn-valle-alto-sinaloa-28960156",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-manantial-de-sanalona-7970-real-san-angel-sinaloa-30154051",
       "isCuliacan": true,
-      "alreadyExists": true,
-      "inPriceRange": false,
-      "priceNumber": 2350000,
+      "alreadyExists": false,
+      "inPriceRange": true,
+      "priceNumber": 1186000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 23.50 mil MN",
-        "title": "Venta de departamento Valle de Chihuahua #s/nInt. 0, Colonia V..."
+        "price": "$ 11.86 mil MN",
+        "title": "Se vende casa Manantial De Sanalona #7970, Colonia Real San Ángel"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-el-vallado-sinaloa-30283990",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 690000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 6.90 mil MN",
+        "title": "Casa en venta disponible en , Colonia El Vallado, C.P. 80110"
       }
     }
   ],
   "newCuliacanProperties": [
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-general-rosendo-rodriguez-4660-infonavit-barrancos-sinaloa-30263120",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-avenida-san-antonio-providencia-sinaloa-27809272",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1039000,
+      "priceNumber": 1033000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.39 mil MN",
-        "title": "Se vende casa General Rosendo Rodríguez #4660, Colonia INFONAV..."
+        "price": "$ 10.33 mil MN",
+        "title": "Casa disponible en venta en Avenida San Antonio, Colonia Provi..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-c-francisco-villa-las-vegas-culiacan-rosales-sin-1190-las-vegas-sinaloa-30338371",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-av-de-los-tules-2161-bonaterra-sinaloa-29696553",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1337000,
+      "priceNumber": 1426000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 13.37 mil MN",
-        "title": "Departamento en venta disponible en C. Francisco Villa, Las Ve..."
+        "price": "$ 14.26 mil MN",
+        "title": "Casa disponible en venta en AV DE LOS TULES #2161, Colonia Bon..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-virgo-los-alamitos-sinaloa-30075512",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1220000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,220,000 MXN",
-        "title": "Venta departamento en virgo, Colonia Los Alamitos, C.P. 80018"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-terranova-sinaloa-30360969",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-av-noche-buena-terranova-80143-culiacan-rosales-sin-terranova-sinaloa-30383674",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
@@ -287,31 +227,31 @@
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
         "price": "$ 10.44 mil MN",
-        "title": "Venta de casa , Colonia Terranova, C.P. 80143"
+        "title": "Venta de casa Av Noche Buena, Terranova, 80143 Culiacán Rosale..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-vinorama-villa-del-roble-sinaloa-30315243",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-olmecas-sn-valle-bonito-sinaloa-29931876",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1650000,
+      "priceNumber": 1745000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,650,000 MXN",
-        "title": "Venta departamento en vinorama, Colonia Villa del Roble"
+        "price": "$ 17.45 mil MN",
+        "title": "Venta de casa Olmecas #s/n, Colonia Valle Bonito, C.P. 80140"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-culiacan-culiacan-sinaloa-30371612",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-manantial-de-sanalona-7970-real-san-angel-sinaloa-30154051",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1504000,
+      "priceNumber": 1186000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 15.04 mil MN",
-        "title": "Venta casa en , Colonia Culiacán (Culiacán), C.P. 80139"
+        "price": "$ 11.86 mil MN",
+        "title": "Se vende casa Manantial De Sanalona #7970, Colonia Real San Ángel"
       }
     }
   ]
