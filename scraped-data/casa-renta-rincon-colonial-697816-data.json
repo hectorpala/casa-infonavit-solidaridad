@@ -1,0 +1,27 @@
+{
+  "title": "Casa en Renta Rincón Colonial",
+  "price": "$12,700",
+  "priceNumber": 12700,
+  "location": "Rincón Colonial, Culiacán",
+  "bedrooms": 2,
+  "bathrooms": 2,
+  "area": 118,
+  "construction_area": 118,
+  "land_area": 185,
+  "description": "Excelente propiedad en renta cerca de U de O, U de Durango, Colegio Sinaloa, salida norte y corredor automotriz. Muy bonita y funcional casa en privada con acceso controlado.",
+  "tipo": "RENTA",
+  "slug": "casa-renta-rincon-colonial-697816",
+  "photoCount": 3,
+  "photos": [
+    "foto-1.jpg",
+    "foto-2.jpg",
+    "foto-3.jpg"
+  ],
+  "amenities": [
+    "Cochera techada para 2 autos",
+    "Cuarto TV",
+    "Una planta"
+  ],
+  "sitio": "propiedades.com",
+  "url": "https://casasenventa.info/casa-renta-rincon-colonial-697816.html"
+}
