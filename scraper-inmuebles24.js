@@ -20,6 +20,25 @@ async function scrapeInmuebles24(url) {
     try {
         const page = await browser.newPage();
 
+        // 🚀 INTERCEPCIÓN DE RED: Capturar TODAS las URLs de imágenes
+        const interceptedImages = new Set();
+
+        await page.setRequestInterception(true);
+        page.on('request', (request) => {
+            request.continue();
+        });
+
+        page.on('response', async (response) => {
+            const url = response.url();
+            const contentType = response.headers()['content-type'] || '';
+
+            // Capturar TODAS las imágenes de cloudfront/inmuebles24
+            if ((url.includes('cloudfront.net') || url.includes('inmuebles24')) &&
+                (contentType.includes('image') || url.match(/\.(jpg|jpeg|png|webp)$/i))) {
+                interceptedImages.add(url);
+            }
+        });
+
         // Set user agent to avoid blocking
         await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
 
@@ -161,6 +180,24 @@ async function scrapeInmuebles24(url) {
             return result;
         });
 
+        // 🚀 COMBINAR: Fotos interceptadas + DOM
+        console.log(`\n   🚀 Fotos interceptadas de red: ${interceptedImages.size}`);
+        console.log(`   📊 Fotos en DOM: ${data.photos.length}`);
+
+        // Limpiar y combinar todas las fuentes
+        const allPhotos = new Set([
+            ...Array.from(interceptedImages),
+            ...data.photos
+        ]);
+
+        // Filtrar y mejorar calidad
+        const cleanedPhotos = Array.from(allPhotos)
+            .filter(url => url.includes('http'))
+            .filter(url => !url.includes('logo') && !url.includes('icon'))
+            .map(url => url.replace(/\/\d+x\d+\//, '/1200x800/'));
+
+        data.photos = Array.from(new Set(cleanedPhotos));
+
         console.log('\n✅ Datos scrapeados:');
         console.log(`   📝 Título: ${data.title}`);
         console.log(`   💰 Precio: ${data.price}`);
@@ -168,7 +205,7 @@ async function scrapeInmuebles24(url) {
         console.log(`   🛏️  Recámaras: ${data.bedrooms}`);
         console.log(`   🛁 Baños: ${data.bathrooms}`);
         console.log(`   📐 Área: ${data.area} m²`);
-        console.log(`   📸 Fotos encontradas: ${data.photos.length}`);
+        console.log(`   📸 TOTAL fotos únicas: ${data.photos.length}`);
 
         // ALWAYS try to get more photos by clicking gallery
         console.log('\n   🔄 Intentando obtener MÁS fotos del carrusel...');
