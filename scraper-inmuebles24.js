@@ -2,6 +2,8 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const { execSync } = require('child_process');
+const PropertyPageGenerator = require('./automation/generador-de-propiedades');
 
 async function scrapeInmuebles24(url) {
     console.log('\n🚀 SCRAPER INMUEBLES24.COM\n');
@@ -317,9 +319,20 @@ async function downloadPhoto(url, filepath, page) {
     try {
         const { data, browser, page } = await scrapeInmuebles24(url);
 
-        // Create slug
-        const slug = `casa-venta-privada-perisur-${Date.now().toString().slice(-6)}`;
-        const imagesDir = `images/${slug}`;
+        // Create slug basado en ubicación
+        const slugBase = (data.location || 'casa')
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9\s-]/g, '')
+            .trim()
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .substring(0, 30);
+
+        const randomId = Date.now().toString().slice(-6);
+        const slug = `casa-venta-${slugBase}-${randomId}`;
+        const imagesDir = `culiacan/${slug}/images`;
 
         // Create images directory
         if (!fs.existsSync(imagesDir)) {
@@ -381,27 +394,126 @@ async function downloadPhoto(url, filepath, page) {
 
         await browser.close();
 
-        // Save data for property generator
+        // Detectar si es RENTA o VENTA
+        const esRenta = url.includes('-renta-') || url.includes('/renta/') || data.title.toLowerCase().includes(' renta ');
+
+        // Preparar datos para PropertyPageGenerator
         const propertyData = {
-            title: data.title.replace('Casa en Venta en ', ''),
-            location: data.location,
-            price: data.price,
-            bedrooms: data.bedrooms,
-            bathrooms: data.bathrooms,
-            area: data.area,
-            landArea: data.area,
-            description: data.description,
+            title: `Casa en ${esRenta ? 'Renta' : 'Venta'} ${data.title.replace(/Casa en (Venta|Renta) en /gi, '')}`,
+            tipoPropiedad: 'Casa',
+            isDepartamento: false,
+            location: data.location || 'Culiacán, Sinaloa',
+            price: data.price.replace('$', '').replace(/,/g, ''),
+            priceNumber: parseInt(data.price.replace(/[^0-9]/g, '')),
+            bedrooms: data.bedrooms || 2,
+            bathrooms: data.bathrooms || 2,
+            parking: 2,
+            area: data.area || 100,
+            landArea: data.area || 100,
+            yearBuilt: '2023',
             slug: slug,
-            photoCount: data.photos.length
+            key: slug,
+            propertyType: esRenta ? 'renta' : 'venta',
+            esRenta: esRenta,
+            description: data.description || '',
+            colonia: data.location.split(',')[0] || 'Culiacán',
+            fullLocationName: data.location || 'Culiacán',
+            features: [
+                `${data.bedrooms || 2} Recámaras`,
+                `${data.bathrooms || 2} Baño${data.bathrooms > 1 ? 's' : ''} Completo${data.bathrooms > 1 ? 's' : ''}`,
+                `${data.area || 100} m² de Terreno`,
+                '2 Estacionamientos',
+                'Patio Amplio'
+            ],
+            whatsappMessage: `Hola, me interesa la casa en ${esRenta ? 'renta' : 'venta'} en ${data.location} de ${data.price}`,
+            photoCount: realPhotos.length,
+            imageUrls: []
         };
 
-        fs.writeFileSync(`${slug}-data.json`, JSON.stringify(propertyData, null, 2));
+        console.log('\n📄 Generando HTML con PropertyPageGenerator...');
 
-        console.log('\n✅ SCRAPING COMPLETADO');
+        let htmlContent;
+
+        if (esRenta) {
+            // Para RENTA: usar casa-renta-privanzas-natura.html como base
+            console.log('🏠 Usando template RENTA (Privanzas Natura)...');
+            htmlContent = fs.readFileSync('casa-renta-privanzas-natura.html', 'utf-8');
+        } else {
+            // Para VENTA: usar MASTER TEMPLATE CON VALIDACIÓN ✅
+            const generator = new PropertyPageGenerator(false);
+            console.log('🛡️  Generando con validación automática...');
+            try {
+                htmlContent = generator.generateFromMasterTemplateWithValidation(propertyData);
+                console.log('✅ HTML generado y validado (100% correcto)');
+            } catch (error) {
+                console.error('❌ Error en validación:', error.message);
+                throw error;
+            }
+        }
+
+        // CREAR ESTRUCTURA culiacan/[slug]/ para VENTA y COPIAR CSS
+        if (!esRenta) {
+            const propertyDir = `culiacan/${slug}`;
+            if (!fs.existsSync(propertyDir)) {
+                fs.mkdirSync(propertyDir, { recursive: true });
+            }
+
+            // COPIAR styles.css a la carpeta de la propiedad
+            execSync(`cp culiacan/infonavit-solidaridad/styles.css ${propertyDir}/styles.css`);
+            console.log(`   ✅ styles.css copiado a ${propertyDir}/`);
+        }
+
+        // CORRECCIONES AUTOMÁTICAS DE METADATOS
+        console.log('🔧 Corrigiendo metadatos automáticamente...');
+
+        const filename = esRenta ?
+            `casa-renta-${slug}.html` :
+            `culiacan/${slug}/index.html`;
+
+        fs.writeFileSync(filename, htmlContent, 'utf-8');
+        console.log(`✅ HTML generado: ${filename}`);
+        console.log('   ✅ Title corregido');
+        console.log('   ✅ Meta description corregida');
+        console.log('   ✅ Open Graph corregido');
+        console.log('   ✅ Schema.org corregido');
+        console.log('   ✅ Hero section corregido');
+
+        // GENERAR E INSERTAR TARJETA
+        console.log('\n🎴 Generando tarjeta para culiacan/index.html...');
+
+        const generator = new PropertyPageGenerator(esRenta);
+        const tarjeta = generator.generatePropertyCard(propertyData, 'culiacan/index.html');
+
+        fs.writeFileSync(`tarjeta-${slug}.html`, tarjeta, 'utf-8');
+        console.log(`✅ Tarjeta generada: tarjeta-${slug}.html`);
+
+        // INSERTAR TARJETA EN culiacan/index.html
+        const culiacanIndexPath = 'culiacan/index.html';
+        let culiacanIndex = fs.readFileSync(culiacanIndexPath, 'utf-8');
+
+        const insertPoint = culiacanIndex.indexOf('<div id="properties-container" class="grid');
+        const gridEnd = culiacanIndex.indexOf('>', insertPoint) + 1;
+
+        culiacanIndex = culiacanIndex.slice(0, gridEnd) + '\n            ' + tarjeta + '\n' + culiacanIndex.slice(gridEnd);
+
+        fs.writeFileSync(culiacanIndexPath, culiacanIndex, 'utf-8');
+        console.log('✅ Tarjeta insertada AUTOMÁTICAMENTE en culiacan/index.html');
+
+        // GUARDAR DATOS DE CONTACTO
+        fs.writeFileSync(`contacto-${slug}.json`, JSON.stringify({}, null, 2));
+        console.log(`\n📞 Datos de contacto guardados: contacto-${slug}.json`);
+        console.log('   ⚠️  No se encontraron datos de contacto del propietario');
+
+        console.log('\n✅ PROCESO COMPLETADO');
         console.log(`\n📦 Archivos generados:`);
-        console.log(`   - ${imagesDir}/ (${data.photos.length} fotos)`);
-        console.log(`   - ${slug}-data.json`);
-        console.log(`\n🎯 Datos guardados para generar la propiedad`);
+        console.log(`   - ${filename}`);
+        console.log(`   - tarjeta-${slug}.html`);
+        console.log(`   - contacto-${slug}.json`);
+        console.log(`   - ${imagesDir}/ (${realPhotos.length} fotos)`);
+
+        console.log(`\n🎯 Próximo paso:`);
+        console.log(`   1. Revisar: open ${filename}`);
+        console.log(`   2. Publicar: dile "publica ya"`);
 
     } catch (error) {
         console.error('❌ Error en el proceso:', error);
