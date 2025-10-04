@@ -1,0 +1,133 @@
+🔍 Analizando propiedades del listado...
+
+[1/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-san-pedro-de-san-jose-7788-san-luis-residencial-ii-sinaloa-28729193
+[2/27] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-desarrollo-urbano-3-rios-sinaloa-30283916
+[3/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-samoa-perisur-sinaloa-28840298
+[4/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-san-juan-bautista-4204-camino-real-sinaloa-30190659
+[5/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-villa-del-cedro-sinaloa-30371864
+[6/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-belisario-dominguez-sn-chulavista-sinaloa-30167651
+[7/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-camino-real-sinaloa-30179634
+[8/27] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-sin-ubicacion--valle-alto-sinaloa-28704583
+[9/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-terrones-766-buenos-aires-sinaloa-27644510
+[10/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-espadin-459-los-mezcales-sinaloa-29728953
+[11/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-calle-salvador-elizondo-5839-finisterra-sinaloa-29780618
+[12/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-aurora-6-de-enero-sinaloa-28732962
+[13/27] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-torres-portalegre-portalegre-sinaloa-27993167
+[14/27] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-magnolia-bosques-del-rey-sinaloa-27593164
+[15/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-calle-camalotes-4765-centro-sinaloa-28763716
+[16/27] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-virgo-los-alamitos-sinaloa-29997537
+[17/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-calle-monza-stanza-toscana-sinaloa-28498839
+[18/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-bosques-del-rio-sinaloa-30179613
+[19/27] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-jose-limon-1015-tres-rios-sinaloa-27550379
+[20/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-21-de-marzo-sinaloa-30284213
+[21/27] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-amado-nervo-1970-tierra-blanca-sinaloa-28298609
+[22/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-abeto-centro-sinaloa-28565859
+[23/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-manantial-san-agustin-sinaloa-25589090
+[24/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-valle-victoria-2444-valle-alto-sinaloa-28829316
+[25/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-81133-las-moras-sin-las-moras-sinaloa-30353053
+[26/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-calle-valle-sereno-norte-sn-la-rioja-sinaloa-29222458
+[27/27] Analizando: https://propiedades.com/inmuebles/casa-en-venta-av-siete-valles-4688-valle-alto-80050-culiacan-rosales-sin-4688-valle-alto-sinaloa-30358237
+
+================================================================================
+📊 RESULTADOS DEL ANÁLISIS
+================================================================================
+Total propiedades analizadas: 27
+✅ De Culiacán: 27
+❌ Fuera de Culiacán: 0
+🔁 Ya existen en sistema: 8
+💰 En rango $1M-$2M: 11
+⚠️  Fuera de rango precio: 12
+⭐ NUEVAS de Culiacán (en rango): 7
+⚠️  Errores: 0
+================================================================================
+
+⚠️  PROPIEDADES FUERA DE RANGO ($1M-$2M) - IGNORADAS:
+
+1. Venta de casa en San Pedro de San José #7788, Colonia San Luis...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 7.70 mil MN (0.77M)
+
+2. Casa en venta, Samoa, Colonia Perisur, C.P. 80197
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 23.18 mil MN (2.32M)
+
+3. Casa en venta disponible en San Juan Bautista #4204, Colonia C...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 21.57 mil MN (2.16M)
+
+4. Venta de casa Belisario Dominguez #s/n, Colonia Chulavista
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 3.35 mil MN (0.34M)
+
+5. Se vende casa , Colonia Camino Real, C.P. 80247
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 21.57 mil MN (2.16M)
+
+6. Venta casa en TERRONES #766, Colonia Buenos Aires, C.P. 80199
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 6.08 mil MN (0.61M)
+
+7. Se vende casa en Espadin #459, Colonia Los Mezcales, C.P. 80019
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 9.28 mil MN (0.93M)
+
+8. Casa en venta disponible en Calle Salvador Elizondo #5839, Co...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 9.59 mil MN (0.96M)
+
+9. Casa en venta, Aurora, Colonia 6 de Enero, C.P. 80010
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 5.94 mil MN (0.59M)
+
+10. Se vende departamento MAGNOLIA, Colonia Bosques del Rey
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 20.28 mil MN (2.03M)
+
+11. Casa en venta, , Colonia 21 de Marzo, C.P. 80280
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 6.26 mil MN (0.63M)
+
+12. Se vende departamento Amado Nervo #1970Int. 403, Colonia Tierr...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 29.51 mil MN (2.95M)
+
+🎯 PROPIEDADES NUEVAS DE CULIACÁN PARA SCRAPING ($1M-$2M):
+
+1. Venta casa en Calle camalotes #4765, Colonia Centro, C.P. 80000
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 10.96 mil MN (1.10M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-calle-camalotes-4765-centro-sinaloa-28763716
+
+2. Venta de departamento Virgo, Colonia Los Alamitos, C.P. 80018
+   📍 Municipio Culiacán, Sinaloa
+   💰 $1,220,000 MXN (1.22M)
+   🔗 https://propiedades.com/inmuebles/departamento-en-venta-virgo-los-alamitos-sinaloa-29997537
+
+3. Venta casa en , Colonia Bosques Del Rio, C.P. 80050
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 11.18 mil MN (1.12M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-bosques-del-rio-sinaloa-30179613
+
+4. Venta de casa en ABETO, Colonia Centro, C.P. 80000
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 10.96 mil MN (1.10M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-abeto-centro-sinaloa-28565859
+
+5. Venta de casa Manantial, Colonia San Agustin, C.P. 80184
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 13.83 mil MN (1.38M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-manantial-san-agustin-sinaloa-25589090
+
+6. Casa en venta, 81133 Las Moras, Sin., Colonia Las Moras
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 11.23 mil MN (1.12M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-81133-las-moras-sin-las-moras-sinaloa-30353053
+
+7. Casa en venta disponible en Calle Valle Sereno Norte #s/n, Col...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 15.53 mil MN (1.55M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-calle-valle-sereno-norte-sn-la-rioja-sinaloa-29222458
+
+💾 Resultados guardados en: batch-analysis-results.json
+
+✅ Análisis completado. 7 propiedades listas para scraping.
