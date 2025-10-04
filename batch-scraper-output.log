@@ -1,0 +1,569 @@
+
+🚀 BATCH SCRAPER - 15 PROPIEDADES
+
+
+[1/15] 🔍 Procesando: casa-en-venta-alejandria-vinoramas-sinaloa-2871860...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-alejandria-vinoramas-sinaloa-28718607
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 28718607
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Venta de casa en Alejandría, Colonia Vinoramas, C.P. 80184',
+  price: '$2,990,000 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Venta de casa en Alejandría, Colonia Vinoramas, C.P. 80184")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Vinoramas",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Vinoramas, Culiacán, Sinaloa",
+  "price": "$2,990,000",
+  "priceNumber": 2990000,
+  "bedrooms": 3,
+  "bathrooms": 3,
+  "parking": 2,
+  "area": 162,
+  "landArea": 162,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-vinoramas-210515",
+  "key": "casa-venta-vinoramas-210515",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Casa en privada de acceso controlado. de 3 recámaras con baño completo, la recámara principal con vestidor. \nárea de lavado techada, cochera para 2 autos.\nprivada con área común con alberca, sala de u...",
+  "colonia": "Vinoramas",
+  "fullLocationName": "Vinoramas",
+  "features": [
+    "3 Recámaras",
+    "3 Baños Completos",
+    "162 m² de Construcción",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Vinoramas de $2,990,000",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/alejandria-vinoramas-culiacan-sinaloa-28718607-foto-03a3143b-2934-4e69-b8e1-7219d1b3836e.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-Vinoramas-Alejandr%C3%ADa-Culiac%C3%A1n-0-28718607.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/alejandria-vinoramas-culiacan-sinaloa-28718607-foto-4d9f051d-a621-4537-b38c-d1fb2759a148.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-Vinoramas-Alejandr%C3%ADa-Culiac%C3%A1n-1-28718607.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/alejandria-vinoramas-culiacan-sinaloa-28718607-foto-6beaa405-bad5-4e5e-b27d-1f67a34c58f4.jpg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-vinoramas-210515/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $2,990,000
+   🛏️  3 recámaras
+   🛁 3 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $2,990,000 aparece 8 veces
+⚠️  4. Features: 3 recámaras (advertencia), 3 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  RECÁMARAS: Verificar 3 recámaras en HTML
+⚠️  BAÑOS: Verificar 3 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-vinoramas-210515/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-vinoramas-210515.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-vinoramas-210515.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-vinoramas-210515/index.html
+   - tarjeta-casa-venta-vinoramas-210515.html
+   - contacto-casa-venta-vinoramas-210515.json
+   - images/casa-venta-vinoramas-210515/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-vinoramas-210515/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[2/15] 🔍 Procesando: casa-en-venta-rivallagigedo-la-campina-sinaloa-301...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-rivallagigedo-la-campina-sinaloa-30181774
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 30181774
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Casa en venta disponible en Rivallagigedo, Colonia La Campiña, C.P. 80060',
+  price: '$10,000,000 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Casa en venta disponible en Rivallagigedo, Colonia La Campiña, C.P. 80060")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta La Campiña",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "La Campiña, Culiacán, Sinaloa",
+  "price": "$10,000,000",
+  "priceNumber": 10000000,
+  "bedrooms": 2,
+  "bathrooms": 5,
+  "parking": 4,
+  "area": 533,
+  "landArea": 287,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-la-campia-277311",
+  "key": "casa-venta-la-campia-277311",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Impresionante residencia de lujo con amplios espacios, ideal para quienes buscan confort y exclusividad.\n\ntu nuevo hogar te espera en esta magnífica propiedad que redefine el concepto de vivir bien. i...",
+  "colonia": "La Campiña",
+  "fullLocationName": "La Campiña",
+  "features": [
+    "2 Recámaras",
+    "5 Baños Completos",
+    "533 m² de Construcción",
+    "287 m² de Terreno",
+    "4 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en La Campiña de $10,000,000",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/rivallagigedo-la-campina-culiacan-sinaloa-30181774-foto-a90ea715-ef91-4f87-addd-93579c935807.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-La-Campi%C3%B1a-Rivallagigedo-Culiac%C3%A1n-0-30181774.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/rivallagigedo-la-campina-culiacan-sinaloa-30181774-foto-0e1947ba-c3c9-4e55-ad57-dd83561ab372.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-La-Campi%C3%B1a-Rivallagigedo-Culiac%C3%A1n-1-30181774.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/rivallagigedo-la-campina-culiacan-sinaloa-30181774-foto-ade28363-cc73-4180-8cf5-2cc313f311e0.jpg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-la-campia-277311/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $10,000,000
+   🛏️  2 recámaras
+   🛁 5 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $10,000,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 5 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 5 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-la-campia-277311/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-la-campia-277311.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-la-campia-277311.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-la-campia-277311/index.html
+   - tarjeta-casa-venta-la-campia-277311.html
+   - contacto-casa-venta-la-campia-277311.json
+   - images/casa-venta-la-campia-277311/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-la-campia-277311/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[3/15] 🔍 Procesando: casa-en-venta-circuito-san-francisco-12-la-primave...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-circuito-san-francisco-12-la-primavera-sinaloa-30181775
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 30181775
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Casa en venta disponible en Circuito San Francisco #12, Colonia La Primavera, C.P. 80199',
+  price: '$8,300,000 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Casa en venta disponible en Circuito San Francisco #12, Colonia La Primavera, C.P. 80199")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta La Primavera",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "La Primavera, Culiacán, Sinaloa",
+  "price": "$8,300,000",
+  "priceNumber": 8300000,
+  "bedrooms": 2,
+  "bathrooms": 4,
+  "parking": 3,
+  "area": 293,
+  "landArea": 210,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-la-primavera-343670",
+  "key": "casa-venta-la-primavera-343670",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Espaciosa y lujosa casa con amplios espacios interiores y exteriores, ideal para familias y para disfrutar del buen vivir.\n\ntu nuevo hogar te espera en esta impresionante residencia que combina funcio...",
+  "colonia": "La Primavera",
+  "fullLocationName": "La Primavera",
+  "features": [
+    "2 Recámaras",
+    "4 Baños Completos",
+    "293 m² de Construcción",
+    "210 m² de Terreno",
+    "3 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en La Primavera de $8,300,000",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/circuito-san-francisco-12-la-primavera-culiacan-sinaloa-30181775-foto-2a820f07-5bbd-40dc-b3c8-a085cbab8255.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-La-Primavera-Circuito-San-Francisco-Culiac%C3%A1n-12-0-30181775.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/circuito-san-francisco-12-la-primavera-culiacan-sinaloa-30181775-foto-82422bf1-cf02-4ff4-a129-b923c6878b43.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-La-Primavera-Circuito-San-Francisco-Culiac%C3%A1n-12-1-30181775.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/circuito-san-francisco-12-la-primavera-culiacan-sinaloa-30181775-foto-3133c694-fd68-429e-a9b1-bf6590d19f33.jpg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-la-primavera-343670/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $8,300,000
+   🛏️  2 recámaras
+   🛁 4 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $8,300,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 4 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 4 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-la-primavera-343670/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-la-primavera-343670.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-la-primavera-343670.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-la-primavera-343670/index.html
+   - tarjeta-casa-venta-la-primavera-343670.html
+   - contacto-casa-venta-la-primavera-343670.json
+   - images/casa-venta-la-primavera-343670/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-la-primavera-343670/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[4/15] 🔍 Procesando: casa-en-venta-san-agustin-331-la-primavera-sinaloa...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-san-agustin-331-la-primavera-sinaloa-30206048
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   🔍 Total fotos encontradas: 11
+   ⚠️  Solo 11 fotos encontradas, intentando generar más...
+   ✅ Usando 11 fotos del HTML source (vs 5 del DOM)
+✅ Datos scrapeados: {
+  title: 'Casa disponible en venta en San Agustín #331, Colonia La Primavera, C.P. 80199',
+  price: '$6,550,000 MXN',
+  fotos: 11,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Casa disponible en venta en San Agustín #331, Colonia La Primavera, C.P. 80199")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta La Primavera",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "La Primavera, Culiacán, Sinaloa",
+  "price": "$6,550,000",
+  "priceNumber": 6550000,
+  "bedrooms": 2,
+  "bathrooms": 3,
+  "parking": 2,
+  "area": 248,
+  "landArea": 313,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-la-primavera-412528",
+  "key": "casa-venta-la-primavera-412528",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Casa en venta en culiacan, san agustin la primavera,\n\n3 habitaciones \n3 baños y medio \n\nplanta baja \nsala comedor cocina integral y cuarto con baño completo\njardín \ncochera para dos autos \narea de ser...",
+  "colonia": "La Primavera",
+  "fullLocationName": "La Primavera",
+  "features": [
+    "2 Recámaras",
+    "3 Baños Completos",
+    "248 m² de Construcción",
+    "313 m² de Terreno",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en La Primavera de $6,550,000",
+  "photoCount": 11,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/ff680699-7555-11f0-af61-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/3ec670e0-7556-11f0-bca5-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/62565796-7556-11f0-9d88-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/9a81d725-7556-11f0-ab5d-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/9e6dc7e7-7556-11f0-9a82-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/336x200/9f4eb586-0c00-11f0-b3f4-7fad1771e9cd.jpeg",
+    "https://cdn.propiedades.com/files/336x200/san-agustin-266-empaque-la-pequena-joya-culiacan-sinaloa-28558714-foto-01.jpg",
+    "https://cdn.propiedades.com/files/336x200/san-agustin-199-la-primavera-culiacan-sinaloa-26314118-foto-01.jpg",
+    "https://cdn.propiedades.com/files/336x200/Sinaloa-La-Primavera-San-Alberto-Culiacán-0-27993163.jpeg",
+    "https://cdn.propiedades.com/files/336x200/mina-de-mazonique-antonio-toledo-corro-culiacan-sinaloa-28683566-foto-01.jpg",
+    "https://cdn.propiedades.com/files/336x200/san-agustin-la-primavera-culiacan-sinaloa-28086422-foto-01.jpg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 11 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+   ✅ foto-6.jpg
+   ✅ foto-7.jpg
+   ✅ foto-8.jpg
+   ✅ foto-9.jpg
+   ✅ foto-10.jpg
+   ✅ foto-11.jpg
+✅ 11 fotos descargadas en culiacan/casa-venta-la-primavera-412528/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 11 fotos
+   💰 $6,550,000
+   🛏️  2 recámaras
+   🛁 3 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 11 fotos referenciadas correctamente
+✅ 3. Precio: $6,550,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 3 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 11
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 3 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-la-primavera-412528/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-la-primavera-412528.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-la-primavera-412528.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-la-primavera-412528/index.html
+   - tarjeta-casa-venta-la-primavera-412528.html
+   - contacto-casa-venta-la-primavera-412528.json
+   - images/casa-venta-la-primavera-412528/ (11 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-la-primavera-412528/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[5/15] 🔍 Procesando: casa-en-venta-benevento-residencial-80014-culiacan...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-benevento-residencial-80014-culiacan-rosales-sin-sn-benevento-residencial-sinaloa-30238219
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...

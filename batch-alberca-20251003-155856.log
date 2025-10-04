@@ -1,0 +1,2013 @@
+
+🚀 BATCH SCRAPER - 15 PROPIEDADES
+
+
+[1/15] 🔍 Procesando: casa-en-venta-alejandria-vinoramas-sinaloa-2871860...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-alejandria-vinoramas-sinaloa-28718607
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 28718607
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Venta de casa en Alejandría, Colonia Vinoramas, C.P. 80184',
+  price: '$2,990,000 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Venta de casa en Alejandría, Colonia Vinoramas, C.P. 80184")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Vinoramas",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Vinoramas, Culiacán, Sinaloa",
+  "price": "$2,990,000",
+  "priceNumber": 2990000,
+  "bedrooms": 3,
+  "bathrooms": 3,
+  "parking": 2,
+  "area": 162,
+  "landArea": 162,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-vinoramas-390863",
+  "key": "casa-venta-vinoramas-390863",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Casa en privada de acceso controlado. de 3 recámaras con baño completo, la recámara principal con vestidor. \nárea de lavado techada, cochera para 2 autos.\nprivada con área común con alberca, sala de u...",
+  "colonia": "Vinoramas",
+  "fullLocationName": "Vinoramas",
+  "features": [
+    "3 Recámaras",
+    "3 Baños Completos",
+    "162 m² de Construcción",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Vinoramas de $2,990,000",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/alejandria-vinoramas-culiacan-sinaloa-28718607-foto-03a3143b-2934-4e69-b8e1-7219d1b3836e.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-Vinoramas-Alejandr%C3%ADa-Culiac%C3%A1n-0-28718607.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/alejandria-vinoramas-culiacan-sinaloa-28718607-foto-4d9f051d-a621-4537-b38c-d1fb2759a148.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-Vinoramas-Alejandr%C3%ADa-Culiac%C3%A1n-1-28718607.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/alejandria-vinoramas-culiacan-sinaloa-28718607-foto-6beaa405-bad5-4e5e-b27d-1f67a34c58f4.jpg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-vinoramas-390863/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $2,990,000
+   🛏️  3 recámaras
+   🛁 3 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $2,990,000 aparece 8 veces
+⚠️  4. Features: 3 recámaras (advertencia), 3 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  RECÁMARAS: Verificar 3 recámaras en HTML
+⚠️  BAÑOS: Verificar 3 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-vinoramas-390863/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-vinoramas-390863/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-vinoramas-390863.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-vinoramas-390863.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-vinoramas-390863/index.html
+   - tarjeta-casa-venta-vinoramas-390863.html
+   - contacto-casa-venta-vinoramas-390863.json
+   - images/casa-venta-vinoramas-390863/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-vinoramas-390863/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[2/15] 🔍 Procesando: casa-en-venta-rivallagigedo-la-campina-sinaloa-301...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-rivallagigedo-la-campina-sinaloa-30181774
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 30181774
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Casa en venta disponible en Rivallagigedo, Colonia La Campiña, C.P. 80060',
+  price: '$10,000,000 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Casa en venta disponible en Rivallagigedo, Colonia La Campiña, C.P. 80060")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta La Campiña",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "La Campiña, Culiacán, Sinaloa",
+  "price": "$10,000,000",
+  "priceNumber": 10000000,
+  "bedrooms": 2,
+  "bathrooms": 5,
+  "parking": 4,
+  "area": 533,
+  "landArea": 287,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-la-campia-456286",
+  "key": "casa-venta-la-campia-456286",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Impresionante residencia de lujo con amplios espacios, ideal para quienes buscan confort y exclusividad.\n\ntu nuevo hogar te espera en esta magnífica propiedad que redefine el concepto de vivir bien. i...",
+  "colonia": "La Campiña",
+  "fullLocationName": "La Campiña",
+  "features": [
+    "2 Recámaras",
+    "5 Baños Completos",
+    "533 m² de Construcción",
+    "287 m² de Terreno",
+    "4 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en La Campiña de $10,000,000",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/rivallagigedo-la-campina-culiacan-sinaloa-30181774-foto-a90ea715-ef91-4f87-addd-93579c935807.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-La-Campi%C3%B1a-Rivallagigedo-Culiac%C3%A1n-0-30181774.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/rivallagigedo-la-campina-culiacan-sinaloa-30181774-foto-0e1947ba-c3c9-4e55-ad57-dd83561ab372.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-La-Campi%C3%B1a-Rivallagigedo-Culiac%C3%A1n-1-30181774.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/rivallagigedo-la-campina-culiacan-sinaloa-30181774-foto-ade28363-cc73-4180-8cf5-2cc313f311e0.jpg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-la-campia-456286/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $10,000,000
+   🛏️  2 recámaras
+   🛁 5 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $10,000,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 5 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 5 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-la-campia-456286/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-la-campia-456286/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-la-campia-456286.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-la-campia-456286.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-la-campia-456286/index.html
+   - tarjeta-casa-venta-la-campia-456286.html
+   - contacto-casa-venta-la-campia-456286.json
+   - images/casa-venta-la-campia-456286/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-la-campia-456286/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[3/15] 🔍 Procesando: casa-en-venta-circuito-san-francisco-12-la-primave...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-circuito-san-francisco-12-la-primavera-sinaloa-30181775
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 30181775
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Casa en venta disponible en Circuito San Francisco #12, Colonia La Primavera, C.P. 80199',
+  price: '$8,300,000 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Casa en venta disponible en Circuito San Francisco #12, Colonia La Primavera, C.P. 80199")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta La Primavera",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "La Primavera, Culiacán, Sinaloa",
+  "price": "$8,300,000",
+  "priceNumber": 8300000,
+  "bedrooms": 2,
+  "bathrooms": 4,
+  "parking": 3,
+  "area": 293,
+  "landArea": 210,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-la-primavera-521867",
+  "key": "casa-venta-la-primavera-521867",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Espaciosa y lujosa casa con amplios espacios interiores y exteriores, ideal para familias y para disfrutar del buen vivir.\n\ntu nuevo hogar te espera en esta impresionante residencia que combina funcio...",
+  "colonia": "La Primavera",
+  "fullLocationName": "La Primavera",
+  "features": [
+    "2 Recámaras",
+    "4 Baños Completos",
+    "293 m² de Construcción",
+    "210 m² de Terreno",
+    "3 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en La Primavera de $8,300,000",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/circuito-san-francisco-12-la-primavera-culiacan-sinaloa-30181775-foto-2a820f07-5bbd-40dc-b3c8-a085cbab8255.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-La-Primavera-Circuito-San-Francisco-Culiac%C3%A1n-12-0-30181775.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/circuito-san-francisco-12-la-primavera-culiacan-sinaloa-30181775-foto-82422bf1-cf02-4ff4-a129-b923c6878b43.jpg",
+    "https://cdn.propiedades.com/files/1200x507/Sinaloa-La-Primavera-Circuito-San-Francisco-Culiac%C3%A1n-12-1-30181775.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/circuito-san-francisco-12-la-primavera-culiacan-sinaloa-30181775-foto-3133c694-fd68-429e-a9b1-bf6590d19f33.jpg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-la-primavera-521867/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $8,300,000
+   🛏️  2 recámaras
+   🛁 4 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $8,300,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 4 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 4 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-la-primavera-521867/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-la-primavera-521867/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-la-primavera-521867.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-la-primavera-521867.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-la-primavera-521867/index.html
+   - tarjeta-casa-venta-la-primavera-521867.html
+   - contacto-casa-venta-la-primavera-521867.json
+   - images/casa-venta-la-primavera-521867/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-la-primavera-521867/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[4/15] 🔍 Procesando: casa-en-venta-san-agustin-331-la-primavera-sinaloa...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-san-agustin-331-la-primavera-sinaloa-30206048
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   🔍 Total fotos encontradas: 11
+   ⚠️  Solo 11 fotos encontradas, intentando generar más...
+   ✅ Usando 11 fotos del HTML source (vs 5 del DOM)
+✅ Datos scrapeados: {
+  title: 'Casa disponible en venta en San Agustín #331, Colonia La Primavera, C.P. 80199',
+  price: '$6,550,000 MXN',
+  fotos: 11,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Casa disponible en venta en San Agustín #331, Colonia La Primavera, C.P. 80199")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta La Primavera",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "La Primavera, Culiacán, Sinaloa",
+  "price": "$6,550,000",
+  "priceNumber": 6550000,
+  "bedrooms": 2,
+  "bathrooms": 3,
+  "parking": 2,
+  "area": 248,
+  "landArea": 313,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-la-primavera-588180",
+  "key": "casa-venta-la-primavera-588180",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Casa en venta en culiacan, san agustin la primavera,\n\n3 habitaciones \n3 baños y medio \n\nplanta baja \nsala comedor cocina integral y cuarto con baño completo\njardín \ncochera para dos autos \narea de ser...",
+  "colonia": "La Primavera",
+  "fullLocationName": "La Primavera",
+  "features": [
+    "2 Recámaras",
+    "3 Baños Completos",
+    "248 m² de Construcción",
+    "313 m² de Terreno",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en La Primavera de $6,550,000",
+  "photoCount": 11,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/ff680699-7555-11f0-af61-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/3ec670e0-7556-11f0-bca5-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/62565796-7556-11f0-9d88-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/9a81d725-7556-11f0-ab5d-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/9e6dc7e7-7556-11f0-9a82-b19ae4ff9e49.jpeg",
+    "https://cdn.propiedades.com/files/336x200/9f4eb586-0c00-11f0-b3f4-7fad1771e9cd.jpeg",
+    "https://cdn.propiedades.com/files/336x200/san-agustin-266-empaque-la-pequena-joya-culiacan-sinaloa-28558714-foto-01.jpg",
+    "https://cdn.propiedades.com/files/336x200/san-agustin-199-la-primavera-culiacan-sinaloa-26314118-foto-01.jpg",
+    "https://cdn.propiedades.com/files/336x200/Sinaloa-La-Primavera-San-Alberto-Culiacán-0-27993163.jpeg",
+    "https://cdn.propiedades.com/files/336x200/mina-de-mazonique-antonio-toledo-corro-culiacan-sinaloa-28683566-foto-01.jpg",
+    "https://cdn.propiedades.com/files/336x200/san-agustin-la-primavera-culiacan-sinaloa-28086422-foto-01.jpg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 11 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+   ✅ foto-6.jpg
+   ✅ foto-7.jpg
+   ✅ foto-8.jpg
+   ✅ foto-9.jpg
+   ✅ foto-10.jpg
+   ✅ foto-11.jpg
+✅ 11 fotos descargadas en culiacan/casa-venta-la-primavera-588180/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 11 fotos
+   💰 $6,550,000
+   🛏️  2 recámaras
+   🛁 3 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 11 fotos referenciadas correctamente
+✅ 3. Precio: $6,550,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 3 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 11
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 3 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-la-primavera-588180/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-la-primavera-588180/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-la-primavera-588180.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-la-primavera-588180.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-la-primavera-588180/index.html
+   - tarjeta-casa-venta-la-primavera-588180.html
+   - contacto-casa-venta-la-primavera-588180.json
+   - images/casa-venta-la-primavera-588180/ (11 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-la-primavera-588180/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[5/15] 🔍 Procesando: casa-en-venta-benevento-residencial-80014-culiacan...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-benevento-residencial-80014-culiacan-rosales-sin-benevento-residencial-sinaloa-30238219
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   🔍 Total fotos encontradas: 12
+   ⚠️  Solo 12 fotos encontradas, intentando generar más...
+   ✅ Usando 12 fotos del HTML source (vs 5 del DOM)
+✅ Datos scrapeados: {
+  title: 'Casa disponible en venta en Benevento Residencial, 80014 Culiacán Rosales, Sin. #s/n, Colonia Benevento Residencial, C.P. 80014',
+  price: '$5,290,000 MXN',
+  fotos: 12,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Casa disponible en venta en Benevento Residencial, 80014 Culiacán Rosales, Sin. #s/n, Colonia Benevento Residencial, C.P. 80014")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Benevento Residencial",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Benevento Residencial, Culiacán, Sinaloa",
+  "price": "$5,290,000",
+  "priceNumber": 5290000,
+  "bedrooms": 2,
+  "bathrooms": 2,
+  "parking": 2,
+  "area": 216,
+  "landArea": 138,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-benevento-residencial-658194",
+  "key": "casa-venta-benevento-residencial-658194",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Acogedora casa en venta con buena ventilación ubicada en benevento residencial, 80014 culiacán rosales, sin. num. ext. s/n num. int. s/n  colonia benevento residencial c. 80014, sinaloa. cuenta con ...",
+  "colonia": "Benevento Residencial",
+  "fullLocationName": "Benevento Residencial",
+  "features": [
+    "2 Recámaras",
+    "2 Baños Completos",
+    "216 m² de Construcción",
+    "138 m² de Terreno",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Benevento Residencial de $5,290,000",
+  "photoCount": 12,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/9ebb4b93-7cd3-11f0-8484-8ddc9ed732a9.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/9ebb2cbd-7cd3-11f0-98c5-8ddc9ed732a9.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/9ebb3e13-7cd3-11f0-b95b-8ddc9ed732a9.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/b8a66adb-7cd3-11f0-acdf-8ddc9ed732a9.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/b8a65d6e-7cd3-11f0-84b3-8ddc9ed732a9.jpeg",
+    "https://cdn.propiedades.com/files/336x200/0d6858ba-0d56-11f0-afc7-af67b41d50bb.jpeg",
+    "https://cdn.propiedades.com/files/336x200/benevento-benevento-residencial-culiacan-sinaloa-29312598-foto-9cde6b33-c5e4-4321-a91f-a263da782d32.jpg",
+    "https://cdn.propiedades.com/files/336x200/acanto-residencial-maralago-culiacan-sinaloa-29270901-foto-4d6ce593-f5bd-41f9-94af-3f7a186f3e2d.jpg",
+    "https://cdn.propiedades.com/files/336x200/ca880228-0d93-11f0-831f-d984ef526d9a.jpeg",
+    "https://cdn.propiedades.com/files/336x200/villa-universidad-culiacan-sinaloa-30284130-foto-01.jpeg",
+    "https://cdn.propiedades.com/files/336x200/maralago-culiacan-sinaloa-30097333-foto-01.jpg",
+    "https://cdn.propiedades.com/files/336x200/Sinaloa-Benevento-Residencial-Privada-Toscana-Culiacán-0-28704500.jpeg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 12 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+   ✅ foto-6.jpg
+   ✅ foto-7.jpg
+   ✅ foto-8.jpg
+   ✅ foto-9.jpg
+   ✅ foto-10.jpg
+   ✅ foto-11.jpg
+   ✅ foto-12.jpg
+✅ 12 fotos descargadas en culiacan/casa-venta-benevento-residencial-658194/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 12 fotos
+   💰 $5,290,000
+   🛏️  2 recámaras
+   🛁 2 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 12 fotos referenciadas correctamente
+✅ 3. Precio: $5,290,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 2 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 12
+
+============================================================
+🎉 VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-benevento-residencial-658194/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-benevento-residencial-658194/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-benevento-residencial-658194.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-benevento-residencial-658194.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-benevento-residencial-658194/index.html
+   - tarjeta-casa-venta-benevento-residencial-658194.html
+   - contacto-casa-venta-benevento-residencial-658194.json
+   - images/casa-venta-benevento-residencial-658194/ (12 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-benevento-residencial-658194/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[6/15] 🔍 Procesando: casa-en-venta-morelos-y-san-joaquin-santa-fe-sinal...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-morelos-y-san-joaquin-santa-fe-sinaloa-30263370
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   🔍 Total fotos encontradas: 0
+✅ Datos scrapeados: {
+  title: 'Departamento en venta,  , Colonia Roma Sur, C.P. 06760',
+  price: 'Publicado por $2,965,000 MXN',
+  fotos: 0,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Departamento (título: "Departamento en venta,  , Colonia Roma Sur, C.P. 06760")
+
+📋 Datos procesados: {
+  "title": "Departamento en Venta Roma Sur",
+  "tipoPropiedad": "Departamento",
+  "isDepartamento": true,
+  "location": "Roma Sur, Culiacán, Sinaloa",
+  "price": "Publicado",
+  "priceNumber": 2965000,
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "parking": 2,
+  "area": 38,
+  "landArea": 38,
+  "yearBuilt": "2023",
+  "slug": "departamento-venta-roma-sur-736100",
+  "key": "departamento-venta-roma-sur-736100",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "¡oportunidad única! departamento loft en venta desde 37,83 hasta 69,19m2ubicación privilegiada en un desarrollo en roma sur con excelentes accesos características:- un espacio con clóset y baño privad...",
+  "colonia": "Roma Sur",
+  "fullLocationName": "Roma Sur",
+  "features": [
+    "2 Recámaras",
+    "1 Baño Completo",
+    "38 m² de Construcción",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el departamento en venta en Roma Sur de Publicado",
+  "photoCount": 0,
+  "imageUrls": [],
+  "ownerContact": {}
+}
+
+📸 Descargando 0 fotos...
+✅ 0 fotos descargadas en culiacan/departamento-venta-roma-sur-736100/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 7 fotos
+   💰 Publicado
+   🛏️  2 recámaras
+   🛁 1 baño
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 7 fotos referenciadas correctamente
+✅ 3. Precio: Publicado aparece 12 veces
+✅ 4. Features: 2 recámaras, 1 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 7
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 1 baño en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/departamento-venta-roma-sur-736100/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/departamento-venta-roma-sur-736100/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-departamento-venta-roma-sur-736100.html
+
+📞 Datos de contacto guardados: contacto-departamento-venta-roma-sur-736100.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/departamento-venta-roma-sur-736100/index.html
+   - tarjeta-departamento-venta-roma-sur-736100.html
+   - contacto-departamento-venta-roma-sur-736100.json
+   - images/departamento-venta-roma-sur-736100/ (0 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/departamento-venta-roma-sur-736100/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[7/15] 🔍 Procesando: casa-en-venta-privada-andaluz-los-olivos-sinaloa-3...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-privada-andaluz-los-olivos-sinaloa-30263393
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   🔍 Total fotos encontradas: 0
+✅ Datos scrapeados: {
+  title: 'Se vende departamento en  , Colonia Real Ibiza, C.P. 77723',
+  price: 'Publicado por $1,100,000 MXN',
+  fotos: 0,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Departamento (título: "Se vende departamento en  , Colonia Real Ibiza, C.P. 77723")
+
+📋 Datos procesados: {
+  "title": "Departamento en Venta Real Ibiza",
+  "tipoPropiedad": "Departamento",
+  "isDepartamento": true,
+  "location": "Real Ibiza, Culiacán, Sinaloa",
+  "price": "Publicado",
+  "priceNumber": 1100000,
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "parking": 1,
+  "area": 65,
+  "landArea": 65,
+  "yearBuilt": "2023",
+  "slug": "departamento-venta-real-ibiza-800986",
+  "key": "departamento-venta-real-ibiza-800986",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Venta departamento en fraccionamiento real ibiza, privada ariany 2, playa del carmen. planta baja – 2 recámarasprecio: $1,100,000construcción: 65 m²descripción:planta baja con patio privado2 recámaras...",
+  "colonia": "Real Ibiza",
+  "fullLocationName": "Real Ibiza",
+  "features": [
+    "2 Recámaras",
+    "1 Baño Completo",
+    "65 m² de Construcción",
+    "1 Estacionamiento",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el departamento en venta en Real Ibiza de Publicado",
+  "photoCount": 0,
+  "imageUrls": [],
+  "ownerContact": {}
+}
+
+📸 Descargando 0 fotos...
+✅ 0 fotos descargadas en culiacan/departamento-venta-real-ibiza-800986/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 7 fotos
+   💰 Publicado
+   🛏️  2 recámaras
+   🛁 1 baño
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 7 fotos referenciadas correctamente
+✅ 3. Precio: Publicado aparece 12 veces
+✅ 4. Features: 2 recámaras, 1 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 7
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 1 baño en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/departamento-venta-real-ibiza-800986/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/departamento-venta-real-ibiza-800986/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-departamento-venta-real-ibiza-800986.html
+
+📞 Datos de contacto guardados: contacto-departamento-venta-real-ibiza-800986.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/departamento-venta-real-ibiza-800986/index.html
+   - tarjeta-departamento-venta-real-ibiza-800986.html
+   - contacto-departamento-venta-real-ibiza-800986.json
+   - images/departamento-venta-real-ibiza-800986/ (0 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/departamento-venta-real-ibiza-800986/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[8/15] 🔍 Procesando: casa-en-venta-monte-rosa-privadas-del-valle-ii-sin...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-monte-rosa-privadas-del-valle-ii-sinaloa-30263503
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   🔍 Total fotos encontradas: 0
+✅ Datos scrapeados: {
+  title: 'Venta de local en  , Colonia Querétaro, C.P. 76215',
+  price: 'Publicado por $28,940,000 MXN',
+  fotos: 0,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Venta de local en  , Colonia Querétaro, C.P. 76215")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Querétaro",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Querétaro, Culiacán, Sinaloa",
+  "price": "Publicado",
+  "priceNumber": 28940000,
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "parking": 2,
+  "area": 140,
+  "landArea": 140,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-queretaro-866027",
+  "key": "casa-venta-queretaro-866027",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Se trata de plaza comercial con 193 espacios comerciales incluye locales y puestos superficiales desde 11 metros hasta 33 aprox techados desarrollados en 1 nivel , el conjunto cuenta con 333 espacios ...",
+  "colonia": "Querétaro",
+  "fullLocationName": "Querétaro",
+  "features": [
+    "2 Recámaras",
+    "1 Baño Completo",
+    "140 m² de Terreno",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Querétaro de Publicado",
+  "photoCount": 0,
+  "imageUrls": [],
+  "ownerContact": {}
+}
+
+📸 Descargando 0 fotos...
+✅ 0 fotos descargadas en culiacan/casa-venta-queretaro-866027/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 7 fotos
+   💰 Publicado
+   🛏️  2 recámaras
+   🛁 1 baño
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 7 fotos referenciadas correctamente
+✅ 3. Precio: Publicado aparece 12 veces
+✅ 4. Features: 2 recámaras, 1 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 7
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 1 baño en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-queretaro-866027/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-queretaro-866027/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-queretaro-866027.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-queretaro-866027.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-queretaro-866027/index.html
+   - tarjeta-casa-venta-queretaro-866027.html
+   - contacto-casa-venta-queretaro-866027.json
+   - images/casa-venta-queretaro-866027/ (0 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-queretaro-866027/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[9/15] 🔍 Procesando: casa-en-venta-aleli-villa-bonita-sinaloa-30263687...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-aleli-villa-bonita-sinaloa-30263687
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 30263687
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Venta de casa  , Colonia Playa Linda, C.P. 91810',
+  price: '$1,980,000 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Venta de casa  , Colonia Playa Linda, C.P. 91810")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Playa Linda",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Playa Linda, Culiacán, Sinaloa",
+  "price": "$1,980,000",
+  "priceNumber": 1980000,
+  "bedrooms": 2,
+  "bathrooms": 3,
+  "parking": 2,
+  "area": 360,
+  "landArea": 180,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-playa-linda-930407",
+  "key": "casa-venta-playa-linda-930407",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Nocnok id nn-oe1000180 ✨ hermosa propiedad en venta – playa linda ✨ excelente ubicación: cerca de plazas comerciales, escuelas y a solo 5 minutos del centro de veracruz. ✅ zona libre de inundaciones. ...",
+  "colonia": "Playa Linda",
+  "fullLocationName": "Playa Linda",
+  "features": [
+    "2 Recámaras",
+    "3 Baños Completos",
+    "360 m² de Construcción",
+    "180 m² de Terreno",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Playa Linda de $1,980,000",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/playa-linda-veracruz-veracruz-de-ignacio-de-la-llave-30263687-foto-01.webp",
+    "https://cdn.propiedades.com/files/1200x507/playa-linda-veracruz-veracruz-de-ignacio-de-la-llave-30263687-foto-02.webp",
+    "https://cdn.propiedades.com/files/1200x507/playa-linda-veracruz-veracruz-de-ignacio-de-la-llave-30263687-foto-03.webp",
+    "https://cdn.propiedades.com/files/1200x507/playa-linda-veracruz-veracruz-de-ignacio-de-la-llave-30263687-foto-04.webp",
+    "https://cdn.propiedades.com/files/1200x507/playa-linda-veracruz-veracruz-de-ignacio-de-la-llave-30263687-foto-05.webp"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-playa-linda-930407/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $1,980,000
+   🛏️  2 recámaras
+   🛁 3 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $1,980,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 3 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 3 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-playa-linda-930407/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-playa-linda-930407/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-playa-linda-930407.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-playa-linda-930407.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-playa-linda-930407/index.html
+   - tarjeta-casa-venta-playa-linda-930407.html
+   - contacto-casa-venta-playa-linda-930407.json
+   - images/casa-venta-playa-linda-930407/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-playa-linda-930407/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[10/15] 🔍 Procesando: casa-en-venta-lago-baikal-jardines-del-valle-sinal...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-lago-baikal-jardines-del-valle-sinaloa-30264197
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   🔍 Total fotos encontradas: 0
+✅ Datos scrapeados: {
+  title: 'Casa en renta disponible en Rio Bravo, Colonia Fuentes del Valle, C.P. 66224',
+  price: 'Publicado por $38,000 MXN',
+  fotos: 0,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Casa en renta disponible en Rio Bravo, Colonia Fuentes del Valle, C.P. 66224")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Fuentes del Valle",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Fuentes del Valle, Culiacán, Sinaloa",
+  "price": "Publicado",
+  "priceNumber": 38000,
+  "bedrooms": 2,
+  "bathrooms": 3,
+  "parking": 4,
+  "area": 350,
+  "landArea": 350,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-fuentes-del-valle-996726",
+  "key": "casa-venta-fuentes-del-valle-996726",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Residencia en renta – fuentes del valle amplia y hermosa casa de dos niveles con ubicación privilegiada, a solo 1 minuto del puente atirantado. ✨ características principales: • 350 m² de terreno • jar...",
+  "colonia": "Fuentes del Valle",
+  "fullLocationName": "Fuentes del Valle",
+  "features": [
+    "2 Recámaras",
+    "3 Baños Completos",
+    "350 m² de Terreno",
+    "4 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Fuentes del Valle de Publicado",
+  "photoCount": 0,
+  "imageUrls": [],
+  "ownerContact": {}
+}
+
+📸 Descargando 0 fotos...
+✅ 0 fotos descargadas en culiacan/casa-venta-fuentes-del-valle-996726/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 7 fotos
+   💰 Publicado
+   🛏️  2 recámaras
+   🛁 3 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 7 fotos referenciadas correctamente
+✅ 3. Precio: Publicado aparece 12 veces
+✅ 4. Features: 2 recámaras, 3 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 7
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 3 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-fuentes-del-valle-996726/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-fuentes-del-valle-996726/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-fuentes-del-valle-996726.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-fuentes-del-valle-996726.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-fuentes-del-valle-996726/index.html
+   - tarjeta-casa-venta-fuentes-del-valle-996726.html
+   - contacto-casa-venta-fuentes-del-valle-996726.json
+   - images/casa-venta-fuentes-del-valle-996726/ (0 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-fuentes-del-valle-996726/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[11/15] 🔍 Procesando: casa-en-venta-valle-florido-61-valle-bonito-sinalo...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-valle-florido-61-valle-bonito-sinaloa-30264282
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 30264282
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Departamento en renta, 0, Colonia Temozon Norte, C.P. 97302',
+  price: '$17,000 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Departamento (título: "Departamento en renta, 0, Colonia Temozon Norte, C.P. 97302")
+
+📋 Datos procesados: {
+  "title": "Departamento en Venta Temozon Norte",
+  "tipoPropiedad": "Departamento",
+  "isDepartamento": true,
+  "location": "Temozon Norte, Culiacán, Sinaloa",
+  "price": "$17,000",
+  "priceNumber": 17000,
+  "bedrooms": 2,
+  "bathrooms": 2,
+  "parking": 2,
+  "area": 110,
+  "landArea": 110,
+  "yearBuilt": "2023",
+  "slug": "departamento-venta-temozon-norte-061873",
+  "key": "departamento-venta-temozon-norte-061873",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Desarrollo de 30 departamentos distribuidos en tres niveles pensado en el confort de sus residentes ya que cuenta con amenidades que lo hacen ser único en la zona. elevador para 6 personas, estacionam...",
+  "colonia": "Temozon Norte",
+  "fullLocationName": "Temozon Norte",
+  "features": [
+    "2 Recámaras",
+    "2 Baños Completos",
+    "110 m² de Construcción",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el departamento en venta en Temozon Norte de $17,000",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/0-temozon-norte-merida-yucatan-30264282-foto-01.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/0-temozon-norte-merida-yucatan-30264282-foto-02.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/0-temozon-norte-merida-yucatan-30264282-foto-03.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/0-temozon-norte-merida-yucatan-30264282-foto-04.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/0-temozon-norte-merida-yucatan-30264282-foto-05.jpeg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/departamento-venta-temozon-norte-061873/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $17,000
+   🛏️  2 recámaras
+   🛁 2 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $17,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 2 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+🎉 VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/departamento-venta-temozon-norte-061873/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/departamento-venta-temozon-norte-061873/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-departamento-venta-temozon-norte-061873.html
+
+📞 Datos de contacto guardados: contacto-departamento-venta-temozon-norte-061873.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/departamento-venta-temozon-norte-061873/index.html
+   - tarjeta-departamento-venta-temozon-norte-061873.html
+   - contacto-departamento-venta-temozon-norte-061873.json
+   - images/departamento-venta-temozon-norte-061873/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/departamento-venta-temozon-norte-061873/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[12/15] 🔍 Procesando: casa-en-venta-calle-galeana-3-villas-del-rio-elite...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-calle-galeana-3-villas-del-rio-elite-sinaloa-30264497
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 30264497
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Venta casa en Circuito del Lince Segunda Seccion, Colonia Ciudad Bugambilia, C.P. 45237',
+  price: '$8,300,000 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Venta casa en Circuito del Lince Segunda Seccion, Colonia Ciudad Bugambilia, C.P. 45237")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Ciudad Bugambilia",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Ciudad Bugambilia, Culiacán, Sinaloa",
+  "price": "$8,300,000",
+  "priceNumber": 8300000,
+  "bedrooms": 2,
+  "bathrooms": 3,
+  "parking": 2,
+  "area": 549,
+  "landArea": 360,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-ciudad-bugambilia-130891",
+  "key": "casa-venta-ciudad-bugambilia-130891",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Tu nuevo hogar en bugambilias segunda sección te espera! no todas las casas cumplen con lo que mereces… esta sí. ubicada en la zona más bonita de bugambilias, esta propiedad combina elegancia, privaci...",
+  "colonia": "Ciudad Bugambilia",
+  "fullLocationName": "Ciudad Bugambilia",
+  "features": [
+    "2 Recámaras",
+    "3 Baños Completos",
+    "549 m² de Construcción",
+    "360 m² de Terreno",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Ciudad Bugambilia de $8,300,000",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/circuito-del-lince-segunda-seccion-ciudad-bugambilia-zapopan-jalisco-30264497-foto-01.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/circuito-del-lince-segunda-seccion-ciudad-bugambilia-zapopan-jalisco-30264497-foto-02.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/circuito-del-lince-segunda-seccion-ciudad-bugambilia-zapopan-jalisco-30264497-foto-03.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/circuito-del-lince-segunda-seccion-ciudad-bugambilia-zapopan-jalisco-30264497-foto-04.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/circuito-del-lince-segunda-seccion-ciudad-bugambilia-zapopan-jalisco-30264497-foto-05.jpeg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-ciudad-bugambilia-130891/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $8,300,000
+   🛏️  2 recámaras
+   🛁 3 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $8,300,000 aparece 8 veces
+✅ 4. Features: 2 recámaras, 3 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 3 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-ciudad-bugambilia-130891/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-ciudad-bugambilia-130891/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-ciudad-bugambilia-130891.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-ciudad-bugambilia-130891.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-ciudad-bugambilia-130891/index.html
+   - tarjeta-casa-venta-ciudad-bugambilia-130891.html
+   - contacto-casa-venta-ciudad-bugambilia-130891.json
+   - images/casa-venta-ciudad-bugambilia-130891/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-ciudad-bugambilia-130891/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[13/15] 🔍 Procesando: casa-en-venta-tule-el-country-sinaloa-30264748...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-tule-el-country-sinaloa-30264748
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 30264748
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Renta de local Av de las Fuentes, Colonia Satélite, C.P. 76110',
+  price: '$37,950 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Renta de local Av de las Fuentes, Colonia Satélite, C.P. 76110")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Satélite",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Satélite, Culiacán, Sinaloa",
+  "price": "$37,950",
+  "priceNumber": 37950,
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "parking": 35,
+  "area": 115,
+  "landArea": 115,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-satelite-200219",
+  "key": "casa-venta-satelite-200219",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Locales en renta en la nueva plaza comercial fontana av. de las fuentes 1502 - colonia andadores satélite  local comercial 115 m2 renta $ 37,950.- mantenimiento $5,693.- ubicación estratégica y acabad...",
+  "colonia": "Satélite",
+  "fullLocationName": "Satélite",
+  "features": [
+    "2 Recámaras",
+    "1 Baño Completo",
+    "115 m² de Construcción",
+    "35 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Satélite de $37,950",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264748-foto-01.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264748-foto-02.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264748-foto-03.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264748-foto-04.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264748-foto-05.jpeg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-satelite-200219/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $37,950
+   🛏️  2 recámaras
+   🛁 1 baño
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $37,950 aparece 8 veces
+✅ 4. Features: 2 recámaras, 1 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 1 baño en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-satelite-200219/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-satelite-200219/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-satelite-200219.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-satelite-200219.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-satelite-200219/index.html
+   - tarjeta-casa-venta-satelite-200219.html
+   - contacto-casa-venta-satelite-200219.json
+   - images/casa-venta-satelite-200219/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-satelite-200219/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[14/15] 🔍 Procesando: casa-en-venta-sierrasuerte-4-portal-del-country-si...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-sierrasuerte-4-portal-del-country-sinaloa-30264750
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   ✅ Filtradas 5 fotos de la propiedad 30264750
+   🔍 Total fotos encontradas: 5
+   ⚠️  Solo 5 fotos encontradas, intentando generar más...
+✅ Datos scrapeados: {
+  title: 'Renta local en Av de las Fuentes, Colonia Satélite, C.P. 76110',
+  price: '$7,631 MXN',
+  fotos: 5,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Renta local en Av de las Fuentes, Colonia Satélite, C.P. 76110")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Satélite",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Satélite, Culiacán, Sinaloa",
+  "price": "$7,631",
+  "priceNumber": 7631,
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "parking": 35,
+  "area": 29,
+  "landArea": 29,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-satelite-268864",
+  "key": "casa-venta-satelite-268864",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Locales en renta en la nueva plaza comercial fontana av. de las fuentes 1502 - colonia andadores satélite  local comercial 29 m2 renta $ 7,631.- mantenimiento $1,145.- ubicación estratégica y acabados...",
+  "colonia": "Satélite",
+  "fullLocationName": "Satélite",
+  "features": [
+    "2 Recámaras",
+    "1 Baño Completo",
+    "29 m² de Construcción",
+    "35 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Satélite de $7,631",
+  "photoCount": 5,
+  "imageUrls": [
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264750-foto-01.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264750-foto-02.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264750-foto-03.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264750-foto-04.jpeg",
+    "https://cdn.propiedades.com/files/1200x507/avenida-de-las-fuentes-satelite-queretaro-queretaro-30264750-foto-05.jpeg"
+  ],
+  "ownerContact": {}
+}
+
+📸 Descargando 5 fotos...
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+✅ 5 fotos descargadas en culiacan/casa-venta-satelite-268864/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 5 fotos
+   💰 $7,631
+   🛏️  2 recámaras
+   🛁 1 baño
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 5 fotos referenciadas correctamente
+✅ 3. Precio: $7,631 aparece 8 veces
+✅ 4. Features: 2 recámaras, 1 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 5
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  BAÑOS: Verificar 1 baño en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-satelite-268864/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-satelite-268864/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-satelite-268864.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-satelite-268864.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-satelite-268864/index.html
+   - tarjeta-casa-venta-satelite-268864.html
+   - contacto-casa-venta-satelite-268864.json
+   - images/casa-venta-satelite-268864/ (5 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-satelite-268864/index.html
+   2. Publicar: dile "publica ya"
+   ⏳ Esperando 10 segundos antes de la siguiente...
+
+[15/15] 🔍 Procesando: casa-en-venta-la-piedra-pedregal-de-la-villa-sinal...
+
+🚀 SCRAPER Y PUBLICADOR AUTOMÁTICO
+
+🔍 Scrapeando: https://propiedades.com/inmuebles/casa-en-venta-la-piedra-pedregal-de-la-villa-sinaloa-30265026
+   🔄 Cargando todas las fotos con clicks optimizados...
+   📸 PASO 1: Click en imagen grande...
+   📸 PASO 2: Click en primera foto...
+   📸 PASO 3: Navegando con flechas (40 clicks)...
+   📝 PASO 4: Click en "Mostrar más" de la descripción...
+   ✅ Click en "Mostrar más" exitoso, esperando contenido...
+   🔍 Buscando fotos en JSON embebido...
+   ✅ Encontradas 0 fotos en __NEXT_DATA__
+   ✅ Encontradas 0 fotos en scripts
+   🔍 Total fotos encontradas: 0
+✅ Datos scrapeados: {
+  title: 'Se vende casa Lomas del Roble, Colonia Lomas del Roble, C.P. 66450',
+  price: 'Publicado por $12,500,000 MXN',
+  fotos: 0,
+  tipo: 'VENTA',
+  contacto: {}
+}
+   🏠 Tipo detectado: Casa (título: "Se vende casa Lomas del Roble, Colonia Lomas del Roble, C.P. 66450")
+
+📋 Datos procesados: {
+  "title": "Casa en Venta Lomas del Roble",
+  "tipoPropiedad": "Casa",
+  "isDepartamento": false,
+  "location": "Lomas del Roble, Culiacán, Sinaloa",
+  "price": "Publicado",
+  "priceNumber": 12500000,
+  "bedrooms": 3,
+  "bathrooms": 3,
+  "parking": 2,
+  "area": 416,
+  "landArea": 208,
+  "yearBuilt": "2023",
+  "slug": "casa-venta-lomas-del-roble-339815",
+  "key": "casa-venta-lomas-del-roble-339815",
+  "propertyType": "venta",
+  "esRenta": false,
+  "description": "Casa en venta lomas del roble , san nicolas de los garza, n. eb-ro9076 con excelente ubicación. está situada en esquina y tiene dos frentes. consta de: -3 niveles -3 recámaras con baño y vestidor in...",
+  "colonia": "Lomas del Roble",
+  "fullLocationName": "Lomas del Roble",
+  "features": [
+    "3 Recámaras",
+    "3 Baños Completos",
+    "416 m² de Construcción",
+    "208 m² de Terreno",
+    "2 Estacionamientos",
+    "Patio Amplio"
+  ],
+  "whatsappMessage": "Hola, me interesa el casa en venta en Lomas del Roble de Publicado",
+  "photoCount": 0,
+  "imageUrls": [],
+  "ownerContact": {}
+}
+
+📸 Descargando 0 fotos...
+✅ 0 fotos descargadas en culiacan/casa-venta-lomas-del-roble-339815/images
+
+📄 Generando HTML con PropertyPageGenerator...
+🛡️  Generando con validación automática...
+🛡️  GENERANDO CON VALIDACIÓN AUTOMÁTICA...
+
+🏗️  Generando desde master-template.html...
+📝 Reemplazando placeholders...
+✅ Master template procesado exitosamente
+   📸 7 fotos
+   💰 Publicado
+   🛏️  3 recámaras
+   🛁 3 baños
+
+🔍 VALIDANDO HTML GENERADO...
+
+🔍 VALIDANDO HTML GENERADO...
+
+✅ 1. Placeholders: Todos reemplazados
+✅ 2. Fotos: Todas las 7 fotos referenciadas correctamente
+✅ 3. Precio: Publicado aparece 12 veces
+⚠️  4. Features: 3 recámaras (advertencia), 3 baños
+✅ 5. WhatsApp: 3 links encontrados
+✅ 6. CSS: styles.css cargado correctamente
+✅ 7. Carrusel: totalSlidesHero = 7
+
+============================================================
+
+⚠️  ADVERTENCIAS:
+
+⚠️  RECÁMARAS: Verificar 3 recámaras en HTML
+⚠️  BAÑOS: Verificar 3 baños en HTML
+============================================================
+
+✅ VALIDACIÓN EXITOSA - HTML 100% CORRECTO
+🚀 SEGURO PARA PUBLICAR
+
+✅ HTML generado y validado (100% correcto)
+   ✅ styles.css copiado a culiacan/casa-venta-lomas-del-roble-339815/
+🔧 Corrigiendo metadatos automáticamente...
+✅ HTML generado: culiacan/casa-venta-lomas-del-roble-339815/index.html
+   ✅ Title corregido
+   ✅ Meta description corregida
+   ✅ Open Graph corregido
+   ✅ Schema.org corregido
+   ✅ Hero section corregido
+
+🎴 Generando tarjeta para culiacan/index.html...
+✅ Tarjeta generada: tarjeta-casa-venta-lomas-del-roble-339815.html
+
+📞 Datos de contacto guardados: contacto-casa-venta-lomas-del-roble-339815.json
+   ⚠️  No se encontraron datos de contacto del propietario
+
+✅ PROCESO COMPLETADO
+
+📦 Archivos generados:
+   - culiacan/casa-venta-lomas-del-roble-339815/index.html
+   - tarjeta-casa-venta-lomas-del-roble-339815.html
+   - contacto-casa-venta-lomas-del-roble-339815.json
+   - images/casa-venta-lomas-del-roble-339815/ (0 fotos)
+
+🎯 Próximo paso:
+   1. Revisar: open culiacan/casa-venta-lomas-del-roble-339815/index.html
+   2. Publicar: dile "publica ya"
+
+
+📊 RESUMEN BATCH SCRAPER:
+   ✅ Exitosas: 15
+   ❌ Fallidas: 0
+   📦 Total: 15
+
