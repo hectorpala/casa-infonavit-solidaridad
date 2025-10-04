@@ -1,195 +1,105 @@
 {
   "results": [
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-galaxia-ruben-jaramillo-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30238190",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-porta-real-residencial-sn-portareal-sinaloa-29880610",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 28.62 mil MN",
+        "title": "Venta casa en Porta Real residencial #s/n, Colonia Portareal"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-carr-a-imala-culiacan-rosales-sin-sn-benevento-residencial-sinaloa-30238202",
+      "isCuliacan": true,
+      "alreadyExists": true,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 18.31 mil MN",
+        "title": "Casa disponible en venta en Carr. a Imala, Culiacán Rosales, S..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-ruben-jaramillo-ruben-jaramillo-80015-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30238180",
       "isCuliacan": true,
       "alreadyExists": false,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
         "price": "$ 5.90 mil MN",
-        "title": "Casa disponible en venta en Galaxia, Ruben Jaramillo, Culiacán..."
+        "title": "Venta de casa en Rubén Jaramillo, Ruben Jaramillo, 80015 Culia..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-carr-a-imala-culiacan-rosales-sin-sn-sfera-residencial-sinaloa-30237531",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-paseo-belcantto-sn-belcantto-sinaloa-29706991",
+      "isCuliacan": true,
+      "alreadyExists": true,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 23.72 mil MN",
+        "title": "Se vende casa en Paseo Belcantto #s/n, Colonia Belcantto"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvd-plan-de-ayala-emiliano-zapata-culiacan-rosales-sin-sn-guadalupe-victoria-sinaloa-30318117",
       "isCuliacan": true,
       "alreadyExists": false,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 20.67 mil MN",
-        "title": "Casa en venta disponible en Carr. a Imala, Culiacán Rosales, S..."
+        "price": "$ 12.90 mil MN",
+        "title": "Venta de casa en Blvd. Plan de Ayala, Emiliano Zapata, Culiacá..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-toscana-80050-culiacan-rosales-sin-sn-la-rioja-sinaloa-30255861",
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-arquitectos-tierra-blanca-tierra-blanca-sinaloa-30013963",
       "isCuliacan": true,
       "alreadyExists": false,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 15.53 mil MN",
-        "title": "Se vende casa Blvd. Paseo Toscana, 80050 Culiacán Rosales, Sin..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-galaxia-ruben-jaramillo-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30346292",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 5.90 mil MN",
-        "title": "Venta de casa Galaxia, Ruben Jaramillo, Culiacán Rosales, Sin...."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-blvd-de-las-torres-nueva-galicia-80295-culiacan-rosales-sin-sn-nueva-galicia-sinaloa-30211840",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.67 mil MN",
-        "title": "Casa disponible en venta en Calle Blvd. de las Torres, Nueva G..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-avenida-revolucion-sn-emiliano-zapata-sinaloa-29707018",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.97 mil MN",
-        "title": "Venta de casa Avenida Revolución #s/n, Colonia Emiliano Zapata"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-emiliano-zapata-culiacan-emiliano-zapata-sinaloa-30014075",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.97 mil MN",
-        "title": "Casa disponible en venta en Emiliano Zapata Culiacán , Colonia..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/terreno-habitacional-en-venta-salida-norte-culiacan-mochis-sn-la-presita-sinaloa-30173782",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,250,000 MXN",
-        "title": "Se vende terreno en Salida Norte Culiacán Mochis #s/n, Colonia..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-av-benjamin-hill-barrancos-culiacan-rosales-sin-sn-finisterra-sinaloa-30373807",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,395,000 MXN",
-        "title": "Departamento en venta, Av. Benjamín Hill, Barrancos, Culiacán ..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-nueva-galicia-80295-culiacan-rosales-sin-sn-nueva-galicia-sinaloa-30211839",
-      "isCuliacan": false,
-      "alreadyExists": false,
-      "data": {
-        "location": "Delegación Cuauhtémoc, DF / CDMX",
-        "price": "Publicado por $3,070,500 MXN",
-        "title": "Departamento disponible en venta en , Colonia Doctores"
+        "price": "$ 29.51 mil MN",
+        "title": "Venta de departamento Arquitectos Tierra Blanca , Colonia Tier..."
       }
     }
   ],
   "newCuliacanProperties": [
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-galaxia-ruben-jaramillo-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30238190",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-porta-real-residencial-sn-portareal-sinaloa-29880610",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 28.62 mil MN",
+        "title": "Venta casa en Porta Real residencial #s/n, Colonia Portareal"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-ruben-jaramillo-ruben-jaramillo-80015-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30238180",
       "isCuliacan": true,
       "alreadyExists": false,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
         "price": "$ 5.90 mil MN",
-        "title": "Casa disponible en venta en Galaxia, Ruben Jaramillo, Culiacán..."
+        "title": "Venta de casa en Rubén Jaramillo, Ruben Jaramillo, 80015 Culia..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-carr-a-imala-culiacan-rosales-sin-sn-sfera-residencial-sinaloa-30237531",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvd-plan-de-ayala-emiliano-zapata-culiacan-rosales-sin-sn-guadalupe-victoria-sinaloa-30318117",
       "isCuliacan": true,
       "alreadyExists": false,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 20.67 mil MN",
-        "title": "Casa en venta disponible en Carr. a Imala, Culiacán Rosales, S..."
+        "price": "$ 12.90 mil MN",
+        "title": "Venta de casa en Blvd. Plan de Ayala, Emiliano Zapata, Culiacá..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-toscana-80050-culiacan-rosales-sin-sn-la-rioja-sinaloa-30255861",
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-arquitectos-tierra-blanca-tierra-blanca-sinaloa-30013963",
       "isCuliacan": true,
       "alreadyExists": false,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 15.53 mil MN",
-        "title": "Se vende casa Blvd. Paseo Toscana, 80050 Culiacán Rosales, Sin..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-galaxia-ruben-jaramillo-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30346292",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 5.90 mil MN",
-        "title": "Venta de casa Galaxia, Ruben Jaramillo, Culiacán Rosales, Sin...."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-blvd-de-las-torres-nueva-galicia-80295-culiacan-rosales-sin-sn-nueva-galicia-sinaloa-30211840",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.67 mil MN",
-        "title": "Casa disponible en venta en Calle Blvd. de las Torres, Nueva G..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-avenida-revolucion-sn-emiliano-zapata-sinaloa-29707018",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.97 mil MN",
-        "title": "Venta de casa Avenida Revolución #s/n, Colonia Emiliano Zapata"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-emiliano-zapata-culiacan-emiliano-zapata-sinaloa-30014075",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.97 mil MN",
-        "title": "Casa disponible en venta en Emiliano Zapata Culiacán , Colonia..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/terreno-habitacional-en-venta-salida-norte-culiacan-mochis-sn-la-presita-sinaloa-30173782",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,250,000 MXN",
-        "title": "Se vende terreno en Salida Norte Culiacán Mochis #s/n, Colonia..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-av-benjamin-hill-barrancos-culiacan-rosales-sin-sn-finisterra-sinaloa-30373807",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,395,000 MXN",
-        "title": "Departamento en venta, Av. Benjamín Hill, Barrancos, Culiacán ..."
+        "price": "$ 29.51 mil MN",
+        "title": "Venta de departamento Arquitectos Tierra Blanca , Colonia Tier..."
       }
     }
   ]

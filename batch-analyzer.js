@@ -3,16 +3,12 @@ const fs = require('fs');
 
 // URLs encontradas en el listado
 const propertyUrls = [
-    "https://propiedades.com/inmuebles/casa-en-venta-galaxia-ruben-jaramillo-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30238190",
-    "https://propiedades.com/inmuebles/casa-en-venta-carr-a-imala-culiacan-rosales-sin-sn-sfera-residencial-sinaloa-30237531",
-    "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-toscana-80050-culiacan-rosales-sin-sn-la-rioja-sinaloa-30255861",
-    "https://propiedades.com/inmuebles/casa-en-venta-galaxia-ruben-jaramillo-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30346292",
-    "https://propiedades.com/inmuebles/casa-en-venta-calle-blvd-de-las-torres-nueva-galicia-80295-culiacan-rosales-sin-sn-nueva-galicia-sinaloa-30211840",
-    "https://propiedades.com/inmuebles/casa-en-venta-avenida-revolucion-sn-emiliano-zapata-sinaloa-29707018",
-    "https://propiedades.com/inmuebles/casa-en-venta-emiliano-zapata-culiacan-emiliano-zapata-sinaloa-30014075",
-    "https://propiedades.com/inmuebles/terreno-habitacional-en-venta-salida-norte-culiacan-mochis-sn-la-presita-sinaloa-30173782",
-    "https://propiedades.com/inmuebles/departamento-en-venta-av-benjamin-hill-barrancos-culiacan-rosales-sin-sn-finisterra-sinaloa-30373807",
-    "https://propiedades.com/inmuebles/casa-en-venta-nueva-galicia-80295-culiacan-rosales-sin-sn-nueva-galicia-sinaloa-30211839"
+    "https://propiedades.com/inmuebles/casa-en-venta-porta-real-residencial-sn-portareal-sinaloa-29880610",
+    "https://propiedades.com/inmuebles/casa-en-venta-carr-a-imala-culiacan-rosales-sin-sn-benevento-residencial-sinaloa-30238202",
+    "https://propiedades.com/inmuebles/casa-en-venta-ruben-jaramillo-ruben-jaramillo-80015-culiacan-rosales-sin-sn-ruben-jaramillo-sinaloa-30238180",
+    "https://propiedades.com/inmuebles/casa-en-venta-paseo-belcantto-sn-belcantto-sinaloa-29706991",
+    "https://propiedades.com/inmuebles/casa-en-venta-blvd-plan-de-ayala-emiliano-zapata-culiacan-rosales-sin-sn-guadalupe-victoria-sinaloa-30318117",
+    "https://propiedades.com/inmuebles/departamento-en-venta-arquitectos-tierra-blanca-tierra-blanca-sinaloa-30013963"
 ];
 
 // Propiedades existentes en nuestro sistema (extraídas de culiacan/index.html)
@@ -87,6 +83,20 @@ async function analyzeProperty(url) {
                           data.title.toLowerCase().includes('culiacán') ||
                           data.title.toLowerCase().includes('culiacan');
 
+        // ✅ FILTRO DE PRECIO: Extraer precio numérico y validar rango $1M-$2M
+        let priceNumber = 0;
+        const priceStr = data.price.replace(/[^0-9.]/g, '');
+
+        if (data.price.includes('mil MN')) {
+            // Formato: "$ 5.90 mil MN" = $5,900,000
+            priceNumber = parseFloat(priceStr) * 100000;
+        } else if (data.price.includes('MXN')) {
+            // Formato: "$1,800,000 MXN"
+            priceNumber = parseFloat(priceStr);
+        }
+
+        const inPriceRange = priceNumber >= 1000000 && priceNumber <= 2000000;
+
         // Generar slug simple para comparar
         const slug = url.split('/').pop().toLowerCase();
 
@@ -100,6 +110,8 @@ async function analyzeProperty(url) {
             url,
             isCuliacan,
             alreadyExists,
+            inPriceRange,
+            priceNumber,
             data
         };
 
@@ -126,9 +138,13 @@ async function batchAnalyze() {
         await new Promise(r => setTimeout(r, 2000));
     }
 
-    // Filtrar propiedades nuevas de Culiacán
+    // ✅ Filtrar propiedades nuevas de Culiacán + en rango de precio $1M-$2M
     const newCuliacanProperties = results.filter(r =>
-        r.isCuliacan && !r.alreadyExists && !r.error
+        r.isCuliacan && !r.alreadyExists && !r.error && r.inPriceRange
+    );
+
+    const outOfRangeProperties = results.filter(r =>
+        r.isCuliacan && !r.alreadyExists && !r.error && !r.inPriceRange
     );
 
     console.log('\n' + '='.repeat(80));
@@ -138,17 +154,30 @@ async function batchAnalyze() {
     console.log(`✅ De Culiacán: ${results.filter(r => r.isCuliacan).length}`);
     console.log(`❌ Fuera de Culiacán: ${results.filter(r => !r.isCuliacan).length}`);
     console.log(`🔁 Ya existen en sistema: ${results.filter(r => r.alreadyExists).length}`);
-    console.log(`⭐ NUEVAS de Culiacán: ${newCuliacanProperties.length}`);
+    console.log(`💰 En rango $1M-$2M: ${results.filter(r => r.inPriceRange).length}`);
+    console.log(`⚠️  Fuera de rango precio: ${outOfRangeProperties.length}`);
+    console.log(`⭐ NUEVAS de Culiacán (en rango): ${newCuliacanProperties.length}`);
     console.log(`⚠️  Errores: ${results.filter(r => r.error).length}`);
     console.log('='.repeat(80) + '\n');
 
-    // Mostrar propiedades nuevas de Culiacán
+    // Mostrar propiedades FUERA DE RANGO
+    if (outOfRangeProperties.length > 0) {
+        console.log('⚠️  PROPIEDADES FUERA DE RANGO ($1M-$2M) - IGNORADAS:\n');
+        outOfRangeProperties.forEach((prop, idx) => {
+            console.log(`${idx + 1}. ${prop.data.title}`);
+            console.log(`   📍 ${prop.data.location}`);
+            console.log(`   💰 ${prop.data.price} (${(prop.priceNumber / 1000000).toFixed(2)}M)`);
+            console.log('');
+        });
+    }
+
+    // Mostrar propiedades nuevas de Culiacán EN RANGO
     if (newCuliacanProperties.length > 0) {
-        console.log('🎯 PROPIEDADES NUEVAS DE CULIACÁN PARA SCRAPING:\n');
+        console.log('🎯 PROPIEDADES NUEVAS DE CULIACÁN PARA SCRAPING ($1M-$2M):\n');
         newCuliacanProperties.forEach((prop, idx) => {
             console.log(`${idx + 1}. ${prop.data.title}`);
             console.log(`   📍 ${prop.data.location}`);
-            console.log(`   💰 ${prop.data.price}`);
+            console.log(`   💰 ${prop.data.price} (${(prop.priceNumber / 1000000).toFixed(2)}M)`);
             console.log(`   🔗 ${prop.url}`);
             console.log('');
         });

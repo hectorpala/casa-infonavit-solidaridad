@@ -86,8 +86,8 @@ async function scrapearPropiedad(url) {
         });
     });
 
-    // Esperar 2 segundos para que carguen las imágenes
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // ✅ Esperar solo 1 segundo (reducido de 2s)
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     // NUEVA ESTRATEGIA: Click en imagen grande → primera foto → navegar con flechas
     console.log('   🔄 Cargando todas las fotos con clicks optimizados...');
@@ -118,7 +118,7 @@ async function scrapearPropiedad(url) {
         return false;
     });
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise(resolve => setTimeout(resolve, 500)); // ✅ Reducido de 1500ms a 500ms
 
     // PASO 2: Click en la primera foto del carrusel/galería
     console.log('   📸 PASO 2: Click en primera foto...');
@@ -141,7 +141,7 @@ async function scrapearPropiedad(url) {
         }
     });
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise(resolve => setTimeout(resolve, 500)); // ✅ Reducido de 1500ms a 500ms
 
     // Extraer el ID de la propiedad ANTES del loop
     const propertyIdMatch = url.match(/-(\d{7,9})$/);
@@ -149,11 +149,11 @@ async function scrapearPropiedad(url) {
     console.log(`   🔑 ID de propiedad: ${propertyId}`);
 
     // PASO 3: Navegar con flechas CAPTURANDO URLs en tiempo real
-    console.log('   📸 PASO 3: Navegando y capturando fotos en tiempo real (100 clicks)...');
+    console.log('   📸 PASO 3: Navegando y capturando fotos en tiempo real (40 clicks optimizados)...');
 
     const capturedImages = new Set();
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 40; i++) { // ✅ Reducido de 100 a 40 clicks (más rápido)
         try {
             // CAPTURAR URLs de imágenes visibles ANTES de hacer click
             const currentImages = await page.evaluate((propId) => {
@@ -238,7 +238,7 @@ async function scrapearPropiedad(url) {
 
             // Cada 10 clicks, mostrar progreso
             if ((i + 1) % 10 === 0) {
-                console.log(`      ... ${i + 1}/100 clicks (${capturedImages.size} fotos capturadas)`);
+                console.log(`      ... ${i + 1}/40 clicks (${capturedImages.size} fotos capturadas)`);
             }
         } catch (e) {
             // Continuar aunque falle
@@ -247,8 +247,8 @@ async function scrapearPropiedad(url) {
 
     console.log(`   ✅ Capturadas ${capturedImages.size} fotos durante navegación`);
 
-    // Esperar y capturar una vez más
-    await new Promise(resolve => setTimeout(resolve, 3000));
+    // ✅ Esperar solo 1 segundo (reducido de 3s)
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     // PASO 4: Click en "Mostrar más" de la descripción para obtener texto completo
     console.log('   📝 PASO 4: Click en "Mostrar más" de la descripción...');
@@ -297,7 +297,7 @@ async function scrapearPropiedad(url) {
 
     if (clickedShowMore) {
         console.log('   ✅ Click en "Mostrar más" exitoso, esperando contenido...');
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 1000)); // ✅ Reducido de 2s a 1s
     } else {
         console.log('   ⚠️  No se encontró botón "Mostrar más" (puede que la descripción ya esté completa)');
     }
