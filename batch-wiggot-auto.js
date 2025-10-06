@@ -20,8 +20,8 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 
 // Configuración
-const WIGGOT_EMAIL = 'hectorpc123@gmail.com';
-const WIGGOT_PASSWORD = 'Hp*020391';
+const WIGGOT_EMAIL = 'hector.test.1759769906975@gmail.com';
+const WIGGOT_PASSWORD = 'Wiggot2025!drm36';
 const SEARCH_URL = process.argv[2] || 'https://new.wiggot.com/search?page=1&limit=12&propertyType=casa&operationType=venta&minPrice=1000000&maxPrice=2000000&location=Culiac%C3%A1n,%20Sinaloa,%20M%C3%A9xico';
 const BATCH_SIZE = 12;
 
@@ -61,6 +61,31 @@ function isDuplicate(propertyId, crm) {
 // Extraer propertyIds de la página de búsqueda
 async function extractPropertyIds(page) {
     log('\n📋 Extrayendo propertyIds de la búsqueda...', 'cyan');
+
+    // Esperar a que carguen elementos de la página
+    log('   ⏳ Esperando que carguen los resultados...', 'cyan');
+    await wait(8000);
+
+    // Hacer scroll para activar lazy loading
+    log('   📜 Haciendo scroll para cargar resultados...', 'cyan');
+    await page.evaluate(() => {
+        window.scrollTo(0, document.body.scrollHeight / 2);
+    });
+    await wait(3000);
+
+    await page.evaluate(() => {
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+    await wait(3000);
+
+    await page.evaluate(() => {
+        window.scrollTo(0, 0);
+    });
+    await wait(2000);
+
+    // Tomar screenshot para debug
+    await page.screenshot({ path: 'batch-search-results.png', fullPage: true });
+    log('   📸 Screenshot guardado en batch-search-results.png', 'cyan');
 
     const propertyIds = await page.evaluate(() => {
         const ids = [];
@@ -102,36 +127,56 @@ async function loginWiggot(page, url) {
 
     log('🔑 Detectado formulario de login, ingresando credenciales...', 'yellow');
 
-    // Buscar campos de login
-    const inputs = await page.$$('input[type="email"], input[type="text"], input[type="password"]');
+    // Buscar campos de login (exactamente como en wiggotscraper.js)
+    const inputs = await page.$$('input');
 
     if (inputs.length >= 2) {
+        log('   ✍️  Escribiendo email...', 'cyan');
         await inputs[0].click();
-        await wait(500);
-        await inputs[0].type(WIGGOT_EMAIL, { delay: 100 });
-        await wait(500);
+        await page.keyboard.type(WIGGOT_EMAIL, { delay: 50 });
+
+        log('   ✍️  Escribiendo password...', 'cyan');
         await inputs[1].click();
-        await wait(500);
-        await inputs[1].type(WIGGOT_PASSWORD, { delay: 100 });
-        await wait(500);
+        await page.keyboard.type(WIGGOT_PASSWORD, { delay: 50 });
+
+        await wait(1000);
 
         // Buscar botón de login
         const buttons = await page.$$('button');
+        log(`   Encontrados ${buttons.length} botones`, 'cyan');
+
         for (const button of buttons) {
             const text = await page.evaluate(el => el.innerText, button);
-            if (text.includes('Iniciar sesión') || text.includes('Inicia sesión')) {
+            if (text.includes('Iniciar')) {
+                log('   🖱️  Clickeando botón "Iniciar sesión"...', 'cyan');
                 await button.click();
-                log('🖱️  Click en botón login...', 'cyan');
                 break;
             }
         }
 
-        await wait(10000); // Más tiempo para que complete el login
-        log('✅ Login exitoso', 'green');
-        return true;
+        // Esperar navegación después del login
+        log('   ⏳ Esperando login...', 'cyan');
+        try {
+            await page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 30000 });
+            log('✅ Login exitoso', 'green');
+            return true;
+        } catch (e) {
+            log('⚠️  Timeout en navegación, verificando si está autenticado...', 'yellow');
+            await wait(5000);
+            // Verificar si ya está en la página de resultados
+            const isLoggedIn = !(await page.evaluate(() => {
+                return document.body.innerText.includes('Iniciar sesión');
+            }));
+            if (isLoggedIn) {
+                log('✅ Login exitoso (detectado después de timeout)', 'green');
+                return true;
+            }
+            log('❌ Login falló', 'red');
+            return false;
+        }
     }
 
-    log('❌ No se pudo hacer login', 'red');
+    log('❌ No se encontraron campos de login', 'red');
     return false;
 }
 
@@ -222,15 +267,19 @@ async function main() {
     const page = await browser.newPage();
 
     try {
-        // PASO 1: Login directo en la URL de búsqueda
-        const loginSuccess = await loginWiggot(page, SEARCH_URL);
+        // PASO 1: Login en página principal
+        log('🔐 PASO 1: Login en Wiggot...', 'blue');
+        const loginSuccess = await loginWiggot(page, 'https://new.wiggot.com/search');
         if (!loginSuccess) {
             throw new Error('Login falló');
         }
 
-        // La página ya está en SEARCH_URL después del login
-        log('\n✅ Página de búsqueda cargada', 'green');
-        await wait(5000); // Esperar a que carguen los resultados
+        // PASO 2: Navegar a la URL de búsqueda específica
+        log('\n🔍 PASO 2: Navegando a búsqueda personalizada...', 'blue');
+        log(`   URL: ${SEARCH_URL}`, 'cyan');
+        await page.goto(SEARCH_URL, { waitUntil: 'networkidle2' });
+        await wait(8000); // Esperar a que carguen los resultados
+        log('✅ Página de búsqueda cargada', 'green');
 
         // PASO 3: Extraer propertyIds
         const propertyIds = await extractPropertyIds(page);
