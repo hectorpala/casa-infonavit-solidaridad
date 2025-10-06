@@ -194,6 +194,21 @@
       "inmobiliaria": "Ubica Inmuebles",
       "fechaAgregada": "2025-10-06",
       "propertyId": "pvAQsal"
+    },
+    {
+      "slug": "casa-venta-casa-remodelada-en-infonavit-solidaridad-INFONAVIT-SOLIDARIDAD",
+      "titulo": "Casa Remodelada en Infonavit Solidaridad",
+      "precio": "1,650,000",
+      "ubicacion": "Blvrd Elbert 2609, Infonavit Solidaridad, Culiacán",
+      "recamaras": "2",
+      "banos": "2",
+      "estacionamientos": "2",
+      "areaConstruccion": "91.6",
+      "areaTerreno": "112.5",
+      "agente": null,
+      "inmobiliaria": null,
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "INFONAVIT-SOLIDARIDAD"
     }
   ]
 }

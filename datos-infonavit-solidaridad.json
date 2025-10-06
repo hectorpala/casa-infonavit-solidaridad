@@ -1,0 +1,36 @@
+{
+  "propertyId": "INFONAVIT-SOLIDARIDAD",
+  "scrapedAt": "2025-10-06T23:00:00.000Z",
+  "data": {
+    "title": "Casa Remodelada en Infonavit Solidaridad",
+    "price": "1,650,000",
+    "location": "Blvrd Elbert 2609, Infonavit Solidaridad, Culiacán",
+    "bedrooms": "2",
+    "bathrooms": "2",
+    "area_construida": "91.6",
+    "area_terreno": "112.5",
+    "estacionamientos": "2",
+    "niveles": "1",
+    "description": "Casa remodelada con cochera techada para 2 autos, 2 recámaras, 2 baños completos, cuarto de TV, patio trasero amplio.",
+    "agente": "",
+    "inmobiliaria": "",
+    "images": [
+      "fachada1.jpg",
+      "fachada2.jpg",
+      "fachada3.jpg",
+      "sala1.jpg",
+      "sala2.jpg",
+      "cocina1.jpg",
+      "recamara1.jpg",
+      "recamara2.jpg",
+      "bano1.jpg",
+      "bano2.jpg",
+      "patio1.jpg",
+      "patio2.jpg",
+      "cochera1.jpg",
+      "exterior1.jpg"
+    ],
+    "latitude": "24.824491",
+    "longitude": "-107.4287297"
+  }
+}
