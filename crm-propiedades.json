@@ -149,6 +149,21 @@
       "inmobiliaria": "Asesor Independiente",
       "fechaAgregada": "2025-10-06",
       "propertyId": "pLylwsv"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-fracc-lomas-de-san-isidro-pVj5OFz",
+      "titulo": "Casa en Venta Fracc Lomas De San Isidro",
+      "precio": "1,750,000",
+      "ubicacion": "Colinas De La Quebrada 4634, Fracc Lomas De San Isidro, Culiacán",
+      "recamaras": "4",
+      "banos": "3.5",
+      "estacionamientos": "2",
+      "areaConstruccion": "164",
+      "areaTerreno": "96",
+      "agente": null,
+      "inmobiliaria": null,
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pVj5OFz"
     }
   ]
 }
