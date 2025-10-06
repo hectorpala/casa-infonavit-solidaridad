@@ -205,7 +205,16 @@ html = html.replace(badgeTerrainPattern, `<div class="badge-item">
                     <span>${areaTerreno} m² terreno</span>
                 </div>`);
 
-console.log('✅ Reemplazos aplicados');
+// 3. Corregir mapa de ubicación
+const mapSubtitlePattern = /<p class="location-subtitle">.*?<\/p>/;
+html = html.replace(mapSubtitlePattern, `<p class="location-subtitle">${datos.location}</p>`);
+
+// Coordenadas por defecto para Culiacán (centro)
+const mapPattern = /<iframe\s+src="https:\/\/www\.google\.com\/maps\/embed\?pb=[^"]+"/;
+html = html.replace(mapPattern, `<iframe
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(datos.location + ', Culiacán, Sinaloa')}&zoom=15"`);
+
+console.log('✅ Reemplazos aplicados (features, badges, mapa)');
 
 // Guardar HTML
 fs.writeFileSync(`${carpetaDestino}/index.html`, html);
