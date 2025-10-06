@@ -82,16 +82,17 @@ async function extractPropertyIds(page) {
 }
 
 // Login en Wiggot
-async function loginWiggot(page) {
+async function loginWiggot(page, url) {
     log('\n🔐 Iniciando sesión en Wiggot...', 'blue');
 
-    await page.goto('https://new.wiggot.com/search', { waitUntil: 'networkidle2' });
-    await wait(3000);
+    await page.goto(url, { waitUntil: 'networkidle2' });
+    await wait(5000); // Más tiempo para que cargue
 
     // Detectar si necesita login
     const needsLogin = await page.evaluate(() => {
         return document.body.innerText.includes('Iniciar sesión') ||
-               document.body.innerText.includes('Inicia sesión');
+               document.body.innerText.includes('Inicia sesión') ||
+               document.body.innerText.includes('Nos alegra verte');
     });
 
     if (!needsLogin) {
@@ -99,11 +100,17 @@ async function loginWiggot(page) {
         return true;
     }
 
+    log('🔑 Detectado formulario de login, ingresando credenciales...', 'yellow');
+
     // Buscar campos de login
     const inputs = await page.$$('input[type="email"], input[type="text"], input[type="password"]');
 
     if (inputs.length >= 2) {
+        await inputs[0].click();
+        await wait(500);
         await inputs[0].type(WIGGOT_EMAIL, { delay: 100 });
+        await wait(500);
+        await inputs[1].click();
         await wait(500);
         await inputs[1].type(WIGGOT_PASSWORD, { delay: 100 });
         await wait(500);
@@ -114,11 +121,12 @@ async function loginWiggot(page) {
             const text = await page.evaluate(el => el.innerText, button);
             if (text.includes('Iniciar sesión') || text.includes('Inicia sesión')) {
                 await button.click();
+                log('🖱️  Click en botón login...', 'cyan');
                 break;
             }
         }
 
-        await wait(5000);
+        await wait(10000); // Más tiempo para que complete el login
         log('✅ Login exitoso', 'green');
         return true;
     }
@@ -214,16 +222,15 @@ async function main() {
     const page = await browser.newPage();
 
     try {
-        // PASO 1: Login
-        const loginSuccess = await loginWiggot(page);
+        // PASO 1: Login directo en la URL de búsqueda
+        const loginSuccess = await loginWiggot(page, SEARCH_URL);
         if (!loginSuccess) {
             throw new Error('Login falló');
         }
 
-        // PASO 2: Navegar a búsqueda
-        log('\n🔍 Navegando a página de búsqueda...', 'blue');
-        await page.goto(SEARCH_URL, { waitUntil: 'networkidle2' });
-        await wait(5000);
+        // La página ya está en SEARCH_URL después del login
+        log('\n✅ Página de búsqueda cargada', 'green');
+        await wait(5000); // Esperar a que carguen los resultados
 
         // PASO 3: Extraer propertyIds
         const propertyIds = await extractPropertyIds(page);
