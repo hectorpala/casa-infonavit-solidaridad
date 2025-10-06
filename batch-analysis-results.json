@@ -1,31 +1,163 @@
 {
   "results": [
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-san-pedro-de-san-jose-7788-san-luis-residencial-ii-sinaloa-28729193",
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-avenida-milenium-las-flores-sinaloa-28386852",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": false,
-      "priceNumber": 770000,
+      "priceNumber": 4076000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 7.70 mil MN",
-        "title": "Venta de casa en San Pedro de San José #7788, Colonia San Luis..."
+        "price": "$ 40.76 mil MN",
+        "title": "Departamento en venta, Avenida Milenium, Colonia Las Flores"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-desarrollo-urbano-3-rios-sinaloa-30283916",
+      "url": "https://propiedades.com/inmuebles/casa-en-condominio-en-venta-paseo-portalegre-1-portalegre-sinaloa-30263127",
       "isCuliacan": true,
       "alreadyExists": true,
       "inPriceRange": false,
-      "priceNumber": 2715000,
+      "priceNumber": 2880000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 27.15 mil MN",
-        "title": "Departamento disponible en venta en , Colonia Desarrollo Urba..."
+        "price": "$2,880,000 MXN",
+        "title": "Venta de casa en condominio Paseo Portalegre #1, Colonia Porta..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-samoa-perisur-sinaloa-28840298",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-cerro-de-la-aguja-462-colinas-de-san-miguel-sinaloa-30263311",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 2051000.0000000002,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 20.51 mil MN",
+        "title": "Casa disponible en venta en CERRO DE LA AGUJA #462, Colonia Co..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-cerro-de-las-cumbres-723-colina-del-rey-sinaloa-28745137",
+      "isCuliacan": true,
+      "alreadyExists": true,
+      "inPriceRange": true,
+      "priceNumber": 1862000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 18.62 mil MN",
+        "title": "Venta casa en Cerro de las cumbres #723, Colonia Colina del Rey"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-islas-nicobar-sn-prados-del-sur-sinaloa-29082517",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 819999.9999999999,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 8.20 mil MN",
+        "title": "Venta de casa Islas Nicobar #s/n, Colonia Prados Del Sur"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-san-pedro-3964-infonavit-el-barrio-sinaloa-30263128",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 681000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 6.81 mil MN",
+        "title": "Venta de casa San Pedro #3964, Colonia INFONAVIT El Barrio"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/departamento-en-venta-alfonso-g-calderon-central-internacional-milenium-sinaloa-29312606",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 3093000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 30.93 mil MN",
+        "title": "Departamento en venta disponible en ALFONSO G. CALDERON, Colon..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-cerrada-dragonera-2538-2538-amorada-sinaloa-29024089",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 3815999.9999999995,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 38.16 mil MN",
+        "title": "Venta casa en Cerrada Dragonera 2538 #2538, Colonia Amorada"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-fuerte-san-fernando-2646-floresta-sinaloa-30261580",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 956000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 9.56 mil MN",
+        "title": "Se vende casa en Fuerte San Fernando #2646, Colonia Floresta"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-del-roble-urbivilla-del-cedro-80058-culiacan-rosales-sin-sn-stanza-castilla-sinaloa-30309397",
+      "isCuliacan": true,
+      "alreadyExists": true,
+      "inPriceRange": true,
+      "priceNumber": 1892000.0000000002,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 18.92 mil MN",
+        "title": "Venta de casa en Blvd. Paseo del Roble, Urbivilla del Cedro, 8..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-cerro-del-tule-1982-colinas-de-san-miguel-sinaloa-28967173",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 2051000.0000000002,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 20.51 mil MN",
+        "title": "Casa disponible en venta en Cerro del Tule #1982, Colonia Coli..."
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-mineral-del-palmarito-2021-la-costera-sinaloa-30240959",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": false,
+      "priceNumber": 925000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 9.25 mil MN",
+        "title": "Se vende casa Mineral del Palmarito #2021, Colonia La Costera"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-paseo-belcantto-sn-belcantto-sinaloa-30167937",
+      "isCuliacan": true,
+      "alreadyExists": true,
+      "inPriceRange": false,
+      "priceNumber": 2372000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 23.72 mil MN",
+        "title": "Se vende casa Paseo Belcantto #s/n, Colonia Belcantto, C.P. 80184"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-zanzibar-5913-perisur-sinaloa-30206013",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": false,
@@ -33,381 +165,117 @@
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
         "price": "$ 23.18 mil MN",
-        "title": "Casa en venta, Samoa, Colonia Perisur, C.P. 80197"
+        "title": "Venta de casa zanzibar #5913, Colonia Perisur, C.P. 80197"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-san-juan-bautista-4204-camino-real-sinaloa-30190659",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-lumeria-colinas-de-san-miguel-sinaloa-30295371",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": false,
-      "priceNumber": 2157000,
+      "priceNumber": 2051000.0000000002,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 21.57 mil MN",
-        "title": "Casa en venta disponible en San Juan Bautista #4204, Colonia C..."
+        "price": "$ 20.51 mil MN",
+        "title": "Casa disponible en venta en Lumeria, Colonia Colinas de San Mi..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-villa-del-cedro-sinaloa-30371864",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "inPriceRange": false,
-      "priceNumber": 890000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 8.90 mil MN",
-        "title": "Casa en venta disponible en , Colonia Villa del Cedro"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-belisario-dominguez-sn-chulavista-sinaloa-30167651",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-cerro-de-la-luna-las-ilusiones-sinaloa-29078614",
       "isCuliacan": true,
       "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 335000,
+      "inPriceRange": true,
+      "priceNumber": 1832000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 3.35 mil MN",
-        "title": "Venta de casa Belisario Dominguez #s/n, Colonia Chulavista"
+        "price": "$ 18.32 mil MN",
+        "title": "Casa en venta disponible en Cerro de la Luna, Colonia Las Ilus..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-camino-real-sinaloa-30179634",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 2157000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 21.57 mil MN",
-        "title": "Se vende casa , Colonia Camino Real, C.P. 80247"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-sin-ubicacion--valle-alto-sinaloa-28704583",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "inPriceRange": false,
-      "priceNumber": 2350000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 23.50 mil MN",
-        "title": "Venta de departamento Sin ubicación , Colonia Valle Alto"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-terrones-766-buenos-aires-sinaloa-27644510",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 608000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.08 mil MN",
-        "title": "Venta casa en TERRONES #766, Colonia Buenos Aires, C.P. 80199"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-espadin-459-los-mezcales-sinaloa-29728953",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 927999.9999999999,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 9.28 mil MN",
-        "title": "Se vende casa en Espadin #459, Colonia Los Mezcales, C.P. 80019"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-salvador-elizondo-5839-finisterra-sinaloa-29780618",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 959000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 9.59 mil MN",
-        "title": "Casa en venta disponible en Calle Salvador Elizondo #5839, Co..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-aurora-6-de-enero-sinaloa-28732962",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 594000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 5.94 mil MN",
-        "title": "Casa en venta, Aurora, Colonia 6 de Enero, C.P. 80010"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-torres-portalegre-portalegre-sinaloa-27993167",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-juan-o-gorman-190-lago-tres-rios-sinaloa-30290950",
       "isCuliacan": true,
       "alreadyExists": true,
       "inPriceRange": true,
-      "priceNumber": 1897000,
+      "priceNumber": 1928000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 18.97 mil MN",
-        "title": "Se vende departamento torres portalegre, Colonia Portalegre"
+        "price": "$ 19.28 mil MN",
+        "title": "Se vende casa en juan o gorman #190, Colonia Lago Tres Ríos"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-magnolia-bosques-del-rey-sinaloa-27593164",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-nicolas-bravo--1375-sur-guadalupe-sinaloa-28982744",
+      "isCuliacan": true,
+      "alreadyExists": false,
+      "inPriceRange": true,
+      "priceNumber": 1302000,
+      "data": {
+        "location": "Municipio Culiacán, Sinaloa",
+        "price": "$ 13.02 mil MN",
+        "title": "Se vende casa en NICOLAS BRAVO #1375 SUR, Colonia Guadalupe"
+      }
+    },
+    {
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-blvd-de-las-torres-sn-nueva-galicia-sinaloa-29288621",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": false,
-      "priceNumber": 2028000,
+      "priceNumber": 667000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 20.28 mil MN",
-        "title": "Se vende departamento MAGNOLIA, Colonia Bosques del Rey"
+        "price": "$ 6.67 mil MN",
+        "title": "Venta de casa Blvd de las torres #s/n, Colonia Nueva Galicia"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-camalotes-4765-centro-sinaloa-28763716",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-cd-de-guanajuato-las-quintas-sinaloa-30400525",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1096000,
+      "priceNumber": 1497000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.96 mil MN",
-        "title": "Venta casa en Calle camalotes #4765, Colonia Centro, C.P. 80000"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-virgo-los-alamitos-sinaloa-29997537",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1220000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,220,000 MXN",
-        "title": "Venta de departamento Virgo, Colonia Los Alamitos, C.P. 80018"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-monza-stanza-toscana-sinaloa-28498839",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "inPriceRange": true,
-      "priceNumber": 1171000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 11.71 mil MN",
-        "title": "Casa en venta, Calle Monza, Colonia Stanza Toscana, C.P. 80050"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-bosques-del-rio-sinaloa-30179613",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1118000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 11.18 mil MN",
-        "title": "Venta casa en , Colonia Bosques Del Rio, C.P. 80050"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-jose-limon-1015-tres-rios-sinaloa-27550379",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "inPriceRange": false,
-      "priceNumber": 3599000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 35.99 mil MN",
-        "title": "Venta de departamento José Limon #1015, Colonia Tres Ríos"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-21-de-marzo-sinaloa-30284213",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 626000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 6.26 mil MN",
-        "title": "Casa en venta, , Colonia 21 de Marzo, C.P. 80280"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-amado-nervo-1970-tierra-blanca-sinaloa-28298609",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": false,
-      "priceNumber": 2951000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 29.51 mil MN",
-        "title": "Se vende departamento Amado Nervo #1970Int. 403, Colonia Tierr..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-abeto-centro-sinaloa-28565859",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1096000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.96 mil MN",
-        "title": "Venta de casa en ABETO, Colonia Centro, C.P. 80000"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-manantial-san-agustin-sinaloa-25589090",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1383000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 13.83 mil MN",
-        "title": "Venta de casa Manantial, Colonia San Agustin, C.P. 80184"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-valle-victoria-2444-valle-alto-sinaloa-28829316",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "inPriceRange": true,
-      "priceNumber": 1230000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 12.30 mil MN",
-        "title": "Venta de casa Valle Victoria #2444, Colonia Valle Alto"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-81133-las-moras-sin-las-moras-sinaloa-30353053",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1123000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 11.23 mil MN",
-        "title": "Casa en venta, 81133 Las Moras, Sin., Colonia Las Moras"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-valle-sereno-norte-sn-la-rioja-sinaloa-29222458",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1553000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 15.53 mil MN",
-        "title": "Casa en venta disponible en Calle Valle Sereno Norte #s/n, Col..."
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-av-siete-valles-4688-valle-alto-80050-culiacan-rosales-sin-4688-valle-alto-sinaloa-30358237",
-      "isCuliacan": true,
-      "alreadyExists": true,
-      "inPriceRange": true,
-      "priceNumber": 1230000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 12.30 mil MN",
-        "title": "Casa disponible en venta en Av. Siete Valles 4688, Valle Alto,..."
+        "price": "$ 14.97 mil MN",
+        "title": "Venta de casa Calle Cd. de Guanajuato, Colonia Las Quintas"
       }
     }
   ],
   "newCuliacanProperties": [
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-camalotes-4765-centro-sinaloa-28763716",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-cerro-de-la-luna-las-ilusiones-sinaloa-29078614",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1096000,
+      "priceNumber": 1832000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.96 mil MN",
-        "title": "Venta casa en Calle camalotes #4765, Colonia Centro, C.P. 80000"
+        "price": "$ 18.32 mil MN",
+        "title": "Casa en venta disponible en Cerro de la Luna, Colonia Las Ilus..."
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/departamento-en-venta-virgo-los-alamitos-sinaloa-29997537",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-nicolas-bravo--1375-sur-guadalupe-sinaloa-28982744",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1220000,
+      "priceNumber": 1302000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$1,220,000 MXN",
-        "title": "Venta de departamento Virgo, Colonia Los Alamitos, C.P. 80018"
+        "price": "$ 13.02 mil MN",
+        "title": "Se vende casa en NICOLAS BRAVO #1375 SUR, Colonia Guadalupe"
       }
     },
     {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-bosques-del-rio-sinaloa-30179613",
+      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-cd-de-guanajuato-las-quintas-sinaloa-30400525",
       "isCuliacan": true,
       "alreadyExists": false,
       "inPriceRange": true,
-      "priceNumber": 1118000,
+      "priceNumber": 1497000,
       "data": {
         "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 11.18 mil MN",
-        "title": "Venta casa en , Colonia Bosques Del Rio, C.P. 80050"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-abeto-centro-sinaloa-28565859",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1096000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 10.96 mil MN",
-        "title": "Venta de casa en ABETO, Colonia Centro, C.P. 80000"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-manantial-san-agustin-sinaloa-25589090",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1383000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 13.83 mil MN",
-        "title": "Venta de casa Manantial, Colonia San Agustin, C.P. 80184"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-81133-las-moras-sin-las-moras-sinaloa-30353053",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1123000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 11.23 mil MN",
-        "title": "Casa en venta, 81133 Las Moras, Sin., Colonia Las Moras"
-      }
-    },
-    {
-      "url": "https://propiedades.com/inmuebles/casa-en-venta-calle-valle-sereno-norte-sn-la-rioja-sinaloa-29222458",
-      "isCuliacan": true,
-      "alreadyExists": false,
-      "inPriceRange": true,
-      "priceNumber": 1553000,
-      "data": {
-        "location": "Municipio Culiacán, Sinaloa",
-        "price": "$ 15.53 mil MN",
-        "title": "Casa en venta disponible en Calle Valle Sereno Norte #s/n, Col..."
+        "price": "$ 14.97 mil MN",
+        "title": "Venta de casa Calle Cd. de Guanajuato, Colonia Las Quintas"
       }
     }
   ]

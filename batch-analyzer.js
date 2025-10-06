@@ -1,35 +1,28 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-// URLs encontradas en el listado - PÁGINA 4 (URLs 21-43 PENDIENTES - SIN TERRENOS)
+// URLs encontradas en el listado - PÁGINA 5 (URLs 21-41 PENDIENTES)
 const propertyUrls = [
-    "https://propiedades.com/inmuebles/casa-en-venta-san-pedro-de-san-jose-7788-san-luis-residencial-ii-sinaloa-28729193",
-    "https://propiedades.com/inmuebles/departamento-en-venta-desarrollo-urbano-3-rios-sinaloa-30283916",
-    "https://propiedades.com/inmuebles/casa-en-venta-samoa-perisur-sinaloa-28840298",
-    "https://propiedades.com/inmuebles/casa-en-venta-san-juan-bautista-4204-camino-real-sinaloa-30190659",
-    "https://propiedades.com/inmuebles/casa-en-venta-villa-del-cedro-sinaloa-30371864",
-    "https://propiedades.com/inmuebles/casa-en-venta-belisario-dominguez-sn-chulavista-sinaloa-30167651",
-    "https://propiedades.com/inmuebles/casa-en-venta-camino-real-sinaloa-30179634",
-    "https://propiedades.com/inmuebles/departamento-en-venta-sin-ubicacion--valle-alto-sinaloa-28704583",
-    "https://propiedades.com/inmuebles/casa-en-venta-terrones-766-buenos-aires-sinaloa-27644510",
-    "https://propiedades.com/inmuebles/casa-en-venta-espadin-459-los-mezcales-sinaloa-29728953",
-    "https://propiedades.com/inmuebles/casa-en-venta-calle-salvador-elizondo-5839-finisterra-sinaloa-29780618",
-    "https://propiedades.com/inmuebles/casa-en-venta-aurora-6-de-enero-sinaloa-28732962",
-    "https://propiedades.com/inmuebles/departamento-en-venta-torres-portalegre-portalegre-sinaloa-27993167",
-    "https://propiedades.com/inmuebles/departamento-en-venta-magnolia-bosques-del-rey-sinaloa-27593164",
-    "https://propiedades.com/inmuebles/casa-en-venta-calle-camalotes-4765-centro-sinaloa-28763716",
-    "https://propiedades.com/inmuebles/departamento-en-venta-virgo-los-alamitos-sinaloa-29997537",
-    "https://propiedades.com/inmuebles/casa-en-venta-calle-monza-stanza-toscana-sinaloa-28498839",
-    "https://propiedades.com/inmuebles/casa-en-venta-bosques-del-rio-sinaloa-30179613",
-    "https://propiedades.com/inmuebles/departamento-en-venta-jose-limon-1015-tres-rios-sinaloa-27550379",
-    "https://propiedades.com/inmuebles/casa-en-venta-21-de-marzo-sinaloa-30284213",
-    "https://propiedades.com/inmuebles/departamento-en-venta-amado-nervo-1970-tierra-blanca-sinaloa-28298609",
-    "https://propiedades.com/inmuebles/casa-en-venta-abeto-centro-sinaloa-28565859",
-    "https://propiedades.com/inmuebles/casa-en-venta-manantial-san-agustin-sinaloa-25589090",
-    "https://propiedades.com/inmuebles/casa-en-venta-valle-victoria-2444-valle-alto-sinaloa-28829316",
-    "https://propiedades.com/inmuebles/casa-en-venta-81133-las-moras-sin-las-moras-sinaloa-30353053",
-    "https://propiedades.com/inmuebles/casa-en-venta-calle-valle-sereno-norte-sn-la-rioja-sinaloa-29222458",
-    "https://propiedades.com/inmuebles/casa-en-venta-av-siete-valles-4688-valle-alto-80050-culiacan-rosales-sin-4688-valle-alto-sinaloa-30358237"
+    "https://propiedades.com/inmuebles/departamento-en-venta-avenida-milenium-las-flores-sinaloa-28386852",
+    "https://propiedades.com/inmuebles/casa-en-condominio-en-venta-paseo-portalegre-1-portalegre-sinaloa-30263127",
+    "https://propiedades.com/inmuebles/casa-en-venta-cerro-de-la-aguja-462-colinas-de-san-miguel-sinaloa-30263311",
+    "https://propiedades.com/inmuebles/casa-en-venta-cerro-de-las-cumbres-723-colina-del-rey-sinaloa-28745137",
+    "https://propiedades.com/inmuebles/casa-en-venta-islas-nicobar-sn-prados-del-sur-sinaloa-29082517",
+    "https://propiedades.com/inmuebles/casa-en-venta-san-pedro-3964-infonavit-el-barrio-sinaloa-30263128",
+    "https://propiedades.com/inmuebles/departamento-en-venta-alfonso-g-calderon-central-internacional-milenium-sinaloa-29312606",
+    "https://propiedades.com/inmuebles/casa-en-venta-cerrada-dragonera-2538-2538-amorada-sinaloa-29024089",
+    "https://propiedades.com/inmuebles/casa-en-venta-fuerte-san-fernando-2646-floresta-sinaloa-30261580",
+    "https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-del-roble-urbivilla-del-cedro-80058-culiacan-rosales-sin-sn-stanza-castilla-sinaloa-30309397",
+    "https://propiedades.com/inmuebles/casa-en-venta-cerro-del-tule-1982-colinas-de-san-miguel-sinaloa-28967173",
+    "https://propiedades.com/inmuebles/casa-en-venta-mineral-del-palmarito-2021-la-costera-sinaloa-30240959",
+    "https://propiedades.com/inmuebles/casa-en-venta-paseo-belcantto-sn-belcantto-sinaloa-30167937",
+    "https://propiedades.com/inmuebles/casa-en-venta-zanzibar-5913-perisur-sinaloa-30206013",
+    "https://propiedades.com/inmuebles/casa-en-venta-lumeria-colinas-de-san-miguel-sinaloa-30295371",
+    "https://propiedades.com/inmuebles/casa-en-venta-cerro-de-la-luna-las-ilusiones-sinaloa-29078614",
+    "https://propiedades.com/inmuebles/casa-en-venta-juan-o-gorman-190-lago-tres-rios-sinaloa-30290950",
+    "https://propiedades.com/inmuebles/casa-en-venta-nicolas-bravo--1375-sur-guadalupe-sinaloa-28982744",
+    "https://propiedades.com/inmuebles/casa-en-venta-blvd-de-las-torres-sn-nueva-galicia-sinaloa-29288621",
+    "https://propiedades.com/inmuebles/casa-en-venta-calle-cd-de-guanajuato-las-quintas-sinaloa-30400525"
 ];
 
 // Propiedades existentes en nuestro sistema (extraídas de culiacan/index.html)

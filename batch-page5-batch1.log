@@ -1,0 +1,106 @@
+🔍 Analizando propiedades del listado...
+
+[1/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-san-manuel-las-coloradas-sinaloa-30158113
+[2/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-mateo-rocha-plutarco-elias-calles-sinaloa-30263130
+[3/20] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-prolongacion-alvaro-obregon-tierra-blanca-sinaloa-28283577
+[4/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-san-juan-44-campo-la-baqueta-sinaloa-30220138
+[5/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-monte-caucaso-655-ote-montebello-sinaloa-30308742
+[6/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-boulevard-fernando-de-alencastre-1664-portalegre-sinaloa-30273426
+[7/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-el-barrio-80247-culiacan-rosales-sin-sn-camino-real-sinaloa-30372715
+[8/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-valle-caucaso-valle-alto-sinaloa-30158381
+[9/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-calle-alicante-1-privanzas-sinaloa-28965137
+[10/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-san-alberto--1-prados-del-sur-sinaloa-30202173
+[11/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-calle-miguel-hidalgo-el-barrio-sinaloa-30250601
+[12/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-calzada-del-ecuador-santa-fe-sinaloa-29384688
+[13/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-las-fuentes-los-alamos-los-alamos-80100-culiacan-rosales-sin-los-alamos-sinaloa-30215268
+[14/20] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-boulevard-enrique-sanchez-alonso-2079-2079-tres-rios-sinaloa-29874346
+[15/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-paseo-de-las-rosas-4442-girasoles-sinaloa-30206012
+[16/20] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-guadalupe-victoria-sn-jorge-almada-sinaloa-30115051
+[17/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-carretera-culiacan-los-mochis-espacios-barcelona-sinaloa-29055278
+[18/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-amapas-45-la-campina-sinaloa-30249753
+[19/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-torre-eiffel-7058-torres-aeropuerto-sinaloa-30344590
+[20/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-blvd-el-lago-4514-4514-benevento-residencial-sinaloa-29858647
+
+================================================================================
+📊 RESULTADOS DEL ANÁLISIS
+================================================================================
+Total propiedades analizadas: 20
+✅ De Culiacán: 20
+❌ Fuera de Culiacán: 0
+🔁 Ya existen en sistema: 5
+💰 En rango $1M-$2M: 5
+⚠️  Fuera de rango precio: 12
+⭐ NUEVAS de Culiacán (en rango): 3
+⚠️  Errores: 0
+================================================================================
+
+⚠️  PROPIEDADES FUERA DE RANGO ($1M-$2M) - IGNORADAS:
+
+1. Casa en venta, san manuel, Colonia Las Coloradas, C.P. 80246
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 7.44 mil MN (0.74M)
+
+2. Casa en venta, MATEO ROCHA, Colonia Plutarco Elias Calles
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 7.92 mil MN (0.79M)
+
+3. Venta de departamento Prolongación Álvaro Obregón , Colonia Ti...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 29.51 mil MN (2.95M)
+
+4. Casa disponible en venta en San Juan #44, Colonia Campo La Baq...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $10,500,000 MXN (10.50M)
+
+5. Venta de casa en El Barrio, 80247 Culiacán Rosales, Sin. #s/n,...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 21.57 mil MN (2.16M)
+
+6. Venta casa en Calle Alicante #1, Colonia Privanzas, C.P. 80100
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 34.28 mil MN (3.43M)
+
+7. Se vende casa San Alberto #1, Colonia Prados Del Sur, C.P. 80296
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 8.20 mil MN (0.82M)
+
+8. Se vende casa en Calzada del Ecuador, Colonia Santa Fe
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 9.92 mil MN (0.99M)
+
+9. Casa en venta, Las Fuentes, Los Alamos, Los Álamos, 80100 Culi...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 24.71 mil MN (2.47M)
+
+10. Casa disponible en venta en Paseo de Las Rosas #4442, Colonia ...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 4.43 mil MN (0.44M)
+
+11. Se vende departamento guadalupe victoria #s/n, Colonia Jorge A...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 6.78 mil MN (0.68M)
+
+12. Se vende casa en Torre Eiffel #7058, Colonia Torres Aeropuerto
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 7.73 mil MN (0.77M)
+
+🎯 PROPIEDADES NUEVAS DE CULIACÁN PARA SCRAPING ($1M-$2M):
+
+1. Venta de casa en monte caucaso #655 ote, Colonia Montebello
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 17.12 mil MN (1.71M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-monte-caucaso-655-ote-montebello-sinaloa-30308742
+
+2. Casa disponible en venta en Calle Miguel Hidalgo, Colonia El B...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 18.64 mil MN (1.86M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-calle-miguel-hidalgo-el-barrio-sinaloa-30250601
+
+3. Casa en venta disponible en Amapas #45, Colonia La Campiña
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 13.68 mil MN (1.37M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-amapas-45-la-campina-sinaloa-30249753
+
+💾 Resultados guardados en: batch-analysis-results.json
+
+✅ Análisis completado. 3 propiedades listas para scraping.

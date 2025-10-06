@@ -1,0 +1,106 @@
+🔍 Analizando propiedades del listado...
+
+[1/20] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-avenida-milenium-las-flores-sinaloa-28386852
+[2/20] Analizando: https://propiedades.com/inmuebles/casa-en-condominio-en-venta-paseo-portalegre-1-portalegre-sinaloa-30263127
+[3/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-cerro-de-la-aguja-462-colinas-de-san-miguel-sinaloa-30263311
+[4/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-cerro-de-las-cumbres-723-colina-del-rey-sinaloa-28745137
+[5/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-islas-nicobar-sn-prados-del-sur-sinaloa-29082517
+[6/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-san-pedro-3964-infonavit-el-barrio-sinaloa-30263128
+[7/20] Analizando: https://propiedades.com/inmuebles/departamento-en-venta-alfonso-g-calderon-central-internacional-milenium-sinaloa-29312606
+[8/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-cerrada-dragonera-2538-2538-amorada-sinaloa-29024089
+[9/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-fuerte-san-fernando-2646-floresta-sinaloa-30261580
+[10/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-blvd-paseo-del-roble-urbivilla-del-cedro-80058-culiacan-rosales-sin-sn-stanza-castilla-sinaloa-30309397
+[11/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-cerro-del-tule-1982-colinas-de-san-miguel-sinaloa-28967173
+[12/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-mineral-del-palmarito-2021-la-costera-sinaloa-30240959
+[13/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-paseo-belcantto-sn-belcantto-sinaloa-30167937
+[14/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-zanzibar-5913-perisur-sinaloa-30206013
+[15/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-lumeria-colinas-de-san-miguel-sinaloa-30295371
+[16/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-cerro-de-la-luna-las-ilusiones-sinaloa-29078614
+[17/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-juan-o-gorman-190-lago-tres-rios-sinaloa-30290950
+[18/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-nicolas-bravo--1375-sur-guadalupe-sinaloa-28982744
+[19/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-blvd-de-las-torres-sn-nueva-galicia-sinaloa-29288621
+[20/20] Analizando: https://propiedades.com/inmuebles/casa-en-venta-calle-cd-de-guanajuato-las-quintas-sinaloa-30400525
+
+================================================================================
+📊 RESULTADOS DEL ANÁLISIS
+================================================================================
+Total propiedades analizadas: 20
+✅ De Culiacán: 20
+❌ Fuera de Culiacán: 0
+🔁 Ya existen en sistema: 5
+💰 En rango $1M-$2M: 6
+⚠️  Fuera de rango precio: 12
+⭐ NUEVAS de Culiacán (en rango): 3
+⚠️  Errores: 0
+================================================================================
+
+⚠️  PROPIEDADES FUERA DE RANGO ($1M-$2M) - IGNORADAS:
+
+1. Departamento en venta, Avenida Milenium, Colonia Las Flores
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 40.76 mil MN (4.08M)
+
+2. Casa disponible en venta en CERRO DE LA AGUJA #462, Colonia Co...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 20.51 mil MN (2.05M)
+
+3. Venta de casa Islas Nicobar #s/n, Colonia Prados Del Sur
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 8.20 mil MN (0.82M)
+
+4. Venta de casa San Pedro #3964, Colonia INFONAVIT El Barrio
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 6.81 mil MN (0.68M)
+
+5. Departamento en venta disponible en ALFONSO G. CALDERON, Colon...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 30.93 mil MN (3.09M)
+
+6. Venta casa en Cerrada Dragonera 2538 #2538, Colonia Amorada
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 38.16 mil MN (3.82M)
+
+7. Se vende casa en Fuerte San Fernando #2646, Colonia Floresta
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 9.56 mil MN (0.96M)
+
+8. Casa disponible en venta en Cerro del Tule #1982, Colonia Coli...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 20.51 mil MN (2.05M)
+
+9. Se vende casa Mineral del Palmarito #2021, Colonia La Costera
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 9.25 mil MN (0.93M)
+
+10. Venta de casa zanzibar #5913, Colonia Perisur, C.P. 80197
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 23.18 mil MN (2.32M)
+
+11. Casa disponible en venta en Lumeria, Colonia Colinas de San Mi...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 20.51 mil MN (2.05M)
+
+12. Venta de casa Blvd de las torres #s/n, Colonia Nueva Galicia
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 6.67 mil MN (0.67M)
+
+🎯 PROPIEDADES NUEVAS DE CULIACÁN PARA SCRAPING ($1M-$2M):
+
+1. Casa en venta disponible en Cerro de la Luna, Colonia Las Ilus...
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 18.32 mil MN (1.83M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-cerro-de-la-luna-las-ilusiones-sinaloa-29078614
+
+2. Se vende casa en NICOLAS BRAVO #1375 SUR, Colonia Guadalupe
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 13.02 mil MN (1.30M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-nicolas-bravo--1375-sur-guadalupe-sinaloa-28982744
+
+3. Venta de casa Calle Cd. de Guanajuato, Colonia Las Quintas
+   📍 Municipio Culiacán, Sinaloa
+   💰 $ 14.97 mil MN (1.50M)
+   🔗 https://propiedades.com/inmuebles/casa-en-venta-calle-cd-de-guanajuato-las-quintas-sinaloa-30400525
+
+💾 Resultados guardados en: batch-analysis-results.json
+
+✅ Análisis completado. 3 propiedades listas para scraping.
