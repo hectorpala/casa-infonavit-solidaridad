@@ -164,6 +164,21 @@
       "inmobiliaria": null,
       "fechaAgregada": "2025-10-06",
       "propertyId": "pVj5OFz"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-lomas-del-sol-en-esquina-2-pfnKusE",
+      "titulo": "Casa en Venta Lomas del Sol en esquina, 2 Recámaras con terreno Excedente",
+      "precio": "1,300,000",
+      "ubicacion": "Lomas del Sol, Culiacán",
+      "recamaras": "2",
+      "banos": "1",
+      "estacionamientos": "2",
+      "areaConstruccion": "60",
+      "areaTerreno": "105",
+      "agente": "Roberto Aceves",
+      "inmobiliaria": "Aceves Inmobiliaria",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pfnKusE"
     }
   ]
 }

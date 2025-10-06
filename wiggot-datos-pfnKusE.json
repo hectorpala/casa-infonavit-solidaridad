@@ -1,0 +1,34 @@
+{
+  "propertyId": "pfnKusE",
+  "url": "https://new.wiggot.com/search/property-detail/pfnKusE",
+  "scrapedAt": "2025-10-06T22:44:39.035Z",
+  "data": {
+    "title": "Casa en Venta Lomas del Sol en esquina, 2 Recámaras con terreno Excedente",
+    "price": "1,300,000",
+    "location": "Lomas del Sol, Culiacán",
+    "bedrooms": "2",
+    "bathrooms": "1",
+    "area_construida": "60",
+    "area_terreno": "105",
+    "estacionamientos": "2",
+    "niveles": "2",
+    "description": "¡Tu nuevo hogar te espera! Esta casa de dos plantas en Lomas del Sol, con 2 recámaras y 1 baño, es una\nexcelente opción.",
+    "agente": "Roberto Aceves",
+    "inmobiliaria": "Aceves Inmobiliaria",
+    "images": [
+      "https://media.wiggot.mx/i5hz2Ev-l.jpg",
+      "https://media.wiggot.mx/ic5hKnF-l.jpg",
+      "https://media.wiggot.mx/iqEc9hC-l.jpg",
+      "https://media.wiggot.mx/iHjw75b-l.jpg",
+      "https://media.wiggot.mx/icKMsia-l.jpg",
+      "https://media.wiggot.mx/izDoeUh-l.jpg",
+      "https://media.wiggot.mx/igt4gGz-l.jpg",
+      "https://media.wiggot.mx/iGWOVoh-l.jpg",
+      "https://media.wiggot.mx/ilA9vRA-l.jpg",
+      "https://media.wiggot.mx/ivYuTMB-l.jpg",
+      "https://media.wiggot.mx/aPJoxYg-l.jpg"
+    ],
+    "latitude": "24.8442808795",
+    "longitude": "-107.3823811262"
+  }
+}
