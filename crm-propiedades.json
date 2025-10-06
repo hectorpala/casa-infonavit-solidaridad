@@ -89,6 +89,36 @@
       "inmobiliaria": "PATRIMONY",
       "fechaAgregada": "2025-10-06",
       "propertyId": "pMhspV9"
+    },
+    {
+      "slug": "casa-venta--pNq7XzY",
+      "titulo": "",
+      "precio": "1,900,000",
+      "ubicacion": "Nq7XzY\nplaylist_add\n\nAgregar a lista\n\nios_share\n\nCompartir\n\nVer todas las fotos\n\nCasa\n\nEstado: bueno\n\nHabitacional\n\nCasa en Venta Alameda\nPaseo Andalucía 590 , Alamedas, Culiacán",
+      "recamaras": "3",
+      "banos": "2",
+      "estacionamientos": "2",
+      "areaConstruccion": "104",
+      "areaTerreno": "140",
+      "agente": null,
+      "inmobiliaria": "Bienes Raices Martinez G",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pNq7XzY"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-alameda-pNq7XzY",
+      "titulo": "Casa en Venta Alameda",
+      "precio": "1,900,000",
+      "ubicacion": "Paseo Andalucía 590, Alamedas, Culiacán",
+      "recamaras": "3",
+      "banos": "2",
+      "estacionamientos": "2",
+      "areaConstruccion": "104",
+      "areaTerreno": "140",
+      "agente": null,
+      "inmobiliaria": "Bienes Raices Martinez G",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pNq7XzY"
     }
   ]
 }
