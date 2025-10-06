@@ -224,6 +224,21 @@
       "inmobiliaria": null,
       "fechaAgregada": "2025-10-06",
       "propertyId": "INFONAVIT-SOLIDARIDAD"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a",
+      "titulo": "Casa en Venta Bugambilias, Zona Aeropuerto, habitación en Plata Baja ¡Lista para habitarse!",
+      "precio": "1,800,000",
+      "ubicacion": "Agrapando 6138 , Bugambilias, Culiacán",
+      "recamaras": "3",
+      "banos": "2",
+      "estacionamientos": "2",
+      "areaConstruccion": "N/D",
+      "areaTerreno": "133",
+      "agente": null,
+      "inmobiliaria": "Venza Plus Bienes Raíces",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pYowL0a"
     }
   ]
 }
