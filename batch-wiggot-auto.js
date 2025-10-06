@@ -12,7 +12,7 @@
  * 6. Commit automático
  * 7. Pregunta si publicar
  *
- * Uso: node batch-wiggot-auto.js
+ * Uso: node batch-wiggot-auto.js "URL_DE_BUSQUEDA_WIGGOT"
  */
 
 const puppeteer = require('puppeteer');
@@ -22,8 +22,11 @@ const { execSync } = require('child_process');
 // Configuración
 const WIGGOT_EMAIL = 'hectorpc123@gmail.com';
 const WIGGOT_PASSWORD = 'Hp*020391';
-const SEARCH_URL = 'https://new.wiggot.com/search?page=1&limit=12&propertyType=casa&operationType=venta&minPrice=1000000&maxPrice=2000000&location=Culiac%C3%A1n,%20Sinaloa,%20M%C3%A9xico';
+const SEARCH_URL = process.argv[2] || 'https://new.wiggot.com/search?page=1&limit=12&propertyType=casa&operationType=venta&minPrice=1000000&maxPrice=2000000&location=Culiac%C3%A1n,%20Sinaloa,%20M%C3%A9xico';
 const BATCH_SIZE = 12;
+
+// Helper para wait
+const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 // Colores para consola
 const colors = {
@@ -83,7 +86,7 @@ async function loginWiggot(page) {
     log('\n🔐 Iniciando sesión en Wiggot...', 'blue');
 
     await page.goto('https://new.wiggot.com/search', { waitUntil: 'networkidle2' });
-    await page.waitForTimeout(3000);
+    await wait(3000);
 
     // Detectar si necesita login
     const needsLogin = await page.evaluate(() => {
@@ -101,9 +104,9 @@ async function loginWiggot(page) {
 
     if (inputs.length >= 2) {
         await inputs[0].type(WIGGOT_EMAIL, { delay: 100 });
-        await page.waitForTimeout(500);
+        await wait(500);
         await inputs[1].type(WIGGOT_PASSWORD, { delay: 100 });
-        await page.waitForTimeout(500);
+        await wait(500);
 
         // Buscar botón de login
         const buttons = await page.$$('button');
@@ -115,7 +118,7 @@ async function loginWiggot(page) {
             }
         }
 
-        await page.waitForTimeout(5000);
+        await wait(5000);
         log('✅ Login exitoso', 'green');
         return true;
     }
@@ -220,7 +223,7 @@ async function main() {
         // PASO 2: Navegar a búsqueda
         log('\n🔍 Navegando a página de búsqueda...', 'blue');
         await page.goto(SEARCH_URL, { waitUntil: 'networkidle2' });
-        await page.waitForTimeout(5000);
+        await wait(5000);
 
         // PASO 3: Extraer propertyIds
         const propertyIds = await extractPropertyIds(page);
