@@ -278,6 +278,39 @@ async function scrapeWiggot(propertyId) {
                 }
             }
 
+            // NUEVO: Extraer datos del JSON embebido en scripts
+            // Los datos del agente están en el JSON dentro de <script> tags
+            try {
+                const scriptTags = document.querySelectorAll('script');
+                scriptTags.forEach(script => {
+                    const content = script.textContent || script.innerHTML;
+
+                    // Buscar el JSON que contiene assignedUser
+                    if (content.includes('assignedUser') && content.includes('"name"')) {
+                        // Extraer nombre del agente
+                        const nameMatch = content.match(/"assignedUser":\{[^}]*"name":"([^"]+)"/);
+                        if (nameMatch && nameMatch[1] && !data.agente) {
+                            data.agente = nameMatch[1];
+                        }
+
+                        // Extraer agencyId para determinar si es inmobiliaria
+                        const agencyMatch = content.match(/"agencyId":(\d+|null)/);
+                        if (agencyMatch) {
+                            // Si agencyId es null o 0, es asesor independiente
+                            const agencyId = agencyMatch[1];
+                            if (!agencyId || agencyId === 'null') {
+                                // Es asesor independiente
+                                if (!data.inmobiliaria) {
+                                    data.inmobiliaria = '';
+                                }
+                            }
+                        }
+                    }
+                });
+            } catch (e) {
+                console.log('  ⚠️  Error extrayendo datos de script JSON:', e.message);
+            }
+
             return data;
         });
 

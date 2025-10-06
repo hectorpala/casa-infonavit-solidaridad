@@ -145,8 +145,8 @@
       "estacionamientos": "2",
       "areaConstruccion": "88",
       "areaTerreno": "124",
-      "agente": null,
-      "inmobiliaria": null,
+      "agente": "Alberto Gomez Cruz",
+      "inmobiliaria": "Asesor Independiente",
       "fechaAgregada": "2025-10-06",
       "propertyId": "pLylwsv"
     }
