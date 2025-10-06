@@ -74,6 +74,21 @@
       "inmobiliaria": "CENTURY 21 La Primavera",
       "fechaAgregada": "2025-10-06",
       "propertyId": "p5FCpYR"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-fracc-zona-dorada-pMhspV9",
+      "titulo": "Casa en Venta Fracc Zona Dorada",
+      "precio": "1,295,000",
+      "ubicacion": "Sinaloa 4315 - B, Zona Dorada, Culiacán",
+      "recamaras": "2",
+      "banos": "1.5",
+      "estacionamientos": "1",
+      "areaConstruccion": "57",
+      "areaTerreno": "64",
+      "agente": null,
+      "inmobiliaria": "PATRIMONY",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pMhspV9"
     }
   ]
 }

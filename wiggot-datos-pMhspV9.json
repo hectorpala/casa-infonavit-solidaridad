@@ -1,0 +1,33 @@
+{
+  "propertyId": "pMhspV9",
+  "url": "https://new.wiggot.com/search/property-detail/pMhspV9",
+  "scrapedAt": "2025-10-06T21:55:29.954Z",
+  "data": {
+    "title": "Casa en Venta Fracc Zona Dorada",
+    "price": "1,295,000",
+    "location": "Sinaloa 4315 - B, Zona Dorada, Culiacán",
+    "bedrooms": "2",
+    "bathrooms": "1.5",
+    "area_construida": "57",
+    "area_terreno": "64",
+    "estacionamientos": "1",
+    "niveles": "1",
+    "description": "Bonita casa de dos plantas con excelente ubicación. Cuenta con 2 habitaciones, 1 baño y medio, sala, comedor,\ncocina integral y patio. Totalmente amueblada. Al frente dispone de estacionamiento para un auto.",
+    "agente": "",
+    "inmobiliaria": "PATRIMONY",
+    "images": [
+      "https://media.wiggot.mx/itrkc53-l.jpg",
+      "https://media.wiggot.mx/i6NEGiS-l.jpg",
+      "https://media.wiggot.mx/iMALjjC-l.jpg",
+      "https://media.wiggot.mx/isif9zx-l.jpg",
+      "https://media.wiggot.mx/iurpXwl-l.jpg",
+      "https://media.wiggot.mx/iF4ijfE-l.jpg",
+      "https://media.wiggot.mx/ieBh6KW-l.jpg",
+      "https://media.wiggot.mx/i1FRuaJ-l.jpg",
+      "https://media.wiggot.mx/iV3BTyC-l.jpg",
+      "https://media.wiggot.mx/aXGcFVW-l.jpg"
+    ],
+    "latitude": "24.8513973",
+    "longitude": "-107.3571563"
+  }
+}
