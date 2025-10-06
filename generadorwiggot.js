@@ -209,10 +209,22 @@ html = html.replace(badgeTerrainPattern, `<div class="badge-item">
 const mapSubtitlePattern = /<p class="location-subtitle">.*?<\/p>/;
 html = html.replace(mapSubtitlePattern, `<p class="location-subtitle">${datos.location}</p>`);
 
-// Coordenadas por defecto para Culiacán (centro)
+// Generar URL del mapa: PRIORIDAD coordenadas > dirección
 const mapPattern = /<iframe\s+src="https:\/\/www\.google\.com\/maps\/embed\?pb=[^"]+"/;
+let mapUrl;
+
+if (datos.latitude && datos.longitude) {
+    // MÉTODO 1: Usar coordenadas exactas (más preciso)
+    mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1809!2d${datos.longitude}!3d${datos.latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA5JzEzLjgiTiAxMDfCsDI1JzA0LjEiVw!5e0!3m2!1ses!2smx!4v1696600000000!5m2!1ses!2smx`;
+    console.log(`🗺️  Mapa con coordenadas: ${datos.latitude}, ${datos.longitude}`);
+} else {
+    // MÉTODO 2: Buscar por dirección (fallback)
+    mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(datos.location + ', Culiacán, Sinaloa')}&zoom=15`;
+    console.log(`🗺️  Mapa con dirección: ${datos.location}`);
+}
+
 html = html.replace(mapPattern, `<iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(datos.location + ', Culiacán, Sinaloa')}&zoom=15"`);
+                    src="${mapUrl}"`);
 
 console.log('✅ Reemplazos aplicados (features, badges, mapa)');
 
