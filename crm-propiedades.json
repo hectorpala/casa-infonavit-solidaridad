@@ -119,6 +119,21 @@
       "inmobiliaria": "Bienes Raices Martinez G",
       "fechaAgregada": "2025-10-06",
       "propertyId": "pNq7XzY"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-prados-del-sur-pgXLMhK",
+      "titulo": "Casa en Venta Prados del Sur",
+      "precio": "1,555,000",
+      "ubicacion": "Frisias 5458, Prados del Sur, Culiacán",
+      "recamaras": "2",
+      "banos": "1",
+      "estacionamientos": "2",
+      "areaConstruccion": "66",
+      "areaTerreno": "116",
+      "agente": "Carlos Retamoza",
+      "inmobiliaria": "Retmad Bienes Raices",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pgXLMhK"
     }
   ]
 }
