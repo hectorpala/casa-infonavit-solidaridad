@@ -157,6 +157,54 @@ for (const [buscar, reemplazar] of Object.entries(replacements)) {
     html = html.replace(regex, reemplazar);
 }
 
+// CORRECCIONES ESPECÍFICAS POST-REEMPLAZO
+
+// 1. Corregir features section (iconos y valores)
+const areaConstruccion = datos.area_construida || 'N/D';
+const areaTerreno = datos.area_terreno;
+
+// Reemplazar sección features completa
+const featuresPattern = /<div class="feature-item">\s*<i class="fas fa-bath"><\/i>\s*<span class="feature-value">[\d.]+<\/span>\s*<span class="feature-label">baño[s]?<\/span>\s*<\/div>/;
+html = html.replace(featuresPattern, `<div class="feature-item">
+                    <i class="fas fa-bath"></i>
+                    <span class="feature-value">${datos.bathrooms}</span>
+                    <span class="feature-label">baño${parseFloat(datos.bathrooms) > 1 ? 's' : ''}</span>
+                </div>`);
+
+// Reemplazar estacionamientos
+const parkingPattern = /<div class="feature-item">\s*<i class="fas fa-car"><\/i>\s*<span class="feature-value">\d+<\/span>\s*<span class="feature-label">autos?<\/span>\s*<\/div>/;
+html = html.replace(parkingPattern, `<div class="feature-item">
+                    <i class="fas fa-car"></i>
+                    <span class="feature-value">${datos.estacionamientos}</span>
+                    <span class="feature-label">auto${datos.estacionamientos > 1 ? 's' : ''}</span>
+                </div>`);
+
+// Reemplazar m² construcción en features section
+const constructionFeaturePattern = /<div class="feature-item">\s*<i class="fas fa-ruler-combined"><\/i>\s*<span class="feature-value">[^<]*<\/span>\s*<span class="feature-label">m²<\/span>\s*<\/div>/;
+html = html.replace(constructionFeaturePattern, `<div class="feature-item">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span class="feature-value">${areaConstruccion}</span>
+                    <span class="feature-label">m² const.</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-vector-square"></i>
+                    <span class="feature-value">${areaTerreno}</span>
+                    <span class="feature-label">m² terreno</span>
+                </div>`);
+
+// 2. Corregir badges section (Details)
+const badgeConstructionPattern = /<div class="badge-item">\s*<i class="fas fa-ruler-combined"><\/i>\s*<span>[^<]*m² construcción<\/span>\s*<\/div>/;
+html = html.replace(badgeConstructionPattern, `<div class="badge-item">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span>${areaConstruccion} m² construcción</span>
+                </div>`);
+
+const badgeTerrainPattern = /<div class="badge-item">\s*<i class="fas fa-border-all"><\/i>\s*<span>[^<]*m² terreno<\/span>\s*<\/div>/;
+html = html.replace(badgeTerrainPattern, `<div class="badge-item">
+                    <i class="fas fa-vector-square"></i>
+                    <span>${areaTerreno} m² terreno</span>
+                </div>`);
+
 console.log('✅ Reemplazos aplicados');
 
 // Guardar HTML
