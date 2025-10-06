@@ -1,0 +1,79 @@
+{
+  "propiedades": [
+    {
+      "slug": "casa-venta-villa-bonita-pODipRm",
+      "titulo": "Casa en Venta VILLA BONITA EN CULIACAN SINALOA",
+      "precio": "1,750,000",
+      "ubicacion": "Este 220, Bonita, Culiacán",
+      "recamaras": "2",
+      "banos": "1.5",
+      "estacionamientos": "2",
+      "areaConstruccion": "70",
+      "areaTerreno": "112",
+      "agente": "Marcela Landell Sato",
+      "inmobiliaria": "2mas2 Inmobiaria",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pODipRm"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-nuevo-culiacan-la-casa-de--pLr4tUR",
+      "titulo": "Casa en Venta Nuevo Culiacán, La Casa de Buscabas",
+      "precio": "1,875,000",
+      "ubicacion": "Ohuira 1577, Nuevo Culiacán, Culiacán",
+      "recamaras": "2",
+      "banos": "2.5",
+      "estacionamientos": "1",
+      "areaConstruccion": "N/D",
+      "areaTerreno": "124",
+      "agente": null,
+      "inmobiliaria": "ELEVARÉ INMOBILIARIA",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pLr4tUR"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-privada-punta-azul-pBcIydL",
+      "titulo": "Casa en Venta Privada Punta Azul",
+      "precio": "1,980,000",
+      "ubicacion": "Punta Azul, Culiacán",
+      "recamaras": "2",
+      "banos": "1.5",
+      "estacionamientos": "2",
+      "areaConstruccion": "100",
+      "areaTerreno": "99",
+      "agente": "Barajas Uriarte",
+      "inmobiliaria": "JOMAR Inmobiliaria",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pBcIydL"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-fracc-riveras-de-tamazula-pBw6ow5",
+      "titulo": "Casa en Venta Fracc Riveras De Tamazula",
+      "precio": "1,550,000",
+      "ubicacion": "Blvd Riberas De Tamazula 2330, Fracc Riveras De Tamazula, Culiacán",
+      "recamaras": "2",
+      "banos": "1",
+      "estacionamientos": "2",
+      "areaConstruccion": "52",
+      "areaTerreno": "158",
+      "agente": null,
+      "inmobiliaria": "CLOD BIENES RAÍCES",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pBw6ow5"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-lomas-del-sol-culiacan-sin-p5FCpYR",
+      "titulo": "Casa en Venta LOMAS DEL SOL CULIACAN SINALOA",
+      "precio": "1,550,000",
+      "ubicacion": "Aurora 660, Lomas Del Sol, Culiacán",
+      "recamaras": "2",
+      "banos": "1",
+      "estacionamientos": "2",
+      "areaConstruccion": "105",
+      "areaTerreno": "55",
+      "agente": "La Primavera",
+      "inmobiliaria": "CENTURY 21 La Primavera",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "p5FCpYR"
+    }
+  ]
+}

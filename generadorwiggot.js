@@ -319,8 +319,42 @@ if (insertPoint !== -1) {
     console.log('   Agrégala manualmente en culiacan/index.html');
 }
 
+// Agregar al CRM interno
+console.log('');
+console.log('📊 AGREGANDO AL CRM INTERNO...');
+
+const crm = JSON.parse(fs.readFileSync('crm-propiedades.json', 'utf8'));
+
+const nuevaPropiedad = {
+    slug: slug,
+    titulo: datos.title,
+    precio: datos.price,
+    ubicacion: datos.location,
+    recamaras: datos.bedrooms,
+    banos: datos.bathrooms,
+    estacionamientos: datos.estacionamientos,
+    areaConstruccion: datos.area_construida || 'N/D',
+    areaTerreno: datos.area_terreno,
+    agente: datos.agente || null,
+    inmobiliaria: datos.inmobiliaria || null,
+    fechaAgregada: todayDate,
+    propertyId: propertyId
+};
+
+crm.propiedades.push(nuevaPropiedad);
+fs.writeFileSync('crm-propiedades.json', JSON.stringify(crm, null, 2));
+
+console.log('✅ Propiedad agregada al CRM');
+if (datos.agente || datos.inmobiliaria) {
+    console.log(`   👤 Agente: ${datos.agente || 'N/D'}`);
+    console.log(`   🏢 Inmobiliaria: ${datos.inmobiliaria || 'N/D'}`);
+}
+
 console.log('');
 console.log('🌐 REVISAR LOCALMENTE:');
 console.log(`   open "${carpetaDestino}/index.html"`);
+console.log('');
+console.log('💡 CONSULTAR CRM:');
+console.log(`   node consultar-crm.js "${datos.title.substring(0, 20)}"`);
 console.log('');
 console.log('✅ GENERACIÓN COMPLETADA');
