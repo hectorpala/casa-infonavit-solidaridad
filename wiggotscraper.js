@@ -178,18 +178,23 @@ async function scrapeWiggot(propertyId) {
             const nivelesMatch = allText.match(/Niveles?\s*(\d+)/i);
             if (nivelesMatch) data.niveles = nivelesMatch[1];
 
-            // Área construida
-            const areaMatch = allText.match(/Área\s+construida\s*(\d+)\s*m/i);
+            // Área construida (acepta decimales)
+            const areaMatch = allText.match(/Área\s+construida\s*(\d+(?:\.\d+)?)\s*m/i);
             if (areaMatch) data.area_construida = areaMatch[1];
 
             // Terreno
             const terrenoMatch = allText.match(/Tamaño\s+del\s+terreno\s*(\d+)\s*m/i);
             if (terrenoMatch) data.area_terreno = terrenoMatch[1];
 
-            // Descripción
-            const descMatch = allText.match(/Descripción\s*([^\n]+(?:\n(?!Características|Superficie|Ver más)[^\n]+)*)/i);
+            // Descripción - Captura TODO hasta "Ver más" o siguiente sección
+            const descMatch = allText.match(/Descripción\s*([\s\S]+?)(?:Ver más|Detalles de operación|Características del inmueble|$)/i);
             if (descMatch) {
-                data.description = descMatch[1].trim().replace(/Ver más/g, '');
+                data.description = descMatch[1]
+                    .trim()
+                    .replace(/\n+/g, ' ')  // Reemplaza múltiples saltos de línea con espacios
+                    .replace(/\s+/g, ' ')   // Normaliza espacios múltiples
+                    .replace(/Ver más/g, '')
+                    .trim();
             }
 
             // Agente e Inmobiliaria (USO INTERNO - NO SE PUBLICA)
