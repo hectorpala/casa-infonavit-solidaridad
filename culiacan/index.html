@@ -4784,7 +4784,8 @@
 
             <!-- BEGIN CARD-ADV casa-venta-portalegre-045360 -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
-                 data-href="casa-venta-portalegre-045360/index.html">
+                 data-href="casa-venta-portalegre-045360/index.html"
+                 data-date="2025-10-06">
                 <div class="relative aspect-video">
                     <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
                         $3,350,000
@@ -4825,7 +4826,8 @@
 
             <!-- BEGIN CARD-ADV casa-venta-villa-bonita-pODipRm -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
-                 data-href="casa-venta-villa-bonita-pODipRm/index.html">
+                 data-href="casa-venta-villa-bonita-pODipRm/index.html"
+                 data-date="2025-10-06">
                 <div class="relative aspect-video">
                     <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
                         $1,750,000
@@ -11602,8 +11604,9 @@
             case 'price_high':
               return priceB - priceA;
             case 'newest':
-              // Por ahora mantener orden actual
-              return 0;
+              const dateA = new Date(a.dataset.date || '2020-01-01');
+              const dateB = new Date(b.dataset.date || '2020-01-01');
+              return dateB - dateA; // Más recientes primero
             default:
               return 0;
           }
@@ -11748,7 +11751,22 @@
       
       // Inicializar display de resultados
       updateResultsDisplay(allCards.length);
-      
+
+      // Ordenar por más recientes al cargar la página
+      if (filterSort) {
+        filterSort.value = 'newest';
+        const cardsArray = Array.from(allCards);
+        cardsArray.sort((a, b) => {
+          const dateA = new Date(a.dataset.date || '2020-01-01');
+          const dateB = new Date(b.dataset.date || '2020-01-01');
+          return dateB - dateA; // Más recientes primero
+        });
+        if (grid && grid !== document.body) {
+          cardsArray.forEach(card => grid.appendChild(card));
+        }
+        console.log('🔥 Propiedades ordenadas por más recientes');
+      }
+
       console.log('🔥 Sistema de filtros avanzado listo');
       // ===== Estilos CSS para filtros
       const style = document.createElement('style');
