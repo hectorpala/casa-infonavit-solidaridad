@@ -1,0 +1,35 @@
+{
+  "propertyId": "pvAQsal",
+  "url": "https://new.wiggot.com/search/property-detail/pvAQsal",
+  "scrapedAt": "2025-10-06T22:50:02.871Z",
+  "data": {
+    "title": "Casa en Venta Fracc Portabelo",
+    "price": "1,700,000",
+    "location": "Portabelo - Avenida Canal De Panamá 2194, Fracc Floresta, Culiacán",
+    "bedrooms": "2",
+    "bathrooms": "1.5",
+    "area_construida": "96",
+    "area_terreno": "104",
+    "estacionamientos": "2",
+    "niveles": "2",
+    "description": "* Planta baja\nEspacio de sala cocina y comedor\nMedio baño\nPatio cerrado\nPasillo lateral\nCochera para 2 carros",
+    "agente": "Maricela Castro",
+    "inmobiliaria": "Ubica Inmuebles",
+    "images": [
+      "https://media.wiggot.mx/idDwDdY-l.jpg",
+      "https://media.wiggot.mx/ipLHlI2-l.jpg",
+      "https://media.wiggot.mx/ibovXCb-l.jpg",
+      "https://media.wiggot.mx/iAEPP5I-l.jpg",
+      "https://media.wiggot.mx/iggSvQE-l.jpg",
+      "https://media.wiggot.mx/iJrfhC1-l.jpg",
+      "https://media.wiggot.mx/iWS6JmI-l.jpg",
+      "https://media.wiggot.mx/i4c10e1-l.jpg",
+      "https://media.wiggot.mx/iGLcBQM-l.jpg",
+      "https://media.wiggot.mx/ieqJfDp-l.jpg",
+      "https://media.wiggot.mx/ii5eoqv-l.jpg",
+      "https://media.wiggot.mx/aZKi8nx-l.jpg"
+    ],
+    "latitude": "24.8342984",
+    "longitude": "-107.356157"
+  }
+}

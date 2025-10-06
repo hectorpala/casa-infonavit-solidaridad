@@ -179,6 +179,21 @@
       "inmobiliaria": "Aceves Inmobiliaria",
       "fechaAgregada": "2025-10-06",
       "propertyId": "pfnKusE"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-fracc-portabelo-pvAQsal",
+      "titulo": "Casa en Venta Fracc Portabelo",
+      "precio": "1,700,000",
+      "ubicacion": "Portabelo - Avenida Canal De Panamá 2194, Fracc Floresta, Culiacán",
+      "recamaras": "2",
+      "banos": "1.5",
+      "estacionamientos": "2",
+      "areaConstruccion": "96",
+      "areaTerreno": "104",
+      "agente": "Maricela Castro",
+      "inmobiliaria": "Ubica Inmuebles",
+      "fechaAgregada": "2025-10-06",
+      "propertyId": "pvAQsal"
     }
   ]
 }
