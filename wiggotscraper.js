@@ -92,8 +92,40 @@ async function scrapeWiggot(propertyId) {
             // Esperar a que la página cargue completamente
             await new Promise(resolve => setTimeout(resolve, 3000));
 
-            // Estrategia 1: Buscar por texto exacto usando XPath
+            // Estrategia MEJORADA: Buscar por múltiples variantes
             const photoButtonFound = await page.evaluate(() => {
+                // Lista de textos posibles
+                const searchTexts = [
+                    'ver más fotos',
+                    'ver mas fotos',
+                    'ver más',
+                    'ver mas',
+                    'más fotos',
+                    'mas fotos',
+                    'ver todas',
+                    'ver todas las fotos',
+                    'galería',
+                    'galeria',
+                    'fotos'
+                ];
+
+                // Buscar TODOS los elementos clickeables
+                const allElements = document.querySelectorAll('button, a, div[role="button"], span[onclick], div[onclick]');
+
+                for (const element of allElements) {
+                    const text = element.textContent.trim().toLowerCase();
+
+                    // Si contiene alguna de las palabras clave
+                    for (const searchText of searchTexts) {
+                        if (text.includes(searchText) && text.length < 50) {
+                            console.log('Found button with text:', text);
+                            element.click();
+                            return true;
+                        }
+                    }
+                }
+
+                // Fallback: Buscar usando TreeWalker
                 const walker = document.createTreeWalker(
                     document.body,
                     NodeFilter.SHOW_TEXT,
@@ -104,22 +136,19 @@ async function scrapeWiggot(propertyId) {
                 let node;
                 while (node = walker.nextNode()) {
                     const text = node.textContent.trim().toLowerCase();
-                    if (text === 'ver más fotos' || text === 'ver mas fotos') {
-                        // Encontrar el elemento clickeable parent
-                        let parent = node.parentElement;
-                        while (parent && parent !== document.body) {
-                            const tag = parent.tagName.toLowerCase();
-                            const isClickable = tag === 'button' ||
-                                              tag === 'a' ||
-                                              parent.onclick ||
-                                              parent.getAttribute('role') === 'button' ||
-                                              window.getComputedStyle(parent).cursor === 'pointer';
-
-                            if (isClickable) {
-                                parent.click();
-                                return true;
+                    for (const searchText of searchTexts) {
+                        if (text.includes(searchText) && text.length < 50) {
+                            let parent = node.parentElement;
+                            while (parent && parent !== document.body) {
+                                const tag = parent.tagName.toLowerCase();
+                                if (tag === 'button' || tag === 'a' || parent.onclick ||
+                                    parent.getAttribute('role') === 'button') {
+                                    console.log('Found clickable parent with text:', text);
+                                    parent.click();
+                                    return true;
+                                }
+                                parent = parent.parentElement;
                             }
-                            parent = parent.parentElement;
                         }
                     }
                 }
