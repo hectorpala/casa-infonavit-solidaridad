@@ -86,29 +86,75 @@ async function scrapeWiggot(propertyId) {
         console.log('📸 PASO 5: Cargando TODAS las fotos...\n');
 
         try {
-            // Buscar botones con texto relacionado a fotos
-            const buttons = await page.$$('button, a, div[role="button"]');
-            let foundPhotoButton = false;
+            // CRÍTICO: Buscar y clickear "Ver más fotos" para abrir galería completa
+            console.log('   🔍 Buscando botón "Ver más fotos"...');
 
-            for (const button of buttons) {
-                const text = await page.evaluate(el => el.innerText, button).catch(() => '');
-                if (text.includes('Ver todas') || text.includes('ver todas') ||
-                    text.includes('Ver más fotos') || text.includes('todas las fotos')) {
-                    console.log(`   🖱️  Click en: "${text}"`);
-                    await button.click();
-                    foundPhotoButton = true;
-                    await new Promise(resolve => setTimeout(resolve, 4000));
-                    break;
+            // Esperar a que la página cargue completamente
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
+            // Estrategia 1: Buscar por texto exacto usando XPath
+            const photoButtonFound = await page.evaluate(() => {
+                const walker = document.createTreeWalker(
+                    document.body,
+                    NodeFilter.SHOW_TEXT,
+                    null,
+                    false
+                );
+
+                let node;
+                while (node = walker.nextNode()) {
+                    const text = node.textContent.trim().toLowerCase();
+                    if (text === 'ver más fotos' || text === 'ver mas fotos') {
+                        // Encontrar el elemento clickeable parent
+                        let parent = node.parentElement;
+                        while (parent && parent !== document.body) {
+                            const tag = parent.tagName.toLowerCase();
+                            const isClickable = tag === 'button' ||
+                                              tag === 'a' ||
+                                              parent.onclick ||
+                                              parent.getAttribute('role') === 'button' ||
+                                              window.getComputedStyle(parent).cursor === 'pointer';
+
+                            if (isClickable) {
+                                parent.click();
+                                return true;
+                            }
+                            parent = parent.parentElement;
+                        }
+                    }
                 }
-            }
+                return false;
+            });
 
-            if (!foundPhotoButton) {
-                console.log('   📜 Haciendo scroll para lazy-load de imágenes...');
-                // Scroll down y up para activar lazy loading
-                await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-                await new Promise(resolve => setTimeout(resolve, 2000));
+            if (photoButtonFound) {
+                console.log('   ✅ Click en "Ver más fotos" exitoso');
+                await new Promise(resolve => setTimeout(resolve, 7000)); // Esperar que abra el modal
+
+                // Scroll dentro del modal/galería para cargar lazy loading
+                console.log('   📜 Scrolling en galería completa...');
+                for (let i = 0; i < 15; i++) {
+                    await page.evaluate(() => {
+                        // Scroll en el modal si existe, sino en la página
+                        const modal = document.querySelector('[role="dialog"], .modal, .lightbox');
+                        if (modal) {
+                            modal.scrollBy(0, 300);
+                        } else {
+                            window.scrollBy(0, 300);
+                        }
+                    });
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                }
+                await new Promise(resolve => setTimeout(resolve, 5000));
+
+            } else {
+                console.log('   ⚠️  Botón "Ver más fotos" no encontrado');
+                console.log('   📜 Haciendo scroll normal...');
+                for (let i = 0; i < 8; i++) {
+                    await page.evaluate(() => window.scrollBy(0, 400));
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                }
                 await page.evaluate(() => window.scrollTo(0, 0));
-                await new Promise(resolve => setTimeout(resolve, 2000));
+                await new Promise(resolve => setTimeout(resolve, 3000));
             }
         } catch (e) {
             console.log('   ⚠️  Error cargando fotos:', e.message);
