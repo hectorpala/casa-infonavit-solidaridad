@@ -19,6 +19,7 @@ const https = require('https');
 const http = require('http');
 const path = require('path');
 const crypto = require('crypto');
+const { execSync } = require('child_process');
 
 // ============================================
 // BLOQUE 1: VARIABLES Y SEGURIDAD (.env)
@@ -1262,6 +1263,95 @@ function finalizePublication(masterJSON, publishResult) {
 // FIN BLOQUE 9
 // ============================================
 
+// ============================================
+// AUTO-PUBLICADOR INTERNO (GIT)
+// ============================================
+
+async function autoPublish(config, masterJSON, mode) {
+    if (mode === 'test') {
+        console.log('⚠️  MODO TEST: Auto-publicación deshabilitada');
+        return { success: false, reason: 'test_mode' };
+    }
+
+    console.log('');
+    console.log('🚀 PASO 7/7: Auto-publicación a GitHub Pages...');
+
+    try {
+        // 1. Git status para ver cambios
+        console.log('   📊 Verificando cambios...');
+        const status = execSync('git status --short', { encoding: 'utf8' });
+
+        if (!status.trim()) {
+            console.log('   ℹ️  No hay cambios para publicar');
+            return { success: false, reason: 'no_changes' };
+        }
+
+        console.log('   📝 Cambios detectados:');
+        status.split('\n').filter(l => l.trim()).slice(0, 5).forEach(line => {
+            console.log(`      ${line}`);
+        });
+
+        // 2. Git add
+        console.log('');
+        console.log('   ➕ Agregando cambios...');
+        execSync(`git add culiacan/${config.slug}/ data/items/ culiacan/index.html`, { encoding: 'utf8' });
+
+        // 3. Crear commit message
+        const priceFormatted = typeof config.price === 'number'
+            ? config.price.toLocaleString('en-US')
+            : config.price;
+
+        const commitMsg = `Add: ${config.title}
+
+Propiedad scrapeada de Wiggot y publicada automáticamente
+
+DATOS:
+- ID: ${masterJSON.id}
+- Precio: $${priceFormatted}
+- Ubicación: ${config.location}
+- Recámaras: ${config.bedrooms}
+- Baños: ${config.bathrooms}
+- Fotos: ${masterJSON.data.photos?.images?.length || 0}
+- Content hash: ${masterJSON.content_hash}
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>`;
+
+        // 4. Git commit con heredoc para manejar saltos de línea
+        console.log('   💾 Creando commit...');
+        execSync(`git commit -m "$(cat <<'EOF'\n${commitMsg}\nEOF\n)"`, {
+            encoding: 'utf8',
+            shell: '/bin/bash'
+        });
+
+        // 5. Git push
+        console.log('   🚀 Pusheando a GitHub...');
+        execSync('git push', { encoding: 'utf8' });
+
+        console.log('');
+        console.log('   ✅ Publicación exitosa!');
+        console.log('   🌐 La propiedad estará disponible en 1-2 minutos en:');
+        console.log(`      https://casasenventa.info/culiacan/${config.slug}/`);
+        console.log('');
+
+        return { success: true, url: `https://casasenventa.info/culiacan/${config.slug}/` };
+
+    } catch (error) {
+        console.error('');
+        console.error('   ❌ Error en auto-publicación:', error.message);
+        console.error('   ℹ️  Puedes publicar manualmente con:');
+        console.error('      git add . && git commit -m "Add propiedad" && git push');
+        console.error('');
+
+        return { success: false, reason: 'git_error', error: error.message };
+    }
+}
+
+// ============================================
+// FUNCIÓN PRINCIPAL
+// ============================================
+
 async function main() {
     const url = process.argv.find(arg => arg.includes('wiggot.com'));
 
@@ -1668,9 +1758,16 @@ async function main() {
     console.log(`   - HTML: ${CONFIG.mode.paths.html}/${slug}/`);
     console.log(`   - Imágenes: ${CONFIG.mode.paths.html}/${slug}/images/`)
     console.log('');
-    if (!CONFIG.mode.isTest) {
-        console.log('🚀 SIGUIENTE PASO: Ejecuta "publica ya" para deployment');
-    } else {
+
+    // Auto-publicación si está en modo PROD
+    if (CONFIG.mode.isProd) {
+        const publishResult = await autoPublish(config, masterJSON, MODE);
+
+        if (!publishResult.success) {
+            console.log('💡 TIP: Puedes publicar manualmente con:');
+            console.log('   git add . && git commit -m "Add propiedad" && git push');
+        }
+    } else if (CONFIG.mode.isTest) {
         console.log('⚠️  MODO TEST: Archivos generados en carpetas _test (no publicar)');
     }
 
