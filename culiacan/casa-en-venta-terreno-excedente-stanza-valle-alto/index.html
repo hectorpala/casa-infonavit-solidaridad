@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa en Venta $ - , Culiacán | Hector es Bienes Raíces</title>
-    <meta name="description" content="Casa en venta en , Culiacán. 2 recámaras, 1 baño, 98m² terreno. ¡Contáctanos!">
-    <meta name="keywords" content="casa venta Culiacán, , 2 recámaras, patio amplio">
+    <meta name="description" content="Casa en venta en , Culiacán. 3 recámaras, 2 baños, 133m² terreno. ¡Contáctanos!">
+    <meta name="keywords" content="casa venta Culiacán, , 3 recámaras, patio amplio">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://casasenventa.info/culiacan/casa-en-venta-terreno-excedente-stanza-valle-alto/">
     
@@ -27,15 +27,7 @@
     
     <!-- Open Graph -->
     <meta property="og:title" content="Casa en Venta $ - ">
-    <meta property="og:description" content="Venta hermosa casa en venta 
-2 plantas
-2 recamaras
-1baño completo
-1medio baño
-espacio concina, sala y comedor
-amplio patio
-cochera para 2 autos
-**call...">
+    <meta property="og:description" content="Sorprendente casa lista para habitar, con 3 recámaras una en la Planta Baja y 2 baños completos, ideal para tu familia. Esta propiedad destaca por su comodidad y funcionalidad. Con jardín privado, cocina integral equipada, aire acondicionado y facilidades para adultos mayores.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://casasenventa.info/culiacan/casa-en-venta-terreno-excedente-stanza-valle-alto/">
     <meta property="og:image" content="https://casasenventa.info/culiacan/casa-en-venta-terreno-excedente-stanza-valle-alto/images/foto-1.jpg">
@@ -45,17 +37,8 @@ cochera para 2 autos
     {
       "@context": "https://schema.org",
       "@type": "SingleFamilyResidence",
-      "name": "Casa en Venta ",
-      "description": "Venta hermosa casa en venta 
-2 plantas
-2 recamaras
-1baño completo
-1medio baño
-espacio concina, sala y comedor
-amplio patio
-cochera para 2 autos
-**calle cerrada 
-excelente ubicación a unas cuadras de b...",
+      "name": "Casa en Venta , Zona Aeropuerto, habitación en Plata Baja ¡Lista para habitarse!",
+      "description": "Sorprendente casa lista para habitar, con 3 recámaras una en la Planta Baja y 2 baños completos, ideal para tu familia. Esta propiedad destaca por su comodidad y funcionalidad. Con jardín privado, cocina integral equipada, aire acondicionado y facilidades para adultos mayores.",
       "url": "https://casasenventa.info/culiacan/casa-en-venta-terreno-excedente-stanza-valle-alto/",
       "image": [
         "https://casasenventa.info/culiacan/casa-en-venta-terreno-excedente-stanza-valle-alto/images/foto-1.jpg",
@@ -98,7 +81,7 @@ excelente ubicación a unas cuadras de b...",
       "numberOfFullBathrooms": 1,
       "offers": {
         "@type": "Offer",
-        "price": "2490000",
+        "price": "",
         "priceCurrency": "MXN"
       },
       "amenityFeature": [
@@ -116,10 +99,10 @@ excelente ubicación a unas cuadras de b...",
     }
     </script>
     <!-- Preload critical resources -->
-    <link rel="preload" href="styles.css?v=1759807115" as="style">
+    <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="images/fachada1.jpg" as="image">
     
-    <link rel="stylesheet" href="styles.css?v=1759807115">
+    <link rel="stylesheet" href="styles.css">
     <!-- Optimized font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -134,7 +117,65 @@ excelente ubicación a unas cuadras de b...",
     <!-- Font Awesome optimizado con preload -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
-    
+
+    <!-- FIX CARRUSEL - Estilos que funcionan del test -->
+    <style>
+        .hero-image .carousel-wrapper {
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        .hero-image .carousel-slide {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            opacity: 0 !important;
+            transition: opacity 0.5s ease !important;
+        }
+
+        .hero-image .carousel-slide.active {
+            opacity: 1 !important;
+            z-index: 1 !important;
+        }
+
+        .hero-image .carousel-slide img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+
+        .hero-image .carousel-arrow {
+            position: absolute !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            background: rgba(255, 78, 0, 0.9) !important;
+            border: none !important;
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50% !important;
+            cursor: pointer !important;
+            font-size: 24px !important;
+            color: white !important;
+            z-index: 100 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 4px 15px rgba(255, 78, 0, 0.3) !important;
+        }
+
+        .hero-image .carousel-prev { left: 20px !important; }
+        .hero-image .carousel-next { right: 20px !important; }
+
+        .hero-image .carousel-arrow:hover {
+            background: rgba(255, 78, 0, 1) !important;
+            transform: translateY(-50%) scale(1.1) !important;
+            box-shadow: 0 6px 20px rgba(255, 78, 0, 0.5) !important;
+        }
+    </style>
+
 </head>
 <body>
     <!-- Header -->
@@ -259,6 +300,69 @@ excelente ubicación a unas cuadras de b...",
                          decoding="async"
                          onclick="openLightbox(13)">
                 </div>
+                <div class="carousel-slide" data-slide="5">
+                    <img src="images/foto-6.jpg"
+                         alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 6"
+                         loading="lazy"
+                         decoding="async"
+                         onclick="openLightbox(5)">
+                </div>
+                <div class="carousel-slide" data-slide="6">
+                    <img src="images/foto-7.jpg"
+                         alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 7"
+                         loading="lazy"
+                         decoding="async"
+                         onclick="openLightbox(6)">
+                </div>
+                <div class="carousel-slide" data-slide="7">
+                    <img src="images/foto-8.jpg"
+                         alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 8"
+                         loading="lazy"
+                         decoding="async"
+                         onclick="openLightbox(7)">
+                </div>
+                <div class="carousel-slide" data-slide="8">
+                    <img src="images/foto-9.jpg"
+                         alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 9"
+                         loading="lazy"
+                         decoding="async"
+                         onclick="openLightbox(8)">
+                </div>
+                <div class="carousel-slide" data-slide="9">
+                    <img src="images/foto-10.jpg"
+                         alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 10"
+                         loading="lazy"
+                         decoding="async"
+                         onclick="openLightbox(9)">
+                </div>
+                <div class="carousel-slide" data-slide="10">
+                    <img src="images/foto-11.jpg"
+                         alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 11"
+                         loading="lazy"
+                         decoding="async"
+                         onclick="openLightbox(10)">
+                </div>
+                <div class="carousel-slide" data-slide="11">
+                    <img src="images/foto-12.jpg"
+                         alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 12"
+                         loading="lazy"
+                         decoding="async"
+                         onclick="openLightbox(11)">
+                </div>
+                <div class="carousel-slide" data-slide="12">
+                    <img src="images/foto-13.jpg"
+                         alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 13"
+                         loading="lazy"
+                         decoding="async"
+                         onclick="openLightbox(12)">
+                </div>
+                <div class="carousel-slide" data-slide="13">
+                    <img src="images/foto-14.jpg"
+                         alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 14"
+                         loading="lazy"
+                         decoding="async"
+                         onclick="openLightbox(13)">
+                </div>
                 <div class="carousel-slide" data-slide="14">
                     <img src="images/foto-15.jpg"
                          alt="casa-en-venta-terreno-excedente-stanza-valle-alto - Vista 15"
@@ -284,7 +388,7 @@ excelente ubicación a unas cuadras de b...",
 
                 <!-- Price Badge -->
                 <div class="price-badge">
-                    <span class="price-amount">$2,490,000</span>
+                    <span class="price-amount">$</span>
                     <span class="price-label">En Venta</span>
                 </div>
                 
@@ -306,6 +410,15 @@ excelente ubicación a unas cuadras de b...",
                 <button class="carousel-dot" onclick="goToSlideHero(13)" aria-label="Foto 14"></button>
                 <button class="carousel-dot" onclick="goToSlideHero(14)" aria-label="Foto 15"></button>
                 <button class="carousel-dot" onclick="goToSlideHero(15)" aria-label="Foto 16"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(5)" aria-label="Foto 6"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(6)" aria-label="Foto 7"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(7)" aria-label="Foto 8"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(8)" aria-label="Foto 9"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(9)" aria-label="Foto 10"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(10)" aria-label="Foto 11"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(11)" aria-label="Foto 12"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(12)" aria-label="Foto 13"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(13)" aria-label="Foto 14"></button>
                 </div>
             </div>
         </div>
@@ -353,13 +466,13 @@ excelente ubicación a unas cuadras de b...",
             <div class="features-inline">
                 <div class="feature-item">
                     <i class="fas fa-bed"></i>
-                    <span class="feature-value">2</span>
+                    <span class="feature-value">3</span>
                     <span class="feature-label">rec</span>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-bath"></i>
-                    <span class="feature-value">1</span>
-                    <span class="feature-label">baño</span>
+                    <span class="feature-value">2</span>
+                    <span class="feature-label">baños</span>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-car"></i>
@@ -368,8 +481,13 @@ excelente ubicación a unas cuadras de b...",
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-ruler-combined"></i>
-                    <span class="feature-value">98</span>
-                    <span class="feature-label">m²</span>
+                    <span class="feature-value">N/D</span>
+                    <span class="feature-label">m² const.</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-vector-square"></i>
+                    <span class="feature-value">133</span>
+                    <span class="feature-label">m² terreno</span>
                 </div>
             </div>
         </div>
@@ -444,11 +562,11 @@ excelente ubicación a unas cuadras de b...",
             <div class="info-badges">
                 <div class="badge-item">
                     <i class="fas fa-ruler-combined"></i>
-                    <span>98 m² construcción</span>
+                    <span>125.81 m² construcción</span>
                 </div>
                 <div class="badge-item">
-                    <i class="fas fa-border-all"></i>
-                    <span>98 m² terreno</span>
+                    <i class="fas fa-vector-square"></i>
+                    <span>133 m² terreno</span>
                 </div>
                 <div class="badge-item">
                     <i class="fas fa-building"></i>
@@ -468,7 +586,7 @@ excelente ubicación a unas cuadras de b...",
             <div class="price-card-compact">
                 <div class="price-info">
                     <span class="price-label">Precio</span>
-                    <span class="price-value">$2,490,000</span>
+                    <span class="price-value">$</span>
                     <span class="price-detail">Se acepta contado y todos los créditos</span>
                 </div>
                 <a href="#contact" class="cta-button">Contactar</a>
@@ -619,7 +737,7 @@ excelente ubicación a unas cuadras de b...",
     <!-- Calculadora de Hipoteca - Zillow Style -->
     <section class="zillow-calculator scroll-animate" id="calculadora">
         <div class="container" style="max-width: 600px;">
-            <h2 style="text-align: center; font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-bottom: 8px; font-family: 'Poppins', sans-serif;">Calculadora de Hipoteca</h2>
+            <h2 class="section-title">Calculadora de Hipoteca</h2>
             <p style="text-align: center; color: #6b7280; margin-bottom: 32px; font-size: 0.95rem; font-family: 'Poppins', sans-serif;">Estima tu pago mensual</p>
 
             <div class="calc-zillow-card">
@@ -627,7 +745,7 @@ excelente ubicación a unas cuadras de b...",
                 <div class="zil-input-group">
                     <label class="zil-label">Precio de la casa</label>
                     <div class="zil-input-wrapper">
-                        <input type="text" id="precio-zil" value="$2,490,000" class="zil-input" oninput="formatPrecio(this); calcularZillow()">
+                        <input type="text" id="precio-zil" value="$" class="zil-input" oninput="formatPrecio(this); calcularZillow()">
                     </div>
                 </div>
 
@@ -1179,7 +1297,7 @@ excelente ubicación a unas cuadras de b...",
         <div class="sticky-price-content">
             <div class="sticky-price-info">
                 <span class="sticky-price-label">Casa </span>
-                <span class="sticky-price-amount">$2,490,000</span>
+                <span class="sticky-price-amount">$</span>
             </div>
             <a href="https://wa.me/528111652545?text=Me%20interesa%20Casa%20en%20Venta%20La%20Rioja%20de%20%241%2C800%2C000"
                class="sticky-whatsapp-btn" target="_blank" onclick="vibrate(50)">
@@ -1188,6 +1306,55 @@ excelente ubicación a unas cuadras de b...",
             </a>
         </div>
     </div>
+
+    <!-- Location Map Section - Desktop Only -->
+    <section class="location-map scroll-animate" id="location">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <p class="location-subtitle">Agrapando 6138 , , Culiacán</p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Agrapando%206138%20%2C%20%2C%20Culiac%C3%A1n%2C%20Culiac%C3%A1n%2C%20Sinaloa&zoom=15"
+                    width="100%"
+                    height="450"
+                    style="border:0; border-radius: 12px;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .location-map {
+            padding: 4rem 0;
+            background: #f9fafb;
+        }
+
+        .location-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Hide map on mobile */
+        @media (max-width: 768px) {
+            .location-map {
+                display: none;
+            }
+        }
+    </style>
 
     <!-- Contact Section -->
     <section class="contact scroll-animate" id="contact">
@@ -1310,7 +1477,7 @@ excelente ubicación a unas cuadras de b...",
 
         // Hero carousel functions (separate from gallery carousel)
         let currentSlideHero = 0;
-        const totalSlidesHero = 16;
+        const totalSlidesHero = 14;
         let touchStartXHero = 0;
         let touchEndXHero = 0;
         
@@ -1655,7 +1822,7 @@ excelente ubicación a unas cuadras de b...",
         function shareEmail() {
             const shareUrl = getShareUrl();
             const subject = encodeURIComponent('Casa en venta - ');
-            const body = encodeURIComponent(`Hola,\n\nQuiero compartir contigo esta casa en venta:\n\nCasa en \nPrecio: $\n2 recámaras, 2 baños completos\n98 m² terreno\n\nVer más detalles: ${shareUrl}\n\nSaludos!`);
+            const body = encodeURIComponent(`Hola,\n\nQuiero compartir contigo esta casa en venta:\n\nCasa en \nPrecio: $\n3 recámaras, 2 baños completos\n133 m² terreno\n\nVer más detalles: ${shareUrl}\n\nSaludos!`);
             window.location.href = `mailto:?subject=${subject}&body=${body}`;
         }
 
@@ -1868,8 +2035,8 @@ excelente ubicación a unas cuadras de b...",
             const lightboxCurrent = document.getElementById('lightbox-current');
             const lightboxTotal = document.getElementById('lightbox-total');
 
-            lightboxImg.src = lightboxImages[index].src;
-            lightboxImg.alt = lightboxImages[index].alt;
+            lightboxImg.src = lightboxImages[index];
+            lightboxImg.alt = 'casa-en-venta-terreno-excedente-stanza-valle-alto - Vista ' + (index + 1);
             lightboxCurrent.textContent = index + 1;
             lightboxTotal.textContent = lightboxImages.length;
 
@@ -1898,8 +2065,8 @@ excelente ubicación a unas cuadras de b...",
             const lightboxImg = document.getElementById('lightbox-img');
             const lightboxCurrent = document.getElementById('lightbox-current');
 
-            lightboxImg.src = lightboxImages[currentLightboxIndex].src;
-            lightboxImg.alt = lightboxImages[currentLightboxIndex].alt;
+            lightboxImg.src = lightboxImages[currentLightboxIndex];
+            lightboxImg.alt = 'casa-en-venta-terreno-excedente-stanza-valle-alto - Vista ' + (currentLightboxIndex + 1);
             lightboxCurrent.textContent = currentLightboxIndex + 1;
             vibrate(40); // Vibrate when changing lightbox image
         }

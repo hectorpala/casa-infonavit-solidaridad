@@ -301,14 +301,15 @@ function descargarImagen(url, filepath) {
 }
 
 async function generarPaginaHTML(config, carpeta) {
-    // Leer template de La Rioja
-    let html = fs.readFileSync('culiacan/casa-venta-la-rioja-477140/index.html', 'utf8');
+    // Leer template de Bugambilias (template que funciona correctamente)
+    let html = fs.readFileSync('culiacan/casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a/index.html', 'utf8');
 
-    // Reemplazar datos básicos
-    html = html.replace(/casa-venta-la-rioja-477140/g, config.slug);
-    html = html.replace(/La Rioja/g, config.location.split(',')[0]);
+    // Reemplazar datos básicos (desde template Bugambilias)
+    html = html.replace(/casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a/g, config.slug);
+    html = html.replace(/Bugambilias/g, config.location.split(',')[0]);
     html = html.replace(/\$1,800,000/g, `$${config.price}`);
     html = html.replace(/"1800000"/g, `"${config.price.replace(/,/g, '')}"`);
+    html = html.replace(/1,800,000/g, config.price);
 
     // Actualizar título y descripción
     html = html.replace(
