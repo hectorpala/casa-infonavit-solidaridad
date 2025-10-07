@@ -310,13 +310,17 @@
         async function loadMonitorData() {
             try {
                 // Intentar cargar el snapshot más reciente
+                console.log('Cargando snapshot...');
                 const response = await fetch('.snapshots-propiedades/snapshot-https---propiedades-com-culiacan-residencial-venta.json');
 
+                console.log('Response status:', response.status);
+
                 if (!response.ok) {
-                    throw new Error('No se pudo cargar el snapshot');
+                    throw new Error(`No se pudo cargar el snapshot: ${response.status} ${response.statusText}`);
                 }
 
                 const data = await response.json();
+                console.log('Datos cargados:', data);
 
                 // Actualizar stats
                 document.getElementById('totalProps').textContent = data.total || 0;
@@ -385,13 +389,28 @@
                 return;
             }
 
+            // Ordenar por fecha (más recientes primero)
+            const sorted = properties.sort((a, b) => {
+                if (!a.date || a.date === 'N/A') return 1;
+                if (!b.date || b.date === 'N/A') return -1;
+                return b.date.localeCompare(a.date);
+            });
+
             let html = '';
-            properties.forEach((prop, index) => {
+            sorted.forEach((prop, index) => {
+                const fecha = prop.date && prop.date !== 'N/A'
+                    ? new Date(prop.date).toLocaleDateString('es-MX', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })
+                    : 'Fecha no disponible';
+
                 html += `
                     <div class="property-card">
                         <div class="property-title">
                             ${index + 1}. ${prop.title}
-                            <span class="badge">MONITOREADA</span>
+                            <span class="badge">📅 ${fecha}</span>
                         </div>
                         <div class="property-meta">
                             📍 ${prop.location} | 💰 ${prop.price} | 📏 ${prop.attrs}
