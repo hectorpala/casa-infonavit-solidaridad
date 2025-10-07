@@ -725,6 +725,257 @@ function finishRun(masterJSON, success = true, error = null) {
 // FIN BLOQUE 6
 // ============================================
 
+// ============================================
+// BLOQUE 7: SCRAPEO, NORMALIZACIÓN Y VALIDACIÓN
+// ============================================
+
+/**
+ * Normaliza datos scrapeados para asegurar tipos y formatos correctos
+ * @param {object} rawData - Datos crudos del scraper
+ * @returns {object} - Datos normalizados
+ */
+function normalizeScrapedData(rawData) {
+    const normalized = { ...rawData };
+
+    // Normalizar precio (string con comas → número)
+    if (normalized.price) {
+        const priceStr = normalized.price.toString().replace(/[$,\s]/g, '');
+        normalized.price = parseInt(priceStr) || 0;
+    } else {
+        normalized.price = 0;
+    }
+
+    // Normalizar baños (string → float)
+    if (normalized.bathrooms) {
+        normalized.bathrooms = parseFloat(normalized.bathrooms) || 1;
+    } else {
+        normalized.bathrooms = 1;
+    }
+
+    // Normalizar recámaras (string → int)
+    if (normalized.bedrooms) {
+        normalized.bedrooms = parseInt(normalized.bedrooms) || 1;
+    } else {
+        normalized.bedrooms = 1;
+    }
+
+    // Normalizar áreas de construcción/terreno (string → int)
+    if (normalized.construction_area) {
+        const areaStr = normalized.construction_area.toString().replace(/[^\d.]/g, '');
+        normalized.construction_area = parseInt(parseFloat(areaStr)) || 50;
+    } else {
+        normalized.construction_area = 50;
+    }
+
+    if (normalized.land_area) {
+        const areaStr = normalized.land_area.toString().replace(/[^\d.]/g, '');
+        normalized.land_area = parseInt(parseFloat(areaStr)) || 50;
+    } else {
+        normalized.land_area = 50;
+    }
+
+    // Normalizar estacionamientos y niveles
+    if (normalized.parking) {
+        normalized.parking = parseInt(normalized.parking) || 0;
+    } else {
+        normalized.parking = 0;
+    }
+
+    if (normalized.levels) {
+        normalized.levels = parseInt(normalized.levels) || 1;
+    } else {
+        normalized.levels = 1;
+    }
+
+    // Normalizar URLs de imágenes (asegurar absolutas, sin duplicados)
+    if (normalized.images && Array.isArray(normalized.images)) {
+        normalized.images = normalized.images
+            .map(url => {
+                // Convertir a URL absoluta si es relativa
+                if (url.startsWith('//')) {
+                    return 'https:' + url;
+                } else if (url.startsWith('/')) {
+                    return 'https://new.wiggot.com' + url;
+                } else if (!url.startsWith('http')) {
+                    return 'https://' + url;
+                }
+                return url;
+            })
+            .filter((url, index, self) => self.indexOf(url) === index); // Eliminar duplicados
+    } else {
+        normalized.images = [];
+    }
+
+    // Normalizar ubicación (extraer colonia, ciudad, estado)
+    if (normalized.location) {
+        const locationParts = normalized.location.split(',').map(s => s.trim());
+
+        normalized.location_normalized = {
+            full: normalized.location,
+            colonia: locationParts[0] || '',
+            ciudad: locationParts[1] || 'Culiacán',
+            estado: locationParts[2] || 'Sinaloa'
+        };
+    } else {
+        normalized.location = 'Culiacán, Sinaloa';
+        normalized.location_normalized = {
+            full: 'Culiacán, Sinaloa',
+            colonia: '',
+            ciudad: 'Culiacán',
+            estado: 'Sinaloa'
+        };
+    }
+
+    // Normalizar título (trim, capitalizar primera letra)
+    if (normalized.title) {
+        normalized.title = normalized.title.trim();
+    } else {
+        normalized.title = '';
+    }
+
+    // Normalizar descripción
+    if (normalized.description) {
+        normalized.description = normalized.description.trim();
+    } else {
+        normalized.description = '';
+    }
+
+    return normalized;
+}
+
+/**
+ * Valida que los datos scrapeados cumplan con los mínimos requeridos
+ * @param {object} data - Datos normalizados
+ * @returns {object} - { valid: boolean, errors: array, warnings: array }
+ */
+function validateScrapedData(data) {
+    const errors = [];
+    const warnings = [];
+
+    // VALIDACIONES OBLIGATORIAS (bloquean publicación)
+
+    // 1. Título requerido
+    if (!data.title || data.title.length < 5) {
+        errors.push({
+            field: 'title',
+            code: 'E_VALIDATE_REQUIRED',
+            message: 'Título requerido (mínimo 5 caracteres)',
+            value: data.title
+        });
+    }
+
+    // 2. Precio numérico requerido y > 0
+    if (!data.price || data.price <= 0) {
+        errors.push({
+            field: 'price',
+            code: 'E_VALIDATE_REQUIRED',
+            message: 'Precio numérico requerido y mayor a 0',
+            value: data.price
+        });
+    }
+
+    // 3. Ubicación requerida
+    if (!data.location || data.location.length < 3) {
+        errors.push({
+            field: 'location',
+            code: 'E_VALIDATE_REQUIRED',
+            message: 'Ubicación requerida (mínimo 3 caracteres)',
+            value: data.location
+        });
+    }
+
+    // 4. Al menos 1 imagen requerida
+    if (!data.images || data.images.length < 1) {
+        errors.push({
+            field: 'images',
+            code: 'E_VALIDATE_REQUIRED',
+            message: 'Al menos 1 imagen requerida',
+            value: data.images ? data.images.length : 0
+        });
+    }
+
+    // VALIDACIONES DE ADVERTENCIA (no bloquean publicación)
+
+    // Precio parece bajo
+    if (data.price > 0 && data.price < 100000) {
+        warnings.push({
+            field: 'price',
+            code: 'W_PRICE_SUSPICIOUS',
+            message: 'Precio sospechosamente bajo (< $100,000)',
+            value: data.price
+        });
+    }
+
+    // Precio parece alto
+    if (data.price > 50000000) {
+        warnings.push({
+            field: 'price',
+            code: 'W_PRICE_HIGH',
+            message: 'Precio alto (> $50,000,000)',
+            value: data.price
+        });
+    }
+
+    // Pocas imágenes
+    if (data.images && data.images.length < 3) {
+        warnings.push({
+            field: 'images',
+            code: 'W_FEW_IMAGES',
+            message: 'Pocas imágenes (< 3)',
+            value: data.images.length
+        });
+    }
+
+    // Descripción corta
+    if (data.description && data.description.length < 50) {
+        warnings.push({
+            field: 'description',
+            code: 'W_SHORT_DESCRIPTION',
+            message: 'Descripción corta (< 50 caracteres)',
+            value: data.description.length
+        });
+    }
+
+    // Área de construcción sospechosa
+    if (data.construction_area < 20 || data.construction_area > 5000) {
+        warnings.push({
+            field: 'construction_area',
+            code: 'W_AREA_SUSPICIOUS',
+            message: 'Área de construcción fuera de rango típico (20-5000m²)',
+            value: data.construction_area
+        });
+    }
+
+    return {
+        valid: errors.length === 0,
+        errors,
+        warnings
+    };
+}
+
+/**
+ * Crea error estructurado para el JSON maestro
+ * @param {string} stage - Etapa donde ocurrió el error
+ * @param {string} code - Código de error
+ * @param {string} message - Mensaje descriptivo
+ * @param {array} validationErrors - Errores de validación específicos
+ * @returns {object} - Error estructurado
+ */
+function createValidationError(stage, code, message, validationErrors = []) {
+    return {
+        timestamp: new Date().toISOString(),
+        stage,
+        code,
+        message,
+        validation_errors: validationErrors,
+        next_action: 'fix_parser_or_data'
+    };
+}
+
+// ============================================
+// FIN BLOQUE 7
+// ============================================
+
 async function main() {
     const url = process.argv.find(arg => arg.includes('wiggot.com'));
 
@@ -805,15 +1056,90 @@ async function main() {
     console.log('   📸 Fotos encontradas:', datos.images.length);
     console.log('');
 
-    // PASO 1B: Generar ID estable
-    console.log('🔑 PASO 1B/7: Generando ID estable...');
-    const stableId = generateStableId(url);
+    // PASO 1B: Normalizar datos scrapeados
+    console.log('🔧 PASO 1B/8: Normalizando datos...');
+    datos = normalizeScrapedData(datos);
+    console.log('   ✅ Precio normalizado:', datos.price, '(número)');
+    console.log('   ✅ Baños normalizados:', datos.bathrooms, '(float)');
+    console.log('   ✅ Áreas normalizadas:', `${datos.construction_area}m² construcción, ${datos.land_area}m² terreno`);
+    console.log('   ✅ URLs absolutas:', datos.images.length, 'imágenes sin duplicados');
+    console.log('   ✅ Ubicación normalizada:', datos.location_normalized.full);
+    console.log('');
+
+    // PASO 1C: Validar datos scrapeados
+    console.log('✅ PASO 1C/8: Validando datos...');
+    const validation = validateScrapedData(datos);
+
+    if (!validation.valid) {
+        console.error('   ❌ VALIDACIÓN FALLIDA - Datos incompletos');
+        console.error('');
+        console.error('   Errores encontrados:');
+        validation.errors.forEach(err => {
+            console.error(`   - [${err.field}] ${err.message} (valor: ${JSON.stringify(err.value)})`);
+        });
+        console.error('');
+
+        // Crear JSON maestro con estado FAILED
+        stableId = generateStableId(url);
+        slug = generarSlug(datos.title || 'propiedad-sin-titulo');
+        const carpetaData = CONFIG.mode.paths.data;
+
+        masterJSON = loadMasterJSON(stableId, carpetaData) || {
+            id: stableId,
+            source_url: url,
+            slug: slug,
+            state: STATES.QUEUED,
+            data: {},
+            errors: [],
+            warnings: [],
+            created_at: new Date().toISOString()
+        };
+
+        // Transicionar a FAILED con error de validación
+        const validationError = createValidationError('scrape', 'E_VALIDATE_REQUIRED', 'Datos incompletos o inválidos', validation.errors);
+        masterJSON.errors.push(validationError);
+
+        masterJSON = transitionState(masterJSON, STATES.FAILED, {
+            run_id: runId,
+            started_at: runStarted,
+            finished_at: new Date().toISOString(),
+            error: validationError.message,
+            retriable: true
+        });
+        masterJSON = finishRun(masterJSON, false, validationError.message);
+        saveMasterJSON(stableId, masterJSON, carpetaData);
+
+        console.error('💾 JSON maestro guardado con errores de validación');
+        console.error(`   - JSON: ${carpetaData}/${stableId}.json`);
+        console.error(`   - Estado: ${STATES.FAILED}`);
+        console.error(`   - Next action: ${validationError.next_action}`);
+        console.error('');
+        console.error('⚠️  NO SE PUBLICARÁ - Corregir datos en la fuente y volver a scrapear');
+
+        process.exit(1);
+    }
+
+    // Mostrar warnings si los hay (no bloquean)
+    if (validation.warnings.length > 0) {
+        console.log('   ⚠️  ADVERTENCIAS (no bloquean publicación):');
+        validation.warnings.forEach(warn => {
+            console.log(`   - [${warn.field}] ${warn.message} (valor: ${JSON.stringify(warn.value)})`);
+        });
+        console.log('');
+    }
+
+    console.log('   ✅ Validación exitosa - Datos completos');
+    console.log('');
+
+    // PASO 1D: Generar ID estable
+    console.log('🔑 PASO 1D/8: Generando ID estable...');
+    stableId = generateStableId(url);
     console.log(`   ✅ ID: ${stableId}`);
     console.log('');
 
     // PASO 2: Generar slug y verificar duplicados
-    console.log('🔍 PASO 2/7: Generando slug y verificando duplicados...');
-    const slug = generarSlug(datos.title);
+    console.log('🔍 PASO 2/8: Generando slug y verificando duplicados...');
+    slug = generarSlug(datos.title);
     console.log(`   📝 Slug: ${slug}`);
 
     // Determinar rutas según modo
