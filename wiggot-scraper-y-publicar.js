@@ -425,6 +425,62 @@ async function generarPaginaHTML(config, carpeta) {
         `${carpeta}/styles.css`
     );
 
+    // Agregar mapa de ubicación antes de Contact Section
+    const ubicacionEncoded = encodeURIComponent(config.location + ', Sinaloa');
+    const mapaHTML = `
+    <!-- Location Map Section -->
+    <section class="location-map scroll-animate" id="location">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <p class="location-subtitle">${config.location}</p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${ubicacionEncoded}&zoom=15"
+                    width="100%"
+                    height="450"
+                    style="border:0; border-radius: 12px;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .location-map {
+            padding: 4rem 0;
+            background: #f9fafb;
+        }
+
+        .location-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Hide map on mobile */
+        @media (max-width: 768px) {
+            .location-map {
+                display: none;
+            }
+        }
+    </style>
+`;
+
+    // Insertar mapa antes de Contact Section
+    html = html.replace(/<!-- Contact Section -->/g, mapaHTML + '\n    <!-- Contact Section -->');
+
     // Guardar HTML
     fs.writeFileSync(`${carpeta}/index.html`, html);
 }

@@ -1,0 +1,207 @@
+<!-- ============================================ -->
+<!-- MAPA DE UBICACIÓN - GOOGLE MAPS -->
+<!-- Template validado: Barrio San Alberto -->
+<!-- Fecha: Octubre 2025 -->
+<!-- ============================================ -->
+
+<!-- Location Map Section -->
+<section class="location-map scroll-animate" id="location">
+    <div class="container">
+        <h2 class="section-title">Ubicación</h2>
+        <p class="location-subtitle">{{UBICACION_COMPLETA}}</p>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q={{UBICACION_URL_ENCODED}}&zoom=15"
+                width="100%"
+                height="450"
+                style="border:0; border-radius: 12px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<style>
+    .location-map {
+        padding: 4rem 0;
+        background: #f9fafb;
+    }
+
+    .location-subtitle {
+        text-align: center;
+        color: #6b7280;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .map-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    /* Hide map on mobile */
+    @media (max-width: 768px) {
+        .location-map {
+            display: none;
+        }
+    }
+</style>
+
+<!-- ============================================ -->
+<!-- EJEMPLO DE USO - BARRIO SAN ALBERTO -->
+<!-- ============================================ -->
+<!--
+UBICACIÓN COMPLETA: "Barrio San Alberto, La Primavera, Culiacán"
+URL ENCODED: "Barrio%20San%20Alberto%2C%20La%20Primavera%2C%20Culiacán%2C%20Sinaloa"
+
+HTML FINAL:
+<p class="location-subtitle">Barrio San Alberto, La Primavera, Culiacán</p>
+<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Barrio%20San%20Alberto%2C%20La%20Primavera%2C%20Culiacán%2C%20Sinaloa&zoom=15"...
+-->
+
+<!-- ============================================ -->
+<!-- PLACEHOLDERS PARA REEMPLAZO AUTOMÁTICO -->
+<!-- ============================================ -->
+<!--
+{{UBICACION_COMPLETA}} = Texto sin codificar para mostrar (ej: "Barrio San Alberto, La Primavera, Culiacán")
+{{UBICACION_URL_ENCODED}} = URL encoded para Google Maps (ej: "Barrio%20San%20Alberto%2C%20La%20Primavera%2C%20Culiacán%2C%20Sinaloa")
+
+CÓDIGO JAVASCRIPT PARA GENERAR:
+const ubicacion = data.location; // "Barrio San Alberto, La Primavera, Culiacán"
+const ubicacionEncoded = encodeURIComponent(ubicacion + ", Sinaloa");
+
+html = html.replace(/{{UBICACION_COMPLETA}}/g, ubicacion);
+html = html.replace(/{{UBICACION_URL_ENCODED}}/g, ubicacionEncoded);
+-->
+
+<!-- ============================================ -->
+<!-- INTEGRACIÓN EN WIGGOT-SCRAPER-Y-PUBLICAR.JS -->
+<!-- ============================================ -->
+<!--
+POSICIÓN: Antes de <!-- Contact Section -->
+
+CÓDIGO DE INSERCIÓN:
+const mapaHTML = `
+    <!-- Location Map Section -->
+    <section class="location-map scroll-animate" id="location">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <p class="location-subtitle">${data.location}</p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(data.location + ', Sinaloa')}&zoom=15"
+                    width="100%"
+                    height="450"
+                    style="border:0; border-radius: 12px;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .location-map {
+            padding: 4rem 0;
+            background: #f9fafb;
+        }
+
+        .location-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* Hide map on mobile */
+        @media (max-width: 768px) {
+            .location-map {
+                display: none;
+            }
+        }
+    </style>
+`;
+
+// Insertar antes de Contact Section
+html = html.replace(/<!-- Contact Section -->/g, mapaHTML + '\n    <!-- Contact Section -->');
+-->
+
+<!-- ============================================ -->
+<!-- NOTAS IMPORTANTES -->
+<!-- ============================================ -->
+<!--
+1. GOOGLE MAPS API KEY:
+   - Key actual: AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8
+   - Tipo: Google Maps Embed API
+   - Restricciones: Solo para embed/v1/place
+
+2. PARÁMETROS DE LA URL:
+   - key = API key de Google Maps
+   - q = Query (ubicación a buscar, URL encoded)
+   - zoom = Nivel de zoom (15 es ideal para vecindarios)
+
+3. ATRIBUTOS DEL IFRAME:
+   - width="100%" = Ancho completo responsive
+   - height="450" = Alto fijo 450px (estándar)
+   - style="border:0; border-radius: 12px;" = Sin borde, esquinas redondeadas
+   - allowfullscreen = Permite pantalla completa
+   - loading="lazy" = Carga perezosa (performance)
+   - referrerpolicy="no-referrer-when-downgrade" = Seguridad
+
+4. RESPONSIVE:
+   - Desktop: Mapa visible, 1000px max-width
+   - Mobile: Mapa OCULTO (display: none) para mejor rendimiento
+   - Razón: Mapas consumen mucha data en móvil
+
+5. ESTILOS:
+   - Background: #f9fafb (gris muy claro)
+   - Shadow: 0 10px 40px rgba(0, 0, 0, 0.1)
+   - Border-radius: 12px (esquinas redondeadas)
+   - Padding: 4rem vertical
+
+6. POSICIÓN EN LA PÁGINA:
+   - Después de: Calculator Section
+   - Antes de: Contact Section
+   - Razón: Flujo lógico (info → ubicación → contacto)
+
+7. SCROLL ANIMATION:
+   - Clase: scroll-animate
+   - Efecto: Fade-in al entrar en vista
+   - Requiere: Intersection Observer en JavaScript
+
+8. URL ENCODING:
+   - Espacios → %20
+   - Comas → %2C
+   - Ejemplo: "Barrio San Alberto, La Primavera" → "Barrio%20San%20Alberto%2C%20La%20Primavera"
+   - JavaScript: encodeURIComponent()
+
+9. VALIDACIÓN ANTES DE PUBLICAR:
+   - [ ] Mapa cargando correctamente
+   - [ ] Ubicación correcta en el pin
+   - [ ] Zoom level adecuado (15)
+   - [ ] Responsive funcionando (oculto en móvil)
+   - [ ] Scroll animation funcionando
+   - [ ] API key funcionando
+
+10. TEMPLATE DE REFERENCIA:
+    - Archivo: culiacan/casa-renta-barrio-san-alberto-pgtrrTw/index.html
+    - Líneas: 1126-1173
+    - Otras referencias: casa-en-venta-la-rioja-modelo-estrella, casa-en-portalegre-mision
+    - Validado: Octubre 2025
+-->
