@@ -113,7 +113,8 @@ async function main() {
         location: datos.location,
         bedrooms: parseInt(datos.bedrooms) || 2,
         bathrooms: parseFloat(datos.bathrooms) || 1.5,
-        area: parseInt(datos.area) || 100,
+        construction_area: parseInt(datos.construction_area) || 100,
+        land_area: parseInt(datos.land_area) || 100,
         description: datos.description,
         photoCount: datos.images.length
     };
@@ -209,7 +210,8 @@ async function scrapearWiggot(url) {
             location: '',
             bedrooms: '',
             bathrooms: '',
-            area: '',
+            construction_area: '',
+            land_area: '',
             description: '',
             images: []
         };
@@ -229,12 +231,31 @@ async function scrapearWiggot(url) {
         // Características
         const allText = document.body.innerText;
         const bedroomsMatch = allText.match(/Recámaras?\s*(\d+)/i);
-        const bathroomsMatch = allText.match(/Baños?\s*(\d+)/i);
-        const areaMatch = allText.match(/(\d+)\s*m²/i);
+        const bathroomsMatch = allText.match(/Baños?\s*(\d+\.?\d*)/i);
+
+        // Buscar m² construcción y terreno
+        const constructionMatch = allText.match(/(?:Área construida|Construcción|Const\.?)\s*:?\s*(\d+)\s*m²/i);
+        const landMatch = allText.match(/(?:Área de terreno|Terreno|Lote)\s*:?\s*(\d+)\s*m²/i);
+
+        // Si no encuentra separados, busca cualquier m²
+        const anyAreaMatches = allText.match(/(\d+)\s*m²/gi);
 
         if (bedroomsMatch) data.bedrooms = bedroomsMatch[1];
         if (bathroomsMatch) data.bathrooms = bathroomsMatch[1];
-        if (areaMatch) data.area = areaMatch[1];
+        if (constructionMatch) data.construction_area = constructionMatch[1];
+        if (landMatch) data.land_area = landMatch[1];
+
+        // Si no encontró valores separados pero hay m², tomar los primeros dos
+        if (!data.construction_area && anyAreaMatches && anyAreaMatches.length > 0) {
+            data.construction_area = anyAreaMatches[0].match(/(\d+)/)[1];
+        }
+        if (!data.land_area && anyAreaMatches && anyAreaMatches.length > 1) {
+            data.land_area = anyAreaMatches[1].match(/(\d+)/)[1];
+        }
+        // Si solo hay uno, usar el mismo para ambos
+        if (!data.land_area && data.construction_area) {
+            data.land_area = data.construction_area;
+        }
 
         // Descripción - Captura TODO hasta "Ver más" o siguiente sección
         const descMatch = allText.match(/Descripción\s*([\s\S]+?)(?:Ver más|Detalles de operación|Características del inmueble|$)/i);
@@ -320,6 +341,16 @@ async function generarPaginaHTML(config, carpeta) {
         /<p class="hero-subtitle">.*?<\/p>/s,
         `<p class="hero-subtitle">${config.description}</p>`
     );
+
+    // Reemplazar m² del template Bugambilias (98 construcción, 118 terreno)
+    // con los valores correctos de la propiedad
+    html = html.replace(/"value": 98,/g, `"value": ${config.construction_area},`);
+    html = html.replace(/"value": 118,/g, `"value": ${config.land_area},`);
+    html = html.replace(/98m² terreno/g, `${config.land_area}m² terreno`);
+    html = html.replace(/125\.81 m² construcción/g, `${config.construction_area} m² construcción`);
+    html = html.replace(/133 m² terreno/g, `${config.land_area} m² terreno`);
+    html = html.replace(/<span class="feature-value">N\/D<\/span>/g, `<span class="feature-value">${config.construction_area}</span>`);
+    html = html.replace(/<span class="feature-value">133<\/span>/g, `<span class="feature-value">${config.land_area}</span>`);
 
     // Agregar slides para todas las fotos
     if (config.photoCount > 5) {
@@ -445,7 +476,7 @@ async function agregarTarjeta(config) {
                 </div>
                 <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path></svg>
-                    ${config.area} m²
+                    ${config.construction_area} m²
                 </div>
             </div>
 
