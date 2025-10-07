@@ -1811,18 +1811,29 @@ async function scrapearWiggot(url) {
         const titleEl = document.querySelector('h1, h2, .title, [class*="title"]');
         if (titleEl) data.title = titleEl.textContent.trim();
 
-        // Precio - múltiples selectores y búsqueda en texto
+        // Precio - buscar el precio más alto (suele ser el precio de venta real)
         let priceEl = document.querySelector('[class*="price"], [class*="Price"], [class*="precio"], [class*="Precio"]');
         if (priceEl) {
             data.price = priceEl.textContent.match(/[\d,]+/)?.[0] || '';
         }
 
-        // Si no encontró precio con selectores, buscar en todo el texto
+        // Si no encontró precio con selectores, buscar TODOS los precios y tomar el más alto
         if (!data.price) {
             const allText = document.body.innerText;
-            // Buscar patrón de precio: $X,XXX,XXX o MXN X,XXX,XXX
-            const priceMatch = allText.match(/(?:\$|MXN)\s*([\d,]+(?:\.\d{2})?)/i);
-            if (priceMatch) data.price = priceMatch[1];
+            // Buscar TODOS los patrones de precio: $X,XXX,XXX o MXN X,XXX,XXX
+            const priceMatches = allText.match(/(?:\$|MXN)\s*([\d,]+(?:\.\d{2})?)/gi);
+
+            if (priceMatches && priceMatches.length > 0) {
+                // Convertir a números y encontrar el más alto
+                const prices = priceMatches.map(p => {
+                    const num = p.replace(/[^\d]/g, '');
+                    return parseInt(num);
+                });
+                const maxPrice = Math.max(...prices);
+
+                // Formatear el precio más alto
+                data.price = maxPrice.toLocaleString('en-US');
+            }
         }
 
         // Ubicación
