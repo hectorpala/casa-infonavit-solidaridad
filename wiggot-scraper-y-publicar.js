@@ -817,10 +817,18 @@ function normalizeScrapedData(rawData) {
 
     // Normalizar ubicación (extraer colonia, ciudad, estado)
     if (normalized.location) {
-        const locationParts = normalized.location.split(',').map(s => s.trim());
+        // Limpiar ubicación: eliminar puntos solitarios, comas extras, espacios múltiples
+        let cleanLocation = normalized.location
+            .replace(/^\s*\.\s*,\s*/, '') // Eliminar ". ," al inicio
+            .replace(/,\s*\.\s*,/, ',')   // Eliminar ", .," en medio
+            .replace(/\s{2,}/g, ' ')      // Múltiples espacios → uno solo
+            .trim();
 
+        const locationParts = cleanLocation.split(',').map(s => s.trim()).filter(s => s && s !== '.');
+
+        normalized.location = cleanLocation;
         normalized.location_normalized = {
-            full: normalized.location,
+            full: cleanLocation,
             colonia: locationParts[0] || '',
             ciudad: locationParts[1] || 'Culiacán',
             estado: locationParts[2] || 'Sinaloa'
@@ -2096,21 +2104,34 @@ async function generarPaginaHTML(config, carpeta) {
         return;
     }
 
-    // Reemplazar datos básicos (desde template Bugambilias)
+    // Reemplazar datos básicos de diferentes templates
+    // Template Bugambilias
     html = html.replace(/casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a/g, config.slug);
     html = html.replace(/Bugambilias/g, config.location.split(',')[0]);
+
+    // Template Master Wiggot (Portalegre)
+    html = html.replace(/Portalegre/g, config.location.split(',')[0].trim());
+    html = html.replace(/Avenida De Los Poetas 1435/g, config.location.split(',')[0].trim());
+    html = html.replace(/2 recámaras, 1 baño/g, `${config.bedrooms} recámaras, ${config.bathrooms} baños`);
+    html = html.replace(/2 recámaras/g, `${config.bedrooms} recámaras`);
+    html = html.replace(/1 baño/g, `${config.bathrooms} baños`);
 
     // AUTO-CORRECCIÓN: Actualizar TODOS los precios (incluyendo vacíos)
     // Formatear precio con comas
     const precioFormateado = config.price ? config.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0';
     const precioSinComas = config.price ? config.price.toString().replace(/,/g, '') : '0';
 
-    // Reemplazar todos los formatos de precio
+    // Reemplazar todos los formatos de precio (Bugambilias: 1,800,000 | Master Wiggot: 1,750,000)
     html = html.replace(/\$1,800,000/g, `$${precioFormateado}`);
+    html = html.replace(/\$1,750,000/g, `$${precioFormateado}`);
     html = html.replace(/\$1800000/g, `$${precioFormateado}`);
+    html = html.replace(/\$1750000/g, `$${precioFormateado}`);
     html = html.replace(/"1800000"/g, `"${precioSinComas}"`);
+    html = html.replace(/"1750000"/g, `"${precioSinComas}"`);
     html = html.replace(/1,800,000/g, precioFormateado);
+    html = html.replace(/1,750,000/g, precioFormateado);
     html = html.replace(/1800000/g, precioSinComas);
+    html = html.replace(/1750000/g, precioSinComas);
 
     // Actualizar price badges (vacíos o con valor)
     html = html.replace(/<span class="price-amount">\$<\/span>/g, `<span class="price-amount">$${precioFormateado}</span>`);
@@ -2130,15 +2151,25 @@ async function generarPaginaHTML(config, carpeta) {
         `<p class="hero-subtitle">${config.description}</p>`
     );
 
-    // Reemplazar m² del template Bugambilias (98 construcción, 118 terreno)
-    // con los valores correctos de la propiedad
+    // Reemplazar m² de TODOS los templates (Bugambilias: 98/118, Master Wiggot: 98/98, etc)
+    // Schema.org values
     html = html.replace(/"value": 98,/g, `"value": ${config.construction_area},`);
     html = html.replace(/"value": 118,/g, `"value": ${config.land_area},`);
+
+    // Texto visible en diferentes formatos
     html = html.replace(/98m² terreno/g, `${config.land_area}m² terreno`);
+    html = html.replace(/98 m² construcción/g, `${config.construction_area} m² construcción`);
+    html = html.replace(/98 m² terreno/g, `${config.land_area} m² terreno`);
     html = html.replace(/125\.81 m² construcción/g, `${config.construction_area} m² construcción`);
     html = html.replace(/133 m² terreno/g, `${config.land_area} m² terreno`);
+
+    // Feature values (spans con valores específicos)
     html = html.replace(/<span class="feature-value">N\/D<\/span>/g, `<span class="feature-value">${config.construction_area}</span>`);
+    html = html.replace(/<span class="feature-value">98<\/span>/g, `<span class="feature-value">${config.construction_area}</span>`);
     html = html.replace(/<span class="feature-value">133<\/span>/g, `<span class="feature-value">${config.land_area}</span>`);
+
+    // Meta description
+    html = html.replace(/98m² terreno/gi, `${config.land_area}m² terreno`);
 
     // AUTO-CORRECCIÓN: Actualizar features section con todos los datos
     // Buscar la sección features-inline y reemplazar valores
@@ -2258,75 +2289,8 @@ async function generarPaginaHTML(config, carpeta) {
         `${carpeta}/styles.css`
     );
 
-    // Agregar mapa de ubicación antes de Contact Section
-    const ubicacionEncoded = encodeURIComponent(config.location + ', Sinaloa');
-    const mapaHTML = `
-    <!-- Location Map Section -->
-    <section class="location-map scroll-animate" id="location">
-        <div class="container">
-            <h2 class="section-title">Ubicación</h2>
-            <p class="location-subtitle">${config.location}</p>
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_KEY}&q=${ubicacionEncoded}&zoom=15"
-                    width="100%"
-                    height="450"
-                    style="border:0; border-radius: 12px;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <style>
-        .location-map {
-            padding: 4rem 0;
-            background: #f9fafb;
-        }
-
-        .location-subtitle {
-            text-align: center;
-            color: #6b7280;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .map-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        /* Hide map on mobile */
-        @media (max-width: 768px) {
-            .location-map {
-                display: none;
-            }
-        }
-    </style>
-`;
-
-    // Insertar mapa antes de Contact Section (solo si no existe ya)
-    if (!html.includes('<!-- Location Map Section -->')) {
-        html = html.replace(/<!-- Contact Section -->/, mapaHTML + '\n    <!-- Contact Section -->');
-        console.log('   ✅ Mapa de ubicación agregado');
-    } else {
-        // Si ya existe, actualizar solo la ubicación
-        html = html.replace(
-            /<p class="location-subtitle">.*?<\/p>/,
-            `<p class="location-subtitle">${config.location}</p>`
-        );
-        html = html.replace(
-            /src="https:\/\/www\.google\.com\/maps\/embed\/v1\/place\?key=[^"]+"/,
-            `src="https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_KEY}&q=${ubicacionEncoded}&zoom=15"`
-        );
-        console.log('   ✅ Mapa de ubicación actualizado');
-    }
+    // El template ya tiene el mapa, solo actualizar la ubicación en el template si es necesario
+    // (El template master-template-wiggot.html ya incluye la sección de mapa completa)
 
     // Guardar HTML
     fs.writeFileSync(`${carpeta}/index.html`, html);
