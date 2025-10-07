@@ -1024,6 +1024,236 @@ function shouldSkipPublication(masterJSON, newHash, mode) {
 // FIN BLOQUE 8
 // ============================================
 
+// ============================================
+// BLOQUE 9: PUBLICACIÓN IDEMPOTENTE DESDE EL JSON
+// ============================================
+
+/**
+ * Verifica si la tarjeta ya existe en culiacan/index.html
+ * @param {string} slug - Slug de la propiedad
+ * @param {string} htmlPath - Ruta al archivo HTML principal
+ * @returns {boolean} - True si la tarjeta ya existe
+ */
+function cardAlreadyExists(slug, htmlPath) {
+    if (!fs.existsSync(htmlPath)) {
+        return false;
+    }
+
+    const html = fs.readFileSync(htmlPath, 'utf8');
+    const cardMarker = `<!-- BEGIN CARD-ADV ${slug} -->`;
+    return html.includes(cardMarker);
+}
+
+/**
+ * Actualiza una tarjeta existente en culiacan/index.html
+ * @param {string} slug - Slug de la propiedad
+ * @param {string} htmlPath - Ruta al archivo HTML principal
+ * @param {string} newCardHTML - HTML de la nueva tarjeta
+ * @returns {boolean} - True si se actualizó exitosamente
+ */
+function updateExistingCard(slug, htmlPath, newCardHTML) {
+    if (!fs.existsSync(htmlPath)) {
+        return false;
+    }
+
+    let html = fs.readFileSync(htmlPath, 'utf8');
+
+    // Buscar tarjeta existente entre los marcadores
+    const beginMarker = `<!-- BEGIN CARD-ADV ${slug} -->`;
+    const endMarker = `<!-- END CARD-ADV ${slug} -->`;
+
+    const beginIndex = html.indexOf(beginMarker);
+    const endIndex = html.indexOf(endMarker);
+
+    if (beginIndex === -1 || endIndex === -1) {
+        return false;
+    }
+
+    // Extraer todo desde BEGIN hasta END (inclusive)
+    const before = html.substring(0, beginIndex);
+    const after = html.substring(endIndex + endMarker.length);
+
+    // Reconstruir HTML con la tarjeta actualizada
+    html = before + newCardHTML + after;
+
+    fs.writeFileSync(htmlPath, html, 'utf8');
+    return true;
+}
+
+/**
+ * Genera HTML de una tarjeta para insertar/actualizar
+ * @param {object} config - Configuración de la propiedad
+ * @returns {string} - HTML de la tarjeta
+ */
+function generateCardHTML(config) {
+    const precioFormateado = config.price ? config.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0';
+
+    return `
+    <!-- BEGIN CARD-ADV ${config.slug} -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
+         data-href="${config.slug}/index.html">
+        <div class="relative aspect-video">
+            <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
+                $${precioFormateado}
+            </div>
+
+            <div class="carousel-container" data-current="0">
+                <img src="${config.slug}/images/foto-1.jpg"
+                     alt="${config.title} - Foto 1"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image active">
+                <img src="${config.slug}/images/foto-2.jpg"
+                     alt="${config.title} - Foto 2"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image hidden">
+                <img src="${config.slug}/images/foto-3.jpg"
+                     alt="${config.title} - Foto 3"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image hidden">
+
+                <button class="carousel-arrow carousel-prev" onclick="changeImage(this.parentElement, -1); event.stopPropagation();">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow carousel-next" onclick="changeImage(this.parentElement, 1); event.stopPropagation();">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <button class="favorite-btn absolute top-3 left-3 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors z-20" onclick="event.stopPropagation();">
+                <svg class="w-5 h-5 text-gray-600 hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-1 font-poppins">$${precioFormateado}</h3>
+            <p class="text-gray-600 mb-4 font-poppins">${config.title} · Culiacán</p>
+
+            <div class="flex flex-wrap gap-3 mb-6">
+                <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                    </svg>
+                    ${config.bedrooms} Recámaras
+                </div>
+                <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"></path>
+                    </svg>
+                    ${config.bathrooms} Baños
+                </div>
+                <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                    </svg>
+                    ${config.construction_area}m²
+                </div>
+            </div>
+
+            <a href="${config.slug}/index.html"
+               class="block w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white text-center font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                Ver Detalles
+            </a>
+        </div>
+    </div>
+    <!-- END CARD-ADV ${config.slug} -->
+`;
+}
+
+/**
+ * Publica la propiedad de forma idempotente
+ * - Si no existe: inserta tarjeta nueva
+ * - Si existe: actualiza tarjeta existente
+ * @param {object} config - Configuración de la propiedad
+ * @param {object} masterJSON - JSON maestro
+ * @returns {object} - { action: 'insert'|'update', success: boolean }
+ */
+async function publishIdempotently(config, masterJSON) {
+    const htmlPath = 'culiacan/index.html';
+    const exists = cardAlreadyExists(config.slug, htmlPath);
+
+    if (exists) {
+        console.log('   📌 Tarjeta ya existe - ACTUALIZANDO');
+
+        // Generar HTML de la tarjeta actualizada
+        const updatedCard = generateCardHTML(config);
+
+        // Actualizar tarjeta existente
+        const updated = updateExistingCard(config.slug, htmlPath, updatedCard);
+
+        if (updated) {
+            // Actualizar publisher info en JSON maestro
+            masterJSON.publisher = masterJSON.publisher || {};
+            masterJSON.publisher.action = 'update';
+            masterJSON.publisher.updated_at = new Date().toISOString();
+            masterJSON.publisher.slug = config.slug;
+            masterJSON.publisher.html_path = `culiacan/${config.slug}/index.html`;
+
+            return { action: 'update', success: true };
+        } else {
+            return { action: 'update', success: false };
+        }
+    } else {
+        console.log('   ➕ Tarjeta no existe - INSERTANDO');
+
+        // Insertar tarjeta nueva (función existente)
+        await agregarTarjeta(config);
+
+        // Actualizar publisher info en JSON maestro
+        masterJSON.publisher = masterJSON.publisher || {};
+        masterJSON.publisher.action = 'insert';
+        masterJSON.publisher.inserted_at = new Date().toISOString();
+        masterJSON.publisher.slug = config.slug;
+        masterJSON.publisher.html_path = `culiacan/${config.slug}/index.html`;
+
+        return { action: 'insert', success: true };
+    }
+}
+
+/**
+ * Finaliza la publicación actualizando el JSON maestro con éxito
+ * @param {object} masterJSON - JSON maestro
+ * @param {object} publishResult - Resultado de la publicación
+ * @returns {object} - JSON maestro actualizado
+ */
+function finalizePublication(masterJSON, publishResult) {
+    const now = new Date().toISOString();
+
+    // Actualizar last_success_at
+    masterJSON.last_success_at = now;
+
+    // Guardar snapshot exitoso
+    masterJSON.last_good_snapshot = {
+        published_at: now,
+        data: { ...masterJSON.data },
+        publisher: { ...masterJSON.publisher },
+        content_hash: masterJSON.content_hash
+    };
+
+    // Limpiar next_action
+    masterJSON.next_action = null;
+
+    // Resetear attempt a 0 (éxito)
+    if (masterJSON.last_run) {
+        masterJSON.last_run.attempt = 0;
+    }
+
+    // Resetear retry policy
+    if (masterJSON.retry_policy) {
+        masterJSON.retry_policy.retry_count = 0;
+    }
+
+    return masterJSON;
+}
+
+// ============================================
+// FIN BLOQUE 9
+// ============================================
+
 async function main() {
     const url = process.argv.find(arg => arg.includes('wiggot.com'));
 
@@ -1379,7 +1609,7 @@ async function main() {
         console.log('⚠️  Archivos en carpetas _test - NO publicar');
         return;
     }
-    console.log('🎴 Agregando tarjeta...');
+    console.log('🎴 Publicando tarjeta de forma idempotente...');
 
     // Transición: READY → PUBLISHING
     masterJSON = transitionState(masterJSON, STATES.PUBLISHING, {
@@ -1388,8 +1618,14 @@ async function main() {
     });
     saveMasterJSON(stableId, masterJSON, carpetaData);
 
-    await agregarTarjeta(config);
-    console.log('✅ Tarjeta agregada a culiacan/index.html');
+    // Publicación idempotente (insert o update)
+    const publishResult = await publishIdempotently(config, masterJSON);
+
+    if (publishResult.success) {
+        console.log(`   ✅ Tarjeta ${publishResult.action === 'insert' ? 'insertada' : 'actualizada'} en culiacan/index.html`);
+    } else {
+        throw new Error(`Fallo al ${publishResult.action === 'insert' ? 'insertar' : 'actualizar'} tarjeta`);
+    }
     console.log('');
 
     // Transición: PUBLISHING → DONE (proceso completado exitosamente)
@@ -1399,6 +1635,10 @@ async function main() {
         finished_at: new Date().toISOString()
     });
     masterJSON = finishRun(masterJSON, true);
+
+    // Finalizar publicación con snapshot exitoso
+    masterJSON = finalizePublication(masterJSON, publishResult);
+
     saveMasterJSON(stableId, masterJSON, carpetaData);
 
     console.log('🎉 ¡PROCESO COMPLETADO EXITOSAMENTE!');
