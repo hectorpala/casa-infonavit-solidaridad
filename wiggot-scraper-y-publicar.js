@@ -1284,7 +1284,10 @@ async function main() {
     console.log('');
 
     // Variables para tracking de estado
-    let stableId, masterJSON, slug, datos, config;
+    let stableId, masterJSON, slug, datos, config, carpetaData;
+
+    // Inicializar carpetaData desde el inicio para usar en error handler
+    carpetaData = CONFIG.mode.paths.data;
 
     try {
         // PASO 1: Scrapear datos de Wiggot
@@ -1422,7 +1425,6 @@ async function main() {
 
     // Determinar rutas según modo
     const carpetaPropiedad = `${CONFIG.mode.paths.html}/${slug}`;
-    const carpetaData = CONFIG.mode.paths.data;
 
     // Verificar si existe JSON maestro (dedupe por ID, NO por slug)
     const existingJSON = loadMasterJSON(stableId, carpetaData);
@@ -1686,10 +1688,12 @@ async function main() {
             console.log(`   - JSON: ${carpetaData}/${stableId}.json`);
             console.log('');
 
-            if (masterJSON.retry_policy.retry_count < masterJSON.retry_policy.max_retries) {
-                console.log(`🔁 Puede reintentarse (${masterJSON.retry_policy.retry_count}/${masterJSON.retry_policy.max_retries})`);
-            } else {
-                console.log('❌ Max retries alcanzado - revisar manualmente');
+            if (masterJSON.retry_policy && masterJSON.retry_policy.retry_count !== undefined) {
+                if (masterJSON.retry_policy.retry_count < masterJSON.retry_policy.max_retries) {
+                    console.log(`🔁 Puede reintentarse (${masterJSON.retry_policy.retry_count}/${masterJSON.retry_policy.max_retries})`);
+                } else {
+                    console.log('❌ Max retries alcanzado - revisar manualmente');
+                }
             }
         }
 
@@ -1726,24 +1730,45 @@ async function scrapearWiggot(url) {
 
     if (loginVisible) {
         console.log('   🔐 Login detectado, iniciando sesión...');
+
+        // Verificar que tenemos credenciales
+        if (!WIGGOT_EMAIL || !WIGGOT_PASSWORD) {
+            throw new Error('Credenciales de Wiggot no configuradas en .env (WIGGOT_EMAIL, WIGGOT_PASSWORD)');
+        }
+
         await page.type('input[type="email"]', WIGGOT_EMAIL);
         await page.type('input[type="password"]', WIGGOT_PASSWORD);
 
-        await page.evaluate(() => {
-            const buttons = Array.from(document.querySelectorAll('button'));
-            for (const btn of buttons) {
-                const text = (btn.textContent || '').toLowerCase();
-                if (text.includes('login') || text.includes('entrar') || text.includes('iniciar')) {
-                    btn.click();
-                    return true;
+        // Click en botón de login y esperar navegación
+        const [response] = await Promise.all([
+            page.waitForNavigation({ waitUntil: 'networkidle2', timeout: 30000 }),
+            page.evaluate(() => {
+                const buttons = Array.from(document.querySelectorAll('button'));
+                for (const btn of buttons) {
+                    const text = (btn.textContent || '').toLowerCase();
+                    if (text.includes('login') || text.includes('entrar') || text.includes('iniciar sesión')) {
+                        btn.click();
+                        return true;
+                    }
                 }
-            }
-        });
+                return false;
+            })
+        ]);
 
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        console.log('   ✅ Login exitoso, esperando carga de página...');
+        await new Promise(resolve => setTimeout(resolve, 3000));
 
+        // Guardar cookies para próximas ejecuciones
         const cookies = await page.cookies();
         fs.writeFileSync(cookiesPath, JSON.stringify(cookies));
+
+        // Verificar que estamos en la página de la propiedad
+        const currentUrl = page.url();
+        if (!currentUrl.includes('property-detail')) {
+            // Si no, navegar a la URL original
+            await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
+            await new Promise(resolve => setTimeout(resolve, 3000));
+        }
     }
 
     // Abrir galería
@@ -1778,9 +1803,19 @@ async function scrapearWiggot(url) {
         const titleEl = document.querySelector('h1, h2, .title, [class*="title"]');
         if (titleEl) data.title = titleEl.textContent.trim();
 
-        // Precio
-        const priceEl = document.querySelector('[class*="price"], [class*="Price"]');
-        if (priceEl) data.price = priceEl.textContent.match(/[\d,]+/)?.[0] || '';
+        // Precio - múltiples selectores y búsqueda en texto
+        let priceEl = document.querySelector('[class*="price"], [class*="Price"], [class*="precio"], [class*="Precio"]');
+        if (priceEl) {
+            data.price = priceEl.textContent.match(/[\d,]+/)?.[0] || '';
+        }
+
+        // Si no encontró precio con selectores, buscar en todo el texto
+        if (!data.price) {
+            const allText = document.body.innerText;
+            // Buscar patrón de precio: $X,XXX,XXX o MXN X,XXX,XXX
+            const priceMatch = allText.match(/(?:\$|MXN)\s*([\d,]+(?:\.\d{2})?)/i);
+            if (priceMatch) data.price = priceMatch[1];
+        }
 
         // Ubicación
         const locationEl = document.querySelector('[class*="location"], [class*="address"]');
