@@ -1,0 +1,201 @@
+<!-- ============================================ -->
+<!-- CARRUSEL HERO COMPLETO - 16 FOTOS -->
+<!-- Template validado: Barrio San Alberto -->
+<!-- Fecha: Octubre 2025 -->
+<!-- ============================================ -->
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Tu Nuevo Hogar Te Está Esperando</h1>
+        <p class="hero-subtitle">{{DESCRIPCION_COMPLETA}}</p>
+        <a href="#contact" class="hero-cta">Contactar</a>
+    </div>
+    <div class="hero-image">
+        <div class="carousel-container">
+            <!-- Main carousel display -->
+            <div class="carousel-wrapper">
+                <!-- SLIDE 0 - FACHADA PRINCIPAL (SIEMPRE) -->
+                <div class="carousel-slide active" data-slide="0">
+                    <img src="images/foto-1.jpg" alt="Fachada Principal" class="carousel-image gallery-image main-image" loading="eager" decoding="async" width="800" height="600" onclick="openLightbox(0)">
+                </div>
+
+                <!-- SLIDE 1 -->
+                <div class="carousel-slide" data-slide="1">
+                    <img src="images/foto-2.jpg" alt="Fachada Vista 2" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(1)">
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="carousel-slide" data-slide="2">
+                    <img src="images/foto-3.jpg" alt="Fachada Vista 3" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(2)">
+                </div>
+
+                <!-- SLIDE 3 -->
+                <div class="carousel-slide" data-slide="3">
+                    <img src="images/foto-4.jpg" alt="Vista Exterior" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(3)">
+                </div>
+
+                <!-- SLIDE 4 -->
+                <div class="carousel-slide" data-slide="4">
+                    <img src="images/foto-5.jpg" alt="Interior 1" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(4)">
+                </div>
+
+                <!-- SLIDE 5 -->
+                <div class="carousel-slide" data-slide="5">
+                    <img src="images/foto-6.jpg" alt="Interior 2" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(5)">
+                </div>
+
+                <!-- SLIDE 6 -->
+                <div class="carousel-slide" data-slide="6">
+                    <img src="images/foto-7.jpg" alt="Sala" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(6)">
+                </div>
+
+                <!-- SLIDE 7 -->
+                <div class="carousel-slide" data-slide="7">
+                    <img src="images/foto-8.jpg" alt="Comedor" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(7)">
+                </div>
+
+                <!-- SLIDE 8 -->
+                <div class="carousel-slide" data-slide="8">
+                    <img src="images/foto-9.jpg" alt="Cocina" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(8)">
+                </div>
+
+                <!-- SLIDE 9 -->
+                <div class="carousel-slide" data-slide="9">
+                    <img src="images/foto-10.jpg" alt="Recámara Principal" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(9)">
+                </div>
+
+                <!-- SLIDE 10 -->
+                <div class="carousel-slide" data-slide="10">
+                    <img src="images/foto-11.jpg" alt="Recámara 2" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(10)">
+                </div>
+
+                <!-- SLIDE 11 -->
+                <div class="carousel-slide" data-slide="11">
+                    <img src="images/foto-12.jpg" alt="Baño" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(11)">
+                </div>
+
+                <!-- SLIDE 12 -->
+                <div class="carousel-slide" data-slide="12">
+                    <img src="images/foto-13.jpg" alt="Patio" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(12)">
+                </div>
+
+                <!-- SLIDE 13 -->
+                <div class="carousel-slide" data-slide="13">
+                    <img src="images/foto-14.jpg" alt="Vista Trasera" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(13)">
+                </div>
+
+                <!-- SLIDE 14 -->
+                <div class="carousel-slide" data-slide="14">
+                    <img src="images/foto-15.jpg" alt="Interior" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(14)">
+                </div>
+
+                <!-- SLIDE 15 -->
+                <div class="carousel-slide" data-slide="15">
+                    <img src="images/foto-16.jpg" alt="Interior" class="carousel-image gallery-image main-image" loading="lazy" decoding="async" width="800" height="600" onclick="openLightbox(15)">
+                </div>
+
+                <!-- Navigation arrows -->
+                <button class="carousel-arrow carousel-prev" onclick="changeSlideHero(-1); openLightboxFromCarousel();" aria-label="Foto anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-arrow carousel-next" onclick="changeSlideHero(1); openLightboxFromCarousel();" aria-label="Siguiente foto">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Price Badge -->
+            <div class="price-badge">
+                <span class="price-amount">{{PRECIO}}</span>
+                <span class="price-label">En Venta</span>
+            </div>
+
+            <!-- Dots indicators - 16 DOTS -->
+            <div class="carousel-dots">
+                <button class="carousel-dot active" onclick="goToSlideHero(0)" aria-label="Ir a foto 1"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(1)" aria-label="Ir a foto 2"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(2)" aria-label="Ir a foto 3"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(3)" aria-label="Ir a foto 4"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(4)" aria-label="Ir a foto 5"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(5)" aria-label="Ir a foto 6"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(6)" aria-label="Ir a foto 7"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(7)" aria-label="Ir a foto 8"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(8)" aria-label="Ir a foto 9"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(9)" aria-label="Ir a foto 10"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(10)" aria-label="Ir a foto 11"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(11)" aria-label="Ir a foto 12"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(12)" aria-label="Ir a foto 13"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(13)" aria-label="Ir a foto 14"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(14)" aria-label="Ir a foto 15"></button>
+                <button class="carousel-dot" onclick="goToSlideHero(15)" aria-label="Ir a foto 16"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- JAVASCRIPT - LIGHTBOX IMAGES ARRAY -->
+<!-- ============================================ -->
+<script>
+    // Lightbox functionality - 16 FOTOS
+    const lightboxImages = [
+        { src: 'images/foto-1.jpg', alt: 'Fachada Principal' },
+        { src: 'images/foto-2.jpg', alt: 'Fachada Vista 2' },
+        { src: 'images/foto-3.jpg', alt: 'Fachada Vista 3' },
+        { src: 'images/foto-4.jpg', alt: 'Vista Exterior' },
+        { src: 'images/foto-5.jpg', alt: 'Interior 1' },
+        { src: 'images/foto-6.jpg', alt: 'Interior 2' },
+        { src: 'images/foto-7.jpg', alt: 'Sala' },
+        { src: 'images/foto-8.jpg', alt: 'Comedor' },
+        { src: 'images/foto-9.jpg', alt: 'Cocina' },
+        { src: 'images/foto-10.jpg', alt: 'Recámara Principal' },
+        { src: 'images/foto-11.jpg', alt: 'Recámara 2' },
+        { src: 'images/foto-12.jpg', alt: 'Baño' },
+        { src: 'images/foto-13.jpg', alt: 'Patio' },
+        { src: 'images/foto-14.jpg', alt: 'Vista Trasera' },
+        { src: 'images/foto-15.jpg', alt: 'Interior' },
+        { src: 'images/foto-16.jpg', alt: 'Interior' }
+    ];
+
+    // Variables del carrusel - 16 SLIDES
+    const totalSlides = 16;
+    const totalSlidesHero = 16;
+</script>
+
+<!-- ============================================ -->
+<!-- NOTAS IMPORTANTES -->
+<!-- ============================================ -->
+<!--
+1. ESTRUCTURA:
+   - 16 slides totales (data-slide 0-15)
+   - 16 dots de navegación (índices 0-15)
+   - 16 entradas en lightboxImages array
+   - totalSlides = 16, totalSlidesHero = 16
+
+2. NOMENCLATURA:
+   - foto-1.jpg = FACHADA PRINCIPAL (obligatorio)
+   - foto-2.jpg hasta foto-16.jpg = secuenciales
+   - Carpeta: images/ (relativa a la página HTML)
+
+3. CLASES CSS IMPORTANTES:
+   - carousel-slide active = Primera slide visible
+   - carousel-dot active = Primer dot activo
+   - loading="eager" = Solo primera foto
+   - loading="lazy" = Resto de fotos (optimización)
+
+4. FUNCIONES JAVASCRIPT REQUERIDAS:
+   - changeSlideHero(direction) = Navegación flechas
+   - goToSlideHero(index) = Navegación dots
+   - openLightbox(index) = Abrir lightbox
+   - openLightboxFromCarousel() = Lightbox desde carrusel
+
+5. SINCRONIZACIÓN:
+   - data-slide="X" debe coincidir con onclick="openLightbox(X)"
+   - onclick="goToSlideHero(X)" debe coincidir con índice del dot
+   - aria-label usa numeración humana (1-16)
+   - lightboxImages array debe tener mismo orden que slides
+
+6. TEMPLATE DE REFERENCIA:
+   - Archivo: culiacan/casa-renta-barrio-san-alberto-pgtrrTw/index.html
+   - Validado: Octubre 2025
+   - Estructura: 100% funcional con 16 fotos
+-->
