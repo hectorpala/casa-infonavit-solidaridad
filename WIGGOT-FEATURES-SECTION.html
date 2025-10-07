@@ -1,0 +1,259 @@
+<!-- ============================================ -->
+<!-- FEATURES SECTION - ICONOS BAJO LAS FOTOS -->
+<!-- Template validado: Barrio San Alberto -->
+<!-- Fecha: Octubre 2025 -->
+<!-- ============================================ -->
+
+<!-- Features Section - Zillow Style Compact -->
+<section class="features-compact scroll-animate" id="features">
+    <div class="container">
+        <div class="features-inline">
+            <!-- RECÁMARAS -->
+            <div class="feature-item">
+                <i class="fas fa-bed"></i>
+                <span class="feature-value">{{RECAMARAS}}</span>
+                <span class="feature-label">rec</span>
+            </div>
+
+            <!-- BAÑOS -->
+            <div class="feature-item">
+                <i class="fas fa-bath"></i>
+                <span class="feature-value">{{BAÑOS}}</span>
+                <span class="feature-label">baños</span>
+            </div>
+
+            <!-- ESTACIONAMIENTOS -->
+            <div class="feature-item">
+                <i class="fas fa-car"></i>
+                <span class="feature-value">{{ESTACIONAMIENTOS}}</span>
+                <span class="feature-label">autos</span>
+            </div>
+
+            <!-- M² CONSTRUCCIÓN (NUEVO) -->
+            <div class="feature-item">
+                <i class="fas fa-home"></i>
+                <span class="feature-value">{{M2_CONSTRUCCION}}</span>
+                <span class="feature-label">m² const</span>
+            </div>
+
+            <!-- M² TERRENO -->
+            <div class="feature-item">
+                <i class="fas fa-ruler-combined"></i>
+                <span class="feature-value">{{M2_TERRENO}}</span>
+                <span class="feature-label">m² terreno</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- CSS REQUERIDO -->
+<!-- ============================================ -->
+<style>
+    .features-compact {
+        padding: 20px 0;
+        background: #f9fafb;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .features-inline {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .feature-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-item i {
+        font-size: 2rem;
+        color: #ff6b35;
+        margin-bottom: 4px;
+    }
+
+    .feature-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        font-family: 'Poppins', sans-serif;
+        line-height: 1;
+    }
+
+    .feature-label {
+        font-size: 0.875rem;
+        color: #6b7280;
+        text-transform: lowercase;
+        font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .features-inline {
+            gap: 15px;
+        }
+
+        .feature-item {
+            padding: 10px 16px;
+            min-width: 100px;
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+        }
+
+        .feature-value {
+            font-size: 1.25rem;
+        }
+
+        .feature-label {
+            font-size: 0.75rem;
+        }
+    }
+</style>
+
+<!-- ============================================ -->
+<!-- EJEMPLO DE USO - BARRIO SAN ALBERTO -->
+<!-- ============================================ -->
+<!--
+DATOS REALES USADOS:
+- Recámaras: 3
+- Baños: 4.5
+- Estacionamientos: 4
+- M² Construcción: 235
+- M² Terreno: 406
+
+HTML FINAL:
+<div class="feature-item">
+    <i class="fas fa-bed"></i>
+    <span class="feature-value">3</span>
+    <span class="feature-label">rec</span>
+</div>
+<div class="feature-item">
+    <i class="fas fa-bath"></i>
+    <span class="feature-value">4.5</span>
+    <span class="feature-label">baños</span>
+</div>
+<div class="feature-item">
+    <i class="fas fa-car"></i>
+    <span class="feature-value">4</span>
+    <span class="feature-label">autos</span>
+</div>
+<div class="feature-item">
+    <i class="fas fa-home"></i>
+    <span class="feature-value">235</span>
+    <span class="feature-label">m² const</span>
+</div>
+<div class="feature-item">
+    <i class="fas fa-ruler-combined"></i>
+    <span class="feature-value">406</span>
+    <span class="feature-label">m² terreno</span>
+</div>
+-->
+
+<!-- ============================================ -->
+<!-- ICONOS DISPONIBLES (FONT AWESOME) -->
+<!-- ============================================ -->
+<!--
+ICONOS PRINCIPALES:
+- fa-bed = Recámaras
+- fa-bath = Baños
+- fa-car = Estacionamientos
+- fa-home = M² Construcción (NUEVO en Wiggot)
+- fa-ruler-combined = M² Terreno
+
+ICONOS ADICIONALES (si necesitas):
+- fa-layer-group = Niveles/Pisos
+- fa-building = Edificio/Departamento
+- fa-tree = Jardín
+- fa-swimming-pool = Alberca
+- fa-utensils = Cocina equipada
+- fa-couch = Sala
+- fa-door-open = Habitaciones
+-->
+
+<!-- ============================================ -->
+<!-- PLACEHOLDERS PARA REEMPLAZO AUTOMÁTICO -->
+<!-- ============================================ -->
+<!--
+SCRIPT DE ACTUALIZACIÓN (actualizar-datos-wiggot.js):
+
+// Features Section
+html = html.replace(/<span class="feature-value">2<\/span>\s*<span class="feature-label">rec<\/span>/g,
+    `<span class="feature-value">${data.bedrooms}</span>\n                    <span class="feature-label">rec</span>`);
+
+html = html.replace(/<span class="feature-value">2<\/span>\s*<span class="feature-label">baños<\/span>/g,
+    `<span class="feature-value">${data.bathrooms}</span>\n                    <span class="feature-label">baños</span>`);
+
+html = html.replace(/<span class="feature-value">2<\/span>\s*<span class="feature-label">autos<\/span>/g,
+    `<span class="feature-value">${data.estacionamientos}</span>\n                    <span class="feature-label">autos</span>`);
+
+html = html.replace(/<span class="feature-value">\d+<\/span>\s*<span class="feature-label">m² const<\/span>/g,
+    `<span class="feature-value">${data.area_construida}</span>\n                    <span class="feature-label">m² const</span>`);
+
+html = html.replace(/<span class="feature-value">\d+<\/span>\s*<span class="feature-label">m² terreno<\/span>/g,
+    `<span class="feature-value">${data.area_terreno}</span>\n                    <span class="feature-label">m² terreno</span>`);
+-->
+
+<!-- ============================================ -->
+<!-- NOTAS IMPORTANTES -->
+<!-- ============================================ -->
+<!--
+1. ORDEN DE LOS FEATURES:
+   1) Recámaras
+   2) Baños
+   3) Estacionamientos
+   4) M² Construcción (NUEVO en propiedades Wiggot)
+   5) M² Terreno
+
+2. NUEVO FEATURE AGREGADO:
+   - Antes: Solo teníamos 4 features (rec, baños, autos, m² terreno)
+   - Ahora: 5 features (agregamos m² construcción con ícono fa-home)
+   - Razón: Wiggot proporciona área_construida Y área_terreno separados
+
+3. DIFERENCIA CON PROPIEDADES.COM:
+   - Propiedades.com: Solo muestra m² totales (un solo feature)
+   - Wiggot: Muestra m² construcción Y m² terreno (dos features separados)
+
+4. ICONOS FONT AWESOME:
+   - Requiere Font Awesome 6.0.0 o superior
+   - CDN: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css
+
+5. RESPONSIVE:
+   - Desktop: gap 30px, padding 12px 20px
+   - Mobile: gap 15px, padding 10px 16px, iconos más pequeños
+
+6. ESTILOS ZILLOW-STYLE:
+   - Background blanco sobre fondo gris claro
+   - Border-radius 12px
+   - Box-shadow suave
+   - Hover effect con translateY(-2px)
+   - Colores: naranja (#ff6b35) para iconos
+
+7. VALIDACIÓN ANTES DE PUBLICAR:
+   - [ ] 5 features presentes
+   - [ ] Datos coinciden con JSON scraped
+   - [ ] Iconos cargando correctamente
+   - [ ] Responsive funciona en móvil
+   - [ ] Hover effects funcionan
+
+8. TEMPLATE DE REFERENCIA:
+   - Archivo: culiacan/casa-renta-barrio-san-alberto-pgtrrTw/index.html
+   - Líneas: 280-310
+   - Validado: Octubre 2025
+-->
