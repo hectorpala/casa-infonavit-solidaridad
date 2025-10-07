@@ -28,6 +28,47 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 
 **Documentación completa:** Ver `INSTRUCCIONES_SCRAPER.md`
 
+### 🔥 SCRAPER WIGGOT - MÉTODO PRINCIPAL (2-3 MIN) ✨ **[USAR SIEMPRE]**
+**Comando usuario:** Pasa SOLO la URL de Wiggot
+**Ejemplo:** "https://new.wiggot.com/search/property-detail/pXXXXXX"
+**Script:** `node wiggot-scraper-y-publicar.js "URL"`
+**Tiempo:** ~2-3 minutos (¡TODO 100% automatizado!)
+
+**⚠️ REGLA CRÍTICA - COMPORTAMIENTO AUTOMÁTICO:**
+Cuando el usuario pega una URL de Wiggot (`https://new.wiggot.com/search/property-detail/...`):
+1. **NO preguntar nada** - Ejecutar `wiggot-scraper-y-publicar.js` inmediatamente
+2. **NO pedir confirmación** - El usuario ya decidió al pegar la URL
+3. **Abrir localmente** - Después de publicar, abrir con `open "culiacan/[slug]/index.html"`
+
+**Proceso 100% automático (TODO en un comando):**
+1. ✅ Scrapea datos de Wiggot con Puppeteer (auto-login)
+2. ✅ Descarga TODAS las fotos (16-37 fotos típicamente)
+3. ✅ **m² con decimales** - Captura 328.14, 227.5 correctamente
+4. ✅ **Ubicación limpia** - Elimina ". ," y basura automáticamente
+5. ✅ **Mapa correcto** - Usa dirección real (no hardcodeada)
+6. ✅ **Un solo mapa** - Sin duplicados
+7. ✅ Genera HTML con Master Template Wiggot
+8. ✅ Valida automáticamente
+9. ✅ Genera tarjeta para culiacan/index.html
+10. ✅ **Auto-publica a GitHub** - Commit + push automático
+11. ✅ Listo en 2-3 minutos
+
+**Correcciones aplicadas (Oct 2025):**
+- ✅ Regex m²: `(\d+(?:\.\d+)?)` - Soporta decimales
+- ✅ Normalización: `parseFloat()` en vez de `parseInt()`
+- ✅ Ubicación: Limpia ". ," automáticamente
+- ✅ Mapa: Reemplaza iframe hardcodeado con Google Maps Embed API dinámico
+- ✅ Sin duplicados: Eliminado código que agregaba mapa extra
+
+**Workflow típico:**
+```
+Usuario: https://new.wiggot.com/search/property-detail/pABC123
+Claude:  [ejecuta wiggot-scraper-y-publicar.js → publica → abre localmente]
+         ✅ Publicado en https://casasenventa.info/culiacan/[slug]/
+```
+
+**Documentación completa:** Ver commits b7e3b90, aec91ef, 6db6fbe
+
 ### 🚀 AGREGAR PROPIEDAD DESDE PROYECTOS (5-7 MIN)
 **Comando:** `node add-property.js`
 **Cuándo usar:** Cuando tienes fotos en carpeta PROYECTOS (no en propiedades.com)
