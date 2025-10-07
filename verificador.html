@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Fechas - Propiedades.com</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result.error {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .result-date {
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .result-text {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .examples {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 10px;
+        }
+
+        .examples p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .example-link {
+            display: block;
+            padding: 8px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+            border: 1px solid #e0e0e0;
+            transition: all 0.2s;
+        }
+
+        .example-link:hover {
+            background: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>📅 Verificador de Fechas</h1>
+            <p class="subtitle">Pega la URL de propiedades.com</p>
+
+            <div class="input-group">
+                <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="https://propiedades.com/inmuebles/casa-en-venta-..."
+                    autocomplete="off"
+                >
+            </div>
+
+            <button class="btn" id="verifyBtn" onclick="verificar()">
+                🔍 Verificar Fecha
+            </button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p style="color: #666;">Verificando...</p>
+            </div>
+
+            <div class="result" id="result">
+                <div class="result-icon">📅</div>
+                <div class="result-date" id="resultDate">2025-10-07</div>
+                <div class="result-text" id="resultText">Fecha de publicación</div>
+                <button class="btn back-btn" onclick="resetear()">← Verificar otra</button>
+            </div>
+
+            <div class="examples">
+                <p>Ejemplos (click para usar):</p>
+                <a class="example-link" onclick="usarEjemplo(this)">
+                    https://propiedades.com/inmuebles/casa-en-venta-calle-blvd-de-las-torres-nueva-galicia-80295-culiacan-rosales-sin-sn-nueva-galicia-sinaloa-30318106
+                </a>
+                <a class="example-link" onclick="usarEjemplo(this)">
+                    https://propiedades.com/inmuebles/casa-en-venta-privada-riace-2956-residencial-san-jose-sinaloa-30154064
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function usarEjemplo(el) {
+            document.getElementById('urlInput').value = el.textContent.trim();
+        }
+
+        function resetear() {
+            document.getElementById('result').classList.remove('show');
+            document.getElementById('urlInput').value = '';
+            document.getElementById('verifyBtn').disabled = false;
+        }
+
+        async function verificar() {
+            const url = document.getElementById('urlInput').value.trim();
+
+            if (!url) {
+                alert('❌ Por favor pega una URL');
+                return;
+            }
+
+            if (!url.includes('propiedades.com/inmuebles/')) {
+                alert('❌ La URL debe ser de una propiedad en propiedades.com');
+                return;
+            }
+
+            // Deshabilitar botón y mostrar loading
+            document.getElementById('verifyBtn').disabled = true;
+            document.getElementById('loading').classList.add('show');
+            document.getElementById('result').classList.remove('show');
+
+            try {
+                // Buscar en el snapshot existente primero
+                const snapshotResponse = await fetch('snapshots-propiedades/snapshot-https---propiedades-com-culiacan-residencial-venta.json');
+                const snapshot = await snapshotResponse.json();
+
+                const propiedad = snapshot.propiedades.find(p => p.url.includes(url.split('#')[0].split('?')[0]));
+
+                if (propiedad && propiedad.date && propiedad.date !== 'N/A') {
+                    // Encontrada en snapshot
+                    mostrarResultado(propiedad.date, 'Snapshot (última actualización: ' + new Date(snapshot.fechaActualizacion).toLocaleString('es-MX') + ')');
+                } else {
+                    // No está en snapshot, necesita scrapear en vivo
+                    // Por ahora mostrar que no está disponible
+                    mostrarError('Esta URL no está en el snapshot. Agrégala primero al monitor.');
+                }
+            } catch (error) {
+                console.error(error);
+                mostrarError('Error al verificar. Intenta de nuevo.');
+            }
+
+            document.getElementById('loading').classList.remove('show');
+            document.getElementById('verifyBtn').disabled = false;
+        }
+
+        function mostrarResultado(fecha, metodo) {
+            const result = document.getElementById('result');
+            result.className = 'result show';
+
+            document.getElementById('resultDate').textContent = fecha;
+
+            const fechaObj = new Date(fecha);
+            const fechaFormateada = fechaObj.toLocaleDateString('es-MX', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            document.getElementById('resultText').textContent = fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1);
+        }
+
+        function mostrarError(mensaje) {
+            const result = document.getElementById('result');
+            result.className = 'result show error';
+
+            document.getElementById('resultDate').innerHTML = '<div style="font-size: 1.5rem;">❌</div>';
+            document.getElementById('resultText').textContent = mensaje;
+        }
+    </script>
+</body>
+</html>
