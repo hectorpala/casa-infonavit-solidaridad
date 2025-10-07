@@ -817,21 +817,35 @@ function normalizeScrapedData(rawData) {
 
     // Normalizar ubicación (extraer colonia, ciudad, estado)
     if (normalized.location) {
-        // Limpiar ubicación: eliminar puntos solitarios, comas extras, espacios múltiples
+        // Limpiar ubicación: eliminar puntos solitarios, comas extras, espacios múltiples, redundancias
         let cleanLocation = normalized.location
             .replace(/^\s*\.\s*,\s*/, '') // Eliminar ". ," al inicio
             .replace(/,\s*\.\s*,/, ',')   // Eliminar ", .," en medio
             .replace(/\s{2,}/g, ' ')      // Múltiples espacios → uno solo
+            .replace(/^[^-]+-\s*/, '')    // Eliminar texto antes de guion (ej: "ISLA MUSALA - ")
             .trim();
 
+        // Eliminar redundancias: si una palabra aparece 2+ veces seguidas, dejar solo 1
         const locationParts = cleanLocation.split(',').map(s => s.trim()).filter(s => s && s !== '.');
+        const uniqueParts = [];
+        let lastPart = '';
+
+        for (const part of locationParts) {
+            const normalized = part.toLowerCase().trim();
+            if (normalized !== lastPart.toLowerCase().trim()) {
+                uniqueParts.push(part);
+                lastPart = part;
+            }
+        }
+
+        cleanLocation = uniqueParts.join(', ');
 
         normalized.location = cleanLocation;
         normalized.location_normalized = {
             full: cleanLocation,
-            colonia: locationParts[0] || '',
-            ciudad: locationParts[1] || 'Culiacán',
-            estado: locationParts[2] || 'Sinaloa'
+            colonia: uniqueParts[0] || '',
+            ciudad: uniqueParts[1] || 'Culiacán',
+            estado: uniqueParts[2] || 'Sinaloa'
         };
     } else {
         normalized.location = 'Culiacán, Sinaloa';
