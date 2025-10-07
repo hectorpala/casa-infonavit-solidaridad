@@ -560,8 +560,16 @@ function createOrUpdateMasterJSON(id, url, scrapedData, config, dataPath, slug) 
         masterJSON.last_success_at = now;
         masterJSON.last_updated = now;
 
-        // Resetear retry count en éxito
-        masterJSON.retry_policy.retry_count = 0;
+        // Asegurar que retry_policy existe y resetear retry count en éxito
+        if (!masterJSON.retry_policy) {
+            masterJSON.retry_policy = {
+                max_retries: 3,
+                retry_count: 0,
+                backoff_seconds: 60
+            };
+        } else {
+            masterJSON.retry_policy.retry_count = 0;
+        }
 
         // Actualizar raw_data
         masterJSON.raw_data = scrapedData;
@@ -2357,7 +2365,8 @@ async function verificarDuplicado(datos, slug) {
     // 2. Verificar precio exacto en culiacan/index.html
     if (fs.existsSync('culiacan/index.html')) {
         const html = fs.readFileSync('culiacan/index.html', 'utf8');
-        const precioNormalizado = datos.price.replace(/[^0-9]/g, '');
+        const precioString = String(datos.price);
+        const precioNormalizado = precioString.replace(/[^0-9]/g, '');
 
         // Buscar tarjetas con el mismo precio
         const regexPrecio = new RegExp(`\\$${datos.price}[^0-9]`, 'g');
@@ -2365,7 +2374,7 @@ async function verificarDuplicado(datos, slug) {
 
         if (matches && matches.length > 0) {
             // Buscar la carpeta asociada al precio
-            const regexCarpeta = new RegExp(`data-href="([^"]+)"[\\s\\S]{0,500}\\$${datos.price.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`);
+            const regexCarpeta = new RegExp(`data-href="([^"]+)"[\\s\\S]{0,500}\\$${precioString.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`);
             const carpetaMatch = html.match(regexCarpeta);
 
             if (carpetaMatch) {
