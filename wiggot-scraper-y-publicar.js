@@ -430,8 +430,8 @@ function createOrUpdateMasterJSON(id, url, scrapedData, config, dataPath, slug) 
             source_url: url,
             slug: slug, // Slug solo para rutas web (NO para dedupe)
 
-            // Estado
-            state: 'scraped', // scraped | validated | published | failed
+            // Estado (usar constantes de STATES)
+            state: STATES.QUEUED, // queued → scraping → ready → publishing → done | failed
 
             // Datos principales
             data: {
@@ -578,6 +578,153 @@ function createOrUpdateMasterJSON(id, url, scrapedData, config, dataPath, slug) 
 // FIN BLOQUE 5
 // ============================================
 
+// ============================================
+// BLOQUE 6: MÁQUINA DE ESTADOS
+// ============================================
+
+/**
+ * Estados posibles de una propiedad
+ * queued → scraping → ready → publishing → done
+ *                           ↓
+ *                        failed
+ */
+const STATES = {
+    QUEUED: 'queued',           // En cola para procesar
+    SCRAPING: 'scraping',       // Scrapeando datos
+    READY: 'ready',             // Datos listos, pendiente publicar
+    PUBLISHING: 'publishing',   // Publicando HTML
+    DONE: 'done',               // Completado exitosamente
+    FAILED: 'failed'            // Falló el proceso
+};
+
+/**
+ * Transiciones válidas entre estados
+ */
+const STATE_TRANSITIONS = {
+    [STATES.QUEUED]: [STATES.SCRAPING, STATES.FAILED],
+    [STATES.SCRAPING]: [STATES.READY, STATES.FAILED],
+    [STATES.READY]: [STATES.PUBLISHING, STATES.SCRAPING, STATES.FAILED],
+    [STATES.PUBLISHING]: [STATES.DONE, STATES.FAILED],
+    [STATES.DONE]: [STATES.SCRAPING], // Puede re-scrapear para actualizar
+    [STATES.FAILED]: [STATES.QUEUED, STATES.SCRAPING] // Puede reintentar
+};
+
+/**
+ * Valida si una transición de estado es válida
+ * @param {string} fromState - Estado actual
+ * @param {string} toState - Estado destino
+ * @returns {boolean} - True si la transición es válida
+ */
+function isValidTransition(fromState, toState) {
+    if (!fromState) return toState === STATES.QUEUED; // Inicio siempre es QUEUED
+    const validNextStates = STATE_TRANSITIONS[fromState] || [];
+    return validNextStates.includes(toState);
+}
+
+/**
+ * Transiciona el estado del JSON maestro
+ * @param {object} masterJSON - JSON maestro
+ * @param {string} newState - Nuevo estado
+ * @param {object} runInfo - Información del run actual
+ * @returns {object} - JSON maestro actualizado
+ */
+function transitionState(masterJSON, newState, runInfo = {}) {
+    const oldState = masterJSON.state;
+
+    // Validar transición
+    if (!isValidTransition(oldState, newState)) {
+        const error = `⚠️  Transición inválida: ${oldState} → ${newState}`;
+        console.log(error);
+        masterJSON.warnings = masterJSON.warnings || [];
+        masterJSON.warnings.push({
+            timestamp: new Date().toISOString(),
+            message: error,
+            type: 'invalid_transition'
+        });
+        return masterJSON;
+    }
+
+    // Logging de transición
+    console.log(`   🔄 Estado: ${oldState || 'null'} → ${newState}`);
+
+    // Actualizar estado
+    masterJSON.state = newState;
+
+    // Actualizar last_run con información detallada
+    masterJSON.last_run = {
+        run_id: runInfo.run_id || crypto.randomBytes(8).toString('hex'),
+        state: newState,
+        started_at: runInfo.started_at || new Date().toISOString(),
+        finished_at: runInfo.finished_at || null,
+        attempt: (masterJSON.last_run?.attempt || 0) + 1,
+        retriable: runInfo.retriable !== undefined ? runInfo.retriable : (newState === STATES.FAILED),
+        error: runInfo.error || null
+    };
+
+    // Actualizar retry policy según el estado
+    if (newState === STATES.FAILED) {
+        masterJSON.retry_policy.retry_count += 1;
+
+        if (masterJSON.retry_policy.retry_count >= masterJSON.retry_policy.max_retries) {
+            masterJSON.last_run.retriable = false;
+            masterJSON.next_action = null;
+            console.log(`   ❌ Max retries alcanzado (${masterJSON.retry_policy.retry_count}/${masterJSON.retry_policy.max_retries})`);
+        } else {
+            masterJSON.next_action = 'retry_scrape';
+            const backoff = masterJSON.retry_policy.backoff_seconds * Math.pow(2, masterJSON.retry_policy.retry_count - 1);
+            console.log(`   🔁 Retry ${masterJSON.retry_policy.retry_count}/${masterJSON.retry_policy.max_retries} (backoff: ${backoff}s)`);
+        }
+    } else if (newState === STATES.DONE) {
+        // Éxito: resetear retry policy
+        masterJSON.retry_policy.retry_count = 0;
+        masterJSON.next_action = null;
+        masterJSON.last_success_at = new Date().toISOString();
+    } else if (newState === STATES.READY) {
+        masterJSON.next_action = 'publish';
+    } else if (newState === STATES.PUBLISHING) {
+        masterJSON.next_action = null;
+    }
+
+    return masterJSON;
+}
+
+/**
+ * Finaliza el run actual actualizando finished_at
+ * @param {object} masterJSON - JSON maestro
+ * @param {boolean} success - Si el run fue exitoso
+ * @param {string} error - Mensaje de error si falló
+ * @returns {object} - JSON maestro actualizado
+ */
+function finishRun(masterJSON, success = true, error = null) {
+    if (masterJSON.last_run) {
+        masterJSON.last_run.finished_at = new Date().toISOString();
+
+        if (error) {
+            masterJSON.last_run.error = error;
+            masterJSON.errors = masterJSON.errors || [];
+            masterJSON.errors.push({
+                timestamp: masterJSON.last_run.finished_at,
+                message: error,
+                run_id: masterJSON.last_run.run_id
+            });
+        }
+
+        // Calcular duración
+        const started = new Date(masterJSON.last_run.started_at);
+        const finished = new Date(masterJSON.last_run.finished_at);
+        const duration = Math.round((finished - started) / 1000);
+        masterJSON.last_run.duration_seconds = duration;
+
+        console.log(`   ⏱️  Duración: ${duration}s`);
+    }
+
+    return masterJSON;
+}
+
+// ============================================
+// FIN BLOQUE 6
+// ============================================
+
 async function main() {
     const url = process.argv.find(arg => arg.includes('wiggot.com'));
 
@@ -601,9 +748,20 @@ async function main() {
     console.log(`   - HTML: ${CONFIG.mode.paths.html}/`);
     console.log('');
 
-    // PASO 1: Scrapear datos de Wiggot
-    console.log('📥 PASO 1/6: Scrapeando datos de Wiggot...');
-    const datos = await scrapearWiggot(url);
+    // Generar run_id para tracking
+    const runId = crypto.randomBytes(8).toString('hex');
+    const runStarted = new Date().toISOString();
+    console.log(`🔖 Run ID: ${runId}`);
+    console.log('');
+
+    // Variables para tracking de estado
+    let stableId, masterJSON, slug, datos, config;
+
+    try {
+        // PASO 1: Scrapear datos de Wiggot
+        console.log('📥 PASO 1/7: Scrapeando datos de Wiggot...');
+        console.log(`   🔄 Estado inicial: null → ${STATES.SCRAPING}`);
+        datos = await scrapearWiggot(url);
 
     // AUTO-CORRECCIÓN: Extraer precio del título si está vacío
     if (!datos.price && datos.title) {
@@ -754,10 +912,17 @@ async function main() {
     console.log('✅ Página HTML generada:', `${carpetaPropiedad}/index.html`);
     console.log('');
 
-    // PASO 5B: Guardar JSON maestro (fuente única de verdad)
+    // PASO 5B: Guardar JSON maestro y transicionar a READY
     console.log('💾 PASO 5B/7: Guardando JSON maestro...');
-    const masterJSON = createOrUpdateMasterJSON(stableId, url, datos, config, carpetaData, slug);
-    console.log(`   ✅ Estado: ${masterJSON.state}`);
+    masterJSON = createOrUpdateMasterJSON(stableId, url, datos, config, carpetaData, slug);
+
+    // Transición: SCRAPING → READY (datos listos para publicar)
+    masterJSON = transitionState(masterJSON, STATES.READY, {
+        run_id: runId,
+        started_at: runStarted
+    });
+    saveMasterJSON(stableId, masterJSON, carpetaData);
+
     console.log(`   🔐 Content hash: ${masterJSON.content_hash}`);
     console.log('');
 
@@ -789,9 +954,26 @@ async function main() {
         return;
     }
     console.log('🎴 Agregando tarjeta...');
+
+    // Transición: READY → PUBLISHING
+    masterJSON = transitionState(masterJSON, STATES.PUBLISHING, {
+        run_id: runId,
+        started_at: runStarted
+    });
+    saveMasterJSON(stableId, masterJSON, carpetaData);
+
     await agregarTarjeta(config);
     console.log('✅ Tarjeta agregada a culiacan/index.html');
     console.log('');
+
+    // Transición: PUBLISHING → DONE (proceso completado exitosamente)
+    masterJSON = transitionState(masterJSON, STATES.DONE, {
+        run_id: runId,
+        started_at: runStarted,
+        finished_at: new Date().toISOString()
+    });
+    masterJSON = finishRun(masterJSON, true);
+    saveMasterJSON(stableId, masterJSON, carpetaData);
 
     console.log('🎉 ¡PROCESO COMPLETADO EXITOSAMENTE!');
     console.log('');
@@ -814,6 +996,39 @@ async function main() {
         console.log('🚀 SIGUIENTE PASO: Ejecuta "publica ya" para deployment');
     } else {
         console.log('⚠️  MODO TEST: Archivos generados en carpetas _test (no publicar)');
+    }
+
+    } catch (error) {
+        console.error('');
+        console.error('❌ ERROR EN EL PROCESO:');
+        console.error('   ', error.message);
+        console.error('');
+
+        // Si ya tenemos un JSON maestro, transicionar a FAILED
+        if (masterJSON && stableId) {
+            masterJSON = transitionState(masterJSON, STATES.FAILED, {
+                run_id: runId,
+                started_at: runStarted,
+                finished_at: new Date().toISOString(),
+                error: error.message,
+                retriable: true
+            });
+            masterJSON = finishRun(masterJSON, false, error.message);
+            saveMasterJSON(stableId, masterJSON, carpetaData);
+
+            console.log('💾 JSON maestro actualizado con estado FAILED');
+            console.log(`   - JSON: ${carpetaData}/${stableId}.json`);
+            console.log('');
+
+            if (masterJSON.retry_policy.retry_count < masterJSON.retry_policy.max_retries) {
+                console.log(`🔁 Puede reintentarse (${masterJSON.retry_policy.retry_count}/${masterJSON.retry_policy.max_retries})`);
+            } else {
+                console.log('❌ Max retries alcanzado - revisar manualmente');
+            }
+        }
+
+        console.error('Stack trace:', error.stack);
+        process.exit(1);
     }
 }
 
