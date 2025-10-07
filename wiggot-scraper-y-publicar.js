@@ -442,9 +442,21 @@ async function agregarTarjeta(config) {
             </div>
 
             <div class="carousel-container" data-current="0">
-                <img src="${config.slug}/images/foto-1.jpg" alt="${config.title}" class="carousel-image active" loading="lazy">
-                <img src="${config.slug}/images/foto-2.jpg" alt="${config.title}" class="carousel-image" loading="lazy">
-                <img src="${config.slug}/images/foto-3.jpg" alt="${config.title}" class="carousel-image" loading="lazy">
+                <img src="${config.slug}/images/foto-1.jpg"
+                     alt="${config.title} - Foto 1"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image active">
+                <img src="${config.slug}/images/foto-2.jpg"
+                     alt="${config.title} - Foto 2"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image hidden">
+                <img src="${config.slug}/images/foto-3.jpg"
+                     alt="${config.title} - Foto 3"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image hidden">
 
                 <button class="carousel-arrow carousel-prev" onclick="changeImage(this.parentElement, -1); event.stopPropagation();">
                     <i class="fas fa-chevron-left"></i>
@@ -489,11 +501,11 @@ async function agregarTarjeta(config) {
     <!-- END CARD-ADV ${config.slug} -->
 `;
 
-    // Insertar antes del cierre del grid
-    html = html.replace(
-        /(<!-- Properties Grid -->[\s\S]*?<div class="properties-grid">)/,
-        `$1\n${tarjeta}`
-    );
+    // Insertar después del comentario "Properties Grid" y su div de apertura
+    const insertPoint = '<!-- Properties Grid -->\n        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">\n';
+    const replacement = insertPoint + tarjeta;
+
+    html = html.replace(insertPoint, replacement);
 
     fs.writeFileSync('culiacan/index.html', html);
 }
