@@ -976,6 +976,54 @@ function createValidationError(stage, code, message, validationErrors = []) {
 // FIN BLOQUE 7
 // ============================================
 
+// ============================================
+// BLOQUE 8: DETECCIÓN DE CAMBIOS (content_hash)
+// ============================================
+
+/**
+ * Compara hashes para detectar si hubo cambios
+ * @param {object} existingJSON - JSON maestro existente
+ * @param {string} newHash - Nuevo content hash
+ * @returns {boolean} - True si hay cambios
+ */
+function hasContentChanged(existingJSON, newHash) {
+    if (!existingJSON || !existingJSON.content_hash) {
+        return true; // Primera vez o sin hash anterior = cambio
+    }
+    return existingJSON.content_hash !== newHash;
+}
+
+/**
+ * Verifica si se debe saltar la publicación por no haber cambios
+ * @param {object} masterJSON - JSON maestro existente
+ * @param {string} newHash - Nuevo content hash
+ * @param {string} mode - Modo de ejecución (prod/test/shadow)
+ * @returns {boolean} - True si se debe saltar publicación
+ */
+function shouldSkipPublication(masterJSON, newHash, mode) {
+    // Solo en modo prod o shadow (test no publica de todas formas)
+    if (mode !== 'prod' && mode !== 'shadow') {
+        return false;
+    }
+
+    // Solo si estado es DONE (completado exitosamente anteriormente)
+    if (!masterJSON || masterJSON.state !== STATES.DONE) {
+        return false;
+    }
+
+    // Solo si el contenido NO cambió
+    if (hasContentChanged(masterJSON, newHash)) {
+        return false;
+    }
+
+    // Todas las condiciones se cumplen: saltar publicación
+    return true;
+}
+
+// ============================================
+// FIN BLOQUE 8
+// ============================================
+
 async function main() {
     const url = process.argv.find(arg => arg.includes('wiggot.com'));
 
@@ -1148,6 +1196,24 @@ async function main() {
 
     // Verificar si existe JSON maestro (dedupe por ID, NO por slug)
     const existingJSON = loadMasterJSON(stableId, carpetaData);
+
+    // Calcular content hash de los datos normalizados actuales
+    const config = {
+        slug: slug,
+        title: datos.title,
+        price: datos.price,
+        location: datos.location,
+        bedrooms: parseInt(datos.bedrooms) || 3,
+        bathrooms: parseFloat(datos.bathrooms) || 2,
+        parking: parseInt(datos.parking) || 2,
+        levels: parseInt(datos.levels) || 1,
+        construction_area: parseInt(datos.construction_area) || 100,
+        land_area: parseInt(datos.land_area) || 100,
+        description: datos.description,
+        photoCount: datos.images.length
+    };
+    const newContentHash = calculateContentHash(config);
+
     if (existingJSON) {
         console.log(`   📋 JSON maestro encontrado: ${stableId}`);
         console.log(`   🏷️  Slug anterior: ${existingJSON.slug}`);
@@ -1159,8 +1225,55 @@ async function main() {
         } else {
             console.log(`   ✅ Slug sin cambios`);
         }
+
+        // Verificar si el contenido cambió
+        console.log(`   🔐 Hash anterior: ${existingJSON.content_hash}`);
+        console.log(`   🔐 Hash nuevo: ${newContentHash}`);
+
+        if (shouldSkipPublication(existingJSON, newContentHash, CONFIG.mode.current)) {
+            console.log('');
+            console.log('🔄 NO-CHANGE: Contenido sin cambios y estado DONE');
+            console.log('');
+            console.log('📋 RESUMEN:');
+            console.log('   🔑 ID:', stableId);
+            console.log('   🏷️  Slug:', slug);
+            console.log('   🏠 Propiedad:', datos.title);
+            console.log('   💰 Precio:', datos.price);
+            console.log('   📍 Ubicación:', datos.location);
+            console.log('   🔐 Content hash:', newContentHash);
+            console.log('   📊 Estado:', existingJSON.state);
+            console.log('   📅 Última actualización:', existingJSON.last_updated);
+            console.log('');
+            console.log('⏭️  SALTANDO: No se regenerará HTML ni se reinyectará tarjeta');
+            console.log('💡 Los datos ya están publicados y no cambiaron');
+            console.log('');
+            console.log(`🎯 MODO: ${MODE.toUpperCase()}`);
+            console.log('📂 ARCHIVO EXISTENTE:');
+            console.log(`   - JSON Maestro: ${carpetaData}/${stableId}.json`);
+            console.log(`   - HTML: ${CONFIG.mode.paths.html}/${slug}/`);
+            console.log('');
+            console.log('✅ Proceso completado sin cambios');
+
+            // Actualizar solo last_run en el JSON
+            existingJSON.last_run = {
+                run_id: runId,
+                state: existingJSON.state,
+                started_at: runStarted,
+                finished_at: new Date().toISOString(),
+                attempt: 1,
+                retriable: false,
+                error: null,
+                no_change: true
+            };
+            saveMasterJSON(stableId, existingJSON, carpetaData);
+
+            process.exit(0);
+        } else if (hasContentChanged(existingJSON, newContentHash)) {
+            console.log(`   🔄 CONTENIDO CAMBIÓ - Se regenerará y republicará`);
+        }
     } else {
         console.log(`   ✅ Propiedad nueva (no existe JSON maestro)`);
+        console.log(`   🔐 Hash nuevo: ${newContentHash}`);
     }
 
     const duplicado = await verificarDuplicado(datos, slug);
@@ -1219,21 +1332,8 @@ async function main() {
     console.log('');
 
     // PASO 5: Generar página HTML
-    console.log('📄 PASO 5/6: Generando página HTML...');
-    const config = {
-        slug: slug,
-        title: datos.title,
-        price: datos.price,
-        location: datos.location,
-        bedrooms: parseInt(datos.bedrooms) || 3,
-        bathrooms: parseFloat(datos.bathrooms) || 2,
-        parking: parseInt(datos.parking) || 2,
-        levels: parseInt(datos.levels) || 1,
-        construction_area: parseInt(datos.construction_area) || 100,
-        land_area: parseInt(datos.land_area) || 100,
-        description: datos.description,
-        photoCount: datos.images.length
-    };
+    console.log('📄 PASO 5/8: Generando página HTML...');
+    // config ya fue creado en PASO 2 para el content hash
     await generarPaginaHTML(config, carpetaPropiedad);
     console.log('✅ Página HTML generada:', `${carpetaPropiedad}/index.html`);
     console.log('');
