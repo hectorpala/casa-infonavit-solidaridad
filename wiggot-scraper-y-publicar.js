@@ -2289,8 +2289,16 @@ async function generarPaginaHTML(config, carpeta) {
         `${carpeta}/styles.css`
     );
 
-    // El template ya tiene el mapa, solo actualizar la ubicación en el template si es necesario
-    // (El template master-template-wiggot.html ya incluye la sección de mapa completa)
+    // Actualizar iframe del mapa con la ubicación correcta usando Google Maps Embed API
+    const ubicacionEncoded = encodeURIComponent(config.location + ', Sinaloa');
+    const nuevoIframe = `src="https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_KEY}&q=${ubicacionEncoded}&zoom=15"`;
+
+    // Reemplazar el iframe hardcodeado del template con uno dinámico
+    html = html.replace(
+        /src="https:\/\/www\.google\.com\/maps\/embed\?pb=[^"]+"/,
+        nuevoIframe
+    );
+    console.log('   ✅ Mapa actualizado con ubicación:', config.location);
 
     // Guardar HTML
     fs.writeFileSync(`${carpeta}/index.html`, html);
