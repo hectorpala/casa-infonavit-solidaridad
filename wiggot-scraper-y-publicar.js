@@ -19,9 +19,54 @@ const https = require('https');
 const http = require('http');
 const path = require('path');
 
-// Credenciales Wiggot
-const WIGGOT_EMAIL = 'hector.test.1759769906975@gmail.com';
-const WIGGOT_PASSWORD = 'Wiggot2025!drm36';
+// ============================================
+// BLOQUE 1: VARIABLES Y SEGURIDAD (.env)
+// ============================================
+
+// Cargar variables de entorno desde .env
+require('dotenv').config();
+
+// Configuración con modo degradado
+const CONFIG = {
+    wiggot: {
+        email: process.env.WIGGOT_EMAIL || null,
+        password: process.env.WIGGOT_PASSWORD || null
+    },
+    googleMaps: {
+        key: process.env.GOOGLE_MAPS_KEY || null
+    },
+    degradedMode: {
+        errors: []
+    }
+};
+
+// Validación de variables críticas
+if (!CONFIG.wiggot.email || !CONFIG.wiggot.password) {
+    CONFIG.degradedMode.errors.push({
+        type: 'CREDENTIALS_MISSING',
+        message: 'Wiggot credentials not found in .env',
+        impact: 'Auto-login will fail'
+    });
+    console.warn('⚠️  MODO DEGRADADO: Credenciales Wiggot no encontradas en .env');
+}
+
+if (!CONFIG.googleMaps.key) {
+    CONFIG.degradedMode.errors.push({
+        type: 'MAPS_KEY_MISSING',
+        message: 'Google Maps API key not found in .env',
+        impact: 'Maps will not load'
+    });
+    console.warn('⚠️  MODO DEGRADADO: Google Maps API key no encontrada en .env');
+}
+
+// Aliases para compatibilidad con código existente
+const WIGGOT_EMAIL = CONFIG.wiggot.email;
+const WIGGOT_PASSWORD = CONFIG.wiggot.password;
+const GOOGLE_MAPS_KEY = CONFIG.googleMaps.key;
+
+// ============================================
+// FIN BLOQUE 1
+// ============================================
 
 async function main() {
     const url = process.argv[2];
@@ -537,7 +582,7 @@ async function generarPaginaHTML(config, carpeta) {
             <p class="location-subtitle">${config.location}</p>
             <div class="map-container">
                 <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${ubicacionEncoded}&zoom=15"
+                    src="https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_KEY}&q=${ubicacionEncoded}&zoom=15"
                     width="100%"
                     height="450"
                     style="border:0; border-radius: 12px;"
@@ -592,7 +637,7 @@ async function generarPaginaHTML(config, carpeta) {
         );
         html = html.replace(
             /src="https:\/\/www\.google\.com\/maps\/embed\/v1\/place\?key=[^"]+"/,
-            `src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${ubicacionEncoded}&zoom=15"`
+            `src="https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_KEY}&q=${ubicacionEncoded}&zoom=15"`
         );
         console.log('   ✅ Mapa de ubicación actualizado');
     }
