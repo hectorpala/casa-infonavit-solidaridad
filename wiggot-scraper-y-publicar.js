@@ -68,17 +68,93 @@ const GOOGLE_MAPS_KEY = CONFIG.googleMaps.key;
 // FIN BLOQUE 1
 // ============================================
 
-async function main() {
-    const url = process.argv[2];
+// ============================================
+// BLOQUE 2: MODOS DE EJECUCIÓN (prod/test/shadow)
+// ============================================
 
-    if (!url || !url.includes('wiggot.com')) {
+// Detectar modo desde --mode=prod|test|shadow o variable de entorno MODE
+const MODE = (() => {
+    // Buscar en argumentos --mode=xxx
+    const modeArg = process.argv.find(arg => arg.startsWith('--mode='));
+    if (modeArg) {
+        return modeArg.split('=')[1];
+    }
+    // Buscar en variable de entorno MODE
+    if (process.env.MODE) {
+        return process.env.MODE;
+    }
+    // Default: prod
+    return 'prod';
+})();
+
+// Validar modo
+if (!['prod', 'test', 'shadow'].includes(MODE)) {
+    console.error(`❌ ERROR: Modo inválido "${MODE}". Usa: prod, test, o shadow`);
+    process.exit(1);
+}
+
+// Configuración de rutas según modo
+const PATHS = {
+    prod: {
+        data: 'data/items',
+        media: 'culiacan',
+        html: 'culiacan'
+    },
+    test: {
+        data: 'data/items_test',
+        media: 'data/media_test',
+        html: 'data/html_test'
+    },
+    shadow: {
+        data: 'data/items_test',      // Escribe JSON en test
+        media: 'culiacan',             // Publica normal
+        html: 'culiacan'               // Publica normal
+    }
+};
+
+// Agregar configuración de modo a CONFIG
+CONFIG.mode = {
+    current: MODE,
+    paths: PATHS[MODE],
+    isTest: MODE === 'test',
+    isShadow: MODE === 'shadow',
+    isProd: MODE === 'prod'
+};
+
+// Crear directorios necesarios
+if (MODE === 'test' || MODE === 'shadow') {
+    ['data/items_test', 'data/media_test', 'data/html_test'].forEach(dir => {
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
+    });
+}
+
+// ============================================
+// FIN BLOQUE 2
+// ============================================
+
+async function main() {
+    const url = process.argv.find(arg => arg.includes('wiggot.com'));
+
+    if (!url) {
         console.error('❌ ERROR: Debes proporcionar una URL de Wiggot');
-        console.log('💡 USO: node scraper-y-publicar.js "https://new.wiggot.com/search/property-detail/XXXXX"');
+        console.log('💡 USO: node wiggot-scraper-y-publicar.js "https://new.wiggot.com/search/property-detail/XXXXX" [--mode=prod|test|shadow]');
+        console.log('');
+        console.log('MODOS:');
+        console.log('  prod   → Producción (default): Publica HTML + escribe data/items/{id}.json');
+        console.log('  test   → Testing: Solo escribe data/items_test/{id}.json + media_test/');
+        console.log('  shadow → Shadow: Publica HTML normal + escribe data/items_test/{id}.json');
         process.exit(1);
     }
 
     console.log('🚀 INICIANDO SCRAPER Y PUBLICADOR AUTOMÁTICO');
+    console.log(`🎯 MODO: ${MODE.toUpperCase()}`);
     console.log('📍 URL:', url);
+    console.log('📂 Rutas:');
+    console.log(`   - Data: ${CONFIG.mode.paths.data}/`);
+    console.log(`   - Media: ${CONFIG.mode.paths.media}/`);
+    console.log(`   - HTML: ${CONFIG.mode.paths.html}/`);
     console.log('');
 
     // PASO 1: Scrapear datos de Wiggot
@@ -130,7 +206,10 @@ async function main() {
     // PASO 2: Verificar duplicados
     console.log('🔍 PASO 2/6: Verificando duplicados...');
     const slug = generarSlug(datos.title);
-    const carpetaPropiedad = `culiacan/${slug}`;
+
+    // Determinar rutas según modo
+    const carpetaPropiedad = `${CONFIG.mode.paths.html}/${slug}`;
+    const carpetaData = CONFIG.mode.paths.data;
 
     const duplicado = await verificarDuplicado(datos, slug);
     if (duplicado) {
@@ -207,8 +286,37 @@ async function main() {
     console.log('✅ Página HTML generada:', `${carpetaPropiedad}/index.html`);
     console.log('');
 
+    // PASO 5B: Guardar JSON de datos scrapeados (todos los modos)
+    console.log('💾 PASO 5B/6: Guardando JSON de datos...');
+    const jsonPath = await guardarDatosJSON(config, datos, carpetaData, slug);
+    console.log(`✅ JSON guardado: ${jsonPath}`);
+    console.log('');
+
     // PASO 6: Agregar tarjeta a culiacan/index.html
-    console.log('🎴 PASO 6/6: Agregando tarjeta a culiacan/index.html...');
+    if (!CONFIG.mode.isTest) {
+        console.log('🎴 PASO 6/6: Agregando tarjeta a culiacan/index.html...');
+    } else {
+        console.log('⏭️  PASO 6/6: OMITIDO (modo test - no publicar)');
+        console.log('');
+        console.log('🎉 ¡PROCESO COMPLETADO EXITOSAMENTE!');
+        console.log('');
+        console.log('📋 RESUMEN:');
+        console.log('   🏠 Propiedad:', datos.title);
+        console.log('   💰 Precio:', datos.price);
+        console.log('   📍 Ubicación:', datos.location);
+        console.log('   📸 Fotos:', datos.images.length);
+        console.log('');
+        console.log(`🎯 MODO: ${MODE.toUpperCase()}`);
+        console.log('📂 ARCHIVOS ESCRITOS:');
+        console.log(`   - Data: ${CONFIG.mode.paths.data}/${slug}.json`);
+        console.log(`   - HTML: ${CONFIG.mode.paths.html}/${slug}/`);
+        console.log(`   - Imágenes: ${CONFIG.mode.paths.html}/${slug}/images/`);
+        console.log('');
+        console.log('⚠️  MODO TEST: No se agregó tarjeta a culiacan/index.html');
+        console.log('⚠️  Archivos en carpetas _test - NO publicar');
+        return;
+    }
+    console.log('🎴 Agregando tarjeta...');
     await agregarTarjeta(config);
     console.log('✅ Tarjeta agregada a culiacan/index.html');
     console.log('');
@@ -219,10 +327,21 @@ async function main() {
     console.log('   🏠 Propiedad:', datos.title);
     console.log('   💰 Precio:', datos.price);
     console.log('   📍 Ubicación:', datos.location);
-    console.log('   📁 Carpeta:', carpetaPropiedad);
+    console.log('   📁 HTML:', `${carpetaPropiedad}/index.html`);
     console.log('   📸 Fotos:', datos.images.length);
+    console.log('   📂 JSON:', `${carpetaData}/${slug}.json`);
     console.log('');
-    console.log('🚀 SIGUIENTE PASO: Ejecuta "publica ya" para deployment');
+    console.log(`🎯 MODO: ${MODE.toUpperCase()}`);
+    console.log('📂 ARCHIVOS ESCRITOS:');
+    console.log(`   - Data: ${CONFIG.mode.paths.data}/${slug}.json`);
+    console.log(`   - HTML: ${CONFIG.mode.paths.html}/${slug}/`);
+    console.log(`   - Imágenes: ${CONFIG.mode.paths.html}/${slug}/images/`)
+    console.log('');
+    if (!CONFIG.mode.isTest) {
+        console.log('🚀 SIGUIENTE PASO: Ejecuta "publica ya" para deployment');
+    } else {
+        console.log('⚠️  MODO TEST: Archivos generados en carpetas _test (no publicar)');
+    }
 }
 
 async function scrapearWiggot(url) {
@@ -737,6 +856,53 @@ function generarSlug(titulo) {
         .replace(/[\u0300-\u036f]/g, '')
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '');
+}
+
+async function guardarDatosJSON(config, datosOriginales, carpetaData, slug) {
+    // Crear estructura de datos completa para guardar
+    const datosJSON = {
+        id: slug,
+        timestamp: new Date().toISOString(),
+        scraped_from: 'wiggot',
+        mode: CONFIG.mode.current,
+
+        // Datos básicos
+        title: config.title,
+        price: config.price,
+        location: config.location,
+        description: config.description,
+
+        // Características
+        features: {
+            bedrooms: config.bedrooms,
+            bathrooms: config.bathrooms,
+            parking: config.parking,
+            levels: config.levels,
+            construction_area: config.construction_area,
+            land_area: config.land_area
+        },
+
+        // Fotos
+        photos: {
+            count: config.photoCount,
+            urls: datosOriginales.images
+        },
+
+        // URLs
+        urls: {
+            html: `${CONFIG.mode.paths.html}/${slug}/index.html`,
+            images: `${CONFIG.mode.paths.html}/${slug}/images/`
+        },
+
+        // Datos originales del scraper
+        raw_data: datosOriginales
+    };
+
+    // Guardar JSON
+    const jsonPath = `${carpetaData}/${slug}.json`;
+    fs.writeFileSync(jsonPath, JSON.stringify(datosJSON, null, 2));
+
+    return jsonPath;
 }
 
 async function verificarDuplicado(datos, slug) {
