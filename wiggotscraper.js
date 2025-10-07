@@ -219,11 +219,20 @@ async function scrapeWiggot(propertyId) {
             const titleMatch = allText.match(/Casa\s+en\s+venta\s+en\s+([^\n]+)/i);
             if (titleMatch) data.title = 'Casa en Venta ' + titleMatch[1].trim();
 
-            // Precio - Múltiples estrategias
-            let priceMatch = allText.match(/Venta\s*\$([0-9,]+)/);
-            if (!priceMatch) priceMatch = allText.match(/\$([0-9,]+)\s*MXN/);
-            if (!priceMatch) priceMatch = allText.match(/\$\s*([0-9,]+)/);
-            if (priceMatch) data.price = priceMatch[1];
+            // Precio - Buscar TODOS los precios y tomar el más alto (precio real de venta)
+            const priceMatches = allText.match(/(?:\$|MXN)\s*([\d,]+(?:\.\d{2})?)/gi);
+
+            if (priceMatches && priceMatches.length > 0) {
+                // Convertir a números y encontrar el más alto
+                const prices = priceMatches.map(p => {
+                    const num = p.replace(/[^\d]/g, '');
+                    return parseInt(num);
+                });
+                const maxPrice = Math.max(...prices);
+
+                // Formatear el precio más alto
+                data.price = maxPrice.toLocaleString('en-US');
+            }
 
             // Ubicación
             const locationMatch = allText.match(/([A-ZÁÉÍÓÚÑ][a-záéíóúñ\s.]+\d+[^,]*),\s*([^,]+),\s*Culiacán/);
