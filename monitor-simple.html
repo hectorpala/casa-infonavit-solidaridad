@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Propiedades - Fechas</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .stats {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .property {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .property:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .date-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+        .link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏠 Monitor de Propiedades - Todas las Fechas</h1>
+    
+    <div class="stats">
+        <h2>📊 Estadísticas</h2>
+        <p><strong>Total propiedades:</strong> <span id="total">Cargando...</span></p>
+        <p><strong>Última actualización:</strong> <span id="lastUpdate">Cargando...</span></p>
+    </div>
+
+    <div id="properties" class="loading">
+        Cargando propiedades...
+    </div>
+
+    <script>
+        fetch('snapshots-propiedades/snapshot-https---propiedades-com-culiacan-residencial-venta.json')
+            .then(res => res.json())
+            .then(data => {
+                // Actualizar stats
+                document.getElementById('total').textContent = data.total;
+                document.getElementById('lastUpdate').textContent = new Date(data.fecha).toLocaleString('es-MX');
+
+                // Ordenar por fecha
+                const sorted = data.propiedades.sort((a, b) => {
+                    if (!a.date || a.date === 'N/A') return 1;
+                    if (!b.date || b.date === 'N/A') return -1;
+                    return b.date.localeCompare(a.date);
+                });
+
+                // Generar HTML
+                let html = '';
+                sorted.forEach((prop, i) => {
+                    const fecha = prop.date && prop.date !== 'N/A' 
+                        ? new Date(prop.date).toLocaleDateString('es-MX', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                          })
+                        : 'Fecha no disponible';
+
+                    html += `
+                        <div class="property">
+                            <div class="title">
+                                ${i + 1}. ${prop.title}
+                                <span class="date-badge">📅 ${fecha}</span>
+                            </div>
+                            <div class="meta">📍 ${prop.location}</div>
+                            <a href="${prop.url}" target="_blank" class="link">${prop.url.substring(0, 100)}...</a>
+                        </div>
+                    `;
+                });
+
+                document.getElementById('properties').innerHTML = html;
+            })
+            .catch(err => {
+                document.getElementById('properties').innerHTML = `
+                    <div class="property" style="border-left-color: #ef4444;">
+                        <div class="title">❌ Error cargando datos</div>
+                        <div class="meta">${err.message}</div>
+                        <div class="meta" style="margin-top: 10px;">
+                            Asegúrate de que el archivo existe en: snapshots-propiedades/snapshot-https---propiedades-com-culiacan-residencial-venta.json
+                        </div>
+                    </div>
+                `;
+            });
+    </script>
+</body>
+</html>
