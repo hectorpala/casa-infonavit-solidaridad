@@ -234,10 +234,32 @@ async function scrapeWiggot(propertyId) {
                 data.price = maxPrice.toLocaleString('en-US');
             }
 
-            // Ubicación
-            const locationMatch = allText.match(/([A-ZÁÉÍÓÚÑ][a-záéíóúñ\s.]+\d+[^,]*),\s*([^,]+),\s*Culiacán/);
-            if (locationMatch) {
-                data.location = `${locationMatch[1]}, ${locationMatch[2]}, Culiacán`;
+            // Ubicación - buscar la línea después del título (buscar TODAS las ocurrencias)
+            if (data.title) {
+                const lines = allText.split('\n');
+
+                // Buscar TODAS las ocurrencias del título
+                for (let i = 0; i < lines.length; i++) {
+                    if (lines[i].trim() === data.title || lines[i].includes(data.title)) {
+                        // Verificar la siguiente línea
+                        if (i + 1 < lines.length) {
+                            const nextLine = lines[i + 1].trim();
+                            // Si la línea siguiente parece una ubicación, la usamos
+                            if (nextLine && nextLine.includes(',') && (nextLine.includes('Culiacán') || nextLine.includes('Sinaloa'))) {
+                                data.location = nextLine;
+                                break; // Encontramos la ubicación, salir del loop
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Fallback: regex pattern
+            if (!data.location) {
+                const locationMatch = allText.match(/([A-ZÁÉÍÓÚÑ][a-záéíóúñ\s.]+\d+[^,]*),\s*([^,]+),\s*Culiacán/);
+                if (locationMatch) {
+                    data.location = `${locationMatch[1]}, ${locationMatch[2]}, Culiacán`;
+                }
             }
 
             // Recámaras

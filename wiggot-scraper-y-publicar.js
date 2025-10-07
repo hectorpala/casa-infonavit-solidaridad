@@ -1807,6 +1807,9 @@ async function scrapearWiggot(url) {
             images: []
         };
 
+        // Obtener todo el texto de la página una sola vez
+        const allText = document.body.innerText;
+
         // Título
         const titleEl = document.querySelector('h1, h2, .title, [class*="title"]');
         if (titleEl) data.title = titleEl.textContent.trim();
@@ -1819,7 +1822,6 @@ async function scrapearWiggot(url) {
 
         // Si no encontró precio con selectores, buscar TODOS los precios y tomar el más alto
         if (!data.price) {
-            const allText = document.body.innerText;
             // Buscar TODOS los patrones de precio: $X,XXX,XXX o MXN X,XXX,XXX
             const priceMatches = allText.match(/(?:\$|MXN)\s*([\d,]+(?:\.\d{2})?)/gi);
 
@@ -1836,12 +1838,33 @@ async function scrapearWiggot(url) {
             }
         }
 
-        // Ubicación
-        const locationEl = document.querySelector('[class*="location"], [class*="address"]');
-        if (locationEl) data.location = locationEl.textContent.trim();
+        // Ubicación - buscar después del título
+        let locationEl = document.querySelector('[class*="location"], [class*="address"]');
+        if (locationEl) {
+            data.location = locationEl.textContent.trim();
+        }
+
+        // Si no encontró con selectores, buscar la línea después del título (buscar TODAS las ocurrencias)
+        if (!data.location && data.title) {
+            const lines = allText.split('\n');
+
+            // Buscar TODAS las ocurrencias del título
+            for (let i = 0; i < lines.length; i++) {
+                if (lines[i].trim() === data.title || lines[i].includes(data.title)) {
+                    // Verificar la siguiente línea
+                    if (i + 1 < lines.length) {
+                        const nextLine = lines[i + 1].trim();
+                        // Si la línea siguiente parece una ubicación, la usamos
+                        if (nextLine && nextLine.includes(',') && (nextLine.includes('Culiacán') || nextLine.includes('Sinaloa'))) {
+                            data.location = nextLine;
+                            break; // Encontramos la ubicación, salir del loop
+                        }
+                    }
+                }
+            }
+        }
 
         // Características
-        const allText = document.body.innerText;
         const bedroomsMatch = allText.match(/Recámaras?\s*(\d+)/i);
         const bathroomsMatch = allText.match(/Baños?\s*(\d+\.?\d*)/i);
 
