@@ -2054,15 +2054,31 @@ function descargarImagen(url, filepath) {
 }
 
 async function generarPaginaHTML(config, carpeta) {
-    // Leer template de Bugambilias (con fallback a template mínimo)
-    const templatePath = 'culiacan/casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a/index.html';
-    let html;
+    // Buscar templates en orden de prioridad (con múltiples fallbacks)
+    const templatePaths = [
+        'automation/templates/master-template-wiggot.html',  // Prioridad 1: Master template optimizado para Wiggot
+        'culiacan/casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a/index.html',  // Prioridad 2: Bugambilias
+        'automation/templates/master-template.html'  // Prioridad 3: Master template genérico
+    ];
 
-    if (fs.existsSync(templatePath)) {
-        html = fs.readFileSync(templatePath, 'utf8');
-        console.log('   📄 Template: Bugambilias (completo)');
-    } else {
-        console.log('   ⚠️  Template Bugambilias no encontrado, usando fallback mínimo');
+    let html;
+    let templateUsed = 'fallback';
+
+    // Intentar cargar templates en orden de prioridad
+    for (const templatePath of templatePaths) {
+        if (fs.existsSync(templatePath)) {
+            html = fs.readFileSync(templatePath, 'utf8');
+            templateUsed = templatePath.includes('master-template-wiggot') ? 'Master Wiggot' :
+                          templatePath.includes('bugambilias') ? 'Bugambilias' :
+                          templatePath.includes('master-template') ? 'Master Genérico' : 'Unknown';
+            console.log(`   📄 Template: ${templateUsed} (${templatePath})`);
+            break;
+        }
+    }
+
+    // Si ningún template existe, usar fallback embebido
+    if (!html) {
+        console.log('   ⚠️  Ningún template encontrado, usando fallback mínimo embebido');
         html = getMinimalTemplate();
         // Aplicar replacements simples para template mínimo
         html = html.replace(/{{TITLE}}/g, config.title);
