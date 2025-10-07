@@ -39,8 +39,46 @@ async function main() {
     // PASO 1: Scrapear datos de Wiggot
     console.log('📥 PASO 1/6: Scrapeando datos de Wiggot...');
     const datos = await scrapearWiggot(url);
+
+    // AUTO-CORRECCIÓN: Extraer precio del título si está vacío
+    if (!datos.price && datos.title) {
+        const priceMatch = datos.title.match(/\$?[\d,]+,\d{3},\d{3}/);
+        if (priceMatch) {
+            datos.price = priceMatch[0].replace(/\$/g, '').replace(/,/g, '');
+            console.log('   🔧 Precio extraído del título:', datos.price);
+        }
+    }
+
+    // AUTO-CORRECCIÓN: Extraer ubicación de la descripción si está vacía
+    if (!datos.location && datos.description) {
+        // Buscar patrones como "en [Ubicación]" o "[Ubicación], Culiacán"
+        const locationMatch = datos.description.match(/(?:en|ubicada en)\s+([A-ZÁÉÍÓÚ][a-záéíóúñ\s]+?)(?:,|\.|$)/i);
+        if (locationMatch) {
+            datos.location = locationMatch[1].trim() + ', Culiacán';
+            console.log('   🔧 Ubicación extraída de descripción:', datos.location);
+        }
+    }
+
+    // AUTO-CORRECCIÓN: Extraer datos adicionales del texto completo
+    if (datos.description) {
+        // Estacionamientos
+        const parkingMatch = datos.description.match(/(\d+)\s*(?:estacionamiento|cochera|garage|cajón)/i);
+        if (parkingMatch) {
+            datos.parking = parkingMatch[1];
+            console.log('   🔧 Estacionamientos encontrados:', datos.parking);
+        }
+
+        // Niveles
+        const levelsMatch = datos.description.match(/(\d+)\s*(?:nivel|planta|piso)/i);
+        if (levelsMatch) {
+            datos.levels = levelsMatch[1];
+            console.log('   🔧 Niveles encontrados:', datos.levels);
+        }
+    }
+
     console.log('✅ Datos scrapeados:', datos.title);
     console.log('   💰 Precio:', datos.price);
+    console.log('   📍 Ubicación:', datos.location);
     console.log('   📸 Fotos encontradas:', datos.images.length);
     console.log('');
 
@@ -111,8 +149,10 @@ async function main() {
         title: datos.title,
         price: datos.price,
         location: datos.location,
-        bedrooms: parseInt(datos.bedrooms) || 2,
-        bathrooms: parseFloat(datos.bathrooms) || 1.5,
+        bedrooms: parseInt(datos.bedrooms) || 3,
+        bathrooms: parseFloat(datos.bathrooms) || 2,
+        parking: parseInt(datos.parking) || 2,
+        levels: parseInt(datos.levels) || 1,
         construction_area: parseInt(datos.construction_area) || 100,
         land_area: parseInt(datos.land_area) || 100,
         description: datos.description,
@@ -328,9 +368,26 @@ async function generarPaginaHTML(config, carpeta) {
     // Reemplazar datos básicos (desde template Bugambilias)
     html = html.replace(/casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a/g, config.slug);
     html = html.replace(/Bugambilias/g, config.location.split(',')[0]);
-    html = html.replace(/\$1,800,000/g, `$${config.price}`);
-    html = html.replace(/"1800000"/g, `"${config.price.replace(/,/g, '')}"`);
-    html = html.replace(/1,800,000/g, config.price);
+
+    // AUTO-CORRECCIÓN: Actualizar TODOS los precios (incluyendo vacíos)
+    // Formatear precio con comas
+    const precioFormateado = config.price ? config.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0';
+    const precioSinComas = config.price ? config.price.toString().replace(/,/g, '') : '0';
+
+    // Reemplazar todos los formatos de precio
+    html = html.replace(/\$1,800,000/g, `$${precioFormateado}`);
+    html = html.replace(/\$1800000/g, `$${precioFormateado}`);
+    html = html.replace(/"1800000"/g, `"${precioSinComas}"`);
+    html = html.replace(/1,800,000/g, precioFormateado);
+    html = html.replace(/1800000/g, precioSinComas);
+
+    // Actualizar price badges (vacíos o con valor)
+    html = html.replace(/<span class="price-amount">\$<\/span>/g, `<span class="price-amount">$${precioFormateado}</span>`);
+    html = html.replace(/<span class="price-amount">\$[\d,]*<\/span>/g, `<span class="price-amount">$${precioFormateado}</span>`);
+    html = html.replace(/<span class="price-value">\$<\/span>/g, `<span class="price-value">$${precioFormateado}</span>`);
+    html = html.replace(/<span class="price-value">\$[\d,]*<\/span>/g, `<span class="price-value">$${precioFormateado}</span>`);
+
+    console.log('   ✅ Precio actualizado:', `$${precioFormateado}`);
 
     // Actualizar título y descripción
     html = html.replace(
@@ -351,6 +408,51 @@ async function generarPaginaHTML(config, carpeta) {
     html = html.replace(/133 m² terreno/g, `${config.land_area} m² terreno`);
     html = html.replace(/<span class="feature-value">N\/D<\/span>/g, `<span class="feature-value">${config.construction_area}</span>`);
     html = html.replace(/<span class="feature-value">133<\/span>/g, `<span class="feature-value">${config.land_area}</span>`);
+
+    // AUTO-CORRECCIÓN: Actualizar features section con todos los datos
+    // Buscar la sección features-inline y reemplazar valores
+    const featuresRegex = /<div class="features-inline">([\s\S]*?)<\/div>\s*<\/div>\s*<\/section>/;
+    const featuresMatch = html.match(featuresRegex);
+
+    if (featuresMatch) {
+        let featuresHTML = `<div class="features-inline">
+                <div class="feature-item">
+                    <i class="fas fa-bed"></i>
+                    <span class="feature-value">${config.bedrooms}</span>
+                    <span class="feature-label">rec</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bath"></i>
+                    <span class="feature-value">${config.bathrooms}</span>
+                    <span class="feature-label">baños</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-car"></i>
+                    <span class="feature-value">${config.parking}</span>
+                    <span class="feature-label">autos</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-layer-group"></i>
+                    <span class="feature-value">${config.levels}</span>
+                    <span class="feature-label">nivel${config.levels > 1 ? 'es' : ''}</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-ruler-combined"></i>
+                    <span class="feature-value">${config.construction_area}</span>
+                    <span class="feature-label">m² const.</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-vector-square"></i>
+                    <span class="feature-value">${config.land_area}</span>
+                    <span class="feature-label">m² terreno</span>
+                </div>
+            </div>
+        </div>
+    </section>`;
+
+        html = html.replace(featuresRegex, featuresHTML);
+        console.log('   ✅ Features actualizados:', config.bedrooms, 'rec,', config.bathrooms, 'baños,', config.parking, 'autos,', config.levels, 'nivel(es)');
+    }
 
     // Agregar slides para todas las fotos
     if (config.photoCount > 5) {
@@ -478,8 +580,22 @@ async function generarPaginaHTML(config, carpeta) {
     </style>
 `;
 
-    // Insertar mapa antes de Contact Section
-    html = html.replace(/<!-- Contact Section -->/g, mapaHTML + '\n    <!-- Contact Section -->');
+    // Insertar mapa antes de Contact Section (solo si no existe ya)
+    if (!html.includes('<!-- Location Map Section -->')) {
+        html = html.replace(/<!-- Contact Section -->/, mapaHTML + '\n    <!-- Contact Section -->');
+        console.log('   ✅ Mapa de ubicación agregado');
+    } else {
+        // Si ya existe, actualizar solo la ubicación
+        html = html.replace(
+            /<p class="location-subtitle">.*?<\/p>/,
+            `<p class="location-subtitle">${config.location}</p>`
+        );
+        html = html.replace(
+            /src="https:\/\/www\.google\.com\/maps\/embed\/v1\/place\?key=[^"]+"/,
+            `src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${ubicacionEncoded}&zoom=15"`
+        );
+        console.log('   ✅ Mapa de ubicación actualizado');
+    }
 
     // Guardar HTML
     fs.writeFileSync(`${carpeta}/index.html`, html);
