@@ -236,9 +236,16 @@ async function scrapearWiggot(url) {
         if (bathroomsMatch) data.bathrooms = bathroomsMatch[1];
         if (areaMatch) data.area = areaMatch[1];
 
-        // Descripción
-        const descEl = document.querySelector('[class*="description"], [class*="Description"]');
-        if (descEl) data.description = descEl.textContent.trim();
+        // Descripción - Captura TODO hasta "Ver más" o siguiente sección
+        const descMatch = allText.match(/Descripción\s*([\s\S]+?)(?:Ver más|Detalles de operación|Características del inmueble|$)/i);
+        if (descMatch) {
+            data.description = descMatch[1]
+                .trim()
+                .replace(/\n+/g, ' ')
+                .replace(/\s+/g, ' ')
+                .replace(/Ver más/g, '')
+                .trim();
+        }
 
         // Imágenes
         const imageUrls = new Set();

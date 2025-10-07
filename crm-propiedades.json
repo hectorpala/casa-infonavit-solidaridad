@@ -284,6 +284,21 @@
       "inmobiliaria": "Valor Homes",
       "fechaAgregada": "2025-10-07",
       "propertyId": "pbglmJT"
+    },
+    {
+      "slug": "casa-venta-casa-en-venta-santa-fe-pbglmJT",
+      "titulo": "Casa en Venta Santa Fe",
+      "precio": "2,100,000",
+      "ubicacion": "Próspero 1234 , Santa Fe, Culiacán",
+      "recamaras": "3",
+      "banos": "2.5",
+      "estacionamientos": "2",
+      "areaConstruccion": "182",
+      "areaTerreno": "180",
+      "agente": "Jazmin Rangel",
+      "inmobiliaria": "Valor Homes",
+      "fechaAgregada": "2025-10-07",
+      "propertyId": "pbglmJT"
     }
   ]
 }

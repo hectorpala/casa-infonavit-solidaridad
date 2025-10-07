@@ -1,0 +1,203 @@
+{
+  "allLinks": [
+    {
+      "href": "https://new.wiggot.com/home",
+      "text": "Inicio",
+      "className": "hard-link flex flex-col items-center justify-center py-1.5 w-full hover:bg-[#ced5e1] active:bg-[#DEE5F1] transition-colors duration-300 ease-in-out text-secondary"
+    },
+    {
+      "href": "https://new.wiggot.com/search",
+      "text": "Bolsa",
+      "className": "hard-link flex flex-col items-center justify-center py-1.5 w-full hover:bg-[#ced5e1] active:bg-[#DEE5F1] transition-colors duration-300 ease-in-out text-primary"
+    },
+    {
+      "href": "https://new.wiggot.com/my-properties",
+      "text": "Inventario",
+      "className": "hard-link flex flex-col items-center justify-center py-1.5 w-full hover:bg-[#ced5e1] active:bg-[#DEE5F1] transition-colors duration-300 ease-in-out text-secondary"
+    },
+    {
+      "href": "https://new.wiggot.com/lead-management",
+      "text": "Prospectos",
+      "className": "hard-link flex flex-col items-center justify-center py-1.5 w-full hover:bg-[#ced5e1] active:bg-[#DEE5F1] transition-colors duration-300 ease-in-out text-secondary"
+    },
+    {
+      "href": "https://new.wiggot.com/account/profile",
+      "text": "CC",
+      "className": "hard-link active:brightness-75"
+    },
+    {
+      "href": "https://new.wiggot.com/home",
+      "text": "Inicio",
+      "className": "hard-link border-b border-surface-strokes flex flex-row items-center justify-between gap-3 w-full py-2 cursor-pointer active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out px-3"
+    },
+    {
+      "href": "https://new.wiggot.com/search",
+      "text": "Bolsa",
+      "className": "hard-link bg-surface-gray-10 border-b border-surface-strokes flex flex-row items-center justify-between gap-3 w-full py-2 cursor-pointer active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out px-3"
+    },
+    {
+      "href": "https://new.wiggot.com/my-properties",
+      "text": "Propiedades",
+      "className": "hard-link flex flex-row items-center justify-between gap-3 w-full py-2 cursor-pointer active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out px-3"
+    },
+    {
+      "href": "https://new.wiggot.com/my-properties",
+      "text": "Inventario",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/appraisals",
+      "text": "Estimaciones",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/manage-platforms",
+      "text": "Vinculaciones",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/lists",
+      "text": "Listas compartidas",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/property-performance",
+      "text": "Desempeño",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/lead-management",
+      "text": "Prospectos",
+      "className": "hard-link flex flex-row items-center justify-between gap-3 w-full py-2 cursor-pointer active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out px-3"
+    },
+    {
+      "href": "https://new.wiggot.com/lead-management",
+      "text": "Tablero de seguimiento",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/minisites/configuracion",
+      "text": "Sitio web",
+      "className": "hard-link border-b border-surface-strokes flex flex-row items-center justify-between gap-3 w-full py-2 cursor-pointer active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out px-3"
+    },
+    {
+      "href": "https://new.wiggot.com/profile",
+      "text": "Tarjeta digital",
+      "className": "hard-link border-b border-surface-strokes flex flex-row items-center justify-between gap-3 w-full py-2 cursor-pointer active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out px-3"
+    },
+    {
+      "href": "https://new.wiggot.com/shop",
+      "text": "Tienda",
+      "className": "hard-link border-b border-surface-strokes flex flex-row items-center justify-between gap-3 w-full py-2 cursor-pointer active:bg-surface-gray-10 group transition-colors duration-300 ease-in-out px-3"
+    },
+    {
+      "href": "https://new.wiggot.com/home",
+      "text": "",
+      "className": "hard-link w-full flex flex-row items-center justify-start gap-2"
+    },
+    {
+      "href": "https://new.wiggot.com/home",
+      "text": "Inicio",
+      "className": "hard-link w-full flex flex-row items-center justify-between gap-3 cursor-pointer rounded-xl hover:bg-[#DEE5F1] min-h-[40px] h-10 px-[10px] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/search",
+      "text": "Bolsa",
+      "className": "hard-link bg-white w-full flex flex-row items-center justify-between gap-3 cursor-pointer rounded-xl hover:bg-[#DEE5F1] min-h-[40px] h-10 px-[10px] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/my-properties",
+      "text": "Propiedades",
+      "className": "hard-link w-full flex flex-row items-center justify-between gap-3 cursor-pointer rounded-xl hover:bg-[#DEE5F1] min-h-[40px] h-10 px-[10px] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/my-properties",
+      "text": "Inventario",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] rounded-xl hover:bg-[#DEE5F1] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/appraisals",
+      "text": "Estimaciones",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] rounded-xl hover:bg-[#DEE5F1] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/manage-platforms",
+      "text": "Vinculaciones",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] rounded-xl hover:bg-[#DEE5F1] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/lists",
+      "text": "Listas compartidas",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] rounded-xl hover:bg-[#DEE5F1] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/property-performance",
+      "text": "Desempeño",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] rounded-xl hover:bg-[#DEE5F1] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/lead-management",
+      "text": "Prospectos",
+      "className": "hard-link w-full flex flex-row items-center justify-between gap-3 cursor-pointer rounded-xl hover:bg-[#DEE5F1] min-h-[40px] h-10 px-[10px] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/lead-management",
+      "text": "Tablero de seguimiento",
+      "className": "hard-link flex flex-row items-center justify-start gap-3 w-full px-[10px] py-[6px] rounded-xl hover:bg-[#DEE5F1] active:bg-white group transition-colors duration-300 ease-in-out"
+    },
+    {
+      "href": "https://new.wiggot.com/minisites/configuracion",
+      "text": "Sitio web",
+      "className": "hard-link w-full flex flex-row items-center justify-between gap-3 cursor-pointer rounded-xl hover:bg-[#DEE5F1] min-h-[40px] h-10 px-[10px] active:bg-white group transition-colors duration-300 ease-in-out"
+    }
+  ],
+  "allDivClasses": [
+    "absolute z-20",
+    "absolute w-[312px] p-4 flex flex-col gap-4 bg-white rounded-lg [box-shadow:0px_3px_14px_-3px_rgba(24,26,61,0.12)] w-full z-[1] md:!w-[400px]",
+    "flex justify-start items-center gap-x-[8px]",
+    "w-10 h-10 rounded-full flex justify-center items-center bg-button-blue-01 hover:bg-button-blue-02 duration-200 active:scale-95",
+    "intercom-lightweight-app",
+    "flex flex-row md:bg-[#E8EDF5] w-full",
+    "fixed bottom-0 max-w-[100dvw] px-3 z-3 md:hidden w-full bg-surface-white border-t border-t-surface-strokes",
+    "flex flex-row items-center justify-around gap-0 w-full",
+    "w-full h-full max-w-[100dvw] max-h-[calc(100dvh-65px)] bg-white fixed z-3 top-0 left-0 right-0 md:hidden hidden",
+    "flex items-center justify-between px-6 py-3 gap-2.5 border-b border-surface-strokes w-full",
+    "flex items-center gap-2.5 justify-start",
+    "flex items-center gap-2.5 justify-end flex-row",
+    "min-w-[48px] min-h-[48px] max-h-[48px] max-w-[48px] [&>img]:!rounded-xl [&>img]:border-2 [&>img]:border-surface-strokes rounded-full bg-surface-gray-20 flex items-center justify-center relative w-10 h-10",
+    "w-full h-full flex flex-col justify-between max-h-[calc(100dvh-150px)] ui-kit-scrollbar overflow-y-auto",
+    "flex w-full gap-2 flex-row items-center justify-start",
+    "suboptions-container w-full suboptions-container--collapsed",
+    "flex w-full gap-2 flex-row items-center justify-start",
+    "suboptions-container w-full suboptions-container--collapsed",
+    "flex w-full gap-2 flex-row items-center justify-start",
+    "fade-in transition w-full -my-6 min-w-[36px] min-h-[36px] max-w-[36px] max-h-[36px]",
+    "rounded-full min-w-[36px] min-h-[36px] max-w-[36px] max-h-[36px] flex items-center justify-center active:bg-surface-gray-10",
+    "suboptions-container w-full suboptions-container--expanded",
+    "h-[18px] w-[18px]",
+    "h-[18px] w-[18px]",
+    "h-[18px] w-[18px]",
+    "h-[18px] w-[18px]",
+    "h-[18px] w-[18px]",
+    "flex w-full gap-2 flex-row items-center justify-start",
+    "fade-in transition w-full -my-6 min-w-[36px] min-h-[36px] max-w-[36px] max-h-[36px]",
+    "rounded-full min-w-[36px] min-h-[36px] max-w-[36px] max-h-[36px] flex items-center justify-center active:bg-surface-gray-10",
+    "suboptions-container w-full suboptions-container--expanded",
+    "h-[18px] w-[18px]",
+    "flex w-full gap-2 flex-row items-center justify-start",
+    "suboptions-container w-full suboptions-container--collapsed",
+    "flex w-full gap-2 flex-row items-center justify-start",
+    "suboptions-container w-full suboptions-container--collapsed",
+    "flex w-full gap-2 flex-row items-center justify-start",
+    "suboptions-container w-full suboptions-container--collapsed",
+    "w-full",
+    "flex flex-col w-full h-full",
+    "flex flex-row w-full min-h-[68px] px-1.5 pt-3 pb-6 items-center justify-between gap-1",
+    "min-w-[24px] min-h-[24px] max-w-[24px] max-h-[24px]",
+    "fade-in transition w-fit h-full flex items-center pt-1",
+    "fade-in transition w-fit z-3",
+    "w-fit",
+    "flex w-full gap-3 flex-row items-center justify-between"
+  ],
+  "bodyHTML": "<div><div class=\"absolute z-20\" style=\"top: 0px; left: 0px; width: 257px;\"><div hidden=\"\"><div class=\"absolute w-[312px] p-4 flex flex-col gap-4 bg-white rounded-lg [box-shadow:0px_3px_14px_-3px_rgba(24,26,61,0.12)] w-full z-[1] md:!w-[400px]\"><div class=\"\"><button type=\"button\" class=\"flex justify-between items-center w-full\"><div class=\"flex justify-start items-center gap-x-[8px]\"><svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" viewBox=\"0 0 24 24\" class=\"w-[18px] h-[18px] !text-lg !flex justify-center items-center text-[#121212]\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"></path><path d=\"M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z\"></path></svg><p class=\"text-xs text-text-primary\">Usar mi ubicación</p></div><div class=\"w-10 h-10 rounded-full flex justify-center items-center bg-button-blue-01 hover:bg-button-blue-02 duration-200 active:scale-95\"><svg stroke=\"currentColor\" fill=\"currentColor\" stroke-width=\"0\" viewBox=\"0 0 24 24\" class=\"w-[18px] h-[18px] text-button-primary\" height=\"1em\" width=\"1em\" xmlns=\"http://www.w3.org/2000/svg\"><path fill=\"none\" d=\"M0 0h24v24H0V0z\"></path><path d=\"m17.27 6.73-4.24 10.13-1.32-3.42-.32-.83-.82-.32-3.43-1.33 10.13-4.23M21 3 3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z\"></path></svg></div></button></div><div hidden=\"\"></div></div></div></div></div><script src=\"https://search.prod.wiggot.com/_next/static/chunks/webpack-2bf322668a9a6f41.js\" async=\"\"></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,\"1:HL[\\\"https://search.prod.wiggot.com/_next/static/media/140d7ede024f369d-s.p.woff2\\\",\\\"font\\\",{\\\"crossOrigin\\\":\\\"\\\",\\\"type\\\":\\\"font/woff2\\\"}]\\n2:HL[\\\"https://search.prod.wiggot.com/_next/static/media/ce4f1498be4b08e7-s.p.woff2\\\",\\\"font\\\",{\\\"crossOrigin\\\":\\\"\\\",\\\"type\\\":\\\"font/woff2\\\"}]\\n3:HL[\\\"https://search.prod.wiggot.com/_next/static/css/389601058c4855bb.css\\\",\\\"style\\\"]\\n4:HL[\\\"https://search.prod.wiggot.com/_next/static/css/f9ba3235fdb1a354.css\\\",\\\"style\\\"]\\n5:HL[\\\"https://search.prod.wiggot.com/_next/static/css/803f3e4a16bcd169.css\\\",\\\"style\\\"]\\n6:HL[\\\"https://search.prod.wiggot.com/_next/static/css/6747cb3dddf95eab.css\\\",\\\"style\\\"]\\n7:HL[\\\"https://search.prod.wiggot.com/_next/static/css/b1b674416b9e065a.css\\\",\\\"style\\\"]\\n8:HL[\\\"https://search.prod.wiggot.com/_next/static/css/497d9df9091fbe23.css\\\",\\\"style\\\"]\\n9:HL[\\\"https://search.prod.wiggot.com/_next/static/css/5589eddb8e686acb.css\\\",\\\"style\\\"]\\n\"])</script><script>self.__next_f.push([1,\"a:I[11815,[],\\\"\\\"]\\nc:I[30071,[\\\"1736\\\",\\\"static/chunks/d24f3a7f-1a6d3e68bc21bd76.js\\\",\\\"2044\\\",\\\"static/chunks/891cff7f-99b6a2414128766d.js\\\",\\\"2922\\\",\\\"static/chunks/af4c29a4-a9eeb7ae2ae17585.js\\\",\\\"7909\\\",\\\"static/chunks/cd24890f-d70a42f35a2e1e44.js\\\",\\\"9519\\\",\\\"static/chunks/c3110d36-a1cf4e5673b79983.js\\\",\\\"9081\\\",\\\"static/chunks/afd9c58c-1f8db57cc9032fdb.js\\\",\\\"496\\\",\\\"static/chunks/88464e1e-c02e7fe18a150902.js\\\",\\\"1760\\\",\\\"static/chunks/4a3e922c-4e9bfff5632b00b1.js\\\",\\\"6162\\\",\\\"static/chunks/54bec2fc-ce246ee96450be73.js\\\",\\\"3678\\\",\\\"static/chunks/47bf8baf-2489944084be743a.js\\\",\\\"4663\\\",\\\"static/chunks/f335e7c6-bea352af6010ffe8.js\\\",\\\"2098\\\",\\\"static/chunks/26b9cc22-cf76d82c85619704.js\\\",\\\"3914\\\",\\\"static/chunks/3914-73105557be763844.js\\\",\\\"2844\\\",\\\"static/chunks/2844-0e89e4ae24c37756.js\\\",\\\"8188\\\",\\\"static/chunks/8188-063d3bf07d2cf930.js\\\",\\\"2648\\\",\\\"static/chunks/2648-ec55192c37980b63.js\\\",\\\"8336\\\",\\\"static/chunks/8336-d42e773f507f820f.js\\\",\\\"71\\\",\\\"static/chunks/71-2b84afaa5b938945.js\\\",\\\"8281\\\",\\\"static/chunks/app/(search)/page-9de473500dfeb48d.js\\\"],\\\"Results\\\"]\\nd:I[55092,[],\\\"\\\"]\\ne:I[82023,[],\\\"\\\"]\\nf:I[66411,[\\\"1736\\\",\\\"static/chunks/d24f3a7f-1a6d3e68bc21bd76.js\\\",\\\"2044\\\",\\\"static/chunks/891cff7f-99b6a2414128766d.js\\\",\\\"2922\\\",\\\"static/chunks/af4c29a4-a9eeb7ae2ae17585.js\\\",\\\"7909\\\",\\\"static/chunks/cd24890f-d70a42f35a2e1e44.js\\\",\\\"2522\\\",\\\"static/chunks/ef3d1a43-afbf2fb946f9cf2d.js\\\",\\\"3914\\\",\\\"static/chunks/3914-73105557be763844.js\\\",\\\"8754\\\",\\\"static/chunks/8754-a06b2a46eee05b23.js\\\",\\\"2648\\\",\\\"static/chunks/2648-ec55192c37980b63.js\\\",\\\"2309\\\",\\\"static/chunks/2309-1619c64dea61b59f.js\\\",\\\"2611\\\",\\\"static/chunks/2611-dfe94a2f833a9905.js\\\",\\\"3185\\\",\\\"static/chunks/app/layout-95ab2327536a4f92.js\\\"],\\\"GoogleAnalytics\\\"]\\n10:\\\"$Sreact.suspense\\\"\\n11:I[42972,[\\\"1736\\\",\\\"static/chunks/d24f3a7f-1a6d3e68bc21bd76.js\\\",\\\"2044\\\",\\\"static/chunks/891cff7f-99b6a2414128766d.js\\\",\\\"2922\\\",\\\"static/chunks/af4c29a4-a9eeb7ae2ae17585.js\\\",\\\"7909\\\",\\\"static/chunks/cd24890f-d70a42f35a2e1e44.js\\\",\\\"2522\\\",\\\"static/chunks/ef3d1a43-afbf2fb946f9cf2d.js\\\",\\\"3914\\\",\\\"static/chunks/3914-73105557be763844.js\\\",\\\"8754\\\",\\\"static/chunks/8754-a06b2a46eee05b23.js\\\",\\\"2648\\\",\\\"static/chunks/2648-ec55\"])</script><script>self.__next_f.push([1,\"192c37980b63.js\\\",\\"
+}
