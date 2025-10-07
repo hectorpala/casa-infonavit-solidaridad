@@ -18,6 +18,7 @@ const fs = require('fs');
 const https = require('https');
 const http = require('http');
 const path = require('path');
+const crypto = require('crypto');
 
 // ============================================
 // BLOQUE 1: VARIABLES Y SEGURIDAD (.env)
@@ -277,6 +278,306 @@ ensureCuliacanIndex();
 // FIN BLOQUE 3
 // ============================================
 
+// ============================================
+// BLOQUE 4: ID ESTABLE Y SLUG
+// ============================================
+
+/**
+ * Extrae el listing ID de la URL de Wiggot
+ * Formato esperado: https://new.wiggot.com/search/property-detail/{listingId}
+ * @param {string} url - URL de Wiggot
+ * @returns {string|null} - Listing ID o null si no se encuentra
+ */
+function extractWiggotListingId(url) {
+    // Intentar extraer el ID de la URL
+    // Formato 1: /property-detail/{id}
+    const match1 = url.match(/property-detail\/([a-zA-Z0-9_-]+)/);
+    if (match1) return match1[1];
+
+    // Formato 2: Final de la URL después del último /
+    const parts = url.split('/').filter(p => p.length > 0);
+    const lastPart = parts[parts.length - 1];
+
+    // Verificar que sea un ID válido (alfanumérico, guiones, guiones bajos)
+    if (/^[a-zA-Z0-9_-]+$/.test(lastPart) && lastPart.length >= 5) {
+        return lastPart;
+    }
+
+    return null;
+}
+
+/**
+ * Genera un ID estable para la propiedad
+ * Formato: wiggot:{listingId} o wiggot:sha256(url)[:16] si no se puede extraer
+ * @param {string} url - URL de la propiedad
+ * @returns {string} - ID estable en formato wiggot:{id}
+ */
+function generateStableId(url) {
+    const listingId = extractWiggotListingId(url);
+
+    if (listingId) {
+        return `wiggot:${listingId}`;
+    }
+
+    // Fallback: SHA256 de la URL (primeros 16 caracteres)
+    const hash = crypto.createHash('sha256').update(url).digest('hex').substring(0, 16);
+    console.log(`   ⚠️  No se pudo extraer listing ID, usando hash: wiggot:${hash}`);
+    return `wiggot:${hash}`;
+}
+
+/**
+ * Calcula hash SHA256 del contenido para detectar cambios
+ * @param {object} data - Datos de la propiedad
+ * @returns {string} - Hash SHA256 (primeros 16 caracteres)
+ */
+function calculateContentHash(data) {
+    const content = JSON.stringify({
+        title: data.title,
+        price: data.price,
+        location: data.location,
+        bedrooms: data.bedrooms,
+        bathrooms: data.bathrooms,
+        construction_area: data.construction_area,
+        land_area: data.land_area,
+        description: data.description
+    });
+    return crypto.createHash('sha256').update(content).digest('hex').substring(0, 16);
+}
+
+// ============================================
+// FIN BLOQUE 4
+// ============================================
+
+// ============================================
+// BLOQUE 5: JSON MAESTRO (FUENTE ÚNICA DE VERDAD)
+// ============================================
+
+/**
+ * Carga el JSON maestro de una propiedad si existe
+ * @param {string} id - ID estable de la propiedad
+ * @param {string} dataPath - Ruta a la carpeta de datos
+ * @returns {object|null} - JSON maestro o null si no existe
+ */
+function loadMasterJSON(id, dataPath) {
+    const jsonPath = `${dataPath}/${id}.json`;
+
+    if (fs.existsSync(jsonPath)) {
+        try {
+            const content = fs.readFileSync(jsonPath, 'utf8');
+            return JSON.parse(content);
+        } catch (error) {
+            console.error(`   ❌ Error leyendo JSON maestro: ${error.message}`);
+            return null;
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Guarda el JSON maestro de forma atómica (archivo .tmp + rename)
+ * @param {string} id - ID estable de la propiedad
+ * @param {object} masterData - Datos completos del JSON maestro
+ * @param {string} dataPath - Ruta a la carpeta de datos
+ * @returns {string} - Ruta del archivo guardado
+ */
+function saveMasterJSON(id, masterData, dataPath) {
+    const jsonPath = `${dataPath}/${id}.json`;
+    const tmpPath = `${dataPath}/${id}.json.tmp`;
+
+    try {
+        // Escribir a archivo temporal
+        fs.writeFileSync(tmpPath, JSON.stringify(masterData, null, 2), 'utf8');
+
+        // Rename atómico (POSIX garantiza atomicidad)
+        fs.renameSync(tmpPath, jsonPath);
+
+        return jsonPath;
+    } catch (error) {
+        console.error(`   ❌ Error guardando JSON maestro: ${error.message}`);
+        // Limpiar archivo temporal si existe
+        if (fs.existsSync(tmpPath)) {
+            fs.unlinkSync(tmpPath);
+        }
+        throw error;
+    }
+}
+
+/**
+ * Crea o actualiza el JSON maestro de una propiedad
+ * @param {string} id - ID estable
+ * @param {string} url - URL de la propiedad
+ * @param {object} scrapedData - Datos scrapeados
+ * @param {object} config - Configuración de la propiedad
+ * @param {string} dataPath - Ruta a carpeta de datos
+ * @param {string} slug - Slug para URL web
+ * @returns {object} - JSON maestro actualizado
+ */
+function createOrUpdateMasterJSON(id, url, scrapedData, config, dataPath, slug) {
+    const now = new Date().toISOString();
+    const contentHash = calculateContentHash(config);
+
+    // Cargar JSON existente si hay
+    let masterJSON = loadMasterJSON(id, dataPath);
+
+    const isNewProperty = !masterJSON;
+
+    if (isNewProperty) {
+        // Crear nuevo JSON maestro
+        masterJSON = {
+            // Identificadores
+            id: id,
+            source_url: url,
+            slug: slug, // Slug solo para rutas web (NO para dedupe)
+
+            // Estado
+            state: 'scraped', // scraped | validated | published | failed
+
+            // Datos principales
+            data: {
+                title: config.title,
+                price: config.price,
+                location: config.location,
+                description: config.description,
+                features: {
+                    bedrooms: config.bedrooms,
+                    bathrooms: config.bathrooms,
+                    parking: config.parking,
+                    levels: config.levels,
+                    construction_area: config.construction_area,
+                    land_area: config.land_area
+                },
+                photos: {
+                    count: config.photoCount,
+                    urls: scrapedData.images
+                }
+            },
+
+            // Publicación
+            publisher: {
+                mode: CONFIG.mode.current,
+                html_path: `${CONFIG.mode.paths.html}/${slug}/index.html`,
+                images_path: `${CONFIG.mode.paths.html}/${slug}/images/`,
+                published_url: `https://casasenventa.info/culiacan/${slug}/`
+            },
+
+            // Integridad
+            content_hash: contentHash,
+
+            // Errores y logs
+            errors: [],
+            warnings: [],
+
+            // Timestamps
+            created_at: now,
+            last_run: now,
+            last_success_at: now,
+            last_updated: now,
+
+            // Snapshots
+            last_good_snapshot: {
+                timestamp: now,
+                content_hash: contentHash,
+                data: { ...config }
+            },
+
+            // Retry policy
+            retry_policy: {
+                max_retries: 3,
+                retry_count: 0,
+                backoff_seconds: 60
+            },
+
+            // Próxima acción
+            next_action: null, // null | 'retry_scrape' | 'validate' | 'publish'
+
+            // Versiones de herramientas
+            tool_versions: {
+                scraper: '3.0.0',
+                node: process.version,
+                timestamp: now
+            },
+
+            // Raw data (respaldo)
+            raw_data: scrapedData
+        };
+
+        console.log(`   📝 Creando JSON maestro nuevo: ${id}`);
+    } else {
+        // Actualizar JSON existente
+        const hasChanged = masterJSON.content_hash !== contentHash;
+
+        if (hasChanged) {
+            console.log(`   🔄 Contenido cambió (hash: ${masterJSON.content_hash} → ${contentHash})`);
+
+            // Guardar snapshot anterior si el contenido cambió
+            if (masterJSON.state === 'published') {
+                masterJSON.previous_snapshots = masterJSON.previous_snapshots || [];
+                masterJSON.previous_snapshots.push({
+                    timestamp: masterJSON.last_updated,
+                    content_hash: masterJSON.content_hash,
+                    data: { ...masterJSON.data }
+                });
+
+                // Mantener solo los últimos 5 snapshots
+                if (masterJSON.previous_snapshots.length > 5) {
+                    masterJSON.previous_snapshots = masterJSON.previous_snapshots.slice(-5);
+                }
+            }
+
+            // Actualizar datos
+            masterJSON.data = {
+                title: config.title,
+                price: config.price,
+                location: config.location,
+                description: config.description,
+                features: {
+                    bedrooms: config.bedrooms,
+                    bathrooms: config.bathrooms,
+                    parking: config.parking,
+                    levels: config.levels,
+                    construction_area: config.construction_area,
+                    land_area: config.land_area
+                },
+                photos: {
+                    count: config.photoCount,
+                    urls: scrapedData.images
+                }
+            };
+
+            masterJSON.content_hash = contentHash;
+            masterJSON.last_good_snapshot = {
+                timestamp: now,
+                content_hash: contentHash,
+                data: { ...config }
+            };
+        } else {
+            console.log(`   ✅ Contenido sin cambios (hash: ${contentHash})`);
+        }
+
+        // Actualizar timestamps
+        masterJSON.last_run = now;
+        masterJSON.last_success_at = now;
+        masterJSON.last_updated = now;
+
+        // Resetear retry count en éxito
+        masterJSON.retry_policy.retry_count = 0;
+
+        // Actualizar raw_data
+        masterJSON.raw_data = scrapedData;
+    }
+
+    // Guardar JSON maestro de forma atómica
+    const savedPath = saveMasterJSON(id, masterJSON, dataPath);
+    console.log(`   💾 JSON maestro guardado: ${savedPath}`);
+
+    return masterJSON;
+}
+
+// ============================================
+// FIN BLOQUE 5
+// ============================================
+
 async function main() {
     const url = process.argv.find(arg => arg.includes('wiggot.com'));
 
@@ -346,13 +647,37 @@ async function main() {
     console.log('   📸 Fotos encontradas:', datos.images.length);
     console.log('');
 
-    // PASO 2: Verificar duplicados
-    console.log('🔍 PASO 2/6: Verificando duplicados...');
+    // PASO 1B: Generar ID estable
+    console.log('🔑 PASO 1B/7: Generando ID estable...');
+    const stableId = generateStableId(url);
+    console.log(`   ✅ ID: ${stableId}`);
+    console.log('');
+
+    // PASO 2: Generar slug y verificar duplicados
+    console.log('🔍 PASO 2/7: Generando slug y verificando duplicados...');
     const slug = generarSlug(datos.title);
+    console.log(`   📝 Slug: ${slug}`);
 
     // Determinar rutas según modo
     const carpetaPropiedad = `${CONFIG.mode.paths.html}/${slug}`;
     const carpetaData = CONFIG.mode.paths.data;
+
+    // Verificar si existe JSON maestro (dedupe por ID, NO por slug)
+    const existingJSON = loadMasterJSON(stableId, carpetaData);
+    if (existingJSON) {
+        console.log(`   📋 JSON maestro encontrado: ${stableId}`);
+        console.log(`   🏷️  Slug anterior: ${existingJSON.slug}`);
+        console.log(`   🏷️  Slug nuevo: ${slug}`);
+
+        if (existingJSON.slug !== slug) {
+            console.log(`   ⚠️  CAMBIO DE SLUG: ${existingJSON.slug} → ${slug}`);
+            console.log(`   💡 Se actualizará el JSON maestro con el nuevo slug`);
+        } else {
+            console.log(`   ✅ Slug sin cambios`);
+        }
+    } else {
+        console.log(`   ✅ Propiedad nueva (no existe JSON maestro)`);
+    }
 
     const duplicado = await verificarDuplicado(datos, slug);
     if (duplicado) {
@@ -429,10 +754,11 @@ async function main() {
     console.log('✅ Página HTML generada:', `${carpetaPropiedad}/index.html`);
     console.log('');
 
-    // PASO 5B: Guardar JSON de datos scrapeados (todos los modos)
-    console.log('💾 PASO 5B/6: Guardando JSON de datos...');
-    const jsonPath = await guardarDatosJSON(config, datos, carpetaData, slug);
-    console.log(`✅ JSON guardado: ${jsonPath}`);
+    // PASO 5B: Guardar JSON maestro (fuente única de verdad)
+    console.log('💾 PASO 5B/7: Guardando JSON maestro...');
+    const masterJSON = createOrUpdateMasterJSON(stableId, url, datos, config, carpetaData, slug);
+    console.log(`   ✅ Estado: ${masterJSON.state}`);
+    console.log(`   🔐 Content hash: ${masterJSON.content_hash}`);
     console.log('');
 
     // PASO 6: Agregar tarjeta a culiacan/index.html
@@ -444,14 +770,17 @@ async function main() {
         console.log('🎉 ¡PROCESO COMPLETADO EXITOSAMENTE!');
         console.log('');
         console.log('📋 RESUMEN:');
+        console.log('   🔑 ID:', stableId);
+        console.log('   🏷️  Slug:', slug);
         console.log('   🏠 Propiedad:', datos.title);
         console.log('   💰 Precio:', datos.price);
         console.log('   📍 Ubicación:', datos.location);
         console.log('   📸 Fotos:', datos.images.length);
+        console.log('   🔐 Content hash:', masterJSON.content_hash);
         console.log('');
         console.log(`🎯 MODO: ${MODE.toUpperCase()}`);
         console.log('📂 ARCHIVOS ESCRITOS:');
-        console.log(`   - Data: ${CONFIG.mode.paths.data}/${slug}.json`);
+        console.log(`   - JSON Maestro: ${CONFIG.mode.paths.data}/${stableId}.json`);
         console.log(`   - HTML: ${CONFIG.mode.paths.html}/${slug}/`);
         console.log(`   - Imágenes: ${CONFIG.mode.paths.html}/${slug}/images/`);
         console.log('');
@@ -467,16 +796,17 @@ async function main() {
     console.log('🎉 ¡PROCESO COMPLETADO EXITOSAMENTE!');
     console.log('');
     console.log('📋 RESUMEN:');
+    console.log('   🔑 ID:', stableId);
+    console.log('   🏷️  Slug:', slug);
     console.log('   🏠 Propiedad:', datos.title);
     console.log('   💰 Precio:', datos.price);
     console.log('   📍 Ubicación:', datos.location);
-    console.log('   📁 HTML:', `${carpetaPropiedad}/index.html`);
     console.log('   📸 Fotos:', datos.images.length);
-    console.log('   📂 JSON:', `${carpetaData}/${slug}.json`);
+    console.log('   🔐 Content hash:', masterJSON.content_hash);
     console.log('');
     console.log(`🎯 MODO: ${MODE.toUpperCase()}`);
     console.log('📂 ARCHIVOS ESCRITOS:');
-    console.log(`   - Data: ${CONFIG.mode.paths.data}/${slug}.json`);
+    console.log(`   - JSON Maestro: ${CONFIG.mode.paths.data}/${stableId}.json`);
     console.log(`   - HTML: ${CONFIG.mode.paths.html}/${slug}/`);
     console.log(`   - Imágenes: ${CONFIG.mode.paths.html}/${slug}/images/`)
     console.log('');
