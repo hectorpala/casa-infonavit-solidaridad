@@ -604,13 +604,16 @@ async function generarPaginaHTML(config, carpeta) {
 async function agregarTarjeta(config) {
     let html = fs.readFileSync('culiacan/index.html', 'utf8');
 
+    // Formatear precio con comas
+    const precioFormateado = config.price ? config.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0';
+
     const tarjeta = `
     <!-- BEGIN CARD-ADV ${config.slug} -->
     <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
          data-href="${config.slug}/index.html">
         <div class="relative aspect-video">
             <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
-                $${config.price}
+                $${precioFormateado}
             </div>
 
             <div class="carousel-container" data-current="0">
@@ -646,7 +649,7 @@ async function agregarTarjeta(config) {
         </div>
 
         <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-900 mb-1 font-poppins">$${config.price}</h3>
+            <h3 class="text-2xl font-bold text-gray-900 mb-1 font-poppins">$${precioFormateado}</h3>
             <p class="text-gray-600 mb-4 font-poppins">${config.title} · Culiacán</p>
 
             <div class="flex flex-wrap gap-3 mb-6">
