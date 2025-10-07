@@ -49,7 +49,7 @@ const dataScript = `
                 // Crear timeline
                 createTimeline(data);
 
-                // Mostrar propiedades (primeras 20, ordenadas por fecha)
+                // Mostrar TODAS las propiedades, ordenadas por fecha
                 const sortedProps = data.propiedades
                     .sort((a, b) => {
                         if (!a.date || a.date === 'N/A') return 1;
@@ -57,7 +57,7 @@ const dataScript = `
                         return b.date.localeCompare(a.date);
                     });
 
-                showProperties(sortedProps.slice(0, 20));
+                showProperties(sortedProps); // Mostrar TODAS (47 propiedades)
 
             } catch (error) {
                 console.error('Error cargando datos:', error);
