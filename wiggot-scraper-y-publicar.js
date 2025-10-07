@@ -768,17 +768,17 @@ function normalizeScrapedData(rawData) {
         normalized.bedrooms = 1;
     }
 
-    // Normalizar áreas de construcción/terreno (string → int)
+    // Normalizar áreas de construcción/terreno (string → float para preservar decimales)
     if (normalized.construction_area) {
         const areaStr = normalized.construction_area.toString().replace(/[^\d.]/g, '');
-        normalized.construction_area = parseInt(parseFloat(areaStr)) || 50;
+        normalized.construction_area = parseFloat(areaStr) || 50;
     } else {
         normalized.construction_area = 50;
     }
 
     if (normalized.land_area) {
         const areaStr = normalized.land_area.toString().replace(/[^\d.]/g, '');
-        normalized.land_area = parseInt(parseFloat(areaStr)) || 50;
+        normalized.land_area = parseFloat(areaStr) || 50;
     } else {
         normalized.land_area = 50;
     }
@@ -1973,24 +1973,24 @@ async function scrapearWiggot(url) {
         const bedroomsMatch = allText.match(/Recámaras?\s*(\d+)/i);
         const bathroomsMatch = allText.match(/Baños?\s*(\d+\.?\d*)/i);
 
-        // Buscar m² construcción y terreno
-        const constructionMatch = allText.match(/(?:Área construida|Construcción|Const\.?)\s*:?\s*(\d+)\s*m²/i);
-        const landMatch = allText.match(/(?:Área de terreno|Terreno|Lote)\s*:?\s*(\d+)\s*m²/i);
+        // Buscar m² construcción y terreno (soporta decimales como 328.14)
+        const constructionMatch = allText.match(/(?:Área construida|Construcción|Const\.?)\s*:?\s*(\d+(?:\.\d+)?)\s*m²/i);
+        const landMatch = allText.match(/(?:Área de terreno|Terreno|Lote)\s*:?\s*(\d+(?:\.\d+)?)\s*m²/i);
 
-        // Si no encuentra separados, busca cualquier m²
-        const anyAreaMatches = allText.match(/(\d+)\s*m²/gi);
+        // Si no encuentra separados, busca cualquier m² (con decimales)
+        const anyAreaMatches = allText.match(/(\d+(?:\.\d+)?)\s*m²/gi);
 
         if (bedroomsMatch) data.bedrooms = bedroomsMatch[1];
         if (bathroomsMatch) data.bathrooms = bathroomsMatch[1];
         if (constructionMatch) data.construction_area = constructionMatch[1];
         if (landMatch) data.land_area = landMatch[1];
 
-        // Si no encontró valores separados pero hay m², tomar los primeros dos
+        // Si no encontró valores separados pero hay m², tomar los primeros dos (con decimales)
         if (!data.construction_area && anyAreaMatches && anyAreaMatches.length > 0) {
-            data.construction_area = anyAreaMatches[0].match(/(\d+)/)[1];
+            data.construction_area = anyAreaMatches[0].match(/(\d+(?:\.\d+)?)/)[1];
         }
         if (!data.land_area && anyAreaMatches && anyAreaMatches.length > 1) {
-            data.land_area = anyAreaMatches[1].match(/(\d+)/)[1];
+            data.land_area = anyAreaMatches[1].match(/(\d+(?:\.\d+)?)/)[1];
         }
         // Si solo hay uno, usar el mismo para ambos
         if (!data.land_area && data.construction_area) {
