@@ -22,5 +22,16 @@ npm-debug.log*
 
 # Temporary files
 *.tmp
-*.temp# Force deployment
+*.temp
+
+# Environment variables
 .env
+
+# Test and data directories
+data/items_test/
+data/media_test/
+data/html_test/
+data/items/*.json
+
+# Wiggot cookies
+wiggot-cookies.json

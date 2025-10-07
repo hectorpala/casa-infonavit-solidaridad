@@ -134,6 +134,149 @@ if (MODE === 'test' || MODE === 'shadow') {
 // FIN BLOQUE 2
 // ============================================
 
+// ============================================
+// BLOQUE 3: CARPETERÍA Y FALLBACKS EN MAC
+// ============================================
+
+// Crear estructura de carpetas completa en runtime
+const REQUIRED_DIRS = [
+    'data',
+    'data/items',
+    'data/items_test',
+    'data/media',
+    'data/media_test',
+    'data/html_test',
+    'culiacan',
+    'images',
+    'css'
+];
+
+// Crear todas las carpetas necesarias
+REQUIRED_DIRS.forEach(dir => {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+        console.log(`📁 Carpeta creada: ${dir}/`);
+    }
+});
+
+// Fallback: Verificar y crear culiacan/index.html mínimo si no existe
+function ensureCuliacanIndex() {
+    const culiacanIndexPath = 'culiacan/index.html';
+
+    if (!fs.existsSync(culiacanIndexPath)) {
+        console.log('⚠️  culiacan/index.html no existe, creando versión mínima...');
+
+        const minimalHTML = `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades en Culiacán | Hector es Bienes Raíces</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .property-card { cursor: pointer; }
+        .property-card:hover { transform: translateY(-4px); transition: all 0.3s; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-8">Propiedades en Culiacán</h1>
+
+        <!-- Properties Grid Container - Las tarjetas se insertan aquí -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="properties-grid">
+            <!-- Las propiedades se agregarán aquí automáticamente -->
+        </div>
+    </div>
+
+    <script>
+        // Hacer tarjetas clickeables
+        document.addEventListener('click', function(e) {
+            const card = e.target.closest('[data-href]');
+            if (card) {
+                window.location.href = card.dataset.href;
+            }
+        });
+    </script>
+</body>
+</html>`;
+
+        fs.writeFileSync(culiacanIndexPath, minimalHTML);
+        console.log('✅ culiacan/index.html creado con estructura mínima');
+    }
+}
+
+// Fallback: Template HTML mínimo embebido si no existe archivo
+function getMinimalTemplate() {
+    return `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | Hector es Bienes Raíces</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 20px; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .price { font-size: 3rem; font-weight: bold; margin: 20px 0; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 40px 0; }
+        .feature { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; }
+        .cta-button { display: inline-block; background: #25D366; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; margin: 20px 0; }
+        .cta-button:hover { background: #1ea952; }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>{{TITLE}}</h1>
+        <p>{{LOCATION}}</p>
+        <div class="price">{{PRICE}}</div>
+    </div>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-bed"></i>
+                <h3>{{BEDROOMS}} Recámaras</h3>
+            </div>
+            <div class="feature">
+                <i class="fas fa-bath"></i>
+                <h3>{{BATHROOMS}} Baños</h3>
+            </div>
+            <div class="feature">
+                <i class="fas fa-car"></i>
+                <h3>{{PARKING}} Estacionamientos</h3>
+            </div>
+            <div class="feature">
+                <i class="fas fa-ruler-combined"></i>
+                <h3>{{CONSTRUCTION_AREA}}m² Construcción</h3>
+            </div>
+        </div>
+
+        <p>{{DESCRIPTION}}</p>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="https://wa.me/526677234048?text=Hola%2C%20me%20interesa%20{{TITLE}}" class="cta-button">
+                <i class="fas fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+        </div>
+    </div>
+</body>
+</html>`;
+}
+
+// Ejecutar fallbacks al inicio
+ensureCuliacanIndex();
+
+// ============================================
+// FIN BLOQUE 3
+// ============================================
+
 async function main() {
     const url = process.argv.find(arg => arg.includes('wiggot.com'));
 
@@ -526,8 +669,31 @@ function descargarImagen(url, filepath) {
 }
 
 async function generarPaginaHTML(config, carpeta) {
-    // Leer template de Bugambilias (template que funciona correctamente)
-    let html = fs.readFileSync('culiacan/casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a/index.html', 'utf8');
+    // Leer template de Bugambilias (con fallback a template mínimo)
+    const templatePath = 'culiacan/casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a/index.html';
+    let html;
+
+    if (fs.existsSync(templatePath)) {
+        html = fs.readFileSync(templatePath, 'utf8');
+        console.log('   📄 Template: Bugambilias (completo)');
+    } else {
+        console.log('   ⚠️  Template Bugambilias no encontrado, usando fallback mínimo');
+        html = getMinimalTemplate();
+        // Aplicar replacements simples para template mínimo
+        html = html.replace(/{{TITLE}}/g, config.title);
+        html = html.replace(/{{DESCRIPTION}}/g, config.description || '');
+        html = html.replace(/{{LOCATION}}/g, config.location);
+        html = html.replace(/{{PRICE}}/g, `$${config.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`);
+        html = html.replace(/{{BEDROOMS}}/g, config.bedrooms);
+        html = html.replace(/{{BATHROOMS}}/g, config.bathrooms);
+        html = html.replace(/{{PARKING}}/g, config.parking);
+        html = html.replace(/{{CONSTRUCTION_AREA}}/g, config.construction_area);
+
+        // Para template mínimo, guardar y retornar directo
+        fs.writeFileSync(`${carpeta}/index.html`, html);
+        console.log('   ✅ HTML generado con template mínimo');
+        return;
+    }
 
     // Reemplazar datos básicos (desde template Bugambilias)
     html = html.replace(/casa-venta-casa-en-venta-bugambilias-zona-aeropuert-pYowL0a/g, config.slug);
@@ -840,10 +1006,23 @@ async function agregarTarjeta(config) {
     <!-- END CARD-ADV ${config.slug} -->
 `;
 
-    // Insertar después del comentario "Properties Grid" y su div de apertura
-    const insertPoint = '<!-- Properties Grid -->\n        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">\n';
-    const replacement = insertPoint + tarjeta;
+    // Detectar punto de inserción (soporte para formato completo y mínimo)
+    let insertPoint = '<!-- Properties Grid -->\n        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">\n';
 
+    // Fallback: Si no existe el punto completo, buscar el formato mínimo
+    if (!html.includes(insertPoint)) {
+        // Buscar el contenedor del formato mínimo
+        if (html.includes('id="properties-grid"')) {
+            insertPoint = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="properties-grid">\n';
+            console.log('   📌 Detectado formato mínimo de culiacan/index.html');
+        } else {
+            console.error('   ❌ ERROR: No se encontró contenedor de propiedades en culiacan/index.html');
+            console.error('   💡 Verifica que exista el comentario "<!-- Properties Grid -->" o id="properties-grid"');
+            return;
+        }
+    }
+
+    const replacement = insertPoint + tarjeta;
     html = html.replace(insertPoint, replacement);
 
     fs.writeFileSync('culiacan/index.html', html);
