@@ -5,7 +5,7 @@
     "slug": "venta-de-casa-3-recamaras-en-portalegre-en-culiacan",
     "price": "MN 2,800,000",
     "publishedDate": "Publicado hace 212 días",
-    "scrapedAt": "2025-10-08T21:42:39.512Z",
+    "scrapedAt": "2025-10-08T22:49:04.541Z",
     "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-3-recamaras-en-portalegre-en-culiacan-145915393.html"
   },
   {
@@ -14,7 +14,7 @@
     "slug": "casa-en-privada-monaco-paseos-del-rey",
     "price": "MN 1,590,000",
     "publishedDate": "Publicado hace 42 días",
-    "scrapedAt": "2025-10-08T21:44:41.280Z",
+    "scrapedAt": "2025-10-08T22:49:27.643Z",
     "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-monaco-paseos-del-rey-147424326.html"
   },
   {
@@ -23,7 +23,34 @@
     "slug": "casa-en-adolfo-lopez-mateos",
     "price": "MN 1,450,000",
     "publishedDate": "Publicado hace más de 1 año",
-    "scrapedAt": "2025-10-08T21:47:19.101Z",
+    "scrapedAt": "2025-10-08T22:49:50.916Z",
     "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-adolfo-lopez-mateos-143635683.html"
+  },
+  {
+    "propertyId": "146594849",
+    "title": "Casa en Venta Las Américas Br56",
+    "slug": "casa-en-venta-las-americas-br56",
+    "price": "MN 1,900,000",
+    "publishedDate": "Publicado hace 130 días",
+    "scrapedAt": "2025-10-08T22:50:14.203Z",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-las-americas-br56-146594849.html"
+  },
+  {
+    "propertyId": "147048897",
+    "title": "Casa en Fraccionamiento Stanza",
+    "slug": "casa-en-fraccionamiento-stanza",
+    "price": "MN 1,580,000",
+    "publishedDate": "Publicado hace 82 días",
+    "scrapedAt": "2025-10-08T22:50:36.098Z",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-stanza-147048897.html"
+  },
+  {
+    "propertyId": "146675321",
+    "title": "Casa en Venta en Inf. Barrancos",
+    "slug": "casa-en-venta-en-inf-barrancos",
+    "price": "MN 1,100,000",
+    "publishedDate": "Publicado hace 121 días",
+    "scrapedAt": "2025-10-08T22:50:59.420Z",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-inf.-barrancos-146675321.html"
   }
 ]

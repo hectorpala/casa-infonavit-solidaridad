@@ -568,16 +568,28 @@ async function scrapeInmuebles24(url) {
         // PASO 1: Buscar datos en TODO el body text (incluyendo descripción)
         const bodyText = document.body.innerText;
 
-        // Buscar "Mts de terreno X.XX" en descripción
-        const terrenoMatch = bodyText.match(/Mts?\s+de\s+terreno\s+([\d.,]+)/i);
-        if (terrenoMatch) {
-            result.land_area = parseFloat(terrenoMatch[1].replace(',', '.'));
+        // MÉTODO 1: Buscar patrón "X m² lote Y m² constr" (formato principal Inmuebles24)
+        const loteConstruccionMatch = bodyText.match(/(\d+)\s*m²\s*lote\s+(\d+)\s*m²\s*constr/i);
+        if (loteConstruccionMatch) {
+            result.land_area = parseInt(loteConstruccionMatch[1]);
+            result.construction_area = parseInt(loteConstruccionMatch[2]);
+            console.log(`   ✅ M² detectados: ${result.land_area}m² lote, ${result.construction_area}m² construcción`);
         }
 
-        // Buscar "Construcción X" en descripción (después de terreno)
-        const construccionMatch = bodyText.match(/Construcción\s+([\d.,]+)/i);
-        if (construccionMatch) {
-            result.construction_area = parseFloat(construccionMatch[1].replace(',', '.'));
+        // MÉTODO 2 (fallback): Buscar "Mts de terreno X.XX" en descripción
+        if (!result.land_area) {
+            const terrenoMatch = bodyText.match(/Mts?\s+de\s+terreno\s+([\d.,]+)/i);
+            if (terrenoMatch) {
+                result.land_area = parseFloat(terrenoMatch[1].replace(',', '.'));
+            }
+        }
+
+        // MÉTODO 3 (fallback): Buscar "Construcción X" en descripción
+        if (!result.construction_area) {
+            const construccionMatch = bodyText.match(/Construcción\s+([\d.,]+)/i);
+            if (construccionMatch) {
+                result.construction_area = parseFloat(construccionMatch[1].replace(',', '.'));
+            }
         }
 
         // PASO 2: Buscar características en elementos de texto corto (debajo del mapa)
@@ -676,6 +688,8 @@ async function scrapeInmuebles24(url) {
     console.log(`   📍 Ubicación: ${data.location}`);
     console.log(`   🛏️  ${data.bedrooms} recámaras`);
     console.log(`   🛁 ${data.bathrooms} baños`);
+    console.log(`   📐 ${data.construction_area || 'N/A'}m² construcción`);
+    console.log(`   🏞️  ${data.land_area || 'N/A'}m² terreno`);
     console.log(`   📸 ${data.images.length} imágenes encontradas`);
     if (data.vendedor.nombre || data.vendedor.telefono) {
         console.log(`   👤 Vendedor: ${data.vendedor.nombre || 'N/A'}`);
@@ -736,21 +750,26 @@ function generateHTML(data, slug, photoCount) {
     const priceFormatted = formatPrice(data.price);
     const priceNumeric = extractPriceNumber(data.price);
     const neighborhood = data.location.split(',')[0].trim();
-    const bedrooms = data.bedrooms || 3;
-    const bathrooms = data.bathrooms || 2;
-    const construction = data.construction_area || 150;
-    const landArea = data.land_area || 200;
-    const description = data.description || `${data.title}. ${bedrooms} recámaras, ${bathrooms} baños en ${neighborhood}.`;
+    const bedrooms = data.bedrooms || 'N/A';
+    const bathrooms = data.bathrooms || 'N/A';
+    const construction = data.construction_area || null;
+    const landArea = data.land_area || null;
+
+    // Construcción condicional texto m²
+    const constructionText = construction ? `${construction}m²` : 'N/A';
+    const landAreaText = landArea ? `${landArea}m²` : 'N/A';
+
+    const description = data.description || `${data.title}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños ' : ''}en ${neighborhood}.`;
 
     // REEMPLAZOS EN METADATA Y HEAD
     html = html.replace(/<title>.*?<\/title>/s,
         `<title>Casa en Venta ${priceFormatted} - ${neighborhood}, Culiacán | Hector es Bienes Raíces</title>`);
 
     html = html.replace(/<meta name="description" content=".*?">/,
-        `<meta name="description" content="${data.title} en ${data.location}. ${bedrooms} recámaras, ${bathrooms} baños, ${construction}m² construcción. Agenda tu visita hoy.">`);
+        `<meta name="description" content="${data.title} en ${data.location}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños, ' : ''}${constructionText} construcción. Agenda tu visita hoy.">`);
 
     html = html.replace(/<meta name="keywords" content=".*?">/,
-        `<meta name="keywords" content="casa venta Culiacán, ${neighborhood}, casa remodelada, ${bedrooms} recámaras, cochera techada, ${data.location}">`);
+        `<meta name="keywords" content="casa venta Culiacán, ${neighborhood}, casa remodelada, ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}cochera techada, ${data.location}">`);
 
     html = html.replace(/<link rel="canonical" href=".*?">/,
         `<link rel="canonical" href="https://casasenventa.info/culiacan/${slug}/">`);
@@ -760,7 +779,7 @@ function generateHTML(data, slug, photoCount) {
         `<meta property="og:title" content="Casa en Venta ${priceFormatted} - ${neighborhood}">`);
 
     html = html.replace(/<meta property="og:description" content=".*?">/s,
-        `<meta property="og:description" content="${bedrooms} recámaras • ${bathrooms} baños • ${construction}m² construcción • ${landArea}m² terreno">`);
+        `<meta property="og:description" content="${bedrooms !== 'N/A' ? bedrooms + ' recámaras • ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños • ' : ''}${constructionText} construcción • ${landAreaText} terreno">`);
 
     html = html.replace(/<meta property="og:url" content=".*?">/,
         `<meta property="og:url" content="https://casasenventa.info/culiacan/${slug}/">`);
@@ -789,20 +808,20 @@ function generateHTML(data, slug, photoCount) {
         "addressRegion": "Sinaloa",
         "postalCode": "80000",
         "addressCountry": "MX"
-      },
+      }${construction ? `,
       "floorSize": {
         "@type": "QuantitativeValue",
         "value": ${construction},
         "unitCode": "MTK"
-      },
+      }` : ''}${landArea ? `,
       "lotSize": {
         "@type": "QuantitativeValue",
         "value": ${landArea},
         "unitCode": "MTK"
-      },
-      "numberOfBedrooms": ${bedrooms},
-      "numberOfBathroomsTotal": ${bathrooms},
-      "numberOfFullBathrooms": ${bathrooms},
+      }` : ''},
+      "numberOfBedrooms": ${bedrooms !== 'N/A' ? bedrooms : 3},
+      "numberOfBathroomsTotal": ${bathrooms !== 'N/A' ? bathrooms : 2},
+      "numberOfFullBathrooms": ${bathrooms !== 'N/A' ? bathrooms : 2},
       "offers": {
         "@type": "Offer",
         "price": "${priceNumeric}",
@@ -874,31 +893,40 @@ function generateHTML(data, slug, photoCount) {
     html = html.replace(/const totalSlides = \d+;/, `const totalSlides = ${photoCount};`);
 
     // FEATURES SECTION - actualizar números (emojis)
-    html = html.replace(/🛏️\s*\d+\s*recámaras?/g, `🛏️ ${bedrooms} recámaras`);
-    html = html.replace(/🛁\s*\d+(\.\d+)?\s*baños?/g, `🛁 ${bathrooms} baños`);
-    html = html.replace(/📐\s*\d+m²\s*construcción/g, `📐 ${construction}m² construcción`);
-    html = html.replace(/🏞️\s*\d+m²\s*terreno/g, `🏞️ ${landArea}m² terreno`);
+    html = html.replace(/🛏️\s*\d+\s*recámaras?/g, `🛏️ ${bedrooms !== 'N/A' ? bedrooms : 'N/A'} recámaras`);
+    html = html.replace(/🛁\s*\d+(\.\d+)?\s*baños?/g, `🛁 ${bathrooms !== 'N/A' ? bathrooms : 'N/A'} baños`);
+    html = html.replace(/📐\s*\d+(\.\d+)?\s*m²\s*construcción/g, `📐 ${constructionText} construcción`);
+    html = html.replace(/🏞️\s*\d+(\.\d+)?\s*m²\s*terreno/g, `🏞️ ${landAreaText} terreno`);
 
     // FEATURES COMPACT SECTION - iconos debajo del botón compartir (con parking)
     // Recámaras (icon bed)
     html = html.replace(/(<i class="fas fa-bed"><\/i>\s*<span class="feature-value">)\d+(<\/span>)/g,
-        `$1${bedrooms}$2`);
+        `$1${bedrooms !== 'N/A' ? bedrooms : 'N/A'}$2`);
 
     // Baños (icon bath)
     html = html.replace(/(<i class="fas fa-bath"><\/i>\s*<span class="feature-value">)\d+(\.\d+)?(<\/span>)/g,
-        `$1${bathrooms}$3`);
+        `$1${bathrooms !== 'N/A' ? bathrooms : 'N/A'}$3`);
 
     // Estacionamiento (icon car)
     html = html.replace(/(<i class="fas fa-car"><\/i>\s*<span class="feature-value">)\d+(<\/span>)/g,
-        `$1${data.parking || 1}$2`);
+        `$1${data.parking || 'N/A'}$2`);
 
     // m² Construcción (icon ruler-combined)
     html = html.replace(/(<i class="fas fa-ruler-combined"><\/i>\s*<span class="feature-value">)\d+(\.\d+)?(<\/span>)/g,
-        `$1${construction}$3`);
+        `$1${construction || 'N/A'}$3`);
 
     // m² Terreno (icon vector-square)
     html = html.replace(/(<i class="fas fa-vector-square"><\/i>\s*<span class="feature-value">)\d+(\.\d+)?(<\/span>)/g,
-        `$1${landArea}$3`);
+        `$1${landArea || 'N/A'}$3`);
+
+    // INFO BADGES - Badges horizontales debajo del héroe
+    // m² Construcción (badge con ruler-combined)
+    html = html.replace(/(<i class="fas fa-ruler-combined"><\/i>\s*<span>)\d+(\.\d+)?\s*m²\s*construcción(<\/span>)/g,
+        `$1${constructionText} construcción$3`);
+
+    // m² Terreno (badge con border-all)
+    html = html.replace(/(<i class="fas fa-border-all"><\/i>\s*<span>)\d+(\.\d+)?\s*m²\s*terreno(<\/span>)/g,
+        `$1${landAreaText} terreno$3`);
 
     // DETAILS SECTION - actualizar precio y ubicación
     html = html.replace(/<div class="detail-value price">\$[\d,]+<\/div>/g,

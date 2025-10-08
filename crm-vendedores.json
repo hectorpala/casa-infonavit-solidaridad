@@ -115,6 +115,13 @@
           "precio": "MN 1,450,000",
           "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-adolfo-lopez-mateos-143635683.html",
           "fechaScrapeo": "2025-10-08"
+        },
+        {
+          "id": "147048897",
+          "titulo": "Casa en Fraccionamiento Stanza",
+          "precio": "MN 1,580,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-stanza-147048897.html",
+          "fechaScrapeo": "2025-10-08"
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -125,11 +132,61 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-08T21:47:19.104Z"
+    },
+    {
+      "id": "v006",
+      "nombre": "Atia Inmobiliaria",
+      "telefono": "6674540164",
+      "telefonoFormateado": "667-454-0164",
+      "whatsapp": "https://wa.me/526674540164",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "146594849",
+          "titulo": "Casa en Venta Las Américas Br56",
+          "precio": "MN 1,900,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-las-americas-br56-146594849.html",
+          "fechaScrapeo": "2025-10-08"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T22:13:31.718Z"
+    },
+    {
+      "id": "v007",
+      "nombre": "Moises Cabrera",
+      "telefono": "",
+      "telefonoFormateado": "",
+      "whatsapp": "https://wa.me/52",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "146675321",
+          "titulo": "Casa en Venta en Inf. Barrancos",
+          "precio": "MN 1,100,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-inf.-barrancos-146675321.html",
+          "fechaScrapeo": "2025-10-08"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T22:24:14.251Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 5,
-    "totalPropiedades": 5,
-    "ultimaActualizacion": "2025-10-08T21:47:19.104Z"
+    "totalVendedores": 7,
+    "totalPropiedades": 8,
+    "ultimaActualizacion": "2025-10-08T22:50:59.422Z"
   }
 }
