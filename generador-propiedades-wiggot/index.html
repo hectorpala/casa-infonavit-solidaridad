@@ -104,48 +104,6 @@
             margin-top: 8px;
         }
 
-        .command-box {
-            margin-top: 30px;
-            background: #1e1e1e;
-            color: #00ff00;
-            padding: 20px;
-            border-radius: 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 13px;
-        }
-
-        .command-box h3 {
-            color: #ffc107;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-
-        .command {
-            background: #2d2d2d;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            word-break: break-all;
-            position: relative;
-        }
-
-        .copy-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 11px;
-        }
-
-        .copy-btn:hover {
-            background: #5568d3;
-        }
-
         .instructions {
             background: #fff3cd;
             border: 2px solid #ffc107;
@@ -176,59 +134,47 @@
             font-family: monospace;
         }
 
-        .loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .status {
+        .github-link {
+            display: none;
             margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            font-weight: 600;
-        }
-
-        .status.processing {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            color: #856404;
-        }
-
-        .status.success {
             background: #d4edda;
             border: 2px solid #28a745;
-            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
         }
 
-        .status.error {
+        .github-link h3 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        .github-link a {
+            display: block;
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .github-link a:hover {
+            background: #218838;
+        }
+
+        .alert {
             background: #f8d7da;
             border: 2px solid #dc3545;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
             color: #721c24;
         }
 
-        .log {
-            margin-top: 20px;
-            background: #1e1e1e;
-            color: #00ff00;
-            padding: 15px;
-            border-radius: 10px;
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-        .log div {
+        .alert strong {
+            display: block;
             margin-bottom: 5px;
         }
     </style>
@@ -236,7 +182,7 @@
 <body>
     <div class="container">
         <h1>🏠 Wiggot - Generador de Propiedades</h1>
-        <p class="subtitle">Sistema automatizado de scraping y publicación</p>
+        <p class="subtitle">Sistema automatizado vía GitHub Actions</p>
 
         <div class="input-group">
             <label for="url">URL de la propiedad de Wiggot:</label>
@@ -244,117 +190,87 @@
                 type="text"
                 id="url"
                 placeholder="https://new.wiggot.com/search/property-detail/pXXXXXX"
-                value="https://new.wiggot.com/search/property-detail/pUCWvt2"
             >
             <div class="example">
                 Ejemplo: https://new.wiggot.com/search/property-detail/pUCWvt2
             </div>
         </div>
 
-        <button class="btn" id="generateBtn" onclick="generateProperty()">
-            🚀 Generar Propiedad
+        <button class="btn" onclick="generateGitHubLink()">
+            🚀 Generar con GitHub Actions
         </button>
 
-        <div class="loader" id="loader" style="display: none;"></div>
-
-        <div class="status" id="status" style="display: none;"></div>
-
-        <div class="log" id="log" style="display: none;"></div>
+        <div class="github-link" id="githubLink">
+            <h3>✅ Link generado:</h3>
+            <p>Click en el botón para abrir GitHub Actions y ejecutar el scraper:</p>
+            <a id="githubUrl" href="#" target="_blank">
+                🔗 Abrir GitHub Actions
+            </a>
+            <p style="margin-top: 15px; font-size: 14px; color: #666;">
+                <strong>Pasos en GitHub:</strong><br>
+                1. Haz click en "Run workflow" (botón verde)<br>
+                2. Pega la URL que copiaste<br>
+                3. Click en "Run workflow" nuevamente<br>
+                4. Espera 3-5 minutos<br>
+                5. ¡Listo! La propiedad estará publicada
+            </p>
+        </div>
 
         <div class="instructions">
-            <h3>📖 Instrucciones:</h3>
+            <h3>📖 Cómo funciona:</h3>
             <ol>
-                <li>Asegúrate de que el servidor esté corriendo (abre Terminal y ejecuta: <code>node wiggot-server-simple.js</code>)</li>
                 <li>Pega la URL de Wiggot arriba</li>
-                <li>Click en <strong>"🚀 Generar Propiedad"</strong></li>
-                <li>Espera ~2 minutos</li>
-                <li>La página se abrirá automáticamente cuando termine</li>
+                <li>Click en "🚀 Generar con GitHub Actions"</li>
+                <li>Se abrirá GitHub Actions en tu navegador</li>
+                <li>Sigue las instrucciones en pantalla</li>
+                <li>GitHub procesará la propiedad automáticamente</li>
             </ol>
+        </div>
+
+        <div class="alert">
+            <strong>⚠️ Nota:</strong>
+            Este método requiere que tengas acceso al repositorio de GitHub. Si eres el dueño del repo, funciona perfecto. Si no, usa el método de pegar la URL directamente en Claude.
         </div>
     </div>
 
     <script>
-        function showStatus(message, type) {
-            const status = document.getElementById('status');
-            status.textContent = message;
-            status.style.display = 'block';
-            status.className = 'status ' + type;
-        }
-
-        function showLoader(show) {
-            document.getElementById('loader').style.display = show ? 'block' : 'none';
-        }
-
-        function addLog(message) {
-            const log = document.getElementById('log');
-            log.style.display = 'block';
-            const line = document.createElement('div');
-            line.textContent = '> ' + message;
-            log.appendChild(line);
-            log.scrollTop = log.scrollHeight;
-        }
-
-        function clearLog() {
-            document.getElementById('log').innerHTML = '';
-        }
-
-        async function generateProperty() {
+        function generateGitHubLink() {
             const url = document.getElementById('url').value.trim();
-            const btn = document.getElementById('generateBtn');
 
             if (!url) {
-                showStatus('❌ Por favor ingresa una URL', 'error');
+                alert('❌ Por favor ingresa una URL');
                 return;
             }
 
             if (!url.includes('wiggot.com/search/property-detail/')) {
-                showStatus('❌ URL inválida. Debe ser de Wiggot property-detail', 'error');
+                alert('❌ URL inválida. Debe ser de Wiggot property-detail');
                 return;
             }
 
-            clearLog();
-            btn.disabled = true;
-            showLoader(true);
-            showStatus('⏳ Procesando propiedad... Espera ~2 minutos', 'processing');
-            addLog('Iniciando proceso de scraping...');
+            // Copiar URL al clipboard
+            navigator.clipboard.writeText(url).then(() => {
+                // Generar link de GitHub Actions
+                const githubUrl = 'https://github.com/hectorpala/casa-infonavit-solidaridad/actions/workflows/wiggot-scraper.yml';
 
-            try {
-                const response = await fetch('http://localhost:3000/generate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ url })
-                });
+                // Mostrar link
+                document.getElementById('githubUrl').href = githubUrl;
+                document.getElementById('githubLink').style.display = 'block';
 
-                const data = await response.json();
-
-                if (data.success) {
-                    showStatus('✅ ' + data.message, 'success');
-                    addLog('✅ Proceso completado exitosamente');
-                    addLog('🏠 Propiedad: ' + data.title);
-                    addLog('💰 Precio: $' + data.price);
-                    addLog('📍 Ubicación: ' + data.location);
-                    addLog('📸 Fotos: ' + data.photos);
-                    addLog('🌐 URL: ' + data.productionUrl);
-                    addLog('');
-                    addLog('🎉 La página se abrirá automáticamente...');
-                } else {
-                    showStatus('❌ Error: ' + data.message, 'error');
-                    addLog('❌ Error: ' + data.message);
-                }
-            } catch (error) {
-                showStatus('❌ Error de conexión. ¿Está corriendo el servidor?', 'error');
-                addLog('❌ Error: ' + error.message);
-                addLog('💡 Ejecuta en Terminal: node wiggot-server-simple.js');
-            } finally {
-                btn.disabled = false;
-                showLoader(false);
-            }
+                // Scroll al link
+                document.getElementById('githubLink').scrollIntoView({ behavior: 'smooth' });
+            }).catch(() => {
+                alert('Error al copiar URL. Cópiala manualmente.');
+            });
         }
 
+        // Permitir Enter para generar
         document.getElementById('url').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') generateProperty();
+            if (e.key === 'Enter') {
+                generateGitHubLink();
+            }
         });
 
+        // Auto-focus en el input
         window.addEventListener('load', function() {
             document.getElementById('url').focus();
         });
