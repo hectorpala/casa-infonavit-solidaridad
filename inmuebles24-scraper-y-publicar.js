@@ -1213,7 +1213,8 @@ Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'inherit' });
             title: data.title,
             price: data.price,
             location: data.location,
-            url: url
+            url: url,
+            publishedDate: data.publishedDate
         });
 
         console.log('\n✅ ¡COMPLETADO!\n');
