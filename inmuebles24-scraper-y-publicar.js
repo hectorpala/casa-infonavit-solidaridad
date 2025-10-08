@@ -240,9 +240,11 @@ function actualizarVendedorCRM(vendedorData, propertyData) {
                 titulo: propertyData.title,
                 precio: propertyData.price,
                 url: propertyData.url,
-                fechaScrapeo: new Date().toISOString().split('T')[0]
+                fechaScrapeo: new Date().toISOString().split('T')[0],
+                fechaPublicacion: propertyData.publishedDate || 'No disponible'
             });
             console.log(`   ✅ Propiedad vinculada: "${propertyData.title}"`);
+            console.log(`   📅 Publicada en Inmuebles24: ${propertyData.publishedDate || 'No disponible'}`);
             console.log(`   📊 Total propiedades de ${vendedor.nombre}: ${vendedor.propiedades.length}`);
         } else {
             console.log(`   ℹ️  Esta propiedad ya está vinculada a ${vendedor.nombre}`);
@@ -284,7 +286,8 @@ function actualizarVendedorCRM(vendedorData, propertyData) {
                 titulo: propertyData.title,
                 precio: propertyData.price,
                 url: propertyData.url,
-                fechaScrapeo: new Date().toISOString().split('T')[0]
+                fechaScrapeo: new Date().toISOString().split('T')[0],
+                fechaPublicacion: propertyData.publishedDate || 'No disponible'
             }],
             notas: `Vendedor de ${propertyData.location}`,
             tags: tags,
@@ -293,6 +296,7 @@ function actualizarVendedorCRM(vendedorData, propertyData) {
         };
 
         crm.vendedores.push(vendedor);
+        console.log(`   📅 Propiedad publicada en Inmuebles24: ${propertyData.publishedDate || 'No disponible'}`);
     }
 
     // Actualizar estadísticas
