@@ -751,9 +751,9 @@ function addToIndex(data, slug) {
     <!-- END CARD-ADV ${slug} -->
 `;
 
-    // Insertar antes del cierre del grid
-    const gridEndRegex = /<\/div>\s*<\/div>\s*<\/main>/;
-    indexHtml = indexHtml.replace(gridEndRegex, `${card}\n        </div>\n    </div>\n</main>`);
+    // Insertar ANTES del comentario "Ver más propiedades"
+    const gridEndRegex = /\n\n\s*<!-- Ver más propiedades \(resto de propiedades como muestra\) -->/;
+    indexHtml = indexHtml.replace(gridEndRegex, `\n\n${card}\n\n            <!-- Ver más propiedades (resto de propiedades como muestra) -->`);
 
     fs.writeFileSync(indexPath, indexHtml, 'utf8');
     console.log('   ✅ Tarjeta agregada a culiacan/index.html\n');

@@ -1,0 +1,16 @@
+{
+  "statusCode": 200,
+  "message": "Property Search Suggestions fetched successfully!",
+  "data": {
+    "users": [
+      {
+        "fullName": "Carlos Cazarez",
+        "userId": 36810
+      }
+    ],
+    "addresses": [],
+    "developmentNames": [],
+    "propertyLegacyIds": [],
+    "titles": []
+  }
+}

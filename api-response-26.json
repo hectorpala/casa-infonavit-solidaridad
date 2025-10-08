@@ -1,0 +1,253 @@
+{
+  "app": {
+    "name": "Wiggot",
+    "audio_enabled": true,
+    "show_powered_by": true,
+    "team_intro": "¡Hola! Gracias por escribir. Por favor indícanos en que podemos ayudarte. En seguida estamos contigo.",
+    "team_greeting": "Hola! 👋",
+    "messenger_background": "background-2",
+    "expected_response_delay_translation_key": "expected_response_delay_900",
+    "launcher_expected_response_delay_translation_key": "the_team_typically_replies_in_900",
+    "sms_notifications_enabled": true,
+    "inbound_conversations_disabled": false,
+    "office_hours_response": "Mañana",
+    "help_center_site_url": "https://help.wiggot.com",
+    "messenger_logo_url": "https://downloads.intercomcdn.com/i/o/210830/6057bc10452e7df86bda53b1/5eeccf89387b6a6cbb9b919837022250.png",
+    "user_conversation_gifs_enabled": true,
+    "user_conversation_voice_notes_enabled": true,
+    "developer_workspace": false,
+    "upfront_email_collection_setting": "always",
+    "temporary_expectations_message": null,
+    "localized_expected_response_delay_short_text": "Volveremos mañana",
+    "localized_expected_response_delay_long_text": "Volveremos a conectarnos mañana",
+    "help_center_id": null,
+    "article_auto_reaction_enabled": true,
+    "use_cache_for": []
+  },
+  "user": {
+    "id": "68e3f65d8fd29f35e8de67bb",
+    "role": "user_role",
+    "locale": "es",
+    "has_conversations": true,
+    "country_code": "mx",
+    "phone_number": "+528111652545",
+    "last_contacted_at": "2025-10-07T18:40:49.640+00:00",
+    "new_session": false,
+    "help_center_require_search": false,
+    "requires_cookie_consent": false,
+    "prevent_multiple_inbound_conversation": true,
+    "user_assignments": {}
+  },
+  "client_matches": [
+    {
+      "user_id": "68e3f65d8fd29f35e8de67bb",
+      "company_id": "-1",
+      "predicates": [
+        {
+          "attribute": "client_attributes.last_visited_url",
+          "type": "string",
+          "comparison": "eq",
+          "value": "https://wiggot.com/portal/store"
+        }
+      ],
+      "ruleset_id": 34842286,
+      "ruleset_match_behavior": "single_match",
+      "ruleset_link_id": 35024937,
+      "ruleset_link_object_type": "post",
+      "serialized_object": null,
+      "checkpoint_id": null,
+      "notification_record_id": null,
+      "matching_locations": [
+        0,
+        25,
+        5,
+        6,
+        10,
+        2,
+        12
+      ],
+      "extra_context": {},
+      "contains_lca_predicate": false
+    }
+  ],
+  "launcher_settings": {
+    "alignment": "right",
+    "color": "#002e86",
+    "color_dark": "#6896ee",
+    "has_required_features": true,
+    "horizontal_padding": 20,
+    "instant_boot_enabled": false,
+    "launcher_logo_url": null,
+    "launcher_logo_dark_url": null,
+    "secondary_color": "#0038ff",
+    "secondary_color_dark": "#0038ff",
+    "show_launcher": true,
+    "theme_mode": "light",
+    "updated_at": 1759857144,
+    "vertical_padding": 20
+  },
+  "modules": {
+    "messages": {
+      "google_analytics_tracking_id": null
+    },
+    "rtm": {
+      "endpoints": [
+        "https://nexus-websocket-a.intercom.io/pubsub/5-IIMmAy6AQh1PihV8EHcN2PaDcs_mH-FLL7uNOD0xZ0zF3W1fTMj5ZG6qVeLcQ_kRf9jcLjzx37RLcCfrz_qQ7EYXUozMUHB4c0JJ"
+      ],
+      "options": {
+        "PING_TIMEOUT": 45000,
+        "PONG_TIMEOUT": 10000
+      }
+    },
+    "metrics": {
+      "enabled": false
+    },
+    "error_reporting": {
+      "disabled": false
+    },
+    "customization": {
+      "brand_name": "Wiggot",
+      "messenger_logo_url": "https://downloads.intercomcdn.com/i/o/210830/6057bc10452e7df86bda53b1/5eeccf89387b6a6cbb9b919837022250.png",
+      "messenger_wallpaper": "background-2",
+      "action": {
+        "background_color": "#002e86",
+        "foreground_color": "#ffffff",
+        "foreground_color_low_contrast": "#ffffff",
+        "background_color_dark": "#6896ee",
+        "foreground_color_dark": "#14161a",
+        "foreground_color_low_contrast_dark": "#14161a"
+      },
+      "action_contrast_white": null,
+      "action_contrast_dark": null,
+      "header": {
+        "background_color": "#ffffff",
+        "foreground_color": "#222222",
+        "background_color_dark": "#14161a",
+        "foreground_color_dark": "#f7f7f7"
+      },
+      "theme_mode": "light",
+      "launcher_logo_dark_url": null,
+      "messenger_logo_dark_url": null,
+      "custom_font": null
+    },
+    "home": {
+      "header": {
+        "background": {
+          "enabled": false,
+          "animated": false,
+          "type": "solid",
+          "type_dark": "solid",
+          "color": "#0038ff",
+          "color_dark": "#0038ff",
+          "fade_to_white": true,
+          "fade_to_dark": false,
+          "gradient": null,
+          "gradient_dark": null,
+          "image_url": null,
+          "image_dark_url": null
+        },
+        "content": {
+          "greeting": {
+            "content": "Hola! 👋",
+            "text_color": "#b3c3ff",
+            "text_color_dark": "#ffffff",
+            "opacity": 1
+          },
+          "introduction": {
+            "content": "¿Cómo podemos ayudarte?",
+            "text_color": "#ffffff",
+            "text_color_dark": "#ffffff",
+            "opacity": 1
+          },
+          "close_button": {
+            "foreground_color": "#ffffff",
+            "background_color": "#000000",
+            "background_opacity": 0.5
+          },
+          "show_avatars": false,
+          "text_color_type": "light",
+          "text_color_type_dark": "light",
+          "logo_url": "https://downloads.intercomcdn.com/i/o/210830/6057bc10452e7df86bda53b1/5eeccf89387b6a6cbb9b919837022250.png",
+          "logo_dark_url": null
+        },
+        "header_expanded": true,
+        "identity": "ai_agent"
+      },
+      "open_config": null
+    },
+    "features": {
+      "checklists": true,
+      "checklists_reminders": true,
+      "inbound_messages": true,
+      "inbound_lead_messaging": true,
+      "inbound_lead_messaging_docs_site": true,
+      "launcher_discovery_mode": true,
+      "marketo_enrichment_installed": false,
+      "hubspot_installed": false,
+      "google_analytics": false,
+      "single_page_app_rate_limiting": false,
+      "cross_site_cookies": false,
+      "cookie_secure_flag": false,
+      "ticket_creation": false,
+      "google_analytics_4_integration": true,
+      "view_in_help_center_button": true,
+      "customer_privacy_policy": false,
+      "eprivacy_cookie_compliance_required": false,
+      "persist_client_id_for_conversation_parts": true,
+      "composer_is_not_hiding": true,
+      "conversations_are_expandable": true,
+      "unified_reply_expectations": true,
+      "disable_fin_image_reading": false,
+      "end_salesforce_conversation": false,
+      "delay_tour_render": false,
+      "disable_tickets_after_conversation_end": false,
+      "new_mobile_notifications_enabled": false,
+      "remove_borderless_notifications": true,
+      "nexus_ably": false,
+      "fin_latency_messenger_header_revamp_enabled": false,
+      "disable_ticket_email_notification": false,
+      "team_messenger_fin_messenger": false,
+      "mercury_ui_changes": false,
+      "enable_custom_emojis": false,
+      "user_images_grid": false,
+      "fin_images_grid": false,
+      "new_privacy_policy_layout": false,
+      "fin_launcher_discovery_mode": false
+    }
+  },
+  "anonymous_session": "NUNsU2lwZDkzTzhjM0tITGVYeUpvSGxKYzJ2d2pEY0pQYVM3YitNUDdOWmkzaS9NcUw5dG04aWJzTGhhb3VuM1J6dUdxYnBMcHpLLzVhUVlhRlhJYklvQTBDZFZFSEo1YzRlbUIybllwWUk9LS0zcC96NWk2bXljVnRGYktFMkx5VGdnPT0=--8330bee2868c7d58f0ffcc143863fbcb1a67dee2",
+  "identity_verification_ready": false,
+  "origin_cookie_domain": "wiggot.com",
+  "cdas_breaching_limit": [],
+  "checklists": [],
+  "open_config": {
+    "form": "default",
+    "open_to": "home",
+    "spaces": [
+      {
+        "type": "home",
+        "label": "Inicio",
+        "navigation_label": "Inicio",
+        "badge": null
+      },
+      {
+        "type": "messages",
+        "label": "Mensajes",
+        "navigation_label": "Mensajes",
+        "badge": null
+      },
+      {
+        "type": "news",
+        "label": "Noticias",
+        "navigation_label": "Noticias",
+        "badge": null
+      }
+    ],
+    "user_has_tickets": false,
+    "user_has_received_checklists": false,
+    "user_has_live_newsfeed": false,
+    "unified_style": true
+  },
+  "session_expiry": 1760488196,
+  "jwt_expired": false
+}

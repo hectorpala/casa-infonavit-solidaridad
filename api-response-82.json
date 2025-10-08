@@ -1,0 +1,188 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 23,
+      "properties": {
+        "cluster": true,
+        "cluster_id": 23,
+        "point_count": 11,
+        "point_count_abbreviated": 11
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.11431009119208,
+          19.28643785269435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "c914393c-36fd-437f-9bec-b90f665681eb",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.0450749,
+          19.2877987
+        ]
+      },
+      "properties": {
+        "id": "c914393c-36fd-437f-9bec-b90f665681eb",
+        "address": "La Gioconda, Miguel Hidalgo, Tláhuac, Ciudad de México",
+        "media": [
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/9e4ecff9-e4b1-5235-9118-a7a2bc3efaa9.jpg",
+            "order": 0,
+            "media_id": "9e4ecff9-e4b1-5235-9118-a7a2bc3efaa9",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/a2f25512-58a8-5a96-8248-60635278acfd.jpg",
+            "order": 1,
+            "media_id": "a2f25512-58a8-5a96-8248-60635278acfd",
+            "living_space": "facade"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/e58510d5-9772-5d89-afbe-53c4fd51436a.jpg",
+            "order": 2,
+            "media_id": "e58510d5-9772-5d89-afbe-53c4fd51436a",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/073deb70-4257-54f3-84d7-b65c24ccbd6e.jpg",
+            "order": 3,
+            "media_id": "073deb70-4257-54f3-84d7-b65c24ccbd6e",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/0bb97d3e-b747-5466-806d-575fa5198082.jpg",
+            "order": 4,
+            "media_id": "0bb97d3e-b747-5466-806d-575fa5198082",
+            "living_space": "exterior"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/afbe2d00-6985-521e-9d58-ec2a79c990c1.jpg",
+            "order": 5,
+            "media_id": "afbe2d00-6985-521e-9d58-ec2a79c990c1",
+            "living_space": "exterior"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/62fcb4bc-074d-56e1-adec-a23543ad63af.jpg",
+            "order": 6,
+            "media_id": "62fcb4bc-074d-56e1-adec-a23543ad63af",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/10c916d4-d32e-5e3c-ae74-b2a42cd9253b.jpg",
+            "order": 7,
+            "media_id": "10c916d4-d32e-5e3c-ae74-b2a42cd9253b",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/6dcd6ce8-c142-58c9-b069-3172d227562c.jpg",
+            "order": 8,
+            "media_id": "6dcd6ce8-c142-58c9-b069-3172d227562c",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/2185005c-7148-519f-8a23-e608dc48d6f7.jpg",
+            "order": 9,
+            "media_id": "2185005c-7148-519f-8a23-e608dc48d6f7",
+            "living_space": "exterior"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/22bdc7a3-602c-56c0-bdb6-c29e27967daf.jpg",
+            "order": 10,
+            "media_id": "22bdc7a3-602c-56c0-bdb6-c29e27967daf",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/9be8ccad-59f1-59eb-bc55-261c28b5dc92.jpg",
+            "order": 11,
+            "media_id": "9be8ccad-59f1-59eb-bc55-261c28b5dc92",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/8318d789-75d0-54a5-a1fe-84a5093195bc.jpg",
+            "order": 12,
+            "media_id": "8318d789-75d0-54a5-a1fe-84a5093195bc",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/fa32c79c-83a8-54b6-abfb-22b20bd36f17.jpg",
+            "order": 13,
+            "media_id": "fa32c79c-83a8-54b6-abfb-22b20bd36f17",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/62674854-1d47-5d12-8f6d-9aaabe5fc9cb.jpg",
+            "order": 14,
+            "media_id": "62674854-1d47-5d12-8f6d-9aaabe5fc9cb",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/65e12dca-1e39-5168-866a-a3a50a40a6dc.jpg",
+            "order": 15,
+            "media_id": "65e12dca-1e39-5168-866a-a3a50a40a6dc",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/1cd0976d-eff1-5b7a-af8d-8e8967296213.jpg",
+            "order": 16,
+            "media_id": "1cd0976d-eff1-5b7a-af8d-8e8967296213",
+            "living_space": "exterior"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/25e3e8a7-fd6c-5932-8497-687e8585ef69.jpg",
+            "order": 17,
+            "media_id": "25e3e8a7-fd6c-5932-8497-687e8585ef69",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/7e03250d-3662-5922-afd0-ec17374a9fc3.jpg",
+            "order": 18,
+            "media_id": "7e03250d-3662-5922-afd0-ec17374a9fc3",
+            "living_space": "green_area"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/86d768ee-a30f-569a-8b61-cde83a3ebb8a.jpg",
+            "order": 19,
+            "media_id": "86d768ee-a30f-569a-8b61-cde83a3ebb8a",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/4f603659-3e61-5a47-a4fb-fc1d4ccce89a.jpg",
+            "order": 20,
+            "media_id": "4f603659-3e61-5a47-a4fb-fc1d4ccce89a",
+            "living_space": "others"
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/ece17af3-4949-57cc-81e9-b8385b356844/images/0d5defee-9f4c-5c6b-88ec-3aaa7568cee4.jpg",
+            "order": 21,
+            "media_id": "0d5defee-9f4c-5c6b-88ec-3aaa7568cee4",
+            "living_space": "exterior"
+          }
+        ],
+        "bathrooms": 2,
+        "bedrooms": 0,
+        "priceAmount": 150000,
+        "constructionSurface": 1210,
+        "propertyType": "warehouse",
+        "slug": "bodega-en-la-gioconda-en-renta",
+        "surfaceDetails": {
+          "unit": "m²",
+          "floors": null,
+          "terrace": null,
+          "terrain": 1810,
+          "construction": 1210,
+          "pricePerSquareMeter": 123.96694214876032
+        },
+        "terrainSurface": 1810,
+        "coordinates": "POINT(-99.0450749 19.2877987)",
+        "caprate": null
+      }
+    }
+  ]
+}

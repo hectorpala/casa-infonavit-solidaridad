@@ -1,0 +1,72 @@
+{
+  "statusCode": 200,
+  "message": "User Steps fetched successfully!",
+  "data": {
+    "finalizedSteps": [],
+    "finalizedStepsCount": 0,
+    "pendingSteps": [
+      {
+        "badgeIcon": "person",
+        "badgeValue": "OBTÉN PROSPECTOS",
+        "description": "Convierte cada propiedad en una oportunidad para ampliar tu red. Aumenta tu visibilidad y atrae la atención de posibles compradores e inversores.",
+        "icon": "house",
+        "isSkippable": true,
+        "section": "HOME",
+        "status": "PENDING",
+        "stepId": "3f15b87f-7512-48ed-86bb-ec8e419bf211",
+        "targetUrl": "https://new.wiggot.com/my-properties/property-form",
+        "title": "Carga tu primera propiedad",
+        "userStepId": "aca8f4be-818e-41fa-90fa-96d105fa55c3",
+        "userStepUpdatedAt": "2025-10-06T17:07:17.000Z",
+        "variant": "blue"
+      },
+      {
+        "badgeIcon": "local_offer",
+        "badgeValue": "VENDE MÁS",
+        "description": "Facilita la búsqueda con listas personalizadas que se adapten a las necesidades de tus clientes utilizando la bolsa inmobiliaria. Atrae más interesados con opciones seleccionadas especialmente para ellos.",
+        "icon": "list_alt",
+        "isSkippable": true,
+        "section": "HOME",
+        "status": "PENDING",
+        "stepId": "fdbc5182-b9b6-417f-b387-5046c75fa825",
+        "targetUrl": "https://wiggot.com/portal/lists",
+        "title": "Crea una lista pública",
+        "userStepId": "84d90017-aa9d-4299-8c12-314f1e5c9c1e",
+        "userStepUpdatedAt": "2025-10-06T17:07:17.000Z",
+        "variant": "green"
+      },
+      {
+        "badgeIcon": "groups",
+        "badgeValue": "COLABORA",
+        "description": "Gestiona tu equipo y descubre cómo trabajar en conjunto puede impulsar tu éxito inmobiliario. Amplía tu red y maximiza tus resultados.",
+        "icon": "person_add_alt",
+        "isSkippable": true,
+        "section": "HOME",
+        "status": "PENDING",
+        "stepId": "77524785-b3e9-47af-9a66-0646cac0bd28",
+        "targetUrl": "https://new.wiggot.com/home/create-agency",
+        "title": "Invita a un asesor a tu equipo",
+        "userStepId": "359de4e3-d070-48f8-b426-a4ceac3c30aa",
+        "userStepUpdatedAt": "2025-10-06T17:07:17.000Z",
+        "variant": "purple"
+      },
+      {
+        "badgeIcon": "person",
+        "badgeValue": "OBTÉN PROSPECTOS",
+        "description": "Aumenta tu visibilidad en línea. Posiciona tu marca y atrae más clientes potenciales. Establece tu presencia en el mercado con un sitio web profesional.",
+        "icon": "language",
+        "isSkippable": true,
+        "section": "HOME",
+        "status": "PENDING",
+        "stepId": "1bd0db56-564f-4053-b268-c1b590f3974c",
+        "targetUrl": "https://new.wiggot.com/minisites/configuracion",
+        "title": "Crea el sitio de tu inmobiliaria",
+        "userStepId": "ba94ea92-011d-4be7-b45f-a7bbf03d46f4",
+        "userStepUpdatedAt": "2025-10-06T17:07:17.000Z",
+        "variant": "blue"
+      }
+    ],
+    "showFinalBanner": true,
+    "totalStepsCount": 4
+  }
+}

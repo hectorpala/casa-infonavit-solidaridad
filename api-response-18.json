@@ -1,0 +1,69 @@
+{
+  "antimeridian_adjusted_bounds": "-100.425418,25.590474,-100.312321,25.703311",
+  "bounds": [
+    -100.425418,
+    25.590474,
+    -100.312321,
+    25.703311
+  ],
+  "center": [
+    -100.412292,
+    25.683613,
+    16
+  ],
+  "created": 1717786577159,
+  "created_by_client": "",
+  "description": "./outputs/p_nuevoleon_240607.mbtiles",
+  "filesize": 5967872,
+  "format": "pbf",
+  "generator": "tippecanoe v2.53.0",
+  "generator_options": "tippecanoe -l p_nuevoleon_240607 -Z16 -z16 -ai -o ./outputs/p_nuevoleon_240607.mbtiles /Users/ccuxin/Development/hexa/hexa-tiler/outputs/geojsons/p_nuevoleon_240607.part1.geojson --force",
+  "id": "davpach.p_nuevoleon_240607",
+  "mapbox_logo": true,
+  "maxzoom": 16,
+  "minzoom": 16,
+  "modified": 1717786576877,
+  "name": "Nuevo Leon - Properties 2024-06-07",
+  "private": true,
+  "scheme": "xyz",
+  "strategies": "[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{\"tiny_polygons\":29}]",
+  "tilejson": "3.0.0",
+  "tiles": [
+    "https://a.tiles.mapbox.com/v4/davpach.p_nuevoleon_240607/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZGF2cGFjaCIsImEiOiJjbWN6Yjc3N2UwNzRiMmpvczN6aGwzZTdlIn0.sdu5StedBXhvHE_Mlp2tPw",
+    "https://b.tiles.mapbox.com/v4/davpach.p_nuevoleon_240607/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZGF2cGFjaCIsImEiOiJjbWN6Yjc3N2UwNzRiMmpvczN6aGwzZTdlIn0.sdu5StedBXhvHE_Mlp2tPw"
+  ],
+  "type": "overlay",
+  "upload_id": "clx51rhx26cys1uk7m69n2fqm",
+  "vector_layers": [
+    {
+      "description": "",
+      "fields": {
+        "caprate_index": "Number",
+        "caprate_index_rank": "String",
+        "caprate_index_rank_general": "String",
+        "centroid": "String",
+        "full_url_code": "String",
+        "id": "String",
+        "name": "String",
+        "parent_id": "String",
+        "price_avg": "Number",
+        "price_avg_sqm": "Number",
+        "price_index": "Number",
+        "price_index_rank": "String",
+        "price_index_rank_general": "String",
+        "rent_avg": "Number",
+        "rent_avg_sqm": "Number",
+        "rent_index": "Number",
+        "rent_index_rank": "String",
+        "rent_index_rank_general": "String"
+      },
+      "id": "p_nuevoleon_240607",
+      "maxzoom": 16,
+      "minzoom": 16,
+      "source": "davpach.p_nuevoleon_240607",
+      "source_name": "Nuevo Leon - Properties 2024-06-07"
+    }
+  ],
+  "version": "2",
+  "webpage": "https://studio.mapbox.com/tilesets/davpach.p_nuevoleon_240607"
+}

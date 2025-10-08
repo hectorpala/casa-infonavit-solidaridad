@@ -1,0 +1,479 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 847,
+      "properties": {
+        "cluster": true,
+        "cluster_id": 847,
+        "point_count": 595,
+        "point_count_abbreviated": 595
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.17729887541603,
+          19.41431408360495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 911,
+      "properties": {
+        "cluster": true,
+        "cluster_id": 911,
+        "point_count": 234,
+        "point_count_abbreviated": 234
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.24643697646947,
+          19.36147911128883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 1135,
+      "properties": {
+        "cluster": true,
+        "cluster_id": 1135,
+        "point_count": 4,
+        "point_count_abbreviated": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.15003821253777,
+          19.535264659835548
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "a76c3aff-39fd-47dd-ae69-3dc1789bf5c4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.2882606,
+          19.3239229
+        ]
+      },
+      "properties": {
+        "id": "a76c3aff-39fd-47dd-ae69-3dc1789bf5c4",
+        "address": "Santa Rosa Xochiac, Santa Rosa Xochiac, Álvaro Obregón, Ciudad de México",
+        "media": [
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/f79387f1-13bb-56fb-a744-3d347979e1b2.jpg",
+            "order": 1,
+            "media_id": "f79387f1-13bb-56fb-a744-3d347979e1b2",
+            "living_space": "kitchen",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/046f2623-d321-54a5-b3f6-a9e729ae98a5.jpg",
+            "order": 2,
+            "media_id": "046f2623-d321-54a5-b3f6-a9e729ae98a5",
+            "living_space": "living_room",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/465fc859-a1c0-50cb-8a46-c5a40ce7962f.jpg",
+            "order": 3,
+            "media_id": "465fc859-a1c0-50cb-8a46-c5a40ce7962f",
+            "living_space": "living_room",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/ed41ae0c-b6c5-5014-8d43-c19434fbc140.jpg",
+            "order": 4,
+            "media_id": "ed41ae0c-b6c5-5014-8d43-c19434fbc140",
+            "living_space": "kitchen",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/2b057275-2718-59cf-ba92-38d7edffd530.jpg",
+            "order": 5,
+            "media_id": "2b057275-2718-59cf-ba92-38d7edffd530",
+            "living_space": "others",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/19fe2133-0b7a-5ba6-b051-fb251c990693.jpg",
+            "order": 6,
+            "media_id": "19fe2133-0b7a-5ba6-b051-fb251c990693",
+            "living_space": "others",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/03013b5a-4063-5565-9f62-5f90b70deb3f.jpg",
+            "order": 7,
+            "media_id": "03013b5a-4063-5565-9f62-5f90b70deb3f",
+            "living_space": "bathroom",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/2d129db3-5986-5604-9e66-ce16da090042.jpg",
+            "order": 8,
+            "media_id": "2d129db3-5986-5604-9e66-ce16da090042",
+            "living_space": "bathroom",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/f083dafc-a840-5c16-8905-7d5601e5f1a2.jpg",
+            "order": 9,
+            "media_id": "f083dafc-a840-5c16-8905-7d5601e5f1a2",
+            "living_space": "utility_area",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/c9b24170-5a76-5751-bcc6-343abbb881f0.jpg",
+            "order": 10,
+            "media_id": "c9b24170-5a76-5751-bcc6-343abbb881f0",
+            "living_space": "terrace_or_rooftop",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/57d2a2a9-c4d1-5b5b-a866-de910a140f76.jpg",
+            "order": 11,
+            "media_id": "57d2a2a9-c4d1-5b5b-a866-de910a140f76",
+            "living_space": "others",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/2efadb97-fc20-5ca6-8f00-cefcff32fb71.jpg",
+            "order": 12,
+            "media_id": "2efadb97-fc20-5ca6-8f00-cefcff32fb71",
+            "living_space": "closet",
+            "conservation_score": 0.8741257379834468
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/01999c0f-5016-7580-8d1a-03a29da3272f/images/b1468fa3-097c-5e81-844e-aafb7a5e13fa.jpg",
+            "order": 13,
+            "media_id": "b1468fa3-097c-5e81-844e-aafb7a5e13fa",
+            "living_space": "facade",
+            "conservation_score": 0.8741257379834468
+          }
+        ],
+        "bathrooms": 2,
+        "bedrooms": 3,
+        "priceAmount": 16500,
+        "constructionSurface": 250,
+        "propertyType": "house",
+        "slug": "casa-en-renta-con-roof-garden-y-seguridad-24h-6",
+        "surfaceDetails": {
+          "unit": "m²",
+          "floors": null,
+          "terrace": null,
+          "terrain": 150,
+          "construction": 250,
+          "pricePerSquareMeter": 66
+        },
+        "terrainSurface": 150,
+        "coordinates": "POINT(-99.2882606 19.3239229)",
+        "caprate": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "faf2a147-34e9-4c1e-a590-f2f354cf8a2b",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.2416336,
+          19.3156719
+        ]
+      },
+      "properties": {
+        "id": "faf2a147-34e9-4c1e-a590-f2f354cf8a2b",
+        "address": "Lomas Quebradas, Lomas Quebradas, La Magdalena Contreras, Ciudad de México",
+        "media": [
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/bbddb727-2f6a-5df6-8f5e-bc4fd147d3bb.jpg",
+            "order": 1,
+            "media_id": "bbddb727-2f6a-5df6-8f5e-bc4fd147d3bb",
+            "living_space": "exterior",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/71f41369-4d2f-5a5d-8ea1-b3c1014d1bf6.jpg",
+            "order": 2,
+            "media_id": "71f41369-4d2f-5a5d-8ea1-b3c1014d1bf6",
+            "living_space": "others",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/10869fbb-8663-5291-a4ac-9366b4c0a831.jpg",
+            "order": 3,
+            "media_id": "10869fbb-8663-5291-a4ac-9366b4c0a831",
+            "living_space": "dining_room",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/2fbdb8cf-3d9b-5e22-8e73-8684396ff8d7.jpg",
+            "order": 4,
+            "media_id": "2fbdb8cf-3d9b-5e22-8e73-8684396ff8d7",
+            "living_space": "others",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/285688c1-b1e1-5bd8-83e6-aeaf81a17594.jpg",
+            "order": 5,
+            "media_id": "285688c1-b1e1-5bd8-83e6-aeaf81a17594",
+            "living_space": "kitchen",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/846ae4a4-c4b5-533f-9e2b-70b23a0081f0.jpg",
+            "order": 6,
+            "media_id": "846ae4a4-c4b5-533f-9e2b-70b23a0081f0",
+            "living_space": "kitchen",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/84219d30-00a5-5d3f-9f5b-9e6fe2a6d5c0.jpg",
+            "order": 7,
+            "media_id": "84219d30-00a5-5d3f-9f5b-9e6fe2a6d5c0",
+            "living_space": "dining_room",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/27701535-cea6-5f27-ac89-682bf41adac4.jpg",
+            "order": 8,
+            "media_id": "27701535-cea6-5f27-ac89-682bf41adac4",
+            "living_space": "dining_room",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/caba0364-9480-51c5-9196-fd4ea3c40251.jpg",
+            "order": 9,
+            "media_id": "caba0364-9480-51c5-9196-fd4ea3c40251",
+            "living_space": "dining_room",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/8c6a29be-6eb3-550a-9b0b-c394e9fd6cae.jpg",
+            "order": 10,
+            "media_id": "8c6a29be-6eb3-550a-9b0b-c394e9fd6cae",
+            "living_space": "living_room",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/b1797d1e-b543-52cb-894f-704320bc68a4.jpg",
+            "order": 11,
+            "media_id": "b1797d1e-b543-52cb-894f-704320bc68a4",
+            "living_space": "living_room",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/12bcd396-3616-5a63-91d2-81f2abe5e63e.jpg",
+            "order": 12,
+            "media_id": "12bcd396-3616-5a63-91d2-81f2abe5e63e",
+            "living_space": "others",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/0fc8f9cb-ee7c-5630-9ed5-7b5dfc7900f8.jpg",
+            "order": 13,
+            "media_id": "0fc8f9cb-ee7c-5630-9ed5-7b5dfc7900f8",
+            "living_space": "bedroom",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/8074b505-cd12-5c25-83d1-795fa38585e2.jpg",
+            "order": 14,
+            "media_id": "8074b505-cd12-5c25-83d1-795fa38585e2",
+            "living_space": "living_room",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/bc0e9ec8-f959-5016-a1ef-bf4ac4f09a07.jpg",
+            "order": 15,
+            "media_id": "bc0e9ec8-f959-5016-a1ef-bf4ac4f09a07",
+            "living_space": "living_room",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/9acaf38c-03d9-5ff0-b81c-95b66a0531a0.jpg",
+            "order": 16,
+            "media_id": "9acaf38c-03d9-5ff0-b81c-95b66a0531a0",
+            "living_space": "bedroom",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/cead978a-d6fa-5cbe-9f2a-119ba11bb984.jpg",
+            "order": 17,
+            "media_id": "cead978a-d6fa-5cbe-9f2a-119ba11bb984",
+            "living_space": "facade",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/e9eac865-bf50-5dab-8187-8a36b978a065.jpg",
+            "order": 18,
+            "media_id": "e9eac865-bf50-5dab-8187-8a36b978a065",
+            "living_space": "others",
+            "conservation_score": 0.7683085297283373
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/0f311cf3-bc76-5ac8-915a-1ee6a03b2734/images/88a09268-0487-5d85-a135-9109547995e1.jpg",
+            "order": 19,
+            "media_id": "88a09268-0487-5d85-a135-9109547995e1",
+            "living_space": "green_area",
+            "conservation_score": 0.7683085297283373
+          }
+        ],
+        "bathrooms": 6,
+        "bedrooms": 4,
+        "priceAmount": 75000,
+        "constructionSurface": 900,
+        "propertyType": "house",
+        "slug": "residencia-de-ensueno-en-san-jeronimo",
+        "surfaceDetails": {
+          "unit": "m²",
+          "floors": null,
+          "terrace": null,
+          "terrain": 960,
+          "construction": 900,
+          "pricePerSquareMeter": 83.33333333333333
+        },
+        "terrainSurface": 960,
+        "coordinates": "POINT(-99.2416336 19.3156719)",
+        "caprate": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "abd8e95f-06a1-42a0-b6c2-ae5d8311123a",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.183715,
+          19.3366127
+        ]
+      },
+      "properties": {
+        "id": "abd8e95f-06a1-42a0-b6c2-ae5d8311123a",
+        "address": "Comercio Y Administracion, Copilco Universidad, Coyoacán, Ciudad de México",
+        "media": [
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/15883c75-2091-58dc-afdc-74b352cbdff4.jpg",
+            "order": 1,
+            "media_id": "15883c75-2091-58dc-afdc-74b352cbdff4",
+            "living_space": "living_room",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/88344c0f-79a1-5bb0-86ba-97f519359676.jpg",
+            "order": 2,
+            "media_id": "88344c0f-79a1-5bb0-86ba-97f519359676",
+            "living_space": "kitchen",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/ec0871d3-6a9e-5f55-8eb4-aa2233f13a0a.jpg",
+            "order": 3,
+            "media_id": "ec0871d3-6a9e-5f55-8eb4-aa2233f13a0a",
+            "living_space": "bedroom",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/c8eed6a1-be2c-575d-b479-2734f1b2817b.jpg",
+            "order": 4,
+            "media_id": "c8eed6a1-be2c-575d-b479-2734f1b2817b",
+            "living_space": "others",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/0b4931a5-6bbd-5e60-913a-3294a1bfea09.jpg",
+            "order": 5,
+            "media_id": "0b4931a5-6bbd-5e60-913a-3294a1bfea09",
+            "living_space": "kitchen",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/9adf13cc-ad72-5f41-814a-6e5e0bf0a2a1.jpg",
+            "order": 6,
+            "media_id": "9adf13cc-ad72-5f41-814a-6e5e0bf0a2a1",
+            "living_space": "closet",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/cf80b400-7dc4-50e1-9574-64c9b24ef8b3.jpg",
+            "order": 7,
+            "media_id": "cf80b400-7dc4-50e1-9574-64c9b24ef8b3",
+            "living_space": "kitchen",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/f879168a-a6ff-510f-a902-bffb2d4ff2aa.jpg",
+            "order": 8,
+            "media_id": "f879168a-a6ff-510f-a902-bffb2d4ff2aa",
+            "living_space": "kitchen",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/86f7317d-90b0-54eb-81b7-63e865067eb6.jpg",
+            "order": 9,
+            "media_id": "86f7317d-90b0-54eb-81b7-63e865067eb6",
+            "living_space": "others",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/3ec290ab-ed03-536e-a883-89ecb7ea289a.jpg",
+            "order": 10,
+            "media_id": "3ec290ab-ed03-536e-a883-89ecb7ea289a",
+            "living_space": "balcony",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/789805e7-57a0-5a8f-bf51-0d21f41530b2.jpg",
+            "order": 11,
+            "media_id": "789805e7-57a0-5a8f-bf51-0d21f41530b2",
+            "living_space": "others",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/f15c23ea-01bd-5401-83d5-f0226c1423bc.jpg",
+            "order": 12,
+            "media_id": "f15c23ea-01bd-5401-83d5-f0226c1423bc",
+            "living_space": "closet",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/52135bdd-61ed-528e-9aba-ef4d938ea90b.jpg",
+            "order": 13,
+            "media_id": "52135bdd-61ed-528e-9aba-ef4d938ea90b",
+            "living_space": "others",
+            "conservation_score": 0.8265575517102012
+          },
+          {
+            "url": "https://media.monopolio.com.mx/v2/resources/5bdbe896-ce55-5bd0-8eba-a452b8c494d0/images/8d178565-7c1f-53fa-9ded-7fbcae13e6a5.jpg",
+            "order": 14,
+            "media_id": "8d178565-7c1f-53fa-9ded-7fbcae13e6a5",
+            "living_space": "bathroom",
+            "conservation_score": 0.8265575517102012
+          }
+        ],
+        "bathrooms": 1,
+        "bedrooms": 2,
+        "priceAmount": 14000,
+        "constructionSurface": 58,
+        "propertyType": "apartment",
+        "slug": "departamento-en-renta-ideal-para-estudiantes-5",
+        "surfaceDetails": {
+          "unit": "m²",
+          "floors": null,
+          "terrace": null,
+          "terrain": null,
+          "construction": 58,
+          "pricePerSquareMeter": 241.3793103448276
+        },
+        "coordinates": "POINT(-99.183715 19.3366127)",
+        "caprate": null
+      }
+    }
+  ]
+}

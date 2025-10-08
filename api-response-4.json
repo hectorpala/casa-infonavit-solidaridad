@@ -1,0 +1,1234 @@
+[
+  {
+    "compound_id": 9,
+    "name": "PROFILE_CERTIFICATIONS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROFILE"
+  },
+  {
+    "compound_id": 37,
+    "name": "DASHBOARD_REPORTS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 47,
+    "name": "SEARCHER_SAVE_AS_REQUERIMENT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER"
+  },
+  {
+    "compound_id": 211,
+    "name": "SEARCHER_SEARCH",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER|REQUIREMENTS"
+  },
+  {
+    "compound_id": 212,
+    "name": "SEARCHER_SEARCH_BY_ID",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER|PROPERTIES|MLS"
+  },
+  {
+    "compound_id": 213,
+    "name": "SEARCHER_RESULSTS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER|REQUIREMENTS"
+  },
+  {
+    "compound_id": 222,
+    "name": "DATASHEET_SHARE_DATASHEET",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER|PROPERTIES|REQUIREMENTS|DATASHEETS|MLS"
+  },
+  {
+    "compound_id": 225,
+    "name": "DATASHEET_CHAT_REQUEST",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DATASHEETS"
+  },
+  {
+    "compound_id": 234,
+    "name": "DATASHEET_SIMILAR_PROPERTIES",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DATASHEETS"
+  },
+  {
+    "compound_id": 235,
+    "name": "DATASHEET_ADD_TO_LIST",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|REQUIREMENTS|DATASHEETS|LIST|MLS"
+  },
+  {
+    "compound_id": 242,
+    "name": "DEVELOPMENTS_SEARCHER_SEARCH",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEVELOPMENT_SEARCH"
+  },
+  {
+    "compound_id": 243,
+    "name": "PROPERTIES_MY_PROPERTIES_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 244,
+    "name": "PROPERTIES_UPLOAD_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 245,
+    "name": "PROPERTIES_ADD_TO_LIST",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 247,
+    "name": "PROPERTIES_COPY_PROPERTY_ID",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|DATASHEETS|MLS"
+  },
+  {
+    "compound_id": 250,
+    "name": "PROPERTIES_PENDING_TO_ARCHIVE_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 251,
+    "name": "PROPERTIES_DELETED_RECENTLY_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 252,
+    "name": "DATASHEET_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 253,
+    "name": "PROPERTIES_TOUCH_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 254,
+    "name": "PROPERTIES_ARCHIVE_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 255,
+    "name": "PROPERTIES_RECOVER_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 256,
+    "name": "PROPERTIES_PROPERTIES_DELETE_PERMANENTLY_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 257,
+    "name": "PROPERTIES_PENDING_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 258,
+    "name": "DATASHEET_PROPERTY_PERFORMANCE_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 259,
+    "name": "DATASHEET_EDIT_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 260,
+    "name": "DATASHEET_COPY_PUBLIC_URL",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|DATASHEETS|MLS"
+  },
+  {
+    "compound_id": 261,
+    "name": "DATASHEET_PREVIEW_DATASHEET",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 262,
+    "name": "DATASHEET_PUBLISH_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 263,
+    "name": "DATASHEET_UNPUBLISH_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 264,
+    "name": "DATASHEET_ARCHIVE_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|DATASHEETS"
+  },
+  {
+    "compound_id": 265,
+    "name": "DATASHEET_DELETE_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 266,
+    "name": "DATASHEET_ASSIGN_BROKER_TO_PROPERTY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|DATASHEETS"
+  },
+  {
+    "compound_id": 268,
+    "name": "DATASHEET_MATCHES_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 269,
+    "name": "DATASHEET_OFFERED_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 276,
+    "name": "DEVELOPMENTS_SEARCHER_VIEW",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEVELOPMENT_SEARCH"
+  },
+  {
+    "compound_id": 277,
+    "name": "DEVELOPMENTS_SEARCHER_VIEW_MODELS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEVELOPMENT_SEARCH"
+  },
+  {
+    "compound_id": 278,
+    "name": "DEVELOPMENT_DATASHEET_SHARE_DATASHEET",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEV_DATASHEET"
+  },
+  {
+    "compound_id": 287,
+    "name": "DEVELOPMENT_DATASHEET_PAYMENT_PLANS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEV_DATASHEET"
+  },
+  {
+    "compound_id": 290,
+    "name": "DEVELOPMENT_DATASHEET_SALES_FORCE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEV_DATASHEET"
+  },
+  {
+    "compound_id": 291,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_SHARE_DATASHEET",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 292,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_CHAT_REQUEST",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 300,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_PAYMENT_PLANS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 303,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_ADD_TO_LIST",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 308,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_UNITS_SHARE_LIST",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "UNITS_DATASHEET"
+  },
+  {
+    "compound_id": 309,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_UNITS_IM_INTERESTED",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "UNITS_DATASHEET"
+  },
+  {
+    "compound_id": 310,
+    "name": "REQUIREMENTS_CREATE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 311,
+    "name": "REQUIREMENTS_SAVE_DRAFT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 312,
+    "name": "REQUIREMENTS_DELETE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 313,
+    "name": "REQUIREMENTS_SEARCH",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 314,
+    "name": "REQUIREMENTS_REQUIREMENT_DETAIL_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 315,
+    "name": "REQUIREMENTS_EDIT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 318,
+    "name": "PORTALS_FREE_PORTALS_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PORTALS"
+  },
+  {
+    "compound_id": 319,
+    "name": "PORTALS_PAY_PORTALS_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PORTALS"
+  },
+  {
+    "compound_id": 320,
+    "name": "WEBSITE_CREATE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "WEBSITE"
+  },
+  {
+    "compound_id": 323,
+    "name": "WEBSITE_GO_TO_SITE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "WEBSITE"
+  },
+  {
+    "compound_id": 324,
+    "name": "WEBSITE_SAVE_CHANGES",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "WEBSITE"
+  },
+  {
+    "compound_id": 327,
+    "name": "ACCOUNT_CHANGE_PASSWORD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "ACCOUNT_API"
+  },
+  {
+    "compound_id": 328,
+    "name": "ACCOUNT_PLANS_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "ACCOUNT_API"
+  },
+  {
+    "compound_id": 329,
+    "name": "PROFILE_PREVIEW",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROFILE"
+  },
+  {
+    "compound_id": 330,
+    "name": "PROFILE_WORK_EXPERIENCE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROFILE"
+  },
+  {
+    "compound_id": 331,
+    "name": "STORE_BUY_PLANS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SHOP"
+  },
+  {
+    "compound_id": 332,
+    "name": "STORE_DEVELOPMENTS_INFO",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SHOP"
+  },
+  {
+    "compound_id": 333,
+    "name": "STORE_COMPARE_PLANS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SHOP"
+  },
+  {
+    "compound_id": 342,
+    "name": "CRM_TASKS_VIEW_TASK",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": null
+  },
+  {
+    "compound_id": 42,
+    "name": "PROPERTIES_AGENCY",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 44,
+    "name": "PROPERTIES_AGENCY_PENDING",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 275,
+    "name": "COMPLEMENTS_APPRAISALS_REPORTS",
+    "type": "COUNT",
+    "value": "100",
+    "module": "APPRAISAL"
+  },
+  {
+    "compound_id": 63,
+    "name": "REQUIREMENTS_AGENCY_SECTION",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 76,
+    "name": "CONTACTS_SIDEBAR",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS"
+  },
+  {
+    "compound_id": 67,
+    "name": "REQUIREMENTS_MATCHES",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 293,
+    "name": "CRM_BROKERS_ADD_BROKER",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 95,
+    "name": "ACCOUNT_EXCLUSIVE_API",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "ACCOUNT_API"
+  },
+  {
+    "compound_id": 357,
+    "name": "CRM_BROKERS_CHANGE_ROLE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 358,
+    "name": "CRM_BROKERS_DELETE_BROKER",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 33,
+    "name": "DASHBOARD_DOWNLOAD_REPORT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 97,
+    "name": "AGENCY_ADD_BROKER",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "AGENCIES"
+  },
+  {
+    "compound_id": 356,
+    "name": "CRM_BROKERS_LIST_DOWNLOAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 359,
+    "name": "CRM_BROKERS_PENDING_INVITATIONS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 360,
+    "name": "CRM_BROKERS_RESEND_INVITATION",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 346,
+    "name": "CRM_CONTACTS_AGENCY_LIST",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS|CRM"
+  },
+  {
+    "compound_id": 349,
+    "name": "CRM_CONTACTS_ASSIGN_BROKER_TO_CONTACT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS|CRM"
+  },
+  {
+    "compound_id": 350,
+    "name": "CRM_CONTACTS_CONTACT_DETAIL",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS|CRM"
+  },
+  {
+    "compound_id": 352,
+    "name": "CRM_CONTACTS_CONTACT_DETAIL_CREATE_REQUIREMENT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS"
+  },
+  {
+    "compound_id": 355,
+    "name": "CRM_CONTACTS_CONTACT_DETAIL_CREATE_TASK",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS"
+  },
+  {
+    "compound_id": 351,
+    "name": "CRM_CONTACTS_CONTACT_DETAIL_NOTES",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS"
+  },
+  {
+    "compound_id": 353,
+    "name": "CRM_CONTACTS_CONTACT_DETAIL_SENT_PROPERTIES_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS"
+  },
+  {
+    "compound_id": 354,
+    "name": "CRM_CONTACTS_CONTACT_DETAIL_TASKS_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS"
+  },
+  {
+    "compound_id": 343,
+    "name": "CRM_CONTACTS_CREATE_CONTACT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS|CRM"
+  },
+  {
+    "compound_id": 347,
+    "name": "CRM_CONTACTS_DELETE_CONTACT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS|CRM"
+  },
+  {
+    "compound_id": 348,
+    "name": "CRM_CONTACTS_EDIT_CONTACT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS|CRM"
+  },
+  {
+    "compound_id": 89,
+    "name": "PDF_ORIGINAL_DOWNLOAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PDFS"
+  },
+  {
+    "compound_id": 93,
+    "name": "PDF_EDIT_DOWNLOAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PDFS"
+  },
+  {
+    "compound_id": 344,
+    "name": "CRM_CONTACTS_LIST_DOWNLOAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS|CRM"
+  },
+  {
+    "compound_id": 87,
+    "name": "PDF_EDIT_MY_PROPERTY_DOWNLOAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PDFS"
+  },
+  {
+    "compound_id": 92,
+    "name": "PDF_ORIGINAL_MY_PROPERTY_DOWNLOAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PDFS"
+  },
+  {
+    "compound_id": 345,
+    "name": "CRM_CONTACTS_LIST_FILTER",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CONTACTS|CRM"
+  },
+  {
+    "compound_id": 83,
+    "name": "CUSTOM_TECHNICAL_DATASHEET_EDIT_SHARE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DATASHEETS"
+  },
+  {
+    "compound_id": 305,
+    "name": "CRM_LEADS_ASSIGN_BROKER_TO_LEAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 59,
+    "name": "REQUIREMENTS_ASSIGN_CONTACT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 232,
+    "name": "DATASHEET_CONTACT_EMAIL",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|DATASHEETS|MLS"
+  },
+  {
+    "compound_id": 193,
+    "name": "CRM_LEADS_CHARTS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 226,
+    "name": "DATASHEET_CONTACT_INFO",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|DATASHEETS|MLS"
+  },
+  {
+    "compound_id": 335,
+    "name": "CRM_LEADS_DETAIL_LIST",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DASHBOARD|CRM"
+  },
+  {
+    "compound_id": 228,
+    "name": "DATASHEET_CONTACT_PHONE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|DATASHEETS|MLS"
+  },
+  {
+    "compound_id": 230,
+    "name": "DATASHEET_CONTACT_WHATSAPP",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|DATASHEETS|MLS"
+  },
+  {
+    "compound_id": 336,
+    "name": "CRM_LEADS_DETAIL_LIST_DOWNLOAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": null
+  },
+  {
+    "compound_id": 224,
+    "name": "DATASHEET_EDIT_SHARE_DATASHEET",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER|PROPERTIES|REQUIREMENTS|DATASHEETS|MLS"
+  },
+  {
+    "compound_id": 339,
+    "name": "CRM_TASKS_AGENCY_TASKS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 337,
+    "name": "CRM_TASKS_CREATE_TASK",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 340,
+    "name": "CRM_TASKS_DELETE_TASK",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 285,
+    "name": "DEVELOPMENT_DATASHEET_CONTACT_EMAIL",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEV_DATASHEET"
+  },
+  {
+    "compound_id": 281,
+    "name": "DEVELOPMENT_DATASHEET_CONTACT_PHONE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEV_DATASHEET"
+  },
+  {
+    "compound_id": 338,
+    "name": "CRM_TASKS_EDIT_TASK",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 283,
+    "name": "DEVELOPMENT_DATASHEET_CONTACT_WHATSAPP",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEV_DATASHEET"
+  },
+  {
+    "compound_id": 341,
+    "name": "CRM_TASKS_LIST_DOWNLOAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "CRM"
+  },
+  {
+    "compound_id": 133,
+    "name": "CUSTOM_TECHNICAL_DATASHEET",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DATASHEETS"
+  },
+  {
+    "compound_id": 298,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_CONTACT_EMAIL",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 301,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_CONTACT_INFO",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 294,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_CONTACT_PHONE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 296,
+    "name": "DEVELOPMENT_DATASHEET_MODELS_CONTACT_WHATSAPP",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 185,
+    "name": "LIST_ADD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|REQUIREMENTS|DATASHEETS|LIST|MLS|MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 129,
+    "name": "DATASHEETS_PROPERTY_CONTACT_INFO",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DATASHEETS"
+  },
+  {
+    "compound_id": 80,
+    "name": "CUSTOM_TECHNICAL_DATASHEET_MY_PROPERTIES",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DATASHEETS"
+  },
+  {
+    "compound_id": 1,
+    "name": "PROFILE_SHARE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROFILE"
+  },
+  {
+    "compound_id": 316,
+    "name": "DASHBOARD_REPORTS_TAB",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 131,
+    "name": "DATASHEETS_DEVELOPMENT_CONTACT_INFO",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DATASHEETS"
+  },
+  {
+    "compound_id": 279,
+    "name": "DEVELOPMENT_DATASHEET_CHAT_REQUEST",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DEV_DATASHEET"
+  },
+  {
+    "compound_id": 237,
+    "name": "LIST_CREATE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER|PROPERTIES|REQUIREMENTS|DATASHEETS|LIST|MLS|MODEL_DATASHEET"
+  },
+  {
+    "compound_id": 239,
+    "name": "LIST_EDIT_NAME",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "LIST"
+  },
+  {
+    "compound_id": 191,
+    "name": "LIST_FILTER_SEARCH",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "LIST"
+  },
+  {
+    "compound_id": 184,
+    "name": "LIST_RECOVER",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "LIST"
+  },
+  {
+    "compound_id": 188,
+    "name": "LIST_SEARCH",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "LIST"
+  },
+  {
+    "compound_id": 363,
+    "name": "LIST_SHARE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "LIST"
+  },
+  {
+    "compound_id": 5,
+    "name": "PROFILE_RATINGS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROFILE"
+  },
+  {
+    "compound_id": 248,
+    "name": "PROPERTIES_PROPERTY_MATCHES",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES|REQUIREMENTS"
+  },
+  {
+    "compound_id": 70,
+    "name": "REQUIREMENTS_BUSSINESS_OPORTUNITIES",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 72,
+    "name": "REQUIREMENTS_SHARED_SECTION",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 49,
+    "name": "SEARCHER_MAP",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER"
+  },
+  {
+    "compound_id": 321,
+    "name": "WEBSITE_MAP_SEARCH",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "WEBSITE"
+  },
+  {
+    "compound_id": 325,
+    "name": "WEBSITE_REQUIREMENTS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "WEBSITE"
+  },
+  {
+    "compound_id": 364,
+    "name": "LIST_DELETE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "LIST"
+  },
+  {
+    "compound_id": 367,
+    "name": "PORTALS_PROPERTIES_LINK",
+    "type": "COUNT",
+    "value": "10000",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 136,
+    "name": "PROPERTIES_MATCHES",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROPERTIES"
+  },
+  {
+    "compound_id": 368,
+    "name": "PROFILE_PROPERTIES_SHOWN",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROFILE"
+  },
+  {
+    "compound_id": 3,
+    "name": "PROFILE_ACCESS",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "PROFILE"
+  },
+  {
+    "compound_id": 7,
+    "name": "PROFILE_EXPERIENCE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROFILE"
+  },
+  {
+    "compound_id": 11,
+    "name": "PROFILE_BUSSINESS_CARD_PROPERTIES",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "PROFILE"
+  },
+  {
+    "compound_id": 13,
+    "name": "DASHBOARD_ACCESS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 16,
+    "name": "DASHBOARD_LEADS",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 17,
+    "name": "DASHBOARD_ASSIGN_CONTACT_TO_LEAD",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 19,
+    "name": "DASHBOARD_TASKS",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 21,
+    "name": "DASHBOARD_REMIND_ME_LATER_TASKS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 24,
+    "name": "DASHBOARD_MY_AGENDA",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 25,
+    "name": "DASHBOARD_AGENDA_ADD_TO_CALENDAR",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 27,
+    "name": "DASHBOARD_AGENDA_DOWNLOAD_EVENT",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 30,
+    "name": "DASHBOARD_AGENDA_ADD_EVENT",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 32,
+    "name": "DASHBOARD_AGENDA_EDIT_EVENT",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 36,
+    "name": "DASHBOARD_GRAPHIC_REPORT",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 39,
+    "name": "DASBOARD_LEADS",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DASHBOARD"
+  },
+  {
+    "compound_id": 45,
+    "name": "SEARCHER_ID_SEARCH",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER"
+  },
+  {
+    "compound_id": 52,
+    "name": "SEARCHER_BROKER_DATA",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "SEARCHER"
+  },
+  {
+    "compound_id": 53,
+    "name": "SEARCHER_SEE_DETAIL",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER"
+  },
+  {
+    "compound_id": 55,
+    "name": "SEARCHER_SHARE",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER"
+  },
+  {
+    "compound_id": 57,
+    "name": "SEARCHER_MORE_FILTERS",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "SEARCHER"
+  },
+  {
+    "compound_id": 62,
+    "name": "REQUIREMENTS_ASSIGN_BROKER",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 66,
+    "name": "REQUIREMENTS_MANUAL_SEARCH",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 73,
+    "name": "REQUIREMENTS_NEW_TASK",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "REQUIREMENTS"
+  },
+  {
+    "compound_id": 78,
+    "name": "PUBLIC_DATASHEET_AGENCY_PROPERTIES",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DATASHEETS"
+  },
+  {
+    "compound_id": 82,
+    "name": "CUSTOM_TECHNICAL_DATASHEET_AGENCY_PROPERTIES",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DATASHEETS"
+  },
+  {
+    "compound_id": 86,
+    "name": "CHAT_CONTACT_INFORMATION",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "CHAT"
+  },
+  {
+    "compound_id": 135,
+    "name": "FREMIUM_PRIME_TRIAL",
+    "type": "COUNT",
+    "value": "15",
+    "module": "TRIAL"
+  },
+  {
+    "compound_id": 138,
+    "name": "APPRAISAL_FREE",
+    "type": "COUNT",
+    "value": "1",
+    "module": "APPRAISAL"
+  },
+  {
+    "compound_id": 140,
+    "name": "LIST_FREE",
+    "type": "COUNT",
+    "value": "2",
+    "module": "LIST"
+  },
+  {
+    "compound_id": 141,
+    "name": "PROPERTIES_LIST_FREE",
+    "type": "COUNT",
+    "value": "5",
+    "module": "LIST"
+  },
+  {
+    "compound_id": 209,
+    "name": "COMPLEMENTS_VIEW",
+    "type": "BOOLEAN",
+    "value": "1",
+    "module": "APPRAISAL"
+  },
+  {
+    "compound_id": 273,
+    "name": "DEVELOPMENTS_UPLOAD_DEVELOPMENT",
+    "type": "BOOLEAN",
+    "value": "0",
+    "module": "DEVELOPMENT_SECTION"
+  }
+]

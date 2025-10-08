@@ -1,0 +1,16 @@
+{
+  "alignment": "right",
+  "color": "#002e86",
+  "color_dark": "#6896ee",
+  "has_required_features": true,
+  "horizontal_padding": 20,
+  "instant_boot_enabled": false,
+  "launcher_logo_url": null,
+  "launcher_logo_dark_url": null,
+  "secondary_color": "#0038ff",
+  "secondary_color_dark": "#0038ff",
+  "show_launcher": true,
+  "theme_mode": "light",
+  "updated_at": 1759857144,
+  "vertical_padding": 20
+}

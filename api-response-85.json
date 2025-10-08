@@ -1,0 +1,39 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 53,
+      "properties": {
+        "cluster": true,
+        "cluster_id": 53,
+        "point_count": 39,
+        "point_count_abbreviated": 39
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.18644950940059,
+          19.292626698897223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 343,
+      "properties": {
+        "cluster": true,
+        "cluster_id": 343,
+        "point_count": 3,
+        "point_count_abbreviated": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.23866510391235,
+          19.27827704355117
+        ]
+      }
+    }
+  ]
+}

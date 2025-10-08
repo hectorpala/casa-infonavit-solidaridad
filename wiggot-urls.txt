@@ -1,0 +1,13 @@
+# WIGGOT BATCH SCRAPER - Archivo de URLs
+#
+# Instrucciones:
+# 1. Agrega URLs de Wiggot (una por línea)
+# 2. Las líneas que empiezan con # son comentarios (ignoradas)
+# 3. Ejecuta: node wiggot-batch.js
+#
+# Ejemplo:
+# https://new.wiggot.com/search/property-detail/pABC123
+# https://new.wiggot.com/search/property-detail/pDEF456
+# https://new.wiggot.com/search/property-detail/pGHI789
+
+# Agrega tus URLs aquí (elimina esta línea):

@@ -1,0 +1,89 @@
+{
+  "message": "Tilesets data",
+  "data": [
+    {
+      "stateGeoKey": "15",
+      "displayName": "Estado de México",
+      "tiles": {
+        "state": {
+          "id": "s_edomex_240606"
+        },
+        "municipalities": {
+          "id": "m_edomex_240606"
+        },
+        "neighborhoods": {
+          "id": "n_edomex_240606"
+        },
+        "blocks": {
+          "id": "b_edomex_240606"
+        },
+        "properties": {
+          "id": ""
+        }
+      }
+    },
+    {
+      "stateGeoKey": "09",
+      "displayName": "Ciudad de México",
+      "tiles": {
+        "state": {
+          "id": "s_cdmx_240606"
+        },
+        "municipalities": {
+          "id": "m_cdmx_240606"
+        },
+        "neighborhoods": {
+          "id": "n_cdmx_240606"
+        },
+        "blocks": {
+          "id": "b_cdmx_240606"
+        },
+        "properties": {
+          "id": "p_cdmx_240607"
+        }
+      }
+    },
+    {
+      "stateGeoKey": "19",
+      "displayName": "Nuevo Leon",
+      "tiles": {
+        "state": {
+          "id": "s_nuevoleon_240606"
+        },
+        "municipalities": {
+          "id": "m_nuevoleon_240606"
+        },
+        "neighborhoods": {
+          "id": "n_nuevoleon_240606"
+        },
+        "blocks": {
+          "id": "b_nuevoleon_240606"
+        },
+        "properties": {
+          "id": "p_nuevoleon_240607"
+        }
+      }
+    },
+    {
+      "stateGeoKey": "14",
+      "displayName": "Zona metropolitana de Guadalajara",
+      "tiles": {
+        "state": {
+          "id": "s_jalisco_240606"
+        },
+        "municipalities": {
+          "id": "m_jalisco_240606"
+        },
+        "neighborhoods": {
+          "id": "n_jalisco_240606"
+        },
+        "blocks": {
+          "id": "b_jalisco_240606"
+        },
+        "properties": {
+          "id": "p_jalisco_240607"
+        }
+      }
+    }
+  ]
+}

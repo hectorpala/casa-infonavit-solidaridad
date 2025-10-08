@@ -1,0 +1,69 @@
+{
+  "antimeridian_adjusted_bounds": "-103.620614,20.584920,-103.264558,20.909016",
+  "bounds": [
+    -103.620614,
+    20.58492,
+    -103.264558,
+    20.909016
+  ],
+  "center": [
+    -103.29071,
+    20.707308,
+    16
+  ],
+  "created": 1717787802212,
+  "created_by_client": "",
+  "description": "./outputs/p_jalisco_240607.mbtiles",
+  "filesize": 98127872,
+  "format": "pbf",
+  "generator": "tippecanoe v2.53.0",
+  "generator_options": "tippecanoe -l p_jalisco_240607 -Z16 -z16 -ai -o ./outputs/p_jalisco_240607.mbtiles /Users/ccuxin/Development/hexa/hexa-tiler/outputs/geojsons/p_jalisco_240607.part1.geojson /Users/ccuxin/Development/hexa/hexa-tiler/outputs/geojsons/p_jalisco_240607.part2.geojson /Users/ccuxin/Development/hexa/hexa-tiler/outputs/geojsons/p_jalisco_240607.part3.geojson /Users/ccuxin/Development/hexa/hexa-tiler/outputs/geojsons/p_jalisco_240607.part4.geojson /Users/ccuxin/Development/hexa/hexa-tiler/outputs/geojsons/p_jalisco_240607.part5.geojson /Users/ccuxin/Development/hexa/hexa-tiler/outputs/geojsons/p_jalisco_240607.part6.geojson /Users/ccuxin/Development/hexa/hexa-tiler/outputs/geojsons/p_jalisco_240607.part7.geojson /Users/ccuxin/Development/hexa/hexa-tiler/outputs/geojsons/p_jalisco_240607.part8.geojson --force",
+  "id": "davpach.p_jalisco_240607",
+  "mapbox_logo": true,
+  "maxzoom": 16,
+  "minzoom": 16,
+  "modified": 1717787801930,
+  "name": "Jalisco - Properties 2024-06-07",
+  "private": true,
+  "scheme": "xyz",
+  "strategies": "[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{\"tiny_polygons\":555}]",
+  "tilejson": "3.0.0",
+  "tiles": [
+    "https://a.tiles.mapbox.com/v4/davpach.p_jalisco_240607/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZGF2cGFjaCIsImEiOiJjbWN6Yjc3N2UwNzRiMmpvczN6aGwzZTdlIn0.sdu5StedBXhvHE_Mlp2tPw",
+    "https://b.tiles.mapbox.com/v4/davpach.p_jalisco_240607/{z}/{x}/{y}.vector.pbf?access_token=pk.eyJ1IjoiZGF2cGFjaCIsImEiOiJjbWN6Yjc3N2UwNzRiMmpvczN6aGwzZTdlIn0.sdu5StedBXhvHE_Mlp2tPw"
+  ],
+  "type": "overlay",
+  "upload_id": "clx52hipbwca11uuojzawxnyz",
+  "vector_layers": [
+    {
+      "description": "",
+      "fields": {
+        "caprate_index": "Number",
+        "caprate_index_rank": "String",
+        "caprate_index_rank_general": "String",
+        "centroid": "String",
+        "full_url_code": "String",
+        "id": "String",
+        "name": "String",
+        "parent_id": "String",
+        "price_avg": "Number",
+        "price_avg_sqm": "Number",
+        "price_index": "Number",
+        "price_index_rank": "String",
+        "price_index_rank_general": "String",
+        "rent_avg": "Number",
+        "rent_avg_sqm": "Number",
+        "rent_index": "Number",
+        "rent_index_rank": "String",
+        "rent_index_rank_general": "String"
+      },
+      "id": "p_jalisco_240607",
+      "maxzoom": 16,
+      "minzoom": 16,
+      "source": "davpach.p_jalisco_240607",
+      "source_name": "Jalisco - Properties 2024-06-07"
+    }
+  ],
+  "version": "2",
+  "webpage": "https://studio.mapbox.com/tilesets/davpach.p_jalisco_240607"
+}

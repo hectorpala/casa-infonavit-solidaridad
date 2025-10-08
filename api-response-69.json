@@ -1,0 +1,56 @@
+{
+  "statusCode": 200,
+  "message": "OK",
+  "data": {
+    "id": "a0336f6e-01c4-495a-8bb4-b1ceec727693",
+    "createdAt": "2025-10-06T17:07:20.987Z",
+    "updatedAt": "2025-10-06T17:07:20.987Z",
+    "deletedAt": null,
+    "ownerId": "05479611-ed12-4a13-86fa-245a25ca437a",
+    "ownerType": "AGENCY",
+    "agent": {
+      "attempts": 3
+    },
+    "notifications": {
+      "newLeads": {
+        "sendTo": {
+          "brokerIds": [],
+          "leadOwner": true,
+          "allBrokers": false,
+          "selectedBrokers": false
+        },
+        "channel": {
+          "sms": false,
+          "email": true,
+          "whatsapp": true
+        }
+      },
+      "reassignedLead": {
+        "channel": {
+          "sms": false,
+          "email": true,
+          "whatsapp": true
+        },
+        "notifyBroker": true
+      },
+      "advancedNotifications": {
+        "deliveryType": "ON_LEAD_RESPONSE"
+      }
+    },
+    "metadata": {},
+    "sequenceAssignment": {
+      "assignmentType": "PROPERTY_OWNER",
+      "defaultBrokerId": "",
+      "excludedBrokers": []
+    },
+    "hookCreationOptions": {
+      "mode": "TYPE_A",
+      "status": "",
+      "waitingHours": 24,
+      "waitingMinutes": 0
+    },
+    "brokersSequence": [],
+    "defaultBroker": null,
+    "excludedBrokers": []
+  }
+}

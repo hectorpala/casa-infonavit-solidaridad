@@ -1,0 +1,12 @@
+{
+  "leads": [],
+  "errors": [],
+  "oppositeStatusCount": 0,
+  "pagination": {
+    "page": 1,
+    "perPage": 10,
+    "pages": 0,
+    "totalItems": 0,
+    "newStatusCount": 0
+  }
+}

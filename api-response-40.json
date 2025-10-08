@@ -1,0 +1,9 @@
+{
+  "statusCode": 200,
+  "message": "Property counts fetched successfully!",
+  "data": {
+    "pendingToPublish": 0,
+    "withEditRequest": 0,
+    "errorInPortals": 0
+  }
+}
