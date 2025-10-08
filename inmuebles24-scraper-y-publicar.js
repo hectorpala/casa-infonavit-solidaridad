@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 
 /**
- * SCRAPER Y PUBLICADOR AUTOMÁTICO - INMUEBLES24.COM
+ * SCRAPER Y PUBLICADOR AUTOMÁTICO - INMUEBLES24.COM + CRM VENDEDORES
  *
- * USO: node inmuebles24-scraper-y-publicar.js "URL_DE_INMUEBLES24"
+ * USO SCRAPER:
+ *   node inmuebles24-scraper-y-publicar.js "URL_DE_INMUEBLES24"
+ *
+ * USO CRM:
+ *   node inmuebles24-scraper-y-publicar.js --crm-buscar <nombre|teléfono|tag>
+ *   node inmuebles24-scraper-y-publicar.js --crm-lista
+ *   node inmuebles24-scraper-y-publicar.js --crm-stats
  *
  * PROCESO COMPLETO:
  * 1. Scrapea datos de Inmuebles24 (título, precio, fotos, descripción, características)
@@ -11,7 +17,13 @@
  * 3. Genera página HTML con Master Template
  * 4. Agrega tarjeta a culiacan/index.html
  * 5. Commit y push automático a GitHub
- * 6. Listo en 2-3 minutos
+ * 6. Actualiza CRM de vendedores automáticamente
+ * 7. Listo en 2-3 minutos
+ *
+ * EJEMPLOS CRM:
+ *   node inmuebles24-scraper-y-publicar.js --crm-buscar alejandra
+ *   node inmuebles24-scraper-y-publicar.js --crm-buscar 6671603643
+ *   node inmuebles24-scraper-y-publicar.js --crm-buscar centro-historico
  */
 
 // Puppeteer con Stealth Plugin para evitar detección
@@ -39,7 +51,8 @@ const CONFIG = {
     baseUrl: 'https://casasenventa.info',
     timeout: 60000,
     headless: false, // Mostrar navegador para bypass de protecciones
-    scraped_properties_file: 'inmuebles24-scraped-properties.json' // Registro de propiedades scrapeadas
+    scraped_properties_file: 'inmuebles24-scraped-properties.json', // Registro de propiedades scrapeadas
+    crm_vendedores_file: 'crm-vendedores.json' // CRM de vendedores
 };
 
 // ============================================
@@ -151,6 +164,171 @@ function checkIfPropertyExists(propertyId) {
     }
 
     return null;
+}
+
+// ============================================
+// CRM VENDEDORES
+// ============================================
+
+function loadCRM() {
+    try {
+        if (fs.existsSync(CONFIG.crm_vendedores_file)) {
+            const data = fs.readFileSync(CONFIG.crm_vendedores_file, 'utf8');
+            return JSON.parse(data);
+        }
+    } catch (error) {
+        console.log('⚠️  Error leyendo CRM:', error.message);
+    }
+    return {
+        vendedores: [],
+        estadisticas: {
+            totalVendedores: 0,
+            totalPropiedades: 0,
+            ultimaActualizacion: new Date().toISOString()
+        }
+    };
+}
+
+function saveCRM(crm) {
+    try {
+        fs.writeFileSync(CONFIG.crm_vendedores_file, JSON.stringify(crm, null, 2), 'utf8');
+    } catch (error) {
+        console.log('⚠️  Error guardando CRM:', error.message);
+    }
+}
+
+function actualizarVendedorCRM(vendedorData, propertyData) {
+    if (!vendedorData || (!vendedorData.nombre && !vendedorData.telefono)) {
+        console.log('   ⚠️  No hay datos de vendedor para agregar al CRM\n');
+        return;
+    }
+
+    const crm = loadCRM();
+
+    // Buscar vendedor existente por teléfono
+    let vendedor = crm.vendedores.find(v => v.telefono === vendedorData.telefono);
+
+    if (vendedor) {
+        // Actualizar vendedor existente
+        console.log(`   📝 Actualizando vendedor en CRM: ${vendedor.nombre}`);
+
+        // Agregar nueva propiedad si no existe
+        const propExists = vendedor.propiedades.some(p => p.id === propertyData.propertyId);
+        if (!propExists) {
+            vendedor.propiedades.push({
+                id: propertyData.propertyId,
+                titulo: propertyData.title,
+                precio: propertyData.price,
+                url: propertyData.url,
+                fechaScrapeo: new Date().toISOString().split('T')[0]
+            });
+            console.log(`   ✅ Propiedad agregada a vendedor existente`);
+        } else {
+            console.log(`   ℹ️  Propiedad ya existe en CRM para este vendedor`);
+        }
+
+    } else {
+        // Crear nuevo vendedor
+        console.log(`   👤 Nuevo vendedor agregado al CRM: ${vendedorData.nombre || 'Sin nombre'}`);
+
+        // Generar ID único
+        const vendedorId = `v${String(crm.vendedores.length + 1).padStart(3, '0')}`;
+
+        // Formatear teléfono
+        const tel = vendedorData.telefono;
+        const telefonoFormateado = tel.length === 10 ?
+            `${tel.slice(0, 3)}-${tel.slice(3, 6)}-${tel.slice(6)}` :
+            tel;
+
+        // Extraer ubicación de la propiedad para tags
+        const locationParts = propertyData.location.toLowerCase().split(',');
+        const tags = ['inmuebles24'];
+        locationParts.forEach(part => {
+            const cleaned = part.trim().replace(/\s+/g, '-');
+            if (cleaned && cleaned !== 'culiacán' && cleaned !== 'culiacan') {
+                tags.push(cleaned);
+            }
+        });
+        tags.push('culiacan');
+
+        vendedor = {
+            id: vendedorId,
+            nombre: vendedorData.nombre || 'Sin nombre',
+            telefono: tel,
+            telefonoFormateado: telefonoFormateado,
+            whatsapp: `https://wa.me/52${tel}`,
+            fuente: 'Inmuebles24',
+            propiedades: [{
+                id: propertyData.propertyId,
+                titulo: propertyData.title,
+                precio: propertyData.price,
+                url: propertyData.url,
+                fechaScrapeo: new Date().toISOString().split('T')[0]
+            }],
+            notas: `Vendedor de ${propertyData.location}`,
+            tags: tags,
+            ultimoContacto: null,
+            agregado: new Date().toISOString()
+        };
+
+        crm.vendedores.push(vendedor);
+    }
+
+    // Actualizar estadísticas
+    crm.estadisticas.totalVendedores = crm.vendedores.length;
+    crm.estadisticas.totalPropiedades = crm.vendedores.reduce(
+        (sum, v) => sum + v.propiedades.length, 0
+    );
+    crm.estadisticas.ultimaActualizacion = new Date().toISOString();
+
+    saveCRM(crm);
+    console.log(`   ✅ CRM actualizado: ${crm.estadisticas.totalVendedores} vendedores, ${crm.estadisticas.totalPropiedades} propiedades\n`);
+}
+
+function buscarVendedorCRM(query) {
+    const crm = loadCRM();
+    const queryLower = query.toLowerCase();
+
+    const resultados = crm.vendedores.filter(v => {
+        // Buscar en datos del vendedor
+        const matchVendedor = (
+            v.nombre.toLowerCase().includes(queryLower) ||
+            v.telefono.includes(query) ||
+            v.tags.some(tag => tag.toLowerCase().includes(queryLower))
+        );
+
+        // Buscar en propiedades (título, ID, URL)
+        const matchPropiedad = v.propiedades.some(p =>
+            p.titulo.toLowerCase().includes(queryLower) ||
+            p.id.includes(query) ||
+            (p.url && p.url.toLowerCase().includes(queryLower))
+        );
+
+        return matchVendedor || matchPropiedad;
+    });
+
+    return resultados;
+}
+
+function mostrarVendedorCRM(vendedor) {
+    console.log('\n╔════════════════════════════════════════════════════════════╗');
+    console.log(`║  👤 ${vendedor.nombre.padEnd(55)}║`);
+    console.log('╠════════════════════════════════════════════════════════════╣');
+    console.log(`║  📞 Teléfono: ${vendedor.telefonoFormateado.padEnd(43)}║`);
+    console.log(`║  💬 WhatsApp: ${vendedor.whatsapp.padEnd(43)}║`);
+    console.log(`║  🏢 Fuente: ${vendedor.fuente.padEnd(47)}║`);
+    console.log(`║  📝 Notas: ${vendedor.notas.substring(0, 48).padEnd(48)}║`);
+    console.log(`║  🏷️  Tags: ${vendedor.tags.join(', ').substring(0, 48).padEnd(48)}║`);
+    console.log('╠════════════════════════════════════════════════════════════╣');
+    console.log(`║  🏠 Propiedades: ${String(vendedor.propiedades.length).padEnd(40)}║`);
+
+    vendedor.propiedades.forEach((prop, i) => {
+        const titulo = prop.titulo.length > 52 ? prop.titulo.substring(0, 49) + '...' : prop.titulo;
+        console.log(`║  ${String(i + 1).padStart(2)}. ${titulo.padEnd(52)}║`);
+        console.log(`║      💰 ${prop.precio.padEnd(50)}║`);
+    });
+
+    console.log('╚════════════════════════════════════════════════════════════╝\n');
 }
 
 // ============================================
@@ -942,6 +1120,15 @@ Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'inherit' });
             url: url
         });
 
+        // 9. Actualizar CRM de vendedores
+        actualizarVendedorCRM(data.vendedor, {
+            propertyId: data.propertyId,
+            title: data.title,
+            price: data.price,
+            location: data.location,
+            url: url
+        });
+
         console.log('\n✅ ¡COMPLETADO!\n');
         console.log(`📍 URL local: ${propertyDir}/index.html`);
         console.log(`🌐 URL producción: ${CONFIG.baseUrl}/culiacan/${slug}/\n`);
@@ -954,9 +1141,97 @@ Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'inherit' });
     }
 }
 
-// Ejecutar
-if (require.main === module) {
-    main();
+// ============================================
+// CLI - COMANDOS ESPECIALES CRM
+// ============================================
+
+function ejecutarComandoCRM() {
+    const args = process.argv.slice(2);
+
+    // Comando: node inmuebles24-scraper-y-publicar.js --crm-buscar <query>
+    if (args[0] === '--crm-buscar' && args[1]) {
+        const query = args[1];
+        console.log(`\n🔍 Buscando vendedor: "${query}"\n`);
+
+        const resultados = buscarVendedorCRM(query);
+
+        if (resultados.length === 0) {
+            console.log(`❌ No se encontraron vendedores con: "${query}"\n`);
+            console.log('💡 Intenta con:');
+            console.log('   - Nombre (ej: alejandra)');
+            console.log('   - Teléfono (ej: 6671603643)');
+            console.log('   - Tag (ej: centro-historico)\n');
+        } else {
+            console.log(`✅ Encontrados ${resultados.length} vendedor(es):\n`);
+            resultados.forEach(mostrarVendedorCRM);
+        }
+        return true;
+    }
+
+    // Comando: node inmuebles24-scraper-y-publicar.js --crm-lista
+    if (args[0] === '--crm-lista') {
+        const crm = loadCRM();
+        console.log('\n📋 LISTA DE VENDEDORES\n');
+        console.log('═'.repeat(70));
+
+        crm.vendedores.forEach((v, i) => {
+            console.log(`\n${i + 1}. ${v.nombre}`);
+            console.log(`   📞 ${v.telefonoFormateado}`);
+            console.log(`   🏠 ${v.propiedades.length} propiedad(es)`);
+            console.log(`   🏷️  ${v.tags.join(', ')}`);
+        });
+
+        console.log('\n' + '═'.repeat(70));
+        console.log(`\nTotal: ${crm.vendedores.length} vendedores\n`);
+        return true;
+    }
+
+    // Comando: node inmuebles24-scraper-y-publicar.js --crm-stats
+    if (args[0] === '--crm-stats') {
+        const crm = loadCRM();
+        console.log('\n📊 ESTADÍSTICAS CRM\n');
+        console.log('═'.repeat(50));
+        console.log(`Total Vendedores: ${crm.estadisticas.totalVendedores}`);
+        console.log(`Total Propiedades: ${crm.estadisticas.totalPropiedades}`);
+        console.log(`Última Actualización: ${crm.estadisticas.ultimaActualizacion}`);
+
+        // Agrupar por fuente
+        const porFuente = {};
+        crm.vendedores.forEach(v => {
+            porFuente[v.fuente] = (porFuente[v.fuente] || 0) + 1;
+        });
+
+        console.log('\n📌 Por Fuente:');
+        Object.entries(porFuente).forEach(([fuente, count]) => {
+            console.log(`   ${fuente}: ${count}`);
+        });
+
+        // Top vendedores
+        const ordenados = [...crm.vendedores].sort((a, b) =>
+            b.propiedades.length - a.propiedades.length
+        );
+
+        console.log('\n🏆 Top Vendedores (por propiedades):');
+        ordenados.slice(0, 5).forEach((v, i) => {
+            console.log(`   ${i + 1}. ${v.nombre} - ${v.propiedades.length} propiedad(es)`);
+        });
+
+        console.log('\n' + '═'.repeat(50) + '\n');
+        return true;
+    }
+
+    return false; // No es comando CRM
 }
 
-module.exports = { scrapeInmuebles24, downloadPhotos, generateHTML };
+// Ejecutar
+if (require.main === module) {
+    // Verificar si es comando CRM
+    const esCRM = ejecutarComandoCRM();
+
+    // Si no es comando CRM, ejecutar scraper normal
+    if (!esCRM) {
+        main();
+    }
+}
+
+module.exports = { scrapeInmuebles24, downloadPhotos, generateHTML, buscarVendedorCRM, loadCRM };

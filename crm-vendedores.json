@@ -1,0 +1,51 @@
+{
+  "vendedores": [
+    {
+      "id": "v001",
+      "nombre": "Alejandra",
+      "telefono": "6671603643",
+      "telefonoFormateado": "667-160-3643",
+      "whatsapp": "https://wa.me/526671603643",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "143508352",
+          "titulo": "Venta de Casa por Calle Mariano Escobedo",
+          "precio": "MN 4,000,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-por-calle-mariano-escobedo-centro-de-la-143508352.html",
+          "fechaScrapeo": "2025-10-08"
+        }
+      ],
+      "notas": "Vendedora Centro Histórico Culiacán",
+      "tags": ["inmuebles24", "centro-historico", "culiacan"],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T20:00:00.000Z"
+    },
+    {
+      "id": "v002",
+      "nombre": "Invictus",
+      "telefono": "6677467012",
+      "telefonoFormateado": "667-746-7012",
+      "whatsapp": "https://wa.me/526677467012",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147661732",
+          "titulo": "Casa en Venta, La Cantera, Culiacan",
+          "precio": "$7,950,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html",
+          "fechaScrapeo": "2025-10-08"
+        }
+      ],
+      "notas": "Agencia Invictus - La Cantera",
+      "tags": ["inmuebles24", "la-cantera", "culiacan", "agencia"],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T20:15:00.000Z"
+    }
+  ],
+  "estadisticas": {
+    "totalVendedores": 2,
+    "totalPropiedades": 2,
+    "ultimaActualizacion": "2025-10-08T20:15:00.000Z"
+  }
+}

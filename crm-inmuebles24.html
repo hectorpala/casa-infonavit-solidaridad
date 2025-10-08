@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Vendedores - Inmuebles24</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .search-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .results {
+            display: grid;
+            gap: 20px;
+        }
+
+        .vendor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .vendor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vendor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .vendor-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .vendor-id {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .vendor-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #666;
+        }
+
+        .info-value {
+            color: #333;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .properties {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .properties-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .property-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .property-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .property-price {
+            color: #667eea;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .property-id {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .no-results {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            color: #666;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏠 CRM Vendedores</h1>
+            <p class="subtitle">Sistema de gestión de vendedores Inmuebles24</p>
+        </header>
+
+        <div class="stats" id="stats">
+            <div class="stat-card">
+                <div class="stat-label">Total Vendedores</div>
+                <div class="stat-value" id="totalVendedores">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Propiedades</div>
+                <div class="stat-value" id="totalPropiedades">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Última Actualización</div>
+                <div class="stat-value" style="font-size: 1.2rem;" id="ultimaActualizacion">-</div>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                class="search-input"
+                id="searchInput"
+                placeholder="🔍 Buscar por nombre, teléfono, propiedad, ID, tag..."
+            >
+        </div>
+
+        <div class="results" id="results">
+            <div class="loading">Cargando datos del CRM...</div>
+        </div>
+    </div>
+
+    <script>
+        let crmData = null;
+
+        // Cargar datos del CRM
+        async function loadCRM() {
+            try {
+                const response = await fetch('crm-vendedores.json');
+                crmData = await response.json();
+                updateStats();
+                displayVendors(crmData.vendedores);
+            } catch (error) {
+                document.getElementById('results').innerHTML = `
+                    <div class="no-results">
+                        ❌ Error cargando datos del CRM<br>
+                        <small>${error.message}</small>
+                    </div>
+                `;
+            }
+        }
+
+        // Actualizar estadísticas
+        function updateStats() {
+            document.getElementById('totalVendedores').textContent = crmData.estadisticas.totalVendedores;
+            document.getElementById('totalPropiedades').textContent = crmData.estadisticas.totalPropiedades;
+
+            const fecha = new Date(crmData.estadisticas.ultimaActualizacion);
+            document.getElementById('ultimaActualizacion').textContent =
+                fecha.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+        }
+
+        // Mostrar vendedores
+        function displayVendors(vendedores) {
+            const resultsDiv = document.getElementById('results');
+
+            if (vendedores.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div class="no-results">
+                        🔍 No se encontraron vendedores
+                    </div>
+                `;
+                return;
+            }
+
+            resultsDiv.innerHTML = vendedores.map(v => `
+                <div class="vendor-card">
+                    <div class="vendor-header">
+                        <div class="vendor-name">👤 ${v.nombre}</div>
+                        <div class="vendor-id">${v.id}</div>
+                    </div>
+
+                    <div class="vendor-info">
+                        <div class="info-item">
+                            <div class="info-label">📞 Teléfono:</div>
+                            <div class="info-value">${v.telefonoFormateado}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">🏢 Fuente:</div>
+                            <div class="info-value">${v.fuente}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">📅 Agregado:</div>
+                            <div class="info-value">${new Date(v.agregado).toLocaleDateString('es-MX')}</div>
+                        </div>
+                    </div>
+
+                    <a href="${v.whatsapp}" target="_blank" class="whatsapp-btn">
+                        💬 Abrir WhatsApp
+                    </a>
+
+                    <div class="tags">
+                        ${v.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+
+                    <div class="properties">
+                        <div class="properties-title">🏠 Propiedades (${v.propiedades.length})</div>
+                        ${v.propiedades.map(p => `
+                            <div class="property-item">
+                                <div class="property-title">${p.titulo}</div>
+                                <div class="property-price">${p.precio}</div>
+                                <div class="property-id">ID: ${p.id} • ${p.fechaScrapeo}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    ${v.notas ? `<p style="margin-top: 15px; color: #666; font-style: italic;">📝 ${v.notas}</p>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Buscar vendedores
+        function searchVendors(query) {
+            if (!crmData) return;
+
+            const queryLower = query.toLowerCase().trim();
+
+            if (queryLower === '') {
+                displayVendors(crmData.vendedores);
+                return;
+            }
+
+            const filtered = crmData.vendedores.filter(v => {
+                // Buscar en datos del vendedor
+                const matchVendedor = (
+                    v.nombre.toLowerCase().includes(queryLower) ||
+                    v.telefono.includes(query) ||
+                    v.id.toLowerCase().includes(queryLower) ||
+                    v.tags.some(tag => tag.toLowerCase().includes(queryLower))
+                );
+
+                // Buscar en propiedades
+                const matchPropiedad = v.propiedades.some(p =>
+                    p.titulo.toLowerCase().includes(queryLower) ||
+                    p.id.includes(query) ||
+                    p.precio.toLowerCase().includes(queryLower)
+                );
+
+                return matchVendedor || matchPropiedad;
+            });
+
+            displayVendors(filtered);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            searchVendors(e.target.value);
+        });
+
+        // Cargar datos al iniciar
+        loadCRM();
+
+        // Auto-refresh cada 30 segundos
+        setInterval(loadCRM, 30000);
+    </script>
+</body>
+</html>
