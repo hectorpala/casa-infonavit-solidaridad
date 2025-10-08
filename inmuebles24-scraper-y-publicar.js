@@ -205,12 +205,32 @@ function actualizarVendedorCRM(vendedorData, propertyData) {
 
     const crm = loadCRM();
 
-    // Buscar vendedor existente por teléfono
-    let vendedor = crm.vendedores.find(v => v.telefono === vendedorData.telefono);
+    // Buscar vendedor existente (primero por teléfono, luego por nombre)
+    let vendedor = null;
+
+    if (vendedorData.telefono && vendedorData.telefono !== 'NO ENCONTRADO') {
+        // Buscar por teléfono (más confiable)
+        vendedor = crm.vendedores.find(v => v.telefono === vendedorData.telefono);
+    }
+
+    if (!vendedor && vendedorData.nombre) {
+        // Si no se encontró por teléfono, buscar por nombre exacto
+        vendedor = crm.vendedores.find(v => v.nombre.toLowerCase() === vendedorData.nombre.toLowerCase());
+    }
 
     if (vendedor) {
         // Actualizar vendedor existente
-        console.log(`   📝 Actualizando vendedor en CRM: ${vendedor.nombre}`);
+        console.log(`   📝 Vendedor encontrado en CRM: ${vendedor.nombre}`);
+
+        // Actualizar teléfono si no lo tenía y ahora sí
+        if (vendedorData.telefono && vendedorData.telefono !== 'NO ENCONTRADO' && !vendedor.telefono) {
+            vendedor.telefono = vendedorData.telefono;
+            vendedor.telefonoFormateado = vendedorData.telefono.length === 10 ?
+                `${vendedorData.telefono.slice(0, 3)}-${vendedorData.telefono.slice(3, 6)}-${vendedorData.telefono.slice(6)}` :
+                vendedorData.telefono;
+            vendedor.whatsapp = `https://wa.me/52${vendedorData.telefono}`;
+            console.log(`   📞 Teléfono actualizado: ${vendedor.telefonoFormateado}`);
+        }
 
         // Agregar nueva propiedad si no existe
         const propExists = vendedor.propiedades.some(p => p.id === propertyData.propertyId);
@@ -222,9 +242,10 @@ function actualizarVendedorCRM(vendedorData, propertyData) {
                 url: propertyData.url,
                 fechaScrapeo: new Date().toISOString().split('T')[0]
             });
-            console.log(`   ✅ Propiedad agregada a vendedor existente`);
+            console.log(`   ✅ Propiedad vinculada: "${propertyData.title}"`);
+            console.log(`   📊 Total propiedades de ${vendedor.nombre}: ${vendedor.propiedades.length}`);
         } else {
-            console.log(`   ℹ️  Propiedad ya existe en CRM para este vendedor`);
+            console.log(`   ℹ️  Esta propiedad ya está vinculada a ${vendedor.nombre}`);
         }
 
     } else {
