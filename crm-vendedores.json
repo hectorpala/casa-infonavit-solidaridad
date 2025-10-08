@@ -17,7 +17,11 @@
         }
       ],
       "notas": "Vendedora Centro Histórico Culiacán",
-      "tags": ["inmuebles24", "centro-historico", "culiacan"],
+      "tags": [
+        "inmuebles24",
+        "centro-historico",
+        "culiacan"
+      ],
       "ultimoContacto": null,
       "agregado": "2025-10-08T20:00:00.000Z"
     },
@@ -38,14 +42,94 @@
         }
       ],
       "notas": "Agencia Invictus - La Cantera",
-      "tags": ["inmuebles24", "la-cantera", "culiacan", "agencia"],
+      "tags": [
+        "inmuebles24",
+        "la-cantera",
+        "culiacan",
+        "agencia"
+      ],
       "ultimoContacto": null,
       "agregado": "2025-10-08T20:15:00.000Z"
+    },
+    {
+      "id": "v003",
+      "nombre": "iad Inmobiliaria",
+      "telefono": "6661814084",
+      "telefonoFormateado": "666-181-4084",
+      "whatsapp": "https://wa.me/526661814084",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "145915393",
+          "titulo": "Venta de Casa 3 Recamaras en Portalegre en Culiacan",
+          "precio": "MN 2,800,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-3-recamaras-en-portalegre-en-culiacan-145915393.html",
+          "fechaScrapeo": "2025-10-08"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T21:42:39.515Z"
+    },
+    {
+      "id": "v004",
+      "nombre": "JCB Bienes Raíces",
+      "telefono": "6673413360",
+      "telefonoFormateado": "667-341-3360",
+      "whatsapp": "https://wa.me/526673413360",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147424326",
+          "titulo": "Casa en Privada Monaco, Paseos del Rey",
+          "precio": "MN 1,590,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-monaco-paseos-del-rey-147424326.html",
+          "fechaScrapeo": "2025-10-08"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T21:44:41.282Z"
+    },
+    {
+      "id": "v005",
+      "nombre": "DAVID GONZALEZ",
+      "telefono": "",
+      "telefonoFormateado": "",
+      "whatsapp": "https://wa.me/52",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "143635683",
+          "titulo": "Casa en Adolfo Lopez Mateos",
+          "precio": "MN 1,450,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-adolfo-lopez-mateos-143635683.html",
+          "fechaScrapeo": "2025-10-08"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T21:47:19.104Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 2,
-    "totalPropiedades": 2,
-    "ultimaActualizacion": "2025-10-08T20:15:00.000Z"
+    "totalVendedores": 5,
+    "totalPropiedades": 5,
+    "ultimaActualizacion": "2025-10-08T21:47:19.104Z"
   }
 }

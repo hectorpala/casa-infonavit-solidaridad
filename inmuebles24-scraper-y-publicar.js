@@ -968,7 +968,31 @@ function addToIndex(data, slug) {
             </div>
 
             <div class="carousel-container" data-current="0">
-                <img src="${slug}/images/foto-1.jpg" alt="${data.title}" class="carousel-image active">
+                <img src="${slug}/images/foto-1.jpg"
+                     alt="${data.title}"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image active">
+                <img src="${slug}/images/foto-2.jpg"
+                     alt="${data.title}"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image hidden">
+                <img src="${slug}/images/foto-3.jpg"
+                     alt="${data.title}"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image hidden">
+                <img src="${slug}/images/foto-4.jpg"
+                     alt="${data.title}"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image hidden">
+                <img src="${slug}/images/foto-5.jpg"
+                     alt="${data.title}"
+                     loading="lazy"
+                     decoding="async"
+                     class="w-full h-full object-cover carousel-image hidden">
                 <button class="carousel-arrow carousel-prev" onclick="changeImage(this.parentElement, -1)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
