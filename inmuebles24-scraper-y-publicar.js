@@ -38,7 +38,8 @@ const CONFIG = {
     },
     baseUrl: 'https://casasenventa.info',
     timeout: 60000,
-    headless: false // Mostrar navegador para bypass de protecciones
+    headless: false, // Mostrar navegador para bypass de protecciones
+    scraped_properties_file: 'inmuebles24-scraped-properties.json' // Registro de propiedades scrapeadas
 };
 
 // ============================================
@@ -92,6 +93,64 @@ function formatPrice(price) {
         return price;
     }
     return `$${price.toLocaleString('es-MX')}`;
+}
+
+// ============================================
+// DETECCIÓN DE DUPLICADOS
+// ============================================
+
+function loadScrapedProperties() {
+    try {
+        if (fs.existsSync(CONFIG.scraped_properties_file)) {
+            const data = fs.readFileSync(CONFIG.scraped_properties_file, 'utf8');
+            return JSON.parse(data);
+        }
+    } catch (error) {
+        console.log('⚠️  Error leyendo archivo de propiedades:', error.message);
+    }
+    return [];
+}
+
+function saveScrapedProperty(propertyData) {
+    try {
+        const properties = loadScrapedProperties();
+        properties.push({
+            propertyId: propertyData.propertyId,
+            title: propertyData.title,
+            slug: propertyData.slug,
+            price: propertyData.price,
+            publishedDate: propertyData.publishedDate,
+            scrapedAt: new Date().toISOString(),
+            url: propertyData.url
+        });
+        fs.writeFileSync(CONFIG.scraped_properties_file, JSON.stringify(properties, null, 2), 'utf8');
+        console.log(`   ✅ Propiedad guardada en registro (ID: ${propertyData.propertyId})\n`);
+    } catch (error) {
+        console.log('   ⚠️  Error guardando propiedad en registro:', error.message);
+    }
+}
+
+function checkIfPropertyExists(propertyId) {
+    const properties = loadScrapedProperties();
+    const existing = properties.find(p => p.propertyId === propertyId);
+
+    if (existing) {
+        console.log('\n⚠️  ============================================');
+        console.log('⚠️  PROPIEDAD DUPLICADA DETECTADA');
+        console.log('⚠️  ============================================');
+        console.log(`   🆔 ID: ${existing.propertyId}`);
+        console.log(`   📝 Título: ${existing.title}`);
+        console.log(`   💰 Precio: ${existing.price}`);
+        console.log(`   📅 Publicada: ${existing.publishedDate}`);
+        console.log(`   🕐 Scrapeada: ${existing.scrapedAt}`);
+        console.log(`   🔗 Slug: ${existing.slug}`);
+        console.log('\n   ❌ Esta propiedad ya fue scrapeada anteriormente.');
+        console.log('   💡 Si quieres re-scrapear, elimina la entrada del archivo:');
+        console.log(`      ${CONFIG.scraped_properties_file}\n`);
+        return existing;
+    }
+
+    return null;
 }
 
 // ============================================
@@ -251,7 +310,11 @@ async function scrapeInmuebles24(url) {
             land_area: 0,
             images: [],
             features: [],
-            vendedor: { nombre: '', telefono: '' }
+            vendedor: { nombre: '', telefono: '' },
+            // Metadatos para detectar duplicados
+            propertyId: '',
+            publishedDate: '',
+            views: 0
         };
 
         // Título - h1 funciona perfecto
@@ -378,11 +441,33 @@ async function scrapeInmuebles24(url) {
 
         result.images = Array.from(imageUrls);
 
+        // ============================================
+        // METADATOS PARA DETECCIÓN DE DUPLICADOS
+        // ============================================
+
+        // Fecha de publicación - buscar en elementos con clase userViews
+        const dateEl = document.querySelector('.userViews-module__post-antiquity-views___8Zfch, [class*="post-antiquity"]');
+        if (dateEl) {
+            result.publishedDate = dateEl.textContent.trim();
+        }
+
+        // Visualizaciones - extraer número de "X visualizaciones"
+        const viewsText = document.body.innerText.match(/(\d+)\s+visualizaciones?/i);
+        if (viewsText) {
+            result.views = parseInt(viewsText[1]);
+        }
+
         return result;
     });
 
     // Agregar datos del vendedor al objeto data
     data.vendedor = vendedorData;
+
+    // Extraer ID de propiedad de la URL
+    const idMatch = url.match(/-(\d+)\.html$/);
+    if (idMatch) {
+        data.propertyId = idMatch[1];
+    }
 
     await browser.close();
 
@@ -397,6 +482,10 @@ async function scrapeInmuebles24(url) {
         console.log(`   👤 Vendedor: ${data.vendedor.nombre || 'N/A'}`);
         console.log(`   📞 Tel: ${data.vendedor.telefono || 'N/A'}`);
     }
+    console.log(`\n   🔍 METADATOS (para detección de duplicados):`);
+    console.log(`   🆔 ID Propiedad: ${data.propertyId || 'NO ENCONTRADO'}`);
+    console.log(`   📅 Fecha: ${data.publishedDate || 'NO ENCONTRADA'}`);
+    console.log(`   👁️  Vistas: ${data.views || 0}`);
     console.log('');
 
     return data;
@@ -786,6 +875,18 @@ async function main() {
         // 1. Scrapear datos
         const data = await scrapeInmuebles24(url);
 
+        // 1.1 Verificar duplicados por ID
+        if (data.propertyId) {
+            const existing = checkIfPropertyExists(data.propertyId);
+            if (existing) {
+                console.log('   🛑 Scraper detenido para evitar duplicados.\n');
+                process.exit(0);
+            }
+        } else {
+            console.log('   ⚠️  Advertencia: No se pudo extraer ID de propiedad de la URL');
+            console.log('   ⚠️  No se puede verificar si la propiedad ya existe\n');
+        }
+
         // 2. Generar slug
         const slug = generateSlug(data.title);
         console.log(`🔗 Slug generado: ${slug}\n`);
@@ -830,6 +931,16 @@ async function main() {
 Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'inherit' });
 
         execSync('git push origin main', { stdio: 'inherit' });
+
+        // 8. Guardar propiedad en registro para evitar duplicados futuros
+        saveScrapedProperty({
+            propertyId: data.propertyId,
+            title: data.title,
+            slug: slug,
+            price: data.price,
+            publishedDate: data.publishedDate,
+            url: url
+        });
 
         console.log('\n✅ ¡COMPLETADO!\n');
         console.log(`📍 URL local: ${propertyDir}/index.html`);
