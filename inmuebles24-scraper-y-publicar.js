@@ -202,95 +202,38 @@ async function scrapeInmuebles24(url) {
     }
 
     // ============================================
-    // CAPTURAR DATOS DEL VENDEDOR (con datos ficticios en sesión limpia)
+    // CAPTURAR DATOS DEL VENDEDOR (del HTML - SIN enviar datos)
     // ============================================
     console.log('👤 Capturando datos del vendedor...');
 
     let vendedorData = { nombre: '', telefono: '' };
 
     try {
-        // Interceptar requests para modificar datos enviados
-        await page.setRequestInterception(true);
+        // Extraer nombre y teléfono directamente del HTML
+        // El teléfono ya está visible en el código fuente, NO se envían datos
+        vendedorData = await page.evaluate(() => {
+            const result = { nombre: '', telefono: '' };
 
-        page.on('request', request => {
-            // Si es un request de "Ver teléfono", modificar datos
-            if (request.url().includes('contact') || request.url().includes('phone') || request.url().includes('lead')) {
-                const postData = request.postData();
-                if (postData) {
-                    console.log('   🔒 Interceptando request - Reemplazando con datos ficticios');
-                    // Reemplazar con datos ficticios
-                    const fakeData = postData
-                        .replace(/email=[^&]+/g, 'email=interesado2025@gmail.com')
-                        .replace(/name=[^&]+/g, 'name=Juan+Prospecto')
-                        .replace(/phone=[^&]+/g, 'phone=6671998877');
+            // Buscar nombre del vendedor
+            const nameEl = document.querySelector('.publisherCard-module__info-name___2T6ft, a[class*="info-name"]');
+            if (nameEl) result.nombre = nameEl.textContent.trim();
 
-                    request.continue({ postData: fakeData });
-                } else {
-                    request.continue();
-                }
-            } else {
-                request.continue();
+            // Buscar teléfono en TODO el HTML (ya está visible, no requiere clic)
+            const html = document.documentElement.innerHTML;
+            const phoneMatch = html.match(/(66[67]\d{7})/);
+            if (phoneMatch) {
+                result.telefono = phoneMatch[1];
             }
+
+            return result;
         });
 
-        // Buscar y hacer clic en "Ver teléfono"
-        const phoneRevealed = await page.evaluate(() => {
-            const buttons = Array.from(document.querySelectorAll('button, a, div[role="button"]'));
-            const phoneBtn = buttons.find(btn => {
-                const text = btn.textContent.toLowerCase();
-                return text.includes('ver teléfono') || text.includes('ver telefono');
-            });
-
-            if (phoneBtn) {
-                phoneBtn.click();
-                return true;
-            }
-            return false;
-        });
-
-        if (phoneRevealed) {
-            console.log('   ✅ Clic en "Ver teléfono"');
-            // Esperar a que se revele el teléfono
-            await new Promise(resolve => setTimeout(resolve, 4000));
-
-            // Extraer nombre y teléfono revelado
-            vendedorData = await page.evaluate(() => {
-                const result = { nombre: '', telefono: '' };
-
-                // Buscar nombre
-                const nameEl = document.querySelector('.publisherCard-module__info-name___2T6ft, a[class*="info-name"]');
-                if (nameEl) result.nombre = nameEl.textContent.trim();
-
-                // Buscar teléfono revelado (formato: 6671603643)
-                const allText = document.body.innerText;
-                const phoneMatch = allText.match(/(66[67]\d{7})/);
-                if (phoneMatch) {
-                    result.telefono = phoneMatch[1];
-                }
-
-                return result;
-            });
-
-            console.log(`   👤 Vendedor: ${vendedorData.nombre || 'NO ENCONTRADO'}`);
-            console.log(`   📞 Teléfono: ${vendedorData.telefono || 'NO ENCONTRADO'}`);
-        } else {
-            console.log('   ⚠️  Botón "Ver teléfono" no encontrado');
-            // Si no hay botón, al menos capturar el nombre
-            vendedorData = await page.evaluate(() => {
-                const result = { nombre: '', telefono: '' };
-                const nameEl = document.querySelector('.publisherCard-module__info-name___2T6ft, a[class*="info-name"]');
-                if (nameEl) result.nombre = nameEl.textContent.trim();
-                return result;
-            });
-            console.log(`   👤 Vendedor: ${vendedorData.nombre || 'NO ENCONTRADO'}`);
-        }
-
-        // Desactivar intercepción
-        await page.setRequestInterception(false);
+        console.log(`   👤 Vendedor: ${vendedorData.nombre || 'NO ENCONTRADO'}`);
+        console.log(`   📞 Teléfono: ${vendedorData.telefono || 'NO ENCONTRADO'}`);
+        console.log(`   ✅ Datos capturados del HTML (sin enviar información personal)`);
 
     } catch (error) {
         console.log('   ⚠️  Error capturando vendedor:', error.message);
-        await page.setRequestInterception(false);
     }
 
     console.log('📊 Extrayendo datos...');
