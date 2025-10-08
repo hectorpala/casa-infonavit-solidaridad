@@ -90,6 +90,22 @@
           "precio": "MN 1,590,000",
           "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-monaco-paseos-del-rey-147424326.html",
           "fechaScrapeo": "2025-10-08"
+        },
+        {
+          "id": "147345206",
+          "titulo": "Casa Abajo del Valor Avaluó en Nuevo Culiacán",
+          "precio": "MN 2,900,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-abajo-del-valor-avaluo-en-nuevo-culiacan-147345206.html",
+          "fechaScrapeo": "2025-10-08",
+          "fechaPublicacion": "No disponible"
+        },
+        {
+          "id": "147369068",
+          "titulo": "Casa en Sector Aeropuerto",
+          "precio": "MN 1,560,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-sector-aeropuerto-147369068.html",
+          "fechaScrapeo": "2025-10-08",
+          "fechaPublicacion": "Publicado hace 48 días"
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -147,6 +163,14 @@
           "precio": "MN 1,900,000",
           "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-las-americas-br56-146594849.html",
           "fechaScrapeo": "2025-10-08"
+        },
+        {
+          "id": "146342696",
+          "titulo": "Casa en Venta en Stanza Corcega A2",
+          "precio": "MN 1,290,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-stanza-corcega-a2-146342696.html",
+          "fechaScrapeo": "2025-10-08",
+          "fechaPublicacion": "Publicado hace 159 días"
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -182,11 +206,112 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-08T22:24:14.251Z"
+    },
+    {
+      "id": "v008",
+      "nombre": "Red Clover Real Estate",
+      "telefono": "6673087787",
+      "telefonoFormateado": "667-308-7787",
+      "whatsapp": "https://wa.me/526673087787",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147542921",
+          "titulo": "Casa en Venta Valles del Sol, Sector Terranova, Culiacan, Sinaloa",
+          "precio": "MN 1,250,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-valles-del-sol-sector-terranova-147542921.html",
+          "fechaScrapeo": "2025-10-08"
+        },
+        {
+          "id": "147542767",
+          "titulo": "Casa en Venta en Villas del Río Elite Zona Norte Culiacan, Sinaloa",
+          "precio": "MN 1,650,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villas-del-rio-elite-zona-norte-147542767.html",
+          "fechaScrapeo": "2025-10-08",
+          "fechaPublicacion": "Publicado hace 29 días"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T22:53:03.641Z"
+    },
+    {
+      "id": "v009",
+      "nombre": "KW Centro Qro",
+      "telefono": "",
+      "telefonoFormateado": "",
+      "whatsapp": "https://wa.me/52",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147111285",
+          "titulo": "Casa en Venta Fraccionamineto Urbivilla",
+          "precio": "MN 2,800,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fraccionamineto-urbivilla-147111285.html",
+          "fechaScrapeo": "2025-10-08",
+          "fechaPublicacion": "Publicado hace 74 días"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T23:04:27.468Z"
+    },
+    {
+      "id": "v010",
+      "nombre": "Fernando Peña Bienes Raíces",
+      "telefono": "6677567474",
+      "telefonoFormateado": "667-756-7474",
+      "whatsapp": "https://wa.me/526677567474",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "146962388",
+          "titulo": "Casa en Venta Stanza Granada Salida Norte",
+          "precio": "MN 1,580,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-stanza-granada-salida-norte-146962388.html",
+          "fechaScrapeo": "2025-10-08",
+          "fechaPublicacion": "Publicado hace 91 días"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-08T23:17:22.874Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 7,
-    "totalPropiedades": 8,
-    "ultimaActualizacion": "2025-10-08T22:50:59.422Z"
-  }
+    "totalVendedores": 10,
+    "totalPropiedades": 15,
+    "ultimaActualizacion": "2025-10-08T23:17:22.874Z"
+  },
+  "busquedas": [
+    {
+      "id": "b001",
+      "fecha": "2025-10-08",
+      "plataforma": "Inmuebles24",
+      "ubicacion": "Culiacán, Sinaloa",
+      "precioMin": 1000000,
+      "precioMax": 3000000,
+      "precioFormateado": "$1,000,000 - $3,000,000",
+      "totalPaginas": 4,
+      "totalResultados": 205,
+      "tipoPropiedad": "Casa",
+      "tipoOperacion": "Venta",
+      "notas": "Búsqueda completa casas 1-3M en Culiacán, 4 páginas revisadas"
+    }
+  ]
 }
