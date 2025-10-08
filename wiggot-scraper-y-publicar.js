@@ -2022,6 +2022,18 @@ async function scrapearWiggot(url) {
                 .trim();
         }
 
+        // Agente/Asesor (INTERNO - NO SE PUBLICA)
+        const agentMatch = allText.match(/(?:Agente|Asesor|Vendedor)[:\s]+([A-ZÁÉÍÓÚa-záéíóúñ\s]+?)(?:\n|Teléfono|Correo|Inmobiliaria|$)/i);
+        if (agentMatch) {
+            data.agent = agentMatch[1].trim();
+        }
+
+        // Inmobiliaria/Agencia (INTERNO - NO SE PUBLICA)
+        const agencyMatch = allText.match(/(?:Inmobiliaria|Agencia|Empresa)[:\s]+([A-ZÁÉÍÓÚa-záéíóúñ\s]+?)(?:\n|Teléfono|Correo|$)/i);
+        if (agencyMatch) {
+            data.agency = agencyMatch[1].trim();
+        }
+
         // Imágenes
         const imageUrls = new Set();
 
