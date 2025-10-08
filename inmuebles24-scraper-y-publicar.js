@@ -1018,12 +1018,22 @@ function addToIndex(data, slug) {
     <!-- END CARD-ADV ${slug} -->
 `;
 
-    // Insertar ANTES del comentario "Ver más propiedades"
-    const gridEndRegex = /\n\n\s*<!-- Ver más propiedades \(resto de propiedades como muestra\) -->/;
-    indexHtml = indexHtml.replace(gridEndRegex, `\n\n${card}\n\n            <!-- Ver más propiedades (resto de propiedades como muestra) -->`);
+    // Insertar AL INICIO (después del primer <!-- BEGIN CARD-ADV)
+    // Esto hace que las propiedades nuevas aparezcan PRIMERO (más recientes arriba)
+    const firstCardMatch = indexHtml.match(/<!-- BEGIN CARD-ADV [a-z0-9-]+ -->/);
+
+    if (firstCardMatch) {
+        const firstCardIndex = indexHtml.indexOf(firstCardMatch[0]);
+        indexHtml = indexHtml.substring(0, firstCardIndex) + card + '\n\n            ' + indexHtml.substring(firstCardIndex);
+        console.log('   ✅ Tarjeta agregada AL INICIO de culiacan/index.html (más reciente)\n');
+    } else {
+        console.log('   ⚠️  No se encontró la primera tarjeta, agregando al final...');
+        const gridEndRegex = /\n\n\s*<!-- Ver más propiedades \(resto de propiedades como muestra\) -->/;
+        indexHtml = indexHtml.replace(gridEndRegex, `\n\n${card}\n\n            <!-- Ver más propiedades (resto de propiedades como muestra) -->`);
+        console.log('   ✅ Tarjeta agregada al final de culiacan/index.html\n');
+    }
 
     fs.writeFileSync(indexPath, indexHtml, 'utf8');
-    console.log('   ✅ Tarjeta agregada a culiacan/index.html\n');
 }
 
 // ============================================
