@@ -482,7 +482,10 @@ async function scrapeInmuebles24(url) {
 
             // Buscar teléfono en TODO el HTML (ya está visible, no requiere clic)
             const html = document.documentElement.innerHTML;
-            const phoneMatch = html.match(/(66[67]\d{7})/);
+            // Buscar números de México (10 dígitos):
+            // 669 = Mazatlán, 667/668 = Culiacán, 331 = Guadalajara,
+            // 81 = Monterrey, 55 = CDMX, 33 = Guadalajara, 686 = Mexicali, etc.
+            const phoneMatch = html.match(/((669|667|668|331|33|81|55|686|664|618|612|614|656|662|871|222|442|461|477|81)\d{7,8})/);
             if (phoneMatch) {
                 result.telefono = phoneMatch[1];
             }
@@ -1217,10 +1220,32 @@ Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'inherit' });
             publishedDate: data.publishedDate
         });
 
-        console.log('\n✅ ¡COMPLETADO!\n');
-        console.log(`📍 URL local: ${propertyDir}/index.html`);
-        console.log(`🌐 URL producción: ${CONFIG.baseUrl}/culiacan/${slug}/\n`);
-        console.log('⏱️  La página estará disponible en 1-2 minutos en GitHub Pages\n');
+        console.log('\n' + '='.repeat(60));
+        console.log('✅ ¡COMPLETADO!');
+        console.log('='.repeat(60));
+        console.log(`\n📊 RESUMEN FINAL:`);
+        console.log(`   🏠 ${data.title}`);
+        console.log(`   💰 ${data.price}`);
+        console.log(`   🛏️  ${data.bedrooms} recámaras • 🛁 ${data.bathrooms} baños`);
+        console.log(`   📐 ${data.construction_area}m² construcción • 🏞️  ${data.land_area}m² terreno`);
+        console.log(`   📸 ${data.images.length} fotos descargadas`);
+        console.log(`\n👤 VENDEDOR:`);
+        console.log(`   Nombre: ${data.vendedor.nombre || 'N/A'}`);
+        console.log(`   📞 Tel: ${data.vendedor.telefono || 'N/A'}`);
+        console.log(`\n📅 PUBLICACIÓN:`);
+        console.log(`   Fecha: ${data.publishedDate}`);
+        console.log(`   👁️  Vistas: ${data.views}`);
+        console.log(`\n🌐 URLs:`);
+        console.log(`   Local: ${propertyDir}/index.html`);
+        console.log(`   Producción: ${CONFIG.baseUrl}/culiacan/${slug}/`);
+        console.log('');
+
+        // 10. Esperar para que GitHub Pages complete el deployment
+        console.log('⏳ Esperando 30 segundos para que GitHub Pages actualice...');
+        console.log('   (Esto evita problemas de cache y deployments cancelados)\n');
+        await new Promise(resolve => setTimeout(resolve, 30000));
+
+        console.log('✅ Deployment completado. La página ya debe estar visible.\n');
 
     } catch (error) {
         console.error('\n❌ ERROR:', error.message);
