@@ -482,7 +482,8 @@ async function scrapeInmuebles24(url) {
 
             // Buscar teléfono en TODO el HTML (ya está visible, no requiere clic)
             const html = document.documentElement.innerHTML;
-            const phoneMatch = html.match(/(66[67]\d{7})/);
+            // Buscar números de Mazatlán (669) y Sinaloa (667, 668)
+            const phoneMatch = html.match(/(66[789]\d{7})/);
             if (phoneMatch) {
                 result.telefono = phoneMatch[1];
             }
@@ -606,19 +607,22 @@ async function scrapeInmuebles24(url) {
             if (text.length > 100 || el.children.length > 3) return;
 
             // Recámaras (buscar número + "recámara" o "dormitorio") - tomar ÚLTIMO match (más abajo)
-            if (!result.bedrooms && (text.match(/(\d+)\s*(recámara|dormitorio)/i))) {
+            // SIN condición !result.bedrooms para que siempre actualice con el último valor encontrado
+            if (text.match(/(\d+)\s*(recámara|dormitorio)/i)) {
                 const match = text.match(/(\d+)\s*(recámara|dormitorio)/i);
                 if (match) result.bedrooms = parseInt(match[1]);
             }
 
             // Baños - tomar ÚLTIMO match
-            if (!result.bathrooms && text.match(/(\d+)\s*baño/i)) {
+            // SIN condición !result.bathrooms para que siempre actualice
+            if (text.match(/(\d+)\s*baño/i)) {
                 const match = text.match(/(\d+)\s*baño/i);
                 if (match) result.bathrooms = parseInt(match[1]);
             }
 
             // Estacionamiento/Cochera - tomar ÚLTIMO match
-            if (!result.parking && text.match(/(\d+)\s*(estacionamiento|cochera)/i)) {
+            // SIN condición !result.parking para que siempre actualice
+            if (text.match(/(\d+)\s*(estacionamiento|cochera)/i)) {
                 const match = text.match(/(\d+)\s*(estacionamiento|cochera)/i);
                 if (match) result.parking = parseInt(match[1]);
             }
@@ -763,7 +767,8 @@ function generateHTML(data, slug, photoCount) {
     const constructionText = construction ? `${construction}m²` : 'N/A';
     const landAreaText = landArea ? `${landArea}m²` : 'N/A';
 
-    const description = data.description || `${data.title}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños ' : ''}en ${neighborhood}.`;
+    // SIEMPRE generar descripción automática (ignorar data.description que viene basura de Inmuebles24)
+    const description = `${data.title}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños, ' : ''}${constructionText} de construcción, ${landAreaText} de terreno en ${neighborhood}.`;
 
     // REEMPLAZOS EN METADATA Y HEAD
     html = html.replace(/<title>.*?<\/title>/s,
