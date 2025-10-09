@@ -587,21 +587,28 @@ async function scrapeInmuebles24(url) {
         }
 
         // Ubicación - extraer del breadcrumb o título
+        // Buscar primero por Mazatlán específicamente
         const breadcrumbs = Array.from(document.querySelectorAll('a, span')).filter(el => {
             const text = el.textContent.toLowerCase();
-            return (text.includes('sinaloa') || text.includes('culiacán')) && text.length < 150;
+            return (text.includes('mazatlán') || text.includes('mazatlan') || text.includes('sinaloa')) && text.length < 150;
         });
-        if (breadcrumbs.length > 0) {
-            result.location = breadcrumbs[0].textContent.trim();
+
+        // Priorizar breadcrumbs que contengan "Mazatlán"
+        const mazatlanBreadcrumb = breadcrumbs.find(el =>
+            el.textContent.toLowerCase().includes('mazatlán') ||
+            el.textContent.toLowerCase().includes('mazatlan')
+        );
+
+        if (mazatlanBreadcrumb) {
+            result.location = mazatlanBreadcrumb.textContent.trim();
+        } else if (breadcrumbs.length > 0) {
+            // Si no hay Mazatlán explícito, construir "Mazatlán, Sinaloa"
+            const locationText = breadcrumbs[0].textContent.trim();
+            result.location = locationText.toLowerCase().includes('sinaloa') ?
+                'Mazatlán, Sinaloa' : locationText;
         } else {
-            // Fallback: extraer del título de la página
-            const titleText = document.querySelector('title');
-            if (titleText) {
-                const match = titleText.textContent.match(/Centro de La Ciudad,\s*([^-]+)/);
-                if (match) {
-                    result.location = match[1].trim();
-                }
-            }
+            // Fallback: usar "Mazatlán, Sinaloa" por defecto para este scraper
+            result.location = 'Mazatlán, Sinaloa';
         }
 
         // Descripción - buscar en varios posibles contenedores
