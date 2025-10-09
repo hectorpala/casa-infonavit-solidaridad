@@ -108,6 +108,225 @@ function formatPrice(price) {
     return `$${price.toLocaleString('es-MX')}`;
 }
 
+/**
+ * Convierte precio a formato corto para marcador (ej: $3,200,000 → 3.2M)
+ */
+function formatPriceShort(priceStr) {
+    const num = typeof priceStr === 'string'
+        ? parseFloat(priceStr.replace(/[^0-9]/g, ''))
+        : priceStr;
+
+    if (num >= 1000000) {
+        return `${(num / 1000000).toFixed(1)}M`;
+    } else if (num >= 1000) {
+        return `${(num / 1000).toFixed(0)}K`;
+    }
+    return `${num}`;
+}
+
+/**
+ * Detecta precisión de dirección y ajusta estrategia de marcador
+ *
+ * Retorna objeto con:
+ * - level: 'exact' | 'street' | 'neighborhood' | 'generic'
+ * - hasStreet: boolean
+ * - hasNumber: boolean
+ * - offsetNeeded: boolean (si necesita offset para múltiples propiedades en misma zona)
+ */
+function detectAddressPrecision(location) {
+    const hasNumber = /\d+/.test(location.split(',')[0]); // Número en primera parte
+    const hasStreet = /(calle|avenida|av\.|blvd|boulevard|privada|priv\.|paseo)/i.test(location);
+    const hasFraccionamiento = /fraccionamiento/i.test(location);
+
+    let level = 'generic';
+    if (hasNumber && hasStreet) {
+        level = 'exact'; // Calle + número
+    } else if (hasStreet && !hasNumber) {
+        level = 'street'; // Solo calle, sin número
+    } else if (hasFraccionamiento || /colonia/i.test(location)) {
+        level = 'neighborhood'; // Solo fraccionamiento/colonia
+    }
+
+    return {
+        level,
+        hasStreet,
+        hasNumber,
+        offsetNeeded: level === 'neighborhood' || level === 'generic'
+    };
+}
+
+/**
+ * Genera HTML de mapa interactivo con marcador personalizado naranja
+ *
+ * @param {Object} config
+ * @param {string} config.location - Dirección completa
+ * @param {string} config.price - Precio de la propiedad (ej: "$3,200,000")
+ * @param {string} config.title - Título de la propiedad
+ * @param {string} [config.propertyIndex=0] - Índice para offset si hay múltiples en misma colonia
+ * @returns {string} HTML del mapa con script
+ */
+function generateMapWithCustomMarker(config) {
+    const { location, price, title, propertyIndex = 0 } = config;
+    const priceShort = formatPriceShort(price);
+    const precision = detectAddressPrecision(location);
+
+    // Calcular offset si hay múltiples propiedades en misma zona
+    const latOffset = precision.offsetNeeded ? (propertyIndex * 0.002) : 0;
+    const lngOffset = precision.offsetNeeded ? (propertyIndex * 0.002) : 0;
+
+    return `
+    <!-- Mapa con Marcador Personalizado -->
+    <div id="map-container" style="width: 100%; height: 450px; border-radius: 12px; overflow: hidden;"></div>
+
+    <script>
+        // Variables globales para el mapa
+        let map;
+        let marker;
+        let geocoder;
+
+        // Configuración del marcador personalizado
+        const MARKER_CONFIG = {
+            location: "${location.replace(/"/g, '\\"')}",
+            priceShort: "${priceShort}",
+            title: "${title.replace(/"/g, '\\"')}",
+            precision: "${precision.level}",
+            latOffset: ${latOffset},
+            lngOffset: ${lngOffset}
+        };
+
+        // Inicializar mapa
+        function initMap() {
+            geocoder = new google.maps.Geocoder();
+
+            // Geocodificar la dirección
+            geocoder.geocode({ address: MARKER_CONFIG.location }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = {
+                        lat: results[0].geometry.location.lat() + MARKER_CONFIG.latOffset,
+                        lng: results[0].geometry.location.lng() + MARKER_CONFIG.lngOffset
+                    };
+
+                    // Crear mapa
+                    map = new google.maps.Map(document.getElementById('map-container'), {
+                        center: position,
+                        zoom: MARKER_CONFIG.precision === 'exact' ? 17 :
+                              MARKER_CONFIG.precision === 'street' ? 16 : 15,
+                        mapTypeId: 'roadmap',
+                        styles: [
+                            {
+                                featureType: 'poi',
+                                elementType: 'labels',
+                                stylers: [{ visibility: 'off' }]
+                            }
+                        ],
+                        disableDefaultUI: false,
+                        zoomControl: true,
+                        mapTypeControl: false,
+                        streetViewControl: true,
+                        fullscreenControl: true
+                    });
+
+                    // Crear marcador personalizado con precio
+                    const markerHTML = \`
+                        <div style="
+                            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+                            color: white;
+                            padding: 8px 14px;
+                            border-radius: 20px;
+                            font-weight: bold;
+                            font-size: 14px;
+                            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+                            position: relative;
+                            white-space: nowrap;
+                            font-family: 'Poppins', sans-serif;
+                            border: 3px solid white;
+                        ">
+                            $\${MARKER_CONFIG.priceShort}
+                            <div style="
+                                position: absolute;
+                                bottom: -8px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                width: 0;
+                                height: 0;
+                                border-left: 8px solid transparent;
+                                border-right: 8px solid transparent;
+                                border-top: 8px solid #FF8C42;
+                            "></div>
+                        </div>
+                    \`;
+
+                    // Crear overlay personalizado
+                    const CustomMarker = function(position, map) {
+                        this.position = position;
+                        this.div = null;
+                        this.setMap(map);
+                    };
+
+                    CustomMarker.prototype = new google.maps.OverlayView();
+
+                    CustomMarker.prototype.onAdd = function() {
+                        const div = document.createElement('div');
+                        div.style.position = 'absolute';
+                        div.innerHTML = markerHTML;
+                        div.style.cursor = 'pointer';
+
+                        // Click en marcador: abrir info
+                        div.addEventListener('click', () => {
+                            const infoWindow = new google.maps.InfoWindow({
+                                content: \`
+                                    <div style="font-family: 'Poppins', sans-serif; padding: 10px;">
+                                        <h4 style="margin: 0 0 8px 0; color: #FF6B35;">\${MARKER_CONFIG.title}</h4>
+                                        <p style="margin: 0; color: #666; font-size: 13px;">\${MARKER_CONFIG.location}</p>
+                                    </div>
+                                \`
+                            });
+                            infoWindow.setPosition(this.position);
+                            infoWindow.open(map);
+                        });
+
+                        this.div = div;
+                        const panes = this.getPanes();
+                        panes.overlayMouseTarget.appendChild(div);
+                    };
+
+                    CustomMarker.prototype.draw = function() {
+                        const overlayProjection = this.getProjection();
+                        const position = overlayProjection.fromLatLngToDivPixel(this.position);
+
+                        const div = this.div;
+                        div.style.left = (position.x - 40) + 'px'; // Centrar (ajustar según ancho)
+                        div.style.top = (position.y - 50) + 'px'; // Arriba del punto
+                    };
+
+                    CustomMarker.prototype.onRemove = function() {
+                        if (this.div) {
+                            this.div.parentNode.removeChild(this.div);
+                            this.div = null;
+                        }
+                    };
+
+                    // Agregar marcador al mapa
+                    marker = new CustomMarker(position, map);
+
+                } else {
+                    console.error('Geocode error:', status);
+                    // Fallback: mostrar mapa en ubicación genérica
+                    const fallbackCenter = { lat: 23.2494, lng: -106.4111 }; // Mazatlán centro
+                    map = new google.maps.Map(document.getElementById('map-container'), {
+                        center: fallbackCenter,
+                        zoom: 12
+                    });
+                }
+            });
+        }
+    </script>
+
+    <!-- Cargar Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=${CONFIG.googleMaps.key}&callback=initMap&libraries=places" async defer></script>
+    `;
+}
+
 // ============================================
 // DETECCIÓN DE DUPLICADOS
 // ============================================
@@ -645,7 +864,7 @@ async function scrapeInmuebles24(url) {
         }
 
         // PASO 1: Buscar datos en TODO el body text (incluyendo descripción)
-        const bodyText = document.body.innerText;
+        // Reutilizar bodyText ya declarado arriba para ubicación
 
         // MÉTODO 1: Buscar patrón "X m² lote Y m² constr" (formato principal Inmuebles24)
         const loteConstruccionMatch = bodyText.match(/(\d+)\s*m²\s*lote\s+(\d+)\s*m²\s*constr/i);
@@ -1132,11 +1351,18 @@ function generateHTML(data, slug, photoCount) {
     html = html.replace(/const precio = parseFloat\(precioInput\.replace\(\/\[^\d\]\/g, ''\)\) \|\| \d+;/g,
         `const precio = parseFloat(precioInput.replace(/[^\\d]/g, '')) || ${priceNumeric};`);
 
-    // MAPA - actualizar ubicación con dirección correcta
-    const locationEncoded = encodeURIComponent(`${data.title}, ${data.location}`);
+    // MAPA - reemplazar iframe con mapa interactivo personalizado
+    const customMapHTML = generateMapWithCustomMarker({
+        location: data.location,
+        price: data.price,
+        title: data.title,
+        propertyIndex: 0 // Por ahora siempre 0, luego se puede calcular por colonia
+    });
+
+    // Reemplazar toda la sección del mapa (iframe + container)
     html = html.replace(
-        /src="https:\/\/www\.google\.com\/maps\/embed\/v1\/place\?key=[^&]+&q=[^"]+"/g,
-        `src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${locationEncoded}&zoom=15"`
+        /<div class="map-container">[\s\S]*?<\/iframe>[\s\S]*?<\/div>/,
+        customMapHTML
     );
 
     // LOCATION SUBTITLE - texto arriba del mapa
