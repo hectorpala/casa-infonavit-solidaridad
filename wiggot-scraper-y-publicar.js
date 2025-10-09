@@ -1788,6 +1788,14 @@ async function main() {
         if (!publishResult.success) {
             console.log('💡 TIP: Puedes publicar manualmente con:');
             console.log('   git add . && git commit -m "Add propiedad" && git push');
+        } else {
+            // Esperar para que GitHub Pages complete el deployment
+            console.log('');
+            console.log('⏳ Esperando 30 segundos para que GitHub Pages actualice...');
+            console.log('   (Esto evita problemas de cache y deployments cancelados)');
+            await new Promise(resolve => setTimeout(resolve, 30000));
+            console.log('');
+            console.log('✅ Deployment completado. La página ya debe estar visible.');
         }
     } else if (CONFIG.mode.isTest) {
         console.log('⚠️  MODO TEST: Archivos generados en carpetas _test (no publicar)');

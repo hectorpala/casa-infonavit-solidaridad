@@ -638,7 +638,7 @@ async function scrapeInmuebles24(url) {
             }
         }
 
-        // PASO 2: Buscar características SOLO en iconos/badges (NO en descripción)
+        // PASO 2: Buscar características SOLO en iconos/badges (NO en descripción NI menú navegación)
         // Estrategia: Buscar elementos pequeños con iconos (li, span cortos cerca de SVG/i/icons)
         const allTextElements = Array.from(document.querySelectorAll('li, span, div')).reverse();
 
@@ -648,6 +648,18 @@ async function scrapeInmuebles24(url) {
             // FILTRO CRÍTICO: Solo textos MUY cortos (típico de iconos: "3 recámaras", "2 baños")
             // Ignorar textos largos que probablemente son descripción
             if (text.length > 50 || el.children.length > 3) return;
+
+            // FILTRO ANTI-MENÚ: Excluir elementos que son parte del menú de navegación de Inmuebles24
+            // Detectar si es un link del menú (href contiene "/inmuebles-en-venta-con-" o "/inmuebles-en-renta-con-")
+            if (el.tagName === 'A' && el.href && (el.href.includes('/inmuebles-en-venta-con-') ||
+                                                   el.href.includes('/inmuebles-en-renta-con-'))) {
+                return; // Skip menu links
+            }
+
+            // También excluir <li> padres de estos links
+            if (el.querySelector('a[href*="/inmuebles-en-venta-con-"], a[href*="/inmuebles-en-renta-con-"]')) {
+                return; // Skip menu items
+            }
 
             // FILTRO ADICIONAL: Verificar si el elemento o sus hijos tienen íconos
             const hasIcon = el.querySelector('svg, i, img[class*="icon"]') ||
@@ -752,6 +764,69 @@ async function scrapeInmuebles24(url) {
     console.log(`   📐 ${data.construction_area || 'N/A'}m² construcción`);
     console.log(`   🏞️  ${data.land_area || 'N/A'}m² terreno`);
     console.log(`   📸 ${data.images.length} imágenes encontradas`);
+
+    // ============================================
+    // 🔍 SISTEMA DE VALIDACIÓN AUTOMÁTICA
+    // ============================================
+    console.log('\n🔍 Validando datos scrapeados...\n');
+
+    const validationIssues = [];
+    const validationWarnings = [];
+
+    // Validación 1: Recámaras (debe ser 1-6, típicamente 2-4)
+    if (data.bedrooms === 0 || data.bedrooms > 6) {
+        validationIssues.push(`⚠️  Recámaras sospechosas: ${data.bedrooms} (esperado: 1-6)`);
+    }
+
+    // Validación 2: Baños (debe ser 1-5, típicamente 1-3)
+    if (data.bathrooms === 0 || data.bathrooms > 5) {
+        validationIssues.push(`⚠️  Baños sospechosos: ${data.bathrooms} (esperado: 1-5)`);
+    }
+
+    // Validación 3: M² construcción (debe ser 40-500m² típicamente)
+    if (data.construction_area && (data.construction_area < 40 || data.construction_area > 500)) {
+        validationWarnings.push(`⚠️  M² construcción inusual: ${data.construction_area}m² (típico: 40-500m²)`);
+    }
+
+    // Validación 4: M² terreno >= M² construcción
+    if (data.land_area && data.construction_area && data.land_area < data.construction_area) {
+        validationIssues.push(`⚠️  Terreno (${data.land_area}m²) menor que construcción (${data.construction_area}m²)`);
+    }
+
+    // Validación 5: Precio válido
+    if (!data.price || data.price === 'N/A') {
+        validationIssues.push(`⚠️  Precio no capturado`);
+    }
+
+    // Validación 6: Título no vacío
+    if (!data.title || data.title.trim().length < 10) {
+        validationIssues.push(`⚠️  Título muy corto o vacío: "${data.title}"`);
+    }
+
+    // Validación 7: Al menos 5 fotos
+    if (data.images.length < 5) {
+        validationWarnings.push(`⚠️  Pocas fotos: ${data.images.length} (recomendado: 10+)`);
+    }
+
+    // Validación 8: Vendedor con teléfono
+    if (!data.vendedor.telefono) {
+        validationWarnings.push(`⚠️  Teléfono del vendedor no capturado`);
+    }
+
+    // Mostrar resultados de validación
+    if (validationIssues.length === 0 && validationWarnings.length === 0) {
+        console.log('   ✅ Todos los datos son coherentes\n');
+    } else {
+        if (validationIssues.length > 0) {
+            console.log('   🚨 PROBLEMAS DETECTADOS:');
+            validationIssues.forEach(issue => console.log(`      ${issue}`));
+        }
+        if (validationWarnings.length > 0) {
+            console.log('   ⚠️  ADVERTENCIAS:');
+            validationWarnings.forEach(warning => console.log(`      ${warning}`));
+        }
+        console.log('');
+    }
     if (data.vendedor.nombre || data.vendedor.telefono) {
         console.log(`   👤 Vendedor: ${data.vendedor.nombre || 'N/A'}`);
         console.log(`   📞 Tel: ${data.vendedor.telefono || 'N/A'}`);
@@ -1229,7 +1304,45 @@ async function main() {
             fs.mkdirSync(propertyDir, { recursive: true });
         }
 
-        // 4. Descargar fotos
+        // 4. CONFIRMACIÓN INTERACTIVA - Revisar datos antes de continuar
+        console.log('\n' + '='.repeat(60));
+        console.log('📋 RESUMEN DE DATOS CAPTURADOS');
+        console.log('='.repeat(60));
+        console.log(`\n📝 Título:        ${data.title}`);
+        console.log(`💰 Precio:        ${data.price}`);
+        console.log(`🛏️  Recámaras:     ${data.bedrooms}`);
+        console.log(`🛁 Baños:         ${data.bathrooms}`);
+        console.log(`📐 Construcción:  ${data.construction_area || 'N/A'}m²`);
+        console.log(`🏞️  Terreno:       ${data.land_area || 'N/A'}m²`);
+        console.log(`📸 Fotos:         ${data.images.length}`);
+        console.log(`👤 Vendedor:      ${data.vendedor.nombre || 'N/A'}`);
+        console.log(`📞 Teléfono:      ${data.vendedor.telefono || 'N/A'}`);
+        console.log(`🆔 ID Propiedad:  ${data.propertyId}`);
+        console.log(`\n` + '='.repeat(60));
+
+        // Importar readline para confirmación interactiva
+        const readline = require('readline');
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
+
+        const confirmed = await new Promise((resolve) => {
+            rl.question('\n✅ ¿Los datos son correctos? (s/n): ', (answer) => {
+                rl.close();
+                resolve(answer.toLowerCase() === 's' || answer.toLowerCase() === 'si' || answer.toLowerCase() === 'y' || answer.toLowerCase() === 'yes');
+            });
+        });
+
+        if (!confirmed) {
+            console.log('\n❌ Scraping cancelado por el usuario.');
+            console.log('💡 Tip: Revisa la URL o reporta el problema si los datos están incorrectos.\n');
+            process.exit(0);
+        }
+
+        console.log('\n✅ Continuando con descarga de fotos...\n');
+
+        // 5. Descargar fotos
         const photoCount = await downloadPhotos(data.images, imagesDir);
 
         if (photoCount === 0) {
@@ -1237,16 +1350,16 @@ async function main() {
             process.exit(1);
         }
 
-        // 5. Generar HTML
+        // 6. Generar HTML
         const html = generateHTML(data, slug, photoCount);
         const htmlPath = `${propertyDir}/index.html`;
         fs.writeFileSync(htmlPath, html, 'utf8');
         console.log(`✅ HTML generado: ${htmlPath}\n`);
 
-        // 6. Agregar a index
+        // 7. Agregar a index
         addToIndex(data, slug);
 
-        // 7. Commit y push automático
+        // 8. Commit y push automático
         console.log('🚀 Publicando a GitHub...\n');
         execSync(`git add ${propertyDir} mazatlan/index.html`, { stdio: 'inherit' });
         execSync(`git commit -m "Add: ${data.title} (Inmuebles24)
@@ -1285,7 +1398,13 @@ Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'inherit' });
         console.log('\n✅ ¡COMPLETADO!\n');
         console.log(`📍 URL local: ${propertyDir}/index.html`);
         console.log(`🌐 URL producción: ${CONFIG.baseUrl}/mazatlan/${slug}/\n`);
-        console.log('⏱️  La página estará disponible en 1-2 minutos en GitHub Pages\n');
+
+        // 10. Esperar para que GitHub Pages complete el deployment
+        console.log('⏳ Esperando 30 segundos para que GitHub Pages actualice...');
+        console.log('   (Esto evita problemas de cache y deployments cancelados)\n');
+        await new Promise(resolve => setTimeout(resolve, 30000));
+
+        console.log('✅ Deployment completado. La página ya debe estar visible.\n');
 
     } catch (error) {
         console.error('\n❌ ERROR:', error.message);
