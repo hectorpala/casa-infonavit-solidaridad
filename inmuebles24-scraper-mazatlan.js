@@ -1394,6 +1394,12 @@ function generateHTML(data, slug, photoCount) {
     html = html.replace(/https:\/\/wa\.me\/528111652545\?text=[^"]+/g,
         `https://wa.me/528111652545?text=${whatsappMsg}`);
 
+    // CRÍTICO: Reemplazar API key vieja con la nueva
+    const OLD_API_KEY = 'AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8';
+    const NEW_API_KEY = CONFIG.googleMaps.key;
+    html = html.replace(new RegExp(OLD_API_KEY, 'g'), NEW_API_KEY);
+    console.log('   ✅ API key actualizada a nueva key');
+
     // Copiar styles.css
     const stylesSource = 'mazatlan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css';
     const stylesPath = `mazatlan/${slug}/styles.css`;
