@@ -1284,6 +1284,219 @@
         };
 
         // Inicializar mapa
+        // Array con TODAS las propiedades de Mazatlán
+const ALL_MAZATLAN_PROPERTIES = [
+    {
+        "slug": "casa-en-venta-real-del-valle",
+        "priceShort": "$3.5M",
+        "title": "Casa en Venta Real del Valle",
+        "location": "Real del Valle",
+        "image": "casa-en-venta-real-del-valle/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-",
+        "priceShort": "$3.5M",
+        "title": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas",
+        "location": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas",
+        "image": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas",
+        "priceShort": "function initMap() {.6M",
+        "title": "Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.",
+        "location": "Mazatlán Cercana a Marina Mazatlán y Playas.",
+        "image": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-veredas-mazatlan-sin",
+        "priceShort": "$3.3M",
+        "title": "Casa en Venta en Veredas, Mazatlan, Sin.",
+        "location": "Veredas, Mazatlan, Sin.",
+        "image": "casa-en-venta-en-veredas-mazatlan-sin/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido",
+        "priceShort": "function initMap() {.3M",
+        "title": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido",
+        "location": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido",
+        "image": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-de-real-del-valle-coto-14",
+        "priceShort": "$3.0M",
+        "title": "Casa en Venta de Real del Valle Coto 14",
+        "location": "de Real del Valle Coto 14",
+        "image": "casa-en-venta-de-real-del-valle-coto-14/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza",
+        "priceShort": "$3.4M",
+        "title": "Casa en Venta Residencial con Alberca en Real del Valle Mazatlan",
+        "location": "Residencial con Alberca en Real del Valle Mazatlan",
+        "image": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa",
+        "priceShort": "function initMap() {.6M",
+        "title": "Casa en Venta en El Fracc Porto Molino Mazatlan Sinaloa",
+        "location": "El Fracc Porto Molino Mazatlan Sinaloa",
+        "image": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res",
+        "priceShort": "$3.2M",
+        "title": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial",
+        "location": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial",
+        "image": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico",
+        "priceShort": "function initMap() {.1M",
+        "title": "Casa en Venta en Mazatlan, Fraccionamiento Real Pacifico",
+        "location": "Mazatlan, Fraccionamiento Real Pacifico",
+        "image": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-mazatlan-residencial-palmilla-super-precio",
+        "priceShort": "$3.7M",
+        "title": "Casa en Venta Mazatlan, Residencial Palmilla Super Precio!",
+        "location": "Mazatlan, Residencial Palmilla Super Precio!",
+        "image": "casa-en-venta-mazatlan-residencial-palmilla-super-precio/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-privada-con-alberca-en-mazatlan",
+        "priceShort": "$3.3M",
+        "title": "Casa en Venta en Privada con Alberca en Mazatlán",
+        "location": "Privada con Alberca en Mazatlán",
+        "image": "casa-en-venta-en-privada-con-alberca-en-mazatlan/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia",
+        "priceShort": "function initMap() {.0M",
+        "title": "Casa en Venta en Mazatlan, Sinaloa (Villa Galaxia)",
+        "location": "Mazatlan, Sinaloa (Villa Galaxia)",
+        "image": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue",
+        "priceShort": "function initMap() {.4M",
+        "title": "Casa en Venta en Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)",
+        "location": "Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)",
+        "image": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model",
+        "priceShort": "function initMap() {.7M",
+        "title": "Casa en Venta en Mazatlán en Coto Privado Camila Hills Modelo Nova",
+        "location": "Av Paseo del Pacífico, Mazatlán, Sinaloa",
+        "image": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-mazatlan",
+        "priceShort": "function initMap() {.7M",
+        "title": "Casa en Venta en Mazatlán.",
+        "location": "Mazatlán",
+        "image": "casa-en-venta-en-mazatlan/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z",
+        "priceShort": "function initMap() {.4M",
+        "title": "Casa en Venta De Los Peces",
+        "location": "De Los Peces, Fraccionamiento Tortugas, Mazatlán",
+        "image": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z/images/foto-1.jpg"
+    },
+    {
+        "slug": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01",
+        "priceShort": "$6.3M",
+        "title": "Casa en Venta Barrio San Francisco",
+        "location": "Barrio San Francisco, Barrio San Francisco, Mazatlán, Sinaloa",
+        "image": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/images/foto-1.jpg"
+    }
+];
+
+// Función para crear marcador personalizado para otras propiedades
+function createPropertyMarker(property, map, isCurrent = false) {
+    const markerHTML = `
+        <div style="
+            background: ${isCurrent ? 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)'};
+            color: white;
+            padding: ${isCurrent ? '8px 14px' : '6px 10px'};
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: ${isCurrent ? '14px' : '12px'};
+            border: 3px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: transform 0.2s;
+        " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            ${property.priceShort}
+        </div>
+    `;
+
+    const CustomMarker = function(position, map, property, isCurrent) {
+        this.position = position;
+        this.property = property;
+        this.isCurrent = isCurrent;
+        this.div = null;
+        this.setMap(map);
+    };
+
+    CustomMarker.prototype = new google.maps.OverlayView();
+
+    CustomMarker.prototype.onAdd = function() {
+        const div = document.createElement('div');
+        div.style.position = 'absolute';
+        div.innerHTML = markerHTML;
+
+        div.addEventListener('click', () => {
+            const baseUrl = window.location.href.includes('mazatlan/')
+                ? '../'
+                : '';
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="padding: 0; max-width: 260px;">
+                        <img src="${baseUrl}${this.property.image}"
+                             alt="${this.property.title}"
+                             style="width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 4px 4px 0 0;">
+                        <div style="padding: 8px 10px;">
+                            <h4 style="margin: 0 0 4px 0; color: ${this.isCurrent ? '#FF6B35' : '#10b981'}; font-size: 14px; font-weight: 600;">${this.property.priceShort}</h4>
+                            <h5 style="margin: 0 0 3px 0; color: #1f2937; font-size: 12px; font-weight: 600;">${this.property.title}</h5>
+                            <p style="margin: 0 0 6px 0; color: #6b7280; font-size: 11px; line-height: 1.3;">${this.property.location}</p>
+                            ${!this.isCurrent ? '<a href="' + baseUrl + this.property.slug + '/index.html" style="display: block; background: #10b981; color: white; text-align: center; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: 600;">Ver Propiedad →</a>' : ''}
+                        </div>
+                    </div>
+                `
+            });
+            infoWindow.setPosition(this.position);
+            infoWindow.open(map);
+        });
+
+        this.div = div;
+        const panes = this.getPanes();
+        panes.overlayMouseTarget.appendChild(div);
+    };
+
+    CustomMarker.prototype.draw = function() {
+        const overlayProjection = this.getProjection();
+        const position = overlayProjection.fromLatLngToDivPixel(this.position);
+        const div = this.div;
+        div.style.left = (position.x - (this.isCurrent ? 40 : 30)) + 'px';
+        div.style.top = (position.y - (this.isCurrent ? 20 : 16)) + 'px';
+    };
+
+    CustomMarker.prototype.onRemove = function() {
+        if (this.div) {
+            this.div.parentNode.removeChild(this.div);
+            this.div = null;
+        }
+    };
+
+    return CustomMarker;
+}
+
+
         function initMap() {
             geocoder = new google.maps.Geocoder();
 
@@ -1315,94 +1528,26 @@
                         fullscreenControl: true
                     });
 
-                    // Crear marcador personalizado con precio
-                    const markerHTML = `
-                        <div style="
-                            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
-                            color: white;
-                            padding: 8px 14px;
-                            border-radius: 20px;
-                            font-weight: bold;
-                            font-size: 14px;
-                            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
-                            position: relative;
-                            white-space: nowrap;
-                            font-family: 'Poppins', sans-serif;
-                            border: 3px solid white;
-                        ">
-                            ${MARKER_CONFIG.priceShort}
-                            <div style="
-                                position: absolute;
-                                bottom: -8px;
-                                left: 50%;
-                                transform: translateX(-50%);
-                                width: 0;
-                                height: 0;
-                                border-left: 8px solid transparent;
-                                border-right: 8px solid transparent;
-                                border-top: 8px solid #FF8C42;
-                            "></div>
-                        </div>
-                    `;
+                    // Crear marcador de la propiedad actual (naranja)
+                    const currentProperty = ALL_MAZATLAN_PROPERTIES.find(p => p.slug === 'casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico');
+                    const CustomMarkerClass = createPropertyMarker(currentProperty, map, true);
+                    marker = new CustomMarkerClass(position, map, currentProperty, true);
 
-                    // Crear overlay personalizado
-                    const CustomMarker = function(position, map) {
-                        this.position = position;
-                        this.div = null;
-                        this.setMap(map);
-                    };
-
-                    CustomMarker.prototype = new google.maps.OverlayView();
-
-                    CustomMarker.prototype.onAdd = function() {
-                        const div = document.createElement('div');
-                        div.style.position = 'absolute';
-                        div.innerHTML = markerHTML;
-                        div.style.cursor = 'pointer';
-
-                        // Click en marcador: abrir info con foto
-                        div.addEventListener('click', () => {
-                            const infoWindow = new google.maps.InfoWindow({
-                                content: `
-                                    <div style="font-family: 'Poppins', sans-serif; padding: 0; max-width: 260px;">
-                                        <img src="images/foto-1.jpg"
-                                             alt="${MARKER_CONFIG.title}"
-                                             style="width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 4px 4px 0 0;">
-                                        <div style="padding: 8px 10px;">
-                                            <h4 style="margin: 0 0 4px 0; color: #FF6B35; font-size: 14px; font-weight: 600;">${MARKER_CONFIG.priceShort}</h4>
-                                            <h5 style="margin: 0 0 3px 0; color: #1f2937; font-size: 12px; font-weight: 600;">${MARKER_CONFIG.title}</h5>
-                                            <p style="margin: 0; color: #6b7280; font-size: 11px; line-height: 1.3;">${MARKER_CONFIG.location}</p>
-                                        </div>
-                                    </div>
-                                `
+                    // Crear marcadores de TODAS las otras propiedades (verdes)
+                    ALL_MAZATLAN_PROPERTIES.forEach(property => {
+                        if (property.slug !== 'casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico') {
+                            geocoder.geocode({ address: property.location }, function(results, status) {
+                                if (status === 'OK' && results[0]) {
+                                    const otherPosition = {
+                                        lat: results[0].geometry.location.lat(),
+                                        lng: results[0].geometry.location.lng()
+                                    };
+                                    const OtherMarkerClass = createPropertyMarker(property, map, false);
+                                    new OtherMarkerClass(otherPosition, map, property, false);
+                                }
                             });
-                            infoWindow.setPosition(this.position);
-                            infoWindow.open(map);
-                        });
-
-                        this.div = div;
-                        const panes = this.getPanes();
-                        panes.overlayMouseTarget.appendChild(div);
-                    };
-
-                    CustomMarker.prototype.draw = function() {
-                        const overlayProjection = this.getProjection();
-                        const position = overlayProjection.fromLatLngToDivPixel(this.position);
-
-                        const div = this.div;
-                        div.style.left = (position.x - 40) + 'px'; // Centrar (ajustar según ancho)
-                        div.style.top = (position.y - 50) + 'px'; // Arriba del punto
-                    };
-
-                    CustomMarker.prototype.onRemove = function() {
-                        if (this.div) {
-                            this.div.parentNode.removeChild(this.div);
-                            this.div = null;
                         }
-                    };
-
-                    // Agregar marcador al mapa
-                    marker = new CustomMarker(position, map);
+                    });
 
                 } else {
                     console.error('Geocode error:', status);
