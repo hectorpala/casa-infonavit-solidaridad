@@ -1319,6 +1319,8 @@ async function main() {
         console.log(`📸 Fotos:         ${data.images.length}`);
         console.log(`👤 Vendedor:      ${data.vendedor.nombre || 'N/A'}`);
         console.log(`📞 Teléfono:      ${data.vendedor.telefono || 'N/A'}`);
+        console.log(`📅 Publicada:     ${data.publishedDate}`);
+        console.log(`👁️  Vistas:        ${data.views}`);
         console.log(`🆔 ID Propiedad:  ${data.propertyId}`);
         console.log(`\n` + '='.repeat(60));
 
@@ -1397,9 +1399,25 @@ Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'inherit' });
             publishedDate: data.publishedDate
         });
 
-        console.log('\n✅ ¡COMPLETADO!\n');
-        console.log(`📍 URL local: ${propertyDir}/index.html`);
-        console.log(`🌐 URL producción: ${CONFIG.baseUrl}/mazatlan/${slug}/\n`);
+        console.log('\n' + '='.repeat(60));
+        console.log('✅ ¡COMPLETADO!');
+        console.log('='.repeat(60));
+        console.log(`\n📊 RESUMEN FINAL:`);
+        console.log(`   🏠 ${data.title}`);
+        console.log(`   💰 ${data.price}`);
+        console.log(`   🛏️  ${data.bedrooms} recámaras • 🛁 ${data.bathrooms} baños`);
+        console.log(`   📐 ${data.construction_area}m² construcción • 🏞️  ${data.land_area}m² terreno`);
+        console.log(`   📸 ${data.images.length} fotos descargadas`);
+        console.log(`\n👤 VENDEDOR:`);
+        console.log(`   Nombre: ${data.vendedor.nombre || 'N/A'}`);
+        console.log(`   📞 Tel: ${data.vendedor.telefono || 'N/A'}`);
+        console.log(`\n📅 PUBLICACIÓN:`);
+        console.log(`   Fecha: ${data.publishedDate}`);
+        console.log(`   👁️  Vistas: ${data.views}`);
+        console.log(`\n🌐 URLs:`);
+        console.log(`   Local: ${propertyDir}/index.html`);
+        console.log(`   Producción: ${CONFIG.baseUrl}/mazatlan/${slug}/`);
+        console.log('');
 
         // 10. Esperar para que GitHub Pages complete el deployment
         console.log('⏳ Esperando 30 segundos para que GitHub Pages actualice...');
