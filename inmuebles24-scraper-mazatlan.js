@@ -746,12 +746,18 @@ async function scrapeInmuebles24(url) {
 
             // Buscar teléfono en TODO el HTML (ya está visible, no requiere clic)
             const html = document.documentElement.innerHTML;
-            // Buscar números de México (10 dígitos):
-            // 669 = Mazatlán, 667/668 = Culiacán, 331 = Guadalajara,
-            // 81 = Monterrey, 55 = CDMX, 33 = Guadalajara, 686 = Mexicali, etc.
-            const phoneMatch = html.match(/((669|667|668|331|33|81|55|686|664|618|612|614|656|662|871|222|442|461|477|81)\d{7,8})/);
-            if (phoneMatch) {
-                result.telefono = phoneMatch[1];
+
+            // PRIORIDAD: Buscar primero teléfonos de Mazatlán (669)
+            const mazatlanPhone = html.match(/(669\d{7})/);
+            if (mazatlanPhone) {
+                result.telefono = mazatlanPhone[1];
+            } else {
+                // Fallback: buscar otros números de México (10 dígitos):
+                // 667/668 = Culiacán, 331 = Guadalajara, 81 = Monterrey, etc.
+                const phoneMatch = html.match(/((667|668|331|33|81|55|686|664|618|612|614|656|662|871|222|442|461|477)\d{7,8})/);
+                if (phoneMatch) {
+                    result.telefono = phoneMatch[1];
+                }
             }
 
             return result;
