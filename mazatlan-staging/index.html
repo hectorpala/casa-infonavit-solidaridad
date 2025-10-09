@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>🔧 STAGING - Mazatlán Map Explorer | Hector es Bienes Raíces</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        .staging-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-bottom: 3px solid #fbbf24;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .header-bar {
+            position: fixed;
+            top: 44px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .header-title span {
+            font-size: 14px;
+            color: #9ca3af;
+            font-weight: 400;
+        }
+
+        .header-stats {
+            text-align: right;
+        }
+
+        .header-stats p {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0;
+        }
+
+        .header-stats small {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .filter-bar {
+            position: fixed;
+            top: 104px;
+            left: 0;
+            right: 0;
+            z-index: 998;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 24px;
+        }
+
+        .filter-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #10b981;
+        }
+
+        .btn-reset {
+            padding: 8px 16px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-reset:hover {
+            background: #e5e7eb;
+        }
+
+        .results-counter {
+            margin-left: auto;
+            background: #f3f4f6;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4b5563;
+        }
+
+        .main-container {
+            position: fixed;
+            top: 176px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+        }
+
+        .map-section {
+            flex: 1;
+            height: 100%;
+        }
+
+        #map-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .listings-section {
+            width: 480px;
+            height: 100%;
+            overflow-y: auto;
+            background: #f9fafb;
+            border-left: 1px solid #e5e7eb;
+        }
+
+        .listing-card {
+            background: white;
+            margin: 12px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            border-color: #10b981;
+        }
+
+        .listing-card.highlighted {
+            border-color: #f59e0b;
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+        }
+
+        .listing-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .price-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(16, 185, 129, 0.95);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 16px;
+            backdrop-filter: blur(8px);
+        }
+
+        .listings-section::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .listings-section::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        .listings-section::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="staging-banner">
+        🔧 AMBIENTE DE PRUEBAS - NO INDEXAR - STAGING ONLY
+    </div>
+
+    <div class="header-bar">
+        <div class="header-title">
+            🗺️ Mazatlán <span>(STAGING)</span>
+        </div>
+        <div class="header-stats">
+            <p><span id="visible-count">18</span> Propiedades</p>
+            <small>$2.0M - $6.3M</small>
+        </div>
+    </div>
+
+    <div class="filter-bar">
+        <div class="filter-controls">
+            <select id="filter-price" class="filter-select">
+                <option value="">Precio</option>
+                <option value="0-2500000">Hasta $2.5M</option>
+                <option value="2500000-3000000">$2.5M - $3.0M</option>
+                <option value="3000000-4000000">$3.0M - $4.0M</option>
+                <option value="4000000-999999999">Más de $4.0M</option>
+            </select>
+
+            <select id="filter-bedrooms" class="filter-select">
+                <option value="">Recámaras</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+            </select>
+
+            <select id="filter-zone" class="filter-select">
+                <option value="">Todas las zonas</option>
+                <option value="real-del-valle">Real del Valle</option>
+                <option value="marina">Zona Marina</option>
+                <option value="centro">Centro</option>
+                <option value="otro">Otras zonas</option>
+            </select>
+
+            <button onclick="resetFilters()" class="btn-reset">🔄 Limpiar</button>
+
+            <div class="results-counter">
+                <span id="results-text">18 de 18 propiedades</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="map-section">
+            <div id="map-container"></div>
+        </div>
+
+        <div class="listings-section" id="listings-container">
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&libraries=places"></script>
+
+    <script>
+        const ALL_PROPERTIES = [
+            { slug: "casa-en-venta-real-del-valle", priceShort: "$3.5M", price: 3500000, title: "Casa en Venta Real del Valle", location: "Real del Valle", bedrooms: 3, bathrooms: 2, sqft: 200, zone: "real-del-valle", image: "../mazatlan/casa-en-venta-real-del-valle/images/foto-1.jpg" },
+            { slug: "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-", priceShort: "$3.5M", price: 3500000, title: "Casa Rincon Girasoles", location: "Rincon de Las Plazas", bedrooms: 3, bathrooms: 2, sqft: 180, zone: "otro", image: "../mazatlan/casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas", priceShort: "$2.6M", price: 2600000, title: "Casa Cercana a Marina", location: "Marina Mazatlán", bedrooms: 3, bathrooms: 2, sqft: 150, zone: "marina", image: "../mazatlan/casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-veredas-mazatlan-sin", priceShort: "$3.3M", price: 3300000, title: "Casa en Veredas", location: "Veredas", bedrooms: 3, bathrooms: 2, sqft: 190, zone: "otro", image: "../mazatlan/casa-en-venta-en-veredas-mazatlan-sin/images/foto-1.jpg" },
+            { slug: "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido", priceShort: "$2.3M", price: 2300000, title: "Casa Valle del Ejido", location: "Valle del Ejido", bedrooms: 3, bathrooms: 2, sqft: 160, zone: "otro", image: "../mazatlan/casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido/images/foto-1.jpg" },
+            { slug: "casa-en-venta-de-real-del-valle-coto-14", priceShort: "$3.0M", price: 3000000, title: "Casa Real del Valle Coto 14", location: "Real del Valle", bedrooms: 3, bathrooms: 2, sqft: 175, zone: "real-del-valle", image: "../mazatlan/casa-en-venta-de-real-del-valle-coto-14/images/foto-1.jpg" },
+            { slug: "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza", priceShort: "$3.4M", price: 3400000, title: "Casa con Alberca Real del Valle", location: "Real del Valle", bedrooms: 4, bathrooms: 3, sqft: 220, zone: "real-del-valle", image: "../mazatlan/casa-en-venta-residencial-con-alberca-en-real-del-valle-maza/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa", priceShort: "$2.6M", price: 2600000, title: "Casa Porto Molino", location: "Porto Molino", bedrooms: 3, bathrooms: 2, sqft: 155, zone: "otro", image: "../mazatlan/casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa/images/foto-1.jpg" },
+            { slug: "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res", priceShort: "$3.2M", price: 3200000, title: "Casa Isla Residencial", location: "Isla Residencial", bedrooms: 3, bathrooms: 2, sqft: 113, zone: "otro", image: "../mazatlan/casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico", priceShort: "$2.1M", price: 2100000, title: "Casa Real Pacifico", location: "Real Pacifico", bedrooms: 3, bathrooms: 2, sqft: 140, zone: "otro", image: "../mazatlan/casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico/images/foto-1.jpg" },
+            { slug: "casa-en-venta-mazatlan-residencial-palmilla-super-precio", priceShort: "$3.7M", price: 3700000, title: "Casa Residencial Palmilla", location: "Residencial Palmilla", bedrooms: 3, bathrooms: 2, sqft: 200, zone: "otro", image: "../mazatlan/casa-en-venta-mazatlan-residencial-palmilla-super-precio/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-privada-con-alberca-en-mazatlan", priceShort: "$3.3M", price: 3300000, title: "Casa Privada con Alberca", location: "Privada Mazatlán", bedrooms: 3, bathrooms: 2, sqft: 185, zone: "otro", image: "../mazatlan/casa-en-venta-en-privada-con-alberca-en-mazatlan/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia", priceShort: "$2.0M", price: 2000000, title: "Casa Villa Galaxia", location: "Villa Galaxia", bedrooms: 3, bathrooms: 2, sqft: 130, zone: "otro", image: "../mazatlan/casa-en-venta-en-mazatlan-sinaloa-villa-galaxia/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue", priceShort: "$2.4M", price: 2400000, title: "Casa Hacienda del Seminario", location: "Hacienda del Seminario", bedrooms: 3, bathrooms: 2, sqft: 145, zone: "otro", image: "../mazatlan/casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model", priceShort: "$2.7M", price: 2700000, title: "Casa Camila Hills", location: "Av Paseo del Pacífico", bedrooms: 3, bathrooms: 2, sqft: 165, zone: "otro", image: "../mazatlan/casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan", priceShort: "$2.7M", price: 2700000, title: "Casa Mazatlán Centro", location: "Centro Mazatlán", bedrooms: 3, bathrooms: 2, sqft: 160, zone: "centro", image: "../mazatlan/casa-en-venta-en-mazatlan/images/foto-1.jpg" },
+            { slug: "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z", priceShort: "$2.4M", price: 2400000, title: "Casa De Los Peces", location: "De Los Peces", bedrooms: 3, bathrooms: 2, sqft: 151, zone: "otro", image: "../mazatlan/casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01", priceShort: "$6.3M", price: 6300000, title: "Casa Barrio San Francisco", location: "Barrio San Francisco", bedrooms: 2, bathrooms: 1, sqft: 146, zone: "centro", image: "../mazatlan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/images/foto-1.jpg" }
+        ];
+
+        let map, markers = {}, infoWindows = {};
+        let filteredProperties = [...ALL_PROPERTIES];
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map-container'), {
+                center: { lat: 23.2494, lng: -106.4110 },
+                zoom: 12,
+                mapTypeControl: false,
+                fullscreenControl: false,
+                streetViewControl: false
+            });
+
+            renderMarkers(filteredProperties);
+            renderListings(filteredProperties);
+        }
+
+        function renderMarkers(properties) {
+            Object.values(markers).forEach(m => m.setMap(null));
+            markers = {};
+            infoWindows = {};
+
+            const geocoder = new google.maps.Geocoder();
+
+            properties.forEach(property => {
+                geocoder.geocode({ address: property.location + ', Mazatlán, Sinaloa' }, function(results, status) {
+                    if (status === 'OK' && results[0]) {
+                        const position = results[0].geometry.location;
+
+                        const marker = new google.maps.Marker({
+                            position: position,
+                            map: map,
+                            title: property.title,
+                            icon: {
+                                url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                                    <svg width="70" height="36" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="g-${property.slug.substring(0,10)}" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="0" y="0" width="70" height="30" rx="15" fill="url(#g-${property.slug.substring(0,10)})" stroke="white" stroke-width="3"/>
+                                        <text x="35" y="20" font-family="Poppins" font-size="13" font-weight="bold" fill="white" text-anchor="middle">${property.priceShort}</text>
+                                    </svg>
+                                `)}`,
+                                scaledSize: new google.maps.Size(70, 36),
+                                anchor: new google.maps.Point(35, 36)
+                            }
+                        });
+
+                        const infoWindow = new google.maps.InfoWindow({
+                            content: `
+                                <div style="padding:0;max-width:280px;font-family:Poppins,sans-serif">
+                                    <img src="${property.image}" style="width:100%;height:180px;object-fit:cover;border-radius:8px 8px 0 0">
+                                    <div style="padding:12px">
+                                        <h4 style="margin:0 0 6px;color:#10b981;font-size:18px;font-weight:700">${property.priceShort}</h4>
+                                        <h5 style="margin:0 0 6px;color:#1f2937;font-size:14px;font-weight:600">${property.title}</h5>
+                                        <p style="margin:0 0 8px;color:#6b7280;font-size:12px">📍 ${property.location}</p>
+                                        <div style="display:flex;gap:12px;margin-bottom:10px;color:#6b7280;font-size:12px">
+                                            <span>🛏️ ${property.bedrooms}</span>
+                                            <span>🚿 ${property.bathrooms}</span>
+                                            <span>📐 ${property.sqft}m²</span>
+                                        </div>
+                                        <a href="../mazatlan/${property.slug}/index.html" target="_blank" style="display:block;background:#10b981;color:white;text-align:center;padding:8px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600">Ver Propiedad →</a>
+                                    </div>
+                                </div>
+                            `
+                        });
+
+                        marker.addListener('click', () => {
+                            Object.values(infoWindows).forEach(iw => iw.close());
+                            infoWindow.open(map, marker);
+                            highlightCard(property.slug);
+                        });
+
+                        marker.addListener('mouseover', () => highlightCard(property.slug));
+                        marker.addListener('mouseout', () => unhighlightCard(property.slug));
+
+                        markers[property.slug] = marker;
+                        infoWindows[property.slug] = infoWindow;
+                    }
+                });
+            });
+        }
+
+        function renderListings(properties) {
+            const container = document.getElementById('listings-container');
+
+            if (properties.length === 0) {
+                container.innerHTML = '<div class="no-results"><p style="color:#6b7280;font-size:18px;margin-bottom:16px">😕 No se encontraron propiedades</p><button onclick="resetFilters()" style="padding:10px 24px;background:#10b981;color:white;border:none;border-radius:8px;font-weight:600;cursor:pointer">Ver todas</button></div>';
+                return;
+            }
+
+            container.innerHTML = properties.map(p => `
+                <div class="listing-card" id="card-${p.slug}" onmouseenter="highlightMarker('${p.slug}')" onclick="window.open('../mazatlan/${p.slug}/index.html', '_blank')">
+                    <div style="position:relative">
+                        <img src="${p.image}" class="listing-image">
+                        <div class="price-badge">${p.priceShort}</div>
+                    </div>
+                    <div style="padding:16px">
+                        <h3 style="font-size:16px;font-weight:700;color:#1f2937;margin-bottom:6px">${p.title}</h3>
+                        <p style="font-size:13px;color:#6b7280;margin-bottom:10px">📍 ${p.location}</p>
+                        <div style="display:flex;gap:12px;font-size:13px;color:#6b7280">
+                            <span>🛏️ ${p.bedrooms}</span>
+                            <span>🚿 ${p.bathrooms}</span>
+                            <span>📐 ${p.sqft}m²</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            updateCounters(properties.length);
+        }
+
+        function highlightMarker(slug) {
+            const marker = markers[slug];
+            if (marker) {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(() => marker.setAnimation(null), 700);
+            }
+        }
+
+        function highlightCard(slug) {
+            document.querySelectorAll('.listing-card').forEach(c => c.classList.remove('highlighted'));
+            const card = document.getElementById(`card-${slug}`);
+            if (card) {
+                card.classList.add('highlighted');
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function unhighlightCard(slug) {
+            const card = document.getElementById(`card-${slug}`);
+            if (card) card.classList.remove('highlighted');
+        }
+
+        function applyFilters() {
+            const priceFilter = document.getElementById('filter-price').value;
+            const bedroomsFilter = document.getElementById('filter-bedrooms').value;
+            const zoneFilter = document.getElementById('filter-zone').value;
+
+            filteredProperties = ALL_PROPERTIES.filter(p => {
+                if (priceFilter) {
+                    const [min, max] = priceFilter.split('-').map(Number);
+                    if (p.price < min || p.price > max) return false;
+                }
+                if (bedroomsFilter && p.bedrooms < parseInt(bedroomsFilter)) return false;
+                if (zoneFilter && p.zone !== zoneFilter) return false;
+                return true;
+            });
+
+            renderMarkers(filteredProperties);
+            renderListings(filteredProperties);
+        }
+
+        function resetFilters() {
+            document.getElementById('filter-price').value = '';
+            document.getElementById('filter-bedrooms').value = '';
+            document.getElementById('filter-zone').value = '';
+            applyFilters();
+        }
+
+        function updateCounters(count) {
+            document.getElementById('visible-count').textContent = count;
+            document.getElementById('results-text').textContent = `${count} de ${ALL_PROPERTIES.length} propiedades`;
+        }
+
+        document.getElementById('filter-price').addEventListener('change', applyFilters);
+        document.getElementById('filter-bedrooms').addEventListener('change', applyFilters);
+        document.getElementById('filter-zone').addEventListener('change', applyFilters);
+
+        window.addEventListener('load', initMap);
+    </script>
+
+</body>
+</html>
