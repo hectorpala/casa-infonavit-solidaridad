@@ -46,7 +46,7 @@ require('dotenv').config();
 
 const CONFIG = {
     googleMaps: {
-        key: process.env.GOOGLE_MAPS_KEY || 'AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8'
+        key: process.env.GOOGLE_MAPS_KEY || 'AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk'
     },
     baseUrl: 'https://casasenventa.info',
     timeout: 60000,
