@@ -1,9 +1,363 @@
 {
-  "vendedores": [],
+  "vendedores": [
+    {
+      "id": "v001",
+      "nombre": "Realtor Rodolfo",
+      "telefono": "6699200116",
+      "telefonoFormateado": "669-920-0116",
+      "whatsapp": "https://wa.me/526699200116",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "143884424",
+          "titulo": "Casa en Venta Real del Valle",
+          "precio": "MN 3,500,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-real-del-valle-143884424.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace más de 1 año"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T02:23:37.326Z"
+    },
+    {
+      "id": "v002",
+      "nombre": "MARVENTO BIENES RAICES",
+      "telefono": "6691170112",
+      "telefonoFormateado": "669-117-0112",
+      "whatsapp": "https://wa.me/526691170112",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147838590",
+          "titulo": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas",
+          "precio": "MN 3,500,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-venta-en-rincon-de-los-girasoles-en-fracc-147838590.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hoy"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T02:24:45.313Z"
+    },
+    {
+      "id": "v003",
+      "nombre": "Gabriela Ortega Villegas",
+      "telefono": "6691999247",
+      "telefonoFormateado": "669-199-9247",
+      "whatsapp": "https://wa.me/526691999247",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "143824116",
+          "titulo": "Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.",
+          "precio": "MN 2,600,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-143824116.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace más de 1 año"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T02:25:12.803Z"
+    },
+    {
+      "id": "v004",
+      "nombre": "Asesor Inmobiliario Maroli",
+      "telefono": "6692721178",
+      "telefonoFormateado": "669-272-1178",
+      "whatsapp": "https://wa.me/526692721178",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147616056",
+          "titulo": "Casa en Venta en Veredas, Mazatlan, Sin.",
+          "precio": "MN 3,333,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-en-veredas-mazatlan-sin.-147616056.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 22 días"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T02:28:14.576Z"
+    },
+    {
+      "id": "v005",
+      "nombre": "Arlene Rojas Bel",
+      "telefono": "6691971987",
+      "telefonoFormateado": "669-197-1987",
+      "whatsapp": "https://wa.me/526691971987",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147794673",
+          "titulo": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido",
+          "precio": "MN 2,310,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-3-recamaras-y-160-m-sup2--en-venta-valle-del-147794673.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 2 días"
+        },
+        {
+          "id": "147794301",
+          "titulo": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial",
+          "precio": "MN 3,200,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-113-m-sup2--con-3-recamaras-en-venta-147794301.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 3 días"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T02:52:16.345Z"
+    },
+    {
+      "id": "v006",
+      "nombre": "LOPORTO INMOBILIARIA MAZATLAN",
+      "telefono": "6699940036",
+      "telefonoFormateado": "669-994-0036",
+      "whatsapp": "https://wa.me/526699940036",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147303199",
+          "titulo": "Casa en Venta de Real del Valle Coto 14",
+          "precio": "MN 2,990,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-real-del-valle-coto-14-147303199.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 54 días"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T02:57:22.581Z"
+    },
+    {
+      "id": "v007",
+      "nombre": "PROPIEDADES MAZATLAN INMOBILIARIA",
+      "telefono": "6691971300",
+      "telefonoFormateado": "669-197-1300",
+      "whatsapp": "https://wa.me/526691971300",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147519985",
+          "titulo": "Casa en Venta Residencial con Alberca en Real del Valle Mazatlan",
+          "precio": "MN 3,350,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-con-alberca-en-real-del-valle-147519985.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 33 días"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T03:21:34.223Z"
+    },
+    {
+      "id": "v008",
+      "nombre": "Dolores Fabiola Ulloa Osuna",
+      "telefono": "6691489565",
+      "telefonoFormateado": "669-148-9565",
+      "whatsapp": "https://wa.me/526691489565",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "62920289",
+          "titulo": "Casa en Venta en El Fracc Porto Molino Mazatlan Sinaloa",
+          "precio": "MN 2,600,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc-porto-molino-mazatlan-62920289.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace más de 1 año"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T16:29:44.395Z"
+    },
+    {
+      "id": "v009",
+      "nombre": "CREALTOR VANGUARDIA GDL",
+      "telefono": "815028902",
+      "telefonoFormateado": "815028902",
+      "whatsapp": "https://wa.me/52815028902",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "146081948",
+          "titulo": "Casa en Venta en Mazatlan, Fraccionamiento Real Pacifico",
+          "precio": "MN 2,100,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-fraccionamiento-real-146081948.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 191 días"
+        },
+        {
+          "id": "146668066",
+          "titulo": "Casa en Venta en Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)",
+          "precio": "MN 2,400,000",
+          "ubicacion": "Sinaloa",
+          "recamaras": 1,
+          "banos": 1,
+          "construccion": 76,
+          "terreno": 119,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-sinaloa-hacienda-del-146668066.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 122 días",
+          "vistas": 25
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T16:33:06.071Z"
+    },
+    {
+      "id": "v010",
+      "nombre": "Claudia Camacho",
+      "telefono": "6691455625",
+      "telefonoFormateado": "669-145-5625",
+      "whatsapp": "https://wa.me/526691455625",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "58104789",
+          "titulo": "Casa en Venta Mazatlan, Residencial Palmilla Super Precio!",
+          "precio": "MN 3,700,000",
+          "ubicacion": "Sinaloa",
+          "recamaras": 3,
+          "banos": 2,
+          "construccion": 133,
+          "terreno": 123,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-mazatlan-residencial-palmilla-super-58104789.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 28
+        },
+        {
+          "id": "61697769",
+          "titulo": "Casa en Venta en Mazatlán en Coto Privado Camila Hills Modelo Nova",
+          "precio": "MN 2,708,000",
+          "ubicacion": "Sinaloa",
+          "recamaras": 3,
+          "banos": 2,
+          "construccion": 118,
+          "terreno": 102,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-61697769.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 60
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T16:35:13.954Z"
+    },
+    {
+      "id": "v011",
+      "nombre": "Ocean Capital Group",
+      "telefono": "6691951247",
+      "telefonoFormateado": "669-195-1247",
+      "whatsapp": "https://wa.me/526691951247",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "146776771",
+          "titulo": "Casa en Venta en Privada con Alberca en Mazatlán",
+          "precio": "MN 3,250,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-con-alberca-en-mazatlan-146776771.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 112 días"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T16:49:50.568Z"
+    },
+    {
+      "id": "v012",
+      "nombre": "Vanguardia C Realtor",
+      "telefono": "",
+      "telefonoFormateado": "",
+      "whatsapp": "https://wa.me/52",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147651291",
+          "titulo": "Casa en Venta en Mazatlan, Sinaloa (Villa Galaxia)",
+          "precio": "MN 1,960,000",
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-sinaloa-villa-galaxia-147651291.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 19 días"
+        }
+      ],
+      "notas": "Vendedor de Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T17:10:22.244Z"
+    }
+  ],
   "estadisticas": {
-    "totalVendedores": 0,
-    "totalPropiedades": 0,
-    "ultimaActualizacion": null
-  },
-  "busquedas": []
+    "totalVendedores": 12,
+    "totalPropiedades": 14,
+    "ultimaActualizacion": "2025-10-09T17:30:00.000Z"
+  }
 }
