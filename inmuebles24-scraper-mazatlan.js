@@ -586,29 +586,41 @@ async function scrapeInmuebles24(url) {
             }
         }
 
-        // Ubicación - extraer del breadcrumb o título
-        // Buscar primero por Mazatlán específicamente
-        const breadcrumbs = Array.from(document.querySelectorAll('a, span')).filter(el => {
-            const text = el.textContent.toLowerCase();
-            return (text.includes('mazatlán') || text.includes('mazatlan') || text.includes('sinaloa')) && text.length < 150;
+        // Ubicación - extraer dirección específica que aparece arriba del mapa
+        // Buscar en el texto completo de la página líneas con patrón: "Calle/Avenida/Fraccionamiento, ... Mazatlán"
+        const bodyText = document.body.innerText;
+        const lines = bodyText.split('\n');
+
+        // Buscar líneas que contengan dirección + Mazatlán
+        const addressLine = lines.find(line => {
+            const trimmed = line.trim();
+            // Buscar patrones: "XXX, XXX, Mazatlán" o "XXX, Fraccionamiento XXX, Mazatlán"
+            return trimmed.length > 15 && trimmed.length < 150 &&
+                   (trimmed.match(/[A-Za-z\s]+,\s*[A-Za-z\s]+,\s*Mazatlán/i) ||
+                    trimmed.match(/[A-Za-z\s]+,\s*Fraccionamiento\s+[A-Za-z\s]+,\s*Mazatlán/i));
         });
 
-        // Priorizar breadcrumbs que contengan "Mazatlán"
-        const mazatlanBreadcrumb = breadcrumbs.find(el =>
-            el.textContent.toLowerCase().includes('mazatlán') ||
-            el.textContent.toLowerCase().includes('mazatlan')
-        );
-
-        if (mazatlanBreadcrumb) {
-            result.location = mazatlanBreadcrumb.textContent.trim();
-        } else if (breadcrumbs.length > 0) {
-            // Si no hay Mazatlán explícito, construir "Mazatlán, Sinaloa"
-            const locationText = breadcrumbs[0].textContent.trim();
-            result.location = locationText.toLowerCase().includes('sinaloa') ?
-                'Mazatlán, Sinaloa' : locationText;
+        if (addressLine) {
+            // Limpiar espacios extra
+            result.location = addressLine.trim().replace(/\s+,/g, ',').replace(/,\s+/g, ', ');
         } else {
-            // Fallback: usar "Mazatlán, Sinaloa" por defecto para este scraper
-            result.location = 'Mazatlán, Sinaloa';
+            // Fallback: buscar en breadcrumbs como antes
+            const breadcrumbs = Array.from(document.querySelectorAll('a, span')).filter(el => {
+                const text = el.textContent.toLowerCase();
+                return (text.includes('mazatlán') || text.includes('mazatlan') || text.includes('sinaloa')) && text.length < 150;
+            });
+
+            const mazatlanBreadcrumb = breadcrumbs.find(el =>
+                el.textContent.toLowerCase().includes('mazatlán') ||
+                el.textContent.toLowerCase().includes('mazatlan')
+            );
+
+            if (mazatlanBreadcrumb) {
+                result.location = mazatlanBreadcrumb.textContent.trim();
+            } else {
+                // Fallback final: "Mazatlán, Sinaloa"
+                result.location = 'Mazatlán, Sinaloa';
+            }
         }
 
         // Descripción - buscar en varios posibles contenedores
