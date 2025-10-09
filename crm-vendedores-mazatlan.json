@@ -245,6 +245,34 @@
           "fechaScrapeo": "2025-10-09",
           "fechaPublicacion": "Publicado hace 122 días",
           "vistas": 25
+        },
+        {
+          "id": "147774428",
+          "titulo": "Casa en Venta 151 m² con Terraza, Recamara en Planta Baja en Zona Residencial Tranquila",
+          "precio": "MN 2,380,000",
+          "ubicacion": "De Los Peces, Fraccionamiento Tortugas, Mazatlán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-151-m-sup2--con-terraza-recamara-en-147774428.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 7 días",
+          "vistas": 0
+        },
+        {
+          "id": "147081595",
+          "titulo": "Casa en Venta en Mazatlán.",
+          "precio": "MN 2,700,000",
+          "ubicacion": "Mazatlán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan.-147081595.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 78 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -353,11 +381,43 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-09T17:10:22.244Z"
+    },
+    {
+      "id": "v013",
+      "nombre": "Galia Isabel Gurrola Guerrero",
+      "telefono": "6691460628",
+      "telefonoFormateado": "669-146-0628",
+      "whatsapp": "https://wa.me/526691460628",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147081595",
+          "titulo": "Casa en Venta en Mazatlán.",
+          "precio": "MN 2,700,000",
+          "ubicacion": "Mazatlán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan.-147081595.html",
+          "fechaScrapeo": "2025-10-09",
+          "fechaPublicacion": "Publicado hace 78 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Mazatlán",
+      "tags": [
+        "inmuebles24",
+        "mazatlán",
+        "mazatlan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-09T18:06:27.977Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 12,
-    "totalPropiedades": 14,
-    "ultimaActualizacion": "2025-10-09T17:30:00.000Z"
+    "totalVendedores": 13,
+    "totalPropiedades": 18,
+    "ultimaActualizacion": "2025-10-09T18:42:00.642Z"
   }
 }
