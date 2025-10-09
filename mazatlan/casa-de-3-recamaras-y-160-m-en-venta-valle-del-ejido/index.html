@@ -1199,18 +1199,162 @@
     <section class="location-map scroll-animate" id="location">
         <div class="container">
             <h2 class="section-title">Ubicación</h2>
-            <p class="location-subtitle">Valle del Ejido</p>
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Casa%20de%203%20Rec%C3%A1maras%20y%20160%20m%C2%B2%20en%20Venta%2C%20Valle%20del%20Ejido%2C%20Sinaloa&zoom=15"
-                    width="100%"
-                    height="450"
-                    style="border:0; border-radius: 12px;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+            <p class="location-subtitle">Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido</p>
+            <!-- Mapa con Marcador Personalizado -->
+    <div id="map-container" style="width: 100%; height: 450px; border-radius: 12px; overflow: hidden;"></div>
+
+    <script>
+        // Variables globales para el mapa
+        let map;
+        let marker;
+        let geocoder;
+
+        // Configuración del marcador personalizado
+        const MARKER_CONFIG = {
+            location: "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido",
+            priceShort: "$2.3M",
+            title: "$2,310,000",
+            precision: "street",
+            latOffset: 0,
+            lngOffset: 0
+        };
+
+        // Inicializar mapa
+        function initMap() {
+            geocoder = new google.maps.Geocoder();
+
+            // Geocodificar la dirección
+            geocoder.geocode({ address: MARKER_CONFIG.location }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = {
+                        lat: results[0].geometry.location.lat() + MARKER_CONFIG.latOffset,
+                        lng: results[0].geometry.location.lng() + MARKER_CONFIG.lngOffset
+                    };
+
+                    // Crear mapa
+                    map = new google.maps.Map(document.getElementById('map-container'), {
+                        center: position,
+                        zoom: MARKER_CONFIG.precision === 'exact' ? 17 :
+                              MARKER_CONFIG.precision === 'street' ? 16 : 15,
+                        mapTypeId: 'roadmap',
+                        styles: [
+                            {
+                                featureType: 'poi',
+                                elementType: 'labels',
+                                stylers: [{ visibility: 'off' }]
+                            }
+                        ],
+                        disableDefaultUI: false,
+                        zoomControl: true,
+                        mapTypeControl: false,
+                        streetViewControl: true,
+                        fullscreenControl: true
+                    });
+
+                    // Crear marcador personalizado con precio
+                    const markerHTML = `
+                        <div style="
+                            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+                            color: white;
+                            padding: 8px 14px;
+                            border-radius: 20px;
+                            font-weight: bold;
+                            font-size: 14px;
+                            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+                            position: relative;
+                            white-space: nowrap;
+                            font-family: 'Poppins', sans-serif;
+                            border: 3px solid white;
+                        ">
+                            ${MARKER_CONFIG.priceShort}
+                            <div style="
+                                position: absolute;
+                                bottom: -8px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                width: 0;
+                                height: 0;
+                                border-left: 8px solid transparent;
+                                border-right: 8px solid transparent;
+                                border-top: 8px solid #FF8C42;
+                            "></div>
+                        </div>
+                    `;
+
+                    // Crear overlay personalizado
+                    const CustomMarker = function(position, map) {
+                        this.position = position;
+                        this.div = null;
+                        this.setMap(map);
+                    };
+
+                    CustomMarker.prototype = new google.maps.OverlayView();
+
+                    CustomMarker.prototype.onAdd = function() {
+                        const div = document.createElement('div');
+                        div.style.position = 'absolute';
+                        div.innerHTML = markerHTML;
+                        div.style.cursor = 'pointer';
+
+                        // Click en marcador: abrir info con foto
+                        div.addEventListener('click', () => {
+                            const infoWindow = new google.maps.InfoWindow({
+                                content: `
+                                    <div style="font-family: 'Poppins', sans-serif; padding: 0; max-width: 260px;">
+                                        <img src="images/foto-1.jpg"
+                                             alt="${MARKER_CONFIG.title}"
+                                             style="width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 4px 4px 0 0;">
+                                        <div style="padding: 8px 10px;">
+                                            <h4 style="margin: 0 0 4px 0; color: #FF6B35; font-size: 14px; font-weight: 600;">${MARKER_CONFIG.priceShort}</h4>
+                                            <h5 style="margin: 0 0 3px 0; color: #1f2937; font-size: 12px; font-weight: 600;">${MARKER_CONFIG.title}</h5>
+                                            <p style="margin: 0; color: #6b7280; font-size: 11px; line-height: 1.3;">${MARKER_CONFIG.location}</p>
+                                        </div>
+                                    </div>
+                                `
+                            });
+                            infoWindow.setPosition(this.position);
+                            infoWindow.open(map);
+                        });
+
+                        this.div = div;
+                        const panes = this.getPanes();
+                        panes.overlayMouseTarget.appendChild(div);
+                    };
+
+                    CustomMarker.prototype.draw = function() {
+                        const overlayProjection = this.getProjection();
+                        const position = overlayProjection.fromLatLngToDivPixel(this.position);
+
+                        const div = this.div;
+                        div.style.left = (position.x - 40) + 'px'; // Centrar (ajustar según ancho)
+                        div.style.top = (position.y - 50) + 'px'; // Arriba del punto
+                    };
+
+                    CustomMarker.prototype.onRemove = function() {
+                        if (this.div) {
+                            this.div.parentNode.removeChild(this.div);
+                            this.div = null;
+                        }
+                    };
+
+                    // Agregar marcador al mapa
+                    marker = new CustomMarker(position, map);
+
+                } else {
+                    console.error('Geocode error:', status);
+                    // Fallback: mostrar mapa en ubicación genérica
+                    const fallbackCenter = { lat: 23.2494, lng: -106.4111 }; // Mazatlán centro
+                    map = new google.maps.Map(document.getElementById('map-container'), {
+                        center: fallbackCenter,
+                        zoom: 12
+                    });
+                }
+            });
+        }
+    </script>
+
+    <!-- Cargar Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&callback=initMap&libraries=places" async defer></script>
         </div>
     </section>
 
