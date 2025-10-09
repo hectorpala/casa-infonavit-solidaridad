@@ -463,6 +463,39 @@ async function scrapeInmuebles24(url) {
         console.log('   ⚠️  Error al abrir galería:', error.message);
     }
 
+    // Hacer clic en "Leer descripción completa" o "Ver más" para expandir descripción
+    console.log('📝 Buscando botón "Leer más" en descripción...');
+    try {
+        const expandDescription = await page.evaluate(() => {
+            // Buscar botón que contenga texto "leer más", "ver más", "leer descripción"
+            const buttons = Array.from(document.querySelectorAll('button, a, span[role="button"], div[class*="more"], button[class*="more"]'));
+            const expandBtn = buttons.find(btn => {
+                const text = btn.textContent.toLowerCase();
+                return text.includes('leer más') ||
+                       text.includes('ver más') ||
+                       text.includes('leer descripción') ||
+                       text.includes('descripción completa') ||
+                       text.includes('read more');
+            });
+
+            if (expandBtn) {
+                expandBtn.click();
+                return true;
+            }
+            return false;
+        });
+
+        if (expandDescription) {
+            console.log('   ✅ Clic en "Leer más" - descripción expandida');
+            // Esperar a que se expanda la descripción
+            await new Promise(resolve => setTimeout(resolve, 1500));
+        } else {
+            console.log('   ℹ️  Botón "Leer más" no encontrado (descripción ya completa)');
+        }
+    } catch (error) {
+        console.log('   ⚠️  Error al expandir descripción:', error.message);
+    }
+
     // ============================================
     // CAPTURAR DATOS DEL VENDEDOR (del HTML - SIN enviar datos)
     // ============================================
@@ -558,13 +591,21 @@ async function scrapeInmuebles24(url) {
         }
 
         // Descripción - buscar en varios posibles contenedores
-        const descSelectors = ['[class*="description"]', 'p[class*="detail"]', 'section p'];
+        // Incrementado límite a 5000 caracteres para capturar descripciones completas
+        const descSelectors = ['[class*="description"]', '[class*="Description"]', 'p[class*="detail"]', 'section p', 'div[class*="description"]'];
         for (const selector of descSelectors) {
             const descEls = document.querySelectorAll(selector);
             for (const el of descEls) {
-                if (el.textContent.length > 100 && el.textContent.length < 2000) {
-                    result.description = el.textContent.trim();
-                    break;
+                const text = el.textContent.trim();
+                // Buscar descripción entre 100 y 5000 caracteres
+                if (text.length > 100 && text.length < 5000) {
+                    // Filtrar basura conocida
+                    if (!text.includes('Calculamos el nivel') &&
+                        !text.includes('Google Analytics') &&
+                        !text.includes('cookies')) {
+                        result.description = text;
+                        break;
+                    }
                 }
             }
             if (result.description) break;
@@ -597,34 +638,46 @@ async function scrapeInmuebles24(url) {
             }
         }
 
-        // PASO 2: Buscar características en elementos de texto corto (debajo del mapa)
-        // Recorrer EN REVERSA para priorizar datos debajo del mapa (al final del HTML)
-        const allTextElements = Array.from(document.querySelectorAll('li, span, div, p')).reverse();
+        // PASO 2: Buscar características SOLO en iconos/badges (NO en descripción)
+        // Estrategia: Buscar elementos pequeños con iconos (li, span cortos cerca de SVG/i/icons)
+        const allTextElements = Array.from(document.querySelectorAll('li, span, div')).reverse();
+
         allTextElements.forEach(el => {
             const text = el.textContent.trim().toLowerCase();
 
-            // Solo procesar textos cortos y sin hijos complejos
-            if (text.length > 100 || el.children.length > 3) return;
+            // FILTRO CRÍTICO: Solo textos MUY cortos (típico de iconos: "3 recámaras", "2 baños")
+            // Ignorar textos largos que probablemente son descripción
+            if (text.length > 50 || el.children.length > 3) return;
 
-            // Recámaras (buscar número + "recámara" o "dormitorio") - tomar ÚLTIMO match (más abajo)
-            // SIN condición !result.bedrooms para que siempre actualice con el último valor encontrado
+            // FILTRO ADICIONAL: Verificar si el elemento o sus hijos tienen íconos
+            const hasIcon = el.querySelector('svg, i, img[class*="icon"]') ||
+                           el.parentElement?.querySelector('svg, i, img[class*="icon"]');
+
+            // Si NO tiene ícono Y el texto es >20 chars, probablemente NO es un badge
+            if (!hasIcon && text.length > 20) return;
+
+            // Recámaras - solo actualizar si encontramos en contexto de ícono
             if (text.match(/(\d+)\s*(recámara|dormitorio)/i)) {
                 const match = text.match(/(\d+)\s*(recámara|dormitorio)/i);
-                if (match) result.bedrooms = parseInt(match[1]);
+                if (match) {
+                    result.bedrooms = parseInt(match[1]);
+                }
             }
 
-            // Baños - tomar ÚLTIMO match
-            // SIN condición !result.bathrooms para que siempre actualice
+            // Baños - solo actualizar si encontramos en contexto de ícono
             if (text.match(/(\d+)\s*baño/i)) {
                 const match = text.match(/(\d+)\s*baño/i);
-                if (match) result.bathrooms = parseInt(match[1]);
+                if (match) {
+                    result.bathrooms = parseInt(match[1]);
+                }
             }
 
-            // Estacionamiento/Cochera - tomar ÚLTIMO match
-            // SIN condición !result.parking para que siempre actualice
+            // Estacionamiento/Cochera
             if (text.match(/(\d+)\s*(estacionamiento|cochera)/i)) {
                 const match = text.match(/(\d+)\s*(estacionamiento|cochera)/i);
-                if (match) result.parking = parseInt(match[1]);
+                if (match) {
+                    result.parking = parseInt(match[1]);
+                }
             }
 
             // Guardar características relevantes (EXCEPTO edad/antigüedad)
@@ -767,8 +820,15 @@ function generateHTML(data, slug, photoCount) {
     const constructionText = construction ? `${construction}m²` : 'N/A';
     const landAreaText = landArea ? `${landArea}m²` : 'N/A';
 
-    // SIEMPRE generar descripción automática (ignorar data.description que viene basura de Inmuebles24)
-    const description = `${data.title}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños, ' : ''}${constructionText} de construcción, ${landAreaText} de terreno en ${neighborhood}.`;
+    // Usar descripción scrapeada SI existe y es válida (>50 chars), sino auto-generar
+    let description;
+    if (data.description && data.description.length > 50) {
+        description = data.description;
+        console.log(`   ✅ Usando descripción scrapeada (${data.description.length} caracteres)`);
+    } else {
+        description = `${data.title}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños, ' : ''}${constructionText} de construcción, ${landAreaText} de terreno en ${neighborhood}.`;
+        console.log(`   ℹ️  Generando descripción automática (descripción scrapeada inválida)`);
+    }
 
     // REEMPLAZOS EN METADATA Y HEAD
     html = html.replace(/<title>.*?<\/title>/s,
