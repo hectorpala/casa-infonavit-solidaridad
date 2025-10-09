@@ -553,21 +553,40 @@ async function scrapeInmuebles24(url) {
             }
         }
 
-        // Ubicación - extraer del breadcrumb o título
-        const breadcrumbs = Array.from(document.querySelectorAll('a, span')).filter(el => {
-            const text = el.textContent.toLowerCase();
-            return (text.includes('sinaloa') || text.includes('culiacán')) && text.length < 150;
+        // Ubicación - extraer dirección específica que aparece arriba del mapa
+        // Buscar en el texto completo de la página líneas con patrón: "Calle/Avenida/Fraccionamiento, ... Culiacán"
+        const bodyText = document.body.innerText;
+        const lines = bodyText.split('\n');
+
+        // Buscar líneas que contengan dirección + Culiacán
+        const addressLine = lines.find(line => {
+            const trimmed = line.trim();
+            // Buscar patrones: "XXX, XXX, Culiacán" o "XXX, Fraccionamiento XXX, Culiacán"
+            return trimmed.length > 15 && trimmed.length < 150 &&
+                   (trimmed.match(/[A-Za-z\s]+,\s*[A-Za-z\s]+,\s*Culiacán/i) ||
+                    trimmed.match(/[A-Za-z\s]+,\s*Fraccionamiento\s+[A-Za-z\s]+,\s*Culiacán/i));
         });
-        if (breadcrumbs.length > 0) {
-            result.location = breadcrumbs[0].textContent.trim();
+
+        if (addressLine) {
+            // Limpiar espacios extra
+            result.location = addressLine.trim().replace(/\s+,/g, ',').replace(/,\s+/g, ', ');
         } else {
-            // Fallback: extraer del título de la página
-            const titleText = document.querySelector('title');
-            if (titleText) {
-                const match = titleText.textContent.match(/Centro de La Ciudad,\s*([^-]+)/);
-                if (match) {
-                    result.location = match[1].trim();
-                }
+            // Fallback: buscar en breadcrumbs como antes
+            const breadcrumbs = Array.from(document.querySelectorAll('a, span')).filter(el => {
+                const text = el.textContent.toLowerCase();
+                return (text.includes('culiacán') || text.includes('culiacan') || text.includes('sinaloa')) && text.length < 150;
+            });
+
+            const culiacanBreadcrumb = breadcrumbs.find(el =>
+                el.textContent.toLowerCase().includes('culiacán') ||
+                el.textContent.toLowerCase().includes('culiacan')
+            );
+
+            if (culiacanBreadcrumb) {
+                result.location = culiacanBreadcrumb.textContent.trim();
+            } else {
+                // Fallback final: "Culiacán, Sinaloa"
+                result.location = 'Culiacán, Sinaloa';
             }
         }
 
@@ -585,7 +604,7 @@ async function scrapeInmuebles24(url) {
         }
 
         // PASO 1: Buscar datos en TODO el body text (incluyendo descripción)
-        const bodyText = document.body.innerText;
+        // Reutilizar bodyText ya declarado arriba para ubicación
 
         // MÉTODO 1: Buscar patrón "X m² lote Y m² constr" (formato principal Inmuebles24)
         const loteConstruccionMatch = bodyText.match(/(\d+)\s*m²\s*lote\s+(\d+)\s*m²\s*constr/i);
