@@ -1817,10 +1817,10 @@ body.map-animating .listing-card .listing-image {
         /* ===== Dinámica móvil: medir stack superior, sheet y padding del mapa ===== */
 
         function measureTopStack() {
-            const sb = document.querySelector('.staging-banner');
-            const hb = document.querySelector('.header-bar');
-            const h1 = sb ? sb.getBoundingClientRect().height : 0;
-            const h2 = hb ? hb.getBoundingClientRect().height : 0;
+            const header = document.querySelector('.zillow-header');
+            const searchBar = document.querySelector('.zillow-search-bar');
+            const h1 = header ? header.getBoundingClientRect().height : 64;
+            const h2 = searchBar ? searchBar.getBoundingClientRect().height : 60;
             return Math.round(h1 + h2);
         }
 
@@ -1857,13 +1857,13 @@ body.map-animating .listing-card .listing-image {
             if (window.innerWidth > 768) return;
 
             const ro = new ResizeObserver(() => applyMobileLayoutMeasurements(map));
-            const sb = document.querySelector('.staging-banner');
-            const hb = document.querySelector('.header-bar');
-            const fb = document.querySelector('.filter-bar');
+            const header = document.querySelector('.zillow-header');
+            const searchBar = document.querySelector('.zillow-search-bar');
+            const filterBar = document.querySelector('.filter-bar-zillow');
             const sheet = document.querySelector('.listings-panel');
             const firstCard = document.querySelector('.listings-section .listing-card');
 
-            [sb, hb, fb, sheet, firstCard].forEach(el => { if (el) ro.observe(el); });
+            [header, searchBar, filterBar, sheet, firstCard].forEach(el => { if (el) ro.observe(el); });
 
             window.addEventListener('resize', () => applyMobileLayoutMeasurements(map));
             window.addEventListener('orientationchange', () => {
