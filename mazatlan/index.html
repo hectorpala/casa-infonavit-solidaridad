@@ -109,7 +109,7 @@ body{
   background: var(--white);
   border-bottom: 1px solid var(--line-2);
   box-shadow: var(--shadow-s);
-  height: 64px;
+  height: 60px; /* ZILLOW: altura 60px (antes 64px) */
 }
 
 .header-left {
@@ -165,13 +165,14 @@ body{
 ================================= */
 .zillow-search-bar {
   position: fixed;
-  top: 64px;
+  top: 60px; /* ZILLOW: ajustado a 60px para coincidir con header */
   left: 0;
   right: 0;
   z-index: 999;
   background: var(--white);
-  padding: 12px 24px;
+  padding: 12px 24px; /* ZILLOW: padding 12px vertical, 24px horizontal */
   border-bottom: 1px solid var(--line-2);
+  height: 60px; /* ZILLOW: altura fija 60px */
   box-shadow: var(--shadow-s);
 }
 
@@ -236,7 +237,7 @@ body{
 ================================= */
 .filter-bar-zillow {
   position: fixed;
-  top: 124px; /* Header (64px) + Search bar (~60px) */
+  top: 120px; /* ZILLOW: Header (60px) + Search bar (60px) = 120px */
   left: 0;
   right: 0;
   z-index: 998;
@@ -244,7 +245,8 @@ body{
   align-items: center;
   gap: 8px;
   background: var(--white);
-  padding: 12px 24px;
+  padding: 12px 24px; /* ZILLOW: padding 12px vertical, 24px horizontal */
+  height: 56px; /* ZILLOW: altura fija 56px para filters */
   border-bottom: 1px solid var(--line-2);
   overflow-x: auto;
   overflow-y: hidden;
@@ -331,7 +333,7 @@ body{
 /* Barra de resultados */
 .results-bar {
   position: fixed;
-  top: 178px; /* Header + Search + Filters */
+  top: 176px; /* ZILLOW: Header (60) + Search (60) + Filters (56) = 176px */
   left: 0;
   right: 0;
   z-index: 997;
@@ -1826,9 +1828,9 @@ body.map-animating .listing-card .listing-image {
         function measureTopStack() {
             const header = document.querySelector('.zillow-header');
             const searchBar = document.querySelector('.zillow-search-bar');
-            const h1 = header ? header.getBoundingClientRect().height : 64;
-            const h2 = searchBar ? searchBar.getBoundingClientRect().height : 60;
-            return Math.round(h1 + h2);
+            const h1 = header ? header.getBoundingClientRect().height : 60; /* ZILLOW: 60px */
+            const h2 = searchBar ? searchBar.getBoundingClientRect().height : 60; /* ZILLOW: 60px */
+            return Math.round(h1 + h2); /* ZILLOW: 120px total */
         }
 
         function measureOneCardHeight() {
