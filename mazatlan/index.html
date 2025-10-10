@@ -269,6 +269,52 @@ body{
 }
 
 /* ===============================
+   DESKTOP OVERRIDES (pantallas grandes)
+================================= */
+@media (min-width: 769px) {
+  /* Bottom sheets en desktop: modal centrado en vez de sheet desde abajo */
+  .bottom-sheet {
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    max-width: 480px;
+    width: 90%;
+    max-height: 600px;
+    border-radius: 16px;
+    opacity: 0;
+  }
+
+  .bottom-sheet.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  /* Chips un poco más grandes en desktop */
+  .filter-chip {
+    padding: 9px 16px;
+    font-size: 14px;
+  }
+
+  .chip-icon {
+    font-size: 11px;
+  }
+
+  /* Filter bar con más espacio en desktop */
+  .filter-bar-zillow {
+    padding: 12px 20px;
+    gap: 10px;
+  }
+
+  /* Results bar */
+  .results-bar {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* ===============================
    BOTTOM SHEETS (estilo Zillow)
 ================================= */
 .bottom-sheet-overlay {
