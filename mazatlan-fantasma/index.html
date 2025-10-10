@@ -564,56 +564,11 @@ body.map-animating .listing-card .listing-image {
   body { overflow: hidden; }
   .main-container { display: block; }
 
-  /* Banner STAGING compacto y fijo */
-  .staging-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 8px;
-    font-size: 12px;
-    font-weight: 800;
-    border-bottom: 0;
-  }
-
-  /* Header sticky bajo el banner */
-  .header-bar {
-    position: fixed;
-    top: 28px;
-    left: 0;
-    right: 0;
-    z-index: 45;
-    padding: 10px 14px;
-    border-bottom: 1px solid rgba(226,232,240,.9);
-    background: rgba(255,255,255,.96);
-    backdrop-filter: blur(8px);
-  }
-
-  /* Filtros flotantes sobre el mapa */
+  /* FANTASMA: Ocultar banner, header y filtros para mapa fullscreen */
+  .staging-banner,
+  .header-bar,
   .filter-bar {
-    position: fixed;
-    top: calc(var(--top-stack) + 8px);
-    left: 8px;
-    right: 8px;
-    z-index: 40;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
-    background: rgba(255,255,255,.9);
-    border: 1px solid rgba(226,232,240,.9);
-    border-radius: 999px;
-    box-shadow: 0 6px 18px rgba(2,6,23,.10);
-    white-space: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    display: none !important;
   }
 
   .filter-bar::-webkit-scrollbar { display: none; }
@@ -627,89 +582,98 @@ body.map-animating .listing-card .listing-image {
     border-radius: 999px;
   }
 
-  /* FANTASMA: Mapa ocupa TODA la pantalla */
+  /* FANTASMA: Mapa ocupa TODO (sin headers) */
   .map-section {
     position: fixed;
-    top: var(--top-stack);
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    height: calc(100dvh - var(--top-stack));
+    height: 100dvh;
     z-index: 1;
     background: #e5f2ff;
   }
 
   #map-container { height: 100%; }
 
-  /* FANTASMA: Panel lateral derecho sobrepuesto - MÁS ANGOSTO */
+  /* FANTASMA: Panel lateral derecho - TARJETAS GRANDES como InfoWindow */
   .listings-panel {
     position: fixed;
-    top: calc(var(--top-stack) + 60px);
+    top: 8px;
     right: 8px;
     bottom: 8px;
-    width: 160px;
+    width: 240px;
     height: auto;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(2,6,23,.2);
+    background: transparent;
     z-index: 10;
     overflow: hidden;
-    border-radius: 16px;
-    border: 1px solid rgba(229, 231, 235, 0.6);
+    border-radius: 0;
+    border: none;
+    pointer-events: none;
   }
 
   .listings-section {
     height: 100%;
-    padding: 8px 6px;
+    padding: 0;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: y mandatory;
-    scroll-padding-top: 8px;
+    scroll-padding-top: 0;
+    pointer-events: auto;
   }
 
-  /* FANTASMA: Tarjetas mini compactas */
+  /* FANTASMA: Tarjetas GRANDES estilo InfoWindow */
   .listing-card {
-    margin-bottom: 8px !important;
-    border-radius: 12px !important;
+    margin-bottom: 12px !important;
+    border-radius: 16px !important;
     overflow: hidden;
+    background: white !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,.3) !important;
+    border: 1px solid rgba(0,0,0,.1) !important;
     transition: transform 0.2s;
+    pointer-events: auto;
   }
 
   .listing-card:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
   }
 
-  /* FANTASMA: Imagen más pequeña */
+  /* FANTASMA: Imagen tamaño InfoWindow */
   .listing-card .listing-image {
-    aspect-ratio: 3/2 !important;
-    max-height: 100px !important;
+    aspect-ratio: 16/10 !important;
+    max-height: 150px !important;
+    width: 100%;
   }
 
-  /* FANTASMA: Título mini */
+  /* FANTASMA: Título legible */
   .listing-card h3 {
-    font-size: 10px !important;
-    line-height: 1.2 !important;
+    font-size: 13px !important;
+    line-height: 1.3 !important;
     font-weight: 700 !important;
-    margin: 4px 0 2px !important;
-    padding: 0 4px !important;
+    margin: 8px 0 4px !important;
+    padding: 0 10px !important;
+    color: #1a1a1a !important;
   }
 
-  /* FANTASMA: Meta icons mini */
+  /* FANTASMA: Meta icons legibles */
   .listing-meta {
-    font-size: 9px !important;
-    gap: 4px !important;
-    padding: 0 4px 4px !important;
+    font-size: 11px !important;
+    gap: 8px !important;
+    padding: 0 10px 10px !important;
+    color: #666 !important;
   }
 
-  /* FANTASMA: Price badge más pequeño */
+  /* FANTASMA: Price badge visible */
   .price-badge {
-    font-size: 10px !important;
-    padding: 3px 6px !important;
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+    font-weight: 700 !important;
   }
 
-  /* FANTASMA: Content padding ultra-compacto */
+  /* FANTASMA: Content padding adecuado */
   .listing-card .content {
-    padding: 3px !important;
+    padding: 8px !important;
   }
 
   /* FANTASMA: Ocultar carousel dots */
@@ -717,11 +681,16 @@ body.map-animating .listing-card .listing-image {
     display: none !important;
   }
 
-  /* FANTASMA: Flechas carousel más pequeñas */
+  /* FANTASMA: Flechas carousel normales */
   .carousel-arrow-card {
-    width: 24px !important;
-    height: 24px !important;
-    font-size: 10px !important;
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 12px !important;
+  }
+
+  /* FANTASMA: Sin handle de arrastre */
+  .listings-section::before {
+    display: none !important;
   }
 
   .listings-section::before {
@@ -1443,18 +1412,17 @@ body.map-animating .listing-card .listing-image {
         function applyCompactSheetAndReveal(map) {
             if (window.innerWidth > 768) return;
 
-            // FANTASMA: Panel lateral fijo - sin mediciones dinámicas
+            // FANTASMA: Mapa fullscreen - panel sobrepuesto
             try {
-                const topStack = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--top-stack')) || 56;
                 map?.setOptions({
                     padding: {
-                        top: topStack + 8,
-                        right: 180, // Espacio para el panel derecho
+                        top: 12,
+                        right: 260, // Espacio para panel lateral
                         bottom: 12,
                         left: 12
                     },
                     zoomControlOptions: { position: google.maps.ControlPosition.LEFT_TOP },
-                    fullscreenControlOptions: { position: google.maps.ControlPosition.LEFT_TOP },
+                    fullscreenControlOptions: { position: google.maps.ControlPosition.LEFT_BOTTOM },
                     streetViewControlOptions: { position: google.maps.ControlPosition.LEFT_BOTTOM }
                 });
             } catch (e) { /* noop */ }
