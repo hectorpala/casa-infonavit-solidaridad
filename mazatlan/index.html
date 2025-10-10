@@ -643,21 +643,9 @@ body.map-animating .listing-card .listing-image {
 
   #map-container { height: 100%; }
 
-  /* Bottom sheet - MAP-FIRST: limitado a 40dvh máximo */
+  /* Bottom sheet - OCULTO EN MÓVIL */
   .listings-panel {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: min(var(--sheet-min), var(--sheet-max-dvh));
-    max-height: calc(100dvh - var(--top-stack));
-    background: var(--panel, #F9FAFB);
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    box-shadow: 0 -8px 24px rgba(2,6,23,.12);
-    z-index: 2;
-    overflow: hidden;
+    display: none !important;
   }
 
   .listings-section {
