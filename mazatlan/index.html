@@ -1139,6 +1139,13 @@ body.map-animating .listing-card .listing-image {
             const card = document.getElementById(`card-${slug}`);
             if (card) {
                 card.classList.add('highlighted');
+
+                // Reset carousel to first photo to match map marker
+                const cardIndex = card.dataset.cardIndex;
+                if (cardIndex !== undefined) {
+                    goToCardPhoto(parseInt(cardIndex), 0);
+                }
+
                 card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         }
