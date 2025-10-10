@@ -627,21 +627,23 @@ body.map-animating .listing-card .listing-image {
     border-radius: 999px;
   }
 
-  /* Mapa inicia bajo el stack superior - MAP-FIRST: SIEMPRE ≥60dvh */
+  /* Mapa PANTALLA COMPLETA en móvil (bajo header/filtros) */
   .map-section {
     position: fixed;
-    top: var(--top-stack);
+    top: 0;
     left: 0;
     right: 0;
-    height: max(
-      var(--map-min-dvh),
-      calc(100dvh - var(--top-stack) - var(--sheet-min) - env(safe-area-inset-bottom))
-    );
+    bottom: 0;
+    height: 100dvh !important;
+    width: 100vw !important;
     z-index: 1;
     background: #e5f2ff;
   }
 
-  #map-container { height: 100%; }
+  #map-container {
+    height: 100% !important;
+    width: 100% !important;
+  }
 
   /* Bottom sheet - OCULTO EN MÓVIL */
   .listings-panel {
