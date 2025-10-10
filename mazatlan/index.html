@@ -156,71 +156,272 @@ body{
 }
 
 /* ===============================
-   FILTER BAR (sticky)
+   FILTER BAR ZILLOW (chips horizontales)
 ================================= */
-.filter-bar{
+.filter-bar-zillow {
   position: fixed;
   top: 104px;
   left: 0;
   right: 0;
   z-index: 998;
-  display:flex;
-  align-items:center;
-  gap:10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: var(--white);
-  padding:10px 16px;
-  border-bottom:1px solid var(--line-2);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line-2);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-.filter-bar select,
-.filter-bar button{
-  height:36px;
+.filter-bar-zillow::-webkit-scrollbar {
+  display: none;
+}
+
+/* Chips de filtro (estilo Zillow) */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
   border-radius: 999px;
-  border:1px solid var(--line);
   background: var(--white);
-  padding: 0 36px 0 12px;
-  font-weight:600;
+  border: 1.5px solid var(--line);
+  font-size: 14px;
+  font-weight: 600;
   color: var(--ink-2);
-  box-shadow: var(--shadow-s);
-  transition: border-color var(--t-fast) ease, box-shadow var(--t-fast) ease, transform var(--t-fast) ease;
-  appearance:none;
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8l4 4 4-4' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;
-  background-position:right 12px center;
-  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
   cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  user-select: none;
 }
-.filter-bar select:focus,
-.filter-bar button:focus{
-  outline:none;
-  box-shadow: var(--shadow-focus);
-  border-color: rgba(14,165,166,.6);
-}
-.filter-bar select:hover{
+.filter-chip:hover {
+  border-color: var(--primary);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-m);
 }
-.filter-bar button{
-  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, rgba(14,165,166,.45), rgba(59,130,246,.45)) border-box;
-  border: 1px solid transparent;
-  color: var(--ink-2);
-  padding: 0 16px;
-}
-.filter-bar button:hover{
-  transform: translateY(-1px);
-}
-.filter-bar button:active{
+.filter-chip:active {
   transform: translateY(0);
 }
-.results-counter{
-  margin-left:auto;
-  padding:6px 12px;
-  border-radius:999px;
-  background: #EEF9F6;
-  color: #0B664E;
-  border:1px solid #B6E6D9;
-  font-weight:700;
+
+/* Chip activo (naranja Hector) */
+.filter-chip.active {
+  background: var(--g-primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+}
+.filter-chip.active .chip-icon {
+  color: white;
+}
+
+/* Iconos dentro de chips */
+.chip-icon {
+  font-size: 11px;
+  color: var(--ink-3);
+  transition: transform 0.2s;
+}
+.filter-chip.active .chip-icon.fa-chevron-down {
+  display: none; /* Ocultar chevron cuando está activo */
+}
+
+/* Chip "Más" o "Limpiar" */
+.chip-more {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #DC2626;
+}
+.chip-more:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #DC2626;
+}
+
+/* Badge contador en chip */
+.chip-badge {
+  background: #EF4444;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Barra de resultados */
+.results-bar {
+  position: fixed;
+  top: 162px;
+  left: 0;
+  right: 0;
+  z-index: 997;
+  background: linear-gradient(135deg, rgba(14, 165, 166, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--line-2);
+  text-align: center;
   font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+/* ===============================
+   BOTTOM SHEETS (estilo Zillow)
+================================= */
+.bottom-sheet-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bottom-sheet-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 70vh;
+  background: white;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.2);
+  z-index: 1101;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.bottom-sheet.active {
+  transform: translateY(0);
+}
+
+/* Header del bottom sheet */
+.sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line-2);
+  flex-shrink: 0;
+}
+.sheet-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.sheet-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg);
+  color: var(--ink-3);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sheet-close:hover {
+  background: var(--line);
+  color: var(--ink);
+}
+.sheet-apply {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: none;
+  background: var(--g-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sheet-apply:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+}
+.sheet-apply:active {
+  transform: scale(0.98);
+}
+
+/* Contenido del bottom sheet */
+.sheet-content {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Botones de opciones (estilo Zillow) */
+.button-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 12px;
+}
+.option-btn {
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: white;
+  color: var(--ink-2);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.option-btn:hover {
+  border-color: var(--primary);
+  background: rgba(255, 106, 0, 0.05);
+}
+.option-btn.selected {
+  border-color: var(--primary);
+  background: var(--g-primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.25);
+}
+
+/* Botones de precio (más grandes) */
+.price-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.price-btn {
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: white;
+  color: var(--ink-2);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+.price-btn:hover {
+  border-color: var(--primary);
+  background: rgba(255, 106, 0, 0.05);
+}
+.price-btn.selected {
+  border-color: var(--primary);
+  background: var(--g-primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.25);
 }
 
 /* ===============================
@@ -602,37 +803,42 @@ body.map-animating .listing-card .listing-image {
     backdrop-filter: blur(8px);
   }
 
-  /* Filtros flotantes sobre el mapa */
-  .filter-bar {
+  /* Filtros tipo Zillow - flotantes sobre el mapa */
+  .filter-bar-zillow {
     position: fixed;
-    top: calc(var(--top-stack) + 8px);
+    top: calc(var(--top-stack) + 6px);
     left: 8px;
     right: 8px;
-    z-index: 40;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
-    background: rgba(255,255,255,.9);
-    border: 1px solid rgba(226,232,240,.9);
+    z-index: 999;
+    height: auto;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(226, 232, 240, 0.8);
     border-radius: 999px;
-    box-shadow: 0 6px 18px rgba(2,6,23,.10);
-    white-space: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    box-shadow: 0 4px 12px rgba(2, 6, 23, 0.12);
+    backdrop-filter: blur(10px);
   }
 
-  .filter-bar::-webkit-scrollbar { display: none; }
-
-  .filter-bar select,
-  .filter-bar button {
-    height: 32px;
-    padding: 0 28px 0 10px;
+  /* Chips más compactos en móvil */
+  .filter-chip {
+    padding: 6px 12px;
     font-size: 13px;
-    font-weight: 700;
-    border-radius: 999px;
+    gap: 5px;
+  }
+
+  .chip-icon {
+    font-size: 10px;
+  }
+
+  /* Results bar - sticky bajo filtros */
+  .results-bar {
+    position: fixed;
+    top: calc(var(--top-stack) + 50px);
+    left: 0;
+    right: 0;
+    z-index: 998;
+    padding: 6px 12px;
+    font-size: 12px;
   }
 
   /* Mapa PANTALLA COMPLETA en móvil (bajo header/filtros) */
@@ -838,37 +1044,109 @@ body.map-animating .listing-card .listing-image {
         </div>
     </div>
 
-    <div class="filter-bar">
-        <select id="filter-price">
-            <option value="">Precio</option>
-            <option value="0-1500000">Hasta $1.5M</option>
-            <option value="1500000-2000000">$1.5M - $2.0M</option>
-            <option value="2000000-2500000">$2.0M - $2.5M</option>
-            <option value="2500000-3000000">$2.5M - $3.0M</option>
-            <option value="3000000-3500000">$3.0M - $3.5M</option>
-            <option value="3500000-4000000">$3.5M - $4.0M</option>
-            <option value="4000000-999999999">Más de $4.0M</option>
-        </select>
+    <!-- NUEVO: Filtros tipo Zillow con chips horizontales -->
+    <div class="filter-bar-zillow">
+        <div class="filter-chip" id="chip-price" onclick="openBottomSheet('price')">
+            <span class="chip-label">Precio</span>
+            <i class="fas fa-chevron-down chip-icon"></i>
+        </div>
 
-        <select id="filter-bedrooms">
-            <option value="">Recámaras</option>
-            <option value="2">2 Recámaras</option>
-            <option value="3">3 Recámaras</option>
-            <option value="4">4 Recámaras</option>
-        </select>
+        <div class="filter-chip" id="chip-bedrooms" onclick="openBottomSheet('bedrooms')">
+            <span class="chip-label">Recámaras</span>
+            <i class="fas fa-chevron-down chip-icon"></i>
+        </div>
 
-        <select id="filter-zone">
-            <option value="">Todas las zonas</option>
-            <option value="real-del-valle">Real del Valle</option>
-            <option value="marina">Zona Marina</option>
-            <option value="centro">Centro</option>
-            <option value="otro">Otras zonas</option>
-        </select>
+        <div class="filter-chip" id="chip-bathrooms" onclick="openBottomSheet('bathrooms')">
+            <span class="chip-label">Baños</span>
+            <i class="fas fa-chevron-down chip-icon"></i>
+        </div>
 
-        <button onclick="resetFilters()">🔄 Limpiar</button>
+        <div class="filter-chip" id="chip-zone" onclick="openBottomSheet('zone')">
+            <span class="chip-label">Zona</span>
+            <i class="fas fa-chevron-down chip-icon"></i>
+        </div>
 
-        <div class="results-counter">
-            <span id="results-text">18 de 18 propiedades</span>
+        <div class="filter-chip chip-more" onclick="resetFilters()">
+            <i class="fas fa-redo chip-icon"></i>
+            <span class="chip-label">Limpiar</span>
+        </div>
+    </div>
+
+    <!-- Contador de resultados (sticky) -->
+    <div class="results-bar">
+        <span id="results-text">18 propiedades en Mazatlán</span>
+    </div>
+
+    <!-- Bottom Sheets para cada filtro -->
+    <div class="bottom-sheet-overlay" id="sheet-overlay" onclick="closeBottomSheet()"></div>
+
+    <!-- Bottom Sheet: PRECIO -->
+    <div class="bottom-sheet" id="sheet-price">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Rango de Precio</h3>
+            <button class="sheet-apply" onclick="applyFilter('price')">Aplicar</button>
+        </div>
+        <div class="sheet-content">
+            <div class="price-options">
+                <button class="price-btn" data-value="" onclick="selectPrice(this, '')">Todos</button>
+                <button class="price-btn" data-value="0-2500000" onclick="selectPrice(this, '0-2500000')">Hasta $2.5M</button>
+                <button class="price-btn" data-value="2500000-3000000" onclick="selectPrice(this, '2500000-3000000')">$2.5M - $3.0M</button>
+                <button class="price-btn" data-value="3000000-3500000" onclick="selectPrice(this, '3000000-3500000')">$3.0M - $3.5M</button>
+                <button class="price-btn" data-value="3500000-999999999" onclick="selectPrice(this, '3500000-999999999')">Más de $3.5M</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Sheet: RECÁMARAS -->
+    <div class="bottom-sheet" id="sheet-bedrooms">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Recámaras</h3>
+            <button class="sheet-apply" onclick="applyFilter('bedrooms')">Aplicar</button>
+        </div>
+        <div class="sheet-content">
+            <div class="button-group">
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bedrooms', '')">Todas</button>
+                <button class="option-btn" data-value="2" onclick="selectOption(this, 'bedrooms', '2')">2+</button>
+                <button class="option-btn" data-value="3" onclick="selectOption(this, 'bedrooms', '3')">3+</button>
+                <button class="option-btn" data-value="4" onclick="selectOption(this, 'bedrooms', '4')">4+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Sheet: BAÑOS -->
+    <div class="bottom-sheet" id="sheet-bathrooms">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Baños</h3>
+            <button class="sheet-apply" onclick="applyFilter('bathrooms')">Aplicar</button>
+        </div>
+        <div class="sheet-content">
+            <div class="button-group">
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bathrooms', '')">Todos</button>
+                <button class="option-btn" data-value="1" onclick="selectOption(this, 'bathrooms', '1')">1+</button>
+                <button class="option-btn" data-value="2" onclick="selectOption(this, 'bathrooms', '2')">2+</button>
+                <button class="option-btn" data-value="3" onclick="selectOption(this, 'bathrooms', '3')">3+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Sheet: ZONA -->
+    <div class="bottom-sheet" id="sheet-zone">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Zona</h3>
+            <button class="sheet-apply" onclick="applyFilter('zone')">Aplicar</button>
+        </div>
+        <div class="sheet-content">
+            <div class="button-group">
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'zone', '')">Todas</button>
+                <button class="option-btn" data-value="real-del-valle" onclick="selectOption(this, 'zone', 'real-del-valle')">Real del Valle</button>
+                <button class="option-btn" data-value="marina" onclick="selectOption(this, 'zone', 'marina')">Zona Marina</button>
+                <button class="option-btn" data-value="centro" onclick="selectOption(this, 'zone', 'centro')">Centro</button>
+                <button class="option-btn" data-value="otro" onclick="selectOption(this, 'zone', 'otro')">Otras zonas</button>
+            </div>
         </div>
     </div>
 
@@ -1167,18 +1445,165 @@ body.map-animating .listing-card .listing-image {
             if (card) card.classList.remove('highlighted');
         }
 
-        function applyFilters() {
-            const priceFilter = document.getElementById('filter-price').value;
-            const bedroomsFilter = document.getElementById('filter-bedrooms').value;
-            const zoneFilter = document.getElementById('filter-zone').value;
+        // ========== NUEVO SISTEMA DE FILTROS ZILLOW ==========
 
+        // Estado de filtros activos
+        const activeFilters = {
+            price: '',
+            bedrooms: '',
+            bathrooms: '',
+            zone: ''
+        };
+
+        // Abrir bottom sheet
+        function openBottomSheet(filterType) {
+            const overlay = document.getElementById('sheet-overlay');
+            const sheet = document.getElementById(`sheet-${filterType}`);
+
+            overlay.classList.add('active');
+            sheet.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        // Cerrar bottom sheet
+        function closeBottomSheet() {
+            const overlay = document.getElementById('sheet-overlay');
+            const sheets = document.querySelectorAll('.bottom-sheet');
+
+            overlay.classList.remove('active');
+            sheets.forEach(sheet => sheet.classList.remove('active'));
+            document.body.style.overflow = ''; // Restore scroll
+        }
+
+        // Seleccionar opción en bottom sheet (bedrooms, bathrooms, zone)
+        function selectOption(button, filterType, value) {
+            // Remover selected de todos los botones del grupo
+            const group = button.parentElement;
+            group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+
+            // Marcar como selected
+            button.classList.add('selected');
+
+            // Guardar en estado temporal (se aplicará al hacer clic en "Aplicar")
+            activeFilters[filterType] = value;
+        }
+
+        // Seleccionar precio (funciona diferente)
+        function selectPrice(button, value) {
+            const group = button.parentElement;
+            group.querySelectorAll('.price-btn').forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            activeFilters.price = value;
+        }
+
+        // Aplicar filtro y cerrar sheet
+        function applyFilter(filterType) {
+            updateChipState(filterType);
+            closeBottomSheet();
+            applyFilters();
+        }
+
+        // Actualizar estado visual del chip
+        function updateChipState(filterType) {
+            const chip = document.getElementById(`chip-${filterType}`);
+            const value = activeFilters[filterType];
+
+            if (value) {
+                chip.classList.add('active');
+
+                // Actualizar texto del chip con valor seleccionado
+                let displayText = '';
+                if (filterType === 'price') {
+                    const ranges = {
+                        '0-2500000': 'Hasta $2.5M',
+                        '2500000-3000000': '$2.5M-$3.0M',
+                        '3000000-3500000': '$3.0M-$3.5M',
+                        '3500000-999999999': 'Más de $3.5M'
+                    };
+                    displayText = ranges[value] || 'Precio';
+                } else if (filterType === 'bedrooms') {
+                    displayText = value + '+ rec.';
+                } else if (filterType === 'bathrooms') {
+                    displayText = value + '+ baños';
+                } else if (filterType === 'zone') {
+                    const zones = {
+                        'real-del-valle': 'Real del Valle',
+                        'marina': 'Marina',
+                        'centro': 'Centro',
+                        'otro': 'Otras'
+                    };
+                    displayText = zones[value] || 'Zona';
+                }
+
+                chip.innerHTML = `
+                    <span class="chip-label">${displayText}</span>
+                    <i class="fas fa-times chip-icon"></i>
+                `;
+
+                // Al hacer clic en chip activo, remover filtro
+                chip.onclick = () => removeFilter(filterType);
+            } else {
+                chip.classList.remove('active');
+                resetChipAppearance(filterType);
+            }
+        }
+
+        // Remover filtro individual
+        function removeFilter(filterType) {
+            activeFilters[filterType] = '';
+            resetChipAppearance(filterType);
+
+            // Remover selected de opciones en el sheet
+            const sheet = document.getElementById(`sheet-${filterType}`);
+            sheet.querySelectorAll('.option-btn, .price-btn').forEach(btn => btn.classList.remove('selected'));
+
+            applyFilters();
+        }
+
+        // Reset apariencia de chip a estado inicial
+        function resetChipAppearance(filterType) {
+            const chip = document.getElementById(`chip-${filterType}`);
+            chip.classList.remove('active');
+
+            const labels = {
+                price: 'Precio',
+                bedrooms: 'Recámaras',
+                bathrooms: 'Baños',
+                zone: 'Zona'
+            };
+
+            chip.innerHTML = `
+                <span class="chip-label">${labels[filterType]}</span>
+                <i class="fas fa-chevron-down chip-icon"></i>
+            `;
+
+            chip.onclick = () => openBottomSheet(filterType);
+        }
+
+        // Aplicar todos los filtros activos
+        function applyFilters() {
             filteredProperties = ALL_PROPERTIES.filter(p => {
-                if (priceFilter) {
-                    const [min, max] = priceFilter.split('-').map(Number);
+                // Filtro de precio
+                if (activeFilters.price) {
+                    const [min, max] = activeFilters.price.split('-').map(Number);
                     if (p.price < min || p.price > max) return false;
                 }
-                if (bedroomsFilter && p.bedrooms !== parseInt(bedroomsFilter)) return false;
-                if (zoneFilter && p.zone !== zoneFilter) return false;
+
+                // Filtro de recámaras (>=)
+                if (activeFilters.bedrooms) {
+                    if (p.bedrooms < parseInt(activeFilters.bedrooms)) return false;
+                }
+
+                // Filtro de baños (>=)
+                if (activeFilters.bathrooms) {
+                    if (p.bathrooms < parseInt(activeFilters.bathrooms)) return false;
+                }
+
+                // Filtro de zona
+                if (activeFilters.zone) {
+                    if (p.zone !== activeFilters.zone) return false;
+                }
+
                 return true;
             });
 
@@ -1186,16 +1611,34 @@ body.map-animating .listing-card .listing-image {
             renderListings(filteredProperties);
         }
 
+        // Limpiar TODOS los filtros
         function resetFilters() {
-            document.getElementById('filter-price').value = '';
-            document.getElementById('filter-bedrooms').value = '';
-            document.getElementById('filter-zone').value = '';
+            activeFilters.price = '';
+            activeFilters.bedrooms = '';
+            activeFilters.bathrooms = '';
+            activeFilters.zone = '';
+
+            // Reset visual de todos los chips
+            ['price', 'bedrooms', 'bathrooms', 'zone'].forEach(type => {
+                resetChipAppearance(type);
+                const sheet = document.getElementById(`sheet-${type}`);
+                sheet.querySelectorAll('.option-btn, .price-btn').forEach(btn => btn.classList.remove('selected'));
+            });
+
             applyFilters();
         }
 
         function updateCounters(count) {
-            document.getElementById('visible-count').textContent = count;
-            document.getElementById('results-text').textContent = `${count} de ${ALL_PROPERTIES.length} propiedades`;
+            const text = count === ALL_PROPERTIES.length
+                ? `${count} propiedades en Mazatlán`
+                : `${count} de ${ALL_PROPERTIES.length} propiedades`;
+            document.getElementById('results-text').textContent = text;
+
+            // Actualizar contador en header (si existe)
+            const visibleCount = document.getElementById('visible-count');
+            if (visibleCount) {
+                visibleCount.textContent = count;
+            }
         }
 
         // Carousel state management
@@ -1229,10 +1672,7 @@ body.map-animating .listing-card .listing-image {
             });
         }
 
-        document.getElementById('filter-price').addEventListener('change', applyFilters);
-        document.getElementById('filter-bedrooms').addEventListener('change', applyFilters);
-        document.getElementById('filter-zone').addEventListener('change', applyFilters);
-
+        // Inicializar mapa al cargar
         window.addEventListener('load', initMap);
 
         /* ===== Dinámica móvil: medir stack superior, sheet y padding del mapa ===== */
