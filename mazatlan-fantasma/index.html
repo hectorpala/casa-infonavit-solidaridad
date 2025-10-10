@@ -719,83 +719,22 @@ body.map-animating .listing-card .listing-image {
     display: none !important;
   }
 
-  .listing-card:active {
-    transform: scale(0.98);
-  }
-
-  /* FANTASMA: Imagen tamaño InfoWindow */
-  .listing-card .listing-image {
-    aspect-ratio: 16/10 !important;
-    max-height: 150px !important;
-    width: 100%;
-  }
-
-  /* FANTASMA: Título legible */
-  .listing-card h3 {
-    font-size: 12px !important;
-    line-height: 1.2 !important;
-    font-weight: 700 !important;
-    margin: 0 0 4px 0 !important;
-    padding: 0 !important;
-    color: #1a1a1a !important;
-  }
-
-  /* FANTASMA: Meta icons legibles */
-  .listing-meta {
-    font-size: 10px !important;
-    gap: 6px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    color: #666 !important;
-    display: flex !important;
-    flex-wrap: nowrap !important;
-  }
-
-  /* FANTASMA: Price badge visible */
-  .price-badge {
-    font-size: 12px !important;
-    padding: 6px 10px !important;
-    font-weight: 700 !important;
-  }
-
-  /* FANTASMA: Content padding MÍNIMO */
-  .listing-card .content {
-    padding: 8px 10px 8px 10px !important;
-    min-height: 0 !important;
-    height: auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 4px !important;
-  }
-
-  /* FANTASMA: Ocultar carousel dots */
+  /* Ocultar carousel dots */
   .carousel-dots {
     display: none !important;
   }
 
-  /* FANTASMA: Flechas carousel normales */
-  .carousel-arrow-card {
-    width: 32px !important;
-    height: 32px !important;
-    font-size: 12px !important;
-  }
-
-  /* FANTASMA: Sin handle de arrastre */
+  /* Sin handle de arrastre */
   .listings-section::before {
     display: none !important;
   }
 
-  /* FANTASMA: Ocultar todo lo que NO sea foto, precio, título e iconos */
+  /* Ocultar elementos no usados */
   .listing-card .headline,
   .listing-card .description,
   .listing-card .badges,
   .listing-card .cta-row,
   .sheet-cutoff-anchor {
-    display: none !important;
-  }
-
-  /* FANTASMA: Ocultar elementos extra del content */
-  .listing-card .content > *:not(h3):not(.listing-meta) {
     display: none !important;
   }
 }
