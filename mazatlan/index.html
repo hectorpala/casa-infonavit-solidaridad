@@ -342,20 +342,9 @@ body{
   line-height: 1;
 }
 
-/* Barra de resultados */
+/* Barra de resultados - REMOVIDA */
 .results-bar {
-  position: fixed;
-  top: 176px; /* ZILLOW: Header (60) + Search (60) + Filters (56) = 176px */
-  left: 0;
-  right: 0;
-  z-index: 997;
-  background: linear-gradient(135deg, rgba(14, 165, 166, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
-  padding: 8px 24px;
-  border-bottom: 1px solid var(--line-2);
-  text-align: center;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink-2);
+  display: none !important;
 }
 
 /* ===============================
@@ -1358,11 +1347,6 @@ body.map-animating .listing-card .listing-image {
             <span class="chip-label">More</span>
             <i class="fas fa-chevron-down chip-icon"></i>
         </div>
-    </div>
-
-    <!-- Contador de resultados (sticky) -->
-    <div class="results-bar">
-        <span id="results-text">18 propiedades en Mazatlán</span>
     </div>
 
     <!-- Bottom Sheets para cada filtro -->
