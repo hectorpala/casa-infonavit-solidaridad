@@ -27,6 +27,7 @@
             padding: 15px;
             box-shadow: 0 50px 100px rgba(0,0,0,.5);
             position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .screen {
@@ -36,6 +37,7 @@
             border-radius: 40px;
             overflow: hidden;
             position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .notch {
@@ -48,6 +50,11 @@
             background: #1a1a1a;
             border-radius: 0 0 20px 20px;
             z-index: 9999;
+            transition: opacity 0.3s;
+        }
+
+        .notch.hidden {
+            opacity: 0;
         }
 
         iframe {
@@ -68,44 +75,70 @@
         .btn {
             background: rgba(255,255,255,.9);
             border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 12px 24px;
+            border-radius: 24px;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
+            font-weight: 700;
+            font-size: 16px;
             transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,.2);
         }
 
         .btn:hover {
             background: white;
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,.3);
         }
 
         .btn:active {
-            transform: scale(0.95);
+            transform: translateY(0);
+        }
+
+        .btn-rotate {
+            background: linear-gradient(135deg, #FF6A00, #D35500);
+            color: white;
+        }
+
+        .btn-rotate:hover {
+            background: linear-gradient(135deg, #FF7A10, #E36510);
         }
 
         .device-info {
             position: absolute;
-            top: -40px;
+            top: -50px;
             left: 0;
             color: white;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .orientation-badge {
+            background: rgba(255,255,255,.2);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
     <div class="device-frame">
-        <div class="device-info">📱 iPhone 13 Pro - 375x812</div>
+        <div class="device-info">
+            📱 iPhone 13 Pro - <span id="dimensions">375x812</span>
+            <span class="orientation-badge" id="orientation">Vertical</span>
+        </div>
         <div class="screen">
-            <div class="notch"></div>
+            <div class="notch" id="notch"></div>
             <iframe id="preview" src="index.html"></iframe>
         </div>
         <div class="controls">
-            <button class="btn" onclick="reload()">🔄 Recargar</button>
-            <button class="btn" onclick="rotate()">🔄 Rotar</button>
+            <button class="btn" onclick="reload()">↻ Recargar</button>
+            <button class="btn btn-rotate" onclick="rotate()">⤿ Rotar</button>
         </div>
     </div>
 
@@ -117,16 +150,26 @@
         let isRotated = false;
         function rotate() {
             const screen = document.querySelector('.screen');
-            const deviceInfo = document.querySelector('.device-info');
+            const notch = document.getElementById('notch');
+            const dimensions = document.getElementById('dimensions');
+            const orientation = document.getElementById('orientation');
 
             if (!isRotated) {
+                // Rotar a horizontal
                 screen.style.width = '812px';
                 screen.style.height = '375px';
-                deviceInfo.textContent = '📱 iPhone 13 Pro - 812x375 (Horizontal)';
+                notch.classList.add('hidden');
+                dimensions.textContent = '812x375';
+                orientation.textContent = 'Horizontal';
+                orientation.style.background = 'rgba(255, 106, 0, 0.3)';
             } else {
+                // Rotar a vertical
                 screen.style.width = '375px';
                 screen.style.height = '812px';
-                deviceInfo.textContent = '📱 iPhone 13 Pro - 375x812';
+                notch.classList.remove('hidden');
+                dimensions.textContent = '375x812';
+                orientation.textContent = 'Vertical';
+                orientation.style.background = 'rgba(255, 255, 255, 0.2)';
             }
             isRotated = !isRotated;
         }
