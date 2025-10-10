@@ -91,6 +91,7 @@ body{
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow: hidden;
+  line-height: 1.5; /* ZILLOW: line-height 1.5 para body text */
 }
 
 /* ===============================
@@ -184,9 +185,9 @@ body{
   align-items: center;
   background: var(--bg);
   border: 2px solid var(--line);
-  border-radius: 12px;
+  border-radius: 8px; /* ZILLOW: 8px (antes 12px) */
   padding: 0 16px;
-  transition: all 0.2s;
+  transition: all 0.15s linear; /* ZILLOW: 0.15s linear */
 }
 
 .search-container:hover {
@@ -225,11 +226,12 @@ body{
 .search-stats {
   padding: 6px 12px;
   background: rgba(14, 165, 166, 0.1);
-  border-radius: 6px;
+  border-radius: 4px; /* ZILLOW: 4px (antes 6px) */
   color: var(--teal);
   font-weight: 700;
   font-size: 13px;
   white-space: nowrap;
+  line-height: 1; /* ZILLOW: line-height compacto para badges */
 }
 
 /* ===============================
@@ -420,11 +422,11 @@ body{
   bottom: 0;
   max-height: 70vh;
   background: white;
-  border-radius: 20px 20px 0 0;
+  border-radius: 16px 16px 0 0; /* ZILLOW: 16px (antes 20px) */
   box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.2);
   z-index: 1101;
   transform: translateY(100%);
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* ZILLOW: 0.3s (antes 0.35s) */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -466,7 +468,7 @@ body{
 }
 .sheet-apply {
   padding: 8px 20px;
-  border-radius: 999px;
+  border-radius: 8px; /* ZILLOW: 8px (antes 999px pill) */
   border: none;
   background: var(--g-primary);
   color: white;
@@ -498,14 +500,14 @@ body{
 }
 .option-btn {
   padding: 14px 20px;
-  border-radius: 12px;
+  border-radius: 8px; /* ZILLOW: 8px (antes 12px) */
   border: 2px solid var(--line);
   background: white;
   color: var(--ink-2);
   font-weight: 700;
   font-size: 15px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.15s linear; /* ZILLOW: 0.15s linear */
   text-align: center;
 }
 .option-btn:hover {
@@ -527,14 +529,14 @@ body{
 }
 .price-btn {
   padding: 16px 24px;
-  border-radius: 12px;
+  border-radius: 8px; /* ZILLOW: 8px (antes 12px) */
   border: 2px solid var(--line);
   background: white;
   color: var(--ink-2);
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.15s linear; /* ZILLOW: 0.15s linear */
   text-align: left;
 }
 .price-btn:hover {
@@ -723,14 +725,15 @@ body{
   align-items:center;
   gap:8px;
   padding:8px 12px;
-  border-radius: 10px;
+  border-radius: 8px; /* ZILLOW: 8px (antes 10px) */
   color:#fff;
-  font-weight:800;
+  font-weight:700; /* ZILLOW: 700 (antes 800) */
   letter-spacing:.2px;
   background: var(--g-green);
   box-shadow: 0 6px 18px rgba(16,185,129,.45);
   border:1px solid rgba(255,255,255,.18);
   backdrop-filter: saturate(1.2) blur(8px);
+  line-height:1; /* ZILLOW: compacto */
 }
 .price-badge small{
   font-weight:700;
@@ -808,12 +811,13 @@ body{
   align-items:center;
   gap:6px;
   padding:6px 10px;
-  border-radius:999px;
+  border-radius:12px; /* ZILLOW: 12px (antes 999px pill) */
   background:#EEF2FF;
   color:#3730A3;
   border:1px solid #C7D2FE;
   font-weight:700;
-  font-size:12px;
+  font-size:12px; /* ZILLOW: 12px para badges */
+  line-height:1; /* ZILLOW: compacto */
 }
 .badge.teal{
   background:#ECFEFF;
