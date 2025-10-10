@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Preview - Mazatlán Staging</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .phone-frame {
+            width: 375px;
+            height: 812px;
+            background: #000;
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 30px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 32px;
+            background: #fff;
+        }
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        .controls h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .controls button {
+            display: block;
+            width: 100%;
+            padding: 8px 12px;
+            margin: 5px 0;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .controls button:hover {
+            background: #0051D5;
+        }
+        .info {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 300px;
+        }
+        .info h3 {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .info ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <iframe src="index.html" id="preview"></iframe>
+    </div>
+
+    <div class="controls">
+        <h3>📱 Controles</h3>
+        <button onclick="reload()">🔄 Recargar</button>
+        <button onclick="toggleOrientation()">🔄 Rotar</button>
+    </div>
+
+    <div class="info">
+        <h3>✅ Tarjeta Compacta Fija</h3>
+        <ul>
+            <li>Tamaño: 375x812 (iPhone 13)</li>
+            <li>🗺️ Mapa: Maximizado (~65%)</li>
+            <li>📋 Sheet: Compacto y fijo</li>
+            <li>🎴 Cards: Foto + Título + Iconos</li>
+            <li>🚫 Sin expansión del sheet</li>
+            <li>Anti-jitter activado</li>
+        </ul>
+    </div>
+
+    <script>
+        function reload() {
+            document.getElementById('preview').src = 'index.html?' + Date.now();
+        }
+
+        function toggleOrientation() {
+            const frame = document.querySelector('.phone-frame');
+            const current = frame.style.width;
+            if (current === '812px') {
+                frame.style.width = '375px';
+                frame.style.height = '812px';
+            } else {
+                frame.style.width = '812px';
+                frame.style.height = '375px';
+            }
+        }
+    </script>
+</body>
+</html>

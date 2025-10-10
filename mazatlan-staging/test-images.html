@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Imágenes Mazatlán</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            max-width: 400px;
+        }
+        .test-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test de Carga de Imágenes</h1>
+
+    <div class="test-card">
+        <h3>Ruta 1: ../mazatlan/casa-en-venta-real-del-valle/images/foto-1.jpg</h3>
+        <img src="../mazatlan/casa-en-venta-real-del-valle/images/foto-1.jpg"
+             alt="Test 1"
+             onload="this.nextElementSibling.innerHTML = '✅ SUCCESS: Imagen cargada'"
+             onerror="this.nextElementSibling.innerHTML = '❌ ERROR: No se pudo cargar'">
+        <p class="status">⏳ Cargando...</p>
+    </div>
+
+    <div class="test-card">
+        <h3>Ruta 2: ../mazatlan/casa-en-venta-en-mazatlan/images/foto-1.jpg</h3>
+        <img src="../mazatlan/casa-en-venta-en-mazatlan/images/foto-1.jpg"
+             alt="Test 2"
+             onload="this.nextElementSibling.innerHTML = '✅ SUCCESS: Imagen cargada'"
+             onerror="this.nextElementSibling.innerHTML = '❌ ERROR: No se pudo cargar'">
+        <p class="status">⏳ Cargando...</p>
+    </div>
+
+    <div class="test-card">
+        <h3>Ruta 3: ../mazatlan/casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido/images/foto-1.jpg</h3>
+        <img src="../mazatlan/casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido/images/foto-1.jpg"
+             alt="Test 3"
+             onload="this.nextElementSibling.innerHTML = '✅ SUCCESS: Imagen cargada'"
+             onerror="this.nextElementSibling.innerHTML = '❌ ERROR: No se pudo cargar'">
+        <p class="status">⏳ Cargando...</p>
+    </div>
+
+    <script>
+        console.log('📍 Location:', window.location.href);
+        console.log('📁 Base URL:', window.location.origin + window.location.pathname.replace(/[^/]*$/, ''));
+    </script>
+</body>
+</html>
