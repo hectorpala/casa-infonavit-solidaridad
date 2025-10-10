@@ -1002,6 +1002,16 @@ body.map-animating .listing-card .listing-image {
                     clusterer = new markerClusterer.MarkerClusterer({
                         map,
                         markers: markerArray,
+                        // CONFIGURACIÓN CLAVE: Algoritmo de agrupación
+                        algorithm: new markerClusterer.GridAlgorithm({
+                            maxDistance: 40000, // Distancia MUY grande en píxeles para agrupar cuando está alejado
+                            gridSize: 60 // Tamaño de cuadrícula para agrupación
+                        }),
+                        // Separación progresiva según zoom
+                        onClusterClick: (event, cluster, map) => {
+                            map.setZoom(map.getZoom() + 3); // Zoom más agresivo al clickear cluster
+                            map.panTo(cluster.position);
+                        },
                         renderer: {
                             render: ({ count, position }) => {
                                 // Cluster personalizado - TODOS NARANJA HECTOR
