@@ -246,10 +246,12 @@ body{
 .listings-section{
   width: var(--list-width);
   flex: 0 0 var(--list-width);
+  height: 100%; /* Asegurar altura para scroll */
   background: var(--panel);
   border-left:1px solid var(--line);
   padding: 10px;
-  overflow:auto;
+  overflow-y: auto; /* Scroll vertical explícito */
+  overflow-x: hidden; /* Sin scroll horizontal */
   scrollbar-width: thin;
   scrollbar-color: rgba(2,6,23,.25) transparent;
 }
