@@ -623,21 +623,21 @@ body.map-animating .listing-card .listing-image {
     pointer-events: auto;
   }
 
-  /* FANTASMA: Tarjetas HORIZONTALES - 4 visibles con scroll */
+  /* FANTASMA: Tarjetas GRANDES - 4 visibles exactas */
   .listing-card {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     margin-bottom: 0 !important;
     padding: 0 !important;
-    border-radius: 6px !important;
+    border-radius: 10px !important;
     overflow: hidden;
     background: white !important;
-    box-shadow: 0 3px 10px rgba(0,0,0,.2) !important;
-    border: 1px solid rgba(0,0,0,.1) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,.25) !important;
+    border: 1px solid rgba(0,0,0,.12) !important;
     transition: transform 0.2s;
     pointer-events: auto;
-    height: 65px !important;
+    height: 140px !important;
     width: 100% !important;
     max-width: none !important;
   }
@@ -648,50 +648,50 @@ body.map-animating .listing-card .listing-image {
 
   /* Contenedor del carousel horizontal */
   .listing-card .card-carousel-container {
-    width: 95px !important;
-    height: 65px !important;
+    width: 190px !important;
+    height: 140px !important;
     flex-shrink: 0;
   }
 
   /* Imágenes del carousel */
   .listing-card .card-carousel-images {
-    height: 65px !important;
+    height: 140px !important;
   }
 
   .listing-card .listing-image {
-    width: 95px !important;
-    height: 65px !important;
+    width: 190px !important;
+    height: 140px !important;
     object-fit: cover !important;
   }
 
   /* Price badge en la imagen */
   .listing-card .price-badge {
     position: absolute;
-    top: 2px;
-    left: 2px;
-    font-size: 8px !important;
-    padding: 3px 6px !important;
+    top: 6px;
+    left: 6px;
+    font-size: 13px !important;
+    padding: 6px 12px !important;
     font-weight: 700 !important;
     background: rgba(255, 106, 0, 0.95) !important;
     color: white !important;
-    border-radius: 3px !important;
+    border-radius: 6px !important;
   }
 
   /* Content area a la derecha */
   .listing-card .content {
     flex: 1;
-    padding: 6px 8px !important;
+    padding: 12px 14px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
-    gap: 3px !important;
+    gap: 6px !important;
     min-width: 0;
   }
 
-  /* Título compacto */
+  /* Título grande y legible */
   .listing-card h3 {
-    font-size: 9px !important;
-    line-height: 1.2 !important;
+    font-size: 14px !important;
+    line-height: 1.3 !important;
     font-weight: 700 !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -703,10 +703,10 @@ body.map-animating .listing-card .listing-image {
     text-overflow: ellipsis !important;
   }
 
-  /* Meta icons horizontal */
+  /* Meta icons grandes */
   .listing-meta {
-    font-size: 8px !important;
-    gap: 4px !important;
+    font-size: 12px !important;
+    gap: 8px !important;
     padding: 0 !important;
     margin: 0 !important;
     color: #666 !important;
