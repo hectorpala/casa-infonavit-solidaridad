@@ -596,34 +596,127 @@ body.map-animating .listing-card .listing-image {
 
   #map-container { height: 100%; }
 
-  /* FANTASMA: Ocultar panel lateral */
+  /* FANTASMA: Panel lateral derecho - 40% de la pantalla */
   .listings-panel {
-    display: none !important;
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    bottom: 8px;
+    width: 40%;
+    max-width: 400px;
+    height: auto;
+    background: transparent;
+    z-index: 10;
+    overflow: hidden;
+    pointer-events: none;
   }
 
   .listings-section {
     height: 100%;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    scroll-snap-type: y mandatory;
-    scroll-padding-top: 0;
     pointer-events: auto;
   }
 
-  /* FANTASMA: Tarjetas compactas estilo InfoWindow */
+  /* FANTASMA: Tarjetas HORIZONTALES (landscape/rotadas) */
   .listing-card {
-    margin-bottom: 10px !important;
-    border-radius: 10px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
     overflow: hidden;
     background: white !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,.2) !important;
-    border: 1px solid rgba(0,0,0,.1) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,.25) !important;
+    border: 1px solid rgba(0,0,0,.15) !important;
     transition: transform 0.2s;
     pointer-events: auto;
-    height: auto !important;
-    max-height: none !important;
+    height: 80px !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .listing-card:active {
+    transform: scale(0.98);
+  }
+
+  /* Contenedor del carousel horizontal */
+  .listing-card .card-carousel-container {
+    width: 120px !important;
+    height: 80px !important;
+    flex-shrink: 0;
+  }
+
+  /* Imágenes del carousel */
+  .listing-card .card-carousel-images {
+    height: 80px !important;
+  }
+
+  .listing-card .listing-image {
+    width: 120px !important;
+    height: 80px !important;
+    object-fit: cover !important;
+  }
+
+  /* Price badge en la imagen */
+  .listing-card .price-badge {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 10px !important;
+    padding: 4px 8px !important;
+    font-weight: 700 !important;
+    background: rgba(255, 106, 0, 0.95) !important;
+    color: white !important;
+    border-radius: 4px !important;
+  }
+
+  /* Content area a la derecha */
+  .listing-card .content {
+    flex: 1;
+    padding: 8px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    min-width: 0;
+  }
+
+  /* Título compacto */
+  .listing-card h3 {
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #1a1a1a !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  /* Meta icons horizontal */
+  .listing-meta {
+    font-size: 9px !important;
+    gap: 6px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: #666 !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+  }
+
+  /* Ocultar flechas carousel en modo compacto */
+  .listing-card .carousel-arrow-card {
+    display: none !important;
   }
 
   .listing-card:active {
