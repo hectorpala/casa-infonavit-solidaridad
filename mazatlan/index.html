@@ -586,10 +586,20 @@ body{
   height:100%;
   border-right:1px solid var(--line-2);
 }
-.listings-section{
+
+/* Panel que contiene listings + paginación */
+.listings-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   width: var(--list-width);
   flex: 0 0 var(--list-width);
-  height: 100%; /* Asegurar altura para scroll */
+  background: var(--panel);
+}
+
+.listings-section{
+  flex: 1 1 auto; /* Toma el espacio disponible, deja espacio para paginación */
+  width: 100%;
   background: var(--panel);
   border-left:1px solid var(--line);
   padding: 10px;
@@ -912,6 +922,92 @@ body{
 }
 .no-results button:hover {
   background: var(--green-600);
+}
+
+/* ===============================
+   PAGINACIÓN ESTILO ZILLOW
+================================= */
+.pagination-container {
+  display: block;
+  width: 100%;
+  padding: 24px 16px 32px;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+}
+.pagination-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.pagination-item {
+  display: block;
+}
+/* Botones de número de página */
+.pagination-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination-btn:hover {
+  background: var(--bg);
+  border-color: var(--ink-3);
+}
+.pagination-btn.active {
+  background: var(--hector);
+  color: var(--white);
+  border-color: var(--hector);
+}
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* Flechas Previous/Next */
+.pagination-arrow {
+  min-width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: all var(--t-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination-arrow:hover:not(:disabled) {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+.pagination-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* Ellipsis */
+.pagination-ellipsis {
+  color: var(--ink-3);
+  padding: 0 4px;
+  user-select: none;
 }
 
 /* ===============================
@@ -1368,6 +1464,13 @@ body.map-animating .listing-card .listing-image {
         <div class="listings-panel">
             <div class="listings-section" id="listings-container">
             </div>
+
+            <!-- ZILLOW: Paginación -->
+            <nav class="pagination-container" id="pagination-nav" aria-label="Pagination">
+                <ul class="pagination-list" id="pagination-list">
+                    <!-- Se genera dinámicamente con JavaScript -->
+                </ul>
+            </nav>
         </div>
     </div>
 
@@ -1400,6 +1503,10 @@ body.map-animating .listing-card .listing-image {
 
         let map, markers = {}, infoWindows = {}, clusterer = null;
         let filteredProperties = [...ALL_PROPERTIES];
+
+        // PAGINACIÓN: Variables globales
+        let currentPage = 1;
+        const ITEMS_PER_PAGE = 10; // 10 propiedades por página (18 total = 2 páginas)
 
         // Función para determinar color de marcador - TODOS NARANJA HECTOR
         function getMarkerGradient(price) {
@@ -1562,10 +1669,19 @@ body.map-animating .listing-card .listing-image {
 
             if (properties.length === 0) {
                 container.innerHTML = '<div class="no-results"><p>😕 No se encontraron propiedades</p><button onclick="resetFilters()">Ver todas</button></div>';
+                document.getElementById('pagination-nav').style.display = 'none';
                 return;
             }
 
-            container.innerHTML = properties.map((p, index) => {
+            // PAGINACIÓN: Calcular inicio y fin de la página actual
+            const totalPages = Math.ceil(properties.length / ITEMS_PER_PAGE);
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, properties.length);
+            const pageProperties = properties.slice(startIndex, endIndex);
+
+            container.innerHTML = pageProperties.map((p, index) => {
+                // Usar el índice REAL para el carrusel (startIndex + index)
+                const realIndex = startIndex + index;
                 // Determinar badges según características
                 const badges = [];
                 if (p.price < 2500000) badges.push('<span class="badge green"><i class="fa-solid fa-tag"></i>Precio Bajo</span>');
@@ -1580,30 +1696,30 @@ body.map-animating .listing-card .listing-image {
                 );
 
                 return `
-                <div class="listing-card" id="card-${p.slug}" data-card-index="${index}" onmouseenter="highlightMarker('${p.slug}')">
+                <div class="listing-card" id="card-${p.slug}" data-card-index="${realIndex}" onmouseenter="highlightMarker('${p.slug}')">
                     <div class="card-carousel-container" style="position:relative" onclick="window.open('../mazatlan/${p.slug}/index.html', '_blank')">
-                        <div class="card-carousel-images" id="carousel-${index}">
+                        <div class="card-carousel-images" id="carousel-${realIndex}">
                             ${photos.map(photo => `<img src="${photo}" class="listing-image" alt="${p.title}" onerror="this.style.display='none'">`).join('')}
                         </div>
                         <div class="media-overlay"></div>
 
                         <!-- ZILLOW: Status badge (top left) -->
-                        ${index < 3 ? '<div class="photo-badge new">NEW</div>' : ''}
-                        ${p.price < 2500000 ? '<div class="photo-badge reduced" style="top: 12px; left: ${index < 3 ? "80px" : "12px"}">GREAT DEAL</div>' : ''}
+                        ${realIndex < 3 ? '<div class="photo-badge new">NEW</div>' : ''}
+                        ${p.price < 2500000 ? '<div class="photo-badge reduced" style="top: 12px; left: ${realIndex < 3 ? "80px" : "12px"}">GREAT DEAL</div>' : ''}
 
                         <div class="price-badge">${p.priceShort} <small>MXN</small></div>
 
                         <!-- Flechas carrusel -->
-                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto(${index}, -1)" aria-label="Anterior">
+                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, -1)" aria-label="Anterior">
                             <i class="fa-solid fa-chevron-left" style="font-size:14px"></i>
                         </button>
-                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto(${index}, 1)" aria-label="Siguiente">
+                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, 1)" aria-label="Siguiente">
                             <i class="fa-solid fa-chevron-right" style="font-size:14px"></i>
                         </button>
 
                         <!-- Dots indicadores -->
                         <div class="carousel-dots">
-                            ${photos.map((_, i) => `<div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToCardPhoto(${index}, ${i})"></div>`).join('')}
+                            ${photos.map((_, i) => `<div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToCardPhoto(${realIndex}, ${i})"></div>`).join('')}
                         </div>
 
                         <div class="card-actions">
@@ -1636,6 +1752,9 @@ body.map-animating .listing-card .listing-image {
             `}).join('');
 
             updateCounters(properties.length);
+
+            // PAGINACIÓN: Renderizar controles
+            renderPagination(totalPages);
 
             // Recalcular mediciones después de renderizar (móvil)
             if (window.innerWidth <= 768 && window.mapInstance) {
@@ -1672,6 +1791,108 @@ body.map-animating .listing-card .listing-image {
         function unhighlightCard(slug) {
             const card = document.getElementById(`card-${slug}`);
             if (card) card.classList.remove('highlighted');
+        }
+
+        // ========== SISTEMA DE PAGINACIÓN ZILLOW ==========
+
+        function renderPagination(totalPages) {
+            console.log('renderPagination called with totalPages:', totalPages, 'currentPage:', currentPage);
+            const paginationNav = document.getElementById('pagination-nav');
+            const paginationList = document.getElementById('pagination-list');
+
+            if (!paginationNav || !paginationList) {
+                console.error('Pagination elements not found!');
+                return;
+            }
+
+            // Ocultar si solo hay 1 página
+            if (totalPages <= 1) {
+                console.log('Only 1 page, hiding pagination');
+                paginationNav.style.display = 'none';
+                return;
+            }
+
+            console.log('Showing pagination with', totalPages, 'pages');
+            paginationNav.style.display = 'block';
+
+            let html = '';
+
+            // Botón Previous
+            html += `
+                <li class="pagination-item">
+                    <button class="pagination-arrow" ${currentPage === 1 ? 'disabled' : ''}
+                            onclick="goToPage(${currentPage - 1})" aria-label="Previous page">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </li>
+            `;
+
+            // ZILLOW: Mostrar máximo 7 botones
+            const maxButtons = 7;
+            let startPage = Math.max(1, currentPage - 3);
+            let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+
+            // Ajustar startPage si estamos cerca del final
+            if (endPage - startPage < maxButtons - 1) {
+                startPage = Math.max(1, endPage - maxButtons + 1);
+            }
+
+            // Primer página + ellipsis si es necesario
+            if (startPage > 1) {
+                html += `
+                    <li class="pagination-item">
+                        <button class="pagination-btn" onclick="goToPage(1)">1</button>
+                    </li>
+                `;
+                if (startPage > 2) {
+                    html += `<li class="pagination-item"><span class="pagination-ellipsis">...</span></li>`;
+                }
+            }
+
+            // Botones de números de página
+            for (let i = startPage; i <= endPage; i++) {
+                html += `
+                    <li class="pagination-item">
+                        <button class="pagination-btn ${i === currentPage ? 'active' : ''}"
+                                onclick="goToPage(${i})">${i}</button>
+                    </li>
+                `;
+            }
+
+            // Ellipsis + última página si es necesario
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    html += `<li class="pagination-item"><span class="pagination-ellipsis">...</span></li>`;
+                }
+                html += `
+                    <li class="pagination-item">
+                        <button class="pagination-btn" onclick="goToPage(${totalPages})">${totalPages}</button>
+                    </li>
+                `;
+            }
+
+            // Botón Next
+            html += `
+                <li class="pagination-item">
+                    <button class="pagination-arrow" ${currentPage === totalPages ? 'disabled' : ''}
+                            onclick="goToPage(${currentPage + 1})" aria-label="Next page">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </li>
+            `;
+
+            paginationList.innerHTML = html;
+        }
+
+        function goToPage(pageNumber) {
+            currentPage = pageNumber;
+
+            // Scroll al tope del panel de listings
+            const listingsSection = document.getElementById('listings-container');
+            listingsSection.scrollTop = 0;
+
+            // Re-renderizar con la nueva página
+            renderListings(filteredProperties);
         }
 
         // ========== NUEVO SISTEMA DE FILTROS ZILLOW ==========
@@ -1891,6 +2112,9 @@ body.map-animating .listing-card .listing-image {
                 return true;
             });
 
+            // PAGINACIÓN: Reset a página 1 cuando se aplican filtros
+            currentPage = 1;
+
             renderMarkers(filteredProperties);
             renderListings(filteredProperties);
         }
@@ -1903,6 +2127,9 @@ body.map-animating .listing-card .listing-image {
             activeFilters.bedrooms = '';
             activeFilters.bathrooms = '';
             activeFilters.zone = '';
+
+            // PAGINACIÓN: Reset a página 1
+            currentPage = 1;
 
             // Reset visual de todos los chips (usando los nuevos IDs)
             ['type', 'price', 'beds-baths', 'more'].forEach(chipId => {
