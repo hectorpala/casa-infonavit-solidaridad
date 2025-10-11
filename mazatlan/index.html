@@ -1965,8 +1965,6 @@ body.map-animating .listing-card .listing-image {
             const pageProperties = properties.slice(startIndex, endIndex);
 
             container.innerHTML = pageProperties.map((p, index) => {
-                // USAR SLUG como identificador único (no cambia con paginación)
-                const carouselId = p.slug;
                 // Determinar badges según características
                 const badges = [];
                 if (p.price < 2500000) badges.push('<span class="badge green"><i class="fa-solid fa-tag"></i>Precio Bajo</span>');
@@ -1981,10 +1979,10 @@ body.map-animating .listing-card .listing-image {
                 );
 
                 return `
-                <div class="listing-card" id="card-${p.slug}" data-carousel-id="${carouselId}" onmouseenter="highlightMarker('${p.slug}')" onclick="window.open('../mazatlan/${p.slug}/index.html', '_blank')" style="cursor: pointer;">
+                <div class="listing-card" id="card-${p.slug}" data-carousel-id="${p.slug}" onmouseenter="highlightMarker('${p.slug}')" onclick="window.open('../mazatlan/${p.slug}/index.html', '_blank')" style="cursor: pointer;">
                     <!-- ZILLOW: Card Image Container -->
                     <div class="card-carousel-container" style="position:relative;">
-                        <div class="card-carousel-images" id="carousel-${carouselId}">
+                        <div class="card-carousel-images" id="carousel-${p.slug}">
                             ${photos.map(photo => `<img src="${photo}" class="listing-image" alt="${p.title}" onerror="this.style.display='none'">`).join('')}
                         </div>
 
@@ -2001,16 +1999,16 @@ body.map-animating .listing-card .listing-image {
                         </div>
 
                         <!-- ZILLOW: Flechas carrusel (solo visible en hover) -->
-                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto('${carouselId}', -1)" aria-label="Anterior">
+                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto('${p.slug}', -1)" aria-label="Anterior">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
-                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto('${carouselId}', 1)" aria-label="Siguiente">
+                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto('${p.slug}', 1)" aria-label="Siguiente">
                             <i class="fa-solid fa-chevron-right"></i>
                         </button>
 
                         <!-- ZILLOW: Dots indicadores (inferior centro) -->
                         <div class="carousel-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 10;">
-                            ${photos.map((_, i) => `<div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToCardPhoto('${carouselId}', ${i})" style="width: 6px; height: 6px; border-radius: 50%; background: ${i === 0 ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer;"></div>`).join('')}
+                            ${photos.map((_, i) => `<div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToCardPhoto('${p.slug}', ${i})" style="width: 6px; height: 6px; border-radius: 50%; background: ${i === 0 ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer;"></div>`).join('')}
                         </div>
                     </div>
 
@@ -2507,13 +2505,13 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        function updateCarouselDots(carouselId) {
-            const card = document.querySelector(`[data-carousel-id="${carouselId}"]`);
+        function updateCarouselDots(slug) {
+            const card = document.getElementById(`card-${slug}`);
             if (!card) return;
 
             const dots = card.querySelectorAll('.carousel-dot');
             dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === carouselStates[carouselId]);
+                dot.classList.toggle('active', i === carouselStates[slug]);
             });
         }
 
