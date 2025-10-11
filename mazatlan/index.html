@@ -702,37 +702,55 @@ body{
   width: 100%;
   aspect-ratio: 16/9;
 }
+/* Base segura para móvil y desktop */
 .carousel-wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  touch-action: pan-y; /* Permite scroll vertical natural y swipe horizontal controlado */
 }
+@media (min-width: 641px) {
+  .carousel-wrapper {
+    aspect-ratio: 16/9;
+  }
+}
+
 .carousel-slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   opacity: 0;
-  transition: opacity 400ms ease-in-out;
+  visibility: hidden;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  will-change: opacity;
 }
 .carousel-slide.active {
   opacity: 1;
+  visibility: visible;
   z-index: 1;
+  pointer-events: auto;
+  transition: opacity 300ms ease-in-out, visibility 0s linear 0s;
 }
 .carousel-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  -webkit-transform: translateZ(0); /* fuerza composición en iOS */
 }
-/* ZILLOW: Flechas carrusel en tarjetas */
-.carousel-arrow-card {
+
+/* Controles siempre por encima y tocables */
+.carousel-arrow-card,
+.carousel-dot {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
+  z-index: 50;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+/* ZILLOW: Flechas carrusel en tarjetas - Áreas táctiles razonables */
+.carousel-arrow-card {
   background: rgba(255, 255, 255, 0.95);
   border: none;
   border-radius: 50%;
@@ -741,8 +759,22 @@ body{
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s;
-  z-index: 20;
-  pointer-events: auto; /* Crítico: permite clicks */
+}
+
+.carousel-arrow-card.prev {
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+}
+
+.carousel-arrow-card.next {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
 }
 
 .carousel-arrow-card i {
@@ -761,13 +793,6 @@ body{
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.carousel-arrow-card.prev {
-  left: 8px;
-}
-
-.carousel-arrow-card.next {
-  right: 8px;
-}
 .carousel-dots {
   position: absolute;
   bottom: 8px;
@@ -778,13 +803,12 @@ body{
   z-index: 15;
 }
 .carousel-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
   background: rgba(255,255,255,0.5);
   cursor: pointer;
   transition: all 0.2s;
-  pointer-events: auto; /* Crítico: permite clicks */
   border: none; /* Remover borde default de button */
 }
 .carousel-dot.active {
@@ -2509,6 +2533,30 @@ body.map-animating .listing-card .listing-image {
                 visibleCount.textContent = count;
             }
         }
+
+        // ===== Inicialización carruseles: fuerza un único activo =====
+        (function initCarouselsOnce(){
+            if (window.__carInitDone) return;
+            window.__carInitDone = true;
+
+            function initOne(root) {
+                const slides = root.querySelectorAll('.carousel-slide');
+                if (!slides.length) return;
+                // Fuerza un único activo
+                slides.forEach(function(s, i){ s.classList.toggle('active', i === 0); });
+                // Resetea dots
+                const dots = root.querySelectorAll('.carousel-dot');
+                dots.forEach(function(d, i){ d.classList.toggle('active', i === 0); });
+                // Guarda índice interno para el modo por contexto
+                root.__idx = 0;
+            }
+
+            // Inicializar al cargar
+            document.querySelectorAll('.card-carousel-container').forEach(initOne);
+
+            // Exponer para re-renders manuales
+            window.initCarousel = initOne;
+        })();
 
         // ===== Sistema carrusel WeakMap (sin dependencia de slug) =====
         (function installCarouselSystem(){
