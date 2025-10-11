@@ -838,9 +838,9 @@ body.carousel-swipe-lock {
   }
 
   .listing-card{
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 0 16px 0 !important; /* ZILLOW: solo margin-bottom 16px */
+    width: 75% !important; /* Ancho ajustado a proporción de fotos verticales */
+    max-width: 75% !important;
+    margin: 0 auto 16px auto !important; /* Centrado con margin-bottom 16px */
     border-radius: 0 !important; /* ZILLOW: sin border-radius en móvil */
   }
 
@@ -896,7 +896,7 @@ body.carousel-swipe-lock {
     opacity: 0.9; /* Ligeramente transparente para más sutileza */
   }
 
-  /* La imagen no intercepta toques; los controles sí - COVER UNIVERSAL */
+  /* La imagen no intercepta toques; los controles sí - COVER SIMÉTRICO */
   .card-carousel-container .carousel-slide .carousel-image,
   .card-carousel-container .carousel-image,
   .listing-card .card-carousel-container .carousel-image,
@@ -906,23 +906,13 @@ body.carousel-swipe-lock {
   .carousel-image{
     width: 100% !important;
     height: 177px !important; /* Altura fija Zillow */
-    object-fit: cover !important; /* MOBILE: Todas las fotos llenan - horizontales se cortan más */
-    object-position: center !important;
+    object-fit: cover !important; /* Recorte simétrico automático */
+    object-position: center !important; /* Centro: mismo recorte izq/der */
     display: block !important;
     pointer-events: none !important;
     max-width: 100% !important;
     position: relative !important;
     z-index: 1 !important; /* Por encima del fondo blur */
-  }
-
-  /* Fotos verticales: zoom aumentado 1.3 para verse más completas */
-  .carousel-image.vertical-photo{
-    transform: scale(1.3) !important;
-  }
-
-  /* Fotos horizontales: reducción 0.8 para igualar ancho visual con verticales */
-  .carousel-image.horizontal-photo{
-    transform: scale(0.8) !important;
   }
   .card-carousel-container .carousel-arrow-card,
   .card-carousel-container .carousel-dot{
