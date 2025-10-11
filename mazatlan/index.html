@@ -867,18 +867,35 @@ body.carousel-swipe-lock {
 
   /* Modo seguro: solo la slide activa es visible */
   .card-carousel-container .carousel-slide{
-    position: static !important;
+    position: relative !important; /* Necesario para ::before */
     display: none !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: none;
+    overflow: hidden;
   }
   .card-carousel-container .carousel-slide.active{
     display: block !important;
     pointer-events: auto;
   }
 
-  /* La imagen no intercepta toques; los controles sí - COVER PARA RELLENAR TARJETA */
+  /* Fondo blur inteligente detrás de la imagen */
+  .card-carousel-container .carousel-slide::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-img); /* Usa la misma imagen */
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.8) saturate(1.2); /* Blur + oscurece + satura */
+    transform: scale(1.1); /* Evita bordes del blur */
+    z-index: 0;
+  }
+
+  /* La imagen no intercepta toques; los controles sí - SCALE-DOWN INTELIGENTE */
   .card-carousel-container .carousel-slide .carousel-image,
   .card-carousel-container .carousel-image,
   .listing-card .card-carousel-container .carousel-image,
@@ -888,11 +905,13 @@ body.carousel-swipe-lock {
   .carousel-image{
     width: 100% !important;
     height: 177px !important; /* Altura fija Zillow */
-    object-fit: cover !important; /* MOBILE: Rellena tarjeta completa (recorta mínimo necesario) */
+    object-fit: scale-down !important; /* MOBILE: Inteligente - horizontales llenan, verticales completas */
     object-position: center !important;
     display: block !important;
     pointer-events: none !important;
     max-width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important; /* Por encima del fondo blur */
   }
   .card-carousel-container .carousel-arrow-card,
   .card-carousel-container .carousel-dot{
@@ -2202,7 +2221,7 @@ body.map-animating .listing-card .listing-image {
 
                 // Generar slides individuales (sistema Casa Solidaridad)
                 const slidesHtml = photos.map((photo, i) =>
-                    '<div class="carousel-slide ' + (i === 0 ? 'active' : '') + '" data-slide="' + i + '">' +
+                    '<div class="carousel-slide ' + (i === 0 ? 'active' : '') + '" data-slide="' + i + '" style="--bg-img: url(\'' + photo + '\');">' +
                         '<img src="' + photo + '" class="carousel-image" alt="' + p.title + '" onerror="this.style.display=\'none\'">' +
                     '</div>'
                 ).join('');
