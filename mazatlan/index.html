@@ -3206,7 +3206,7 @@ body.map-animating .listing-card .listing-image {
             propertyCards.forEach(card => {
                 // Remover listener anterior si existe
                 if (card.__clickListener) {
-                    card.removeEventListener('click', card.__clickListener);
+                    card.removeEventListener('click', card.__clickListener, {capture: true});
                 }
 
                 const clickListener = function(e) {
@@ -3219,15 +3219,23 @@ body.map-animating .listing-card .listing-image {
                         return;
                     }
 
+                    // Don't navigate if clicking on carousel image (allow swipe)
+                    if (e.target.closest('.carousel-image')) {
+                        console.log('📷 Image clicked, allow swipe');
+                        return;
+                    }
+
                     const url = this.getAttribute('data-property-url');
                     console.log('🔗 URL:', url);
                     if (url) {
+                        e.stopPropagation(); // Prevenir que swipe system capture esto
                         window.location.href = url;
                     }
                 };
 
                 card.__clickListener = clickListener;
-                card.addEventListener('click', clickListener);
+                // CRÍTICO: capture phase para ejecutar ANTES que swipe system
+                card.addEventListener('click', clickListener, {capture: true});
             });
         }
 
