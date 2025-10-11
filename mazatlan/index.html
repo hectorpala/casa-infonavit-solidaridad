@@ -896,7 +896,7 @@ body.carousel-swipe-lock {
     opacity: 0.9; /* Ligeramente transparente para más sutileza */
   }
 
-  /* La imagen no intercepta toques; los controles sí - SCALE-DOWN INTELIGENTE */
+  /* La imagen no intercepta toques; los controles sí - SCALE-DOWN INTELIGENTE + ZOOM 20% */
   .card-carousel-container .carousel-slide .carousel-image,
   .card-carousel-container .carousel-image,
   .listing-card .card-carousel-container .carousel-image,
@@ -913,6 +913,7 @@ body.carousel-swipe-lock {
     max-width: 100% !important;
     position: relative !important;
     z-index: 1 !important; /* Por encima del fondo blur */
+    transform: scale(1.2) !important; /* Agranda 20% para llenar mejor (sin deformar mucho) */
   }
   .card-carousel-container .carousel-arrow-card,
   .card-carousel-container .carousel-dot{
