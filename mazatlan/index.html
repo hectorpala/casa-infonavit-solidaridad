@@ -1985,7 +1985,7 @@ body.map-animating .listing-card .listing-image {
                 );
 
                 const dotsHtml = photos.map((_, i) =>
-                    '<div class="carousel-dot ' + (i === 0 ? 'active' : '') + '" onclick="event.stopPropagation(); goToCardPhoto(\'' + p.slug + '\', ' + i + ')" style="width: 6px; height: 6px; border-radius: 50%; background: ' + (i === 0 ? 'white' : 'rgba(255,255,255,0.5)') + '; cursor: pointer;"></div>'
+                    '<div class="carousel-dot ' + (i === 0 ? 'active' : '') + '" data-slug="' + p.slug + '" data-index="' + i + '" style="width: 6px; height: 6px; border-radius: 50%; background: ' + (i === 0 ? 'white' : 'rgba(255,255,255,0.5)') + '; cursor: pointer;"></div>'
                 ).join('');
 
                 return '<div class="listing-card" id="card-' + p.slug + '" data-carousel-id="' + p.slug + '" onmouseenter="highlightMarker(\'' + p.slug + '\')" onclick="window.open(\'../mazatlan/' + p.slug + '/index.html\', \'_blank\')" style="cursor: pointer;">' +
@@ -2005,10 +2005,10 @@ body.map-animating .listing-card .listing-image {
                             '</button>' +
                         '</div>' +
                         '<!-- ZILLOW: Flechas carrusel (solo visible en hover) -->' +
-                        '<button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto(\'' + p.slug + '\', -1)" aria-label="Anterior">' +
+                        '<button class="carousel-arrow-card prev" data-slug="' + p.slug + '" data-direction="-1" aria-label="Anterior">' +
                             '<i class="fa-solid fa-chevron-left"></i>' +
                         '</button>' +
-                        '<button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto(\'' + p.slug + '\', 1)" aria-label="Siguiente">' +
+                        '<button class="carousel-arrow-card next" data-slug="' + p.slug + '" data-direction="1" aria-label="Siguiente">' +
                             '<i class="fa-solid fa-chevron-right"></i>' +
                         '</button>' +
                         '<!-- ZILLOW: Dots indicadores (inferior centro) -->' +
@@ -2043,12 +2043,51 @@ body.map-animating .listing-card .listing-image {
             // PAGINACIÓN: Renderizar controles
             renderPagination(totalPages);
 
+            // ZILLOW: Event delegation para carruseles (flechas y dots)
+            attachCarouselListeners();
+
             // Recalcular mediciones después de renderizar (móvil)
             if (window.innerWidth <= 768 && window.mapInstance) {
                 setTimeout(() => {
                     applyCompactSheetAndReveal(window.mapInstance);
                 }, 300); // Aumentado para que carguen las imágenes
             }
+        }
+
+        // ZILLOW: Event delegation para carruseles
+        function attachCarouselListeners() {
+            const container = document.getElementById('listings-container');
+            if (!container) return;
+
+            // Remover listeners anteriores si existen
+            const oldContainer = container.cloneNode(true);
+            container.parentNode.replaceChild(oldContainer, container);
+            const freshContainer = document.getElementById('listings-container');
+
+            // Event delegation para flechas del carrusel
+            freshContainer.addEventListener('click', function(e) {
+                // Buscar si el click fue en una flecha (o su hijo <i>)
+                const arrow = e.target.closest('.carousel-arrow-card');
+                if (arrow) {
+                    e.stopPropagation();
+                    const slug = arrow.getAttribute('data-slug');
+                    const direction = parseInt(arrow.getAttribute('data-direction'));
+                    if (slug && direction) {
+                        changeCardPhoto(slug, direction);
+                    }
+                }
+
+                // Buscar si el click fue en un dot
+                const dot = e.target.closest('.carousel-dot');
+                if (dot) {
+                    e.stopPropagation();
+                    const slug = dot.getAttribute('data-slug');
+                    const index = parseInt(dot.getAttribute('data-index'));
+                    if (slug && index !== null && index !== undefined) {
+                        goToCardPhoto(slug, index);
+                    }
+                }
+            });
         }
 
         function highlightMarker(slug) {
