@@ -879,7 +879,7 @@ body.carousel-swipe-lock {
     pointer-events: auto;
   }
 
-  /* Fondo blur inteligente detrás de la imagen */
+  /* Fondo blur inteligente detrás de la imagen - OPCIÓN 2: Blur + Desaturate (Natural) */
   .card-carousel-container .carousel-slide::before{
     content: '';
     position: absolute;
@@ -890,9 +890,10 @@ body.carousel-swipe-lock {
     background-image: var(--bg-img); /* Usa la misma imagen */
     background-size: cover;
     background-position: center;
-    filter: blur(20px) brightness(0.8) saturate(1.2); /* Blur + oscurece + satura */
+    filter: blur(15px) saturate(0.3) brightness(0.95); /* Blur suave + desaturate (casi gris) + brillo natural */
     transform: scale(1.1); /* Evita bordes del blur */
     z-index: 0;
+    opacity: 0.9; /* Ligeramente transparente para más sutileza */
   }
 
   /* La imagen no intercepta toques; los controles sí - SCALE-DOWN INTELIGENTE */
