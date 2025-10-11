@@ -1464,25 +1464,32 @@ body.map-animating .listing-card .listing-image {
 
 /* ZILLOW: Botón de cerrar personalizado */
 .gm-style .gm-ui-hover-effect {
-  top: 8px !important;
-  right: 8px !important;
-  width: 28px !important;
-  height: 28px !important;
-  background: rgba(255, 255, 255, 0.95) !important;
+  top: 4px !important;
+  right: 4px !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: white !important;
   border-radius: 50% !important;
   opacity: 1 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  z-index: 1000 !important;
 }
 
 .gm-style .gm-ui-hover-effect img {
-  width: 14px !important;
-  height: 14px !important;
-  margin: 7px !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 8px !important;
+  opacity: 0.7 !important;
 }
 
 /* ZILLOW: Hover en botón cerrar */
 .gm-style .gm-ui-hover-effect:hover {
-  background: rgba(255, 255, 255, 1) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.gm-style .gm-ui-hover-effect:hover img {
+  opacity: 1 !important;
 }
     </style>
 </head>
