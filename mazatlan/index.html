@@ -1533,53 +1533,53 @@ body.map-animating .listing-card .listing-image {
             <!-- Desktop: Open App button -->
             <button class="open-app-btn" onclick="alert('App disponible próximamente')">
                 <i class="fas fa-mobile-alt"></i>
-                <span>Open App</span>
+                <span>Abrir App</span>
             </button>
 
             <!-- Móvil: Map/List toggle buttons -->
             <div class="view-toggle-buttons">
                 <button class="view-toggle-btn" id="map-btn" onclick="switchView('map')">
-                    <i class="fas fa-map"></i>Map
+                    <i class="fas fa-map"></i>Mapa
                 </button>
                 <button class="view-toggle-btn active" id="list-btn" onclick="switchView('list')">
-                    <i class="fas fa-list"></i>List
+                    <i class="fas fa-list"></i>Lista
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- ZILLOW: Filtros exactos (For Sale, Price, Beds & Baths, More) -->
+    <!-- ZILLOW: Filtros exactos (En Venta, Precio, Recámaras y Baños, Más) -->
     <div class="filter-bar-zillow">
-        <!-- ZILLOW: Filtro 1 - For Sale (tipo de listado) -->
+        <!-- ZILLOW: Filtro 1 - En Venta (tipo de listado) -->
         <div class="filter-chip" id="chip-type" onclick="openBottomSheet('type')">
-            <span class="chip-label">For Sale</span>
+            <span class="chip-label">En Venta</span>
             <i class="fas fa-chevron-down chip-icon"></i>
         </div>
 
-        <!-- ZILLOW: Filtro 2 - Price -->
+        <!-- ZILLOW: Filtro 2 - Precio -->
         <div class="filter-chip" id="chip-price" onclick="openBottomSheet('price')">
-            <span class="chip-label">Price</span>
+            <span class="chip-label">Precio</span>
             <i class="fas fa-chevron-down chip-icon"></i>
         </div>
 
-        <!-- ZILLOW: Filtro 3 - Beds & Baths (combinado) -->
+        <!-- ZILLOW: Filtro 3 - Recámaras y Baños (combinado) -->
         <div class="filter-chip" id="chip-beds-baths" onclick="openBottomSheet('beds-baths')">
-            <span class="chip-label">Beds & Baths</span>
+            <span class="chip-label">Recámaras y Baños</span>
             <i class="fas fa-chevron-down chip-icon"></i>
         </div>
 
-        <!-- ZILLOW: Filtro 4 - More (incluye Zona y otros) -->
+        <!-- ZILLOW: Filtro 4 - Más (incluye Zona y otros) -->
         <div class="filter-chip" id="chip-more" onclick="openBottomSheet('more')">
-            <span class="chip-label">More</span>
+            <span class="chip-label">Más</span>
             <i class="fas fa-chevron-down chip-icon"></i>
         </div>
     </div>
 
-    <!-- ZILLOW: Action Bar con Save search -->
+    <!-- ZILLOW: Action Bar con Guardar búsqueda -->
     <div class="search-page-action-bar">
         <div class="action-bar-left-content">
             <button class="save-search-button" onclick="alert('Guardar búsqueda - Próximamente')">
-                Save search
+                Guardar búsqueda
             </button>
         </div>
         <div class="action-bar-right-content"></div>
@@ -1588,31 +1588,31 @@ body.map-animating .listing-card .listing-image {
     <!-- Bottom Sheets para cada filtro -->
     <div class="bottom-sheet-overlay" id="sheet-overlay" onclick="closeBottomSheet()"></div>
 
-    <!-- ZILLOW: Bottom Sheet 1 - FOR SALE (Tipo de listado) -->
+    <!-- ZILLOW: Bottom Sheet 1 - EN VENTA (Tipo de listado) -->
     <div class="bottom-sheet" id="sheet-type">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Listing Type</h3>
-            <button class="sheet-apply" onclick="applyFilter('type')">Done</button>
+            <h3>Tipo de Propiedad</h3>
+            <button class="sheet-apply" onclick="applyFilter('type')">Listo</button>
         </div>
         <div class="sheet-content">
             <div class="button-group">
-                <button class="option-btn selected" data-value="sale" onclick="selectOption(this, 'type', 'sale')">For Sale</button>
-                <button class="option-btn" data-value="rent" onclick="selectOption(this, 'type', 'rent')">For Rent</button>
+                <button class="option-btn selected" data-value="sale" onclick="selectOption(this, 'type', 'sale')">En Venta</button>
+                <button class="option-btn" data-value="rent" onclick="selectOption(this, 'type', 'rent')">En Renta</button>
             </div>
         </div>
     </div>
 
-    <!-- ZILLOW: Bottom Sheet 2 - PRICE (actualizado) -->
+    <!-- ZILLOW: Bottom Sheet 2 - PRECIO (actualizado) -->
     <div class="bottom-sheet" id="sheet-price">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Price</h3>
-            <button class="sheet-apply" onclick="applyFilter('price')">Done</button>
+            <h3>Precio</h3>
+            <button class="sheet-apply" onclick="applyFilter('price')">Listo</button>
         </div>
         <div class="sheet-content">
             <div class="price-options">
-                <button class="price-btn" data-value="" onclick="selectPrice(this, '')">No Min - No Max</button>
+                <button class="price-btn" data-value="" onclick="selectPrice(this, '')">Sin Límite</button>
                 <button class="price-btn" data-value="0-2500000" onclick="selectPrice(this, '0-2500000')">$0 - $2.5M</button>
                 <button class="price-btn" data-value="2500000-3000000" onclick="selectPrice(this, '2500000-3000000')">$2.5M - $3.0M</button>
                 <button class="price-btn" data-value="3000000-3500000" onclick="selectPrice(this, '3000000-3500000')">$3.0M - $3.5M</button>
@@ -1621,18 +1621,18 @@ body.map-animating .listing-card .listing-image {
         </div>
     </div>
 
-    <!-- ZILLOW: Bottom Sheet 3 - BEDS & BATHS (combinado) -->
+    <!-- ZILLOW: Bottom Sheet 3 - RECÁMARAS Y BAÑOS (combinado) -->
     <div class="bottom-sheet" id="sheet-beds-baths">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Beds & Baths</h3>
-            <button class="sheet-apply" onclick="applyFilter('beds-baths')">Done</button>
+            <h3>Recámaras y Baños</h3>
+            <button class="sheet-apply" onclick="applyFilter('beds-baths')">Listo</button>
         </div>
         <div class="sheet-content">
-            <!-- Sección: Bedrooms -->
-            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Bedrooms</h4>
+            <!-- Sección: Recámaras -->
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Recámaras</h4>
             <div class="button-group" style="margin-bottom: 24px;">
-                <button class="option-btn" data-value="" onclick="selectOption(this, 'bedrooms', '')">Any</button>
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bedrooms', '')">Cualquiera</button>
                 <button class="option-btn" data-value="1" onclick="selectOption(this, 'bedrooms', '1')">1+</button>
                 <button class="option-btn" data-value="2" onclick="selectOption(this, 'bedrooms', '2')">2+</button>
                 <button class="option-btn" data-value="3" onclick="selectOption(this, 'bedrooms', '3')">3+</button>
@@ -1640,10 +1640,10 @@ body.map-animating .listing-card .listing-image {
                 <button class="option-btn" data-value="5" onclick="selectOption(this, 'bedrooms', '5')">5+</button>
             </div>
 
-            <!-- Sección: Bathrooms -->
-            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Bathrooms</h4>
+            <!-- Sección: Baños -->
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Baños</h4>
             <div class="button-group">
-                <button class="option-btn" data-value="" onclick="selectOption(this, 'bathrooms', '')">Any</button>
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bathrooms', '')">Cualquiera</button>
                 <button class="option-btn" data-value="1" onclick="selectOption(this, 'bathrooms', '1')">1+</button>
                 <button class="option-btn" data-value="2" onclick="selectOption(this, 'bathrooms', '2')">2+</button>
                 <button class="option-btn" data-value="3" onclick="selectOption(this, 'bathrooms', '3')">3+</button>
@@ -1652,26 +1652,26 @@ body.map-animating .listing-card .listing-image {
         </div>
     </div>
 
-    <!-- ZILLOW: Bottom Sheet 4 - MORE (Zona + Clear All) -->
+    <!-- ZILLOW: Bottom Sheet 4 - MÁS (Zona + Limpiar Todo) -->
     <div class="bottom-sheet" id="sheet-more">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>More Filters</h3>
-            <button class="sheet-apply" onclick="applyFilter('more')">Done</button>
+            <h3>Más Filtros</h3>
+            <button class="sheet-apply" onclick="applyFilter('more')">Listo</button>
         </div>
         <div class="sheet-content">
-            <!-- Sección: Neighborhood -->
-            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Neighborhood</h4>
+            <!-- Sección: Zona -->
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Zona</h4>
             <div class="button-group" style="margin-bottom: 24px;">
-                <button class="option-btn" data-value="" onclick="selectOption(this, 'zone', '')">Any</button>
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'zone', '')">Cualquiera</button>
                 <button class="option-btn" data-value="real-del-valle" onclick="selectOption(this, 'zone', 'real-del-valle')">Real del Valle</button>
                 <button class="option-btn" data-value="marina" onclick="selectOption(this, 'zone', 'marina')">Marina</button>
                 <button class="option-btn" data-value="centro" onclick="selectOption(this, 'zone', 'centro')">Centro</button>
             </div>
 
-            <!-- Clear All Filters Button -->
+            <!-- Botón Limpiar Todos los Filtros -->
             <button onclick="resetFilters()" style="width: 100%; padding: 12px 16px; border-radius: 4px; background: #fff; border: 1px solid #A7A6AB; color: #2A2A33; font-size: 14px; font-weight: 700; cursor: pointer; transition: background-color 0.2s ease;">
-                Clear All Filters
+                Limpiar Todos los Filtros
             </button>
         </div>
     </div>
@@ -1683,7 +1683,7 @@ body.map-animating .listing-card .listing-image {
         <!-- Sticker flotante para cambiar a vista List -->
         <button class="map-sticker" onclick="switchView('list')" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: white; border: 1px solid var(--line); border-radius: 999px; padding: 12px 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 14px; font-weight: 700; cursor: pointer; z-index: 1001; display: flex; align-items: center; gap: 8px;">
             <i class="fas fa-list"></i>
-            View List
+            Ver Lista
         </button>
     </div>
 
@@ -1703,7 +1703,7 @@ body.map-animating .listing-card .listing-image {
         <!-- Sticker flotante para cambiar a vista Map -->
         <button class="list-sticker" onclick="switchView('map')" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; border: none; border-radius: 999px; padding: 12px 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-size: 14px; font-weight: 700; cursor: pointer; z-index: 1001; display: flex; align-items: center; gap: 8px;">
             <i class="fas fa-map"></i>
-            View Map
+            Ver Mapa
         </button>
     </div>
 
@@ -2273,7 +2273,7 @@ body.map-animating .listing-card .listing-image {
                 // Actualizar texto del chip con valor seleccionado
                 let displayText = '';
                 if (filterType === 'type') {
-                    displayText = value === 'sale' ? 'For Sale' : 'For Rent';
+                    displayText = value === 'sale' ? 'En Venta' : 'En Renta';
                 } else if (filterType === 'price') {
                     const ranges = {
                         '0-2500000': '$0-$2.5M',
@@ -2281,18 +2281,18 @@ body.map-animating .listing-card .listing-image {
                         '3000000-3500000': '$3.0M-$3.5M',
                         '3500000-999999999': '$3.5M+'
                     };
-                    displayText = ranges[value] || 'Price';
+                    displayText = ranges[value] || 'Precio';
                 } else if (filterType === 'bedrooms') {
-                    displayText = value + '+ bd';
+                    displayText = value + '+ rec';
                 } else if (filterType === 'bathrooms') {
-                    displayText = value + '+ ba';
+                    displayText = value + '+ baños';
                 } else if (filterType === 'zone') {
                     const zones = {
                         'real-del-valle': 'Real del Valle',
                         'marina': 'Marina',
                         'centro': 'Centro'
                     };
-                    displayText = zones[value] || 'Neighborhood';
+                    displayText = zones[value] || 'Zona';
                 }
 
                 // ZILLOW: Para beds-baths, mostrar ambos si están activos
@@ -2300,11 +2300,11 @@ body.map-animating .listing-card .listing-image {
                     const bedValue = activeFilters.bedrooms;
                     const bathValue = activeFilters.bathrooms;
                     if (bedValue && bathValue) {
-                        displayText = `${bedValue}+ bd, ${bathValue}+ ba`;
+                        displayText = `${bedValue}+ rec, ${bathValue}+ baños`;
                     } else if (bedValue) {
-                        displayText = `${bedValue}+ bd`;
+                        displayText = `${bedValue}+ rec`;
                     } else if (bathValue) {
-                        displayText = `${bathValue}+ ba`;
+                        displayText = `${bathValue}+ baños`;
                     }
                 }
 
@@ -2354,15 +2354,15 @@ body.map-animating .listing-card .listing-image {
             const chip = document.getElementById(`chip-${filterType}`);
             chip.classList.remove('active');
 
-            // ZILLOW: Labels actualizados a inglés
+            // ZILLOW: Labels actualizados a español
             const labels = {
-                type: 'For Sale',
-                price: 'Price',
-                'beds-baths': 'Beds & Baths',
-                more: 'More',
-                bedrooms: 'Beds & Baths',
-                bathrooms: 'Beds & Baths',
-                zone: 'More'
+                type: 'En Venta',
+                price: 'Precio',
+                'beds-baths': 'Recámaras y Baños',
+                more: 'Más',
+                bedrooms: 'Recámaras y Baños',
+                bathrooms: 'Recámaras y Baños',
+                zone: 'Más'
             };
 
             chip.innerHTML = `
