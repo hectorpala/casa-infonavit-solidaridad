@@ -2436,6 +2436,9 @@ body.map-animating .listing-card .listing-image {
             // Detectar fotos verticales y agregar clase para zoom 20%
             detectVerticalPhotos();
 
+            // Inicializar sistema de click en tarjetas (Culiacán)
+            initPropertyCardClicks();
+
             // Móvil: Inicializar controles táctiles + tap-to-open en nuevas cards
             if (window.initMobileControlsOnly) {
                 window.initMobileControlsOnly();
@@ -3195,21 +3198,43 @@ body.map-animating .listing-card .listing-image {
             };
         })();
 
-        // ===== Sistema click Culiacán: Simple y funciona =====
-        const propertyCards = document.querySelectorAll('.listing-card[data-property-url]');
-        propertyCards.forEach(card => {
-            card.addEventListener('click', function(e) {
-                // Don't navigate if clicking on controls or dots
-                if (e.target.closest('.carousel-arrow-card') ||
-                    e.target.closest('.carousel-dot')) {
-                    return;
+        // ===== Sistema click Culiacán: EXACTO =====
+        function initPropertyCardClicks() {
+            const propertyCards = document.querySelectorAll('.listing-card[data-property-url]');
+            console.log('🔍 Found cards:', propertyCards.length);
+
+            propertyCards.forEach(card => {
+                // Remover listener anterior si existe
+                if (card.__clickListener) {
+                    card.removeEventListener('click', card.__clickListener);
                 }
 
-                const url = this.getAttribute('data-property-url');
-                if (url) {
-                    window.location.href = url;
-                }
+                const clickListener = function(e) {
+                    console.log('🖱️ Card clicked!', e.target);
+
+                    // Don't navigate if clicking on controls or dots
+                    if (e.target.closest('.carousel-arrow-card') ||
+                        e.target.closest('.carousel-dot')) {
+                        console.log('⛔ Control clicked, ignoring');
+                        return;
+                    }
+
+                    const url = this.getAttribute('data-property-url');
+                    console.log('🔗 URL:', url);
+                    if (url) {
+                        window.location.href = url;
+                    }
+                };
+
+                card.__clickListener = clickListener;
+                card.addEventListener('click', clickListener);
             });
+        }
+
+        // Llamar al cargar la página inicial
+        window.addEventListener('load', function() {
+            console.log('✅ Page loaded, initializing card clicks');
+            initPropertyCardClicks();
         });
 
         // Inicializar mapa al cargar
