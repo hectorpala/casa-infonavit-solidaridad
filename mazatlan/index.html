@@ -1799,47 +1799,39 @@ body.map-animating .listing-card .listing-image {
         }
 
         function createMarker(property, position) {
-            const gradient = getMarkerGradient(property.price);
-
+            // ZILLOW: Marcador compacto con precio
             const marker = new google.maps.Marker({
                 position: position,
                 map: map,
                 title: property.title,
                 icon: {
                     url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-                        <svg width="90" height="44" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="g-${property.slug.substring(0,10)}" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#FF6A00;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#D35500;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                            <rect x="0" y="0" width="90" height="36" rx="18" fill="url(#g-${property.slug.substring(0,10)})" stroke="white" stroke-width="3"/>
-                            <text x="45" y="24" font-family="Open Sans, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">${property.priceShort}</text>
+                        <svg width="70" height="32" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="70" height="32" rx="16" fill="#FF6A00" stroke="white" stroke-width="2"/>
+                            <text x="35" y="21" font-family="'Open Sans', Arial, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">${property.priceShort}</text>
                         </svg>
                     `)}`,
-                    scaledSize: new google.maps.Size(90, 44),
-                    anchor: new google.maps.Point(45, 44)
-                }
+                    scaledSize: new google.maps.Size(70, 32),
+                    anchor: new google.maps.Point(35, 32)
+                },
+                zIndex: 1
             });
 
+            // ZILLOW: Info window estilo Zillow
             const infoWindow = new google.maps.InfoWindow({
                 content: `
-                    <div style="padding:0;max-width:280px;font-family:'Open Sans',sans-serif">
-                        <img src="${property.image}" style="width:100%;height:180px;object-fit:cover;border-radius:8px 8px 0 0">
-                        <div style="padding:20px"> <!-- ZILLOW: padding 20px -->
-                            <h4 style="margin:0 0 8px;color:#FF6A00;font-size:20px;font-weight:700">${property.priceShort}</h4> <!-- ZILLOW: 20px precio -->
-                            <h5 style="margin:0 0 8px;color:#1f2937;font-size:14px;font-weight:600">${property.title}</h5> <!-- ZILLOW: 14px body -->
-                            <p style="margin:0 0 8px;color:#6b7280;font-size:14px">📍 ${property.location}</p> <!-- ZILLOW: 14px body -->
-                            <div style="display:flex;gap:12px;margin-bottom:10px;color:#6b7280;font-size:12px"> <!-- ZILLOW: 12px detalles -->
-                                <span>🛏️ ${property.bedrooms}</span>
-                                <span>🚿 ${property.bathrooms}</span>
-                                <span>📐 ${property.sqft}m²</span>
+                    <div style="padding:0;max-width:300px;font-family:'Open Sans',sans-serif;border-radius:8px;overflow:hidden;">
+                        <a href="../mazatlan/${property.slug}/index.html" target="_blank" style="text-decoration:none;display:block;">
+                            <img src="${property.image}" style="width:100%;height:200px;object-fit:cover;display:block;">
+                            <div style="padding:16px;background:white;">
+                                <div style="font-size:20px;font-weight:700;color:#2A2A33;margin-bottom:4px;">${property.priceShort}</div>
+                                <div style="font-size:14px;color:#6E6E78;margin-bottom:8px;">${property.bedrooms} rec • ${property.bathrooms} baños • ${property.sqft}m²</div>
+                                <div style="font-size:14px;color:#2A2A33;line-height:1.4;">${property.location}, Mazatlán</div>
                             </div>
-                            <a href="../mazatlan/${property.slug}/index.html" target="_blank" style="display:block;background:#FF6A00;color:white;text-align:center;padding:12px 20px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600">Ver Propiedad →</a> <!-- ZILLOW: padding 12px 20px, font 14px -->
-                        </div>
+                        </a>
                     </div>
-                `
+                `,
+                pixelOffset: new google.maps.Size(0, -10)
             });
 
             marker.addListener('click', () => {
@@ -2833,37 +2825,55 @@ body.map-animating .listing-card .listing-image {
             });
         }
 
-        // Crear marcador en mapa móvil (igual que desktop)
+        // Crear marcador en mapa móvil (igual que desktop - estilo Zillow)
         function createMarkerMobile(property, position) {
+            // ZILLOW: Marcador compacto con precio (igual que desktop)
             const marker = new google.maps.Marker({
                 position: position,
                 map: mapMobile,
                 title: property.title,
                 icon: {
                     url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-                        <svg width="90" height="44" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="g-${property.slug.substring(0,10)}-mobile" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#FF6A00;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#D35500;stop-opacity:1" />
-                                </linearGradient>
-                            </defs>
-                            <rect width="90" height="44" rx="22" fill="url(#g-${property.slug.substring(0,10)}-mobile)" stroke="#FFF" stroke-width="3"/>
-                            <text x="45" y="29" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">${property.priceShort}</text>
+                        <svg width="70" height="32" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="70" height="32" rx="16" fill="#FF6A00" stroke="white" stroke-width="2"/>
+                            <text x="35" y="21" font-family="'Open Sans', Arial, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">${property.priceShort}</text>
                         </svg>
                     `)}`,
-                    scaledSize: new google.maps.Size(90, 44),
-                    anchor: new google.maps.Point(45, 22)
-                }
+                    scaledSize: new google.maps.Size(70, 32),
+                    anchor: new google.maps.Point(35, 32)
+                },
+                zIndex: 1
+            });
+
+            // ZILLOW: Info window estilo Zillow (igual que desktop)
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="padding:0;max-width:300px;font-family:'Open Sans',sans-serif;border-radius:8px;overflow:hidden;">
+                        <a href="${property.slug}/index.html" style="text-decoration:none;display:block;">
+                            <img src="${property.image}" style="width:100%;height:200px;object-fit:cover;display:block;">
+                            <div style="padding:16px;background:white;">
+                                <div style="font-size:20px;font-weight:700;color:#2A2A33;margin-bottom:4px;">${property.priceShort}</div>
+                                <div style="font-size:14px;color:#6E6E78;margin-bottom:8px;">${property.bedrooms} rec • ${property.bathrooms} baños • ${property.sqft}m²</div>
+                                <div style="font-size:14px;color:#2A2A33;line-height:1.4;">${property.location}, Mazatlán</div>
+                            </div>
+                        </a>
+                    </div>
+                `,
+                pixelOffset: new google.maps.Size(0, -10)
             });
 
             mobileMarkers[property.slug] = marker;
 
-            // Click en marcador móvil
+            // Click en marcador móvil - Abre info window
             marker.addListener('click', () => {
-                // Abrir la propiedad
-                window.location.href = property.slug + '/index.html';
+                // Cerrar todas las otras info windows
+                Object.values(mobileInfoWindows || {}).forEach(iw => iw.close());
+                infoWindow.open(mapMobile, marker);
             });
+
+            // Guardar info window
+            if (!window.mobileInfoWindows) window.mobileInfoWindows = {};
+            window.mobileInfoWindows[property.slug] = infoWindow;
         }
 
         // Ejecutar al cargar (solo sincronizar listings)
