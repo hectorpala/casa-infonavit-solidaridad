@@ -2078,13 +2078,12 @@ body.map-animating .listing-card .listing-image {
             const container = document.getElementById('listings-container');
             if (!container) return;
 
-            // Remover listeners anteriores si existen
-            const oldContainer = container.cloneNode(true);
-            container.parentNode.replaceChild(oldContainer, container);
-            const freshContainer = document.getElementById('listings-container');
+            // Evita duplicados removiendo listener anterior
+            if (container._carouselListener) {
+                container.removeEventListener('click', container._carouselListener, true);
+            }
 
-            // Event delegation con CAPTURE phase para interceptar ANTES
-            freshContainer.addEventListener('click', function(e) {
+            const listener = function(e) {
                 console.log('🔵 Click detectado:', e.target);
 
                 // 1. PRIORIDAD: Clicks en flechas del carrusel
@@ -2093,15 +2092,14 @@ body.map-animating .listing-card .listing-image {
                     console.log('🟢 FLECHA detectada');
                     e.preventDefault();
                     e.stopPropagation();
-                    e.stopImmediatePropagation();
-                    const slug = arrow.getAttribute('data-slug');
-                    const direction = parseInt(arrow.getAttribute('data-direction'));
+                    const slug = arrow.dataset.slug;
+                    const direction = parseInt(arrow.dataset.direction);
                     console.log('🟢 Slug:', slug, 'Direction:', direction);
                     if (slug && direction) {
                         console.log('🟢 Llamando changeCardPhoto');
                         changeCardPhoto(slug, direction);
                     }
-                    return false;
+                    return;
                 }
 
                 // 2. PRIORIDAD: Clicks en dots del carrusel
@@ -2110,36 +2108,34 @@ body.map-animating .listing-card .listing-image {
                     console.log('🟡 DOT detectado');
                     e.preventDefault();
                     e.stopPropagation();
-                    e.stopImmediatePropagation();
-                    const slug = dot.getAttribute('data-slug');
-                    const index = parseInt(dot.getAttribute('data-index'));
+                    const slug = dot.dataset.slug;
+                    const index = parseInt(dot.dataset.index);
                     console.log('🟡 Slug:', slug, 'Index:', index);
-                    if (slug && index !== null && index !== undefined) {
+                    if (slug !== undefined && index !== undefined) {
                         console.log('🟡 Llamando goToCardPhoto');
                         goToCardPhoto(slug, index);
                     }
-                    return false;
+                    return;
                 }
 
-                // 3. Clicks en botones (Save, etc.) - ignorar
-                const button = e.target.closest('button, .icon-btn');
-                if (button && !arrow && !dot) {
-                    console.log('🔴 BOTÓN detectado - ignorando');
-                    return; // Dejar que el botón maneje su propio click
-                }
-
-                // 4. ÚLTIMA PRIORIDAD: Clicks en el card (abrir propiedad)
+                // 3. ÚLTIMA PRIORIDAD: Clicks en el card (abrir propiedad)
+                // Solo si NO es en flecha/dot
                 const card = e.target.closest('.listing-card');
-                if (card) {
+                if (card && !e.target.closest('.carousel-arrow-card, .carousel-dot')) {
                     console.log('🟣 CARD detectado');
-                    const url = card.getAttribute('data-property-url');
+                    const url = card.dataset.propertyUrl;
                     console.log('🟣 URL:', url);
                     if (url) {
                         console.log('🟣 Abriendo página');
                         window.open(url, '_blank');
                     }
                 }
-            }, true);
+            };
+
+            // Guardar referencia para poder removerlo después
+            container._carouselListener = listener;
+            container.addEventListener('click', listener, true);
+            console.log('✅ Carousel listeners attached');
         }
 
         function highlightMarker(slug) {
