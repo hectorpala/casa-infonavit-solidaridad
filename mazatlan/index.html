@@ -823,6 +823,45 @@ body.carousel-swipe-lock {
   touch-action: none !important;
 }
 
+/* Modo seguro móvil: display none/block en vez de opacity */
+@media (max-width: 640px){
+  /* Alto estable y scroll vertical normal */
+  .card-carousel-container .carousel-wrapper{
+    position: relative;
+    aspect-ratio: 4 / 3;
+    touch-action: pan-y;
+  }
+
+  /* Modo seguro: solo la slide activa es visible */
+  .card-carousel-container .carousel-slide{
+    position: static !important;
+    display: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none;
+  }
+  .card-carousel-container .carousel-slide.active{
+    display: block !important;
+    pointer-events: auto;
+  }
+
+  /* La imagen no intercepta toques; los controles sí */
+  .card-carousel-container .carousel-image{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+  .card-carousel-container .carousel-arrow-card,
+  .card-carousel-container .carousel-dot{
+    position: absolute;
+    z-index: 50;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+}
+
 /* Imagen con aspecto consistente - MEDIDA ZILLOW */
 .listing-card .listing-image{
   display:block;
