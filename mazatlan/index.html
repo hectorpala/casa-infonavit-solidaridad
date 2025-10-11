@@ -191,13 +191,13 @@ body{
 }
 
 .search-container:hover {
-  border-color: #006AFF; /* ZILLOW: azul */
+  border-color: var(--primary); /* HECTOR: naranja #FF6A00 */
   box-shadow: var(--shadow-m);
 }
 
 .search-container:focus-within {
-  border-color: #006AFF; /* ZILLOW: azul */
-  box-shadow: 0 0 0 3px rgba(0, 106, 255, 0.1);
+  border-color: var(--primary); /* HECTOR: naranja #FF6A00 */
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.1); /* HECTOR: sombra naranja */
 }
 
 .search-icon {
@@ -260,6 +260,60 @@ body{
   display: none;
 }
 
+/* ZILLOW: Action Bar (Save search) */
+.search-page-action-bar {
+  position: fixed;
+  top: 120px; /* Header (64px) + Filtros (56px) */
+  left: 0;
+  right: 0;
+  z-index: 997;
+  background: var(--white);
+  padding: 8px 24px;
+  border-bottom: 1px solid var(--line-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-bar-left-content {
+  flex: 1;
+}
+
+.action-bar-right-content {
+  flex: 0;
+}
+
+/* HECTOR: Save search button - NARANJA */
+.save-search-button {
+  background: var(--primary); /* HECTOR: naranja #FF6A00 */
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  color: white;
+  height: 37px;
+  outline: none;
+  padding: 0 16px;
+  width: auto;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-search-button:hover {
+  background: var(--primary-dark); /* HECTOR: naranja oscuro */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 106, 0, 0.3);
+}
+
+.save-search-button:focus {
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.2);
+}
+
+.save-search-button:active {
+  transform: translateY(0);
+}
+
 /* ZILLOW: Filter buttons (chips) - ESTILO EXACTO */
 .filter-chip {
   display: inline-flex;
@@ -290,18 +344,18 @@ body{
   color: #2A2A33;
 }
 
-/* ZILLOW: Active state (pressed/selected) */
+/* HECTOR: Active state (pressed/selected) - NARANJA */
 .filter-chip.active {
-  background-color: #F2FAFF; /* ZILLOW: active background #F2FAFF (azul muy claro) */
-  border-color: #006AFF; /* ZILLOW: border azul #006AFF */
+  background-color: #FFF4ED; /* HECTOR: naranja muy claro */
+  border-color: var(--primary); /* HECTOR: naranja #FF6A00 */
   border-width: 2px; /* ZILLOW: borde más grueso cuando activo */
   color: #2A2A33;
   padding: 4px 15px; /* ZILLOW: ajustar padding por borde de 2px */
 }
 
-/* ZILLOW: Active hover */
+/* HECTOR: Active hover - NARANJA */
 .filter-chip.active:hover {
-  background-color: #E0F2FF; /* ZILLOW: active hover #E0F2FF */
+  background-color: #FFE8D9; /* HECTOR: naranja claro hover */
 }
 
 .filter-chip.active .chip-icon {
@@ -516,8 +570,8 @@ body{
   border-color: #A7A6AB;
 }
 .option-btn.selected {
-  background-color: #F2FAFF; /* ZILLOW: azul claro cuando seleccionado */
-  border-color: #006AFF; /* ZILLOW: borde azul */
+  background-color: #FFF4ED; /* HECTOR: naranja claro cuando seleccionado */
+  border-color: var(--primary); /* HECTOR: borde naranja */
   border-width: 2px;
   color: #2A2A33;
   padding: 4px 15px; /* ZILLOW: ajuste por borde de 2px */
@@ -548,8 +602,8 @@ body{
   border-color: #A7A6AB;
 }
 .price-btn.selected {
-  background-color: #F2FAFF;
-  border-color: #006AFF;
+  background-color: #FFF4ED; /* HECTOR: naranja claro */
+  border-color: var(--primary); /* HECTOR: borde naranja */
   border-width: 2px;
   color: #2A2A33;
   padding: 4px 15px;
@@ -561,7 +615,7 @@ body{
 .main-container{
   display:flex;
   position: fixed;
-  top: 120px; /* ZILLOW: Header (64px) + Filters (56px) = 120px */
+  top: 173px; /* ZILLOW: Header (64px) + Filters (56px) + Action bar (53px) = 173px */
   left: 0;
   right: 0;
   bottom: 0;
@@ -1053,6 +1107,11 @@ body.map-animating .listing-card .listing-image {
     display: none; /* Solo ícono en móvil */
   }
 
+  /* ZILLOW: Ocultar action bar en móvil */
+  .search-page-action-bar {
+    display: none;
+  }
+
   /* Search bar móvil */
   .zillow-search-bar {
     top: 56px;
@@ -1356,6 +1415,16 @@ body.map-animating .listing-card .listing-image {
             <span class="chip-label">More</span>
             <i class="fas fa-chevron-down chip-icon"></i>
         </div>
+    </div>
+
+    <!-- ZILLOW: Action Bar con Save search -->
+    <div class="search-page-action-bar">
+        <div class="action-bar-left-content">
+            <button class="save-search-button" onclick="alert('Guardar búsqueda - Próximamente')">
+                Save search
+            </button>
+        </div>
+        <div class="action-bar-right-content"></div>
     </div>
 
     <!-- Bottom Sheets para cada filtro -->
