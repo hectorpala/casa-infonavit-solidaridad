@@ -914,6 +914,11 @@ body.carousel-swipe-lock {
     position: relative !important;
     z-index: 1 !important; /* Por encima del fondo blur */
   }
+
+  /* Fotos verticales: zoom 1.4 para verse más llenas */
+  .carousel-image.vertical-photo{
+    transform: scale(1.4) !important;
+  }
   .card-carousel-container .carousel-arrow-card,
   .card-carousel-container .carousel-dot{
     position: absolute;
@@ -2325,12 +2330,12 @@ body.map-animating .listing-card .listing-image {
             const width = img.naturalWidth;
             const height = img.naturalHeight;
 
-            // Si alto > ancho, es vertical (portrait) - scale 1.2
+            // Si alto > ancho, es vertical (portrait) - scale 1.4
             if (height > width) {
                 img.classList.add('vertical-photo');
                 img.classList.remove('horizontal-photo');
             } else {
-                // Si ancho >= alto, es horizontal (landscape) - scale 1.5 para recortar más
+                // Si ancho >= alto, es horizontal (landscape) - sin scale
                 img.classList.add('horizontal-photo');
                 img.classList.remove('vertical-photo');
             }
