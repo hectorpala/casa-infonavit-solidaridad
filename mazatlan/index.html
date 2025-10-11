@@ -3219,16 +3219,20 @@ body.map-animating .listing-card .listing-image {
                         return;
                     }
 
-                    // Don't navigate if clicking on carousel image (allow swipe)
-                    if (e.target.closest('.carousel-image')) {
-                        console.log('📷 Image clicked, allow swipe');
+                    // SOLO navegar si click en .listing-body (texto) o en área vacía
+                    const clickedBody = e.target.closest('.listing-body');
+                    const clickedCarousel = e.target.closest('.card-carousel-container');
+
+                    if (!clickedBody && clickedCarousel) {
+                        console.log('📷 Carousel area clicked, allow swipe');
                         return;
                     }
 
                     const url = this.getAttribute('data-property-url');
                     console.log('🔗 URL:', url);
                     if (url) {
-                        e.stopPropagation(); // Prevenir que swipe system capture esto
+                        e.preventDefault();
+                        e.stopPropagation();
                         window.location.href = url;
                     }
                 };
