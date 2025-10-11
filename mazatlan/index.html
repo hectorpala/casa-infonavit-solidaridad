@@ -793,6 +793,12 @@ body{
   border-radius: 3px;
 }
 
+/* Bloqueo de scroll durante swipe horizontal */
+body.carousel-swipe-lock {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
 /* Imagen con aspecto consistente - MEDIDA ZILLOW */
 .listing-card .listing-image{
   display:block;
@@ -2596,6 +2602,123 @@ body.map-animating .listing-card .listing-image {
 
             container._carouselListener = listener;
             container.addEventListener('click', listener, false);
+
+            // Exponer helpers para swipe system
+            window.getRootFrom = getRootFrom;
+            window.changePhotoIn = changePhotoIn;
+        })();
+
+        // ===== Swipe horizontal para móvil en el grid =====
+        (function installCarouselSwipe(){
+            if (window.__carouselSwipeInstalled) return;
+            window.__carouselSwipeInstalled = true;
+
+            const SCROLL_LOCK_CLASS = 'carousel-swipe-lock';
+            const THRESHOLD_START = 8;    // px para considerar gesto horizontal
+            const THRESHOLD_ACT = 30;     // px para cambiar de foto
+            const MAX_ANGLE = 30;         // grados: ignora si se acerca a vertical
+
+            const container = document.getElementById('listings-container');
+            if (!container) return;
+
+            // Fallbacks si no tienes los helpers por contexto
+            const _getRootFrom = window.getRootFrom || function(el){ return el?.closest?.('.card-carousel-container') || null; };
+            const _changePhotoIn = window.changePhotoIn || function(root, delta) {
+                if (!root) return;
+                const wrapper = root.querySelector('.carousel-wrapper');
+                const slides = wrapper ? Array.from(wrapper.querySelectorAll('.carousel-slide')) : [];
+                if (!slides.length) return;
+                const dots = Array.from(root.querySelectorAll('.carousel-dot'));
+                const cur = root.__idx ?? 0;
+                const n = ((cur + (parseInt(delta,10)||0)) % slides.length + slides.length) % slides.length;
+                root.__idx = n;
+                slides.forEach(function(s,i){ s.classList.toggle('active', i===n); });
+                dots.forEach(function(d,i){ d.classList.toggle('active', i===n); });
+            };
+
+            let tracking = null;
+
+            function onPointerDown(e){
+                const target = e.target;
+                const root = _getRootFrom(target);
+                if (!root) return;
+
+                // Solo inicia si tocó sobre el carrusel o sus hijos
+                const wrapper = root.querySelector('.carousel-wrapper');
+                if (!wrapper || !wrapper.contains(target)) return;
+
+                tracking = {
+                    root: root,
+                    startX: e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0,
+                    startY: e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? 0,
+                    moved: false,
+                    swiping: false
+                };
+            }
+
+            function onPointerMove(e){
+                if (!tracking) return;
+                const x = e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0;
+                const y = e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? 0;
+
+                const dx = x - tracking.startX;
+                const dy = y - tracking.startY;
+                tracking.moved = tracking.moved || Math.hypot(dx, dy) > THRESHOLD_START;
+
+                // Decide si es swipe horizontal
+                if (!tracking.swiping && tracking.moved) {
+                    const angle = Math.abs(Math.atan2(Math.abs(dy), Math.abs(dx)) * 180 / Math.PI);
+                    if (Math.abs(dx) > THRESHOLD_START && angle <= MAX_ANGLE) {
+                        tracking.swiping = true;
+                    } else if (angle > MAX_ANGLE) {
+                        // Es más vertical: cancela el swipe para no bloquear scroll
+                        tracking = null;
+                        return;
+                    }
+                }
+
+                if (tracking && tracking.swiping) {
+                    // Bloquea el scroll mientras se hace swipe horizontal
+                    e.preventDefault();
+                    document.body.classList.add(SCROLL_LOCK_CLASS);
+                }
+            }
+
+            function onPointerUp(e){
+                if (!tracking) return;
+                const x = e.clientX ?? (e.changedTouches && e.changedTouches[0]?.clientX) ?? tracking.startX;
+                const dx = x - tracking.startX;
+                const wasSwiping = tracking.swiping;
+                const root = tracking.root;
+                tracking = null;
+                document.body.classList.remove(SCROLL_LOCK_CLASS);
+
+                if (!wasSwiping) return;
+
+                // Umbral de acción
+                if (Math.abs(dx) >= THRESHOLD_ACT) {
+                    // dx < 0: swipe a la izquierda -> siguiente foto
+                    // dx > 0: swipe a la derecha -> foto anterior
+                    _changePhotoIn(root, dx < 0 ? 1 : -1);
+                    // Evita que un click fantasma dispare apertura de la card
+                    if (e.preventDefault) e.preventDefault();
+                    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+                }
+            }
+
+            // Pointer Events si existen; fallback a touch
+            const supportsPointer = 'PointerEvent' in window;
+            if (supportsPointer) {
+                container.addEventListener('pointerdown', onPointerDown, {capture:true});
+                container.addEventListener('pointermove', onPointerMove, {capture:true, passive:false});
+                container.addEventListener('pointerup', onPointerUp, {capture:true});
+                container.addEventListener('pointercancel', onPointerUp, {capture:true});
+            } else {
+                container.addEventListener('touchstart', onPointerDown, {capture:true, passive:true});
+                container.addEventListener('touchmove', onPointerMove, {capture:true, passive:false});
+                container.addEventListener('touchend', onPointerUp, {capture:true});
+                container.addEventListener('touchcancel', onPointerUp, {capture:true});
+            }
         })();
 
         // Inicializar mapa al cargar
