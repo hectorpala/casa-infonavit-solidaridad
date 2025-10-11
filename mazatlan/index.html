@@ -2813,11 +2813,22 @@ body.map-animating .listing-card .listing-image {
             Object.values(mobileMarkers).forEach(m => m.setMap(null));
             mobileMarkers = {};
 
+            const geocoder = new google.maps.Geocoder();
+
             // Crear marcadores para cada propiedad
             properties.forEach(property => {
+                // Usar coordenadas hardcodeadas si existen, sino geocoding
                 if (property.lat && property.lng) {
                     const position = { lat: property.lat, lng: property.lng };
                     createMarkerMobile(property, position);
+                } else {
+                    // Geocoding para propiedades sin coordenadas
+                    geocoder.geocode({ address: property.location + ', Mazatlán, Sinaloa' }, function(results, status) {
+                        if (status === 'OK' && results[0]) {
+                            const position = results[0].geometry.location;
+                            createMarkerMobile(property, position);
+                        }
+                    });
                 }
             });
         }
