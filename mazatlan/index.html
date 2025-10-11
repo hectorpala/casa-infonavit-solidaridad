@@ -824,6 +824,28 @@ body.carousel-swipe-lock {
   touch-action: none !important;
 }
 
+/* ===============================
+   ESTILOS DESKTOP: Tarjetas 75% + Fotos Verticales Scale 1.4
+================================= */
+@media (min-width: 641px){
+  .listing-card{
+    width: 75% !important; /* Ancho ajustado a proporción de fotos verticales */
+    max-width: 75% !important;
+    margin: 0 auto 16px auto !important; /* Centrado */
+  }
+
+  /* Fotos verticales: zoom 1.4 para verse más llenas */
+  .carousel-image.vertical-photo{
+    transform: scale(1.4) !important;
+  }
+
+  /* Recorte simétrico para todas las fotos */
+  .carousel-image{
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
+
 /* Modo seguro móvil: display none/block en vez de opacity */
 @media (max-width: 640px){
   /* ZILLOW: Ocultar price badge de desktop en móvil */
