@@ -742,6 +742,7 @@ body{
   cursor: pointer;
   transition: all 0.2s;
   z-index: 20;
+  pointer-events: auto; /* Crítico: permite clicks */
 }
 
 .carousel-arrow-card i {
@@ -783,6 +784,8 @@ body{
   background: rgba(255,255,255,0.5);
   cursor: pointer;
   transition: all 0.2s;
+  pointer-events: auto; /* Crítico: permite clicks */
+  border: none; /* Remover borde default de button */
 }
 .carousel-dot.active {
   background: white;
@@ -2073,48 +2076,30 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // ZILLOW: Event delegation para carruseles Y cards
+        // ==== LISTENER DELEGADO ÚNICO (en bubbling) ====
         function attachCarouselListeners() {
-            const container = document.getElementById('listings-container');
+            const container = document.getElementById(LISTINGS_ID);
             if (!container) return;
 
-            // Evita duplicados removiendo listener anterior
+            // Limpia duplicados
             if (container._carouselListener) {
-                container.removeEventListener('click', container._carouselListener, true);
+                container.removeEventListener('click', container._carouselListener, false);
             }
 
             const listener = function(e) {
-                console.log('🔵 Click detectado:', e.target);
-
                 // 1. PRIORIDAD: Clicks en flechas del carrusel
                 const arrow = e.target.closest('.carousel-arrow-card');
                 if (arrow) {
-                    console.log('🟢 FLECHA detectada');
                     e.preventDefault();
-                    e.stopPropagation();
-                    const slug = arrow.dataset.slug;
-                    const direction = parseInt(arrow.dataset.direction);
-                    console.log('🟢 Slug:', slug, 'Direction:', direction);
-                    if (slug && direction) {
-                        console.log('🟢 Llamando changeCardPhoto');
-                        changeCardPhoto(slug, direction);
-                    }
+                    changeCardPhoto(arrow.dataset.slug, arrow.dataset.direction);
                     return;
                 }
 
                 // 2. PRIORIDAD: Clicks en dots del carrusel
                 const dot = e.target.closest('.carousel-dot');
                 if (dot) {
-                    console.log('🟡 DOT detectado');
                     e.preventDefault();
-                    e.stopPropagation();
-                    const slug = dot.dataset.slug;
-                    const index = parseInt(dot.dataset.index);
-                    console.log('🟡 Slug:', slug, 'Index:', index);
-                    if (slug !== undefined && index !== undefined) {
-                        console.log('🟡 Llamando goToCardPhoto');
-                        goToCardPhoto(slug, index);
-                    }
+                    goToCardPhoto(dot.dataset.slug, dot.dataset.index);
                     return;
                 }
 
@@ -2122,20 +2107,14 @@ body.map-animating .listing-card .listing-image {
                 // Solo si NO es en flecha/dot
                 const card = e.target.closest('.listing-card');
                 if (card && !e.target.closest('.carousel-arrow-card, .carousel-dot')) {
-                    console.log('🟣 CARD detectado');
                     const url = card.dataset.propertyUrl;
-                    console.log('🟣 URL:', url);
-                    if (url) {
-                        console.log('🟣 Abriendo página');
-                        window.open(url, '_blank');
-                    }
+                    if (url) window.open(url, '_blank');
                 }
             };
 
-            // Guardar referencia para poder removerlo después
             container._carouselListener = listener;
-            container.addEventListener('click', listener, true);
-            console.log('✅ Carousel listeners attached');
+            // En bubbling (false) para evitar comer otros handlers en capture
+            container.addEventListener('click', listener, false);
         }
 
         function highlightMarker(slug) {
@@ -2559,68 +2538,54 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // CARRUSEL SISTEMA CASA SOLIDARIDAD: Opacity-based slides
-        window.carouselState = {};
+        // ==== CORE CAROUSEL (drop-in) ====
+        // Sistema robusto y optimizado para carruseles con opacity-based slides
+        window.carouselState = window.carouselState || {};
+        const LISTINGS_ID = 'listings-container';
 
-        function showSlide(slug, n) {
-            console.log('📸 showSlide - slug:', slug, 'n:', n);
-            const carousel = document.getElementById('carousel-' + slug);
-            if (!carousel) {
-                console.error('❌ No se encontró carousel:', 'carousel-' + slug);
-                return;
-            }
-
-            const slides = carousel.querySelectorAll('.carousel-slide');
-            const card = document.getElementById('card-' + slug);
-            const dots = card ? card.querySelectorAll('.carousel-dot') : [];
-
-            console.log('📸 Total slides:', slides.length);
-            const total = slides.length;
-            if (total === 0) {
-                console.error('❌ No hay slides');
-                return;
-            }
-
-            // Ajustar índice con wrap-around
-            if (n >= total) window.carouselState[slug] = 0;
-            if (n < 0) window.carouselState[slug] = total - 1;
-
-            console.log('📸 Índice final:', window.carouselState[slug]);
-
-            // Actualizar slides (remover/agregar clase active)
-            slides.forEach(function(slide, index) {
-                slide.classList.remove('active');
-                if (index === window.carouselState[slug]) {
-                    slide.classList.add('active');
-                    console.log('📸 Slide', index, 'activado');
-                }
-            });
-
-            // Actualizar dots
-            dots.forEach(function(dot, index) {
-                dot.classList.remove('active');
-                if (index === window.carouselState[slug]) {
-                    dot.classList.add('active');
-                }
-            });
+        function getCarousel(slug) {
+            return document.querySelector('#carousel-' + slug);
         }
 
-        function changeCardPhoto(slug, direction) {
-            console.log('🔄 changeCardPhoto - slug:', slug, 'direction:', direction);
-            // Inicializar si no existe
-            if (window.carouselState[slug] === undefined) {
-                window.carouselState[slug] = 0;
-            }
-
-            window.carouselState[slug] += direction;
-            showSlide(slug, window.carouselState[slug]);
+        function ensureState(slug, len) {
+            if (!Number.isInteger(window.carouselState[slug])) window.carouselState[slug] = 0;
+            if (len > 0) window.carouselState[slug] = Math.max(0, Math.min(window.carouselState[slug], len - 1));
         }
 
-        function goToCardPhoto(slug, index) {
-            console.log('🎯 goToCardPhoto - slug:', slug, 'index:', index);
-            window.carouselState[slug] = index;
-            showSlide(slug, index);
+        function showSlide(slug, index) {
+            const carousel = getCarousel(slug);
+            if (!carousel) return;
+            const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+            if (!slides.length) return;
+
+            const dots = Array.from(
+                carousel.parentElement.querySelectorAll('.carousel-dot[data-slug="' + slug + '"]')
+            );
+            const n = ((index % slides.length) + slides.length) % slides.length;
+            window.carouselState[slug] = n;
+
+            slides.forEach(function(s, i) { s.classList.toggle('active', i === n); });
+            dots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
         }
+
+        function changeCardPhoto(slug, delta) {
+            const carousel = getCarousel(slug);
+            if (!carousel) return;
+            const len = carousel.querySelectorAll('.carousel-slide').length;
+            if (!len) return;
+            ensureState(slug, len);
+            const d = parseInt(delta, 10) || 0;
+            showSlide(slug, (window.carouselState[slug] || 0) + d);
+        }
+
+        function goToCardPhoto(slug, idx) {
+            showSlide(slug, parseInt(idx, 10) || 0);
+        }
+
+        // Exponer en window para acceso global
+        window.showSlide = showSlide;
+        window.changeCardPhoto = changeCardPhoto;
+        window.goToCardPhoto = goToCardPhoto;
 
         // Inicializar mapa al cargar
         window.addEventListener('load', initMap);
