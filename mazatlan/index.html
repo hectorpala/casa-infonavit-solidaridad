@@ -1984,64 +1984,59 @@ body.map-animating .listing-card .listing-image {
                     `../mazatlan/${p.slug}/images/foto-${i+1}.jpg`
                 );
 
-                return `
-                <div class="listing-card" id="card-${p.slug}" data-carousel-id="${p.slug}" onmouseenter="highlightMarker('${p.slug}')" onclick="window.open('../mazatlan/${p.slug}/index.html', '_blank')" style="cursor: pointer;">
-                    <!-- ZILLOW: Card Image Container -->
-                    <div class="card-carousel-container" style="position:relative;">
-                        <div class="card-carousel-images" id="carousel-${p.slug}">
-                            ${photos.map(photo => '<img src="' + photo + '" class="listing-image" alt="' + p.title + '" onerror="this.style.display=\'none\'">').join('')}
-                        </div>
+                const dotsHtml = photos.map((_, i) =>
+                    '<div class="carousel-dot ' + (i === 0 ? 'active' : '') + '" onclick="event.stopPropagation(); goToCardPhoto(\'' + p.slug + '\', ' + i + ')" style="width: 6px; height: 6px; border-radius: 50%; background: ' + (i === 0 ? 'white' : 'rgba(255,255,255,0.5)') + '; cursor: pointer;"></div>'
+                ).join('');
 
-                        <!-- ZILLOW: Price Badge (naranja, superior derecha) -->
-                        <div style="position: absolute; top: 12px; right: 12px; background: #FF6A00; color: white; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 700; z-index: 10;">
-                            ${p.priceShort}
-                        </div>
-
-                        <!-- ZILLOW: Botones Save/Share (superior izquierda) -->
-                        <div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 8px; z-index: 10;">
-                            <button class="icon-btn" aria-label="Guardar" onclick="event.stopPropagation(); alert('Guardado en favoritos')" style="background: rgba(255,255,255,0.95); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
-                                <i class="fa-regular fa-heart" style="color: #2A2A33; font-size: 16px;"></i>
-                            </button>
-                        </div>
-
-                        <!-- ZILLOW: Flechas carrusel (solo visible en hover) -->
-                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto('${p.slug}', -1)" aria-label="Anterior">
-                            <i class="fa-solid fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto('${p.slug}', 1)" aria-label="Siguiente">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-
-                        <!-- ZILLOW: Dots indicadores (inferior centro) -->
-                        <div class="carousel-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 10;">
-                            ${photos.map((_, i) => `<div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToCardPhoto('${p.slug}', ${i})" style="width: 6px; height: 6px; border-radius: 50%; background: ${i === 0 ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer;"></div>`).join('')}
-                        </div>
-                    </div>
-
-                    <!-- ZILLOW: Card Content -->
-                    <div class="content" style="padding: 12px 0;">
-                        <!-- ZILLOW: Precio grande -->
-                        <div style="color: #2A2A33; font-size: 20px; font-weight: 700; margin: 0 0 4px 0; line-height: 28px;">
-                            ${p.priceShort}
-                        </div>
-
-                        <!-- ZILLOW: Detalles compactos (beds | baths | sqft) -->
-                        <div style="color: #6E6E78; font-size: 14px; font-weight: 400; line-height: 20px; margin: 0 0 4px 0;">
-                            ${p.bedrooms} rec • ${p.bathrooms} baños • ${p.sqft} m²
-                        </div>
-
-                        <!-- ZILLOW: Ubicación -->
-                        <div style="color: #2A2A33; font-size: 14px; font-weight: 400; line-height: 20px;">
-                            ${p.location}, Mazatlán, Sin.
-                        </div>
-
-                        <!-- ZILLOW: Broker info (si existe) -->
-                        <div style="color: #6E6E78; font-size: 12px; font-weight: 400; line-height: 16px; margin-top: 8px;">
-                            Hector es Bienes Raíces
-                        </div>
-                    </div>
-                </div>
-            `}).join('');
+                return '<div class="listing-card" id="card-' + p.slug + '" data-carousel-id="' + p.slug + '" onmouseenter="highlightMarker(\'' + p.slug + '\')" onclick="window.open(\'../mazatlan/' + p.slug + '/index.html\', \'_blank\')" style="cursor: pointer;">' +
+                    '<!-- ZILLOW: Card Image Container -->' +
+                    '<div class="card-carousel-container" style="position:relative;">' +
+                        '<div class="card-carousel-images" id="carousel-' + p.slug + '">' +
+                            photos.map(photo => '<img src="' + photo + '" class="listing-image" alt="' + p.title + '" onerror="this.style.display=\'none\'">').join('') +
+                        '</div>' +
+                        '<!-- ZILLOW: Price Badge (naranja, superior derecha) -->' +
+                        '<div style="position: absolute; top: 12px; right: 12px; background: #FF6A00; color: white; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 700; z-index: 10;">' +
+                            p.priceShort +
+                        '</div>' +
+                        '<!-- ZILLOW: Botones Save/Share (superior izquierda) -->' +
+                        '<div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 8px; z-index: 10;">' +
+                            '<button class="icon-btn" aria-label="Guardar" onclick="event.stopPropagation(); alert(\'Guardado en favoritos\')" style="background: rgba(255,255,255,0.95); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">' +
+                                '<i class="fa-regular fa-heart" style="color: #2A2A33; font-size: 16px;"></i>' +
+                            '</button>' +
+                        '</div>' +
+                        '<!-- ZILLOW: Flechas carrusel (solo visible en hover) -->' +
+                        '<button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto(\'' + p.slug + '\', -1)" aria-label="Anterior">' +
+                            '<i class="fa-solid fa-chevron-left"></i>' +
+                        '</button>' +
+                        '<button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto(\'' + p.slug + '\', 1)" aria-label="Siguiente">' +
+                            '<i class="fa-solid fa-chevron-right"></i>' +
+                        '</button>' +
+                        '<!-- ZILLOW: Dots indicadores (inferior centro) -->' +
+                        '<div class="carousel-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 10;">' +
+                            dotsHtml +
+                        '</div>' +
+                    '</div>' +
+                    '<!-- ZILLOW: Card Content -->' +
+                    '<div class="content" style="padding: 12px 0;">' +
+                        '<!-- ZILLOW: Precio grande -->' +
+                        '<div style="color: #2A2A33; font-size: 20px; font-weight: 700; margin: 0 0 4px 0; line-height: 28px;">' +
+                            p.priceShort +
+                        '</div>' +
+                        '<!-- ZILLOW: Detalles compactos (beds | baths | sqft) -->' +
+                        '<div style="color: #6E6E78; font-size: 14px; font-weight: 400; line-height: 20px; margin: 0 0 4px 0;">' +
+                            p.bedrooms + ' rec • ' + p.bathrooms + ' baños • ' + p.sqft + ' m²' +
+                        '</div>' +
+                        '<!-- ZILLOW: Ubicación -->' +
+                        '<div style="color: #2A2A33; font-size: 14px; font-weight: 400; line-height: 20px;">' +
+                            p.location + ', Mazatlán, Sin.' +
+                        '</div>' +
+                        '<!-- ZILLOW: Broker info (si existe) -->' +
+                        '<div style="color: #6E6E78; font-size: 12px; font-weight: 400; line-height: 16px; margin-top: 8px;">' +
+                            'Hector es Bienes Raíces' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
 
             updateCounters(properties.length);
 
