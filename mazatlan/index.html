@@ -3224,25 +3224,14 @@ body.map-animating .listing-card .listing-image {
                     const dy = Math.abs(t.clientY - start.y);
                     const dt = Date.now() - start.ts;
                     const tappedControl = !!e.target.closest('.carousel-arrow-card, .carousel-dot');
-                    const tappedImage = !!e.target.closest('.carousel-image');
 
                     if (dx < TAP_DIST && dy < TAP_DIST && dt < TAP_TIME && !tappedControl) {
-                        e.preventDefault();
-                        e.stopImmediatePropagation();
-
-                        // Tap en imagen → abrir lightbox (abanico)
-                        if (tappedImage) {
-                            const carouselId = card.dataset.carouselId;
-                            if (carouselId && window.openLightboxGallery) {
-                                window.openLightboxGallery(carouselId);
-                            }
-                        }
-                        // Tap en tarjeta (fuera de imagen) → abrir propiedad
-                        else {
-                            const url = card.dataset.propertyUrl;
-                            if (url) {
-                                window.location.href = url;
-                            }
+                        // Tap en tarjeta → abrir propiedad
+                        const url = card.dataset.propertyUrl;
+                        if (url) {
+                            e.preventDefault();
+                            e.stopImmediatePropagation();
+                            window.location.href = url;
                         }
                     }
                     start = null;
@@ -3258,57 +3247,6 @@ body.map-animating .listing-card .listing-image {
                 document.querySelectorAll('.listing-card').forEach(wire);
             };
         })();
-
-        // ===== Lightbox Gallery (Abanico de fotos) =====
-        window.openLightboxGallery = function(carouselId) {
-            const card = document.getElementById('card-' + carouselId);
-            if (!card) return;
-
-            const images = Array.from(card.querySelectorAll('.carousel-image')).map(img => img.src);
-            const currentIndex = Array.from(card.querySelectorAll('.carousel-slide')).findIndex(s => s.classList.contains('active'));
-
-            // Crear overlay
-            const overlay = document.createElement('div');
-            overlay.className = 'lightbox-overlay';
-            overlay.innerHTML = `
-                <div class="lightbox-container">
-                    <button class="lightbox-close" onclick="window.closeLightbox(this)">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <div class="lightbox-content">
-                        <img src="${images[currentIndex >= 0 ? currentIndex : 0]}" class="lightbox-image" alt="Foto propiedad">
-                    </div>
-                    <button class="lightbox-arrow lightbox-prev" onclick="window.navigateLightbox(this, -1)">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="lightbox-arrow lightbox-next" onclick="window.navigateLightbox(this, 1)">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <div class="lightbox-counter">${(currentIndex >= 0 ? currentIndex : 0) + 1} / ${images.length}</div>
-                </div>
-            `;
-            overlay.dataset.images = JSON.stringify(images);
-            overlay.dataset.currentIndex = currentIndex >= 0 ? currentIndex : 0;
-            document.body.appendChild(overlay);
-            document.body.style.overflow = 'hidden';
-        };
-
-        window.navigateLightbox = function(btn, direction) {
-            const overlay = btn.closest('.lightbox-overlay');
-            const images = JSON.parse(overlay.dataset.images);
-            let currentIndex = parseInt(overlay.dataset.currentIndex);
-            currentIndex = (currentIndex + direction + images.length) % images.length;
-
-            overlay.dataset.currentIndex = currentIndex;
-            overlay.querySelector('.lightbox-image').src = images[currentIndex];
-            overlay.querySelector('.lightbox-counter').textContent = `${currentIndex + 1} / ${images.length}`;
-        };
-
-        window.closeLightbox = function(btn) {
-            const overlay = btn.closest('.lightbox-overlay');
-            overlay.remove();
-            document.body.style.overflow = '';
-        };
 
         // Inicializar mapa al cargar
         window.addEventListener('load', initMap);
