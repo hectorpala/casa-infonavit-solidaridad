@@ -887,21 +887,26 @@ body.carousel-swipe-lock {
     gap: 0; /* ZILLOW: sin gap, usar margins específicos */
   }
 
-  /* ZILLOW: PRECIO DENTRO DEL BODY (no sobre foto) */
-  .listing-card .price-badge,
-  .listing-card .listing-price{
+  /* ZILLOW: PRECIO DENTRO DEL BODY (no sobre foto) - Override ALL previous styles */
+  .listing-card .listing-body .price-badge,
+  .listing-card .listing-body .listing-price{
     display: block !important; /* MOBILE: Visible */
     position: static !important; /* NO absoluto */
-    margin: 0 0 4px 0; /* ZILLOW: margin-bottom 4px */
-    padding: 0;
+    margin: 0 0 4px 0 !important; /* ZILLOW: margin-bottom 4px */
+    padding: 0 !important;
     background: transparent !important;
     box-shadow: none !important;
     border: none !important;
     backdrop-filter: none !important;
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: 700;
-    color: #2A2A33; /* ZILLOW: color primario */
+    font-size: 20px !important;
+    line-height: 24px !important;
+    font-weight: 700 !important;
+    color: #2A2A33 !important; /* ZILLOW: color primario - NEGRO no verde */
+    left: auto !important;
+    bottom: auto !important;
+    gap: 0 !important;
+    align-items: normal !important;
+    letter-spacing: normal !important;
   }
 
   /* ZILLOW: Tipografía para detalles (recámaras, baños, m²) */
