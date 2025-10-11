@@ -2073,20 +2073,26 @@ body.map-animating .listing-card .listing-image {
                 }
 
                 // ZILLOW: Scroll automático en desktop al panel de listings
-                const listingsSection = document.getElementById('listings-container');
-                if (listingsSection && window.innerWidth > 768) {
-                    // Calcular posición de la tarjeta relativa al contenedor
-                    const containerRect = listingsSection.getBoundingClientRect();
-                    const cardRect = card.getBoundingClientRect();
-                    const scrollTop = listingsSection.scrollTop;
+                if (window.innerWidth > 768) {
+                    // Desktop: buscar el contenedor correcto (.listings-section que tiene el scroll)
+                    const listingsSection = card.closest('.listings-section');
+                    if (listingsSection) {
+                        // Calcular posición de la tarjeta relativa al contenedor scrolleable
+                        const containerRect = listingsSection.getBoundingClientRect();
+                        const cardRect = card.getBoundingClientRect();
+                        const currentScroll = listingsSection.scrollTop;
 
-                    // Scroll para centrar la tarjeta en el panel
-                    const targetScroll = scrollTop + (cardRect.top - containerRect.top) - (containerRect.height / 2) + (cardRect.height / 2);
+                        // Offset de la tarjeta desde el top del contenedor
+                        const cardOffsetTop = cardRect.top - containerRect.top + currentScroll;
 
-                    listingsSection.scrollTo({
-                        top: targetScroll,
-                        behavior: 'smooth'
-                    });
+                        // Calcular scroll para centrar la tarjeta
+                        const targetScroll = cardOffsetTop - (containerRect.height / 2) + (cardRect.height / 2);
+
+                        listingsSection.scrollTo({
+                            top: targetScroll,
+                            behavior: 'smooth'
+                        });
+                    }
                 } else {
                     // Móvil: usar scrollIntoView
                     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
