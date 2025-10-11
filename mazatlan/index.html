@@ -2066,25 +2066,20 @@ body.map-animating .listing-card .listing-image {
 
         function highlightCard(slug) {
             document.querySelectorAll('.listing-card').forEach(c => c.classList.remove('highlighted'));
-            const card = document.getElementById(`card-${slug}`);
+            const card = document.getElementById('card-' + slug);
 
             if (!card) return;
 
             card.classList.add('highlighted');
 
-            // Reset carousel to first photo
-            const carousel = document.getElementById(`carousel-${slug}`);
-            if (carousel) {
-                carouselStates[slug] = 0;
-                carousel.style.transform = 'translateX(0%)';
-                updateCarouselDots(slug);
-            }
+            // Reset carousel to first photo - usando el nuevo sistema
+            goToCardPhoto(slug, 0);
 
             // ZILLOW: Scroll automático
             if (window.innerWidth > 768) {
                 const listingsContainer = document.getElementById('listings-container');
                 if (listingsContainer) {
-                    setTimeout(() => {
+                    setTimeout(function() {
                         const containerRect = listingsContainer.getBoundingClientRect();
                         const cardRect = card.getBoundingClientRect();
                         const currentScroll = listingsContainer.scrollTop;
@@ -2482,56 +2477,63 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // Sistema de carrusel simplificado
-        const carouselStates = {};
+        // CARRUSEL ZILLOW-STYLE: Simple y robusto
+        window.carouselState = {};
 
         function changeCardPhoto(slug, direction) {
-            const carousel = document.getElementById(`carousel-${slug}`);
-            if (!carousel) return;
-
-            const numPhotos = carousel.querySelectorAll('img').length;
-            if (numPhotos === 0) return;
-
-            // Inicializar estado si no existe
-            if (typeof carouselStates[slug] === 'undefined') {
-                carouselStates[slug] = 0;
+            // Inicializar si no existe
+            if (!window.carouselState[slug]) {
+                window.carouselState[slug] = 0;
             }
 
-            // Calcular nuevo índice
-            carouselStates[slug] = (carouselStates[slug] + direction + numPhotos) % numPhotos;
-
-            // Aplicar transformación
-            carousel.style.transform = `translateX(-${carouselStates[slug] * 100}%)`;
-
-            // Actualizar dots
-            updateCarouselDots(slug);
-        }
-
-        function goToCardPhoto(slug, photoIndex) {
-            const carousel = document.getElementById(`carousel-${slug}`);
+            const carousel = document.getElementById('carousel-' + slug);
             if (!carousel) return;
 
-            carouselStates[slug] = photoIndex;
-            carousel.style.transform = `translateX(-${photoIndex * 100}%)`;
-            updateCarouselDots(slug);
+            const images = carousel.getElementsByTagName('img');
+            const total = images.length;
+            if (total === 0) return;
+
+            // Calcular nuevo índice
+            window.carouselState[slug] = (window.carouselState[slug] + direction + total) % total;
+
+            // Aplicar transformación
+            const percentage = -(window.carouselState[slug] * 100);
+            carousel.style.transform = 'translateX(' + percentage + '%)';
+
+            // Actualizar dots
+            const card = document.getElementById('card-' + slug);
+            if (card) {
+                const dots = card.getElementsByClassName('carousel-dot');
+                for (let i = 0; i < dots.length; i++) {
+                    if (i === window.carouselState[slug]) {
+                        dots[i].style.background = 'white';
+                    } else {
+                        dots[i].style.background = 'rgba(255,255,255,0.5)';
+                    }
+                }
+            }
         }
 
-        function updateCarouselDots(slug) {
-            const card = document.getElementById(`card-${slug}`);
-            if (!card) return;
+        function goToCardPhoto(slug, index) {
+            window.carouselState[slug] = index;
 
-            const dots = card.querySelectorAll('.carousel-dot');
-            const currentIndex = carouselStates[slug] || 0;
+            const carousel = document.getElementById('carousel-' + slug);
+            if (!carousel) return;
 
-            dots.forEach((dot, i) => {
-                if (i === currentIndex) {
-                    dot.classList.add('active');
-                    dot.style.background = 'white';
-                } else {
-                    dot.classList.remove('active');
-                    dot.style.background = 'rgba(255,255,255,0.5)';
+            const percentage = -(index * 100);
+            carousel.style.transform = 'translateX(' + percentage + '%)';
+
+            const card = document.getElementById('card-' + slug);
+            if (card) {
+                const dots = card.getElementsByClassName('carousel-dot');
+                for (let i = 0; i < dots.length; i++) {
+                    if (i === index) {
+                        dots[i].style.background = 'white';
+                    } else {
+                        dots[i].style.background = 'rgba(255,255,255,0.5)';
+                    }
                 }
-            });
+            }
         }
 
         // Inicializar mapa al cargar
