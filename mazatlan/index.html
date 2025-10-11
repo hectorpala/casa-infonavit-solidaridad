@@ -1439,6 +1439,52 @@ body.map-animating .listing-card .listing-image {
     text-overflow: ellipsis;
   }
 }
+
+/* ===============================
+   ZILLOW: Info Window Custom Styles
+================================= */
+/* ZILLOW: Eliminar bordes y fondo de info window */
+.gm-style .gm-style-iw-c {
+  padding: 0 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18) !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ZILLOW: Eliminar padding del contenedor interno */
+.gm-style .gm-style-iw-d {
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+/* ZILLOW: Ocultar la "punta" de la info window */
+.gm-style .gm-style-iw-tc::after {
+  display: none !important;
+}
+
+/* ZILLOW: Botón de cerrar personalizado */
+.gm-style .gm-ui-hover-effect {
+  top: 8px !important;
+  right: 8px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+}
+
+.gm-style .gm-ui-hover-effect img {
+  width: 14px !important;
+  height: 14px !important;
+  margin: 7px !important;
+}
+
+/* ZILLOW: Hover en botón cerrar */
+.gm-style .gm-ui-hover-effect:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
     </style>
 </head>
 <body>
@@ -1856,21 +1902,22 @@ body.map-animating .listing-card .listing-image {
                 zIndex: 1
             });
 
-            // ZILLOW: Info window estilo Zillow
+            // ZILLOW: Info window estilo Zillow (sin bordes)
             const infoWindow = new google.maps.InfoWindow({
                 content: `
-                    <div style="padding:0;max-width:300px;font-family:'Open Sans',sans-serif;border-radius:8px;overflow:hidden;">
+                    <div style="width:280px;font-family:'Open Sans',sans-serif;border-radius:8px;overflow:hidden;background:white;box-shadow:0 2px 16px rgba(0,0,0,0.18);">
                         <a href="../mazatlan/${property.slug}/index.html" target="_blank" style="text-decoration:none;display:block;">
-                            <img src="${property.image}" style="width:100%;height:200px;object-fit:cover;display:block;">
-                            <div style="padding:16px;background:white;">
-                                <div style="font-size:20px;font-weight:700;color:#2A2A33;margin-bottom:4px;">${property.priceShort}</div>
-                                <div style="font-size:14px;color:#6E6E78;margin-bottom:8px;">${property.bedrooms} rec • ${property.bathrooms} baños • ${property.sqft}m²</div>
-                                <div style="font-size:14px;color:#2A2A33;line-height:1.4;">${property.location}, Mazatlán</div>
+                            <img src="${property.image}" style="width:100%;height:180px;object-fit:cover;display:block;">
+                            <div style="padding:12px;">
+                                <div style="font-size:18px;font-weight:700;color:#2A2A33;margin-bottom:2px;">${property.priceShort}</div>
+                                <div style="font-size:13px;color:#6E6E78;margin-bottom:6px;">${property.bedrooms} rec • ${property.bathrooms} baños • ${property.sqft}m²</div>
+                                <div style="font-size:13px;color:#2A2A33;line-height:1.3;">${property.location}, Mazatlán</div>
                             </div>
                         </a>
                     </div>
                 `,
-                pixelOffset: new google.maps.Size(0, -10)
+                pixelOffset: new google.maps.Size(0, -15),
+                disableAutoPan: false
             });
 
             marker.addListener('click', () => {
@@ -2922,21 +2969,22 @@ body.map-animating .listing-card .listing-image {
                 zIndex: 1
             });
 
-            // ZILLOW: Info window estilo Zillow (igual que desktop)
+            // ZILLOW: Info window estilo Zillow (sin bordes, igual que desktop)
             const infoWindow = new google.maps.InfoWindow({
                 content: `
-                    <div style="padding:0;max-width:300px;font-family:'Open Sans',sans-serif;border-radius:8px;overflow:hidden;">
+                    <div style="width:280px;font-family:'Open Sans',sans-serif;border-radius:8px;overflow:hidden;background:white;box-shadow:0 2px 16px rgba(0,0,0,0.18);">
                         <a href="${property.slug}/index.html" style="text-decoration:none;display:block;">
-                            <img src="${property.image}" style="width:100%;height:200px;object-fit:cover;display:block;">
-                            <div style="padding:16px;background:white;">
-                                <div style="font-size:20px;font-weight:700;color:#2A2A33;margin-bottom:4px;">${property.priceShort}</div>
-                                <div style="font-size:14px;color:#6E6E78;margin-bottom:8px;">${property.bedrooms} rec • ${property.bathrooms} baños • ${property.sqft}m²</div>
-                                <div style="font-size:14px;color:#2A2A33;line-height:1.4;">${property.location}, Mazatlán</div>
+                            <img src="${property.image}" style="width:100%;height:180px;object-fit:cover;display:block;">
+                            <div style="padding:12px;">
+                                <div style="font-size:18px;font-weight:700;color:#2A2A33;margin-bottom:2px;">${property.priceShort}</div>
+                                <div style="font-size:13px;color:#6E6E78;margin-bottom:6px;">${property.bedrooms} rec • ${property.bathrooms} baños • ${property.sqft}m²</div>
+                                <div style="font-size:13px;color:#2A2A33;line-height:1.3;">${property.location}, Mazatlán</div>
                             </div>
                         </a>
                     </div>
                 `,
-                pixelOffset: new google.maps.Size(0, -10)
+                pixelOffset: new google.maps.Size(0, -15),
+                disableAutoPan: false
             });
 
             mobileMarkers[property.slug] = marker;
