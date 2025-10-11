@@ -708,34 +708,44 @@ body{
   flex-shrink: 0;
   width: 100%;
 }
+/* ZILLOW: Flechas carrusel en tarjetas */
 .carousel-arrow-card {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 32px;
   height: 32px;
-  background: rgba(255,106,0,0.9);
-  border: 1px solid rgba(255,106,0,0.5);
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
+  display: none; /* Ocultas por default */
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.2s;
   z-index: 20;
-  opacity: 0;
-  color: white;
 }
-/* ZILLOW: Flechas visibles solo en hover */
+
+.carousel-arrow-card i {
+  font-size: 14px;
+  color: #2A2A33;
+}
+
+/* ZILLOW: Flechas visibles solo en hover de la tarjeta */
 .listing-card:hover .carousel-arrow-card {
   display: flex !important;
 }
+
+/* ZILLOW: Hover en las flechas */
 .carousel-arrow-card:hover {
-  background: rgba(255,255,255,1) !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
+
 .carousel-arrow-card.prev {
   left: 8px;
 }
+
 .carousel-arrow-card.next {
   right: 8px;
 }
@@ -1991,11 +2001,11 @@ body.map-animating .listing-card .listing-image {
                         </div>
 
                         <!-- ZILLOW: Flechas carrusel (solo visible en hover) -->
-                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, -1)" aria-label="Anterior" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.95); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 10;">
-                            <i class="fa-solid fa-chevron-left" style="font-size:14px; color: #2A2A33;"></i>
+                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, -1)" aria-label="Anterior">
+                            <i class="fa-solid fa-chevron-left"></i>
                         </button>
-                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, 1)" aria-label="Siguiente" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.95); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 10;">
-                            <i class="fa-solid fa-chevron-right" style="font-size:14px; color: #2A2A33;"></i>
+                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, 1)" aria-label="Siguiente">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </button>
 
                         <!-- ZILLOW: Dots indicadores (inferior centro) -->
