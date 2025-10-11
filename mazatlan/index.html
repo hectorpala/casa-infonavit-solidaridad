@@ -896,7 +896,7 @@ body.carousel-swipe-lock {
     opacity: 0.9; /* Ligeramente transparente para más sutileza */
   }
 
-  /* La imagen no intercepta toques; los controles sí - SCALE-DOWN INTELIGENTE + ZOOM 20% */
+  /* La imagen no intercepta toques; los controles sí - SCALE-DOWN INTELIGENTE */
   .card-carousel-container .carousel-slide .carousel-image,
   .card-carousel-container .carousel-image,
   .listing-card .card-carousel-container .carousel-image,
@@ -913,7 +913,11 @@ body.carousel-swipe-lock {
     max-width: 100% !important;
     position: relative !important;
     z-index: 1 !important; /* Por encima del fondo blur */
-    transform: scale(1.2) !important; /* Agranda 20% para llenar mejor (sin deformar mucho) */
+  }
+
+  /* SOLO fotos verticales: agranda 20% para llenar mejor */
+  .carousel-image.vertical-photo{
+    transform: scale(1.2) !important; /* Zoom 20% solo para verticales */
   }
   .card-carousel-container .carousel-arrow-card,
   .card-carousel-container .carousel-dot{
@@ -2290,6 +2294,9 @@ body.map-animating .listing-card .listing-image {
             // ZILLOW: Event delegation para carruseles (flechas y dots)
             attachCarouselListeners();
 
+            // Detectar fotos verticales y agregar clase para zoom 20%
+            detectVerticalPhotos();
+
             // Móvil: Inicializar controles táctiles + tap-to-open en nuevas cards
             if (window.initMobileControlsOnly) {
                 window.initMobileControlsOnly();
@@ -2303,6 +2310,31 @@ body.map-animating .listing-card .listing-image {
                 setTimeout(() => {
                     applyCompactSheetAndReveal(window.mapInstance);
                 }, 300); // Aumentado para que carguen las imágenes
+            }
+        }
+
+        // ==== DETECTAR FOTOS VERTICALES Y APLICAR ZOOM 20% ====
+        function detectVerticalPhotos() {
+            const images = document.querySelectorAll('.carousel-image');
+            images.forEach(img => {
+                // Esperar a que la imagen cargue para obtener dimensiones reales
+                if (img.complete) {
+                    checkIfVertical(img);
+                } else {
+                    img.addEventListener('load', () => checkIfVertical(img), { once: true });
+                }
+            });
+        }
+
+        function checkIfVertical(img) {
+            const width = img.naturalWidth;
+            const height = img.naturalHeight;
+
+            // Si alto > ancho, es vertical (portrait)
+            if (height > width) {
+                img.classList.add('vertical-photo');
+            } else {
+                img.classList.remove('vertical-photo');
             }
         }
 
