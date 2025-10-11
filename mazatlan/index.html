@@ -1983,7 +1983,7 @@ body.map-animating .listing-card .listing-image {
                     <!-- ZILLOW: Card Image Container -->
                     <div class="card-carousel-container" style="position:relative;">
                         <div class="card-carousel-images" id="carousel-${p.slug}">
-                            ${photos.map(photo => `<img src="${photo}" class="listing-image" alt="${p.title}" onerror="this.style.display='none'">`).join('')}
+                            ${photos.map(photo => '<img src="' + photo + '" class="listing-image" alt="' + p.title + '" onerror="this.style.display=\'none\'">').join('')}
                         </div>
 
                         <!-- ZILLOW: Price Badge (naranja, superior derecha) -->
