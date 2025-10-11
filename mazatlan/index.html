@@ -2085,15 +2085,20 @@ body.map-animating .listing-card .listing-image {
 
             // Event delegation con CAPTURE phase para interceptar ANTES
             freshContainer.addEventListener('click', function(e) {
+                console.log('🔵 Click detectado:', e.target);
+
                 // 1. PRIORIDAD: Clicks en flechas del carrusel
                 const arrow = e.target.closest('.carousel-arrow-card');
                 if (arrow) {
+                    console.log('🟢 FLECHA detectada');
                     e.preventDefault();
                     e.stopPropagation();
                     e.stopImmediatePropagation();
                     const slug = arrow.getAttribute('data-slug');
                     const direction = parseInt(arrow.getAttribute('data-direction'));
+                    console.log('🟢 Slug:', slug, 'Direction:', direction);
                     if (slug && direction) {
+                        console.log('🟢 Llamando changeCardPhoto');
                         changeCardPhoto(slug, direction);
                     }
                     return false;
@@ -2102,12 +2107,15 @@ body.map-animating .listing-card .listing-image {
                 // 2. PRIORIDAD: Clicks en dots del carrusel
                 const dot = e.target.closest('.carousel-dot');
                 if (dot) {
+                    console.log('🟡 DOT detectado');
                     e.preventDefault();
                     e.stopPropagation();
                     e.stopImmediatePropagation();
                     const slug = dot.getAttribute('data-slug');
                     const index = parseInt(dot.getAttribute('data-index'));
+                    console.log('🟡 Slug:', slug, 'Index:', index);
                     if (slug && index !== null && index !== undefined) {
+                        console.log('🟡 Llamando goToCardPhoto');
                         goToCardPhoto(slug, index);
                     }
                     return false;
@@ -2116,14 +2124,18 @@ body.map-animating .listing-card .listing-image {
                 // 3. Clicks en botones (Save, etc.) - ignorar
                 const button = e.target.closest('button, .icon-btn');
                 if (button && !arrow && !dot) {
+                    console.log('🔴 BOTÓN detectado - ignorando');
                     return; // Dejar que el botón maneje su propio click
                 }
 
                 // 4. ÚLTIMA PRIORIDAD: Clicks en el card (abrir propiedad)
                 const card = e.target.closest('.listing-card');
                 if (card) {
+                    console.log('🟣 CARD detectado');
                     const url = card.getAttribute('data-property-url');
+                    console.log('🟣 URL:', url);
                     if (url) {
+                        console.log('🟣 Abriendo página');
                         window.open(url, '_blank');
                     }
                 }
@@ -2555,25 +2567,36 @@ body.map-animating .listing-card .listing-image {
         window.carouselState = {};
 
         function showSlide(slug, n) {
+            console.log('📸 showSlide - slug:', slug, 'n:', n);
             const carousel = document.getElementById('carousel-' + slug);
-            if (!carousel) return;
+            if (!carousel) {
+                console.error('❌ No se encontró carousel:', 'carousel-' + slug);
+                return;
+            }
 
             const slides = carousel.querySelectorAll('.carousel-slide');
             const card = document.getElementById('card-' + slug);
             const dots = card ? card.querySelectorAll('.carousel-dot') : [];
 
+            console.log('📸 Total slides:', slides.length);
             const total = slides.length;
-            if (total === 0) return;
+            if (total === 0) {
+                console.error('❌ No hay slides');
+                return;
+            }
 
             // Ajustar índice con wrap-around
             if (n >= total) window.carouselState[slug] = 0;
             if (n < 0) window.carouselState[slug] = total - 1;
+
+            console.log('📸 Índice final:', window.carouselState[slug]);
 
             // Actualizar slides (remover/agregar clase active)
             slides.forEach(function(slide, index) {
                 slide.classList.remove('active');
                 if (index === window.carouselState[slug]) {
                     slide.classList.add('active');
+                    console.log('📸 Slide', index, 'activado');
                 }
             });
 
@@ -2587,6 +2610,7 @@ body.map-animating .listing-card .listing-image {
         }
 
         function changeCardPhoto(slug, direction) {
+            console.log('🔄 changeCardPhoto - slug:', slug, 'direction:', direction);
             // Inicializar si no existe
             if (window.carouselState[slug] === undefined) {
                 window.carouselState[slug] = 0;
@@ -2597,6 +2621,7 @@ body.map-animating .listing-card .listing-image {
         }
 
         function goToCardPhoto(slug, index) {
+            console.log('🎯 goToCardPhoto - slug:', slug, 'index:', index);
             window.carouselState[slug] = index;
             showSlide(slug, index);
         }
