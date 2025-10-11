@@ -702,125 +702,33 @@ body{
   width: 100%;
   aspect-ratio: 16/9;
 }
-/* Base segura para móvil y desktop */
-.carousel-wrapper {
-  position: relative;
-  height: auto;
-  aspect-ratio: 4/3;
-  touch-action: pan-y; /* Permite scroll vertical natural y swipe horizontal controlado */
-}
-@media (min-width: 641px) {
-  .carousel-wrapper {
-    aspect-ratio: 16/9;
-  }
-}
+/* Carrusel base (desktop: fade; móvil: modo seguro) */
+.carousel-wrapper { position: relative; height: auto; aspect-ratio: 16/9; touch-action: pan-y; }
+@media (max-width: 640px){ .carousel-wrapper { aspect-ratio: 4/3; } }
 
-.carousel-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 0;
-  pointer-events: none;
-  transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
-  will-change: opacity;
-}
-.carousel-slide.active {
-  opacity: 1;
-  visibility: visible;
-  z-index: 1;
-  pointer-events: auto;
-  transition: opacity 300ms ease-in-out, visibility 0s linear 0s;
-}
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  -webkit-transform: translateZ(0); /* fuerza composición en iOS */
-}
+.carousel-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; z-index: 0; pointer-events: none; transition: opacity 300ms ease-in-out, visibility 0s linear 300ms; will-change: opacity; }
+.carousel-slide.active { opacity: 1; visibility: visible; z-index: 1; pointer-events: auto; transition: opacity 300ms ease-in-out, visibility 0s linear 0s; }
+.carousel-image { width: 100%; height: 100%; object-fit: cover; display: block; -webkit-transform: translateZ(0); }
 
-/* Controles siempre por encima y tocables */
-.carousel-arrow-card,
-.carousel-dot {
-  position: absolute;
-  z-index: 50;
-  pointer-events: auto;
-  touch-action: manipulation;
-}
-
-/* ZILLOW: Flechas carrusel en tarjetas - Áreas táctiles razonables */
-.carousel-arrow-card {
-  background: rgba(255, 255, 255, 0.95);
-  border: none;
-  border-radius: 50%;
-  display: none; /* Ocultas por default */
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.carousel-arrow-card.prev {
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-}
-
-.carousel-arrow-card.next {
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-}
-
-.carousel-arrow-card i {
-  font-size: 14px;
-  color: #2A2A33;
-}
+/* Controles encima y tocables */
+.carousel-arrow-card, .carousel-dot { position: absolute; z-index: 50; pointer-events: auto; touch-action: manipulation; }
+.carousel-arrow-card { background: rgba(255, 255, 255, 0.95); border: none; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+.carousel-arrow-card.prev { left: 8px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; }
+.carousel-arrow-card.next { right: 8px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; }
+.carousel-arrow-card i { font-size: 14px; color: #2A2A33; }
 
 /* ZILLOW: Flechas visibles solo en hover de la tarjeta */
-.listing-card:hover .carousel-arrow-card {
-  display: flex !important;
-}
+.listing-card:hover .carousel-arrow-card { display: flex !important; }
+.carousel-arrow-card:hover { background: white !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
 
-/* ZILLOW: Hover en las flechas */
-.carousel-arrow-card:hover {
-  background: white !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
+.carousel-dots { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 15; }
+.carousel-dot { width: 12px; height: 12px; border-radius: 9999px; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.2s; border: none; }
+.carousel-dot.active { background: white; width: 20px; border-radius: 3px; }
 
-.carousel-dots {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 15;
-}
-.carousel-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 9999px;
-  background: rgba(255,255,255,0.5);
-  cursor: pointer;
-  transition: all 0.2s;
-  border: none; /* Remover borde default de button */
-}
-.carousel-dot.active {
-  background: white;
-  width: 20px;
-  border-radius: 3px;
-}
-
-/* Bloqueo de scroll durante swipe horizontal */
-body.carousel-swipe-lock {
-  overflow: hidden !important;
-  touch-action: none !important;
+/* Modo seguro móvil: oculta con display, sin opacidad ni stacking raros */
+@media (max-width: 640px){
+  .card-carousel-container .carousel-slide { position: static !important; display: none !important; opacity: 1 !important; visibility: visible !important; z-index: 0 !important; pointer-events: none; }
+  .card-carousel-container .carousel-slide.active { display: block !important; pointer-events: auto; z-index: 1 !important; }
 }
 
 /* Imagen con aspecto consistente - MEDIDA ZILLOW */
@@ -2095,8 +2003,8 @@ body.map-animating .listing-card .listing-image {
             // PAGINACIÓN: Renderizar controles
             renderPagination(totalPages);
 
-            // ZILLOW: Event delegation para carruseles (flechas y dots)
-            attachCarouselListeners();
+            // ZILLOW: Boot carruseles (init + listeners + swipe)
+            bootCarousels('listings-container');
 
             // Recalcular mediciones después de renderizar (móvil)
             if (window.innerWidth <= 768 && window.mapInstance) {
@@ -2122,34 +2030,18 @@ body.map-animating .listing-card .listing-image {
         }
 
         function highlightCard(slug) {
-            document.querySelectorAll('.listing-card').forEach(c => c.classList.remove('highlighted'));
+            document.querySelectorAll('.listing-card').forEach(function(c){ c.classList.remove('highlighted'); });
             const card = document.getElementById('card-' + slug);
 
             if (!card) return;
 
             card.classList.add('highlighted');
 
-            // Reset carousel to first photo - usando el nuevo sistema
-            goToCardPhoto(slug, 0);
+            // Reset carousel y scroll - usando nuevo sistema
+            window.focusCardFromMarker('#card-' + slug);
 
-            // ZILLOW: Scroll automático
-            if (window.innerWidth > 768) {
-                const listingsContainer = document.getElementById('listings-container');
-                if (listingsContainer) {
-                    setTimeout(function() {
-                        const containerRect = listingsContainer.getBoundingClientRect();
-                        const cardRect = card.getBoundingClientRect();
-                        const currentScroll = listingsContainer.scrollTop;
-                        const cardRelativeTop = cardRect.top - containerRect.top;
-                        const targetScroll = currentScroll + cardRelativeTop - (containerRect.height / 2) + (cardRect.height / 2);
-
-                        listingsContainer.scrollTo({
-                            top: targetScroll,
-                            behavior: 'smooth'
-                        });
-                    }, 100);
-                }
-            } else {
+            // ZILLOW: Scroll automático (móvil - comportamiento diferente)
+            if (window.innerWidth <= 768) {
                 card.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
@@ -2534,240 +2426,128 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // ===== Inicialización carruseles: fuerza un único activo =====
-        (function initCarouselsOnce(){
-            if (window.__carInitDone) return;
-            window.__carInitDone = true;
+        // ===== Carrusel: helpers por contexto (sin slug) =====
+        const __carState = new WeakMap();
+        function getRootFrom(el){ return el?.closest?.('.card-carousel-container') || null; }
+        function getSlidesFrom(root){ const w = root?.querySelector('.carousel-wrapper'); return w ? Array.from(w.querySelectorAll('.carousel-slide')) : []; }
+        function getDotsFrom(root){ return root ? Array.from(root.querySelectorAll('.carousel-dot')) : []; }
+        function getIndex(root){ return __carState.has(root) ? __carState.get(root) : 0; }
+        function setIndex(root,n){ __carState.set(root,n); }
+        function showSlideIn(root, idx){
+            const slides = getSlidesFrom(root); if(!slides.length) return;
+            const dots = getDotsFrom(root);
+            const n = ((idx % slides.length) + slides.length) % slides.length;
+            setIndex(root, n);
+            slides.forEach(function(s,i){ s.classList.toggle('active', i===n); });
+            dots.forEach(function(d,i){ d.classList.toggle('active', i===n); });
+        }
+        function changePhotoIn(root, delta){
+            const slides = getSlidesFrom(root); if(!slides.length) return;
+            const cur = getIndex(root);
+            showSlideIn(root, cur + (parseInt(delta,10)||0));
+        }
+        function goToPhotoIn(root, idx){ showSlideIn(root, parseInt(idx,10)||0); }
 
-            function initOne(root) {
-                const slides = root.querySelectorAll('.carousel-slide');
-                if (!slides.length) return;
-                // Fuerza un único activo
-                slides.forEach(function(s, i){ s.classList.toggle('active', i === 0); });
-                // Resetea dots
-                const dots = root.querySelectorAll('.carousel-dot');
-                dots.forEach(function(d, i){ d.classList.toggle('active', i === 0); });
-                // Guarda índice interno para el modo por contexto
-                root.__idx = 0;
-            }
+        // Export opcional para markers
+        window.resetCarouselByCard = function(cardEl){ const root = cardEl?.querySelector?.('.card-carousel-container'); if(root) showSlideIn(root,0); };
+        window.focusCardFromMarker = function(slugOrSelector){
+            const card = typeof slugOrSelector==='string'
+                ? document.querySelector('.listing-card[data-slug="' + slugOrSelector + '"], ' + slugOrSelector)
+                : slugOrSelector;
+            const panel = document.getElementById('listings-container');
+            if(card && panel){ panel.scrollTo({top: card.offsetTop - 12, behavior:'smooth'}); }
+            if(card) window.resetCarouselByCard(card);
+        };
 
-            // Inicializar al cargar
-            document.querySelectorAll('.card-carousel-container').forEach(initOne);
+        // ===== Boot único: listeners click + pointer/touch + swipe + init =====
+        function bootCarousels(containerId){
+            containerId = containerId || 'listings-container';
+            const container = document.getElementById(containerId);
+            if(!container) return;
 
-            // Exponer para re-renders manuales
-            window.initCarousel = initOne;
-        })();
-
-        // ===== Sistema carrusel WeakMap (sin dependencia de slug) =====
-        (function installCarouselSystem(){
-            if (window.__carouselSystemInstalled) return;
-            window.__carouselSystemInstalled = true;
-
-            // Estado por carrusel usando WeakMap (no depende de slug)
-            const carouselStateByEl = new WeakMap();
-
-            function getRootFrom(el) {
-                return el?.closest('.card-carousel-container');
-            }
-            function getSlidesFrom(root) {
-                if (!root) return [];
-                const wrapper = root.querySelector('.carousel-wrapper');
-                return wrapper ? Array.from(wrapper.querySelectorAll('.carousel-slide')) : [];
-            }
-            function getDotsFrom(root) {
-                return root ? Array.from(root.querySelectorAll('.carousel-dot')) : [];
-            }
-            function getIndex(root) {
-                return carouselStateByEl.has(root) ? carouselStateByEl.get(root) : 0;
-            }
-            function setIndex(root, n) {
-                carouselStateByEl.set(root, n);
-            }
-
-            function showSlideIn(root, index) {
+            // Init slides en cada carrusel
+            container.querySelectorAll('.card-carousel-container').forEach(function(root){
                 const slides = getSlidesFrom(root);
-                if (!slides.length) return;
-                const dots = getDotsFrom(root);
-                const n = ((index % slides.length) + slides.length) % slides.length;
-                setIndex(root, n);
-                slides.forEach(function(s, i) { s.classList.toggle('active', i === n); });
-                dots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
-            }
-            function changePhotoIn(root, delta) {
-                const slides = getSlidesFrom(root);
-                if (!slides.length) return;
-                const cur = getIndex(root);
-                const step = parseInt(delta, 10) || 0;
-                showSlideIn(root, cur + step);
-            }
-            function goToPhotoIn(root, idx) {
-                showSlideIn(root, parseInt(idx, 10) || 0);
-            }
+                if(slides.length){ slides.forEach(function(s,i){ s.classList.toggle('active', i===0); }); setIndex(root,0); }
+                const dots = getDotsFrom(root); dots.forEach(function(d,i){ d.classList.toggle('active', i===0); });
+            });
 
-            // Funciones globales (fallback por slug si otros módulos las llaman)
-            window.showSlide = function(slug, index) {
-                const el = document.querySelector('#carousel-' + slug)?.closest('.card-carousel-container');
-                if (el) showSlideIn(el, index);
-            };
-            window.changeCardPhoto = function(slug, delta) {
-                const el = document.querySelector('#carousel-' + slug)?.closest('.card-carousel-container');
-                if (el) changePhotoIn(el, delta);
-            };
-            window.goToCardPhoto = function(slug, idx) {
-                const el = document.querySelector('#carousel-' + slug)?.closest('.card-carousel-container');
-                if (el) goToPhotoIn(el, idx);
-            };
-
-            // Listener delegado usando contexto DOM
-            const container = document.getElementById('listings-container');
-            if (!container) return;
-
-            if (container._carouselListener) {
-                container.removeEventListener('click', container._carouselListener, false);
-            }
-
-            const listener = function(e) {
+            // Evita duplicar listeners
+            if(container.__carListener){ container.removeEventListener('click', container.__carListener, false); }
+            const clickListener = function(e){
                 const arrow = e.target.closest('.carousel-arrow-card');
-                if (arrow) {
-                    e.preventDefault();
-                    const root = getRootFrom(arrow);
-                    changePhotoIn(root, arrow.dataset.direction);
-                    return;
-                }
+                if(arrow){ e.preventDefault(); changePhotoIn(getRootFrom(arrow), arrow.dataset.direction); return; }
                 const dot = e.target.closest('.carousel-dot');
-                if (dot) {
-                    e.preventDefault();
-                    const root = getRootFrom(dot);
-                    goToPhotoIn(root, dot.dataset.index);
-                    return;
-                }
+                if(dot){ e.preventDefault(); goToPhotoIn(getRootFrom(dot), dot.dataset.index); return; }
                 const card = e.target.closest('.listing-card');
-                if (card && !e.target.closest('.carousel-arrow-card, .carousel-dot')) {
-                    const url = card.dataset.propertyUrl;
-                    if (url) window.open(url, '_blank');
-                }
+                if(card && !e.target.closest('.carousel-arrow-card, .carousel-dot')){ const url = card.dataset.propertyUrl; if(url) window.open(url,'_blank'); }
             };
+            container.__carListener = clickListener;
+            container.addEventListener('click', clickListener, false);
 
-            container._carouselListener = listener;
-            container.addEventListener('click', listener, false);
-
-            // Exponer helpers para swipe system
-            window.getRootFrom = getRootFrom;
-            window.changePhotoIn = changePhotoIn;
-        })();
-
-        // ===== Swipe horizontal para móvil en el grid =====
-        (function installCarouselSwipe(){
-            if (window.__carouselSwipeInstalled) return;
-            window.__carouselSwipeInstalled = true;
-
-            const SCROLL_LOCK_CLASS = 'carousel-swipe-lock';
-            const THRESHOLD_START = 8;    // px para considerar gesto horizontal
-            const THRESHOLD_ACT = 30;     // px para cambiar de foto
-            const MAX_ANGLE = 30;         // grados: ignora si se acerca a vertical
-
-            const container = document.getElementById('listings-container');
-            if (!container) return;
-
-            // Fallbacks si no tienes los helpers por contexto
-            const _getRootFrom = window.getRootFrom || function(el){ return el?.closest?.('.card-carousel-container') || null; };
-            const _changePhotoIn = window.changePhotoIn || function(root, delta) {
-                if (!root) return;
-                const wrapper = root.querySelector('.carousel-wrapper');
-                const slides = wrapper ? Array.from(wrapper.querySelectorAll('.carousel-slide')) : [];
-                if (!slides.length) return;
-                const dots = Array.from(root.querySelectorAll('.carousel-dot'));
-                const cur = root.__idx ?? 0;
-                const n = ((cur + (parseInt(delta,10)||0)) % slides.length + slides.length) % slides.length;
-                root.__idx = n;
-                slides.forEach(function(s,i){ s.classList.toggle('active', i===n); });
-                dots.forEach(function(d,i){ d.classList.toggle('active', i===n); });
-            };
-
-            let tracking = null;
-
-            function onPointerDown(e){
-                const target = e.target;
-                const root = _getRootFrom(target);
-                if (!root) return;
-
-                // Solo inicia si tocó sobre el carrusel o sus hijos
-                const wrapper = root.querySelector('.carousel-wrapper');
-                if (!wrapper || !wrapper.contains(target)) return;
-
-                tracking = {
-                    root: root,
-                    startX: e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0,
-                    startY: e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? 0,
-                    moved: false,
-                    swiping: false
+            // Bridge pointer/touch (móvil)
+            if(!container.__carMobileBridge){
+                const delegated = function(target){
+                    const arrow = target.closest?.('.carousel-arrow-card');
+                    if(arrow){ arrow.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true})); return true; }
+                    const dot = target.closest?.('.carousel-dot');
+                    if(dot){ dot.dispatchEvent(new MouseEvent('click',{bubbles:true,cancelable:true})); return true; }
+                    return false;
                 };
+                const pd = function(e){ if(delegated(e.target)){ e.preventDefault(); e.stopImmediatePropagation(); } };
+                container.addEventListener('pointerdown', pd, {capture:true});
+                container.addEventListener('touchstart', pd, {capture:true, passive:false});
+                container.__carMobileBridge = true;
             }
 
-            function onPointerMove(e){
-                if (!tracking) return;
-                const x = e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0;
-                const y = e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? 0;
-
-                const dx = x - tracking.startX;
-                const dy = y - tracking.startY;
-                tracking.moved = tracking.moved || Math.hypot(dx, dy) > THRESHOLD_START;
-
-                // Decide si es swipe horizontal
-                if (!tracking.swiping && tracking.moved) {
-                    const angle = Math.abs(Math.atan2(Math.abs(dy), Math.abs(dx)) * 180 / Math.PI);
-                    if (Math.abs(dx) > THRESHOLD_START && angle <= MAX_ANGLE) {
-                        tracking.swiping = true;
-                    } else if (angle > MAX_ANGLE) {
-                        // Es más vertical: cancela el swipe para no bloquear scroll
-                        tracking = null;
-                        return;
+            // Swipe horizontal (móvil)
+            if(!container.__carSwipe){
+                let tr = null;
+                const T_START=8, T_ACT=30, MAX_ANG=30;
+                const onDown=function(e){
+                    const t = e.target;
+                    const root = getRootFrom(t);
+                    const wrap = root?.querySelector('.carousel-wrapper');
+                    if(!wrap || !wrap.contains(t)) return;
+                    const cx = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+                    const cy = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+                    tr = {root:root, sx:cx, sy:cy, moved:false, swiping:false};
+                };
+                const onMove=function(e){
+                    if(!tr) return;
+                    const x = e.clientX ?? (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
+                    const y = e.clientY ?? (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+                    const dx = x - tr.sx, dy = y - tr.sy;
+                    tr.moved = tr.moved || Math.hypot(dx,dy) > T_START;
+                    if(!tr.swiping && tr.moved){
+                        const ang = Math.abs(Math.atan2(Math.abs(dy), Math.abs(dx))*180/Math.PI);
+                        if(Math.abs(dx) > T_START && ang <= MAX_ANG) tr.swiping = true;
+                        else if(ang > MAX_ANG){ tr = null; return; }
                     }
+                    if(tr && tr.swiping){ e.preventDefault(); }
+                };
+                const onUp=function(e){
+                    if(!tr) return;
+                    const x = e.clientX ?? (e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : tr.sx);
+                    const dx = x - tr.sx; const was = tr.swiping; const root = tr.root; tr = null;
+                    if(!was) return;
+                    if(Math.abs(dx) >= T_ACT){ changePhotoIn(root, dx < 0 ? 1 : -1); if(e.preventDefault) e.preventDefault(); if(e.stopImmediatePropagation) e.stopImmediatePropagation(); }
+                };
+                const supportsPointer = 'PointerEvent' in window;
+                if(supportsPointer){
+                    container.addEventListener('pointerdown', onDown, {capture:true});
+                    container.addEventListener('pointermove', onMove, {capture:true, passive:false});
+                    container.addEventListener('pointerup', onUp, {capture:true});
+                    container.addEventListener('pointercancel', onUp, {capture:true});
+                } else {
+                    container.addEventListener('touchstart', onDown, {capture:true, passive:true});
+                    container.addEventListener('touchmove', onMove, {capture:true, passive:false});
+                    container.addEventListener('touchend', onUp, {capture:true});
+                    container.addEventListener('touchcancel', onUp, {capture:true});
                 }
-
-                if (tracking && tracking.swiping) {
-                    // Bloquea el scroll mientras se hace swipe horizontal
-                    e.preventDefault();
-                    document.body.classList.add(SCROLL_LOCK_CLASS);
-                }
+                container.__carSwipe = true;
             }
-
-            function onPointerUp(e){
-                if (!tracking) return;
-                const x = e.clientX ?? (e.changedTouches && e.changedTouches[0]?.clientX) ?? tracking.startX;
-                const dx = x - tracking.startX;
-                const wasSwiping = tracking.swiping;
-                const root = tracking.root;
-                tracking = null;
-                document.body.classList.remove(SCROLL_LOCK_CLASS);
-
-                if (!wasSwiping) return;
-
-                // Umbral de acción
-                if (Math.abs(dx) >= THRESHOLD_ACT) {
-                    // dx < 0: swipe a la izquierda -> siguiente foto
-                    // dx > 0: swipe a la derecha -> foto anterior
-                    _changePhotoIn(root, dx < 0 ? 1 : -1);
-                    // Evita que un click fantasma dispare apertura de la card
-                    if (e.preventDefault) e.preventDefault();
-                    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-                }
-            }
-
-            // Pointer Events si existen; fallback a touch
-            const supportsPointer = 'PointerEvent' in window;
-            if (supportsPointer) {
-                container.addEventListener('pointerdown', onPointerDown, {capture:true});
-                container.addEventListener('pointermove', onPointerMove, {capture:true, passive:false});
-                container.addEventListener('pointerup', onPointerUp, {capture:true});
-                container.addEventListener('pointercancel', onPointerUp, {capture:true});
-            } else {
-                container.addEventListener('touchstart', onPointerDown, {capture:true, passive:true});
-                container.addEventListener('touchmove', onPointerMove, {capture:true, passive:false});
-                container.addEventListener('touchend', onPointerUp, {capture:true});
-                container.addEventListener('touchcancel', onPointerUp, {capture:true});
-            }
-        })();
+        }
 
         // Inicializar mapa al cargar
         window.addEventListener('load', initMap);
