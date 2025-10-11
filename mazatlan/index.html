@@ -940,24 +940,26 @@ body.carousel-swipe-lock {
 }
 
 /* ===============================
-   ESTILOS DESKTOP: Tarjetas 75% + Fotos Verticales Scale 1.4
+   ESTILOS DESKTOP: Igual a Culiacán
 ================================= */
 @media (min-width: 641px){
   .listing-card{
-    width: 75% !important; /* Ancho ajustado a proporción de fotos verticales */
-    max-width: 75% !important;
-    margin: 0 auto 16px auto !important; /* Centrado */
+    width: 100% !important; /* Culiacán: 100% sin restricción */
+    max-width: 100% !important;
+    margin: 0 0 16px 0 !important;
   }
 
-  /* Fotos verticales: zoom 1.25 en desktop */
-  .carousel-image.vertical-photo{
-    transform: scale(1.25) !important;
-  }
-
-  /* Recorte simétrico para todas las fotos */
+  /* Fotos: 240px altura igual que Culiacán */
   .carousel-image{
+    height: 240px !important;
     object-fit: cover !important;
     object-position: center !important;
+  }
+
+  .card-carousel-container,
+  .carousel-wrapper{
+    height: 240px !important;
+    aspect-ratio: unset !important;
   }
 }
 
@@ -975,9 +977,9 @@ body.carousel-swipe-lock {
   }
 
   .listing-card{
-    width: 75% !important; /* Ancho ajustado a proporción de fotos verticales */
-    max-width: 75% !important;
-    margin: 0 auto 16px auto !important; /* Centrado con margin-bottom 16px */
+    width: 100% !important; /* Culiacán: 100% sin restricción */
+    max-width: 100% !important;
+    margin: 0 0 16px 0 !important;
     border-radius: 0 !important; /* ZILLOW: sin border-radius en móvil */
   }
 
@@ -1033,7 +1035,7 @@ body.carousel-swipe-lock {
     opacity: 0.9; /* Ligeramente transparente para más sutileza */
   }
 
-  /* La imagen ahora puede recibir taps para abrir lightbox - COVER SIMÉTRICO */
+  /* Fotos móvil: 240px igual que Culiacán */
   .card-carousel-container .carousel-slide .carousel-image,
   .card-carousel-container .carousel-image,
   .listing-card .card-carousel-container .carousel-image,
@@ -1042,19 +1044,19 @@ body.carousel-swipe-lock {
   img.carousel-image,
   .carousel-image{
     width: 100% !important;
-    height: 177px !important; /* Altura fija Zillow */
-    object-fit: cover !important; /* Recorte simétrico automático */
-    object-position: center !important; /* Centro: mismo recorte izq/der */
+    height: 240px !important; /* Culiacán: 240px */
+    object-fit: cover !important;
+    object-position: center !important;
     display: block !important;
-    pointer-events: auto !important; /* Permite taps para lightbox */
+    pointer-events: auto !important;
     max-width: 100% !important;
     position: relative !important;
-    z-index: 1 !important; /* Por encima del fondo blur */
+    z-index: 1 !important;
   }
 
-  /* Fotos verticales: zoom 1.4 para verse más llenas */
-  .carousel-image.vertical-photo{
-    transform: scale(1.4) !important;
+  .card-carousel-container,
+  .carousel-wrapper{
+    height: 240px !important;
   }
   .card-carousel-container .carousel-arrow-card,
   .card-carousel-container .carousel-dot{
@@ -3013,16 +3015,7 @@ body.map-animating .listing-card .listing-image {
                     goToPhotoIn(root, dot.dataset.index);
                     return;
                 }
-                // Desktop: click en tarjeta abre propiedad
-                const isDesktop = window.matchMedia('(min-width: 641px)').matches;
-                if (isDesktop) {
-                    const card = e.target.closest('.listing-card');
-                    if (card && !e.target.closest('.carousel-arrow-card, .carousel-dot')) {
-                        const url = card.dataset.propertyUrl;
-                        if (url) window.location.href = url;
-                    }
-                }
-                // Móvil: manejado por sistema tap-to-open separado
+                // Apertura de propiedad manejada por listener simple de Culiacán
             };
 
             container._carouselListener = listener;
@@ -3202,56 +3195,22 @@ body.map-animating .listing-card .listing-image {
             };
         })();
 
-        // ===== Tap-to-open para móvil (detecta tap vs swipe) =====
-        (function MobileTapToOpen(){
-            const isMobile = window.matchMedia('(max-width: 640px)').matches
-                          || window.matchMedia('(pointer: coarse)').matches;
-            if (!isMobile) return;
-            if (window.__mobileTapInit) return; window.__mobileTapInit = true;
+        // ===== Sistema click Culiacán: Simple y funciona =====
+        const propertyCards = document.querySelectorAll('.listing-card[data-property-url]');
+        propertyCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't navigate if clicking on controls or dots
+                if (e.target.closest('.carousel-arrow-card') ||
+                    e.target.closest('.carousel-dot')) {
+                    return;
+                }
 
-            const TAP_DIST = 8;    // px
-            const TAP_TIME = 300;  // ms
-
-            function wire(card){
-                if (!card || card.__tapReady) return;
-                card.__tapReady = true;
-
-                let start = null;
-                card.addEventListener('touchstart', function(e){
-                    const t = e.touches[0];
-                    start = { x: t.clientX, y: t.clientY, ts: Date.now() };
-                }, { passive: true });
-
-                card.addEventListener('touchend', function(e){
-                    if (!start) return;
-                    const t = e.changedTouches[0];
-                    const dx = Math.abs(t.clientX - start.x);
-                    const dy = Math.abs(t.clientY - start.y);
-                    const dt = Date.now() - start.ts;
-                    const tappedControl = !!e.target.closest('.carousel-arrow-card, .carousel-dot');
-
-                    if (dx < TAP_DIST && dy < TAP_DIST && dt < TAP_TIME && !tappedControl) {
-                        // Tap en tarjeta → abrir propiedad
-                        const url = card.dataset.propertyUrl;
-                        if (url) {
-                            e.preventDefault();
-                            e.stopImmediatePropagation();
-                            window.location.href = url;
-                        }
-                    }
-                    start = null;
-                }, { passive: false });
-            }
-
-            document.querySelectorAll('.listing-card').forEach(wire);
-
-            // Si vuelves a renderizar, llama esto:
-            window.initMobileTapToOpen = function(){
-                if (!window.matchMedia('(max-width: 640px)').matches
-                 && !window.matchMedia('(pointer: coarse)').matches) return;
-                document.querySelectorAll('.listing-card').forEach(wire);
-            };
-        })();
+                const url = this.getAttribute('data-property-url');
+                if (url) {
+                    window.location.href = url;
+                }
+            });
+        });
 
         // Inicializar mapa al cargar
         window.addEventListener('load', initMap);
