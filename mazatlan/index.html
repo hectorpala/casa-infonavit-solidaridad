@@ -592,10 +592,11 @@ body{
   background: var(--panel);
   border-left:1px solid var(--line);
   padding: 10px;
-  overflow-y: auto; /* Scroll vertical explícito */
+  overflow-y: scroll !important; /* Scroll vertical FORZADO */
   overflow-x: hidden; /* Sin scroll horizontal */
   scrollbar-width: thin;
   scrollbar-color: rgba(2,6,23,.25) transparent;
+  min-height: 0; /* CRÍTICO: permite que flex shrink funcione */
 }
 .listings-section::-webkit-scrollbar{
   width:10px;
