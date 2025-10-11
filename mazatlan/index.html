@@ -878,7 +878,7 @@ body.carousel-swipe-lock {
     pointer-events: auto;
   }
 
-  /* La imagen no intercepta toques; los controles sí - CONTAIN PARA VER FOTO COMPLETA */
+  /* La imagen no intercepta toques; los controles sí - COVER PARA RELLENAR TARJETA */
   .card-carousel-container .carousel-slide .carousel-image,
   .card-carousel-container .carousel-image,
   .listing-card .card-carousel-container .carousel-image,
@@ -888,11 +888,10 @@ body.carousel-swipe-lock {
   .carousel-image{
     width: 100% !important;
     height: 177px !important; /* Altura fija Zillow */
-    object-fit: contain !important; /* MOBILE: Foto COMPLETA sin recortar */
+    object-fit: cover !important; /* MOBILE: Rellena tarjeta completa (recorta mínimo necesario) */
     object-position: center !important;
     display: block !important;
     pointer-events: none !important;
-    background: #f8f8f8 !important; /* Fondo gris claro para letterbox */
     max-width: 100% !important;
   }
   .card-carousel-container .carousel-arrow-card,
