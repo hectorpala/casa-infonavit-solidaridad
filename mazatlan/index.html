@@ -877,16 +877,22 @@ body.carousel-swipe-lock {
     pointer-events: auto;
   }
 
-  /* La imagen no intercepta toques; los controles sí */
+  /* La imagen no intercepta toques; los controles sí - CONTAIN PARA VER FOTO COMPLETA */
+  .card-carousel-container .carousel-slide .carousel-image,
   .card-carousel-container .carousel-image,
+  .listing-card .card-carousel-container .carousel-image,
   .listing-card .carousel-image,
+  .carousel-slide img.carousel-image,
+  img.carousel-image,
   .carousel-image{
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important; /* MOBILE: Foto completa sin recortar */
+    object-fit: contain !important; /* MOBILE: Foto COMPLETA sin recortar */
     display: block !important;
-    pointer-events: none;
-    background: #f8f8f8; /* Fondo gris claro para letterbox */
+    pointer-events: none !important;
+    background: #f8f8f8 !important; /* Fondo gris claro para letterbox */
+    max-width: 100% !important;
+    max-height: 100% !important;
   }
   .card-carousel-container .carousel-arrow-card,
   .card-carousel-container .carousel-dot{
