@@ -2098,6 +2098,11 @@ body.map-animating .listing-card .listing-image {
             // ZILLOW: Event delegation para carruseles (flechas y dots)
             attachCarouselListeners();
 
+            // Móvil: Inicializar tap-to-open en nuevas cards
+            if (window.initMobileTapToOpen) {
+                window.initMobileTapToOpen();
+            }
+
             // Recalcular mediciones después de renderizar (móvil)
             if (window.innerWidth <= 768 && window.mapInstance) {
                 setTimeout(() => {
@@ -2767,6 +2772,56 @@ body.map-animating .listing-card .listing-image {
                 container.addEventListener('touchend', onPointerUp, {capture:true});
                 container.addEventListener('touchcancel', onPointerUp, {capture:true});
             }
+        })();
+
+        // ===== Tap-to-open para móvil (detecta tap vs swipe) =====
+        (function MobileTapToOpen(){
+            const isMobile = window.matchMedia('(max-width: 640px)').matches
+                          || window.matchMedia('(pointer: coarse)').matches;
+            if (!isMobile) return;
+            if (window.__mobileTapInit) return; window.__mobileTapInit = true;
+
+            const TAP_DIST = 8;    // px
+            const TAP_TIME = 300;  // ms
+
+            function wire(card){
+                if (!card || card.__tapReady) return;
+                card.__tapReady = true;
+
+                let start = null;
+                card.addEventListener('touchstart', function(e){
+                    const t = e.touches[0];
+                    start = { x: t.clientX, y: t.clientY, ts: Date.now() };
+                }, { passive: true });
+
+                card.addEventListener('touchend', function(e){
+                    if (!start) return;
+                    const t = e.changedTouches[0];
+                    const dx = Math.abs(t.clientX - start.x);
+                    const dy = Math.abs(t.clientY - start.y);
+                    const dt = Date.now() - start.ts;
+                    const tappedControl = !!e.target.closest('.carousel-arrow-card, .carousel-dot');
+
+                    if (dx < TAP_DIST && dy < TAP_DIST && dt < TAP_TIME && !tappedControl) {
+                        const url = card.dataset.propertyUrl;
+                        if (url) {
+                            e.preventDefault();
+                            e.stopImmediatePropagation();
+                            window.open(url, '_blank');
+                        }
+                    }
+                    start = null;
+                }, { passive: false });
+            }
+
+            document.querySelectorAll('.listing-card').forEach(wire);
+
+            // Si vuelves a renderizar, llama esto:
+            window.initMobileTapToOpen = function(){
+                if (!window.matchMedia('(max-width: 640px)').matches
+                 && !window.matchMedia('(pointer: coarse)').matches) return;
+                document.querySelectorAll('.listing-card').forEach(wire);
+            };
         })();
 
         // Inicializar mapa al cargar
