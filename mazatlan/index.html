@@ -1965,8 +1965,8 @@ body.map-animating .listing-card .listing-image {
             const pageProperties = properties.slice(startIndex, endIndex);
 
             container.innerHTML = pageProperties.map((p, index) => {
-                // Usar el índice REAL para el carrusel (startIndex + index)
-                const realIndex = startIndex + index;
+                // USAR SLUG como identificador único (no cambia con paginación)
+                const carouselId = p.slug;
                 // Determinar badges según características
                 const badges = [];
                 if (p.price < 2500000) badges.push('<span class="badge green"><i class="fa-solid fa-tag"></i>Precio Bajo</span>');
@@ -1981,10 +1981,10 @@ body.map-animating .listing-card .listing-image {
                 );
 
                 return `
-                <div class="listing-card" id="card-${p.slug}" data-card-index="${realIndex}" onmouseenter="highlightMarker('${p.slug}')" onclick="window.open('../mazatlan/${p.slug}/index.html', '_blank')" style="cursor: pointer;">
+                <div class="listing-card" id="card-${p.slug}" data-carousel-id="${carouselId}" onmouseenter="highlightMarker('${p.slug}')" onclick="window.open('../mazatlan/${p.slug}/index.html', '_blank')" style="cursor: pointer;">
                     <!-- ZILLOW: Card Image Container -->
                     <div class="card-carousel-container" style="position:relative;">
-                        <div class="card-carousel-images" id="carousel-${realIndex}">
+                        <div class="card-carousel-images" id="carousel-${carouselId}">
                             ${photos.map(photo => `<img src="${photo}" class="listing-image" alt="${p.title}" onerror="this.style.display='none'">`).join('')}
                         </div>
 
@@ -2001,16 +2001,16 @@ body.map-animating .listing-card .listing-image {
                         </div>
 
                         <!-- ZILLOW: Flechas carrusel (solo visible en hover) -->
-                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, -1)" aria-label="Anterior">
+                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto('${carouselId}', -1)" aria-label="Anterior">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
-                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, 1)" aria-label="Siguiente">
+                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto('${carouselId}', 1)" aria-label="Siguiente">
                             <i class="fa-solid fa-chevron-right"></i>
                         </button>
 
                         <!-- ZILLOW: Dots indicadores (inferior centro) -->
                         <div class="carousel-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 10;">
-                            ${photos.map((_, i) => `<div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToCardPhoto(${realIndex}, ${i})" style="width: 6px; height: 6px; border-radius: 50%; background: ${i === 0 ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer;"></div>`).join('')}
+                            ${photos.map((_, i) => `<div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToCardPhoto('${carouselId}', ${i})" style="width: 6px; height: 6px; border-radius: 50%; background: ${i === 0 ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer;"></div>`).join('')}
                         </div>
                     </div>
 
@@ -2068,11 +2068,8 @@ body.map-animating .listing-card .listing-image {
 
             card.classList.add('highlighted');
 
-            // Reset carousel to first photo to match map marker
-            const cardIndex = card.dataset.cardIndex;
-            if (cardIndex !== undefined && cardIndex !== null && cardIndex !== '') {
-                goToCardPhoto(parseInt(cardIndex), 0);
-            }
+            // Reset carousel to first photo - usar slug directamente
+            goToCardPhoto(slug, 0);
 
             // ZILLOW: Scroll automático
             if (window.innerWidth > 768) {
@@ -2486,31 +2483,37 @@ body.map-animating .listing-card .listing-image {
         // Carousel state management
         const carouselStates = {};
 
-        function changeCardPhoto(cardIndex, direction) {
-            if (!carouselStates[cardIndex]) carouselStates[cardIndex] = 0;
+        function changeCardPhoto(carouselId, direction) {
+            if (!carouselStates[carouselId]) carouselStates[carouselId] = 0;
 
-            const carousel = document.getElementById(`carousel-${cardIndex}`);
+            const carousel = document.getElementById(`carousel-${carouselId}`);
+            if (!carousel) return;
+
             const numPhotos = carousel.children.length;
 
-            carouselStates[cardIndex] = (carouselStates[cardIndex] + direction + numPhotos) % numPhotos;
+            carouselStates[carouselId] = (carouselStates[carouselId] + direction + numPhotos) % numPhotos;
 
-            carousel.style.transform = `translateX(-${carouselStates[cardIndex] * 100}%)`;
-            updateCarouselDots(cardIndex);
+            carousel.style.transform = `translateX(-${carouselStates[carouselId] * 100}%)`;
+            updateCarouselDots(carouselId);
         }
 
-        function goToCardPhoto(cardIndex, photoIndex) {
-            carouselStates[cardIndex] = photoIndex;
+        function goToCardPhoto(carouselId, photoIndex) {
+            carouselStates[carouselId] = photoIndex;
 
-            const carousel = document.getElementById(`carousel-${cardIndex}`);
-            carousel.style.transform = `translateX(-${photoIndex * 100}%)`;
-            updateCarouselDots(cardIndex);
+            const carousel = document.getElementById(`carousel-${carouselId}`);
+            if (carousel) {
+                carousel.style.transform = `translateX(-${photoIndex * 100}%)`;
+                updateCarouselDots(carouselId);
+            }
         }
 
-        function updateCarouselDots(cardIndex) {
-            const card = document.querySelector(`[data-card-index="${cardIndex}"]`);
+        function updateCarouselDots(carouselId) {
+            const card = document.querySelector(`[data-carousel-id="${carouselId}"]`);
+            if (!card) return;
+
             const dots = card.querySelectorAll('.carousel-dot');
             dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === carouselStates[cardIndex]);
+                dot.classList.toggle('active', i === carouselStates[carouselId]);
             });
         }
 
