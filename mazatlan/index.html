@@ -1073,19 +1073,40 @@ body.map-animating .listing-card .listing-image {
 }
 
 /* ===============================
+   DESKTOP: Ocultar toggle buttons, mostrar layout dual
+================================= */
+@media (min-width: 769px) {
+  .view-toggle-buttons {
+    display: none !important;
+  }
+
+  .main-container {
+    display: flex !important;
+  }
+
+  .map-view,
+  .list-view,
+  .map-sticker,
+  .list-sticker {
+    display: none !important;
+  }
+}
+
+/* ===============================
    RESPONSIVE MÓVIL
 ================================= */
 /* ===== Stack superior flotante (móvil) ===== */
 @media (max-width: 768px) {
   body { overflow: hidden; }
+
+  /* OCULTAR estructura vieja (bottom sheet) */
   .main-container {
-    display: block;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    height: 100dvh !important;
+    display: none !important;
+  }
+
+  .map-section,
+  .listings-panel {
+    display: none !important;
   }
 
   /* Header Zillow móvil */
@@ -1105,6 +1126,71 @@ body.map-animating .listing-card .listing-image {
 
   .open-app-btn span {
     display: none; /* Solo ícono en móvil */
+  }
+
+  /* MÓVIL: Ocultar botón Open App, mostrar Map/List toggle */
+  .open-app-btn {
+    display: none !important;
+  }
+
+  /* MÓVIL: Botones Map/List toggle */
+  .view-toggle-buttons {
+    display: flex !important;
+    gap: 4px;
+  }
+
+  .view-toggle-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--line);
+    background: white;
+    color: var(--ink-2);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .view-toggle-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  .view-toggle-btn i {
+    margin-right: 4px;
+  }
+
+  /* MÓVIL: Vistas separadas */
+  .map-view {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .map-view.active {
+    display: block;
+  }
+
+  .list-view {
+    display: none;
+    position: fixed;
+    top: calc(var(--top-stack) + 50px); /* Bajo filtros */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--panel);
+    overflow-y: auto;
+    z-index: 1;
+    padding: 12px;
+  }
+
+  .list-view.active {
+    display: block;
   }
 
   /* ZILLOW: Ocultar action bar en móvil */
@@ -1383,10 +1469,21 @@ body.map-animating .listing-card .listing-image {
         </div>
 
         <div class="header-right">
+            <!-- Desktop: Open App button -->
             <button class="open-app-btn" onclick="alert('App disponible próximamente')">
                 <i class="fas fa-mobile-alt"></i>
                 <span>Open App</span>
             </button>
+
+            <!-- Móvil: Map/List toggle buttons -->
+            <div class="view-toggle-buttons">
+                <button class="view-toggle-btn" id="map-btn" onclick="switchView('map')">
+                    <i class="fas fa-map"></i>Map
+                </button>
+                <button class="view-toggle-btn active" id="list-btn" onclick="switchView('list')">
+                    <i class="fas fa-list"></i>List
+                </button>
+            </div>
         </div>
     </div>
 
@@ -1518,6 +1615,38 @@ body.map-animating .listing-card .listing-image {
         </div>
     </div>
 
+    <!-- MÓVIL: Vista de Mapa (con sticker para cambiar a List) -->
+    <div class="map-view" id="map-view">
+        <div id="map-container-mobile" style="width: 100%; height: 100%;"></div>
+
+        <!-- Sticker flotante para cambiar a vista List -->
+        <button class="map-sticker" onclick="switchView('list')" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: white; border: 1px solid var(--line); border-radius: 999px; padding: 12px 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 14px; font-weight: 700; cursor: pointer; z-index: 1001; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-list"></i>
+            View List
+        </button>
+    </div>
+
+    <!-- MÓVIL: Vista de Lista (default, aparece primero) -->
+    <div class="list-view active" id="list-view">
+        <div id="listings-container-mobile">
+            <!-- Las propiedades se copian aquí desde JavaScript -->
+        </div>
+
+        <!-- Paginación móvil -->
+        <nav class="pagination-container" id="pagination-nav-mobile" aria-label="Pagination" style="margin-top: 16px;">
+            <ul class="pagination-list" id="pagination-list-mobile">
+                <!-- Se genera dinámicamente con JavaScript -->
+            </ul>
+        </nav>
+
+        <!-- Sticker flotante para cambiar a vista Map -->
+        <button class="list-sticker" onclick="switchView('map')" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; border: none; border-radius: 999px; padding: 12px 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-size: 14px; font-weight: 700; cursor: pointer; z-index: 1001; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-map"></i>
+            View Map
+        </button>
+    </div>
+
+    <!-- DESKTOP: Layout dual (mapa + lista) -->
     <div class="main-container">
         <div class="map-section">
             <div id="map-container"></div>
@@ -2590,6 +2719,107 @@ body.map-animating .listing-card .listing-image {
                 }, 500);
             }
         });
+
+        /* ===================================
+           MÓVIL: Sistema de dos vistas (Map/List)
+        ==================================== */
+        function switchView(view) {
+            const mapView = document.getElementById('map-view');
+            const listView = document.getElementById('list-view');
+            const mapBtn = document.getElementById('map-btn');
+            const listBtn = document.getElementById('list-btn');
+
+            if (view === 'map') {
+                // Mostrar mapa, ocultar lista
+                mapView.classList.add('active');
+                listView.classList.remove('active');
+                mapBtn.classList.add('active');
+                listBtn.classList.remove('active');
+
+                // Re-inicializar mapa si es necesario
+                setTimeout(() => {
+                    if (window.google && window.google.maps && map) {
+                        google.maps.event.trigger(map, 'resize');
+                    }
+                }, 100);
+            } else {
+                // Mostrar lista, ocultar mapa
+                listView.classList.add('active');
+                mapView.classList.remove('active');
+                listBtn.classList.add('active');
+                mapBtn.classList.remove('active');
+            }
+        }
+
+        // Copiar contenido de listings a móvil al cargar
+        function syncMobileListings() {
+            const desktopListings = document.getElementById('listings-container');
+            const mobileListings = document.getElementById('listings-container-mobile');
+            const desktopPagination = document.getElementById('pagination-list');
+            const mobilePagination = document.getElementById('pagination-list-mobile');
+
+            if (desktopListings && mobileListings) {
+                mobileListings.innerHTML = desktopListings.innerHTML;
+            }
+
+            if (desktopPagination && mobilePagination) {
+                mobilePagination.innerHTML = desktopPagination.innerHTML;
+            }
+        }
+
+        // Sincronizar mapa móvil con mapa desktop
+        let mapMobile;
+        function initMobileMap() {
+            if (window.innerWidth <= 768 && !mapMobile) {
+                const mapContainerMobile = document.getElementById('map-container-mobile');
+                if (mapContainerMobile && window.google && window.google.maps) {
+                    // Crear mapa móvil con las mismas opciones
+                    mapMobile = new google.maps.Map(mapContainerMobile, {
+                        center: map.getCenter(),
+                        zoom: map.getZoom(),
+                        styles: map.get('styles') || [],
+                        mapTypeControl: false,
+                        fullscreenControl: false,
+                        streetViewControl: false,
+                        zoomControl: true
+                    });
+
+                    // Copiar marcadores del mapa desktop
+                    if (window.markers && window.markers.length > 0) {
+                        window.markers.forEach(markerData => {
+                            new google.maps.Marker({
+                                position: markerData.position,
+                                map: mapMobile,
+                                title: markerData.title
+                            });
+                        });
+                    }
+                }
+            }
+        }
+
+        // Ejecutar al cargar y al cambiar tamaño
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                syncMobileListings();
+                initMobileMap();
+            }, 1000);
+        });
+
+        // Observer para detectar cambios en listings
+        if (window.MutationObserver) {
+            const observer = new MutationObserver(() => {
+                syncMobileListings();
+            });
+
+            const listingsContainer = document.getElementById('listings-container');
+            if (listingsContainer) {
+                observer.observe(listingsContainer, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+        }
     </script>
 
 </body>
