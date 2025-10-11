@@ -1937,6 +1937,7 @@ body.map-animating .listing-card .listing-image {
             });
 
             marker.addListener('click', () => {
+                console.log('Marker clicked, slug:', property.slug);
                 Object.values(infoWindows).forEach(iw => iw.close());
                 infoWindow.open(map, marker);
                 highlightCard(property.slug);
@@ -2059,20 +2060,30 @@ body.map-animating .listing-card .listing-image {
         }
 
         function highlightCard(slug) {
+            console.log('highlightCard called with slug:', slug);
+
             document.querySelectorAll('.listing-card').forEach(c => c.classList.remove('highlighted'));
             const card = document.getElementById(`card-${slug}`);
 
-            if (!card) return;
+            console.log('Found card:', card);
+            if (!card) {
+                console.error('Card not found for slug:', slug);
+                return;
+            }
 
             card.classList.add('highlighted');
+            console.log('Card highlighted');
 
             // Reset carousel to first photo - usar slug directamente
+            console.log('Calling goToCardPhoto with slug:', slug);
             goToCardPhoto(slug, 0);
 
             // ZILLOW: Scroll automático
             if (window.innerWidth > 768) {
+                console.log('Desktop mode - attempting scroll');
                 // Desktop: usar el contenedor con ID que sabemos que existe
                 const listingsContainer = document.getElementById('listings-container');
+                console.log('Listings container:', listingsContainer);
 
                 if (listingsContainer) {
                     setTimeout(() => {
@@ -2080,12 +2091,17 @@ body.map-animating .listing-card .listing-image {
                         const cardRect = card.getBoundingClientRect();
                         const currentScroll = listingsContainer.scrollTop;
 
+                        console.log('Container rect:', containerRect);
+                        console.log('Card rect:', cardRect);
+                        console.log('Current scroll:', currentScroll);
+
                         // Posición relativa de la tarjeta en el contenedor
                         const cardRelativeTop = cardRect.top - containerRect.top;
 
                         // Scroll para centrar la tarjeta verticalmente
                         const targetScroll = currentScroll + cardRelativeTop - (containerRect.height / 2) + (cardRect.height / 2);
 
+                        console.log('Target scroll:', targetScroll);
                         listingsContainer.scrollTo({
                             top: targetScroll,
                             behavior: 'smooth'
@@ -2093,6 +2109,7 @@ body.map-animating .listing-card .listing-image {
                     }, 50);
                 }
             } else {
+                console.log('Mobile mode - using scrollIntoView');
                 // Móvil: scrollIntoView
                 card.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
@@ -2496,12 +2513,18 @@ body.map-animating .listing-card .listing-image {
         }
 
         function goToCardPhoto(carouselId, photoIndex) {
+            console.log('goToCardPhoto called with:', carouselId, photoIndex);
             carouselStates[carouselId] = photoIndex;
 
             const carousel = document.getElementById(`carousel-${carouselId}`);
+            console.log('Found carousel:', carousel);
+
             if (carousel) {
                 carousel.style.transform = `translateX(-${photoIndex * 100}%)`;
+                console.log('Set transform to:', `translateX(-${photoIndex * 100}%)`);
                 updateCarouselDots(carouselId);
+            } else {
+                console.error('Carousel not found with ID:', `carousel-${carouselId}`);
             }
         }
 
