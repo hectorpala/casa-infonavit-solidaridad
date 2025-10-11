@@ -1974,8 +1974,8 @@ body.map-animating .listing-card .listing-image {
                 if (p.sqft >= 200) badges.push('<span class="badge teal"><i class="fa-solid fa-expand"></i>Amplia</span>');
                 if (p.zone === 'real-del-valle') badges.push('<span class="badge amber"><i class="fa-solid fa-location-dot"></i>Real del Valle</span>');
 
-                // Generar array de imágenes (asumimos 5 fotos por propiedad)
-                const numPhotos = 5;
+                // Generar array de imágenes (máximo 20 fotos por propiedad)
+                const numPhotos = 20; // Zillow muestra todas las fotos disponibles
                 const photos = Array.from({length: numPhotos}, (_, i) =>
                     `../mazatlan/${p.slug}/images/foto-${i+1}.jpg`
                 );
