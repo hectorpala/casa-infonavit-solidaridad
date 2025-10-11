@@ -2098,7 +2098,10 @@ body.map-animating .listing-card .listing-image {
             // ZILLOW: Event delegation para carruseles (flechas y dots)
             attachCarouselListeners();
 
-            // Móvil: Inicializar tap-to-open en nuevas cards
+            // Móvil: Inicializar controles táctiles + tap-to-open en nuevas cards
+            if (window.initMobileControlsOnly) {
+                window.initMobileControlsOnly();
+            }
             if (window.initMobileTapToOpen) {
                 window.initMobileTapToOpen();
             }
@@ -2772,6 +2775,62 @@ body.map-animating .listing-card .listing-image {
                 container.addEventListener('touchend', onPointerUp, {capture:true});
                 container.addEventListener('touchcancel', onPointerUp, {capture:true});
             }
+        })();
+
+        // ===== Controles móvil: estado independiente y táctil directo =====
+        (function MobileControlsOnly(){
+            const isMobile = window.matchMedia('(max-width: 640px)').matches
+                          || window.matchMedia('(pointer: coarse)').matches;
+            if (!isMobile) return;
+            if (window.__mobileControlsInit) return; window.__mobileControlsInit = true;
+
+            function getRootFrom(el){ return el?.closest?.('.card-carousel-container') || null; }
+            function slidesOf(root){ const w = root?.querySelector('.carousel-wrapper'); return w ? Array.from(w.querySelectorAll('.carousel-slide')) : []; }
+            function dotsOf(root){ return root ? Array.from(root.querySelectorAll('.carousel-dot')) : []; }
+
+            function setIndex(root, idx){
+                const slides = slidesOf(root); if (!slides.length) return;
+                const n = ((idx % slides.length)+slides.length)%slides.length;
+                root.__mobIdx = n;
+                slides.forEach(function(s,i){ s.classList.toggle('active', i===n); });
+                dotsOf(root).forEach(function(d,i){ d.classList.toggle('active', i===n); });
+            }
+            function next(root, delta){
+                const cur = Number.isInteger(root.__mobIdx) ? root.__mobIdx : 0;
+                setIndex(root, cur + (parseInt(delta,10)||0));
+            }
+            function goTo(root, idx){ setIndex(root, parseInt(idx,10)||0); }
+
+            function wireCard(card){
+                if (card.__mobControlsReady) return;
+                card.__mobControlsReady = true;
+                const root = card.querySelector('.card-carousel-container');
+                if (!root) return;
+
+                // Estado inicial seguro en móvil
+                setIndex(root, 0);
+
+                // Controles por touch: ejecutar de inmediato y evitar que abra la URL
+                root.addEventListener('touchstart', function(e){
+                    const arrow = e.target.closest('.carousel-arrow-card');
+                    const dot = e.target.closest('.carousel-dot');
+                    if (arrow || dot) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        if (arrow) next(root, arrow.dataset.direction || 1);
+                        if (dot) goTo(root, dot.dataset.index || 0);
+                    }
+                }, {capture:true, passive:false});
+            }
+
+            document.querySelectorAll('.listing-card').forEach(wireCard);
+
+            // Llama esto tras cada renderListings() cuando estés en móvil:
+            window.initMobileControlsOnly = function(){
+                if (!window.matchMedia('(max-width: 640px)').matches
+                 && !window.matchMedia('(pointer: coarse)').matches) return;
+                document.querySelectorAll('.listing-card').forEach(wireCard);
+            };
         })();
 
         // ===== Tap-to-open para móvil (detecta tap vs swipe) =====
