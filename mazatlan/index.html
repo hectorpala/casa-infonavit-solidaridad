@@ -2057,7 +2057,12 @@ body.map-animating .listing-card .listing-image {
         // ZILLOW: Event delegation para carruseles
         function attachCarouselListeners() {
             const container = document.getElementById('listings-container');
-            if (!container) return;
+            if (!container) {
+                console.error('ZILLOW DEBUG: No se encontró listings-container');
+                return;
+            }
+
+            console.log('ZILLOW DEBUG: Attaching carousel listeners');
 
             // Remover listeners anteriores si existen
             const oldContainer = container.cloneNode(true);
@@ -2066,15 +2071,20 @@ body.map-animating .listing-card .listing-image {
 
             // Event delegation para flechas del carrusel
             freshContainer.addEventListener('click', function(e) {
+                console.log('ZILLOW DEBUG: Click detectado en listings-container', e.target);
+
                 // Buscar si el click fue en una flecha (o su hijo <i>)
                 const arrow = e.target.closest('.carousel-arrow-card');
                 if (arrow) {
                     e.stopPropagation();
                     const slug = arrow.getAttribute('data-slug');
                     const direction = parseInt(arrow.getAttribute('data-direction'));
+                    console.log('ZILLOW DEBUG: Flecha clickeada - slug:', slug, 'direction:', direction);
                     if (slug && direction) {
+                        console.log('ZILLOW DEBUG: Llamando changeCardPhoto');
                         changeCardPhoto(slug, direction);
                     }
+                    return;
                 }
 
                 // Buscar si el click fue en un dot
@@ -2083,11 +2093,16 @@ body.map-animating .listing-card .listing-image {
                     e.stopPropagation();
                     const slug = dot.getAttribute('data-slug');
                     const index = parseInt(dot.getAttribute('data-index'));
+                    console.log('ZILLOW DEBUG: Dot clickeado - slug:', slug, 'index:', index);
                     if (slug && index !== null && index !== undefined) {
+                        console.log('ZILLOW DEBUG: Llamando goToCardPhoto');
                         goToCardPhoto(slug, index);
                     }
+                    return;
                 }
             });
+
+            console.log('ZILLOW DEBUG: Listeners attached successfully');
         }
 
         function highlightMarker(slug) {
@@ -2515,24 +2530,36 @@ body.map-animating .listing-card .listing-image {
         window.carouselState = {};
 
         function changeCardPhoto(slug, direction) {
+            console.log('changeCardPhoto EJECUTÁNDOSE - slug:', slug, 'direction:', direction);
+
             // Inicializar si no existe
             if (!window.carouselState[slug]) {
                 window.carouselState[slug] = 0;
             }
 
             const carousel = document.getElementById('carousel-' + slug);
-            if (!carousel) return;
+            console.log('Carousel encontrado:', carousel);
+            if (!carousel) {
+                console.error('ERROR: No se encontró carousel-' + slug);
+                return;
+            }
 
             const images = carousel.getElementsByTagName('img');
             const total = images.length;
-            if (total === 0) return;
+            console.log('Total de imágenes:', total);
+            if (total === 0) {
+                console.error('ERROR: No hay imágenes en el carousel');
+                return;
+            }
 
             // Calcular nuevo índice
             window.carouselState[slug] = (window.carouselState[slug] + direction + total) % total;
+            console.log('Nuevo índice:', window.carouselState[slug]);
 
             // Aplicar transformación
             const percentage = -(window.carouselState[slug] * 100);
             carousel.style.transform = 'translateX(' + percentage + '%)';
+            console.log('Transform aplicado:', percentage + '%');
 
             // Actualizar dots
             const card = document.getElementById('card-' + slug);
