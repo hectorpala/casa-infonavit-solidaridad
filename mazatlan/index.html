@@ -906,7 +906,7 @@ body.carousel-swipe-lock {
   .carousel-image{
     width: 100% !important;
     height: 177px !important; /* Altura fija Zillow */
-    object-fit: cover !important; /* MOBILE: Todas las fotos llenan - horizontales se cortan lados, verticales usan blur */
+    object-fit: cover !important; /* MOBILE: Todas las fotos llenan - horizontales se cortan más */
     object-position: center !important;
     display: block !important;
     pointer-events: none !important;
@@ -915,9 +915,14 @@ body.carousel-swipe-lock {
     z-index: 1 !important; /* Por encima del fondo blur */
   }
 
-  /* SOLO fotos verticales: agranda 20% para llenar mejor con blur background */
+  /* Fotos verticales: zoom moderado 1.2 */
   .carousel-image.vertical-photo{
-    transform: scale(1.2) !important; /* Zoom 20% solo para verticales */
+    transform: scale(1.2) !important;
+  }
+
+  /* Fotos horizontales: zoom mayor 1.5 para recortar más y tener mismo ancho visual */
+  .carousel-image.horizontal-photo{
+    transform: scale(1.5) !important;
   }
   .card-carousel-container .carousel-arrow-card,
   .card-carousel-container .carousel-dot{
@@ -2313,7 +2318,7 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // ==== DETECTAR FOTOS VERTICALES Y APLICAR ZOOM 20% ====
+        // ==== DETECTAR ORIENTACIÓN Y APLICAR ZOOM DIFERENCIADO ====
         function detectVerticalPhotos() {
             const images = document.querySelectorAll('.carousel-image');
             images.forEach(img => {
@@ -2330,10 +2335,13 @@ body.map-animating .listing-card .listing-image {
             const width = img.naturalWidth;
             const height = img.naturalHeight;
 
-            // Si alto > ancho, es vertical (portrait)
+            // Si alto > ancho, es vertical (portrait) - scale 1.2
             if (height > width) {
                 img.classList.add('vertical-photo');
+                img.classList.remove('horizontal-photo');
             } else {
+                // Si ancho >= alto, es horizontal (landscape) - scale 1.5 para recortar más
+                img.classList.add('horizontal-photo');
                 img.classList.remove('vertical-photo');
             }
         }
