@@ -2072,7 +2072,25 @@ body.map-animating .listing-card .listing-image {
                     goToCardPhoto(parseInt(cardIndex), 0);
                 }
 
-                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                // ZILLOW: Scroll automático en desktop al panel de listings
+                const listingsSection = document.getElementById('listings-container');
+                if (listingsSection && window.innerWidth > 768) {
+                    // Calcular posición de la tarjeta relativa al contenedor
+                    const containerRect = listingsSection.getBoundingClientRect();
+                    const cardRect = card.getBoundingClientRect();
+                    const scrollTop = listingsSection.scrollTop;
+
+                    // Scroll para centrar la tarjeta en el panel
+                    const targetScroll = scrollTop + (cardRect.top - containerRect.top) - (containerRect.height / 2) + (cardRect.height / 2);
+
+                    listingsSection.scrollTo({
+                        top: targetScroll,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Móvil: usar scrollIntoView
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             }
         }
 
