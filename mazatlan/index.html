@@ -675,12 +675,10 @@ body{
   cursor: pointer;
   position: relative;
 }
+/* ZILLOW: Hover sutil (solo shadow, sin transform) */
 .listing-card:hover{
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: var(--shadow-l), 0 0 0 4px var(--primary);
-  border-color: var(--primary);
-  animation: heartbeat 6s ease-in-out;
-  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
 }
 .listing-card.highlighted{
   border-color: var(--primary);
@@ -728,12 +726,13 @@ body{
   opacity: 0;
   color: white;
 }
+/* ZILLOW: Flechas visibles solo en hover */
 .listing-card:hover .carousel-arrow-card {
-  opacity: 1;
+  display: flex !important;
 }
 .carousel-arrow-card:hover {
-  background: var(--primary);
-  transform: translateY(-50%) scale(1.1);
+  background: rgba(255,255,255,1) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .carousel-arrow-card.prev {
   left: 8px;
@@ -1879,57 +1878,60 @@ body.map-animating .listing-card .listing-image {
                 );
 
                 return `
-                <div class="listing-card" id="card-${p.slug}" data-card-index="${realIndex}" onmouseenter="highlightMarker('${p.slug}')">
-                    <div class="card-carousel-container" style="position:relative" onclick="window.open('../mazatlan/${p.slug}/index.html', '_blank')">
+                <div class="listing-card" id="card-${p.slug}" data-card-index="${realIndex}" onmouseenter="highlightMarker('${p.slug}')" onclick="window.open('../mazatlan/${p.slug}/index.html', '_blank')" style="cursor: pointer;">
+                    <!-- ZILLOW: Card Image Container -->
+                    <div class="card-carousel-container" style="position:relative;">
                         <div class="card-carousel-images" id="carousel-${realIndex}">
                             ${photos.map(photo => `<img src="${photo}" class="listing-image" alt="${p.title}" onerror="this.style.display='none'">`).join('')}
                         </div>
-                        <div class="media-overlay"></div>
 
-                        <!-- ZILLOW: Status badge (top left) -->
-                        ${realIndex < 3 ? '<div class="photo-badge new">NEW</div>' : ''}
-                        ${p.price < 2500000 ? '<div class="photo-badge reduced" style="top: 12px; left: ${realIndex < 3 ? "80px" : "12px"}">GREAT DEAL</div>' : ''}
-
-                        <div class="price-badge">${p.priceShort} <small>MXN</small></div>
-
-                        <!-- Flechas carrusel -->
-                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, -1)" aria-label="Anterior">
-                            <i class="fa-solid fa-chevron-left" style="font-size:14px"></i>
-                        </button>
-                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, 1)" aria-label="Siguiente">
-                            <i class="fa-solid fa-chevron-right" style="font-size:14px"></i>
-                        </button>
-
-                        <!-- Dots indicadores -->
-                        <div class="carousel-dots">
-                            ${photos.map((_, i) => `<div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToCardPhoto(${realIndex}, ${i})"></div>`).join('')}
+                        <!-- ZILLOW: Price Badge (naranja, superior derecha) -->
+                        <div style="position: absolute; top: 12px; right: 12px; background: #FF6A00; color: white; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 700; z-index: 10;">
+                            ${p.priceShort}
                         </div>
 
-                        <div class="card-actions">
-                            <button class="icon-btn" aria-label="Guardar" onclick="event.stopPropagation()"><i class="fa-regular fa-heart"></i></button>
-                            <button class="icon-btn" aria-label="Compartir" onclick="event.stopPropagation()"><i class="fa-solid fa-share-nodes"></i></button>
+                        <!-- ZILLOW: Botones Save/Share (superior izquierda) -->
+                        <div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 8px; z-index: 10;">
+                            <button class="icon-btn" aria-label="Guardar" onclick="event.stopPropagation(); alert('Guardado en favoritos')" style="background: rgba(255,255,255,0.95); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                <i class="fa-regular fa-heart" style="color: #2A2A33; font-size: 16px;"></i>
+                            </button>
+                        </div>
+
+                        <!-- ZILLOW: Flechas carrusel (solo visible en hover) -->
+                        <button class="carousel-arrow-card prev" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, -1)" aria-label="Anterior" style="position: absolute; left: 8px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.95); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 10;">
+                            <i class="fa-solid fa-chevron-left" style="font-size:14px; color: #2A2A33;"></i>
+                        </button>
+                        <button class="carousel-arrow-card next" onclick="event.stopPropagation(); changeCardPhoto(${realIndex}, 1)" aria-label="Siguiente" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.95); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 10;">
+                            <i class="fa-solid fa-chevron-right" style="font-size:14px; color: #2A2A33;"></i>
+                        </button>
+
+                        <!-- ZILLOW: Dots indicadores (inferior centro) -->
+                        <div class="carousel-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 10;">
+                            ${photos.map((_, i) => `<div class="carousel-dot ${i === 0 ? 'active' : ''}" onclick="event.stopPropagation(); goToCardPhoto(${realIndex}, ${i})" style="width: 6px; height: 6px; border-radius: 50%; background: ${i === 0 ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer;"></div>`).join('')}
                         </div>
                     </div>
-                    <div class="content">
-                        <!-- ZILLOW: Precio grande estilo bold -->
-                        <h3 style="color: #2A2A33; font-size: 20px; font-weight: 700; margin: 0 0 8px 0; line-height: 24px;">${p.priceShort}</h3>
 
-                        <!-- ZILLOW: Título y ubicación en línea separada -->
-                        <p style="color: #2A2A33; font-size: 14px; font-weight: 600; margin: 0 0 8px 0; line-height: 24px;">${p.title}</p>
-                        <p style="color: #2A2A33; font-size: 14px; font-weight: 400; margin: 0 0 8px 0; line-height: 24px;">${p.location}</p>
-
-                        <!-- Ancla de corte para el mapa -->
-                        <div class="sheet-cutoff-anchor" aria-hidden="true"></div>
-
-                        <!-- ZILLOW: Meta con iconos SVG simples (beds | baths | sqft) -->
-                        <div class="listing-meta" style="display: flex; gap: 12px; color: #2A2A33; font-size: 12px; font-weight: 400; line-height: 16px; margin: 8px 0 0 0;">
-                            <span>${p.bedrooms} bd</span>
-                            <span>|</span>
-                            <span>${p.bathrooms} ba</span>
-                            <span>|</span>
-                            <span>${p.sqft} m²</span>
+                    <!-- ZILLOW: Card Content -->
+                    <div class="content" style="padding: 12px 0;">
+                        <!-- ZILLOW: Precio grande -->
+                        <div style="color: #2A2A33; font-size: 20px; font-weight: 700; margin: 0 0 4px 0; line-height: 28px;">
+                            ${p.priceShort}
                         </div>
-                        ${badges.length > 0 ? `<div class="badges">${badges.join('')}</div>` : ''}
+
+                        <!-- ZILLOW: Detalles compactos (beds | baths | sqft) -->
+                        <div style="color: #6E6E78; font-size: 14px; font-weight: 400; line-height: 20px; margin: 0 0 4px 0;">
+                            ${p.bedrooms} rec • ${p.bathrooms} baños • ${p.sqft} m²
+                        </div>
+
+                        <!-- ZILLOW: Ubicación -->
+                        <div style="color: #2A2A33; font-size: 14px; font-weight: 400; line-height: 20px;">
+                            ${p.location}, Mazatlán, Sin.
+                        </div>
+
+                        <!-- ZILLOW: Broker info (si existe) -->
+                        <div style="color: #6E6E78; font-size: 12px; font-weight: 400; line-height: 16px; margin-top: 8px;">
+                            Hector es Bienes Raíces
+                        </div>
                     </div>
                 </div>
             `}).join('');
