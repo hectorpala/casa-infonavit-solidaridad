@@ -2736,12 +2736,20 @@ body.map-animating .listing-card .listing-image {
                 mapBtn.classList.add('active');
                 listBtn.classList.remove('active');
 
-                // Re-inicializar mapa si es necesario
-                setTimeout(() => {
-                    if (window.google && window.google.maps && map) {
-                        google.maps.event.trigger(map, 'resize');
-                    }
-                }, 100);
+                // Inicializar mapa móvil si no existe
+                if (!mapMobile) {
+                    setTimeout(() => {
+                        initMobileMap();
+                    }, 100);
+                } else {
+                    // Re-centrar y resize si ya existe
+                    setTimeout(() => {
+                        if (window.google && window.google.maps && mapMobile) {
+                            google.maps.event.trigger(mapMobile, 'resize');
+                            mapMobile.setCenter(map.getCenter());
+                        }
+                    }, 100);
+                }
             } else {
                 // Mostrar lista, ocultar mapa
                 listView.classList.add('active');
@@ -2769,40 +2777,89 @@ body.map-animating .listing-card .listing-image {
 
         // Sincronizar mapa móvil con mapa desktop
         let mapMobile;
+        let mobileMarkers = {};
         function initMobileMap() {
             if (window.innerWidth <= 768 && !mapMobile) {
                 const mapContainerMobile = document.getElementById('map-container-mobile');
-                if (mapContainerMobile && window.google && window.google.maps) {
-                    // Crear mapa móvil con las mismas opciones
+                if (mapContainerMobile && window.google && window.google.maps && map) {
+                    // Crear mapa móvil con las mismas opciones que desktop
                     mapMobile = new google.maps.Map(mapContainerMobile, {
                         center: map.getCenter(),
                         zoom: map.getZoom(),
-                        styles: map.get('styles') || [],
+                        styles: [
+                            {
+                                featureType: "poi",
+                                elementType: "labels",
+                                stylers: [{ visibility: "off" }]
+                            }
+                        ],
                         mapTypeControl: false,
                         fullscreenControl: false,
                         streetViewControl: false,
                         zoomControl: true
                     });
 
-                    // Copiar marcadores del mapa desktop
-                    if (window.markers && window.markers.length > 0) {
-                        window.markers.forEach(markerData => {
-                            new google.maps.Marker({
-                                position: markerData.position,
-                                map: mapMobile,
-                                title: markerData.title
-                            });
-                        });
-                    }
+                    // Copiar TODOS los marcadores del mapa desktop
+                    renderMarkersToMobile(filteredProperties);
                 }
             }
         }
 
-        // Ejecutar al cargar y al cambiar tamaño
+        // Renderizar marcadores en mapa móvil
+        function renderMarkersToMobile(properties) {
+            if (!mapMobile) return;
+
+            // Limpiar marcadores anteriores
+            Object.values(mobileMarkers).forEach(m => m.setMap(null));
+            mobileMarkers = {};
+
+            // Crear marcadores para cada propiedad
+            properties.forEach(property => {
+                if (property.lat && property.lng) {
+                    const position = { lat: property.lat, lng: property.lng };
+                    createMarkerMobile(property, position);
+                }
+            });
+        }
+
+        // Crear marcador en mapa móvil (igual que desktop)
+        function createMarkerMobile(property, position) {
+            const marker = new google.maps.Marker({
+                position: position,
+                map: mapMobile,
+                title: property.title,
+                icon: {
+                    url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                        <svg width="90" height="44" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="g-${property.slug.substring(0,10)}-mobile" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FF6A00;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#D35500;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="90" height="44" rx="22" fill="url(#g-${property.slug.substring(0,10)}-mobile)" stroke="#FFF" stroke-width="3"/>
+                            <text x="45" y="29" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">${property.priceShort}</text>
+                        </svg>
+                    `)}`,
+                    scaledSize: new google.maps.Size(90, 44),
+                    anchor: new google.maps.Point(45, 22)
+                }
+            });
+
+            mobileMarkers[property.slug] = marker;
+
+            // Click en marcador móvil
+            marker.addListener('click', () => {
+                // Abrir la propiedad
+                window.location.href = property.slug + '/index.html';
+            });
+        }
+
+        // Ejecutar al cargar (solo sincronizar listings)
         window.addEventListener('load', () => {
             setTimeout(() => {
                 syncMobileListings();
-                initMobileMap();
+                // initMobileMap() se ejecuta solo cuando el usuario cambia a vista Map
             }, 1000);
         });
 
