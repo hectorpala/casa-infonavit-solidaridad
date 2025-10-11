@@ -2504,74 +2504,98 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // ===== Failsafe de carrusel (interceptor global en capture) =====
-        (function installCarouselInterceptor(){
-            if (window.__carouselInterceptorInstalled) return;
-            window.__carouselInterceptorInstalled = true;
+        // ===== Sistema carrusel WeakMap (sin dependencia de slug) =====
+        (function installCarouselSystem(){
+            if (window.__carouselSystemInstalled) return;
+            window.__carouselSystemInstalled = true;
 
-            function showSlide(slug, index) {
-                const carousel = document.querySelector('#carousel-' + slug);
-                if (!carousel) return;
-                const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+            // Estado por carrusel usando WeakMap (no depende de slug)
+            const carouselStateByEl = new WeakMap();
+
+            function getRootFrom(el) {
+                return el?.closest('.card-carousel-container');
+            }
+            function getSlidesFrom(root) {
+                if (!root) return [];
+                const wrapper = root.querySelector('.carousel-wrapper');
+                return wrapper ? Array.from(wrapper.querySelectorAll('.carousel-slide')) : [];
+            }
+            function getDotsFrom(root) {
+                return root ? Array.from(root.querySelectorAll('.carousel-dot')) : [];
+            }
+            function getIndex(root) {
+                return carouselStateByEl.has(root) ? carouselStateByEl.get(root) : 0;
+            }
+            function setIndex(root, n) {
+                carouselStateByEl.set(root, n);
+            }
+
+            function showSlideIn(root, index) {
+                const slides = getSlidesFrom(root);
                 if (!slides.length) return;
-                const dots = Array.from(carousel.parentElement.querySelectorAll('.carousel-dot[data-slug="' + slug + '"]'));
+                const dots = getDotsFrom(root);
                 const n = ((index % slides.length) + slides.length) % slides.length;
-                window.carouselState = window.carouselState || {};
-                window.carouselState[slug] = n;
+                setIndex(root, n);
                 slides.forEach(function(s, i) { s.classList.toggle('active', i === n); });
                 dots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
             }
-
-            function changeCardPhoto(slug, delta) {
-                const carousel = document.querySelector('#carousel-' + slug);
-                if (!carousel) return;
-                const len = carousel.querySelectorAll('.carousel-slide').length;
-                if (!len) return;
-                const current = (window.carouselState && Number.isInteger(window.carouselState[slug])) ? window.carouselState[slug] : 0;
+            function changePhotoIn(root, delta) {
+                const slides = getSlidesFrom(root);
+                if (!slides.length) return;
+                const cur = getIndex(root);
                 const step = parseInt(delta, 10) || 0;
-                showSlide(slug, current + step);
+                showSlideIn(root, cur + step);
+            }
+            function goToPhotoIn(root, idx) {
+                showSlideIn(root, parseInt(idx, 10) || 0);
             }
 
-            function goToCardPhoto(slug, idx) {
-                showSlide(slug, parseInt(idx, 10) || 0);
+            // Funciones globales (fallback por slug si otros módulos las llaman)
+            window.showSlide = function(slug, index) {
+                const el = document.querySelector('#carousel-' + slug)?.closest('.card-carousel-container');
+                if (el) showSlideIn(el, index);
+            };
+            window.changeCardPhoto = function(slug, delta) {
+                const el = document.querySelector('#carousel-' + slug)?.closest('.card-carousel-container');
+                if (el) changePhotoIn(el, delta);
+            };
+            window.goToCardPhoto = function(slug, idx) {
+                const el = document.querySelector('#carousel-' + slug)?.closest('.card-carousel-container');
+                if (el) goToPhotoIn(el, idx);
+            };
+
+            // Listener delegado usando contexto DOM
+            const container = document.getElementById('listings-container');
+            if (!container) return;
+
+            if (container._carouselListener) {
+                container.removeEventListener('click', container._carouselListener, false);
             }
 
-            // Interceptor: captura ANTES que cualquier otro listener
-            function docListener(e) {
-                // Flechas
+            const listener = function(e) {
                 const arrow = e.target.closest('.carousel-arrow-card');
                 if (arrow) {
                     e.preventDefault();
-                    e.stopImmediatePropagation();
-                    changeCardPhoto(arrow.dataset.slug, arrow.dataset.direction);
+                    const root = getRootFrom(arrow);
+                    changePhotoIn(root, arrow.dataset.direction);
                     return;
                 }
-                // Dots
                 const dot = e.target.closest('.carousel-dot');
                 if (dot) {
                     e.preventDefault();
-                    e.stopImmediatePropagation();
-                    goToCardPhoto(dot.dataset.slug, dot.dataset.index);
+                    const root = getRootFrom(dot);
+                    goToPhotoIn(root, dot.dataset.index);
                     return;
                 }
-                // Click en card (si no fue en flechas/dots)
                 const card = e.target.closest('.listing-card');
                 if (card && !e.target.closest('.carousel-arrow-card, .carousel-dot')) {
                     const url = card.dataset.propertyUrl;
-                    if (url) {
-                        e.preventDefault();
-                        e.stopImmediatePropagation();
-                        window.open(url, '_blank');
-                    }
+                    if (url) window.open(url, '_blank');
                 }
-            }
+            };
 
-            document.addEventListener('click', docListener, true); // capture=true
-
-            // Exponer funciones en window
-            window.showSlide = showSlide;
-            window.changeCardPhoto = changeCardPhoto;
-            window.goToCardPhoto = goToCardPhoto;
+            container._carouselListener = listener;
+            container.addEventListener('click', listener, false);
         })();
 
         // Inicializar mapa al cargar
