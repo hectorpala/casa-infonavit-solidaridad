@@ -2076,7 +2076,9 @@ body.map-animating .listing-card .listing-image {
                 // Buscar si el click fue en una flecha (o su hijo <i>)
                 const arrow = e.target.closest('.carousel-arrow-card');
                 if (arrow) {
+                    e.preventDefault();
                     e.stopPropagation();
+                    e.stopImmediatePropagation();
                     const slug = arrow.getAttribute('data-slug');
                     const direction = parseInt(arrow.getAttribute('data-direction'));
                     console.log('ZILLOW DEBUG: Flecha clickeada - slug:', slug, 'direction:', direction);
@@ -2084,13 +2086,15 @@ body.map-animating .listing-card .listing-image {
                         console.log('ZILLOW DEBUG: Llamando changeCardPhoto');
                         changeCardPhoto(slug, direction);
                     }
-                    return;
+                    return false;
                 }
 
                 // Buscar si el click fue en un dot
                 const dot = e.target.closest('.carousel-dot');
                 if (dot) {
+                    e.preventDefault();
                     e.stopPropagation();
+                    e.stopImmediatePropagation();
                     const slug = dot.getAttribute('data-slug');
                     const index = parseInt(dot.getAttribute('data-index'));
                     console.log('ZILLOW DEBUG: Dot clickeado - slug:', slug, 'index:', index);
@@ -2098,9 +2102,9 @@ body.map-animating .listing-card .listing-image {
                         console.log('ZILLOW DEBUG: Llamando goToCardPhoto');
                         goToCardPhoto(slug, index);
                     }
-                    return;
+                    return false;
                 }
-            });
+            }, true);
 
             console.log('ZILLOW DEBUG: Listeners attached successfully');
         }
