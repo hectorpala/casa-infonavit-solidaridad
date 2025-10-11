@@ -3013,11 +3013,16 @@ body.map-animating .listing-card .listing-image {
                     goToPhotoIn(root, dot.dataset.index);
                     return;
                 }
-                const card = e.target.closest('.listing-card');
-                if (card && !e.target.closest('.carousel-arrow-card, .carousel-dot')) {
-                    const url = card.dataset.propertyUrl;
-                    if (url) window.open(url, '_blank');
+                // Desktop: click en tarjeta abre propiedad
+                const isDesktop = window.matchMedia('(min-width: 641px)').matches;
+                if (isDesktop) {
+                    const card = e.target.closest('.listing-card');
+                    if (card && !e.target.closest('.carousel-arrow-card, .carousel-dot')) {
+                        const url = card.dataset.propertyUrl;
+                        if (url) window.location.href = url;
+                    }
                 }
+                // Móvil: manejado por sistema tap-to-open separado
             };
 
             container._carouselListener = listener;
