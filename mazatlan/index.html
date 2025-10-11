@@ -2076,45 +2076,11 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // ==== LISTENER DELEGADO ÚNICO (en bubbling) ====
+        // ==== LISTENER DELEGADO (ya no necesario, el interceptor global lo maneja) ====
+        // El failsafe interceptor en document nivel con capture=true maneja todo
         function attachCarouselListeners() {
-            const container = document.getElementById(LISTINGS_ID);
-            if (!container) return;
-
-            // Limpia duplicados
-            if (container._carouselListener) {
-                container.removeEventListener('click', container._carouselListener, false);
-            }
-
-            const listener = function(e) {
-                // 1. PRIORIDAD: Clicks en flechas del carrusel
-                const arrow = e.target.closest('.carousel-arrow-card');
-                if (arrow) {
-                    e.preventDefault();
-                    changeCardPhoto(arrow.dataset.slug, arrow.dataset.direction);
-                    return;
-                }
-
-                // 2. PRIORIDAD: Clicks en dots del carrusel
-                const dot = e.target.closest('.carousel-dot');
-                if (dot) {
-                    e.preventDefault();
-                    goToCardPhoto(dot.dataset.slug, dot.dataset.index);
-                    return;
-                }
-
-                // 3. ÚLTIMA PRIORIDAD: Clicks en el card (abrir propiedad)
-                // Solo si NO es en flecha/dot
-                const card = e.target.closest('.listing-card');
-                if (card && !e.target.closest('.carousel-arrow-card, .carousel-dot')) {
-                    const url = card.dataset.propertyUrl;
-                    if (url) window.open(url, '_blank');
-                }
-            };
-
-            container._carouselListener = listener;
-            // En bubbling (false) para evitar comer otros handlers en capture
-            container.addEventListener('click', listener, false);
+            // No-op: el interceptor global ya maneja todos los clicks
+            // Esta función se mantiene para compatibilidad con llamadas existentes
         }
 
         function highlightMarker(slug) {
@@ -2538,54 +2504,75 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // ==== CORE CAROUSEL (drop-in) ====
-        // Sistema robusto y optimizado para carruseles con opacity-based slides
-        window.carouselState = window.carouselState || {};
-        const LISTINGS_ID = 'listings-container';
+        // ===== Failsafe de carrusel (interceptor global en capture) =====
+        (function installCarouselInterceptor(){
+            if (window.__carouselInterceptorInstalled) return;
+            window.__carouselInterceptorInstalled = true;
 
-        function getCarousel(slug) {
-            return document.querySelector('#carousel-' + slug);
-        }
+            function showSlide(slug, index) {
+                const carousel = document.querySelector('#carousel-' + slug);
+                if (!carousel) return;
+                const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+                if (!slides.length) return;
+                const dots = Array.from(carousel.parentElement.querySelectorAll('.carousel-dot[data-slug="' + slug + '"]'));
+                const n = ((index % slides.length) + slides.length) % slides.length;
+                window.carouselState = window.carouselState || {};
+                window.carouselState[slug] = n;
+                slides.forEach(function(s, i) { s.classList.toggle('active', i === n); });
+                dots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
+            }
 
-        function ensureState(slug, len) {
-            if (!Number.isInteger(window.carouselState[slug])) window.carouselState[slug] = 0;
-            if (len > 0) window.carouselState[slug] = Math.max(0, Math.min(window.carouselState[slug], len - 1));
-        }
+            function changeCardPhoto(slug, delta) {
+                const carousel = document.querySelector('#carousel-' + slug);
+                if (!carousel) return;
+                const len = carousel.querySelectorAll('.carousel-slide').length;
+                if (!len) return;
+                const current = (window.carouselState && Number.isInteger(window.carouselState[slug])) ? window.carouselState[slug] : 0;
+                const step = parseInt(delta, 10) || 0;
+                showSlide(slug, current + step);
+            }
 
-        function showSlide(slug, index) {
-            const carousel = getCarousel(slug);
-            if (!carousel) return;
-            const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
-            if (!slides.length) return;
+            function goToCardPhoto(slug, idx) {
+                showSlide(slug, parseInt(idx, 10) || 0);
+            }
 
-            const dots = Array.from(
-                carousel.parentElement.querySelectorAll('.carousel-dot[data-slug="' + slug + '"]')
-            );
-            const n = ((index % slides.length) + slides.length) % slides.length;
-            window.carouselState[slug] = n;
+            // Interceptor: captura ANTES que cualquier otro listener
+            function docListener(e) {
+                // Flechas
+                const arrow = e.target.closest('.carousel-arrow-card');
+                if (arrow) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    changeCardPhoto(arrow.dataset.slug, arrow.dataset.direction);
+                    return;
+                }
+                // Dots
+                const dot = e.target.closest('.carousel-dot');
+                if (dot) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    goToCardPhoto(dot.dataset.slug, dot.dataset.index);
+                    return;
+                }
+                // Click en card (si no fue en flechas/dots)
+                const card = e.target.closest('.listing-card');
+                if (card && !e.target.closest('.carousel-arrow-card, .carousel-dot')) {
+                    const url = card.dataset.propertyUrl;
+                    if (url) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        window.open(url, '_blank');
+                    }
+                }
+            }
 
-            slides.forEach(function(s, i) { s.classList.toggle('active', i === n); });
-            dots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
-        }
+            document.addEventListener('click', docListener, true); // capture=true
 
-        function changeCardPhoto(slug, delta) {
-            const carousel = getCarousel(slug);
-            if (!carousel) return;
-            const len = carousel.querySelectorAll('.carousel-slide').length;
-            if (!len) return;
-            ensureState(slug, len);
-            const d = parseInt(delta, 10) || 0;
-            showSlide(slug, (window.carouselState[slug] || 0) + d);
-        }
-
-        function goToCardPhoto(slug, idx) {
-            showSlide(slug, parseInt(idx, 10) || 0);
-        }
-
-        // Exponer en window para acceso global
-        window.showSlide = showSlide;
-        window.changeCardPhoto = changeCardPhoto;
-        window.goToCardPhoto = goToCardPhoto;
+            // Exponer funciones en window
+            window.showSlide = showSlide;
+            window.changeCardPhoto = changeCardPhoto;
+            window.goToCardPhoto = goToCardPhoto;
+        })();
 
         // Inicializar mapa al cargar
         window.addEventListener('load', initMap);
