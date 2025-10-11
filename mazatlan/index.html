@@ -2063,40 +2063,43 @@ body.map-animating .listing-card .listing-image {
         function highlightCard(slug) {
             document.querySelectorAll('.listing-card').forEach(c => c.classList.remove('highlighted'));
             const card = document.getElementById(`card-${slug}`);
-            if (card) {
-                card.classList.add('highlighted');
 
-                // Reset carousel to first photo to match map marker
-                const cardIndex = card.dataset.cardIndex;
-                if (cardIndex !== undefined) {
-                    goToCardPhoto(parseInt(cardIndex), 0);
-                }
+            if (!card) return;
 
-                // ZILLOW: Scroll automático en desktop al panel de listings
-                if (window.innerWidth > 768) {
-                    // Desktop: buscar el contenedor correcto (.listings-section que tiene el scroll)
-                    const listingsSection = card.closest('.listings-section');
-                    if (listingsSection) {
-                        // Calcular posición de la tarjeta relativa al contenedor scrolleable
-                        const containerRect = listingsSection.getBoundingClientRect();
+            card.classList.add('highlighted');
+
+            // Reset carousel to first photo to match map marker
+            const cardIndex = card.dataset.cardIndex;
+            if (cardIndex !== undefined && cardIndex !== null && cardIndex !== '') {
+                goToCardPhoto(parseInt(cardIndex), 0);
+            }
+
+            // ZILLOW: Scroll automático
+            if (window.innerWidth > 768) {
+                // Desktop: usar el contenedor con ID que sabemos que existe
+                const listingsContainer = document.getElementById('listings-container');
+
+                if (listingsContainer) {
+                    setTimeout(() => {
+                        const containerRect = listingsContainer.getBoundingClientRect();
                         const cardRect = card.getBoundingClientRect();
-                        const currentScroll = listingsSection.scrollTop;
+                        const currentScroll = listingsContainer.scrollTop;
 
-                        // Offset de la tarjeta desde el top del contenedor
-                        const cardOffsetTop = cardRect.top - containerRect.top + currentScroll;
+                        // Posición relativa de la tarjeta en el contenedor
+                        const cardRelativeTop = cardRect.top - containerRect.top;
 
-                        // Calcular scroll para centrar la tarjeta
-                        const targetScroll = cardOffsetTop - (containerRect.height / 2) + (cardRect.height / 2);
+                        // Scroll para centrar la tarjeta verticalmente
+                        const targetScroll = currentScroll + cardRelativeTop - (containerRect.height / 2) + (cardRect.height / 2);
 
-                        listingsSection.scrollTo({
+                        listingsContainer.scrollTo({
                             top: targetScroll,
                             behavior: 'smooth'
                         });
-                    }
-                } else {
-                    // Móvil: usar scrollIntoView
-                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 50);
                 }
+            } else {
+                // Móvil: scrollIntoView
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 
