@@ -825,6 +825,24 @@ body.carousel-swipe-lock {
 
 /* Modo seguro móvil: display none/block en vez de opacity */
 @media (max-width: 640px){
+  /* ZILLOW: Ocultar price badge de desktop en móvil */
+  .price-badge-desktop{
+    display: none !important;
+  }
+
+  /* ZILLOW: Ancho 100% en móvil (sin padding en grid) */
+  .listings-grid{
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .listing-card{
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 16px 0 !important; /* ZILLOW: solo margin-bottom 16px */
+    border-radius: 0 !important; /* ZILLOW: sin border-radius en móvil */
+  }
+
   /* Alto estable - MEDIDA ZILLOW: 177px */
   .card-carousel-container .carousel-wrapper{
     position: relative;
@@ -859,6 +877,59 @@ body.carousel-swipe-lock {
     z-index: 50;
     pointer-events: auto;
     touch-action: manipulation;
+  }
+
+  /* ZILLOW: Padding exacto del data wrapper */
+  .listing-card .listing-body{
+    padding: 8px; /* ZILLOW: 8px exacto */
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* ZILLOW: sin gap, usar margins específicos */
+  }
+
+  /* ZILLOW: PRECIO DENTRO DEL BODY (no sobre foto) */
+  .listing-card .price-badge{
+    position: static !important; /* NO absoluto */
+    margin: 0 0 4px 0; /* ZILLOW: margin-bottom 4px */
+    padding: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #2A2A33; /* ZILLOW: color primario */
+  }
+
+  /* ZILLOW: Tipografía para detalles (recámaras, baños, m²) */
+  .listing-card .listing-specs{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #2A2A33;
+    margin: 0 0 2px 0; /* ZILLOW: margin-bottom 2px */
+  }
+
+  /* ZILLOW: Tipografía para ubicación (texto secundario) */
+  .listing-card .listing-location{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #54545A; /* ZILLOW: color secundario */
+    margin: 0; /* ZILLOW: sin margin */
+  }
+
+  /* ZILLOW: Tipografía pequeña para badges */
+  .listing-card .badge-text{
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+  }
+
+  /* ZILLOW: Font family exacta */
+  .listing-card{
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
   }
 }
 
@@ -967,7 +1038,36 @@ body.carousel-swipe-lock {
   color: var(--primary);
 }
 
-/* Body - MEDIDA ZILLOW */
+/* Body - MEDIDA ZILLOW (Desktop default) */
+.listing-card .listing-body{
+  padding: 12px 16px; /* ZILLOW Desktop: padding 12px vertical, 16px horizontal */
+}
+
+.listing-card .listing-price{
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: #2A2A33;
+  margin: 0 0 4px 0;
+}
+
+.listing-card .listing-specs{
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #6E6E78;
+  margin: 0 0 4px 0;
+}
+
+.listing-card .listing-location{
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #2A2A33;
+  margin: 0;
+}
+
+/* Legacy styles para compatibilidad */
 .listing-card .content{
   padding: 20px; /* ZILLOW: padding uniforme de 20px en content */
 }
@@ -2085,8 +2185,8 @@ body.map-animating .listing-card .listing-image {
                         '<div class="carousel-wrapper" id="carousel-' + p.slug + '">' +
                             slidesHtml +
                         '</div>' +
-                        '<!-- ZILLOW: Price Badge (naranja, superior derecha) -->' +
-                        '<div style="position: absolute; top: 12px; right: 12px; background: #FF6A00; color: white; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 700; z-index: 10;">' +
+                        '<!-- ZILLOW: Price Badge (naranja, superior derecha) SOLO DESKTOP -->' +
+                        '<div class="price-badge-desktop" style="position: absolute; top: 12px; right: 12px; background: #FF6A00; color: white; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 700; z-index: 10;">' +
                             p.priceShort +
                         '</div>' +
                         '<!-- ZILLOW: Botones Save/Share (superior izquierda) -->' +
@@ -2107,22 +2207,22 @@ body.map-animating .listing-card .listing-image {
                             dotsHtml +
                         '</div>' +
                     '</div>' +
-                    '<!-- ZILLOW: Card Content -->' +
-                    '<div class="content" style="padding: 12px 0;">' +
-                        '<!-- ZILLOW: Precio grande -->' +
-                        '<div style="color: #2A2A33; font-size: 20px; font-weight: 700; margin: 0 0 4px 0; line-height: 28px;">' +
+                    '<!-- ZILLOW: Card Content (listing-body para CSS responsive) -->' +
+                    '<div class="listing-body">' +
+                        '<!-- ZILLOW: Precio (class price-badge para CSS mobile) -->' +
+                        '<div class="price-badge listing-price">' +
                             p.priceShort +
                         '</div>' +
                         '<!-- ZILLOW: Detalles compactos (beds | baths | sqft) -->' +
-                        '<div style="color: #6E6E78; font-size: 14px; font-weight: 400; line-height: 20px; margin: 0 0 4px 0;">' +
+                        '<div class="listing-specs">' +
                             p.bedrooms + ' rec • ' + p.bathrooms + ' baños • ' + p.sqft + ' m²' +
                         '</div>' +
                         '<!-- ZILLOW: Ubicación -->' +
-                        '<div style="color: #2A2A33; font-size: 14px; font-weight: 400; line-height: 20px;">' +
+                        '<div class="listing-location">' +
                             p.location + ', Mazatlán, Sin.' +
                         '</div>' +
                         '<!-- ZILLOW: Broker info (si existe) -->' +
-                        '<div style="color: #6E6E78; font-size: 12px; font-weight: 400; line-height: 16px; margin-top: 8px;">' +
+                        '<div class="badge-text" style="color: #6E6E78; margin-top: 8px;">' +
                             'Hector es Bienes Raíces' +
                         '</div>' +
                     '</div>' +
