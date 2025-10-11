@@ -630,6 +630,121 @@ body{
   border-right:1px solid var(--line-2);
 }
 
+/* ===============================
+   LIGHTBOX GALLERY (Abanico de fotos)
+================================= */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #2A2A33;
+  transition: all 0.2s;
+}
+
+.lightbox-close:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #2A2A33;
+  transition: all 0.2s;
+}
+
+.lightbox-arrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 10001;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Panel que contiene listings + paginación */
 .listings-panel {
   display: flex;
@@ -918,7 +1033,7 @@ body.carousel-swipe-lock {
     opacity: 0.9; /* Ligeramente transparente para más sutileza */
   }
 
-  /* La imagen no intercepta toques; los controles sí - COVER SIMÉTRICO */
+  /* La imagen ahora puede recibir taps para abrir lightbox - COVER SIMÉTRICO */
   .card-carousel-container .carousel-slide .carousel-image,
   .card-carousel-container .carousel-image,
   .listing-card .card-carousel-container .carousel-image,
@@ -931,7 +1046,7 @@ body.carousel-swipe-lock {
     object-fit: cover !important; /* Recorte simétrico automático */
     object-position: center !important; /* Centro: mismo recorte izq/der */
     display: block !important;
-    pointer-events: none !important;
+    pointer-events: auto !important; /* Permite taps para lightbox */
     max-width: 100% !important;
     position: relative !important;
     z-index: 1 !important; /* Por encima del fondo blur */
@@ -3109,13 +3224,25 @@ body.map-animating .listing-card .listing-image {
                     const dy = Math.abs(t.clientY - start.y);
                     const dt = Date.now() - start.ts;
                     const tappedControl = !!e.target.closest('.carousel-arrow-card, .carousel-dot');
+                    const tappedImage = !!e.target.closest('.carousel-image');
 
                     if (dx < TAP_DIST && dy < TAP_DIST && dt < TAP_TIME && !tappedControl) {
-                        const url = card.dataset.propertyUrl;
-                        if (url) {
-                            e.preventDefault();
-                            e.stopImmediatePropagation();
-                            window.open(url, '_blank');
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+
+                        // Tap en imagen → abrir lightbox (abanico)
+                        if (tappedImage) {
+                            const carouselId = card.dataset.carouselId;
+                            if (carouselId && window.openLightboxGallery) {
+                                window.openLightboxGallery(carouselId);
+                            }
+                        }
+                        // Tap en tarjeta (fuera de imagen) → abrir propiedad
+                        else {
+                            const url = card.dataset.propertyUrl;
+                            if (url) {
+                                window.location.href = url;
+                            }
                         }
                     }
                     start = null;
@@ -3131,6 +3258,57 @@ body.map-animating .listing-card .listing-image {
                 document.querySelectorAll('.listing-card').forEach(wire);
             };
         })();
+
+        // ===== Lightbox Gallery (Abanico de fotos) =====
+        window.openLightboxGallery = function(carouselId) {
+            const card = document.getElementById('card-' + carouselId);
+            if (!card) return;
+
+            const images = Array.from(card.querySelectorAll('.carousel-image')).map(img => img.src);
+            const currentIndex = Array.from(card.querySelectorAll('.carousel-slide')).findIndex(s => s.classList.contains('active'));
+
+            // Crear overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'lightbox-overlay';
+            overlay.innerHTML = `
+                <div class="lightbox-container">
+                    <button class="lightbox-close" onclick="window.closeLightbox(this)">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="lightbox-content">
+                        <img src="${images[currentIndex >= 0 ? currentIndex : 0]}" class="lightbox-image" alt="Foto propiedad">
+                    </div>
+                    <button class="lightbox-arrow lightbox-prev" onclick="window.navigateLightbox(this, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="lightbox-arrow lightbox-next" onclick="window.navigateLightbox(this, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="lightbox-counter">${(currentIndex >= 0 ? currentIndex : 0) + 1} / ${images.length}</div>
+                </div>
+            `;
+            overlay.dataset.images = JSON.stringify(images);
+            overlay.dataset.currentIndex = currentIndex >= 0 ? currentIndex : 0;
+            document.body.appendChild(overlay);
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.navigateLightbox = function(btn, direction) {
+            const overlay = btn.closest('.lightbox-overlay');
+            const images = JSON.parse(overlay.dataset.images);
+            let currentIndex = parseInt(overlay.dataset.currentIndex);
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+
+            overlay.dataset.currentIndex = currentIndex;
+            overlay.querySelector('.lightbox-image').src = images[currentIndex];
+            overlay.querySelector('.lightbox-counter').textContent = `${currentIndex + 1} / ${images.length}`;
+        };
+
+        window.closeLightbox = function(btn) {
+            const overlay = btn.closest('.lightbox-overlay');
+            overlay.remove();
+            document.body.style.overflow = '';
+        };
 
         // Inicializar mapa al cargar
         window.addEventListener('load', initMap);
