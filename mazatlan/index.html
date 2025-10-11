@@ -665,17 +665,16 @@ body{
 ================================= */
 .listing-card{
   background: var(--white);
-  border:1px solid var(--line);
+  border: none; /* ZILLOW: sin bordes */
   border-radius: var(--r-12);
   overflow:hidden;
-  box-shadow: var(--shadow-s);
-  transition: transform var(--t-med) cubic-bezier(.2,.7,.2,1), box-shadow var(--t-med), border-color var(--t-med);
-  will-change: transform;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* ZILLOW: shadow suave */
+  transition: box-shadow var(--t-med);
   margin-bottom: 16px; /* ZILLOW: margin 16px entre tarjetas */
   cursor: pointer;
   position: relative;
 }
-/* ZILLOW: Hover sutil (solo shadow, sin transform) */
+/* ZILLOW: Hover sutil (solo shadow más pronunciada) */
 .listing-card:hover{
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 10;
