@@ -888,7 +888,9 @@ body.carousel-swipe-lock {
   }
 
   /* ZILLOW: PRECIO DENTRO DEL BODY (no sobre foto) */
-  .listing-card .price-badge{
+  .listing-card .price-badge,
+  .listing-card .listing-price{
+    display: block !important; /* MOBILE: Visible */
     position: static !important; /* NO absoluto */
     margin: 0 0 4px 0; /* ZILLOW: margin-bottom 4px */
     padding: 0;
@@ -1044,6 +1046,7 @@ body.carousel-swipe-lock {
 }
 
 .listing-card .listing-price{
+  display: none; /* DESKTOP: Oculto, solo badge naranja sobre foto */
   font-size: 20px;
   line-height: 28px;
   font-weight: 700;
