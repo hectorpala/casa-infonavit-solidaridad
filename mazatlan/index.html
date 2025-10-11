@@ -735,8 +735,9 @@ body{
 .carousel-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* UNIVERSAL: Fotos completas sin recortar (móvil Y desktop) */
   display: block;
+  background: #f8f8f8; /* Fondo gris para letterbox */
   -webkit-transform: translateZ(0); /* fuerza composición en iOS */
 }
 
@@ -968,8 +969,8 @@ body.carousel-swipe-lock {
   display:block;
   width:100%;
   height: 256px; /* ZILLOW: altura fija de imagen de tarjeta */
-  object-fit: cover;
-  background: #E5E7EB;
+  object-fit: contain; /* UNIVERSAL: Foto completa sin recortar */
+  background: #f8f8f8; /* Fondo gris para letterbox */
   transform: translateZ(0);
   transition: filter var(--t-med) ease;
 }
@@ -1596,9 +1597,10 @@ body.map-animating .listing-card .listing-image {
   /* Imagen con altura ajustada +1.5cm (~57px) - Reducida 1cm */
   .listing-card .listing-image {
     aspect-ratio: 2/1 !important; /* Más panorámica/chata */
-    object-fit: cover;
+    object-fit: contain !important; /* UNIVERSAL: Foto completa sin recortar */
     height: auto !important;
     max-height: 177px !important; /* Reducido de 215px a 177px (-38px ≈ -1cm) */
+    background: #f8f8f8 !important; /* Fondo gris para letterbox */
   }
 
   /* Título: 1 línea - MÁS GRANDE y legible */
