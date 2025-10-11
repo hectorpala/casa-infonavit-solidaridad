@@ -1704,13 +1704,21 @@ body.map-animating .listing-card .listing-image {
         }
 
         function initMap() {
+            // ZILLOW: Configuración de mapa con zoom inteligente
             map = new google.maps.Map(document.getElementById('map-container'), {
-                center: { lat: 23.2494, lng: -106.4110 },
-                zoom: 13, /* ZILLOW: zoom inicial 13 (más cerca) para ver propiedades */
+                center: { lat: 23.2494, lng: -106.4110 }, // Centro de Mazatlán
+                zoom: 12, // ZILLOW: zoom inicial 12 (vista general ciudad)
+                minZoom: 10, // ZILLOW: límite zoom out (evitar demasiado lejos)
+                maxZoom: 18, // ZILLOW: límite zoom in (evitar demasiado cerca)
                 mapTypeControl: false,
                 fullscreenControl: false,
                 streetViewControl: false,
-                styles: [ /* ZILLOW: estilo de mapa limpio */
+                zoomControl: true, // ZILLOW: permitir zoom controls
+                zoomControlOptions: {
+                    position: google.maps.ControlPosition.RIGHT_CENTER // ZILLOW: posición derecha
+                },
+                gestureHandling: 'greedy', // ZILLOW: scroll directo sin Ctrl (mejor UX)
+                styles: [
                     {
                         featureType: "poi",
                         elementType: "labels",
@@ -1721,6 +1729,35 @@ body.map-animating .listing-card .listing-image {
 
             renderMarkers(filteredProperties);
             renderListings(filteredProperties);
+
+            // ZILLOW: Auto-fit bounds para mostrar todas las propiedades
+            fitMapToMarkers();
+        }
+
+        // ZILLOW: Ajustar zoom automáticamente para mostrar todas las propiedades
+        function fitMapToMarkers() {
+            if (Object.keys(markers).length === 0) return;
+
+            const bounds = new google.maps.LatLngBounds();
+            Object.values(markers).forEach(marker => {
+                bounds.extend(marker.getPosition());
+            });
+
+            // ZILLOW: Fit con padding para que los marcadores no queden en el borde
+            map.fitBounds(bounds, {
+                top: 50,
+                right: 50,
+                bottom: 50,
+                left: 50
+            });
+
+            // ZILLOW: Si solo hay 1-2 propiedades, evitar zoom demasiado cercano
+            google.maps.event.addListenerOnce(map, 'bounds_changed', () => {
+                const currentZoom = map.getZoom();
+                if (currentZoom > 15) {
+                    map.setZoom(15); // ZILLOW: máximo zoom 15 cuando auto-fit
+                }
+            });
         }
 
         function renderMarkers(properties) {
@@ -1794,6 +1831,9 @@ body.map-animating .listing-card .listing-image {
                         }
                     });
                 }
+
+                // ZILLOW: Auto-fit bounds después de crear marcadores y clusterer
+                fitMapToMarkers();
             }, 1500); // Esperar a que geocoding termine
         }
 
@@ -2776,27 +2816,62 @@ body.map-animating .listing-card .listing-image {
             if (window.innerWidth <= 768 && !mapMobile) {
                 const mapContainerMobile = document.getElementById('map-container-mobile');
                 if (mapContainerMobile && window.google && window.google.maps && map) {
-                    // Crear mapa móvil con las mismas opciones que desktop
+                    // ZILLOW: Crear mapa móvil con configuración idéntica a desktop
                     mapMobile = new google.maps.Map(mapContainerMobile, {
-                        center: map.getCenter(),
-                        zoom: map.getZoom(),
+                        center: { lat: 23.2494, lng: -106.4110 }, // Centro de Mazatlán
+                        zoom: 12, // ZILLOW: zoom inicial 12
+                        minZoom: 10, // ZILLOW: límite zoom out
+                        maxZoom: 18, // ZILLOW: límite zoom in
+                        mapTypeControl: false,
+                        fullscreenControl: false,
+                        streetViewControl: false,
+                        zoomControl: true, // ZILLOW: controles de zoom visibles
+                        zoomControlOptions: {
+                            position: google.maps.ControlPosition.RIGHT_CENTER
+                        },
+                        gestureHandling: 'greedy', // ZILLOW: scroll directo (mejor para móvil)
                         styles: [
                             {
                                 featureType: "poi",
                                 elementType: "labels",
                                 stylers: [{ visibility: "off" }]
                             }
-                        ],
-                        mapTypeControl: false,
-                        fullscreenControl: false,
-                        streetViewControl: false,
-                        zoomControl: true
+                        ]
                     });
 
                     // Copiar TODOS los marcadores del mapa desktop
                     renderMarkersToMobile(filteredProperties);
+
+                    // ZILLOW: Auto-fit bounds después de cargar marcadores
+                    setTimeout(() => {
+                        fitMapToMarkersMobile();
+                    }, 1000); // Esperar a que se completen los marcadores con geocoding
                 }
             }
+        }
+
+        // ZILLOW: Auto-fit bounds para mapa móvil
+        function fitMapToMarkersMobile() {
+            if (!mapMobile || Object.keys(mobileMarkers).length === 0) return;
+
+            const bounds = new google.maps.LatLngBounds();
+            Object.values(mobileMarkers).forEach(marker => {
+                bounds.extend(marker.getPosition());
+            });
+
+            mapMobile.fitBounds(bounds, {
+                top: 50,
+                right: 50,
+                bottom: 50,
+                left: 50
+            });
+
+            google.maps.event.addListenerOnce(mapMobile, 'bounds_changed', () => {
+                const currentZoom = mapMobile.getZoom();
+                if (currentZoom > 15) {
+                    mapMobile.setZoom(15);
+                }
+            });
         }
 
         // Renderizar marcadores en mapa móvil
