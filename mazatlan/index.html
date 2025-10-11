@@ -702,17 +702,29 @@ body{
   width: 100%;
   aspect-ratio: 16/9;
 }
-.card-carousel-images {
-  display: flex;
-  transition: transform 0.4s ease-in-out;
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
   height: 100%;
-  will-change: transform;
 }
-.card-carousel-images img {
-  flex-shrink: 0;
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 400ms ease-in-out;
+}
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+.carousel-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 /* ZILLOW: Flechas carrusel en tarjetas */
 .carousel-arrow-card {
@@ -1984,15 +1996,22 @@ body.map-animating .listing-card .listing-image {
                     `../mazatlan/${p.slug}/images/foto-${i+1}.jpg`
                 );
 
+                // Generar slides individuales (sistema Casa Solidaridad)
+                const slidesHtml = photos.map((photo, i) =>
+                    '<div class="carousel-slide ' + (i === 0 ? 'active' : '') + '" data-slide="' + i + '">' +
+                        '<img src="' + photo + '" class="carousel-image" alt="' + p.title + '" onerror="this.style.display=\'none\'">' +
+                    '</div>'
+                ).join('');
+
                 const dotsHtml = photos.map((_, i) =>
-                    '<div class="carousel-dot ' + (i === 0 ? 'active' : '') + '" data-slug="' + p.slug + '" data-index="' + i + '" style="width: 6px; height: 6px; border-radius: 50%; background: ' + (i === 0 ? 'white' : 'rgba(255,255,255,0.5)') + '; cursor: pointer;"></div>'
+                    '<button class="carousel-dot ' + (i === 0 ? 'active' : '') + '" data-slug="' + p.slug + '" data-index="' + i + '" aria-label="Foto ' + (i+1) + '"></button>'
                 ).join('');
 
                 return '<div class="listing-card" id="card-' + p.slug + '" data-carousel-id="' + p.slug + '" onmouseenter="highlightMarker(\'' + p.slug + '\')" onclick="window.open(\'../mazatlan/' + p.slug + '/index.html\', \'_blank\')" style="cursor: pointer;">' +
                     '<!-- ZILLOW: Card Image Container -->' +
                     '<div class="card-carousel-container" style="position:relative;">' +
-                        '<div class="card-carousel-images" id="carousel-' + p.slug + '">' +
-                            photos.map(photo => '<img src="' + photo + '" class="listing-image" alt="' + p.title + '" onerror="this.style.display=\'none\'">').join('') +
+                        '<div class="carousel-wrapper" id="carousel-' + p.slug + '">' +
+                            slidesHtml +
                         '</div>' +
                         '<!-- ZILLOW: Price Badge (naranja, superior derecha) -->' +
                         '<div style="position: absolute; top: 12px; right: 12px; background: #FF6A00; color: white; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 700; z-index: 10;">' +
@@ -2057,12 +2076,7 @@ body.map-animating .listing-card .listing-image {
         // ZILLOW: Event delegation para carruseles
         function attachCarouselListeners() {
             const container = document.getElementById('listings-container');
-            if (!container) {
-                console.error('ZILLOW DEBUG: No se encontró listings-container');
-                return;
-            }
-
-            console.log('ZILLOW DEBUG: Attaching carousel listeners');
+            if (!container) return;
 
             // Remover listeners anteriores si existen
             const oldContainer = container.cloneNode(true);
@@ -2071,8 +2085,6 @@ body.map-animating .listing-card .listing-image {
 
             // Event delegation para flechas del carrusel
             freshContainer.addEventListener('click', function(e) {
-                console.log('ZILLOW DEBUG: Click detectado en listings-container', e.target);
-
                 // Buscar si el click fue en una flecha (o su hijo <i>)
                 const arrow = e.target.closest('.carousel-arrow-card');
                 if (arrow) {
@@ -2081,9 +2093,7 @@ body.map-animating .listing-card .listing-image {
                     e.stopImmediatePropagation();
                     const slug = arrow.getAttribute('data-slug');
                     const direction = parseInt(arrow.getAttribute('data-direction'));
-                    console.log('ZILLOW DEBUG: Flecha clickeada - slug:', slug, 'direction:', direction);
                     if (slug && direction) {
-                        console.log('ZILLOW DEBUG: Llamando changeCardPhoto');
                         changeCardPhoto(slug, direction);
                     }
                     return false;
@@ -2097,16 +2107,12 @@ body.map-animating .listing-card .listing-image {
                     e.stopImmediatePropagation();
                     const slug = dot.getAttribute('data-slug');
                     const index = parseInt(dot.getAttribute('data-index'));
-                    console.log('ZILLOW DEBUG: Dot clickeado - slug:', slug, 'index:', index);
                     if (slug && index !== null && index !== undefined) {
-                        console.log('ZILLOW DEBUG: Llamando goToCardPhoto');
                         goToCardPhoto(slug, index);
                     }
                     return false;
                 }
             }, true);
-
-            console.log('ZILLOW DEBUG: Listeners attached successfully');
         }
 
         function highlightMarker(slug) {
@@ -2530,75 +2536,54 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // CARRUSEL ZILLOW-STYLE: Simple y robusto
+        // CARRUSEL SISTEMA CASA SOLIDARIDAD: Opacity-based slides
         window.carouselState = {};
 
-        function changeCardPhoto(slug, direction) {
-            console.log('changeCardPhoto EJECUTÁNDOSE - slug:', slug, 'direction:', direction);
+        function showSlide(slug, n) {
+            const carousel = document.getElementById('carousel-' + slug);
+            if (!carousel) return;
 
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            const card = document.getElementById('card-' + slug);
+            const dots = card ? card.querySelectorAll('.carousel-dot') : [];
+
+            const total = slides.length;
+            if (total === 0) return;
+
+            // Ajustar índice con wrap-around
+            if (n >= total) window.carouselState[slug] = 0;
+            if (n < 0) window.carouselState[slug] = total - 1;
+
+            // Actualizar slides (remover/agregar clase active)
+            slides.forEach(function(slide, index) {
+                slide.classList.remove('active');
+                if (index === window.carouselState[slug]) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // Actualizar dots
+            dots.forEach(function(dot, index) {
+                dot.classList.remove('active');
+                if (index === window.carouselState[slug]) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        function changeCardPhoto(slug, direction) {
             // Inicializar si no existe
-            if (!window.carouselState[slug]) {
+            if (window.carouselState[slug] === undefined) {
                 window.carouselState[slug] = 0;
             }
 
-            const carousel = document.getElementById('carousel-' + slug);
-            console.log('Carousel encontrado:', carousel);
-            if (!carousel) {
-                console.error('ERROR: No se encontró carousel-' + slug);
-                return;
-            }
-
-            const images = carousel.getElementsByTagName('img');
-            const total = images.length;
-            console.log('Total de imágenes:', total);
-            if (total === 0) {
-                console.error('ERROR: No hay imágenes en el carousel');
-                return;
-            }
-
-            // Calcular nuevo índice
-            window.carouselState[slug] = (window.carouselState[slug] + direction + total) % total;
-            console.log('Nuevo índice:', window.carouselState[slug]);
-
-            // Aplicar transformación
-            const percentage = -(window.carouselState[slug] * 100);
-            carousel.style.transform = 'translateX(' + percentage + '%)';
-            console.log('Transform aplicado:', percentage + '%');
-
-            // Actualizar dots
-            const card = document.getElementById('card-' + slug);
-            if (card) {
-                const dots = card.getElementsByClassName('carousel-dot');
-                for (let i = 0; i < dots.length; i++) {
-                    if (i === window.carouselState[slug]) {
-                        dots[i].style.background = 'white';
-                    } else {
-                        dots[i].style.background = 'rgba(255,255,255,0.5)';
-                    }
-                }
-            }
+            window.carouselState[slug] += direction;
+            showSlide(slug, window.carouselState[slug]);
         }
 
         function goToCardPhoto(slug, index) {
             window.carouselState[slug] = index;
-
-            const carousel = document.getElementById('carousel-' + slug);
-            if (!carousel) return;
-
-            const percentage = -(index * 100);
-            carousel.style.transform = 'translateX(' + percentage + '%)';
-
-            const card = document.getElementById('card-' + slug);
-            if (card) {
-                const dots = card.getElementsByClassName('carousel-dot');
-                for (let i = 0; i < dots.length; i++) {
-                    if (i === index) {
-                        dots[i].style.background = 'white';
-                    } else {
-                        dots[i].style.background = 'rgba(255,255,255,0.5)';
-                    }
-                }
-            }
+            showSlide(slug, index);
         }
 
         // Inicializar mapa al cargar
