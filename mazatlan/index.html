@@ -2007,7 +2007,7 @@ body.map-animating .listing-card .listing-image {
                     '<button class="carousel-dot ' + (i === 0 ? 'active' : '') + '" data-slug="' + p.slug + '" data-index="' + i + '" aria-label="Foto ' + (i+1) + '"></button>'
                 ).join('');
 
-                return '<div class="listing-card" id="card-' + p.slug + '" data-carousel-id="' + p.slug + '" onmouseenter="highlightMarker(\'' + p.slug + '\')" onclick="window.open(\'../mazatlan/' + p.slug + '/index.html\', \'_blank\')" style="cursor: pointer;">' +
+                return '<div class="listing-card" id="card-' + p.slug + '" data-carousel-id="' + p.slug + '" data-property-url="../mazatlan/' + p.slug + '/index.html" onmouseenter="highlightMarker(\'' + p.slug + '\')" style="cursor: pointer;">' +
                     '<!-- ZILLOW: Card Image Container -->' +
                     '<div class="card-carousel-container" style="position:relative;">' +
                         '<div class="carousel-wrapper" id="carousel-' + p.slug + '">' +
@@ -2073,7 +2073,7 @@ body.map-animating .listing-card .listing-image {
             }
         }
 
-        // ZILLOW: Event delegation para carruseles
+        // ZILLOW: Event delegation para carruseles Y cards
         function attachCarouselListeners() {
             const container = document.getElementById('listings-container');
             if (!container) return;
@@ -2083,9 +2083,9 @@ body.map-animating .listing-card .listing-image {
             container.parentNode.replaceChild(oldContainer, container);
             const freshContainer = document.getElementById('listings-container');
 
-            // Event delegation para flechas del carrusel
+            // Event delegation con CAPTURE phase para interceptar ANTES
             freshContainer.addEventListener('click', function(e) {
-                // Buscar si el click fue en una flecha (o su hijo <i>)
+                // 1. PRIORIDAD: Clicks en flechas del carrusel
                 const arrow = e.target.closest('.carousel-arrow-card');
                 if (arrow) {
                     e.preventDefault();
@@ -2099,7 +2099,7 @@ body.map-animating .listing-card .listing-image {
                     return false;
                 }
 
-                // Buscar si el click fue en un dot
+                // 2. PRIORIDAD: Clicks en dots del carrusel
                 const dot = e.target.closest('.carousel-dot');
                 if (dot) {
                     e.preventDefault();
@@ -2111,6 +2111,21 @@ body.map-animating .listing-card .listing-image {
                         goToCardPhoto(slug, index);
                     }
                     return false;
+                }
+
+                // 3. Clicks en botones (Save, etc.) - ignorar
+                const button = e.target.closest('button, .icon-btn');
+                if (button && !arrow && !dot) {
+                    return; // Dejar que el botón maneje su propio click
+                }
+
+                // 4. ÚLTIMA PRIORIDAD: Clicks en el card (abrir propiedad)
+                const card = e.target.closest('.listing-card');
+                if (card) {
+                    const url = card.getAttribute('data-property-url');
+                    if (url) {
+                        window.open(url, '_blank');
+                    }
                 }
             }, true);
         }
