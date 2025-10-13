@@ -4131,7 +4131,10 @@ body.map-animating .listing-card .listing-image {
 </body>
 </html>
 
-<!-- DIAGNÓSTICO FLOTANTE -->
+<!-- BOTONES FLOTANTES -->
+<button id="btn-toggle-view" style="position:fixed;bottom:90px;right:20px;z-index:9999;background:#4CAF50;color:white;border:none;padding:15px 20px;border-radius:50px;cursor:pointer;font-weight:bold;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+    📱 Móvil / 💻 Desktop
+</button>
 <button id="btn-diagnostico" style="position:fixed;bottom:20px;right:20px;z-index:9999;background:#FF6A00;color:white;border:none;padding:15px 20px;border-radius:50px;cursor:pointer;font-weight:bold;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
     🔍 DIAGNÓSTICO
 </button>
@@ -4197,5 +4200,30 @@ document.getElementById('btn-diagnostico').onclick = function() {
         
         log.innerHTML = html;
     }, 100);
+};
+
+// BOTÓN TOGGLE MÓVIL/DESKTOP
+document.getElementById('btn-toggle-view').onclick = function() {
+    const body = document.body;
+    const btn = this;
+
+    if (body.style.maxWidth === '768px') {
+        // Cambiar a Desktop
+        body.style.maxWidth = '';
+        body.style.margin = '';
+        btn.style.background = '#4CAF50';
+        btn.textContent = '📱 Móvil / 💻 Desktop';
+        console.log('✅ Modo DESKTOP activado');
+    } else {
+        // Cambiar a Móvil
+        body.style.maxWidth = '768px';
+        body.style.margin = '0 auto';
+        btn.style.background = '#2196F3';
+        btn.textContent = '💻 Vista Desktop';
+        console.log('✅ Modo MÓVIL activado');
+    }
+
+    // Recargar para aplicar media queries
+    location.reload();
 };
 </script>
