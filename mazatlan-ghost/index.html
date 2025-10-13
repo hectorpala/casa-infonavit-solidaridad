@@ -2571,75 +2571,24 @@ body.map-animating .listing-card .listing-image {
         }
 
         function highlightCard(slug) {
-            console.log('[highlightCard] Called with slug:', slug);
+            console.log('[highlightCard] 🔦 Highlight card:', slug);
 
-            // CRÍTICO: Verificar si la tarjeta está en la página actual
-            let card = document.getElementById('card-' + slug);
+            // Remover highlight de todas PRIMERO
+            document.querySelectorAll('.listing-card').forEach(c => {
+                c.classList.remove('highlighted');
+            });
 
+            const card = document.getElementById('card-' + slug);
             if (!card) {
-                console.log('[highlightCard] Card NOT in current page, searching in filteredProperties...');
-
-                // Buscar el índice de la propiedad en filteredProperties
-                const propertyIndex = filteredProperties.findIndex(p => p.slug === slug);
-
-                if (propertyIndex === -1) {
-                    console.log('[highlightCard] Property NOT FOUND in filteredProperties:', slug);
-                    return;
-                }
-
-                // Calcular en qué página está
-                const propertyPage = Math.floor(propertyIndex / ITEMS_PER_PAGE) + 1;
-                console.log('[highlightCard] Property found at index:', propertyIndex, 'page:', propertyPage, 'currentPage:', currentPage);
-
-                // Si está en otra página, cambiar a esa página
-                if (propertyPage !== currentPage) {
-                    console.log('[highlightCard] Changing from page', currentPage, 'to page', propertyPage);
-
-                    // Cambiar página SIN resetear scroll
-                    currentPage = propertyPage;
-                    renderListings(filteredProperties);
-
-                    // Esperar a que se renderice la nueva página
-                    setTimeout(() => {
-                        highlightCard(slug); // Reintentar después del cambio de página
-                    }, 200);
-                    return;
-                }
-            }
-
-            // Ahora sí, la tarjeta debe estar en el DOM
-            card = document.getElementById('card-' + slug);
-            if (!card) {
-                console.log('[highlightCard] Card STILL NOT FOUND after page check:', 'card-' + slug);
+                console.log('[highlightCard] ❌ Card no encontrada: card-' + slug);
                 return;
             }
 
-            console.log('[highlightCard] Card found:', card);
-
-            // Remove highlight from all cards
-            document.querySelectorAll('.listing-card').forEach(c => c.classList.remove('highlighted'));
-
-            // Add highlight to this card
+            // Agregar highlight
             card.classList.add('highlighted');
+            console.log('[highlightCard] ✅ Card highlighted:', slug);
 
-            // Reset carousel to first photo - usando sistema Culiacán
-            const container = card.querySelector('.card-carousel-container');
-            if (container && container._carouselInitialized) {
-                const slides = container.querySelectorAll('.carousel-slide');
-                const dots = container.querySelectorAll('.carousel-dot');
-                slides.forEach((s, i) => {
-                    if (i === 0) {
-                        s.classList.add('active');
-                        s.style.display = 'block';
-                    } else {
-                        s.classList.remove('active');
-                        s.style.display = 'none';
-                    }
-                });
-                dots.forEach((d, i) => d.classList.toggle('active', i === 0));
-            }
-
-            // Auto-scroll EXACTO de test-map-sync.html
+            // Auto-scroll
             const listingsContainer = document.getElementById('listings-container');
             const containerRect = listingsContainer.getBoundingClientRect();
             const cardRect = card.getBoundingClientRect();
@@ -2647,17 +2596,12 @@ body.map-animating .listing-card .listing-image {
             const cardRelativeTop = cardRect.top - containerRect.top;
             const targetScroll = currentScroll + cardRelativeTop - (containerRect.height / 2) + (cardRect.height / 2);
 
+            console.log('[highlightCard] 📍 Scrolling to:', Math.round(targetScroll), 'px');
+
             listingsContainer.scrollTo({
                 top: targetScroll,
                 behavior: 'smooth'
             });
-
-            console.log('[highlightCard] ✅ ScrollTo ejecutado (target:', Math.round(targetScroll), 'px)');
-
-            // Remove highlight after 3 seconds
-            setTimeout(() => {
-                card.classList.remove('highlighted');
-            }, 3000);
         }
 
         function unhighlightCard(slug) {
