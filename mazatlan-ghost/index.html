@@ -2573,6 +2573,18 @@ body.map-animating .listing-card .listing-image {
         function highlightCard(slug) {
             console.log('[highlightCard] Called with slug:', slug);
 
+            // MÓVIL: Si estamos en móvil (< 768px), usar scrollIntoView simple
+            if (window.innerWidth <= 768) {
+                console.log('[highlightCard] Modo MÓVIL detectado - usando scrollIntoView');
+                const card = document.getElementById('card-' + slug);
+                if (card) {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    card.classList.add('highlighted');
+                    setTimeout(() => card.classList.remove('highlighted'), 3000);
+                }
+                return;
+            }
+
             // CRÍTICO: Verificar si la tarjeta está en la página actual
             let card = document.getElementById('card-' + slug);
 
