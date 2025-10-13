@@ -2639,14 +2639,20 @@ body.map-animating .listing-card .listing-image {
                 dots.forEach((d, i) => d.classList.toggle('active', i === 0));
             }
 
-            // MÉTODO SIMPLE: scrollIntoView (como en test-map-sync.html)
-            card.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-                inline: 'nearest'
+            // Auto-scroll EXACTO de test-map-sync.html
+            const listingsContainer = document.getElementById('listings-container');
+            const containerRect = listingsContainer.getBoundingClientRect();
+            const cardRect = card.getBoundingClientRect();
+            const currentScroll = listingsContainer.scrollTop;
+            const cardRelativeTop = cardRect.top - containerRect.top;
+            const targetScroll = currentScroll + cardRelativeTop - (containerRect.height / 2) + (cardRect.height / 2);
+
+            listingsContainer.scrollTo({
+                top: targetScroll,
+                behavior: 'smooth'
             });
 
-            console.log('[highlightCard] ✅ ScrollIntoView ejecutado');
+            console.log('[highlightCard] ✅ ScrollTo ejecutado (target:', Math.round(targetScroll), 'px)');
 
             // Remove highlight after 3 seconds
             setTimeout(() => {
