@@ -2589,6 +2589,15 @@ body.map-animating .listing-card .listing-image {
             }
 
             console.log('[highlightCard] Card found:', card);
+            console.log('[highlightCard] Card styles:', {
+                display: window.getComputedStyle(card).display,
+                visibility: window.getComputedStyle(card).visibility,
+                height: window.getComputedStyle(card).height,
+                offsetHeight: card.offsetHeight,
+                clientHeight: card.clientHeight,
+                scrollHeight: card.scrollHeight
+            });
+
             document.querySelectorAll('.listing-card').forEach(c => c.classList.remove('highlighted'));
 
             card.classList.add('highlighted');
@@ -2611,30 +2620,38 @@ body.map-animating .listing-card .listing-image {
                 dots.forEach((d, i) => d.classList.toggle('active', i === 0));
             }
 
-            // Auto-scroll (COPIADO DEL TEST QUE FUNCIONA)
+            // Auto-scroll con requestAnimationFrame (espera renderizado completo)
             const listingsContainer = document.getElementById('listings-container');
             if (!listingsContainer) {
                 console.log('[highlightCard] listings-container NOT FOUND');
                 return;
             }
 
-            const containerRect = listingsContainer.getBoundingClientRect();
-            const cardRect = card.getBoundingClientRect();
-            const currentScroll = listingsContainer.scrollTop;
-            const cardRelativeTop = cardRect.top - containerRect.top;
-            const targetScroll = currentScroll + cardRelativeTop - (containerRect.height / 2) + (cardRect.height / 2);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    // Doble RAF para asegurar que el layout esté completo
+                    const cardOffsetTop = card.offsetTop;
+                    const containerHeight = listingsContainer.clientHeight;
+                    const cardHeight = card.clientHeight;
+                    const targetScroll = cardOffsetTop - (containerHeight / 2) + (cardHeight / 2);
 
-            console.log('[highlightCard] Scroll info:', {
-                currentScroll,
-                cardRelativeTop,
-                targetScroll: Math.round(targetScroll),
-                containerHeight: containerRect.height,
-                cardHeight: cardRect.height
-            });
+                    console.log('[highlightCard] Scroll con offsetTop:', {
+                        cardOffsetTop,
+                        containerHeight,
+                        cardHeight,
+                        targetScroll: Math.round(targetScroll),
+                        currentScroll: listingsContainer.scrollTop
+                    });
 
-            listingsContainer.scrollTo({
-                top: targetScroll,
-                behavior: 'smooth'
+                    listingsContainer.scrollTo({
+                        top: Math.max(0, targetScroll),
+                        behavior: 'smooth'
+                    });
+
+                    setTimeout(() => {
+                        console.log('[highlightCard] ✅ Scroll completado - Nueva posición:', Math.round(listingsContainer.scrollTop) + 'px');
+                    }, 500);
+                });
             });
         }
 
