@@ -8,13 +8,18 @@
 const fs = require('fs');
 const path = require('path');
 
-// Propiedades a procesar
+// Propiedades a procesar - Lote 2 (propiedades 6-15)
 const PROPERTIES_TO_PROCESS = [
-    'casa-venta-emiliano-zapata-581422',
-    'casa-venta-infonavit-barrancos-295574',
-    'casa-venta-infonavit-barrancos-585173',
-    'casa-venta-infonavit-barrancos-874501',
-    'casa-venta-la-campia-456286'
+    'casa-venta-la-primavera-412528',
+    'casa-venta-la-primavera-521867',
+    'casa-venta-la-primavera-588180',
+    'casa-venta-la-rioja-477140',
+    'casa-venta-la-rioja-594408',
+    'casa-venta-las-moras-421156',
+    'casa-venta-libertad-249209',
+    'casa-venta-loma-linda-062215',
+    'casa-venta-nueva-galicia-348109',
+    'casa-venta-privada-perisur'
 ];
 
 function extractPropertyData(html) {

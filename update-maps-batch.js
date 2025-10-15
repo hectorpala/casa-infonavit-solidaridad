@@ -1,60 +1,52 @@
 const fs = require('fs');
 const path = require('path');
 
-// Configuración de propiedades
 const properties = [
     {
-        folder: 'casa-en-venta-privada-avila-pKprKDP-TEMP',
-        location: 'Bugambilias, Culiacán',
-        priceShort: '$1.8M',
-        title: 'Casa en Venta Bugambilias',
-        subtitle: 'Bugambilias, Culiacán'
+        folder: 'casa-venta-country-del-rio-iv-093670',
+        location: 'Country del Río IV, Culiacán',
+        priceShort: '$2.0M',
+        title: 'Casa en Venta Country del Río IV'
     },
     {
-        folder: 'casa-en-venta-terreno-excedente-stanza-valle-alto',
-        location: 'Stanza Valle Alto, Culiacán',
-        priceShort: '$2.5M',
-        title: 'Casa en Venta Valle Alto',
-        subtitle: 'Valle Alto, Culiacán'
+        folder: 'casa-venta-culiacan-culiacan-196364',
+        location: 'Culiacán, Culiacán',
+        priceShort: '$1.2M',
+        title: 'Casa en Venta Culiacán'
     },
     {
-        folder: 'casa-en-venta-valles-del-sol-sector-terranova-culiacan-sinal',
-        location: 'Valles del Sol, Culiacán',
-        priceShort: '$1.25M',
-        title: 'Casa en Venta Valles del Sol',
-        subtitle: 'Valles del Sol, Culiacán'
+        folder: 'casa-venta-emiliano-zapata-581422',
+        location: 'Emiliano Zapata, Culiacán',
+        priceShort: '$2.3M',
+        title: 'Casa en Venta Emiliano Zapata'
     },
     {
-        folder: 'casa-en-venta-y-renta-en-carpatos-en-valle-alto-en-culiacan-sinaloa',
-        location: 'Carpatos, Valle Alto, Culiacán',
-        priceShort: '$2.8M',
-        title: 'Casa en Venta Valle Alto',
-        subtitle: 'Carpatos, Valle Alto, Culiacán'
+        folder: 'casa-venta-infonavit-barrancos-295574',
+        location: 'INFONAVIT Barrancos, Culiacán',
+        priceShort: '$1.7M',
+        title: 'Casa en Venta INFONAVIT Barrancos'
     },
     {
-        folder: 'casa-espacios-barcelona-como-nueva-acabados-de-primera',
-        location: 'Gerona 3057, Culiacán',
-        priceShort: '$2.9M',
-        title: 'Casa en Venta Gerona',
-        subtitle: 'Gerona 3057, Culiacán'
-    },
-    {
-        folder: 'casa-renta-barrio-san-alberto-pgtrrTw',
-        location: 'Barrio San Alberto, La Primavera, Culiacán',
-        priceShort: '$8M',
-        title: 'Casa en Renta Barrio San Alberto',
-        subtitle: 'Barrio San Alberto, Culiacán'
-    },
-    {
-        folder: 'casa-venta--pNq7XzY',
-        location: 'Alamedas, Culiacán',
+        folder: 'casa-venta-infonavit-barrancos-585173',
+        location: 'INFONAVIT Barrancos, Culiacán',
         priceShort: '$1.9M',
-        title: 'Casa en Venta Alamedas',
-        subtitle: 'Alamedas, Culiacán'
+        title: 'Casa en Venta INFONAVIT Barrancos'
+    },
+    {
+        folder: 'casa-venta-infonavit-barrancos-874501',
+        location: 'INFONAVIT Barrancos, Culiacán',
+        priceShort: '$1.2M',
+        title: 'Casa en Venta INFONAVIT Barrancos'
     }
 ];
 
-const newMapCode = (location, priceShort, title) => `
+const mapTemplate = (location, priceShort, title) => `
+    <!-- Location Map Section - Desktop Only -->
+    <section class="location-map scroll-animate" id="location">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <p class="location-subtitle">${title}, Culiacán</p>
+
     <!-- Mapa con Marcador Personalizado -->
     <div id="map-container" style="width: 100%; height: 450px; border-radius: 12px; overflow: hidden;"></div>
 
@@ -209,44 +201,65 @@ const newMapCode = (location, priceShort, title) => `
 
     <!-- Cargar Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&callback=initMap&libraries=places" async defer></script>
+
+        </div>
+    </section>
+
+    <style>
+        .location-map {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+        }
+
+        .location-subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #map-container {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .location-map {
+                padding: 40px 0;
+            }
+
+            #map-container {
+                height: 350px !important;
+            }
+        }
+    </style>
 `;
 
+// Process each property
 properties.forEach(prop => {
     const filePath = path.join(__dirname, 'culiacan', prop.folder, 'index.html');
-    
+
     if (!fs.existsSync(filePath)) {
-        console.log(`❌ No encontrado: ${prop.folder}`);
+        console.error(\`File not found: \${filePath}\`);
         return;
     }
-    
-    let content = fs.readFileSync(filePath, 'utf8');
-    
-    // Buscar y reemplazar la sección del mapa
-    const mapSectionRegex = /<div class="map-container">[\s\S]*?<\/iframe>\s*<\/div>/;
-    
-    if (mapSectionRegex.test(content)) {
-        content = content.replace(
-            mapSectionRegex,
-            newMapCode(prop.location, prop.priceShort, prop.title).trim()
-        );
-        
-        // Actualizar subtitle si es necesario
-        content = content.replace(
-            /<p class="location-subtitle">.*?<\/p>/,
-            `<p class="location-subtitle">${prop.subtitle}</p>`
-        );
-        
-        // Eliminar el viejo .map-container CSS si existe
-        content = content.replace(
-            /\.map-container\s*\{[^}]*\}/,
-            ''
-        );
-        
-        fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`✅ ${prop.folder} - ${prop.priceShort} - ${prop.location}`);
-    } else {
-        console.log(`⚠️  No se encontró mapa en: ${prop.folder}`);
+
+    let html = fs.readFileSync(filePath, 'utf8');
+
+    // Check if map already exists
+    if (html.includes('<!-- Location Map Section')) {
+        console.log(\`Map already exists in \${prop.folder}, skipping...\`);
+        return;
     }
+
+    // Find the pattern and insert the map section
+    const oldString = '    </div>\\n\\n    <!-- Contact Section -->';
+    const newString = '    </div>\\n' + mapTemplate(prop.location, prop.priceShort, prop.title) + '\\n    <!-- Contact Section -->';
+
+    html = html.replace(oldString, newString);
+
+    fs.writeFileSync(filePath, html, 'utf8');
+    console.log(\`✓ Updated \${prop.folder}\`);
 });
 
-console.log('\n🎉 Actualización completada!');
+console.log('\\nAll properties updated successfully!');
