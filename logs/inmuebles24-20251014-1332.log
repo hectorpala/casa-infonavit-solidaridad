@@ -1,0 +1,31 @@
+🚀 INMUEBLES24 SCRAPER - Iniciando...
+
+📚 Histórico cargado: 60 propiedades registradas
+📅 Última revisión: 14/10/2025, 1:21:28 p.m.
+
+🌐 Iniciando navegador...
+📄 Scrapeando página 1: https://www.inmuebles24.com/casas-en-venta-en-culiacan.html
+   ❌ Error en página 1: net::ERR_INTERNET_DISCONNECTED at https://www.inmuebles24.com/casas-en-venta-en-culiacan.html
+📄 Scrapeando página 2: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_31.html
+   ❌ Error en página 2: net::ERR_INTERNET_DISCONNECTED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_31.html
+
+✅ Scraping completado: 0 propiedades totales
+
+🔍 TEST MODE: Comparando 0 actuales vs 0 anteriores (de 60 totales)
+
+============================================================
+📊 REPORTE DE CAMBIOS - INMUEBLES24
+============================================================
+
+📈 Total propiedades actuales: 0
+📉 Total propiedades anterior: 60
+📊 Diferencia: -60
+
+✅ No hay propiedades nuevas
+
+✅ No hay propiedades eliminadas
+
+============================================================
+✅ Histórico guardado en inmuebles24-culiacan-historico.json
+
+✅ Proceso completado exitosamente

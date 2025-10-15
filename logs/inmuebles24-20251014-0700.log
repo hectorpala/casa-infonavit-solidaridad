@@ -1,0 +1,315 @@
+🚀 INMUEBLES24 SCRAPER - Iniciando...
+
+📚 Histórico cargado: 90 propiedades registradas
+📅 Última revisión: 13/10/2025, 4:37:21 p.m.
+
+🌐 Iniciando navegador...
+📄 Scrapeando página 1: https://www.inmuebles24.com/casas-en-venta-en-culiacan.html
+   ❌ Error en página 1: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan.html
+📄 Scrapeando página 2: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_31.html
+   ❌ Error en página 2: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_31.html
+📄 Scrapeando página 3: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_61.html
+   ❌ Error en página 3: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_61.html
+📄 Scrapeando página 4: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_91.html
+   ❌ Error en página 4: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_91.html
+📄 Scrapeando página 5: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_121.html
+   ❌ Error en página 5: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_121.html
+📄 Scrapeando página 6: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_151.html
+   ❌ Error en página 6: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_151.html
+📄 Scrapeando página 7: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_181.html
+   ❌ Error en página 7: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_181.html
+📄 Scrapeando página 8: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_211.html
+   ❌ Error en página 8: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_211.html
+📄 Scrapeando página 9: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_241.html
+   ❌ Error en página 9: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_241.html
+📄 Scrapeando página 10: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_271.html
+   ❌ Error en página 10: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_271.html
+
+✅ Scraping completado: 0 propiedades totales
+
+============================================================
+📊 REPORTE DE CAMBIOS - INMUEBLES24
+============================================================
+
+📈 Total propiedades actuales: 0
+📉 Total propiedades anterior: 90
+📊 Diferencia: -90
+
+✅ No hay propiedades nuevas
+
+❌ PROPIEDADES ELIMINADAS (90):
+   1. Se vende casa en el barrio de Isla del Oeste en La Primavera colindante a canal, con amplios espacios, muy buenos acabados y en una ubicación privileg
+      💰 MN 30,135,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-isla-del-oeste-en-la-primavera-147501147.html
+   2. Casas en venta Culiacan, Los Pinos. Sup terreno 289. 92 M2. Dimensiones 7 m x 42 m. Sup construcción 296. 27 m2. 3 niveles. P. B. Cochera 2 autos. Ofi
+      💰 MN 3,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-culiacan-los-pinos-amplio-terreno-145051303.html
+   3. Hermosa casa en venta en Fraccionamiento Portalegre Residencial con excelente ubicación en la zona norte de Culiacán, Sinaloa? $1, 850, 000? 2 Habitac
+      💰 MN 1,850,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-portalegre-residencial-147113878.html
+   4. Casa La Cantera3 habitaciones, 3. 5 bañosModelo Chocolate (2) (Sin equipamiento) Area de cocinaSalaComedorSala de tvvestidor en recamara principalVest
+      💰 MN 6,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147662027.html
+   5. Preciosa casa en venta en residencial lomita. Fracc. Colinas. de san miguel. * sup: 427 m2 (A. P. 12 x 19. 5 mts) * const: 348 m2 (dos plantas) primer
+      💰 MN 7,250,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-en-fracc.-colinas-de-san-miguel-147004692.html
+   6. Se vende?? hermosa casa? En Terracota Residencial (zona norte): * 3 recamaras? Amplias. *? 2 1/2 baños? *? Walk - in closet? En recámara principal. *?
+      💰 MN 3,400,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-terracota-en-culiacan-147113926.html
+   7. Se vende casa en excelente estado de conservación con muy buenos acabados cerca del Club Colinas
+      💰 MN 8,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-colinas-de-san-miguel-143854309.html
+   8. Casa en Venta Colonia Morelos, en Culiacán, Sinaloa. Superficie de Terreno 230 M2 y 389 M2 de construcción con 5 recámaras. Planta baja: cochera para 
+      💰 MN 4,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-morelos-culiacan-sinaloa-147325627.html
+   9. En venta casa en La PrimaveraSan Juan 329 m2 Construcción345 m2 Terreno. Cocina integral con electrodomesticos incluídos con encimeras de cuarzo. Área
+      💰 MN 12,900,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-hermosa-casa-en-venta-en-la-primavera-147708571.html
+   10. Casa nueva Equipada 3 recámaras c baño cada una, 4 aires acondicionados, sala, comedor, cocina, horno, refrigerador, barda trasera alta, cerca eléctri
+      💰 MN 3,190,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcapa-venta-de-casa-amueblada-vitalia-la-conquista-143018721.html
+   11. Residencia en venta en Culiacán en Isla Músala con alberca propia, en privada con acceso controlado y alberca propia, A precio oportunidad de venta A 
+      💰 MN 10,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-con-alberca-145337185.html
+   12. Amplia casa en renta en la colonia cuahutemoc cerca de importantes plazas comerciales, escuelas Y avenidas principales. Colonia tranquila Y segura. Ca
+      💰 MN 2,650,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-amplia-casa-en-renta-o-venta-a-2-min.-de-plaza-sendero-144602544.html
+   13. En venta casa en La PrimaveraSan Juan 398 m2 Construcción370 m2 Terreno. Ácceso principal/recibidor. Cocina integral con electrodomesticos incluídos c
+      💰 MN 13,300,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html
+   14. Tu Nuevo Comienzo en Tres RíosModerna casa en privada con doble frente — Culiacán, SinaloaImagina despertar cada mañana en una zona segura, tranquila 
+      💰 MN 11,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-vendo-casa-en-desarrollo-urbano-tres-rios-culiacan-145215095.html
+   15. Residencia completamente nueva a estrenar con un bonito diseño modernista y con espacios muy amplios en su distribución. Con 260 mts 2 de cosntrucción
+      💰 MN 8,100,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altezza-residencial-en-culiacan-146782117.html
+   16. Preciosa casa en venta en fracc. Colinas de san miguel. amplio terreno Y espacios. superficie: 733 m2. contruccion: 600 m2 (dos plantas) planta baja: 
+      💰 MN 12,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc-colinas-de-san-miguel-81519985.html
+   17. Casa La Cantera3 habitaciones, 3. 5 bañosModelo Naranja (4) (Sin equipamiento) Area de cocinaSalaComedorSala de tvvestidor en recamara principalVestid
+      💰 MN 6,950,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661688.html
+   18. Preciosa casa con amplios espacios en villa universidad. * sup: 250 m2 (10 X 25 m) * const: 345 m2 (2 plantas) planta baja: - 1 recamara con baño comp
+      💰 MN 4,750,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc.-villa-universidad-143337967.html
+   19. Venta de casa por Mariano Escobedo primer cuadro de la ciudad. Excelente ubicación, cerca de hospitales, mercado, Restaurant. Supermercado, bancos. La
+      💰 MN 4,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-por-calle-mariano-escobedo-centro-de-la-143508352.html
+   20. Casa en Venta en Residencial Hacienda: • 3 Recámaras. • 2 Baños y 1 medio baño. • 122. 40 M2 de superficie. • 211. 39 M2 de construcción. • Estacionam
+      💰 MN 3,800,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-hacienda-3-recamaras-144572398.html
+   21. Casa en venta moderna y en excelentes condiciones en Privada La Cantera con finos acabados y alberca propia, cerca del Tec Milenio y del Hospital Ánge
+      💰 MN 21,496,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html
+   22. Casa en venta, en culiacancito, culican, sinaloa. La propiedad se encuentra cerca de Iglesia, Mercado, Parques, escuelas, Hospitales. Cuenta con servi
+      💰 MN 2,100,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html
+   23. Estrena casa en Desarrollo Urbano Tres Rios. 5 minutos de Plaza 4 Rios y Forum Culiacan. Son 200 mts de terreno. Construcción: 380mts2. Planta baja. C
+      💰 MN 12,700,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacan-nueva-tres-rios-4-recamaras-147805533.html
+   24. Hermosa casa en venta en Residencial Terracota (Zona norte de Culiacán) Con amplios espacios y medidas 7. 5 x 17. 5 metros de superficie, esta propied
+      💰 MN 2,590,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-terracota-residencial-147113875.html
+   25. Casa en Venta – Colonia Guadalupe, CuliacánOportunidad de adquirir una residencia ubicada en una de las zonas más consolidadas y con mayor plusvalía d
+      💰 MN 4,300,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-guadalupe-culiacan-147814499.html
+   26. ¡Tu nuevo hogar te espera en Privada Galerías, Colinas de San Miguel! Vive con seguridad, confort y exclusividad en una de las zonas más privilegiadas
+      💰 MN 7,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colinas-de-san-miguel-culiacan-146212835.html
+   27. Finca La Abuela en condado de San Francisco (Zona norte de Culiacán): Con valor de $11 millones de pesos. Cuenta con una superficie de 600 m2, tres re
+      💰 MN 11,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-y-campestre-en-condado-de-san-francisco-147113904.html
+   28. Venta de casa en Terranova cerca de la av principal de las torres, ideal para vivir o negocio. Cuenta distribuida de la sig manera. Planta alta. Son 3
+      💰 MN 2,400,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-casa-sector-terranova-146725068.html
+   29. Casa La Cantera3 habitaciones, 3. 5 bañosModelo Gris (1) (Sin equipamiento) Area de cocinaSalaComedorSala de tvvestidor en recamara principalPaitio de
+      💰 MN 7,950,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html
+   30. Casa en venta en Fraccionamiento Urbivilla del Sol, Sector Capistrano Ubicada justo frente a parque, esta propiedad ofrece una excelente distribución 
+      💰 MN 1,450,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-urbivilla-del-sol-146130341.html
+   31. Descripcion. se vende casa como co-propiedad al 50% esta desarrollada en dos niveles que consta de sala, comedor, cocina, tres recamaras, baño, patio 
+      💰 MN 920,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-co-propiedad-50-54106076.html
+   32. Casa en venta y renta en La Campiña, Querétaro• Precio de venta: $7, 900, 000• Precio de renta: $35, 000 mensuales• Valor avalúo: $8, 200, 000Caracter
+      💰 MN 7,900,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-de-lujo-en-la-campina-queretaro-4-147586680.html
+   33. Ref: 2 5 5 5 9 8. ¡No dejes pasar esta increíble oportunidad de adquirir una hermosa casa en venta a estrenar con entrega inmediata en La Campiña, Cul
+      💰 MN 3,589,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-amapas-147279957.html
+   34. Descripción General: Se trata de casa habitación ubicada en esquina con regular estado de conservación (Obra negra) de forma triangular desarrollada e
+      💰 MN 480,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-54086303.html
+   35. Ref: 2 4 4 2 7 6. Hermosa casa en venta ubicada en Portalegre, Culiacán, Sinaloa. Esta propiedad cuenta con 3 recamaras amplias, 2 baños completos, 1 
+      💰 MN 2,800,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-3-recamaras-en-portalegre-en-culiacan-145915393.html
+   36. Ref: 2 5 9 1 4 2. ¡Increíble oportunidad de adquirir una espaciosa casa en venta en Buenos Aires, Culiacán, Sinaloa! Esta impresionante propiedad cuen
+      💰 MN 4,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-oportunidad-col.-buenos-aires-147674732.html
+   37. Descubre tu nuevo hogar en Nuevo Culiacán, un sector residencial reconocido por su seguridad, conectividad y plusvalía, ideal para quienes buscan tran
+      💰 MN 2,800,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-nuevo-culiacan-147309710.html
+   38. Excelente Oportunidad de Remate bancario, lista para habitar. Casa que cuenta con lo siguiente: Garage para 4 Vehiculos. Amplia Sala. Comedor. Cocina 
+      💰 MN 7,678,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-remate-bancario-en-culiacan-sin.-las-quintas-146848358.html
+   39. Casa en venta en Culiacán en Bosques del Rey (Privada con alberca, área común y acceso controlado), cinta de: - 3 recámaras (principal con baño vestid
+      💰 MN 3,350,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-en-bosques-del-rey-144918000.html
+   40. Casa en venta por calle hidalgo entre bravo Y G. Robles en el primer cuadro de la ciudad, idónea para oficinas, clínicas, escuelas, etc. , con amplia 
+      💰 MN 5,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-colonia-centro-en-el-primer-cuadro-64840919.html
+   41. Descripcion: Casa Habitación desarrollada en un nivel que consta de sala, comedor, cocina, dos recamaras, dos baÑos y terreno adicional. Invadido / no
+      💰 MN 1,450,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75304061.html
+   42. Se Vende excelente casa de un piso en Col. Chapultepec. Cuenta con. 4 recámaras. 2 baños completos. Área de Sala. Área de Comedor. Cocina integral con
+      💰 MN 5,250,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-col-chapultepec-culiacan-147055011.html
+   43. Descripcion: Casa desarrollada en un nivel que consta de sala, comedor, cocina, un baño, cuatro recamaras y un estacionamiento para un auto. Inmueble 
+      💰 MN 695,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-58370397.html
+   44. Descripcion: Casa desarrollada en un nivel consta de: estancia, cocina, baño, dos recamaras, patio de servicio y garage descubierto. Inmueble Invadido
+      💰 MN 1,450,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75320881.html
+   45. Descripcion: Casa desarrollada en un nivel con techo de lamina y que consta de sala, comedor, cocina, un baño, patio de servicio y dos recamaras. dere
+      💰 MN 1,100,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75321008.html
+   46. Descripcion: se vende casa desarrollada en dos niveles con la sig. Distribucion. Planta Baja: Sala-Comedor, Cocina, una recamara, patio de servicio, B
+      💰 MN 850,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-143237690.html
+   47. Casa en venta en Culiacán en el Sector Tres Rios, la cual tiene una superficie de terreno de 250 metros cuadrados y 352 metros cuadrados de terreno en
+      💰 MN 13,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-en-tres-rios-146391186.html
+   48. Descripcion: Se trata de un terreno plano de forma regular con construcciones destinadas a una casa habitación que consta de sala, comedor, cocina, ba
+      💰 MN 1,200,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-con-terreno-75298612.html
+   49. Descripción General: Casa desarrollada en dos niveles que consta de: Planta Baja. - Sala, comedor, cocina, medio baño y garage; Planta Alta. - Tres re
+      💰 MN 1,000,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-copropiedad-60-53881541.html
+   50. Esta casa en venta es ideal para quienes buscan seguridad, ubicación estratégica y un entorno familiar. Ubicada dentro de una privada con acceso contr
+      💰 MN 2,300,002
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-vendo-casa-en-perisur-ii-culiacan-147711585.html
+   51. Vive en un residencial diseñado para tu familia, donde lujo, seguridad y entorno natural se combinan para ofrecerte una vida plena. Precio de venta: $
+      💰 MN 5,460,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-residencial-exclusivo-carretera-a-imala-147576539.html
+   52. Se vende casa de dos plantas por el boulevard dr. Mora en las quintas, idónea para despacho O clínica.
+      💰 MN 3,800,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-boulevard-doctor-mora-en-las-quintas-66208634.html
+   53. Casa en venta en Culiacán, en el Sector Las Quintas, la cual cuenta con acabados de lujo y de alta gama, consta de 4 recamaras (cada una con baño comp
+      💰 MN 9,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-en-las-quintas-146359257.html
+   54. Amplia Y espaciosa casa en venta en la colonia guadalupe. en un terreno de 14. 5 X 31. 3 mts. Con superficie de 453 M2 Y 429 M2 de construccion. Cuent
+      💰 MN 6,600,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-col.-guadalupe-143339795.html
+   55. Casa con habitación en planta baja en sector Valle Alto. Cuenta con otras tres habitaciones en planta alta y una amplia terraza; tiene cochera techada
+      💰 MN 2,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-valle-alto-146795832.html
+   56. Casa desarrollada en dos niveles con la siguiente distribución. aparente pb. -Sala, comedor, desayunador, cocina, medio baño, patio de servicio, garag
+      💰 MN 1,650,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75300747.html
+   57. Invadida. (derechos adjudicacion) Casa desarrollada en dos niveles que consta de con sala-comedor, cocina, baño, cuatro recamaras, patio de servicio y
+      💰 MN 3,600,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-53895764.html
+   58. Se vende casa en Villas del Río cuenta con. 3 recámaras, la principal con jacuzzi, Vestidor grande walkin closet. 2 baños y medio. Área de sala. Área 
+      💰 MN 2,350,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-en-villas-del-rio-145944377.html
+   59. Descripcion: se trata de casa habitacion desarrollada en dos niveles que consta de. pb- sala-comedor, cocina, una recamara, baño, jardin, patio. pa- d
+      💰 MN 480,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-copropiedad-50-54023129.html
+   60. Casa desarrollada en un nivel que consta de Sala, comedor, cocina, patio de servicio, jardín, garaje, tres recamaras y baño. Cesión de Derechos / Inmu
+      💰 MN 1,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75300757.html
+   61. Ref: 2 2 1 1 9 8. ¡Gran oportunidad de adquirir una hermosa casa en venta en la zona de 5 de Mayo Culiacán, Sinaloa! Esta propiedad cuenta con 142 m2 
+      💰 MN 1,600,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-en-la-col.-5-de-mayo-culiacan-sinaloa-144422903.html
+   62. Casa de dos niveles con cochera para 2 autos y portón. eléctrico nuevo. En planta baja: cocina integral con estufa y desayunador, amplia sala y comedo
+      💰 MN 9,800,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-sinaloa-145321991.html
+   63. Casa desarrollada en un nivel con Sala, comedor, cocina, recamaras, baño, patio de servicio y garaje cubierto, además con una construcción en la azote
+      💰 MN 1,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-col.-lazaro-cardenas-71155299.html
+   64. Se vende O se renta casa en fraccionamiento guadalupe victoria. planta baja. -sala. -comedor. - cocina integral. -patio amplio con su medio baño. plan
+      💰 MN 4,300,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-o-se-renta-casa-en-fraccionamiento-guadalupe-147550852.html
+   65. Descripción General: Casa desarrollada en un nivel que consta de sala, comedor, cocina, tres recamaras, dos baño, patio de servicio y estacionamiento.
+      💰 MN 850,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-copropiedad-50-53895659.html
+   66. Ref: 2 5 5 9 9 9. En Los Pinos, Culiacán, Sinaloa, se encuentra esta magnífica casa en venta a estrenar con entrega inmediata, ideal para quienes busc
+      💰 MN 3,800,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-3-recamaras-en-privada-los-pinos-147282318.html
+   67. Descropcion: Casa dúplex ubicada en planta baja que consta de sala-comedor, cocina, dos recamaras, bañó, patio de servicio, un lugar de estacionamient
+      💰 MN 500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-58370210.html
+   68. Descripción General: Casa desarrollada en dos niveles que consta de Planta Baja. - Estacionamiento y área libre; Planta Alta. - Sala, Comedor, cocina,
+      💰 MN 1,350,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-71024901.html
+   69. ¡Descubre tu nuevo hogar! Esta acogedora casa de 71 m² de construcción en un terreno de 103. 3 m² es perfecta para ti. Con 2 recámaras y 1 baño, ofrec
+      💰 MN 1,050,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-fraccionamiento-nueva-galicia-146164593.html
+   70. Casa de dos plantas, ubicada en Privada Patios 1. En planta baja cuenta con medio baño, área de almacenamiento, sala, comedor, cocina integral, cuarto
+      💰 MN 5,100,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-los-patios-1-145342946.html
+   71. Casa en venta en Fraccionamiento Urbivilla del Sol, Sector Capistrano Ubicada justo frente a parque, esta propiedad ofrece una excelente distribución 
+      💰 MN 1,450,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-urbivilla-del-sol-146130341.html
+   72. Casa en Venta en esquina, frente a parque y con excedente en el Sector Cedros, la cual consta de: planta baja. Cochera para tres autos, medio baño, es
+      💰 MN 1,990,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-en-la-conquista-con-146359669.html
+   73. Ref: 2 5 6 8 5 2. Ubicada en la exclusiva zona de Colinas de San Miguel en Culiacán, Sinaloa, se encuentra esta impresionante casa en venta que combin
+      💰 MN 10,900,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-en-colinas-de-san-miguel-3-niveles-147393824.html
+   74. Ref: 2 1 8 2 6 8. Esta hermosa casa en venta con entrega inmediata se encuentra ubicada en la zona de Salvador Alvarado, en Culiacán, Sinaloa. Con una
+      💰 MN 2,350,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-esquina-comercial-culiacan-sinaloa-144680801.html
+   75. Se vende O se renta casa en privada residencial montecarlo con alberca. precio avaluo $ 5, 490, 000. precio oportunidad $4, 500, 000. planta baja. -sa
+      💰 MN 4,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-o-se-renta-casa-en-privada-residencial-147395571.html
+   76. Ref: 2 4 6 7 3 2. ¡No dejes pasar la oportunidad de adquirir esta espectacular Casa en Venta en Espacios Barcelona, Culiacán, Sinaloa! Con una constru
+      💰 MN 4,200,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-en-fracc.-espacios-barcelona-en-culiacan-146166137.html
+   77. Vive con tranquilidad y seguridad al sur de la ciudad en esta encantadora propiedad, ideal para parejas jóvenes o familias pequeñas. Su ubicación dent
+      💰 MN 2,200,003
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-perisur-ii-culiacan-147709226.html
+   78. Ref: 2 5 4 5 9 5. ¡No dejes pasar la oportunidad de adquirir esta hermosa casa en Valle Alto, Culiacán, Sinaloa! Con una ubicación privilegiada y con 
+      💰 MN 1,950,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-valle-alto-147200400.html
+   79. Descripcion: casa desarrollada en un nivel que consta de sala, comedor, cocina, baño, tres recamaras dos de ellas con baño Y estacionamiento techado. 
+      💰 MN 1,800,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-79199512.html
+   80. Descripción General: Casa desarrollada en un nivel con sala-comedor, cocina, dos recamaras un baño, patio de servicio y espacio para auto al frente. E
+      💰 MN 1,300,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-58396222.html
+   81. Descubre esta encantadora casa que combina funcionalidad y estilo en cada rincón. Con un diseño acogedor y bien distribuido, esta propiedad es ideal p
+      💰 MN 1,260,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-stanza-albaterra-146184063.html
+   82. Ref: 2 1 2 7 6 9. Se vende esta espectacular casa en Tierra Blanca, Culiacán, Sinaloa. Con una construcción de 264 m2, esta propiedad cuenta con 4 rec
+      💰 MN 6,400,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-casa-habitacion-colonia-tierra-blanca-143852980.html
+   83. Ref: 2 4 9 6 1 7. ¡No dejes pasar esta increíble oportunidad de adquirir una hermosa casa en venta a estrenar con entrega inmediata en Belcantto, Culi
+      💰 MN 4,500,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta_culiacan-sin.-belcantto-146465444.html
+   84. En venta casa en culiacan, se ubica en esquina en el (primer cuadro del centro de la ciudad) "inversion garantizada", consta de: -- 3 recamaras. -- 1 
+      💰 MN 2,800,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-casa-en-culiacan-145389374.html
+   85. Se Vende Casa en Fraccionamiento Valle Alto. planta baja. sala. comedor. area cocina. medio baño. cochera dos carros con su porton electronico. planta
+      💰 MN 4,650,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-fraccionamiento-valle-alto-147396550.html
+   86. Casa de 4 habitaciones en venta en privada portalegre villas 2, cuenta con habitación en planta baja y área de lavado techada. En planta alta se le am
+      💰 MN 2,850,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-4-hab.-en-venta-en-culiacan-146795631.html
+   87. ? en venta casa en prados de la conquista? precio: $2, 980, 000 Terreno: 7 x 17 119 m² Construccion: 153 m²? Prados de, La Conquista, Ver datos Culiac
+      💰 MN 2,980,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-la-conquista-147199195.html
+   88. ¡Hola! Te presento una increíble casa en venta que destaca por su diseño moderno y funcional. Con 120 m2 de construcción, esta propiedad es perfecta p
+      💰 MN 2,790,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-palmanova-modelo-medicci-d17-145956100.html
+   89. ? Casa en Venta – Zona Aeropuerto, San JavierDescubre esta excelente oportunidad en una de las zonas con mayor proyección de Culiacán. Ubicada en San 
+      💰 MN 1,180,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-san-javier-147145990.html
+   90. Oportunidad en venta! Zona comercial cerca de isla musala, zona de alta plusvalia Cuenta con amplios espacios sala. Comedor 2 recamaras en planta baja
+      💰 MN 3,700,000
+      🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-6-recamaras-culiacan-144268894.html
+
+============================================================
+✅ Histórico guardado en inmuebles24-culiacan-historico.json
+
+✅ Proceso completado exitosamente

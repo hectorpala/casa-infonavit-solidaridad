@@ -1,0 +1,105 @@
+🗑️ ANÁLISIS DE ARCHIVOS OBSOLETOS - LIMPIEZA RECOMENDADA
+
+═══════════════════════════════════════════════════════════════
+
+📊 RESUMEN EJECUTIVO:
+
+Total archivos obsoletos detectados: ~186 archivos
+Espacio estimado a liberar: ~50-100 MB
+
+═══════════════════════════════════════════════════════════════
+
+1️⃣ SCRIPTS JS OBSOLETOS (13 archivos)
+─────────────────────────────────────
+✅ ELIMINAR:
+- analizar-*.js (4 archivos) - Scripts de análisis antiguos
+- debug-*.js (2 archivos) - Scripts de debugging
+- extract-*.js (2 archivos) - Extractores obsoletos
+- test-*.js (4 archivos) - Tests antiguos
+- urls-batch-backup.js - Backup viejo
+
+🔍 Razón: Ya no se usan, fueron para desarrollo/testing
+
+─────────────────────────────────────
+
+2️⃣ JSON API RESPONSES (87 archivos)
+─────────────────────────────────────
+✅ ELIMINAR:
+- api-response-1.json hasta api-response-87.json
+
+🔍 Razón: Respuestas de API guardadas durante debugging
+💾 Tamaño: ~30-40 MB
+
+─────────────────────────────────────
+
+3️⃣ JSON WIGGOT PROPERTIES (1 archivo)
+─────────────────────────────────────
+✅ ELIMINAR:
+- wiggot-property-*.json
+
+🔍 Razón: Datos temporales de propiedades scrapeadas
+
+─────────────────────────────────────
+
+4️⃣ SCREENSHOTS PNG (34 archivos)
+─────────────────────────────────────
+✅ ELIMINAR:
+- wiggot-*.png (30+ archivos)
+- debug-*.png
+- inmuebles24-screenshot.png
+
+🔍 Razón: Screenshots de debugging/testing
+💾 Tamaño: ~10-15 MB
+
+─────────────────────────────────────
+
+5️⃣ ARCHIVOS MAZATLAN (32 archivos)
+─────────────────────────────────────
+✅ ELIMINAR:
+- mazatlan-* (JSONs, HTMLs, CSS, JS, MD)
+
+🔍 Razón: Proyecto Mazatlán ya no activo
+💾 Tamaño: ~5-10 MB
+
+─────────────────────────────────────
+
+6️⃣ LOGS TXT (19 archivos)
+─────────────────────────────────────
+✅ ELIMINAR:
+- inmuebles24-log.txt
+- *.log (si existen)
+- Otros archivos .txt de logs
+
+🔍 Razón: Logs antiguos de testing
+
+─────────────────────────────────────
+
+7️⃣ ARCHIVOS BACKUPS (múltiples)
+─────────────────────────────────────
+✅ ELIMINAR:
+- *.backup
+- *.backup2, *.backup3, etc.
+- *-old.*
+
+🔍 Razón: Backups obsoletos
+
+═══════════════════════════════════════════════════════════════
+
+⚠️ ARCHIVOS A CONSERVAR:
+
+✅ MANTENER:
+- inmuebles24-culiacan-historico.json (CRÍTICO - datos activos)
+- package.json, package-lock.json
+- Los 3 scrapers principales
+- add-property.js
+- Archivos en carpeta culiacan/
+- Archivos en carpeta automation/
+- Archivos en carpeta scraper-por-dia-excel/
+
+═══════════════════════════════════════════════════════════════
+
+🎯 RECOMENDACIÓN:
+
+ELIMINAR TODO LO LISTADO ARRIBA = ~186 archivos obsoletos
+
+═══════════════════════════════════════════════════════════════

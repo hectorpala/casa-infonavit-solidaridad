@@ -1,0 +1,73 @@
+{
+  "success": true,
+  "timestamp": "2025-10-14T19:20:44.507Z",
+  "duration": "15.3",
+  "propertiesFound": 30,
+  "properties": [
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-terracota-en-culiacan-147113926.html",
+      "title": "Se vende?? hermosa casa? En Terracota Residencial (zona norte): * 3 recamaras? Amplias. *? 2 1/2 baños? *? Walk - in closet? En recámara principal. *?",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-con-alberca-145337185.html",
+      "title": "Residencia en venta en Culiacán en Isla Músala con alberca propia, en privada con acceso controlado y alberca propia, A precio oportunidad de venta A ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html",
+      "title": "Casa en venta moderna y en excelentes condiciones en Privada La Cantera con finos acabados y alberca propia, cerca del Tec Milenio y del Hospital Ánge",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html",
+      "title": "Casa en venta, en culiacancito, culican, sinaloa. La propiedad se encuentra cerca de Iglesia, Mercado, Parques, escuelas, Hospitales. Cuenta con servi",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-venta-de-casa-amueblada-vitalia-la-conquista-143018721.html",
+      "title": "Casa nueva Equipada 3 recámaras c baño cada una, 4 aires acondicionados, sala, comedor, cocina, horno, refrigerador, barda trasera alta, cerca eléctri",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacan-nueva-tres-rios-4-recamaras-147805533.html",
+      "title": "Estrena casa en Desarrollo Urbano Tres Rios. 5 minutos de Plaza 4 Rios y Forum Culiacan. Son 200 mts de terreno. Construcción: 380mts2. Planta baja. C",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-morelos-culiacan-sinaloa-147325627.html",
+      "title": "Casa en Venta Colonia Morelos, en Culiacán, Sinaloa. Superficie de Terreno 230 M2 y 389 M2 de construcción con 5 recámaras. Planta baja: cochera para ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-culiacan-los-pinos-amplio-terreno-145051303.html",
+      "title": "Casas en venta Culiacan, Los Pinos. Sup terreno 289. 92 M2. Dimensiones 7 m x 42 m. Sup construcción 296. 27 m2. 3 niveles. P. B. Cochera 2 autos. Ofi",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-colinas-de-san-miguel-143854309.html",
+      "title": "Se vende casa en excelente estado de conservación con muy buenos acabados cerca del Club Colinas",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-hacienda-3-recamaras-144572398.html",
+      "title": "Casa en Venta en Residencial Hacienda: • 3 Recámaras. • 2 Baños y 1 medio baño. • 122. 40 M2 de superficie. • 211. 39 M2 de construcción. • Estacionam",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-14T19:20:44.271Z"
+    }
+  ],
+  "environment": {
+    "hostname": "MacBook-Air-de-HectorPC.local",
+    "platform": "darwin",
+    "nodeVersion": "v22.18.0"
+  }
+}

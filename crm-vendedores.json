@@ -291,12 +291,59 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-08T23:17:22.874Z"
+    },
+    {
+      "id": "v011",
+      "nombre": "VIEDAS Fianzas & Bienes Raíces",
+      "telefono": "6671530298",
+      "telefonoFormateado": "667-153-0298",
+      "whatsapp": "https://wa.me/526671530298",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147501147",
+          "titulo": "Se Vende Casa en Isla del Oeste en La Primavera",
+          "precio": "MN 30,135,000",
+          "ubicacion": "Isla del Oeste, La Primavera, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-isla-del-oeste-en-la-primavera-147501147.html",
+          "fechaScrapeo": "2025-10-14",
+          "fechaPublicacion": "Publicado hace 41 días",
+          "vistas": 0
+        },
+        {
+          "id": "147500481",
+          "titulo": "Casa en Venta en Privada La Cantera",
+          "precio": "MN 21,496,000",
+          "ubicacion": "Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html",
+          "fechaScrapeo": "2025-10-15",
+          "fechaPublicacion": "Publicado hace 41 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Isla del Oeste, La Primavera, Culiacán",
+      "tags": [
+        "inmuebles24",
+        "isla-del-oeste",
+        "la-primavera",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-14T23:46:51.636Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 10,
-    "totalPropiedades": 15,
-    "ultimaActualizacion": "2025-10-08T23:17:22.874Z"
+    "totalVendedores": 11,
+    "totalPropiedades": 17,
+    "ultimaActualizacion": "2025-10-15T00:18:00.808Z"
   },
   "busquedas": [
     {
