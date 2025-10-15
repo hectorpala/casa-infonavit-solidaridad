@@ -1261,36 +1261,14 @@
         // Configuración del marcador personalizado
         const MARKER_CONFIG = {
             location: "Isla del Oeste, La Primavera, Culiacán",
-            priceShort: "30.1M",
+            priceShort: "$30.1M",
             title: "Se Vende Casa en Isla del Oeste en La Primavera",
             precision: "generic",
             latOffset: 0,
             lngOffset: 0
         };
 
-        // Array con TODAS las propiedades de Mazatlán
-        const ALL_MAZATLAN_PROPERTIES = [
-            { "slug": "casa-en-venta-real-del-valle", "priceShort": "$3.5M", "title": "Casa en Venta Real del Valle", "location": "Real del Valle", "image": "casa-en-venta-real-del-valle/images/foto-1.jpg" },
-            { "slug": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-", "priceShort": "$3.5M", "title": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas", "location": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas", "image": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas", "priceShort": "$2.6M", "title": "Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.", "location": "Mazatlán Cercana a Marina Mazatlán y Playas.", "image": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-veredas-mazatlan-sin", "priceShort": "$3.3M", "title": "Casa en Venta en Veredas, Mazatlan, Sin.", "location": "Veredas, Mazatlan, Sin.", "image": "casa-en-venta-en-veredas-mazatlan-sin/images/foto-1.jpg" },
-            { "slug": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido", "priceShort": "$2.3M", "title": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido", "location": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido", "image": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-de-real-del-valle-coto-14", "priceShort": "$3.0M", "title": "Casa en Venta de Real del Valle Coto 14", "location": "de Real del Valle Coto 14", "image": "casa-en-venta-de-real-del-valle-coto-14/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza", "priceShort": "$3.4M", "title": "Casa en Venta Residencial con Alberca en Real del Valle Mazatlan", "location": "Residencial con Alberca en Real del Valle Mazatlan", "image": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa", "priceShort": "$2.6M", "title": "Casa en Venta en El Fracc Porto Molino Mazatlan Sinaloa", "location": "El Fracc Porto Molino Mazatlan Sinaloa", "image": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa/images/foto-1.jpg" },
-            { "slug": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res", "priceShort": "$3.2M", "title": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial", "location": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial", "image": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico", "priceShort": "$2.1M", "title": "Casa en Venta en Mazatlan, Fraccionamiento Real Pacifico", "location": "Mazatlan, Fraccionamiento Real Pacifico", "image": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-mazatlan-residencial-palmilla-super-precio", "priceShort": "$3.7M", "title": "Casa en Venta Mazatlan, Residencial Palmilla Super Precio!", "location": "Mazatlan, Residencial Palmilla Super Precio!", "image": "casa-en-venta-mazatlan-residencial-palmilla-super-precio/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-privada-con-alberca-en-mazatlan", "priceShort": "$3.3M", "title": "Casa en Venta en Privada con Alberca en Mazatlán", "location": "Privada con Alberca en Mazatlán", "image": "casa-en-venta-en-privada-con-alberca-en-mazatlan/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia", "priceShort": "$2.0M", "title": "Casa en Venta en Mazatlan, Sinaloa (Villa Galaxia)", "location": "Mazatlan, Sinaloa (Villa Galaxia)", "image": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue", "priceShort": "$2.4M", "title": "Casa en Venta en Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)", "location": "Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)", "image": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model", "priceShort": "$2.7M", "title": "Casa en Venta en Mazatlán en Coto Privado Camila Hills Modelo Nova", "location": "Av Paseo del Pacífico, Mazatlán, Sinaloa", "image": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-mazatlan", "priceShort": "$2.7M", "title": "Casa en Venta en Mazatlán.", "location": "Mazatlán", "image": "casa-en-venta-en-mazatlan/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z", "priceShort": "$2.4M", "title": "Casa en Venta De Los Peces", "location": "De Los Peces, Fraccionamiento Tortugas, Mazatlán", "image": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z/images/foto-1.jpg" },
-            { "slug": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01", "priceShort": "$6.3M", "title": "Casa en Venta Barrio San Francisco", "location": "Barrio San Francisco, Barrio San Francisco, Mazatlán, Sinaloa", "image": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/images/foto-1.jpg" }
-        ];
-
-        // Función para crear marcador personalizado para otras propiedades
+        // Función para crear marcador personalizado
         function createPropertyMarker(property, map, isCurrent = false) {
             const markerHTML = `
                 <div style="
@@ -1326,21 +1304,16 @@
                 div.innerHTML = markerHTML;
 
                 div.addEventListener('click', () => {
-                    const baseUrl = window.location.href.includes('mazatlan/')
-                        ? '../'
-                        : '';
-
                     const infoWindow = new google.maps.InfoWindow({
                         content: `
                             <div style="padding: 0; max-width: 260px;">
-                                <img src="${baseUrl}${this.property.image}"
+                                <img src="${this.property.image}"
                                      alt="${this.property.title}"
                                      style="width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 4px 4px 0 0;">
                                 <div style="padding: 8px 10px;">
                                     <h4 style="margin: 0 0 4px 0; color: ${this.isCurrent ? '#FF6B35' : '#10b981'}; font-size: 14px; font-weight: 600;">${this.property.priceShort}</h4>
                                     <h5 style="margin: 0 0 3px 0; color: #1f2937; font-size: 12px; font-weight: 600;">${this.property.title}</h5>
                                     <p style="margin: 0 0 6px 0; color: #6b7280; font-size: 11px; line-height: 1.3;">${this.property.location}</p>
-                                    ${!this.isCurrent ? '<a href="' + baseUrl + this.property.slug + '/index.html" style="display: block; background: #10b981; color: white; text-align: center; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: 600;">Ver Propiedad →</a>' : ''}
                                 </div>
                             </div>
                         `
@@ -1384,15 +1357,11 @@
                         lng: results[0].geometry.location.lng() + MARKER_CONFIG.lngOffset
                     };
 
-                    // Detectar si es propiedad de Mazatlán
-                    const isMazatlan = window.location.href.includes('/mazatlan/');
-                    const currentSlug = window.location.pathname.split('/').filter(p => p).pop();
-
-                    // Crear mapa con zoom ajustado para Mazatlán
+                    // Crear mapa
                     map = new google.maps.Map(document.getElementById('map-container'), {
                         center: position,
-                        zoom: isMazatlan ? 13 : (MARKER_CONFIG.precision === 'exact' ? 17 :
-                              MARKER_CONFIG.precision === 'street' ? 16 : 15),
+                        zoom: MARKER_CONFIG.precision === 'exact' ? 17 :
+                              MARKER_CONFIG.precision === 'street' ? 16 : 15,
                         mapTypeId: 'roadmap',
                         styles: [
                             {
@@ -1409,32 +1378,15 @@
                     });
 
                     // Crear marcador de la propiedad actual (naranja)
-                    const currentProperty = isMazatlan
-                        ? ALL_MAZATLAN_PROPERTIES.find(p => currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
-                        : { priceShort: MARKER_CONFIG.priceShort, title: MARKER_CONFIG.title, location: MARKER_CONFIG.location, image: 'images/foto-1.jpg' };
+                    const currentProperty = {
+                        priceShort: MARKER_CONFIG.priceShort,
+                        title: MARKER_CONFIG.title,
+                        location: MARKER_CONFIG.location,
+                        image: 'images/foto-1.jpg'
+                    };
 
-                    if (currentProperty) {
-                        const CustomMarkerClass = createPropertyMarker(currentProperty, map, true);
-                        marker = new CustomMarkerClass(position, map, currentProperty, true);
-
-                        // Si es Mazatlán, crear marcadores de TODAS las otras propiedades (verdes)
-                        if (isMazatlan) {
-                            ALL_MAZATLAN_PROPERTIES.forEach(property => {
-                                if (property.slug !== currentProperty.slug) {
-                                    geocoder.geocode({ address: property.location }, function(results, status) {
-                                        if (status === 'OK' && results[0]) {
-                                            const otherPosition = {
-                                                lat: results[0].geometry.location.lat(),
-                                                lng: results[0].geometry.location.lng()
-                                            };
-                                            const OtherMarkerClass = createPropertyMarker(property, map, false);
-                                            new OtherMarkerClass(otherPosition, map, property, false);
-                                        }
-                                    });
-                                }
-                            });
-                        }
-                    }
+                    const CustomMarkerClass = createPropertyMarker(currentProperty, map, true);
+                    marker = new CustomMarkerClass(position, map, currentProperty, true);
 
                 } else {
                     console.error('Geocode error:', status);
