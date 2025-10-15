@@ -8,18 +8,18 @@
 const fs = require('fs');
 const path = require('path');
 
-// Propiedades a procesar - Lote 2 (propiedades 6-15)
+// Propiedades a procesar - Lote 3 (propiedades 16-25)
 const PROPERTIES_TO_PROCESS = [
-    'casa-venta-la-primavera-412528',
-    'casa-venta-la-primavera-521867',
-    'casa-venta-la-primavera-588180',
-    'casa-venta-la-rioja-477140',
-    'casa-venta-la-rioja-594408',
-    'casa-venta-las-moras-421156',
-    'casa-venta-libertad-249209',
-    'casa-venta-loma-linda-062215',
-    'casa-venta-nueva-galicia-348109',
-    'casa-venta-privada-perisur'
+    'casa-venta-providencia-606442',
+    'casa-venta-real-san-angel-842305',
+    'casa-venta-residencial-san-jose-110733',
+    'casa-venta-rosales-238020',
+    'casa-venta-ruben-jaramillo-049304',
+    'casa-venta-ruben-jaramillo-171034',
+    'casa-venta-ruben-jaramillo-228474',
+    'casa-venta-san-agustin-349077',
+    'casa-venta-san-javier',
+    'casa-venta-sinaloa-368717'
 ];
 
 function extractPropertyData(html) {
