@@ -8,18 +8,18 @@
 const fs = require('fs');
 const path = require('path');
 
-// Propiedades a procesar - Lote 3 (propiedades 16-25)
+// Propiedades a procesar - Lote 4 (propiedades 26-35, últimas casas)
 const PROPERTIES_TO_PROCESS = [
-    'casa-venta-providencia-606442',
-    'casa-venta-real-san-angel-842305',
-    'casa-venta-residencial-san-jose-110733',
-    'casa-venta-rosales-238020',
-    'casa-venta-ruben-jaramillo-049304',
-    'casa-venta-ruben-jaramillo-171034',
-    'casa-venta-ruben-jaramillo-228474',
-    'casa-venta-san-agustin-349077',
-    'casa-venta-san-javier',
-    'casa-venta-sinaloa-368717'
+    'casa-venta-terranova-079358',
+    'casa-venta-terranova-729271',
+    'casa-venta-valle-alto-643751',
+    'casa-venta-valle-bonito-785461',
+    'casa-venta-villa-del-real-150941',
+    'casa-venta-villa-del-roble-035668',
+    'casa-venta-vinoramas-390863',
+    'casa-venta-vinoramas-629582',
+    'casa-venta-vistas-del-lago-991132',
+    'colinas-san-miguel'
 ];
 
 function extractPropertyData(html) {

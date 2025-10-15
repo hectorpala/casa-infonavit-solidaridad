@@ -1153,6 +1153,165 @@
         </div>
     </section>
 
+    
+    <!-- Location Map Section - Desktop Only -->
+    <section class="location-map scroll-animate" id="location">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <p class="location-subtitle">Casa en Venta $1,990,000 - Valle Alto, Culiacán</p>
+
+    <!-- Mapa con Marcador Personalizado -->
+    <div id="map-container" style="width: 100%; height: 450px; border-radius: 12px; overflow: hidden;"></div>
+
+    <script>
+        // Variables globales para el mapa
+        let map;
+        let marker;
+        let geocoder;
+
+        // Configuración del marcador personalizado
+        const MARKER_CONFIG = {
+            location: "Valle Alto, Culiacán",
+            priceShort: "$2M",
+            title: "Casa en Venta Valle Alto",
+            precision: "generic",
+            latOffset: 0,
+            lngOffset: 0
+        };
+
+        // Función para crear marcador personalizado
+        function createPropertyMarker(property, map, isCurrent = false) {
+            const markerHTML = `
+                <div style="
+                    background: ${isCurrent ? 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)'};
+                    color: white;
+                    padding: ${isCurrent ? '8px 14px' : '6px 10px'};
+                    border-radius: 20px;
+                    font-weight: bold;
+                    font-size: ${isCurrent ? '14px' : '12px'};
+                    border: 3px solid white;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: transform 0.2s;
+                " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    ${property.priceShort}
+                </div>
+            `;
+
+            const CustomMarker = function(position, map, property, isCurrent) {
+                this.position = position;
+                this.property = property;
+                this.isCurrent = isCurrent;
+                this.div = null;
+                this.setMap(map);
+            };
+
+            CustomMarker.prototype = new google.maps.OverlayView();
+
+            CustomMarker.prototype.onAdd = function() {
+                const div = document.createElement('div');
+                div.style.position = 'absolute';
+                div.innerHTML = markerHTML;
+
+                div.addEventListener('click', () => {
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div style="padding: 0; max-width: 260px;">
+                                <img src="${this.property.image}"
+                                     alt="${this.property.title}"
+                                     style="width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 4px 4px 0 0;">
+                                <div style="padding: 8px 10px;">
+                                    <h4 style="margin: 0 0 4px 0; color: ${this.isCurrent ? '#FF6B35' : '#10b981'}; font-size: 14px; font-weight: 600;">${this.property.priceShort}</h4>
+                                    <h5 style="margin: 0 0 3px 0; color: #1f2937; font-size: 12px; font-weight: 600;">${this.property.title}</h5>
+                                    <p style="margin: 0 0 6px 0; color: #6b7280; font-size: 11px; line-height: 1.3;">${this.property.location}</p>
+                                </div>
+                            </div>
+                        `
+                    });
+                    infoWindow.setPosition(this.position);
+                    infoWindow.open(map);
+                });
+
+                this.div = div;
+                const panes = this.getPanes();
+                panes.overlayMouseTarget.appendChild(div);
+            };
+
+            CustomMarker.prototype.draw = function() {
+                if (this.div) {
+                    const overlayProjection = this.getProjection();
+                    const position = overlayProjection.fromLatLngToDivPixel(this.position);
+                    this.div.style.left = position.x - 40 + 'px';
+                    this.div.style.top = position.y - 20 + 'px';
+                }
+            };
+
+            CustomMarker.prototype.onRemove = function() {
+                if (this.div) {
+                    this.div.parentNode.removeChild(this.div);
+                    this.div = null;
+                }
+            };
+
+            return CustomMarker;
+        }
+
+        // Inicializar el mapa
+        async function initMap() {
+            const { Map } = await google.maps.importLibrary("maps");
+            const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+            // Crear el mapa
+            map = new Map(document.getElementById("map-container"), {
+                zoom: 15,
+                center: { lat: 24.8091, lng: -107.3940 },
+                mapId: "8e0a97af9386fef",
+                mapTypeControl: true,
+                streetViewControl: true,
+                fullscreenControl: true
+            });
+
+            geocoder = new google.maps.Geocoder();
+
+            // Geocodificar la ubicación
+            const fullAddress = `${MARKER_CONFIG.location}, Sinaloa, México`;
+
+            geocoder.geocode({ address: fullAddress }, (results, status) => {
+                if (status === 'OK' && results[0]) {
+                    const location = results[0].geometry.location;
+                    const lat = location.lat() + MARKER_CONFIG.latOffset;
+                    const lng = location.lng() + MARKER_CONFIG.lngOffset;
+                    const position = { lat, lng };
+
+                    map.setCenter(position);
+
+                    const currentProperty = {
+                        priceShort: MARKER_CONFIG.priceShort,
+                        title: MARKER_CONFIG.title,
+                        location: MARKER_CONFIG.location,
+                        image: 'images/foto-1.jpg'
+                    };
+
+                    const CustomMarkerClass = createPropertyMarker(currentProperty, map, true);
+                    marker = new CustomMarkerClass(position, map, currentProperty, true);
+                } else {
+                    console.error('Geocoding failed:', status);
+                }
+            });
+        }
+
+        // Cargar el script de Google Maps
+        const script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&callback=initMap&libraries=marker&v=beta';
+        script.async = true;
+        script.defer = true;
+        document.head.appendChild(script);
+    </script>
+        </div>
+    </section>
+
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
