@@ -2509,11 +2509,15 @@ body.map-animating .listing-card .listing-image {
             // Reset carousel to first photo - usando el nuevo sistema
             goToCardPhoto(slug, 0);
 
-            // ZILLOW: Scroll automático
+            // ZILLOW: Scroll automático MEJORADO - más timeout para garantizar que funcione
             if (window.innerWidth > 768) {
                 const listingsContainer = document.getElementById('listings-container');
                 if (listingsContainer) {
+                    // Aumentado a 200ms para dar tiempo al DOM a actualizarse
                     setTimeout(function() {
+                        // Forzar recálculo del layout antes de medir
+                        card.offsetHeight;
+
                         const containerRect = listingsContainer.getBoundingClientRect();
                         const cardRect = card.getBoundingClientRect();
                         const currentScroll = listingsContainer.scrollTop;
@@ -2524,10 +2528,13 @@ body.map-animating .listing-card .listing-image {
                             top: targetScroll,
                             behavior: 'smooth'
                         });
-                    }, 100);
+                    }, 200);
                 }
             } else {
-                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Móvil: usar scrollIntoView con timeout también
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 200);
             }
         }
 
