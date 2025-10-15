@@ -8,18 +8,18 @@
 const fs = require('fs');
 const path = require('path');
 
-// Propiedades a procesar - Lote 4 (propiedades 26-35, últimas casas)
+// Propiedades a procesar - Lote 5 FINAL (departamentos + especiales)
 const PROPERTIES_TO_PROCESS = [
-    'casa-venta-terranova-079358',
-    'casa-venta-terranova-729271',
-    'casa-venta-valle-alto-643751',
-    'casa-venta-valle-bonito-785461',
-    'casa-venta-villa-del-real-150941',
-    'casa-venta-villa-del-roble-035668',
-    'casa-venta-vinoramas-390863',
-    'casa-venta-vinoramas-629582',
-    'casa-venta-vistas-del-lago-991132',
-    'colinas-san-miguel'
+    'departamento-venta-finisterra-466994',
+    'departamento-venta-humaya-521145',
+    'departamento-venta-infonavit-barrancos-135345',
+    'departamento-venta-las-vegas-965870',
+    'departamento-venta-los-alamitos-022926',
+    'departamento-venta-los-alamitos-163926',
+    'departamento-venta-mont-blanc-529535',
+    'departamento-venta-riberas-de-tamazula-933493',
+    'departamento-venta-villa-del-roble-139209',
+    'san-agustin-primavera'
 ];
 
 function extractPropertyData(html) {
