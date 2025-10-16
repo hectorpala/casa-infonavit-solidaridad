@@ -105,12 +105,45 @@ Claude:  [ejecuta wiggot-scraper-y-publicar.js → publica → abre localmente]
 
 **Proceso automático después de confirmar:**
 1. ✅ Scrapea datos de Inmuebles24 con Puppeteer
-2. ✅ Descarga TODAS las fotos automáticamente
-3. ✅ Genera HTML con Master Template (ciudad correcta)
-4. ✅ Agrega tarjeta a [ciudad]/index.html
-5. ✅ **Auto-publica a GitHub** - Commit + push automático
-6. ✅ **Actualiza CRM** - Registra vendedor y propiedad
-7. ✅ Listo en 2-3 minutos
+2. ✅ **Sistema inteligente de dirección** - Detecta automáticamente la dirección MÁS COMPLETA
+3. ✅ Descarga TODAS las fotos automáticamente
+4. ✅ Genera HTML con Master Template (ciudad correcta)
+5. ✅ Agrega tarjeta a [ciudad]/index.html
+6. ✅ **Auto-publica a GitHub** - Commit + push automático
+7. ✅ **Actualiza CRM** - Registra vendedor y propiedad
+8. ✅ Listo en 2-3 minutos
+
+**🧠 Sistema Inteligente de Detección de Dirección (Commit f8e91b9):**
+El scraper analiza TODA la página y selecciona automáticamente la dirección más completa usando un sistema de puntuación:
+
+- **+5 pts**: Tiene número de calle (ej: "2609", "#123")
+- **+4 pts**: Tiene nombre de calle (Blvd, Av, Calle, Privada)
+- **+3 pts**: Tiene colonia/fraccionamiento específico
+- **+2 pts**: Múltiples componentes (por cada coma)
+- **+1 pt**: Incluye municipio/ciudad
+- **+1 pt**: Incluye estado
+- **-3 pts**: Dirección muy corta (<30 chars)
+- **-5 pts**: Solo "Ciudad, Estado" (incompleto)
+
+**Ejemplo de output:**
+```
+📍 Direcciones detectadas (ordenadas por completitud):
+1. [15 pts] Blvd Elbert 2609, Fracc. Las Quintas, Culiacán, Sinaloa
+2. [8 pts] Fracc. Las Quintas, Culiacán, Sinaloa
+3. [2 pts] Culiacán, Sinaloa
+✅ Dirección seleccionada: Blvd Elbert 2609, Fracc. Las Quintas, Culiacán, Sinaloa
+```
+
+**Fuentes analizadas:**
+- Body text completo (líneas con patrón de dirección)
+- Breadcrumbs y elementos de navegación
+- Meta tags (og:street-address, name="address")
+
+**Ventajas:**
+- ✅ Siempre selecciona la dirección con más información
+- ✅ Evita direcciones genéricas tipo "Culiacán, Sinaloa"
+- ✅ Transparente: muestra top 5 candidatas con puntuación
+- ✅ Elimina duplicados entre diferentes fuentes
 
 **Ciudades soportadas:**
 - `monterrey` → Monterrey, Nuevo León → `monterrey/`
