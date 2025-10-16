@@ -28,7 +28,25 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 
 **Documentación completa:** Ver `INSTRUCCIONES_SCRAPER.md`
 
-### 🔥 SCRAPER WIGGOT - MÉTODO PRINCIPAL (2-3 MIN) ✨ **[USAR SIEMPRE]**
+### 🔥 SCRAPER INMUEBLES24 - MÉTODO MULTI-CIUDAD (2-3 MIN) ✨ **[TEMPLATE COMPLETO]**
+**Comando usuario:** Pasa SOLO la URL de Inmuebles24
+**Ejemplo:** "https://www.inmuebles24.com/propiedades/clasificado/..."
+**Script:** `node inmuebles24-scraper-y-publicar.js "URL"`
+**Archivo:** `inmuebles24-scraper-y-publicar.js` (100KB)
+**Tiempo:** ~2-3 minutos (¡TODO 100% automatizado!)
+
+**⚠️ TEMPLATE COMPLETO GUARDADO - Octubre 2025:**
+Este scraper contiene el **TEMPLATE MASTER** con TODAS las features:
+- ✅ **InfoWindow con carrusel completo** (función `showPropertyCard()` 170 líneas)
+- ✅ **CURRENT_PROPERTY_DATA** con array de fotos dinámico
+- ✅ **Botones "Ver Detalles" + "WhatsApp"** siempre visibles
+- ✅ **Location subtitle limpio** ("Colonia, Ciudad")
+- ✅ **Multi-ciudad** (Monterrey, Mazatlán, Culiacán)
+- ✅ **Sistema inteligente de direcciones** (puntuación automática)
+- ✅ **Auto-add al mapa modal** de la ciudad
+- ✅ **Coordenadas por ciudad** (fallback correcto)
+
+### 🔥 SCRAPER WIGGOT - MÉTODO ALTERNATIVO (2-3 MIN)
 **Comando usuario:** Pasa SOLO la URL de Wiggot
 **Ejemplo:** "https://new.wiggot.com/search/property-detail/pXXXXXX"
 **Script:** `node wiggot-scraper-y-publicar.js "URL"`
@@ -740,3 +758,185 @@ function changeSlide(direction) { ... }
 - `automation/RESUMEN_ACTUALIZACION.md` - Guía estructura La Perla Premium
 - `automation/pagegeneratornuevo.js` - Generator automatizado
 - `automation/pagegeneratornuevo.js.backup` - Respaldo del generator
+
+---
+
+## 📦 TEMPLATE MASTER COMPLETO - INMUEBLES24 SCRAPER
+
+### 🎯 Archivo Principal
+**Nombre:** `inmuebles24-scraper-y-publicar.js`
+**Tamaño:** 100KB (2,800+ líneas)
+**Última actualización:** Octubre 2025
+**Commits:** 7ae564e, ffe8fe7, 6308642
+
+### ✨ Componentes del Template (TODOS guardados)
+
+#### 1️⃣ **InfoWindow con Carrusel Completo**
+**Función:** `showPropertyCard(property, position, map, isCurrent)`
+**Líneas:** 402-556 (170 líneas de código)
+**Incluye:**
+- ✅ Carrusel de TODAS las fotos (dinámico según photoCount)
+- ✅ Flechas de navegación ← → (circulares, hover effect)
+- ✅ Contador "1 / N" (esquina superior derecha)
+- ✅ Dots indicadores animados (expansión activa)
+- ✅ Fade effect al cambiar foto (150ms opacity transition)
+- ✅ Event listeners: flechas, dots, teclado (ArrowLeft/Right)
+- ✅ Botón "Ver Detalles" (naranja #FF6A00)
+- ✅ Botón "WhatsApp" (verde #25D366)
+- ✅ Layout responsive 320px max-width
+- ✅ Font Poppins integrado
+
+#### 2️⃣ **CURRENT_PROPERTY_DATA**
+**Objeto:** Datos completos de la propiedad actual
+**Líneas:** 362-373
+**Propiedades:**
+```javascript
+{
+    priceShort: "$4M",              // Formato corto (generado automático)
+    priceFull: "$4,000,000",        // Formato completo
+    title: "Casa en Venta...",      // Título completo
+    location: "Colonia, Ciudad",    // Ubicación formateada
+    bedrooms: 3,                    // Recámaras (número)
+    bathrooms: 2,                   // Baños (número)
+    area: "180m²",                  // Área construcción formateada
+    whatsapp: "528111652545",       // WhatsApp según ciudad
+    url: "#",                       // URL página detalles
+    photos: ['images/foto-1.jpg', ...] // Array dinámico completo
+}
+```
+
+#### 3️⃣ **Location Subtitle Limpio**
+**Función:** Extracción de ubicación corta
+**Líneas:** 1716-1718
+**Lógica:**
+```javascript
+const locationShortForSubtitle = data.location.split(',')[0].trim();
+// Resultado: "Cima de Las Cumbres, Monterrey"
+// No: "Casa en Venta en Cumbres Monterrey, Cima de Las Cumbres..."
+```
+
+#### 4️⃣ **Sistema Inteligente de Direcciones**
+**Función:** `scoreAddress(address)` + detección multi-fuente
+**Líneas:** 978-1113
+**Puntuación:**
+- +5 pts: Número de calle
+- +4 pts: Nombre de calle (Blvd, Av, Calle)
+- +3 pts: Colonia/fraccionamiento
+- +2 pts: Múltiples componentes (por coma)
+- +1 pt: Municipio/ciudad
+- +1 pt: Estado
+- -3 pts: Dirección muy corta
+- -5 pts: Solo "Ciudad, Estado"
+
+#### 5️⃣ **Multi-Ciudad con Coordenadas**
+**Config:** `cityConfig` object
+**Líneas:** 173-210
+**Ciudades:**
+```javascript
+monterrey: {
+    coords: { lat: 25.6866, lng: -100.3161, name: 'Monterrey' },
+    whatsapp: '528111652545',
+    folder: 'monterrey',
+    name: 'Monterrey'
+}
+// + mazatlan, culiacan
+```
+
+#### 6️⃣ **Auto-Add al Mapa Modal**
+**Función:** `addPropertyToMap(data, slug, photoCount, cityConfig)`
+**Líneas:** 1851-1951
+**Genera:**
+- Definición completa de la propiedad
+- Array de TODAS las fotos
+- Código geocoder
+- Inserta en [ciudad]/index.html antes de markers existentes
+
+#### 7️⃣ **Generación Dinámica de Mapa**
+**Función:** `generateMapWithCustomMarker(config)`
+**Líneas:** 326-696
+**Parámetros:**
+```javascript
+{
+    location, price, title,
+    photoCount, bedrooms, bathrooms, area, whatsapp,
+    propertyIndex, cityCoords
+}
+```
+**Genera:**
+- MARKER_CONFIG
+- CURRENT_PROPERTY_DATA con fotos
+- función showPropertyCard()
+- función createPropertyMarker()
+- función initMap()
+
+### 🔄 Workflow Automático del Template
+
+**Input:** URL de Inmuebles24
+```bash
+node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/..."
+```
+
+**Proceso:**
+1. ✅ Detecta ciudad desde URL (monterrey/mazatlan/culiacan)
+2. ✅ Pide confirmación manual (5 seg)
+3. ✅ Scrapea datos con Puppeteer
+4. ✅ **Sistema inteligente** selecciona mejor dirección
+5. ✅ Descarga TODAS las fotos
+6. ✅ Genera HTML con template completo:
+   - InfoWindow con carrusel (todas las fotos)
+   - CURRENT_PROPERTY_DATA (datos completos)
+   - Location subtitle limpio
+   - Botones "Ver Detalles" + "WhatsApp"
+   - Coordenadas correctas por ciudad
+7. ✅ Agrega tarjeta a [ciudad]/index.html
+8. ✅ **Auto-add al mapa modal** de la ciudad
+9. ✅ Commit + push automático
+10. ✅ Abre página localmente
+
+**Output:** Propiedad completa lista para producción
+
+### 📊 Features Garantizadas
+
+Cada nueva propiedad scrapeada tendrá **AUTOMÁTICAMENTE**:
+
+✅ **Carrusel completo** - TODAS las fotos descargadas
+✅ **InfoWindow interactivo** - Flechas, dots, teclado, fade
+✅ **Botones funcionales** - Ver Detalles (naranja) + WhatsApp (verde)
+✅ **Ubicación limpia** - "Colonia, Ciudad" (sin texto extra)
+✅ **Dirección inteligente** - Selección automática más completa
+✅ **Mapa correcto** - Coordenadas según ciudad
+✅ **Mapa modal actualizado** - Auto-add en [ciudad]/index.html
+✅ **SEO completo** - Meta tags, Schema.org, Open Graph
+✅ **Multi-ciudad** - Monterrey, Mazatlán, Culiacán
+
+### 🎨 Compatibilidad Visual
+
+El template genera propiedades **idénticas** a:
+- ✅ Casa en Venta en Cumbres Monterrey (referencia)
+- ✅ Casa en Venta Barrio San Francisco (Culiacán)
+- ✅ Mapa modal de monterrey/index.html
+- ✅ Mapa modal de culiacan/index.html
+
+### 🚀 Uso del Template
+
+**Para nuevas propiedades:**
+```bash
+# Solo pega la URL cuando el usuario la envíe
+node inmuebles24-scraper-y-publicar.js "URL_INMUEBLES24"
+
+# El template se encarga del resto automáticamente
+```
+
+**Para actualizar propiedades existentes:**
+- Método 1: Re-scrapear con el script
+- Método 2: Actualizar manualmente copiando secciones del template
+
+### 📝 Notas Importantes
+
+⚠️ **El template está COMPLETO** - No falta nada
+⚠️ **Todas las features están guardadas** - Commits 7ae564e, ffe8fe7, 6308642
+⚠️ **Funciona para TODAS las ciudades** - Multi-ciudad integrado
+⚠️ **100% automático** - Solo requiere URL de Inmuebles24
+⚠️ **Mantenible** - Un solo archivo contiene todo el template
+
+---
