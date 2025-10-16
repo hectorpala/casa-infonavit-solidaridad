@@ -315,17 +315,28 @@ function detectAddressPrecision(location) {
  * @param {string} config.location - Dirección completa
  * @param {string} config.price - Precio de la propiedad (ej: "$3,200,000")
  * @param {string} config.title - Título de la propiedad
+ * @param {number} config.photoCount - Número total de fotos
+ * @param {number} config.bedrooms - Número de recámaras
+ * @param {number} config.bathrooms - Número de baños
+ * @param {string} config.area - Área de construcción
+ * @param {string} config.whatsapp - Número de WhatsApp
  * @param {string} [config.propertyIndex=0] - Índice para offset si hay múltiples en misma colonia
  * @returns {string} HTML del mapa con script
  */
 function generateMapWithCustomMarker(config) {
-    const { location, price, title, propertyIndex = 0, cityCoords = { lat: 24.8091, lng: -107.3940, name: 'Culiacán' } } = config;
+    const { location, price, title, propertyIndex = 0, cityCoords = { lat: 24.8091, lng: -107.3940, name: 'Culiacán' }, photoCount = 1, bedrooms = 'N/A', bathrooms = 'N/A', area = 'N/D', whatsapp = '526681234567' } = config;
     const priceShort = formatPriceShort(price);
     const precision = detectAddressPrecision(location);
 
     // Calcular offset si hay múltiples propiedades en misma zona
     const latOffset = precision.offsetNeeded ? (propertyIndex * 0.002) : 0;
     const lngOffset = precision.offsetNeeded ? (propertyIndex * 0.002) : 0;
+
+    // Generar array de fotos dinámicamente
+    const photosArray = [];
+    for (let i = 1; i <= photoCount; i++) {
+        photosArray.push(`'images/foto-${i}.jpg'`);
+    }
 
     return `
     <!-- Mapa con Marcador Personalizado -->
@@ -345,6 +356,19 @@ function generateMapWithCustomMarker(config) {
             precision: "${precision.level}",
             latOffset: ${latOffset},
             lngOffset: ${lngOffset}
+        };
+
+        // Datos completos de la propiedad actual (para el InfoWindow con carrusel)
+        const CURRENT_PROPERTY_DATA = {
+            priceShort: "${priceShort}",
+            priceFull: "${price}",
+            title: "${title.replace(/"/g, '\\"')}",
+            location: "${location.replace(/"/g, '\\"')}",
+            bedrooms: ${bedrooms},
+            bathrooms: ${bathrooms},
+            area: "${area}",
+            whatsapp: "${whatsapp}",
+            photos: [${photosArray.join(', ')}]
         };
 
         // Array con TODAS las propiedades de Mazatlán
@@ -368,6 +392,168 @@ function generateMapWithCustomMarker(config) {
             { "slug": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z", "priceShort": "$2.4M", "title": "Casa en Venta De Los Peces", "location": "De Los Peces, Fraccionamiento Tortugas, Mazatlán", "image": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z/images/foto-1.jpg" },
             { "slug": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01", "priceShort": "$6.3M", "title": "Casa en Venta Barrio San Francisco", "location": "Barrio San Francisco, Barrio San Francisco, Mazatlán, Sinaloa", "image": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/images/foto-1.jpg" }
         ];
+
+        // Variable global para el InfoWindow actual y el índice de foto
+        let currentInfoWindow = null;
+        let currentPhotoIndex = 0;
+
+        // Función para mostrar tarjeta con carrusel de fotos completo (estilo Zillow)
+        function showPropertyCard(property, position, map, isCurrent = false) {
+            currentPhotoIndex = 0; // Resetear al abrir
+
+            // Crear ID único para este carrusel
+            const carouselId = 'carousel-prop-' + Date.now();
+
+            // Generar HTML del carrusel con TODAS las fotos
+            const cardContent = \`
+                <div id="\${carouselId}" style="max-width: 320px; font-family: 'Poppins', sans-serif;">
+                    <!-- Carrusel de fotos -->
+                    <div style="position: relative; height: 200px; margin-bottom: 10px; overflow: hidden; border-radius: 8px 8px 0 0;">
+                        <!-- Imagen actual -->
+                        <img id="\${carouselId}-img"
+                             src="\${property.photos[0]}"
+                             alt="\${property.title}"
+                             style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
+
+                        <!-- Flechas de navegación -->
+                        <button id="\${carouselId}-prev"
+                                style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 10; transition: background 0.2s;"
+                                onmouseover="this.style.background='rgba(0,0,0,0.8)'"
+                                onmouseout="this.style.background='rgba(0,0,0,0.6)'">
+                            ‹
+                        </button>
+                        <button id="\${carouselId}-next"
+                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 10; transition: background 0.2s;"
+                                onmouseover="this.style.background='rgba(0,0,0,0.8)'"
+                                onmouseout="this.style.background='rgba(0,0,0,0.6)'">
+                            ›
+                        </button>
+
+                        <!-- Contador de fotos -->
+                        <div style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 6px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; z-index: 10;">
+                            <span id="\${carouselId}-counter">1</span> / \${property.photos.length}
+                        </div>
+
+                        <!-- Dots indicadores -->
+                        <div id="\${carouselId}-dots" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10;">
+                            \${property.photos.map((_, index) => \`
+                                <div class="carousel-dot" data-index="\${index}"
+                                     style="width: \${index === 0 ? '20px' : '8px'}; height: 8px; border-radius: 4px; background: \${index === 0 ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer; transition: all 0.3s;"></div>
+                            \`).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Info de la propiedad -->
+                    <div style="padding: 12px;">
+                        <h3 style="margin: 0 0 8px 0; color: \${isCurrent ? '#FF6B35' : '#10b981'}; font-size: 20px; font-weight: 700;">\${property.priceFull}</h3>
+                        <div style="display: flex; gap: 12px; margin-bottom: 8px; color: #6b7280; font-size: 14px;">
+                            <span><i class="fas fa-bed"></i> \${property.bedrooms} rec</span>
+                            <span><i class="fas fa-bath"></i> \${property.bathrooms} baños</span>
+                            <span><i class="fas fa-ruler-combined"></i> \${property.area}</span>
+                        </div>
+                        <p style="margin: 0 0 12px 0; color: #4b5563; font-size: 13px; line-height: 1.4;">\${property.location}</p>
+
+                        <!-- Botones de acción -->
+                        <div style="display: flex; gap: 8px;">
+                            \${!isCurrent ? \`
+                            <button onclick="window.open('\${property.url}', '_blank')"
+                               style="flex: 1; background: #FF6A00; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
+                                Ver Detalles
+                            </button>
+                            \` : ''}
+                            <button onclick="window.open('https://wa.me/\${property.whatsapp}?text=Hola,%20me%20interesa%20\${encodeURIComponent(property.title)}%20en%20\${encodeURIComponent(property.priceFull)}', '_blank')"
+                               style="flex: \${isCurrent ? '1' : '1'}; background: #25D366; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
+                                WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            \`;
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: cardContent,
+                maxWidth: 340
+            });
+
+            infoWindow.setPosition(position);
+            infoWindow.open(map);
+
+            // Guardar referencia al InfoWindow actual
+            currentInfoWindow = infoWindow;
+
+            // Esperar a que el contenido se renderice y agregar event listeners
+            google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
+                const img = document.getElementById(\`\${carouselId}-img\`);
+                const counter = document.getElementById(\`\${carouselId}-counter\`);
+                const prevBtn = document.getElementById(\`\${carouselId}-prev\`);
+                const nextBtn = document.getElementById(\`\${carouselId}-next\`);
+                const dots = document.querySelectorAll(\`#\${carouselId}-dots .carousel-dot\`);
+
+                // Función para actualizar la foto
+                function updatePhoto(newIndex) {
+                    if (newIndex < 0) newIndex = property.photos.length - 1;
+                    if (newIndex >= property.photos.length) newIndex = 0;
+
+                    currentPhotoIndex = newIndex;
+
+                    // Fade effect
+                    img.style.opacity = '0';
+                    setTimeout(() => {
+                        img.src = property.photos[newIndex];
+                        img.style.opacity = '1';
+                    }, 150);
+
+                    // Actualizar contador
+                    counter.textContent = newIndex + 1;
+
+                    // Actualizar dots
+                    dots.forEach((dot, index) => {
+                        if (index === newIndex) {
+                            dot.style.width = '20px';
+                            dot.style.background = 'white';
+                        } else {
+                            dot.style.width = '8px';
+                            dot.style.background = 'rgba(255,255,255,0.5)';
+                        }
+                    });
+                }
+
+                // Event listeners para flechas
+                prevBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updatePhoto(currentPhotoIndex - 1);
+                });
+
+                nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updatePhoto(currentPhotoIndex + 1);
+                });
+
+                // Event listeners para dots
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        updatePhoto(index);
+                    });
+                });
+
+                // Soporte para teclado (flechas)
+                document.addEventListener('keydown', function handleKeyPress(e) {
+                    if (!currentInfoWindow) {
+                        document.removeEventListener('keydown', handleKeyPress);
+                        return;
+                    }
+                    if (e.key === 'ArrowLeft') updatePhoto(currentPhotoIndex - 1);
+                    if (e.key === 'ArrowRight') updatePhoto(currentPhotoIndex + 1);
+                });
+            });
+
+            // Limpiar al cerrar
+            google.maps.event.addListener(infoWindow, 'closeclick', function() {
+                currentInfoWindow = null;
+                currentPhotoIndex = 0;
+            });
+        }
 
         // Función para crear marcador personalizado para otras propiedades
         function createPropertyMarker(property, map, isCurrent = false) {
@@ -405,27 +591,12 @@ function generateMapWithCustomMarker(config) {
                 div.innerHTML = markerHTML;
 
                 div.addEventListener('click', () => {
-                    const baseUrl = window.location.href.includes('mazatlan/')
-                        ? '../'
-                        : '';
-
-                    const infoWindow = new google.maps.InfoWindow({
-                        content: \`
-                            <div style="padding: 0; max-width: 260px;">
-                                <img src="\${baseUrl}\${this.property.image}"
-                                     alt="\${this.property.title}"
-                                     style="width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 4px 4px 0 0;">
-                                <div style="padding: 8px 10px;">
-                                    <h4 style="margin: 0 0 4px 0; color: \${this.isCurrent ? '#FF6B35' : '#10b981'}; font-size: 14px; font-weight: 600;">\${this.property.priceShort}</h4>
-                                    <h5 style="margin: 0 0 3px 0; color: #1f2937; font-size: 12px; font-weight: 600;">\${this.property.title}</h5>
-                                    <p style="margin: 0 0 6px 0; color: #6b7280; font-size: 11px; line-height: 1.3;">\${this.property.location}</p>
-                                    \${!this.isCurrent ? '<a href="' + baseUrl + this.property.slug + '/index.html" style="display: block; background: #10b981; color: white; text-align: center; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: 600;">Ver Propiedad →</a>' : ''}
-                                </div>
-                            </div>
-                        \`
-                    });
-                    infoWindow.setPosition(this.position);
-                    infoWindow.open(map);
+                    // Cerrar el InfoWindow anterior si existe
+                    if (currentInfoWindow) {
+                        currentInfoWindow.close();
+                    }
+                    // Mostrar tarjeta con carrusel completo
+                    showPropertyCard(this.property, this.position, map, this.isCurrent);
                 });
 
                 this.div = div;
@@ -487,10 +658,10 @@ function generateMapWithCustomMarker(config) {
                         fullscreenControl: true
                     });
 
-                    // Crear marcador de la propiedad actual (naranja)
+                    // Crear marcador de la propiedad actual (naranja) con datos completos
                     const currentProperty = isMazatlan
                         ? ALL_MAZATLAN_PROPERTIES.find(p => currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
-                        : { priceShort: MARKER_CONFIG.priceShort, title: MARKER_CONFIG.title, location: MARKER_CONFIG.location, image: 'images/foto-1.jpg' };
+                        : CURRENT_PROPERTY_DATA;
 
                     if (currentProperty) {
                         const CustomMarkerClass = createPropertyMarker(currentProperty, map, true);
@@ -1529,6 +1700,11 @@ function generateHTML(data, slug, photoCount, cityConfig) {
         location: data.location,
         price: data.price,
         title: data.title,
+        photoCount: photoCount, // Total de fotos descargadas
+        bedrooms: bedrooms !== 'N/A' ? bedrooms : 'N/A',
+        bathrooms: bathrooms !== 'N/A' ? bathrooms : 'N/A',
+        area: constructionText, // Área de construcción formateada
+        whatsapp: cityConfig.whatsapp, // WhatsApp según ciudad
         propertyIndex: 0, // Por ahora siempre 0, luego se puede calcular por colonia
         cityCoords: cityConfig.coords // Coordenadas de la ciudad para fallback
     });
