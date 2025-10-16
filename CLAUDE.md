@@ -206,8 +206,16 @@ const CURRENT_PROPERTY_DATA = {
 - ✅ Compatible con propiedades existentes (requiere re-scrapear)
 
 **Propiedades actualizadas:**
-- 🔄 Propiedades antiguas: Requieren re-scrapear para tener carrusel completo
-- ✅ Propiedades nuevas: Carrusel automático desde commit 7ae564e
+- ✅ **Casa Monterrey Cumbres** - Actualizada manualmente con carrusel completo (Commit ffe8fe7)
+- ✅ **Propiedades nuevas** - Carrusel automático desde commit 7ae564e
+- 🔄 **Otras propiedades antiguas** - Requieren re-scrapear o actualizar manualmente
+
+**Botones en InfoWindow (Commit ffe8fe7):**
+- ✅ **"Ver Detalles"** - Botón naranja (#FF6A00) lado izquierdo
+- ✅ **"WhatsApp"** - Botón verde (#25D366) lado derecho
+- ✅ Layout flex 1:1 (ambos botones mismo tamaño)
+- ✅ Siempre visibles (sin condición `!isCurrent`)
+- ✅ Propiedad `url: "#"` en CURRENT_PROPERTY_DATA
 
 **Ciudades soportadas:**
 - `monterrey` → Monterrey, Nuevo León → `monterrey/`
