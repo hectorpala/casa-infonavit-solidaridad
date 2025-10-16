@@ -69,6 +69,70 @@ Claude:  [ejecuta wiggot-scraper-y-publicar.js → publica → abre localmente]
 
 **Documentación completa:** Ver commits b7e3b90, aec91ef, 6db6fbe
 
+### 🏢 SCRAPER INMUEBLES24 - MULTI-CIUDAD (2-3 MIN) ✨ **[CONFIRMACIÓN MANUAL]**
+**Comando usuario:** Pasa SOLO la URL de Inmuebles24
+**Ejemplo:** "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-..."
+**Script:** `node inmuebles24-scraper-y-publicar.js "URL"`
+**Tiempo:** ~2-3 minutos
+
+**⚠️ FLUJO CRÍTICO - CONFIRMACIÓN DE CIUDAD:**
+1. **Usuario pega URL** de Inmuebles24
+2. **Scraper detecta ciudad** automáticamente desde URL
+3. **PAUSA para confirmar** - Muestra menú interactivo:
+   ```
+   ╔═══════════════════════════════════════════════╗
+   ║  🌆 CONFIRMACIÓN DE CIUDAD (IMPORTANTE)      ║
+   ╚═══════════════════════════════════════════════╝
+
+   📍 Ciudad detectada automáticamente: Monterrey, Nuevo León
+
+   ¿Es correcta esta ciudad?
+
+     1️⃣  Culiacán, Sinaloa
+     2️⃣  Monterrey, Nuevo León
+     3️⃣  Mazatlán, Sinaloa
+
+   👉 Selecciona el número (1/2/3) o presiona Enter para confirmar:
+   ```
+4. **Usuario confirma o corrige** la ciudad
+5. **Continúa automáticamente** - Scrapea, genera HTML, publica
+
+**¿Por qué confirmación manual?**
+- ✅ Evita errores de metadata incorrecta en Inmuebles24
+- ✅ 100% de precisión en ubicación
+- ✅ Solo 5 segundos extra por propiedad
+- ✅ Previene publicar en carpeta incorrecta
+
+**Proceso automático después de confirmar:**
+1. ✅ Scrapea datos de Inmuebles24 con Puppeteer
+2. ✅ Descarga TODAS las fotos automáticamente
+3. ✅ Genera HTML con Master Template (ciudad correcta)
+4. ✅ Agrega tarjeta a [ciudad]/index.html
+5. ✅ **Auto-publica a GitHub** - Commit + push automático
+6. ✅ **Actualiza CRM** - Registra vendedor y propiedad
+7. ✅ Listo en 2-3 minutos
+
+**Ciudades soportadas:**
+- `monterrey` → Monterrey, Nuevo León → `monterrey/`
+- `mazatlan` → Mazatlán, Sinaloa → `mazatlan/`
+- `culiacan` → Culiacán, Sinaloa → `culiacan/` (default)
+
+**Detección automática desde URL:**
+- `monterrey` en URL → detecta Monterrey
+- `mazatlan` en URL → detecta Mazatlán
+- Otros casos → detecta Culiacán (default)
+
+**Workflow típico:**
+```
+Usuario: https://www.inmuebles24.com/.../monterrey-...
+Claude:  [ejecuta inmuebles24-scraper-y-publicar.js]
+Scraper: 📍 Ciudad detectada: Monterrey, Nuevo León
+Usuario: [Presiona Enter para confirmar]
+Scraper: ✅ Scrapeando... → Publicando... → ✅ Listo
+```
+
+**Documentación completa:** Ver `inmuebles24-scraper-y-publicar.js`
+
 ### 🚀 AGREGAR PROPIEDAD DESDE PROYECTOS (5-7 MIN)
 **Comando:** `node add-property.js`
 **Cuándo usar:** Cuando tienes fotos en carpeta PROYECTOS (no en propiedades.com)

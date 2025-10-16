@@ -55,6 +55,7 @@ const http = require('http');
 const path = require('path');
 const crypto = require('crypto');
 const { execSync } = require('child_process');
+const readline = require('readline');
 
 // ============================================
 // CONFIGURACIÓN
@@ -78,6 +79,25 @@ const CONFIG = {
 // ============================================
 
 /**
+ * Pregunta al usuario por confirmación
+ * @param {string} question - Pregunta a hacer
+ * @returns {Promise<string>} - Respuesta del usuario
+ */
+function askQuestion(question) {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    return new Promise(resolve => {
+        rl.question(question, answer => {
+            rl.close();
+            resolve(answer.trim().toLowerCase());
+        });
+    });
+}
+
+/**
  * Detecta la ciudad desde la URL de Inmuebles24
  * @param {string} url - URL de la propiedad en Inmuebles24
  * @returns {string} - Ciudad detectada: 'monterrey', 'mazatlan', o 'culiacan' (default)
@@ -97,6 +117,51 @@ function detectCityFromUrl(url) {
 
     // Default: Culiacán
     return 'culiacan';
+}
+
+/**
+ * Confirma la ciudad con el usuario
+ * @param {string} detectedCity - Ciudad detectada automáticamente
+ * @returns {Promise<string>} - Ciudad confirmada por el usuario
+ */
+async function confirmCity(detectedCity) {
+    const cityNames = {
+        'monterrey': 'Monterrey, Nuevo León',
+        'mazatlan': 'Mazatlán, Sinaloa',
+        'culiacan': 'Culiacán, Sinaloa'
+    };
+
+    console.log('╔═══════════════════════════════════════════════╗');
+    console.log('║  🌆 CONFIRMACIÓN DE CIUDAD (IMPORTANTE)      ║');
+    console.log('╚═══════════════════════════════════════════════╝\n');
+    console.log(`📍 Ciudad detectada automáticamente: ${cityNames[detectedCity]}\n`);
+    console.log('¿Es correcta esta ciudad?\n');
+    console.log('  1️⃣  Culiacán, Sinaloa');
+    console.log('  2️⃣  Monterrey, Nuevo León');
+    console.log('  3️⃣  Mazatlán, Sinaloa\n');
+
+    const answer = await askQuestion('👉 Selecciona el número (1/2/3) o presiona Enter para confirmar: ');
+
+    if (answer === '' || answer === '1' && detectedCity === 'culiacan' || answer === '2' && detectedCity === 'monterrey' || answer === '3' && detectedCity === 'mazatlan') {
+        console.log(`\n✅ Ciudad confirmada: ${cityNames[detectedCity]}\n`);
+        return detectedCity;
+    }
+
+    // Usuario eligió diferente
+    const cityMap = {
+        '1': 'culiacan',
+        '2': 'monterrey',
+        '3': 'mazatlan'
+    };
+
+    const selectedCity = cityMap[answer];
+    if (!selectedCity) {
+        console.log('\n❌ Opción inválida. Usando ciudad detectada por defecto.\n');
+        return detectedCity;
+    }
+
+    console.log(`\n✅ Ciudad corregida a: ${cityNames[selectedCity]}\n`);
+    return selectedCity;
 }
 
 /**
@@ -1543,8 +1608,11 @@ async function main() {
     try {
         // 1. Detectar ciudad desde URL
         const detectedCity = detectCityFromUrl(url);
-        const cityConfig = getCityConfig(detectedCity);
-        console.log(`🌆 Ciudad detectada: ${cityConfig.name}, ${cityConfig.state}\n`);
+
+        // 2. Confirmar ciudad con el usuario
+        const confirmedCity = await confirmCity(detectedCity);
+        const cityConfig = getCityConfig(confirmedCity);
+        console.log(`🚀 Iniciando scraper para: ${cityConfig.name}, ${cityConfig.state}\n`);
 
         // 2. Scrapear datos
         const data = await scrapeInmuebles24(url);
