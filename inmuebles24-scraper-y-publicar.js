@@ -1540,9 +1540,11 @@ function generateHTML(data, slug, photoCount, cityConfig) {
         customMapHTML + '\n    <script src="https://maps.googleapis.com/maps/api/js'
     );
 
-    // LOCATION SUBTITLE - texto arriba del mapa
+    // LOCATION SUBTITLE - texto arriba del mapa (solo ubicación corta, como en Culiacán)
+    // Extraer solo la colonia/fraccionamiento de la ubicación completa
+    const locationShortForSubtitle = data.location.split(',')[0].trim(); // Primera parte antes de la coma
     html = html.replace(/<p class="location-subtitle">.*?<\/p>/g,
-        `<p class="location-subtitle">${data.title}, ${data.location}</p>`);
+        `<p class="location-subtitle">${locationShortForSubtitle}, ${cityConfig.name}</p>`);
 
     // STICKY BAR LABEL - nombre de la casa
     html = html.replace(/<span class="sticky-price-label">Casa [^<]+<\/span>/g,
