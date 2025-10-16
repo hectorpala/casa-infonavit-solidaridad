@@ -1501,10 +1501,20 @@
             overflow: hidden;
         }
 
-        /* Hide map on mobile */
+        /* Show map on mobile with adjusted height */
         @media (max-width: 768px) {
             .location-map {
-                display: none;
+                padding: 2rem 0;
+            }
+
+            #map-container {
+                height: 300px !important;
+                border-radius: 8px;
+            }
+
+            .location-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
             }
         }
     </style>
