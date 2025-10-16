@@ -172,28 +172,34 @@ async function confirmCity(detectedCity) {
 function getCityConfig(city) {
     const configs = {
         monterrey: {
+            city: 'monterrey',
             folder: 'monterrey',
             indexPath: 'monterrey/index.html',
             name: 'Monterrey',
             state: 'Nuevo León',
+            stateShort: 'N.L.',
             whatsapp: '528111652545',
             templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
             stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
         },
         mazatlan: {
+            city: 'mazatlan',
             folder: 'mazatlan',
             indexPath: 'mazatlan/index.html',
             name: 'Mazatlán',
             state: 'Sinaloa',
+            stateShort: 'Sin.',
             whatsapp: '526691652545',
             templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
             stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
         },
         culiacan: {
+            city: 'culiacan',
             folder: 'culiacan',
             indexPath: 'culiacan/index.html',
             name: 'Culiacán',
             state: 'Sinaloa',
+            stateShort: 'Sin.',
             whatsapp: '526672317963',
             templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
             stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
@@ -1683,6 +1689,112 @@ function addToIndex(data, slug, cityConfig) {
 }
 
 // ============================================
+// AGREGAR PROPIEDAD AL MAPA MODAL
+// ============================================
+
+function addPropertyToMap(data, slug, photoCount, cityConfig) {
+    console.log(`🗺️  Agregando propiedad al mapa modal de ${cityConfig.name}...\n`);
+
+    const indexPath = cityConfig.indexPath;
+    let indexHtml = fs.readFileSync(indexPath, 'utf8');
+
+    // Generar array de fotos dinámicamente
+    const photosArray = [];
+    for (let i = 1; i <= photoCount; i++) {
+        photosArray.push(`"${slug}/images/foto-${i}.jpg"`);
+    }
+
+    // Formato del precio corto (ej: $3.55M)
+    const priceNum = parseFloat(data.price.replace(/[^0-9.]/g, ''));
+    const priceShort = priceNum >= 1000000
+        ? `$${(priceNum / 1000000).toFixed(2)}M`.replace('.00M', 'M')
+        : `$${(priceNum / 1000).toFixed(0)}K`;
+
+    // Extraer primera parte de la ubicación (antes de la primera coma)
+    const locationShort = data.location.split(',')[0].trim();
+
+    // Código de la nueva propiedad para el mapa
+    const newPropertyCode = `
+            // ${data.title}
+            const ${slug.replace(/-/g, '_')}Property = {
+                address: "${data.location}",
+                priceShort: "${priceShort}",
+                priceFull: "${formatPrice(data.price)}",
+                title: "${data.title}",
+                location: "${locationShort}, ${cityConfig.name}, ${cityConfig.stateShort}",
+                bedrooms: ${data.bedrooms || 'null'},
+                bathrooms: ${data.bathrooms || 'null'},
+                area: "${data.construction_area ? data.construction_area + 'm²' : 'N/D'}",
+                url: "https://casasenventa.info/${cityConfig.folder}/${slug}/",
+                photos: [
+                    ${photosArray.join(',\n                    ')}
+                ]
+            };
+`;
+
+    // Código del geocoder para la nueva propiedad
+    const mapSuffix = cityConfig.city === 'monterrey' ? 'Mty' :
+                      cityConfig.city === 'mazatlan' ? 'Mzt' : '';
+
+    const mapVarName = cityConfig.city === 'monterrey' ? 'mapMonterrey' :
+                       cityConfig.city === 'mazatlan' ? 'mapMazatlan' :
+                       'mapCuliacan';
+
+    // Buscar el número de geocoder actual (contar cuántos geocoders ya existen)
+    const geocoderMatches = indexHtml.match(/const geocoder(\d+) = new google\.maps\.Geocoder\(\);/g) || [];
+    const nextGeocoderNum = geocoderMatches.length + 1;
+
+    const newGeocoderCode = `
+            // Geocodificar y crear marcador para ${data.title}
+            const geocoder${nextGeocoderNum} = new google.maps.Geocoder();
+            geocoder${nextGeocoderNum}.geocode({ address: ${slug.replace(/-/g, '_')}Property.address }, function(results, status) {
+                if (status === 'OK') {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass${nextGeocoderNum} = createZillowPropertyMarker${mapSuffix}(${slug.replace(/-/g, '_')}Property, ${mapVarName});
+                    const marker${nextGeocoderNum} = new CustomMarkerClass${nextGeocoderNum}(position, ${mapVarName}, ${slug.replace(/-/g, '_')}Property);
+                    console.log('Marcador ${data.title} creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error para ${data.title}:', status);
+                }
+            });
+`;
+
+    // Buscar dónde insertar el código de la propiedad
+    // Lo insertamos ANTES del primer geocoder existente
+    const firstGeocoderMatch = indexHtml.match(/(\s+)\/\/ Geocodificar y crear marcador para (primera|segunda|tercera|cuarta)/);
+
+    if (firstGeocoderMatch) {
+        const insertIndex = indexHtml.indexOf(firstGeocoderMatch[0]);
+        indexHtml = indexHtml.substring(0, insertIndex) +
+                    newPropertyCode +
+                    indexHtml.substring(insertIndex);
+
+        console.log(`   ✅ Definición de propiedad agregada al mapa\n`);
+    } else {
+        console.log(`   ⚠️  No se encontró ubicación para agregar la propiedad\n`);
+        return;
+    }
+
+    // Buscar dónde insertar el código del geocoder
+    // Lo insertamos ANTES de "window.mapInitialized = true"
+    const mapInitMatch = indexHtml.match(/(\s+)window\.mapInitialized = true;/);
+
+    if (mapInitMatch) {
+        const insertIndex = indexHtml.indexOf(mapInitMatch[0]);
+        indexHtml = indexHtml.substring(0, insertIndex) +
+                    newGeocoderCode +
+                    indexHtml.substring(insertIndex);
+
+        console.log(`   ✅ Marcador agregado al mapa de ${cityConfig.name}\n`);
+    } else {
+        console.log(`   ⚠️  No se encontró ubicación para agregar el marcador\n`);
+        return;
+    }
+
+    fs.writeFileSync(indexPath, indexHtml, 'utf8');
+}
+
+// ============================================
 // FUNCIÓN PRINCIPAL
 // ============================================
 
@@ -1757,6 +1869,9 @@ async function main() {
 
         // 7. Agregar a index con ciudad dinámica
         addToIndex(data, slug, cityConfig);
+
+        // 7.5 Agregar al mapa modal
+        addPropertyToMap(data, slug, photoCount, cityConfig);
 
         // 8. Commit y push automático
         console.log('🚀 Publicando a GitHub...\n');

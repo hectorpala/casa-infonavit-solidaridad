@@ -2070,6 +2070,35 @@
                 ]
             };
 
+            // Cuarta propiedad: Venta en Cumbres 3 Niveles Frente a Parque
+            const cumbres3NivelesProperty = {
+                address: "Venta en Cumbres 3 Niveles Frente a Parque, Cumbres, Monterrey, Nuevo León",
+                priceShort: "$3.55M",
+                priceFull: "$3,550,000",
+                title: "Venta en Cumbres 3 Niveles Frente a Parque",
+                location: "Cumbres, Monterrey, N.L.",
+                bedrooms: 4,
+                bathrooms: 3,
+                area: "184m²",
+                url: "https://casasenventa.info/monterrey/venta-en-cumbres-3-niveles-frente-a-parque/",
+                photos: [
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-1.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-2.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-3.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-4.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-5.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-6.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-7.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-8.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-9.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-10.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-11.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-12.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-13.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-14.jpg"
+                ]
+            };
+
             // Geocodificar y crear marcador para segunda propiedad
             const geocoder2 = new google.maps.Geocoder();
             geocoder2.geocode({ address: cumbresEquipadaProperty.address }, function(results, status) {
@@ -2093,6 +2122,19 @@
                     console.log('Marcador Casa Urbivilla Colonial creado en:', position.lat(), position.lng());
                 } else {
                     console.error('Geocode error para Casa Urbivilla Colonial:', status);
+                }
+            });
+
+            // Geocodificar y crear marcador para cuarta propiedad
+            const geocoder4 = new google.maps.Geocoder();
+            geocoder4.geocode({ address: cumbres3NivelesProperty.address }, function(results, status) {
+                if (status === 'OK') {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass4 = createZillowPropertyMarkerMty(cumbres3NivelesProperty, mapMonterrey);
+                    const marker4 = new CustomMarkerClass4(position, mapMonterrey, cumbres3NivelesProperty);
+                    console.log('Marcador Cumbres 3 Niveles creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error para Cumbres 3 Niveles:', status);
                 }
             });
 
