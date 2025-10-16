@@ -338,12 +338,44 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-14T23:46:51.636Z"
+    },
+    {
+      "id": "v012",
+      "nombre": "León y Asociados Grupo Inmobiliario",
+      "telefono": "815028902",
+      "telefonoFormateado": "815028902",
+      "whatsapp": "https://wa.me/52815028902",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147643837",
+          "titulo": "Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada",
+          "precio": "MN 2,550,000",
+          "ubicacion": "Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-real-cumbres-monterrey-1-nivel-147643837.html",
+          "fechaScrapeo": "2025-10-16",
+          "fechaPublicacion": "Publicado hace 26 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Culiacán, Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-16T19:40:51.643Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 11,
-    "totalPropiedades": 17,
-    "ultimaActualizacion": "2025-10-15T00:18:00.808Z"
+    "totalVendedores": 12,
+    "totalPropiedades": 18,
+    "ultimaActualizacion": "2025-10-16T19:40:51.644Z"
   },
   "busquedas": [
     {
