@@ -1962,6 +1962,31 @@
                 ]
             };
 
+            // Tercera propiedad: Casa en Venta en Urbivilla Colonial
+            const urbivillaColonialProperty = {
+                address: "LAGO TITICACA 213, URBIVILLA COLONIAL, Monterrey, Nuevo León",
+                priceShort: "$2.3M",
+                priceFull: "$2,300,000",
+                title: "Casa en Venta en Urbivilla Colonial",
+                location: "Urbivilla Colonial, Monterrey, N.L.",
+                bedrooms: 3,
+                bathrooms: 1,
+                area: "N/D", // Datos incorrectos en Inmuebles24 (19617m² es error)
+                url: "https://casasenventa.info/monterrey/casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/",
+                photos: [
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-1.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-2.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-3.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-4.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-5.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-6.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-7.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-8.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-9.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-10.jpg"
+                ]
+            };
+
             // Geocodificar y crear marcador para segunda propiedad
             const geocoder2 = new google.maps.Geocoder();
             geocoder2.geocode({ address: cumbresEquipadaProperty.address }, function(results, status) {
@@ -1972,6 +1997,19 @@
                     console.log('Marcador Casa Cumbres Equipada creado en:', position.lat(), position.lng());
                 } else {
                     console.error('Geocode error para Casa Cumbres Equipada:', status);
+                }
+            });
+
+            // Geocodificar y crear marcador para tercera propiedad
+            const geocoder3 = new google.maps.Geocoder();
+            geocoder3.geocode({ address: urbivillaColonialProperty.address }, function(results, status) {
+                if (status === 'OK') {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass3 = createZillowPropertyMarkerMty(urbivillaColonialProperty, mapMonterrey);
+                    const marker3 = new CustomMarkerClass3(position, mapMonterrey, urbivillaColonialProperty);
+                    console.log('Marcador Casa Urbivilla Colonial creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error para Casa Urbivilla Colonial:', status);
                 }
             });
 
