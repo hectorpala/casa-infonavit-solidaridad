@@ -178,6 +178,7 @@ function getCityConfig(city) {
             name: 'Monterrey',
             state: 'Nuevo León',
             stateShort: 'N.L.',
+            coords: { lat: 25.6866, lng: -100.3161, name: 'Monterrey' },
             whatsapp: '528111652545',
             templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
             stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
@@ -189,6 +190,7 @@ function getCityConfig(city) {
             name: 'Mazatlán',
             state: 'Sinaloa',
             stateShort: 'Sin.',
+            coords: { lat: 23.2494, lng: -106.4111, name: 'Mazatlán' },
             whatsapp: '526691652545',
             templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
             stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
@@ -200,6 +202,7 @@ function getCityConfig(city) {
             name: 'Culiacán',
             state: 'Sinaloa',
             stateShort: 'Sin.',
+            coords: { lat: 24.8091, lng: -107.3940, name: 'Culiacán' },
             whatsapp: '526672317963',
             templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
             stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
@@ -316,7 +319,7 @@ function detectAddressPrecision(location) {
  * @returns {string} HTML del mapa con script
  */
 function generateMapWithCustomMarker(config) {
-    const { location, price, title, propertyIndex = 0 } = config;
+    const { location, price, title, propertyIndex = 0, cityCoords = { lat: 24.8091, lng: -107.3940, name: 'Culiacán' } } = config;
     const priceShort = formatPriceShort(price);
     const precision = detectAddressPrecision(location);
 
@@ -515,7 +518,7 @@ function generateMapWithCustomMarker(config) {
                 } else {
                     console.error('Geocode error:', status);
                     // Fallback: mostrar mapa en ubicación genérica
-                    const fallbackCenter = { lat: 24.8091, lng: -107.3940 }; // Culiacán centro
+                    const fallbackCenter = { lat: ${cityCoords.lat}, lng: ${cityCoords.lng} }; // ${cityCoords.name} centro
                     map = new google.maps.Map(document.getElementById('map-container'), {
                         center: fallbackCenter,
                         zoom: 12
@@ -1526,7 +1529,8 @@ function generateHTML(data, slug, photoCount, cityConfig) {
         location: data.location,
         price: data.price,
         title: data.title,
-        propertyIndex: 0 // Por ahora siempre 0, luego se puede calcular por colonia
+        propertyIndex: 0, // Por ahora siempre 0, luego se puede calcular por colonia
+        cityCoords: cityConfig.coords // Coordenadas de la ciudad para fallback
     });
 
     // Reemplazar toda la sección del mapa (iframe + container)

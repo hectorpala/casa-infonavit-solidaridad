@@ -430,12 +430,46 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-16T20:51:24.470Z"
+    },
+    {
+      "id": "v014",
+      "nombre": "Ad.consulting Bienes Raíces.",
+      "telefono": "550929869",
+      "telefonoFormateado": "550929869",
+      "whatsapp": "https://wa.me/52550929869",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147215910",
+          "titulo": "Casa en Venta en Cumbres Monterrey",
+          "precio": "MN 4,000,000",
+          "ubicacion": "Cima de Las Cumbres, Cima de las Cumbres, Monterrey",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cumbres-monterrey-147215910.html",
+          "fechaScrapeo": "2025-10-16",
+          "fechaPublicacion": "Publicado hace 71 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Cima de Las Cumbres, Cima de las Cumbres, Monterrey",
+      "tags": [
+        "inmuebles24",
+        "cima-de-las-cumbres",
+        "cima-de-las-cumbres",
+        "monterrey",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-16T23:16:53.188Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 13,
-    "totalPropiedades": 21,
-    "ultimaActualizacion": "2025-10-16T22:59:57.792Z"
+    "totalVendedores": 14,
+    "totalPropiedades": 22,
+    "ultimaActualizacion": "2025-10-16T23:16:53.188Z"
   },
   "busquedas": [
     {
