@@ -975,41 +975,141 @@ async function scrapeInmuebles24(url) {
             }
         }
 
-        // Ubicación - extraer dirección específica que aparece arriba del mapa
-        // Buscar en el texto completo de la página líneas con patrón: "Calle/Avenida/Fraccionamiento, ... Culiacán"
+        // ============================================
+        // SISTEMA INTELIGENTE DE DETECCIÓN DE DIRECCIÓN MÁS COMPLETA
+        // ============================================
+        // Detecta TODAS las direcciones posibles en la página y selecciona
+        // la más completa usando un sistema de puntuación basado en componentes
+
         const bodyText = document.body.innerText;
         const lines = bodyText.split('\n');
 
-        // Buscar líneas que contengan dirección + Culiacán
-        const addressLine = lines.find(line => {
+        // Función para calcular puntuación de completitud de dirección
+        function scoreAddress(address) {
+            let score = 0;
+            const lower = address.toLowerCase();
+
+            // +5 puntos: Tiene número de calle (ej: "2609", "#123")
+            if (/\d+/.test(address)) score += 5;
+
+            // +4 puntos: Tiene nombre de calle (ej: "Blvd", "Av", "Calle", "Privada")
+            if (/(blvd|boulevard|avenida|av\.|calle|c\.|privada|priv\.|paseo|prol\.|prolongación)/i.test(address)) score += 4;
+
+            // +3 puntos: Tiene colonia/fraccionamiento específico (ej: "Fracc. Las Quintas")
+            if (/(fracc\.|fraccionamiento|colonia|col\.|residencial|priv\.|privada)/i.test(address)) score += 3;
+
+            // +2 puntos: Tiene múltiples componentes (comas = separadores)
+            const commaCount = (address.match(/,/g) || []).length;
+            score += Math.min(commaCount * 2, 6); // Máximo 6 puntos por comas
+
+            // +1 punto: Incluye municipio/ciudad
+            if (/(culiacán|monterrey|mazatlán)/i.test(address)) score += 1;
+
+            // +1 punto: Incluye estado
+            if (/(sinaloa|nuevo león)/i.test(address)) score += 1;
+
+            // Penalización -3: Dirección muy corta (probablemente incompleta)
+            if (address.length < 30) score -= 3;
+
+            // Penalización -5: Solo tiene ciudad y estado (ej: "Culiacán, Sinaloa")
+            if (address.match(/^(culiacán|monterrey|mazatlán),?\s*(sinaloa|nuevo león)?$/i)) score -= 5;
+
+            return score;
+        }
+
+        // Recolectar TODAS las direcciones candidatas de diferentes fuentes
+        const addressCandidates = [];
+
+        // FUENTE 1: Líneas del body text con patrón de dirección
+        lines.forEach(line => {
             const trimmed = line.trim();
-            // Buscar patrones: "XXX, XXX, Culiacán" o "XXX, Fraccionamiento XXX, Culiacán"
-            return trimmed.length > 15 && trimmed.length < 150 &&
-                   (trimmed.match(/[A-Za-z\s]+,\s*[A-Za-z\s]+,\s*Culiacán/i) ||
-                    trimmed.match(/[A-Za-z\s]+,\s*Fraccionamiento\s+[A-Za-z\s]+,\s*Culiacán/i));
+            // Buscar líneas que contengan ciudad/estado y tengan longitud razonable
+            if (trimmed.length > 15 && trimmed.length < 200 &&
+                /(culiacán|monterrey|mazatlán|sinaloa|nuevo león)/i.test(trimmed)) {
+
+                // Filtrar líneas que parecen direcciones (tienen comas o palabras clave)
+                if (trimmed.match(/,/) ||
+                    /(fracc|colonia|blvd|avenida|calle|privada)/i.test(trimmed)) {
+
+                    const cleaned = trimmed.replace(/\s+,/g, ',').replace(/,\s+/g, ', ');
+                    const score = scoreAddress(cleaned);
+
+                    addressCandidates.push({
+                        address: cleaned,
+                        score: score,
+                        source: 'bodyText'
+                    });
+                }
+            }
         });
 
-        if (addressLine) {
-            // Limpiar espacios extra
-            result.location = addressLine.trim().replace(/\s+,/g, ',').replace(/,\s+/g, ', ');
-        } else {
-            // Fallback: buscar en breadcrumbs como antes
-            const breadcrumbs = Array.from(document.querySelectorAll('a, span')).filter(el => {
-                const text = el.textContent.toLowerCase();
-                return (text.includes('culiacán') || text.includes('culiacan') || text.includes('sinaloa')) && text.length < 150;
-            });
+        // FUENTE 2: Breadcrumbs y elementos de navegación
+        const breadcrumbs = Array.from(document.querySelectorAll('a, span, div[class*="location"], div[class*="address"]')).filter(el => {
+            const text = el.textContent.toLowerCase();
+            return (text.includes('culiacán') || text.includes('monterrey') || text.includes('mazatlán') ||
+                    text.includes('sinaloa') || text.includes('nuevo león')) &&
+                   text.length > 15 && text.length < 200;
+        });
 
-            const culiacanBreadcrumb = breadcrumbs.find(el =>
-                el.textContent.toLowerCase().includes('culiacán') ||
-                el.textContent.toLowerCase().includes('culiacan')
-            );
+        breadcrumbs.forEach(el => {
+            const text = el.textContent.trim();
+            if (text && text.match(/,/)) {
+                const cleaned = text.replace(/\s+,/g, ',').replace(/,\s+/g, ', ');
+                const score = scoreAddress(cleaned);
 
-            if (culiacanBreadcrumb) {
-                result.location = culiacanBreadcrumb.textContent.trim();
-            } else {
-                // Fallback final: "Culiacán, Sinaloa"
-                result.location = 'Culiacán, Sinaloa';
+                addressCandidates.push({
+                    address: cleaned,
+                    score: score,
+                    source: 'breadcrumbs'
+                });
             }
+        });
+
+        // FUENTE 3: Meta tags y datos estructurados
+        const metaLocation = document.querySelector('meta[property="og:street-address"], meta[name="address"]');
+        if (metaLocation) {
+            const address = metaLocation.getAttribute('content');
+            if (address && address.length > 15) {
+                const score = scoreAddress(address);
+                addressCandidates.push({
+                    address: address,
+                    score: score,
+                    source: 'metaTags'
+                });
+            }
+        }
+
+        // Eliminar duplicados (misma dirección de diferentes fuentes)
+        const uniqueCandidates = [];
+        const seenAddresses = new Set();
+
+        addressCandidates.forEach(candidate => {
+            const normalized = candidate.address.toLowerCase().replace(/\s+/g, '');
+            if (!seenAddresses.has(normalized)) {
+                seenAddresses.add(normalized);
+                uniqueCandidates.push(candidate);
+            }
+        });
+
+        // Ordenar por puntuación (mayor a menor)
+        uniqueCandidates.sort((a, b) => b.score - a.score);
+
+        // Debug: Mostrar todas las candidatas con puntuación
+        if (uniqueCandidates.length > 0) {
+            console.log('\n   📍 Direcciones detectadas (ordenadas por completitud):');
+            uniqueCandidates.slice(0, 5).forEach((candidate, i) => {
+                console.log(`   ${i + 1}. [${candidate.score} pts] ${candidate.address.substring(0, 80)}${candidate.address.length > 80 ? '...' : ''}`);
+            });
+        }
+
+        // Seleccionar la dirección con mayor puntuación
+        if (uniqueCandidates.length > 0 && uniqueCandidates[0].score > 0) {
+            result.location = uniqueCandidates[0].address;
+            console.log(`   ✅ Dirección seleccionada: ${result.location}`);
+        } else {
+            // Fallback final: usar ciudad y estado detectados
+            result.location = 'Culiacán, Sinaloa';
+            console.log('   ⚠️  No se encontró dirección específica, usando fallback');
         }
 
         // Descripción - buscar en varios posibles contenedores
