@@ -1934,41 +1934,23 @@ body.map-animating .listing-card .listing-image {
         </div>
     </div>
 
-    <!-- ZILLOW: Filtros exactos (En Venta, Precio, Recámaras y Baños, Más) -->
-    <div class="filter-bar-zillow">
-        <!-- ZILLOW: Filtro 1 - En Venta (tipo de listado) -->
-        <div class="filter-chip" id="chip-type" onclick="openBottomSheet('type')">
-            <span class="chip-label">En Venta</span>
-            <i class="fas fa-chevron-down chip-icon"></i>
-        </div>
+    <!-- Controls Bar (Chips Row) - Estilo Culiacán/Monterrey -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px; overflow-x: auto; padding-bottom: 8px; margin-bottom: -8px;">
+        <!-- Save Search Button -->
+        <button style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: #FF6A00; color: white; border-radius: 9999px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; transition: background-color 0.2s; white-space: nowrap;" onmouseover="this.style.background='#D35500'" onmouseout="this.style.background='#FF6A00'" onclick="alert('Guardar búsqueda - Próximamente')">
+            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+            <span>Guardar búsqueda</span>
+        </button>
 
-        <!-- ZILLOW: Filtro 2 - Precio -->
-        <div class="filter-chip" id="chip-price" onclick="openBottomSheet('price')">
-            <span class="chip-label">Precio</span>
-            <i class="fas fa-chevron-down chip-icon"></i>
-        </div>
-
-        <!-- ZILLOW: Filtro 3 - Recámaras y Baños (combinado) -->
-        <div class="filter-chip" id="chip-beds-baths" onclick="openBottomSheet('beds-baths')">
-            <span class="chip-label">Recámaras y Baños</span>
-            <i class="fas fa-chevron-down chip-icon"></i>
-        </div>
-
-        <!-- ZILLOW: Filtro 4 - Más (incluye Zona y otros) -->
-        <div class="filter-chip" id="chip-more" onclick="openBottomSheet('more')">
-            <span class="chip-label">Más</span>
-            <i class="fas fa-chevron-down chip-icon"></i>
-        </div>
-    </div>
-
-    <!-- ZILLOW: Action Bar con Guardar búsqueda -->
-    <div class="search-page-action-bar">
-        <div class="action-bar-left-content">
-            <button class="save-search-button" onclick="alert('Guardar búsqueda - Próximamente')">
-                Guardar búsqueda
-            </button>
-        </div>
-        <div class="action-bar-right-content"></div>
+        <!-- Ver en Mapa Button (Zillow Style) -->
+        <button onclick="openMapModal()" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 2px solid #FF6A00; color: #FF6A00; background: white; border-radius: 9999px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.background='#FF6A00'; this.style.color='white'" onmouseout="this.style.background='white'; this.style.color='#FF6A00'">
+            <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+            <span style="font-weight: 600;">Ver en Mapa</span>
+        </button>
     </div>
 
     <!-- Bottom Sheets para cada filtro -->
@@ -3807,6 +3789,248 @@ body.map-animating .listing-card .listing-image {
                     subtree: true
                 });
             }
+        }
+    </script>
+
+    <!-- ========================================
+         MAP MODAL (Zillow Style) - MAZATLÁN
+         Activado con botón "Ver en Mapa"
+    ========================================= -->
+    <div id="mapModal" class="fixed inset-0 bg-black/70 z-[9999] hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl w-full max-w-7xl h-[90vh] flex flex-col shadow-2xl" style="animation: slideUp 0.3s ease-out;">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-4 md:p-6 border-b border-gray-200">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900" style="font-family: 'Poppins', sans-serif;">Mapa de Propiedades</h2>
+                    <p class="text-sm text-gray-600 mt-1">Mazatlán, Sinaloa</p>
+                </div>
+                <button onclick="closeMapModal()" class="p-3 hover:bg-gray-100 rounded-full transition-colors group" style="cursor: pointer; border: none; background: transparent;">
+                    <svg class="w-6 h-6 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Map Container -->
+            <div id="map-mazatlan-modal" class="flex-1 relative bg-gray-100">
+                <!-- El mapa de Google Maps se cargará aquí dinámicamente -->
+            </div>
+
+            <!-- Map Footer -->
+            <div class="p-4 border-t border-gray-200 bg-gray-50">
+                <div class="flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex items-center gap-4">
+                        <label class="inline-flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked class="w-4 h-4 rounded" style="color: #FF6A00;">
+                            <span class="text-sm font-medium text-gray-700">Mostrar todas las propiedades</span>
+                        </label>
+                        <span class="text-sm text-gray-600" id="map-property-count-modal">18 propiedades</span>
+                    </div>
+                    <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20información%20sobre%20propiedades%20en%20Mazatlán"
+                       target="_blank"
+                       style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #FF6A00; color: white; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+                       onmouseover="this.style.background='#D35500'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'"
+                       onmouseout="this.style.background='#FF6A00'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Contactar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Modal JavaScript -->
+    <style>
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        // Variables globales para el mapa modal de Mazatlán
+        let mapMazatlanModal;
+        let mazatlanModalMarkers = [];
+
+        function openMapModal() {
+            const modal = document.getElementById('mapModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            // Inicializar mapa si aún no existe
+            if (!window.mapMazatlanModalInitialized) {
+                setTimeout(() => {
+                    initializeMazatlanModalMap();
+                }, 100);
+            }
+        }
+
+        function closeMapModal() {
+            const modal = document.getElementById('mapModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function initializeMazatlanModalMap() {
+            // Coordenadas del centro de Mazatlán
+            const mazatlanCenter = { lat: 23.2494, lng: -106.4110 };
+
+            // Crear mapa centrado en Mazatlán
+            mapMazatlanModal = new google.maps.Map(document.getElementById('map-mazatlan-modal'), {
+                center: mazatlanCenter,
+                zoom: 12,
+                mapTypeId: 'roadmap',
+                styles: [
+                    {
+                        featureType: 'poi',
+                        elementType: 'labels',
+                        stylers: [{ visibility: 'off' }]
+                    }
+                ],
+                disableDefaultUI: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                streetViewControl: true,
+                fullscreenControl: true
+            });
+
+            // Usar el array ALL_PROPERTIES que ya existe en la página
+            const geocoder = new google.maps.Geocoder();
+
+            // Filtrar solo propiedades con lat/lng definidas
+            const propertiesWithCoords = ALL_PROPERTIES.filter(p => p.lat && p.lng);
+
+            if (propertiesWithCoords.length > 0) {
+                // Agregar marcadores para propiedades con coordenadas
+                propertiesWithCoords.forEach(property => {
+                    const position = { lat: property.lat, lng: property.lng };
+                    const CustomMarkerClass = createMazatlanMarker(property, mapMazatlanModal);
+                    const marker = new CustomMarkerClass(position, mapMazatlanModal, property);
+                    mazatlanModalMarkers.push(marker);
+                });
+            }
+
+            // Para propiedades sin coordenadas, geocodificar por ubicación
+            const propertiesWithoutCoords = ALL_PROPERTIES.filter(p => !p.lat || !p.lng);
+            propertiesWithoutCoords.forEach((property, index) => {
+                const address = `${property.location}, Mazatlán, Sinaloa`;
+
+                // Agregar delay para evitar límite de rate de Google Geocoding API
+                setTimeout(() => {
+                    geocoder.geocode({ address: address }, function(results, status) {
+                        if (status === 'OK' && results[0]) {
+                            const position = results[0].geometry.location;
+                            const CustomMarkerClass = createMazatlanMarker(property, mapMazatlanModal);
+                            const marker = new CustomMarkerClass(position, mapMazatlanModal, property);
+                            mazatlanModalMarkers.push(marker);
+                            console.log(`Marcador creado para ${property.title} en:`, position.lat(), position.lng());
+                        } else {
+                            console.warn(`No se pudo geocodificar: ${property.title} (${status})`);
+                        }
+                    });
+                }, index * 200); // 200ms delay entre cada geocoding
+            });
+
+            window.mapMazatlanModalInitialized = true;
+            console.log('Mapa modal de Mazatlán inicializado correctamente con', ALL_PROPERTIES.length, 'propiedades');
+        }
+
+        // Función para crear marcador estilo Zillow (naranja Hector)
+        function createMazatlanMarker(property, map) {
+            const markerHTML = `
+                <div style="
+                    background: linear-gradient(135deg, #FF6A00 0%, #D35500 100%);
+                    color: white;
+                    padding: 8px 14px;
+                    border-radius: 20px;
+                    font-weight: bold;
+                    font-size: 14px;
+                    border: 3px solid white;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: transform 0.2s;
+                " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    ${property.priceShort}
+                </div>
+            `;
+
+            const CustomMarker = function(position, map, property) {
+                this.position = position;
+                this.property = property;
+                this.div = null;
+                this.setMap(map);
+            };
+
+            CustomMarker.prototype = new google.maps.OverlayView();
+
+            CustomMarker.prototype.onAdd = function() {
+                const div = document.createElement('div');
+                div.style.position = 'absolute';
+                div.innerHTML = markerHTML;
+
+                // Al hacer clic, mostrar InfoWindow
+                div.addEventListener('click', () => {
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div style="padding: 10px; max-width: 280px;">
+                                <h4 style="margin: 0 0 8px 0; color: #FF6A00; font-size: 16px; font-weight: 700;">${this.property.priceShort}</h4>
+                                <h5 style="margin: 0 0 6px 0; color: #1f2937; font-size: 14px; font-weight: 600;">${this.property.title}</h5>
+                                <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 13px;">${this.property.location}</p>
+                                <p style="margin: 0 0 10px 0; color: #6b7280; font-size: 12px;">
+                                    ${this.property.bedrooms} rec • ${this.property.bathrooms} baños • ${this.property.sqft}m²
+                                </p>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="../mazatlan/${this.property.slug}/index.html"
+                                       style="display: inline-block; background: #FF6A00; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; flex: 1; text-align: center;">
+                                        Ver Detalles
+                                    </a>
+                                    <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20${encodeURIComponent(this.property.title)}"
+                                       target="_blank"
+                                       style="display: inline-block; background: #25D366; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;">
+                                        <svg style="width: 16px; height: 16px; display: inline;" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        `
+                    });
+                    infoWindow.setPosition(this.position);
+                    infoWindow.open(map);
+                });
+
+                this.div = div;
+                const panes = this.getPanes();
+                panes.overlayMouseTarget.appendChild(div);
+            };
+
+            CustomMarker.prototype.draw = function() {
+                const overlayProjection = this.getProjection();
+                const position = overlayProjection.fromLatLngToDivPixel(this.position);
+                const div = this.div;
+                div.style.left = (position.x - 40) + 'px';
+                div.style.top = (position.y - 20) + 'px';
+            };
+
+            CustomMarker.prototype.onRemove = function() {
+                if (this.div) {
+                    this.div.parentNode.removeChild(this.div);
+                    this.div = null;
+                }
+            };
+
+            return CustomMarker;
         }
     </script>
 
