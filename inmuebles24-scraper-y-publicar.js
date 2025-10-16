@@ -368,6 +368,7 @@ function generateMapWithCustomMarker(config) {
             bathrooms: ${bathrooms},
             area: "${area}",
             whatsapp: "${whatsapp}",
+            url: "#", // URL a la página de detalles (# = página actual)
             photos: [${photosArray.join(', ')}]
         };
 
@@ -455,14 +456,12 @@ function generateMapWithCustomMarker(config) {
 
                         <!-- Botones de acción -->
                         <div style="display: flex; gap: 8px;">
-                            \${!isCurrent ? \`
                             <button onclick="window.open('\${property.url}', '_blank')"
                                style="flex: 1; background: #FF6A00; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
                                 Ver Detalles
                             </button>
-                            \` : ''}
                             <button onclick="window.open('https://wa.me/\${property.whatsapp}?text=Hola,%20me%20interesa%20\${encodeURIComponent(property.title)}%20en%20\${encodeURIComponent(property.priceFull)}', '_blank')"
-                               style="flex: \${isCurrent ? '1' : '1'}; background: #25D366; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
+                               style="flex: 1; background: #25D366; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
                                 WhatsApp
                             </button>
                         </div>
