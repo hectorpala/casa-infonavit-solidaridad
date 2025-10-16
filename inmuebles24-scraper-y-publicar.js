@@ -1533,10 +1533,11 @@ function generateHTML(data, slug, photoCount, cityConfig) {
         cityCoords: cityConfig.coords // Coordenadas de la ciudad para fallback
     });
 
-    // Reemplazar toda la sección del mapa (iframe + container)
+    // Reemplazar toda la sección del mapa (div + script completo)
+    // Buscar desde <div id="map-container"> hasta el </script> que cierra el mapa
     html = html.replace(
-        /<div class="map-container">[\s\S]*?<\/iframe>[\s\S]*?<\/div>/,
-        customMapHTML
+        /<div id="map-container"[\s\S]*?<\/script>\s*<script src="https:\/\/maps\.googleapis\.com\/maps\/api\/js/,
+        customMapHTML + '\n    <script src="https://maps.googleapis.com/maps/api/js'
     );
 
     // LOCATION SUBTITLE - texto arriba del mapa
