@@ -374,6 +374,20 @@
           "fechaScrapeo": "2025-10-16",
           "fechaPublicacion": "Publicado hoy",
           "vistas": 0
+        },
+        {
+          "id": "145373833",
+          "titulo": "Venta en Cumbres 3 Niveles Frente a Parque",
+          "precio": "MN 3,550,000",
+          "ubicacion": "Venta en Cumbres 3 Niveles Frente a Parque, Cumbres, Monterrey",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-en-cumbres-3-niveles-frente-a-parque-145373833.html",
+          "fechaScrapeo": "2025-10-16",
+          "fechaPublicacion": "Publicado hace 287 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Culiacán, Sinaloa",
@@ -384,12 +398,44 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-16T19:40:51.643Z"
+    },
+    {
+      "id": "v013",
+      "nombre": "Master",
+      "telefono": "557606532",
+      "telefonoFormateado": "557606532",
+      "whatsapp": "https://wa.me/52557606532",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "146747635",
+          "titulo": "Casa en Venta en Urbivilla Colonial, Monterrey. Nuevo Leon",
+          "precio": "MN 2,300,000",
+          "ubicacion": "Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-urbivilla-colonial-monterrey.-nuevo-146747635.html",
+          "fechaScrapeo": "2025-10-16",
+          "fechaPublicacion": "Publicado hace 121 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Culiacán, Sinaloa",
+      "tags": [
+        "inmuebles24",
+        "sinaloa",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-16T20:51:24.470Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 12,
-    "totalPropiedades": 19,
-    "ultimaActualizacion": "2025-10-16T20:18:33.679Z"
+    "totalVendedores": 13,
+    "totalPropiedades": 21,
+    "ultimaActualizacion": "2025-10-16T22:59:57.792Z"
   },
   "busquedas": [
     {
