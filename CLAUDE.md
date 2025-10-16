@@ -145,6 +145,23 @@ El scraper analiza TODA la página y selecciona automáticamente la dirección m
 - ✅ Transparente: muestra top 5 candidatas con puntuación
 - ✅ Elimina duplicados entre diferentes fuentes
 
+**🏷️ Location Subtitle Limpio (Commit c2b9eb7):**
+El scraper genera location subtitle en formato corto, igual que Culiacán:
+
+- **Formato:** `"Colonia/Fraccionamiento, Ciudad"`
+- **Ejemplo Culiacán:** "Barrio San Francisco, Culiacán"
+- **Ejemplo Monterrey:** "Cima de Las Cumbres, Monterrey"
+- **Antes (incorrecto):** "Casa en Venta en Cumbres Monterrey, Cima de Las Cumbres, Cima de las Cumbres, Monterrey"
+- **Ahora (correcto):** "Cima de Las Cumbres, Monterrey"
+
+**Implementación:**
+```javascript
+// Extraer solo primera parte de ubicación (antes de coma)
+const locationShortForSubtitle = data.location.split(',')[0].trim();
+html = html.replace(/<p class="location-subtitle">.*?<\/p>/g,
+    `<p class="location-subtitle">${locationShortForSubtitle}, ${cityConfig.name}</p>`);
+```
+
 **Ciudades soportadas:**
 - `monterrey` → Monterrey, Nuevo León → `monterrey/`
 - `mazatlan` → Mazatlán, Sinaloa → `mazatlan/`
