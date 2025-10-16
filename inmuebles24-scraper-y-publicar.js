@@ -1708,11 +1708,11 @@ function generateHTML(data, slug, photoCount, cityConfig) {
         cityCoords: cityConfig.coords // Coordenadas de la ciudad para fallback
     });
 
-    // Reemplazar toda la sección del mapa (div + script completo)
-    // Buscar desde <div id="map-container"> hasta el comentario antes del API script
+    // Reemplazar toda la sección del mapa (div + script completo + API script)
+    // Buscar desde <div id="map-container"> hasta DESPUÉS del script del API de Google Maps
     html = html.replace(
-        /<div id="map-container"[\s\S]*?<\/script>[\s\S]*?<!-- Cargar Google Maps API -->/,
-        customMapHTML + '\n\n    <!-- Cargar Google Maps API -->'
+        /<div id="map-container"[\s\S]*?<\/script>[\s\S]*?<!-- Cargar Google Maps API -->[\s\S]*?<script src="https:\/\/maps\.googleapis\.com\/maps\/api\/js[^>]*><\/script>/,
+        customMapHTML
     );
 
     // LOCATION SUBTITLE - texto arriba del mapa (solo ubicación corta, como en Culiacán)
