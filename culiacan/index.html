@@ -15607,7 +15607,7 @@
                             <input type="checkbox" checked class="w-4 h-4 text-hector rounded focus:ring-hector">
                             <span class="text-sm font-medium text-gray-700">Mostrar todas las propiedades</span>
                         </label>
-                        <span class="text-sm text-gray-600" id="map-property-count">161 propiedades</span>
+                        <span class="text-sm text-gray-600" id="map-property-count">5 propiedades destacadas</span>
                     </div>
                     <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20información%20sobre%20propiedades%20en%20Culiacán"
                        target="_blank"
@@ -15790,6 +15790,86 @@
                 ]
             };
 
+            // Segunda propiedad: Casa La Primavera
+            const laPrimaveraProperty = {
+                address: "San Agustín 266, La Primavera, Culiacán, Sinaloa",
+                priceShort: "$6.0M",
+                priceFull: "$6,000,000",
+                title: "Casa en Fracc La Primavera",
+                location: "La Primavera, Culiacán",
+                bedrooms: 2,
+                bathrooms: 1,
+                area: "220m²",
+                url: "https://casasenventa.info/culiacan/casa-en-venta-en-fracc-la-primavera/",
+                photos: [
+                    "casa-en-venta-en-fracc-la-primavera/images/foto-1.jpg",
+                    "casa-en-venta-en-fracc-la-primavera/images/foto-2.jpg",
+                    "casa-en-venta-en-fracc-la-primavera/images/foto-3.jpg",
+                    "casa-en-venta-en-fracc-la-primavera/images/foto-4.jpg",
+                    "casa-en-venta-en-fracc-la-primavera/images/foto-5.jpg"
+                ]
+            };
+
+            // Tercera propiedad: Casa Privada Monaco
+            const monacoProperty = {
+                address: "Privada Monaco, Paseos del Rey, Culiacán, Sinaloa",
+                priceShort: "$1.59M",
+                priceFull: "$1,590,000",
+                title: "Casa Privada Monaco",
+                location: "Paseos del Rey, Culiacán",
+                bedrooms: 2,
+                bathrooms: 1,
+                area: "52m²",
+                url: "https://casasenventa.info/culiacan/casa-en-privada-monaco-paseos-del-rey/",
+                photos: [
+                    "casa-en-privada-monaco-paseos-del-rey/images/foto-1.jpg",
+                    "casa-en-privada-monaco-paseos-del-rey/images/foto-2.jpg",
+                    "casa-en-privada-monaco-paseos-del-rey/images/foto-3.jpg",
+                    "casa-en-privada-monaco-paseos-del-rey/images/foto-4.jpg",
+                    "casa-en-privada-monaco-paseos-del-rey/images/foto-5.jpg"
+                ]
+            };
+
+            // Cuarta propiedad: Casa de Lujo Amorada
+            const amoradaProperty = {
+                address: "Amorada, Culiacán, Sinaloa",
+                priceShort: "$6.75M",
+                priceFull: "$6,750,000",
+                title: "Casa de Lujo Privada Amorada",
+                location: "Amorada, Culiacán",
+                bedrooms: 2,
+                bathrooms: 1,
+                area: "365m²",
+                url: "https://casasenventa.info/culiacan/casa-de-lujo-en-venta-privada-con-alberca-amorada/",
+                photos: [
+                    "casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-1.jpg",
+                    "casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-2.jpg",
+                    "casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-3.jpg",
+                    "casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-4.jpg",
+                    "casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-5.jpg"
+                ]
+            };
+
+            // Quinta propiedad: Casa Stanza
+            const stanzaProperty = {
+                address: "Fraccionamiento Stanza, Culiacán, Sinaloa",
+                priceShort: "$1.58M",
+                priceFull: "$1,580,000",
+                title: "Casa Fraccionamiento Stanza",
+                location: "Stanza, Culiacán",
+                bedrooms: 2,
+                bathrooms: 1,
+                area: "N/D",
+                url: "https://casasenventa.info/culiacan/casa-en-fraccionamiento-stanza/",
+                photos: [
+                    "casa-en-fraccionamiento-stanza/images/foto-1.jpg",
+                    "casa-en-fraccionamiento-stanza/images/foto-2.jpg",
+                    "casa-en-fraccionamiento-stanza/images/foto-3.jpg",
+                    "casa-en-fraccionamiento-stanza/images/foto-4.jpg",
+                    "casa-en-fraccionamiento-stanza/images/foto-5.jpg"
+                ]
+            };
+
             // Geocodificar la dirección de Infonavit Solidaridad
             geocoder.geocode({ address: solidaridadProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -15797,7 +15877,7 @@
 
                     // Centrar mapa en la propiedad
                     mapCuliacan.setCenter(position);
-                    mapCuliacan.setZoom(15);
+                    mapCuliacan.setZoom(13); // Zoom out para ver más propiedades
 
                     // Crear marcador personalizado estilo Zillow
                     const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, mapCuliacan);
@@ -15810,13 +15890,73 @@
                     // Fallback: usar coordenadas aproximadas
                     const fallbackPos = { lat: 24.7891, lng: -107.4181 };
                     mapCuliacan.setCenter(fallbackPos);
-                    mapCuliacan.setZoom(15);
+                    mapCuliacan.setZoom(13);
 
                     const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(fallbackPos, mapCuliacan, solidaridadProperty);
                     culiacanMarkers.push(marker);
                 }
             });
+
+            // Geocodificar y crear marcador para Casa La Primavera
+            setTimeout(() => {
+                geocoder.geocode({ address: laPrimaveraProperty.address }, function(results, status) {
+                    if (status === 'OK' && results[0]) {
+                        const position = results[0].geometry.location;
+                        const CustomMarkerClass = createZillowPropertyMarker(laPrimaveraProperty, mapCuliacan);
+                        const marker = new CustomMarkerClass(position, mapCuliacan, laPrimaveraProperty);
+                        culiacanMarkers.push(marker);
+                        console.log('Marcador Casa La Primavera creado en:', position.lat(), position.lng());
+                    } else {
+                        console.error('Geocode error para La Primavera:', status);
+                    }
+                });
+            }, 200);
+
+            // Geocodificar y crear marcador para Casa Monaco
+            setTimeout(() => {
+                geocoder.geocode({ address: monacoProperty.address }, function(results, status) {
+                    if (status === 'OK' && results[0]) {
+                        const position = results[0].geometry.location;
+                        const CustomMarkerClass = createZillowPropertyMarker(monacoProperty, mapCuliacan);
+                        const marker = new CustomMarkerClass(position, mapCuliacan, monacoProperty);
+                        culiacanMarkers.push(marker);
+                        console.log('Marcador Casa Monaco creado en:', position.lat(), position.lng());
+                    } else {
+                        console.error('Geocode error para Monaco:', status);
+                    }
+                });
+            }, 400);
+
+            // Geocodificar y crear marcador para Casa Amorada
+            setTimeout(() => {
+                geocoder.geocode({ address: amoradaProperty.address }, function(results, status) {
+                    if (status === 'OK' && results[0]) {
+                        const position = results[0].geometry.location;
+                        const CustomMarkerClass = createZillowPropertyMarker(amoradaProperty, mapCuliacan);
+                        const marker = new CustomMarkerClass(position, mapCuliacan, amoradaProperty);
+                        culiacanMarkers.push(marker);
+                        console.log('Marcador Casa Amorada creado en:', position.lat(), position.lng());
+                    } else {
+                        console.error('Geocode error para Amorada:', status);
+                    }
+                });
+            }, 600);
+
+            // Geocodificar y crear marcador para Casa Stanza
+            setTimeout(() => {
+                geocoder.geocode({ address: stanzaProperty.address }, function(results, status) {
+                    if (status === 'OK' && results[0]) {
+                        const position = results[0].geometry.location;
+                        const CustomMarkerClass = createZillowPropertyMarker(stanzaProperty, mapCuliacan);
+                        const marker = new CustomMarkerClass(position, mapCuliacan, stanzaProperty);
+                        culiacanMarkers.push(marker);
+                        console.log('Marcador Casa Stanza creado en:', position.lat(), position.lng());
+                    } else {
+                        console.error('Geocode error para Stanza:', status);
+                    }
+                });
+            }, 800);
 
             window.mapCuliacanInitialized = true;
             console.log('Mapa de Culiacán inicializado correctamente');
