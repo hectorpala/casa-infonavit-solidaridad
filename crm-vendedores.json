@@ -388,6 +388,20 @@
           "fechaScrapeo": "2025-10-16",
           "fechaPublicacion": "Publicado hace 287 días",
           "vistas": 0
+        },
+        {
+          "id": "147799701",
+          "titulo": "Casa en Venta Zona Cumbres",
+          "precio": "MN 2,600,000",
+          "ubicacion": "Sierra Azul 6208, Misión Lincoln 2 Sector, Monterrey",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-zona-cumbres-147799701.html",
+          "fechaScrapeo": "2025-10-16",
+          "fechaPublicacion": "Publicado hace 10 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Culiacán, Sinaloa",
@@ -468,8 +482,8 @@
   ],
   "estadisticas": {
     "totalVendedores": 14,
-    "totalPropiedades": 22,
-    "ultimaActualizacion": "2025-10-16T23:16:53.188Z"
+    "totalPropiedades": 23,
+    "ultimaActualizacion": "2025-10-16T23:49:11.228Z"
   },
   "busquedas": [
     {
