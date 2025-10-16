@@ -162,6 +162,53 @@ html = html.replace(/<p class="location-subtitle">.*?<\/p>/g,
     `<p class="location-subtitle">${locationShortForSubtitle}, ${cityConfig.name}</p>`);
 ```
 
+**🎨 InfoWindow con Carrusel Completo de Fotos (Commit 7ae564e):**
+El scraper genera InfoWindow estilo Zillow con TODAS las fotos de la propiedad:
+
+**Características:**
+- ✅ **Carrusel completo** - Todas las fotos (no solo 1)
+- ✅ **Flechas de navegación** - Botones circulares ← →
+- ✅ **Contador de fotos** - "1 / 24" en esquina superior
+- ✅ **Dots indicadores** - Barra de puntos interactivos
+- ✅ **Fade effect** - Transición suave al cambiar foto
+- ✅ **Soporte teclado** - Flechas ← → para navegar
+- ✅ **Datos completos** - Precio, recámaras, baños, m²
+- ✅ **Botón WhatsApp** - Link directo con mensaje pre-llenado
+- ✅ **Botón Ver Detalles** - Para otras propiedades (verde)
+
+**Diferencia visual:**
+- **Antes:** 1 foto estática, sin navegación
+- **Ahora:** Carrusel con 24+ fotos, navegable con flechas/dots/teclado
+
+**Implementación:**
+```javascript
+// Nueva función showPropertyCard() en generateMapWithCustomMarker
+function showPropertyCard(property, position, map, isCurrent = false) {
+    // Genera InfoWindow con:
+    // - Carrusel de fotos: height 200px
+    // - Flechas: rgba(0,0,0,0.6) con hover effect
+    // - Contador: top-right corner
+    // - Dots: bottom center, animados
+    // - Info: precio, datos, botones WhatsApp/Ver Detalles
+}
+
+// Objeto CURRENT_PROPERTY_DATA con array completo de fotos
+const CURRENT_PROPERTY_DATA = {
+    priceShort: "$4M",
+    priceFull: "$4,000,000",
+    photos: ['images/foto-1.jpg', 'images/foto-2.jpg', ...] // TODAS las fotos
+};
+```
+
+**Aplicado automáticamente en:**
+- ✅ Todas las nuevas propiedades scrapeadas
+- ✅ Todas las ciudades (Monterrey, Mazatlán, Culiacán)
+- ✅ Compatible con propiedades existentes (requiere re-scrapear)
+
+**Propiedades actualizadas:**
+- 🔄 Propiedades antiguas: Requieren re-scrapear para tener carrusel completo
+- ✅ Propiedades nuevas: Carrusel automático desde commit 7ae564e
+
 **Ciudades soportadas:**
 - `monterrey` → Monterrey, Nuevo León → `monterrey/`
 - `mazatlan` → Mazatlán, Sinaloa → `mazatlan/`
