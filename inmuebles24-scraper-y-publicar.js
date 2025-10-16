@@ -3,6 +3,8 @@
 /**
  * SCRAPER Y PUBLICADOR AUTOMÁTICO - INMUEBLES24.COM + CRM VENDEDORES
  *
+ * ✨ MULTI-CIUDAD: Detecta automáticamente la ciudad desde la URL y publica en la carpeta correcta
+ *
  * USO SCRAPER:
  *   node inmuebles24-scraper-y-publicar.js "URL_DE_INMUEBLES24"
  *
@@ -12,13 +14,29 @@
  *   node inmuebles24-scraper-y-publicar.js --crm-stats
  *
  * PROCESO COMPLETO:
- * 1. Scrapea datos de Inmuebles24 (título, precio, fotos, descripción, características)
- * 2. Descarga todas las fotos automáticamente
- * 3. Genera página HTML con Master Template
- * 4. Agrega tarjeta a culiacan/index.html
- * 5. Commit y push automático a GitHub
- * 6. Actualiza CRM de vendedores automáticamente
- * 7. Listo en 2-3 minutos
+ * 1. Detecta ciudad desde URL (Monterrey, Mazatlán, o Culiacán)
+ * 2. Scrapea datos de Inmuebles24 (título, precio, fotos, descripción, características)
+ * 3. Descarga todas las fotos automáticamente
+ * 4. Genera página HTML con Master Template
+ * 5. Agrega tarjeta a [ciudad]/index.html
+ * 6. Commit y push automático a GitHub
+ * 7. Actualiza CRM de vendedores automáticamente
+ * 8. Listo en 2-3 minutos
+ *
+ * CIUDADES SOPORTADAS:
+ * - Monterrey, Nuevo León → monterrey/
+ * - Mazatlán, Sinaloa → mazatlan/
+ * - Culiacán, Sinaloa → culiacan/ (default)
+ *
+ * EJEMPLOS:
+ *   # Monterrey (detecta "monterrey" en URL)
+ *   node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/propiedades/.../monterrey-..."
+ *
+ *   # Mazatlán (detecta "mazatlan" en URL)
+ *   node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/propiedades/.../mazatlan-..."
+ *
+ *   # Culiacán (default si no detecta ciudad)
+ *   node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/propiedades/.../culiacan-..."
  *
  * EJEMPLOS CRM:
  *   node inmuebles24-scraper-y-publicar.js --crm-buscar alejandra
@@ -58,6 +76,67 @@ const CONFIG = {
 // ============================================
 // FUNCIONES AUXILIARES
 // ============================================
+
+/**
+ * Detecta la ciudad desde la URL de Inmuebles24
+ * @param {string} url - URL de la propiedad en Inmuebles24
+ * @returns {string} - Ciudad detectada: 'monterrey', 'mazatlan', o 'culiacan' (default)
+ */
+function detectCityFromUrl(url) {
+    const urlLower = url.toLowerCase();
+
+    // Detectar Monterrey
+    if (urlLower.includes('monterrey') || urlLower.includes('nuevo-leon') || urlLower.includes('nuevo-león')) {
+        return 'monterrey';
+    }
+
+    // Detectar Mazatlán
+    if (urlLower.includes('mazatlan') || urlLower.includes('mazatlán')) {
+        return 'mazatlan';
+    }
+
+    // Default: Culiacán
+    return 'culiacan';
+}
+
+/**
+ * Obtiene la configuración específica de la ciudad
+ * @param {string} city - Ciudad: 'monterrey', 'mazatlan', o 'culiacan'
+ * @returns {object} - Configuración de la ciudad
+ */
+function getCityConfig(city) {
+    const configs = {
+        monterrey: {
+            folder: 'monterrey',
+            indexPath: 'monterrey/index.html',
+            name: 'Monterrey',
+            state: 'Nuevo León',
+            whatsapp: '528111652545',
+            templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
+            stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
+        },
+        mazatlan: {
+            folder: 'mazatlan',
+            indexPath: 'mazatlan/index.html',
+            name: 'Mazatlán',
+            state: 'Sinaloa',
+            whatsapp: '526691652545',
+            templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
+            stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
+        },
+        culiacan: {
+            folder: 'culiacan',
+            indexPath: 'culiacan/index.html',
+            name: 'Culiacán',
+            state: 'Sinaloa',
+            whatsapp: '526672317963',
+            templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
+            stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
+        }
+    };
+
+    return configs[city] || configs.culiacan;
+}
 
 function generateSlug(title) {
     return title
@@ -1055,11 +1134,11 @@ async function downloadPhotos(images, outputDir) {
 // GENERACIÓN DE HTML CON MASTER TEMPLATE
 // ============================================
 
-function generateHTML(data, slug, photoCount) {
-    console.log('📄 Generando HTML desde template La Primavera...\n');
+function generateHTML(data, slug, photoCount, cityConfig) {
+    console.log(`📄 Generando HTML desde template La Primavera para ${cityConfig.name}...\n`);
 
     // Leer template completo de La Primavera
-    const templatePath = 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html';
+    const templatePath = cityConfig.templatePath;
     let html = fs.readFileSync(templatePath, 'utf8');
 
     // Datos calculados
@@ -1079,16 +1158,16 @@ function generateHTML(data, slug, photoCount) {
 
     // REEMPLAZOS EN METADATA Y HEAD
     html = html.replace(/<title>.*?<\/title>/s,
-        `<title>Casa en Venta ${priceFormatted} - ${neighborhood}, Culiacán | Hector es Bienes Raíces</title>`);
+        `<title>Casa en Venta ${priceFormatted} - ${neighborhood}, ${cityConfig.name} | Hector es Bienes Raíces</title>`);
 
     html = html.replace(/<meta name="description" content=".*?">/,
         `<meta name="description" content="${data.title} en ${data.location}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños, ' : ''}${constructionText} construcción. Agenda tu visita hoy.">`);
 
     html = html.replace(/<meta name="keywords" content=".*?">/,
-        `<meta name="keywords" content="casa venta Culiacán, ${neighborhood}, casa remodelada, ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}cochera techada, ${data.location}">`);
+        `<meta name="keywords" content="casa venta ${cityConfig.name}, ${neighborhood}, casa remodelada, ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}cochera techada, ${data.location}">`);
 
     html = html.replace(/<link rel="canonical" href=".*?">/,
-        `<link rel="canonical" href="https://casasenventa.info/culiacan/${slug}/">`);
+        `<link rel="canonical" href="https://casasenventa.info/${cityConfig.folder}/${slug}/">`);
 
     // Open Graph
     html = html.replace(/<meta property="og:title" content=".*?">/,
@@ -1098,10 +1177,10 @@ function generateHTML(data, slug, photoCount) {
         `<meta property="og:description" content="${bedrooms !== 'N/A' ? bedrooms + ' recámaras • ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños • ' : ''}${constructionText} construcción • ${landAreaText} terreno">`);
 
     html = html.replace(/<meta property="og:url" content=".*?">/,
-        `<meta property="og:url" content="https://casasenventa.info/culiacan/${slug}/">`);
+        `<meta property="og:url" content="https://casasenventa.info/${cityConfig.folder}/${slug}/">`);
 
     html = html.replace(/<meta property="og:image" content=".*?">/,
-        `<meta property="og:image" content="https://casasenventa.info/culiacan/${slug}/images/foto-1.jpg">`);
+        `<meta property="og:image" content="https://casasenventa.info/${cityConfig.folder}/${slug}/images/foto-1.jpg">`);
 
     // Schema.org - reemplazar bloque completo
     const schemaStart = html.indexOf('<script type="application/ld+json">');
@@ -1112,16 +1191,16 @@ function generateHTML(data, slug, photoCount) {
       "@type": "SingleFamilyResidence",
       "name": "${data.title}",
       "description": "${description}",
-      "url": "https://casasenventa.info/culiacan/${slug}/",
+      "url": "https://casasenventa.info/${cityConfig.folder}/${slug}/",
       "image": [
         ${Array.from({length: Math.min(photoCount, 10)}, (_, i) =>
-            `"https://casasenventa.info/culiacan/${slug}/images/foto-${i+1}.jpg"`).join(',\n        ')}
+            `"https://casasenventa.info/${cityConfig.folder}/${slug}/images/foto-${i+1}.jpg"`).join(',\n        ')}
       ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "${neighborhood}",
         "addressLocality": "${data.location}",
-        "addressRegion": "Sinaloa",
+        "addressRegion": "${cityConfig.state}",
         "postalCode": "80000",
         "addressCountry": "MX"
       }${construction ? `,
@@ -1301,12 +1380,12 @@ function generateHTML(data, slug, photoCount) {
     html = html.replace(/const text = encodeURIComponent\('¡Mira esta increíble casa en venta en [^']+'\);/g,
         `const text = encodeURIComponent('¡Mira esta increíble casa en venta en ${neighborhood}! ${priceFormatted}');`);
 
-    // WHATSAPP LINKS - actualizar mensaje
+    // WHATSAPP LINKS - actualizar mensaje con ciudad dinámica
     const whatsappMsg = encodeURIComponent(
-        `Hola! Me interesa la propiedad:\n${data.title}\n${priceFormatted}\n${data.location}\nhttps://casasenventa.info/culiacan/${slug}/`
+        `Hola! Me interesa la propiedad:\n${data.title}\n${priceFormatted}\n${data.location}\nhttps://casasenventa.info/${cityConfig.folder}/${slug}/`
     );
-    html = html.replace(/https:\/\/wa\.me\/528111652545\?text=[^"]+/g,
-        `https://wa.me/528111652545?text=${whatsappMsg}`);
+    html = html.replace(/https:\/\/wa\.me\/52\d+\?text=[^"]+/g,
+        `https://wa.me/${cityConfig.whatsapp}?text=${whatsappMsg}`);
 
     // CRÍTICO: Reemplazar API key vieja con la nueva
     const OLD_API_KEY = 'AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8';
@@ -1314,26 +1393,26 @@ function generateHTML(data, slug, photoCount) {
     html = html.replace(new RegExp(OLD_API_KEY, 'g'), NEW_API_KEY);
     console.log('   ✅ API key actualizada a nueva key');
 
-    // Copiar styles.css
-    const stylesSource = 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css';
-    const stylesPath = `culiacan/${slug}/styles.css`;
+    // Copiar styles.css con ruta dinámica
+    const stylesSource = cityConfig.stylesSource;
+    const stylesPath = `${cityConfig.folder}/${slug}/styles.css`;
     if (fs.existsSync(stylesSource)) {
         fs.copyFileSync(stylesSource, stylesPath);
         console.log('   ✅ styles.css copiado');
     }
 
-    console.log('   ✅ HTML generado con template La Primavera');
+    console.log(`   ✅ HTML generado con template La Primavera para ${cityConfig.name}`);
     return html;
 }
 
 // ============================================
-// INTEGRACIÓN A CULIACÁN INDEX
+// INTEGRACIÓN A INDEX DE CIUDAD
 // ============================================
 
-function addToIndex(data, slug) {
-    console.log('📝 Agregando tarjeta a culiacan/index.html...\n');
+function addToIndex(data, slug, cityConfig) {
+    console.log(`📝 Agregando tarjeta a ${cityConfig.indexPath}...\n`);
 
-    const indexPath = 'culiacan/index.html';
+    const indexPath = cityConfig.indexPath;
     let indexHtml = fs.readFileSync(indexPath, 'utf8');
 
     const card = `
@@ -1427,12 +1506,12 @@ function addToIndex(data, slug) {
     if (firstCardMatch) {
         const firstCardIndex = indexHtml.indexOf(firstCardMatch[0]);
         indexHtml = indexHtml.substring(0, firstCardIndex) + card + '\n\n            ' + indexHtml.substring(firstCardIndex);
-        console.log('   ✅ Tarjeta agregada AL INICIO de culiacan/index.html (más reciente)\n');
+        console.log(`   ✅ Tarjeta agregada AL INICIO de ${cityConfig.indexPath} (más reciente)\n`);
     } else {
         console.log('   ⚠️  No se encontró la primera tarjeta, agregando al final...');
         const gridEndRegex = /\n\n\s*<!-- Ver más propiedades \(resto de propiedades como muestra\) -->/;
         indexHtml = indexHtml.replace(gridEndRegex, `\n\n${card}\n\n            <!-- Ver más propiedades (resto de propiedades como muestra) -->`);
-        console.log('   ✅ Tarjeta agregada al final de culiacan/index.html\n');
+        console.log(`   ✅ Tarjeta agregada al final de ${cityConfig.indexPath}\n`);
     }
 
     fs.writeFileSync(indexPath, indexHtml, 'utf8');
@@ -1462,10 +1541,15 @@ async function main() {
     }
 
     try {
-        // 1. Scrapear datos
+        // 1. Detectar ciudad desde URL
+        const detectedCity = detectCityFromUrl(url);
+        const cityConfig = getCityConfig(detectedCity);
+        console.log(`🌆 Ciudad detectada: ${cityConfig.name}, ${cityConfig.state}\n`);
+
+        // 2. Scrapear datos
         const data = await scrapeInmuebles24(url);
 
-        // 1.1 Verificar duplicados por ID
+        // 2.1 Verificar duplicados por ID
         if (data.propertyId) {
             const existing = checkIfPropertyExists(data.propertyId);
             if (existing) {
@@ -1477,19 +1561,19 @@ async function main() {
             console.log('   ⚠️  No se puede verificar si la propiedad ya existe\n');
         }
 
-        // 2. Generar slug
+        // 3. Generar slug
         const slug = generateSlug(data.title);
         console.log(`🔗 Slug generado: ${slug}\n`);
 
-        // 3. Crear directorios
-        const propertyDir = `culiacan/${slug}`;
+        // 4. Crear directorios con ciudad dinámica
+        const propertyDir = `${cityConfig.folder}/${slug}`;
         const imagesDir = `${propertyDir}/images`;
 
         if (!fs.existsSync(propertyDir)) {
             fs.mkdirSync(propertyDir, { recursive: true });
         }
 
-        // 4. Descargar fotos
+        // 5. Descargar fotos
         const photoCount = await downloadPhotos(data.images, imagesDir);
 
         if (photoCount === 0) {
@@ -1497,24 +1581,25 @@ async function main() {
             process.exit(1);
         }
 
-        // 5. Generar HTML
-        const html = generateHTML(data, slug, photoCount);
+        // 6. Generar HTML con ciudad dinámica
+        const html = generateHTML(data, slug, photoCount, cityConfig);
         const htmlPath = `${propertyDir}/index.html`;
         fs.writeFileSync(htmlPath, html, 'utf8');
         console.log(`✅ HTML generado: ${htmlPath}\n`);
 
-        // 6. Agregar a index
-        addToIndex(data, slug);
+        // 7. Agregar a index con ciudad dinámica
+        addToIndex(data, slug, cityConfig);
 
-        // 7. Commit y push automático
+        // 8. Commit y push automático
         console.log('🚀 Publicando a GitHub...\n');
-        execSync(`git add ${propertyDir} culiacan/index.html`, { stdio: 'inherit' });
-        execSync(`git commit -m "Add: ${data.title} (Inmuebles24)
+        execSync(`git add ${propertyDir} ${cityConfig.indexPath}`, { stdio: 'inherit' });
+        execSync(`git commit -m "Add: ${data.title} (Inmuebles24 - ${cityConfig.name})
 
 - Scrapeado de Inmuebles24
 - ${photoCount} fotos descargadas
 - Master Template aplicado
-- Tarjeta agregada a culiacan/index.html
+- Tarjeta agregada a ${cityConfig.indexPath}
+- Ciudad: ${cityConfig.name}, ${cityConfig.state}
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 
@@ -1559,7 +1644,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'inherit' });
         console.log(`   👁️  Vistas: ${data.views}`);
         console.log(`\n🌐 URLs:`);
         console.log(`   Local: ${propertyDir}/index.html`);
-        console.log(`   Producción: ${CONFIG.baseUrl}/culiacan/${slug}/`);
+        console.log(`   Producción: ${CONFIG.baseUrl}/${cityConfig.folder}/${slug}/`);
         console.log('');
 
         // 10. Esperar para que GitHub Pages complete el deployment
