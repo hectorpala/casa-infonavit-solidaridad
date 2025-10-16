@@ -1870,14 +1870,22 @@
                     <!-- Info de la propiedad -->
                     <div style="padding: 12px;">
                         <h3 style="margin: 0 0 8px 0; color: #FF6B35; font-size: 20px; font-weight: 700;">${property.priceFull}</h3>
-                        <p style="margin: 0 0 12px 0; color: #4b5563; font-size: 14px; line-height: 1.4;">${property.location}</p>
-                        <p style="margin: 0 0 12px 0; color: #6b7280; font-size: 13px; line-height: 1.4;">Estamos expandiendo nuestro portafolio a Monterrey. Contáctanos para conocer las próximas propiedades disponibles.</p>
+                        <div style="display: flex; gap: 12px; margin-bottom: 8px; color: #6b7280; font-size: 14px;">
+                            <span><i class="fas fa-bed"></i> ${property.bedrooms} rec</span>
+                            <span><i class="fas fa-bath"></i> ${property.bathrooms} baños</span>
+                            <span><i class="fas fa-ruler-combined"></i> ${property.area}</span>
+                        </div>
+                        <p style="margin: 0 0 12px 0; color: #4b5563; font-size: 13px; line-height: 1.4;">${property.location}</p>
 
-                        <!-- Botón de acción -->
-                        <div>
+                        <!-- Botones de acción -->
+                        <div style="display: flex; gap: 8px;">
                             <button onclick="window.open('${property.url}', '_blank')"
-                               style="width: 100%; background: #25D366; color: white; padding: 12px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
-                                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                               style="flex: 1; background: #FF6A00; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
+                                Ver Detalles
+                            </button>
+                            <button onclick="window.open('https://wa.me/528111652545?text=Hola,%20me%20interesa%20${encodeURIComponent(property.title)}%20en%20${encodeURIComponent(property.priceFull)}', '_blank')"
+                               style="flex: 1; background: #25D366; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
+                                WhatsApp
                             </button>
                         </div>
                     </div>
