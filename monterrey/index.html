@@ -1844,9 +1844,52 @@
                 ]
             };
 
-            // Crear marcador personalizado estilo Zillow
+            // Crear marcador personalizado estilo Zillow para primera propiedad
             const CustomMarkerClass = createZillowPropertyMarkerMty(monterreyProperty, mapMonterrey);
             monterreyMarker = new CustomMarkerClass(monterreyCenter, mapMonterrey, monterreyProperty);
+
+            // Segunda propiedad: Casa en Cumbres Equipada a Estrenar
+            const cumbresEquipadaProperty = {
+                address: "Cumbres, Monterrey, Nuevo León",
+                priceShort: "$2.99M",
+                priceFull: "$2,990,000",
+                title: "Casa en Cumbres Equipada a Estrenar",
+                location: "Cumbres, Monterrey, N.L.",
+                bedrooms: 4,
+                bathrooms: 2,
+                area: "136m²",
+                url: "https://casasenventa.info/monterrey/casa-en-cumbres-equipada-a-estrenar/",
+                photos: [
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-1.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-2.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-3.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-4.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-5.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-6.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-7.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-8.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-9.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-10.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-11.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-12.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-13.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-14.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-15.jpg"
+                ]
+            };
+
+            // Geocodificar y crear marcador para segunda propiedad
+            const geocoder2 = new google.maps.Geocoder();
+            geocoder2.geocode({ address: cumbresEquipadaProperty.address }, function(results, status) {
+                if (status === 'OK') {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass2 = createZillowPropertyMarkerMty(cumbresEquipadaProperty, mapMonterrey);
+                    const marker2 = new CustomMarkerClass2(position, mapMonterrey, cumbresEquipadaProperty);
+                    console.log('Marcador Casa Cumbres Equipada creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error para Casa Cumbres Equipada:', status);
+                }
+            });
 
             window.mapInitialized = true;
             console.log('Mapa de Monterrey inicializado correctamente');
