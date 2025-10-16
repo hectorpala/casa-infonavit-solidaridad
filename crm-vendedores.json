@@ -360,6 +360,20 @@
           "fechaScrapeo": "2025-10-16",
           "fechaPublicacion": "Publicado hace 26 días",
           "vistas": 0
+        },
+        {
+          "id": "147908740",
+          "titulo": "Casa en Cumbres Equipada a Estrenar",
+          "precio": "MN 2,990,000",
+          "ubicacion": "Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-cumbres-equipada-a-estrenar-147908740.html",
+          "fechaScrapeo": "2025-10-16",
+          "fechaPublicacion": "Publicado hoy",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Culiacán, Sinaloa",
@@ -374,8 +388,8 @@
   ],
   "estadisticas": {
     "totalVendedores": 12,
-    "totalPropiedades": 18,
-    "ultimaActualizacion": "2025-10-16T19:40:51.644Z"
+    "totalPropiedades": 19,
+    "ultimaActualizacion": "2025-10-16T20:18:33.679Z"
   },
   "busquedas": [
     {
