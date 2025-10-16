@@ -15792,7 +15792,7 @@
 
             // Segunda propiedad: Casa La Primavera
             const laPrimaveraProperty = {
-                address: "San Agustín 266, La Primavera, Culiacán, Sinaloa",
+                lat: 24.7625, lng: -107.4244, // Fracc. La Primavera, Culiacán
                 priceShort: "$6.0M",
                 priceFull: "$6,000,000",
                 title: "Casa en Fracc La Primavera",
@@ -15812,7 +15812,7 @@
 
             // Tercera propiedad: Casa Privada Monaco
             const monacoProperty = {
-                address: "Privada Monaco, Paseos del Rey, Culiacán, Sinaloa",
+                lat: 24.8245, lng: -107.3755, // Paseos del Rey, Culiacán
                 priceShort: "$1.59M",
                 priceFull: "$1,590,000",
                 title: "Casa Privada Monaco",
@@ -15832,7 +15832,7 @@
 
             // Cuarta propiedad: Casa de Lujo Amorada
             const amoradaProperty = {
-                address: "Amorada, Culiacán, Sinaloa",
+                lat: 24.8523, lng: -107.4012, // Privada Amorada, zona norte Culiacán
                 priceShort: "$6.75M",
                 priceFull: "$6,750,000",
                 title: "Casa de Lujo Privada Amorada",
@@ -15852,7 +15852,7 @@
 
             // Quinta propiedad: Casa Stanza
             const stanzaProperty = {
-                address: "Fraccionamiento Stanza, Culiacán, Sinaloa",
+                lat: 24.7734, lng: -107.4455, // Fracc. Stanza, Culiacán
                 priceShort: "$1.58M",
                 priceFull: "$1,580,000",
                 title: "Casa Fraccionamiento Stanza",
@@ -15898,65 +15898,33 @@
                 }
             });
 
-            // Geocodificar y crear marcador para Casa La Primavera
-            setTimeout(() => {
-                geocoder.geocode({ address: laPrimaveraProperty.address }, function(results, status) {
-                    if (status === 'OK' && results[0]) {
-                        const position = results[0].geometry.location;
-                        const CustomMarkerClass = createZillowPropertyMarker(laPrimaveraProperty, mapCuliacan);
-                        const marker = new CustomMarkerClass(position, mapCuliacan, laPrimaveraProperty);
-                        culiacanMarkers.push(marker);
-                        console.log('Marcador Casa La Primavera creado en:', position.lat(), position.lng());
-                    } else {
-                        console.error('Geocode error para La Primavera:', status);
-                    }
-                });
-            }, 200);
+            // Crear marcador para Casa La Primavera (coordenadas fijas)
+            const positionLaPrimavera = { lat: laPrimaveraProperty.lat, lng: laPrimaveraProperty.lng };
+            const CustomMarkerClassLaPrimavera = createZillowPropertyMarker(laPrimaveraProperty, mapCuliacan);
+            const markerLaPrimavera = new CustomMarkerClassLaPrimavera(positionLaPrimavera, mapCuliacan, laPrimaveraProperty);
+            culiacanMarkers.push(markerLaPrimavera);
+            console.log('Marcador Casa La Primavera creado en:', positionLaPrimavera.lat, positionLaPrimavera.lng);
 
-            // Geocodificar y crear marcador para Casa Monaco
-            setTimeout(() => {
-                geocoder.geocode({ address: monacoProperty.address }, function(results, status) {
-                    if (status === 'OK' && results[0]) {
-                        const position = results[0].geometry.location;
-                        const CustomMarkerClass = createZillowPropertyMarker(monacoProperty, mapCuliacan);
-                        const marker = new CustomMarkerClass(position, mapCuliacan, monacoProperty);
-                        culiacanMarkers.push(marker);
-                        console.log('Marcador Casa Monaco creado en:', position.lat(), position.lng());
-                    } else {
-                        console.error('Geocode error para Monaco:', status);
-                    }
-                });
-            }, 400);
+            // Crear marcador para Casa Monaco (coordenadas fijas)
+            const positionMonaco = { lat: monacoProperty.lat, lng: monacoProperty.lng };
+            const CustomMarkerClassMonaco = createZillowPropertyMarker(monacoProperty, mapCuliacan);
+            const markerMonaco = new CustomMarkerClassMonaco(positionMonaco, mapCuliacan, monacoProperty);
+            culiacanMarkers.push(markerMonaco);
+            console.log('Marcador Casa Monaco creado en:', positionMonaco.lat, positionMonaco.lng);
 
-            // Geocodificar y crear marcador para Casa Amorada
-            setTimeout(() => {
-                geocoder.geocode({ address: amoradaProperty.address }, function(results, status) {
-                    if (status === 'OK' && results[0]) {
-                        const position = results[0].geometry.location;
-                        const CustomMarkerClass = createZillowPropertyMarker(amoradaProperty, mapCuliacan);
-                        const marker = new CustomMarkerClass(position, mapCuliacan, amoradaProperty);
-                        culiacanMarkers.push(marker);
-                        console.log('Marcador Casa Amorada creado en:', position.lat(), position.lng());
-                    } else {
-                        console.error('Geocode error para Amorada:', status);
-                    }
-                });
-            }, 600);
+            // Crear marcador para Casa Amorada (coordenadas fijas)
+            const positionAmorada = { lat: amoradaProperty.lat, lng: amoradaProperty.lng };
+            const CustomMarkerClassAmorada = createZillowPropertyMarker(amoradaProperty, mapCuliacan);
+            const markerAmorada = new CustomMarkerClassAmorada(positionAmorada, mapCuliacan, amoradaProperty);
+            culiacanMarkers.push(markerAmorada);
+            console.log('Marcador Casa Amorada creado en:', positionAmorada.lat, positionAmorada.lng);
 
-            // Geocodificar y crear marcador para Casa Stanza
-            setTimeout(() => {
-                geocoder.geocode({ address: stanzaProperty.address }, function(results, status) {
-                    if (status === 'OK' && results[0]) {
-                        const position = results[0].geometry.location;
-                        const CustomMarkerClass = createZillowPropertyMarker(stanzaProperty, mapCuliacan);
-                        const marker = new CustomMarkerClass(position, mapCuliacan, stanzaProperty);
-                        culiacanMarkers.push(marker);
-                        console.log('Marcador Casa Stanza creado en:', position.lat(), position.lng());
-                    } else {
-                        console.error('Geocode error para Stanza:', status);
-                    }
-                });
-            }, 800);
+            // Crear marcador para Casa Stanza (coordenadas fijas)
+            const positionStanza = { lat: stanzaProperty.lat, lng: stanzaProperty.lng };
+            const CustomMarkerClassStanza = createZillowPropertyMarker(stanzaProperty, mapCuliacan);
+            const markerStanza = new CustomMarkerClassStanza(positionStanza, mapCuliacan, stanzaProperty);
+            culiacanMarkers.push(markerStanza);
+            console.log('Marcador Casa Stanza creado en:', positionStanza.lat, positionStanza.lng);
 
             window.mapCuliacanInitialized = true;
             console.log('Mapa de Culiacán inicializado correctamente');
