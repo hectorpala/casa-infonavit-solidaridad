@@ -15802,7 +15802,7 @@
 
             // Segunda propiedad: Casa La Primavera
             const laPrimaveraProperty = {
-                lat: 24.7625, lng: -107.4244, // Fracc. La Primavera, Culiacán
+                address: "San Agustín 266, Culiacán, Sinaloa",
                 priceShort: "$6.0M",
                 priceFull: "$6,000,000",
                 title: "Casa en Fracc La Primavera",
@@ -16245,12 +16245,19 @@
                     culiacanMarkers.push(marker);
                 }
             });
+// Geocodificar Casa La Primavera
+            geocoder.geocode({ address: laPrimaveraProperty.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(laPrimaveraProperty, mapCuliacan);
+                    const marker = new CustomMarkerClass(position, mapCuliacan, laPrimaveraProperty);
+                    culiacanMarkers.push(marker);
+                    console.log('Marcador Casa La Primavera creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error Casa La Primavera:', status);
+                }
+            });
 
-            // Crear marcador para Casa La Primavera (coordenadas fijas)
-            const positionLaPrimavera = { lat: laPrimaveraProperty.lat, lng: laPrimaveraProperty.lng };
-            const CustomMarkerClassLaPrimavera = createZillowPropertyMarker(laPrimaveraProperty, mapCuliacan);
-            const markerLaPrimavera = new CustomMarkerClassLaPrimavera(positionLaPrimavera, mapCuliacan, laPrimaveraProperty);
-            culiacanMarkers.push(markerLaPrimavera);
             console.log('Marcador Casa La Primavera creado en:', positionLaPrimavera.lat, positionLaPrimavera.lng);
 
             // Crear marcador para Casa Monaco (coordenadas fijas)
