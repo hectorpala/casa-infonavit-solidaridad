@@ -18397,8 +18397,8 @@
                         outline: none;
                     ">
                         <option value="0">Sin mínimo</option>
-                        <option value="1000000">window.mapCuliacanInitialized = true;M</option>
-                        <option value="1500000">window.mapCuliacanInitialized = true;.5M</option>
+                        <option value="1000000">$1M</option>
+                        <option value="1500000">$1.5M</option>
                         <option value="2000000">$2M</option>
                         <option value="2500000">$2.5M</option>
                         <option value="3000000">$3M</option>
@@ -18423,7 +18423,7 @@
                         <option value="5000000">$5M</option>
                         <option value="6000000">$6M</option>
                         <option value="8000000">$8M</option>
-                        <option value="10000000">window.mapCuliacanInitialized = true;0M</option>
+                        <option value="10000000">$10M</option>
                     </select>
                     
                     <button id="apply-filter" style="
@@ -18456,8 +18456,45 @@
                         Reset
                     </button>
                 </div>
+
+                <style>
+                    /* Responsive para móvil */
+                    @media (max-width: 768px) {
+                        #map-price-filter {
+                            flex-direction: column !important;
+                            gap: 10px !important;
+                            padding: 10px 15px !important;
+                            width: calc(100% - 20px) !important;
+                            left: 10px !important;
+                            transform: none !important;
+                            max-width: none !important;
+                        }
+
+                        #map-price-filter label {
+                            font-size: 12px !important;
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        #map-price-filter select {
+                            width: 100% !important;
+                            padding: 8px 12px !important;
+                            font-size: 14px !important;
+                        }
+
+                        #map-price-filter span {
+                            display: none !important;
+                        }
+
+                        #map-price-filter button {
+                            width: 100% !important;
+                            padding: 10px 16px !important;
+                            font-size: 14px !important;
+                        }
+                    }
+                </style>
                 `;
-                
+
                 modalMap.insertAdjacentHTML('afterbegin', filterHTML);
                 
                 function filterMarkers() {
