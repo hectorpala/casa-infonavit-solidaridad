@@ -39,6 +39,20 @@
           "precio": "$7,950,000",
           "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html",
           "fechaScrapeo": "2025-10-08"
+        },
+        {
+          "id": "147682613",
+          "titulo": "Casa en Renta 3 Habitaciones 2 Plantas, Vitia Granada",
+          "precio": "MN 8,000",
+          "ubicacion": "Inmuebles24  Casa  Renta  Sinaloa  Culiacán  Fraccionamiento Villa del Cedro  Casa en Renta 3 Habitaciones 2 Plantas, Vitia Granada",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-3-habitaciones-2-plantas-vitia-granada-147682613.html",
+          "fechaScrapeo": "2025-10-17",
+          "fechaPublicacion": "Publicado hace 24 días",
+          "vistas": 0
         }
       ],
       "notas": "Agencia Invictus - La Cantera",
@@ -529,8 +543,8 @@
   ],
   "estadisticas": {
     "totalVendedores": 15,
-    "totalPropiedades": 25,
-    "ultimaActualizacion": "2025-10-17T18:44:02.984Z"
+    "totalPropiedades": 26,
+    "ultimaActualizacion": "2025-10-17T19:32:44.768Z"
   },
   "busquedas": [
     {

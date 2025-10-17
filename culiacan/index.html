@@ -17786,7 +17786,31 @@
                 ]
             };
 
-            // RENTA: Casa Tres Ríos
+            // RENTA: Casa Vitia Granada
+            const vitiagranadaProperty = {
+                address: "Fraccionamiento Villa del Cedro, Culiacán, Sinaloa",
+                priceShort: "$8K",
+                priceFull: "$8,000/mes",
+                title: "Casa en Renta 3 Habitaciones 2 Plantas, Vitia Granada",
+                location: "Fraccionamiento Villa del Cedro, Culiacán",
+                bedrooms: 3,
+                bathrooms: 1,
+                area: "102m²",
+                type: "renta",
+                url: "https://casasenventa.info/culiacan/casa-en-renta-3-habitaciones-2-plantas-vitia-granada/",
+                photos: [
+                    "casa-en-renta-3-habitaciones-2-plantas-vitia-granada/images/foto-1.jpg",
+                    "casa-en-renta-3-habitaciones-2-plantas-vitia-granada/images/foto-2.jpg",
+                    "casa-en-renta-3-habitaciones-2-plantas-vitia-granada/images/foto-3.jpg",
+                    "casa-en-renta-3-habitaciones-2-plantas-vitia-granada/images/foto-4.jpg",
+                    "casa-en-renta-3-habitaciones-2-plantas-vitia-granada/images/foto-5.jpg",
+                    "casa-en-renta-3-habitaciones-2-plantas-vitia-granada/images/foto-6.jpg",
+                    "casa-en-renta-3-habitaciones-2-plantas-vitia-granada/images/foto-7.jpg",
+                    "casa-en-renta-3-habitaciones-2-plantas-vitia-granada/images/foto-8.jpg",
+                    "casa-en-renta-3-habitaciones-2-plantas-vitia-granada/images/foto-9.jpg"
+                ]
+            };
+
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -18508,6 +18532,19 @@
                     console.log('Marcador privadapuntaazul creado en:', position.lat(), position.lng());
                 } else {
                     console.error('Geocode error privadapuntaazul:', status);
+                }
+            });
+
+            // Geocodificar vitia granada (RENTA)
+            geocoder.geocode({ address: vitiagranadaProperty.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(vitiagranadaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, vitiagranadaProperty);
+                    window.allCuliacanMarkers.push(marker);
+                    console.log('Marcador vitia granada (RENTA) creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error vitia granada:', status);
                 }
             });
 
