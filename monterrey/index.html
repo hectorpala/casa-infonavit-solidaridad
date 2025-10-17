@@ -2194,6 +2194,15 @@
         let currentInfoWindowMty = null;
 
         function initializeMonterreyMap() {
+            // Verificar si Google Maps API está cargada
+            if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+                console.log('⏳ Esperando a que Google Maps API se cargue...');
+                setTimeout(() => {
+                    initializeMonterreyMap();
+                }, 200);
+                return;
+            }
+
             // Coordenadas del centro de Monterrey
             const monterreyCenter = { lat: 25.6866, lng: -100.3161 };
 
