@@ -1943,12 +1943,13 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
             const ${slug.replace(/-/g, '_')}Property = {
                 address: "${data.location}",
                 priceShort: "${priceShort}",
-                priceFull: "${formatPrice(data.price)}",
+                priceFull: "${formatPrice(data.price)}/mes",
                 title: "${data.title}",
                 location: "${locationShort}, ${cityConfig.name}, ${cityConfig.stateShort}",
                 bedrooms: ${data.bedrooms || 'null'},
                 bathrooms: ${data.bathrooms || 'null'},
                 area: "${data.construction_area ? data.construction_area + 'm²' : 'N/D'}",
+                type: "renta",
                 url: "https://casasenventa.info/${cityConfig.folder}/${slug}/",
                 photos: [
                     ${photosArray.join(',\n                    ')}

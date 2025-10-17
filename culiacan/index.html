@@ -18696,18 +18696,23 @@
                     const propertyType = document.getElementById('property-type').value;
 
                     let visibleCount = 0;
+                    console.log(`\n🔍 Filtrando por tipo: "${propertyType}", precio: $${minPrice} - $${maxPrice}`);
 
-                    window.allCuliacanMarkers.forEach(marker => {
+                    window.allCuliacanMarkers.forEach((marker, index) => {
                         if (!marker.property || !marker.property.priceFull) {
                             marker.setMap(mapCuliacan);
                             visibleCount++;
+                            console.log(`   [${index}] Sin datos de precio → VISIBLE`);
                             return;
                         }
 
                         // Filtro de tipo
                         const markerType = marker.property.type || 'venta'; // Default a venta si no tiene type
+                        const propertyTitle = marker.property.title || 'Sin título';
+
                         if (propertyType !== 'all' && markerType !== propertyType) {
                             marker.setMap(null);
+                            console.log(`   [${index}] ${propertyTitle} (tipo: ${markerType}) → OCULTO por tipo`);
                             return;
                         }
 
@@ -18718,12 +18723,14 @@
                         if (price >= minPrice && price <= maxPrice) {
                             marker.setMap(mapCuliacan);
                             visibleCount++;
+                            console.log(`   [${index}] ${propertyTitle} (tipo: ${markerType}, precio: $${price}) → VISIBLE`);
                         } else {
                             marker.setMap(null);
+                            console.log(`   [${index}] ${propertyTitle} (tipo: ${markerType}, precio: $${price}) → OCULTO por precio`);
                         }
                     });
 
-                    console.log(`Filtro: ${visibleCount} de ${window.allCuliacanMarkers.length} propiedades visibles (tipo: ${propertyType})`);
+                    console.log(`\n✅ Filtro: ${visibleCount} de ${window.allCuliacanMarkers.length} propiedades visibles\n`);
                 }
                 
                 document.getElementById('apply-filter').addEventListener('click', filterMarkers);
