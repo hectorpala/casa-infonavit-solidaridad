@@ -15737,6 +15737,15 @@
         }
 
         function initializeCuliacanMap() {
+            // Verificar si Google Maps API está cargada
+            if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+                console.log('⏳ Esperando a que Google Maps API se cargue...');
+                setTimeout(() => {
+                    initializeCuliacanMap();
+                }, 200);
+                return;
+            }
+
             // Inicializar geocoder
             const geocoder = new google.maps.Geocoder();
 

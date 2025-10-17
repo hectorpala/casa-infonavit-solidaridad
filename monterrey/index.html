@@ -2194,14 +2194,16 @@
         let currentInfoWindowMty = null;
 
         function initializeMonterreyMap() {
-            // Verificar si Google Maps API está cargada
-            if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+            // Verificar si Google Maps API está cargada usando callback
+            if (!window.googleMapsReady || typeof google === 'undefined' || typeof google.maps === 'undefined') {
                 console.log('⏳ Esperando a que Google Maps API se cargue...');
                 setTimeout(() => {
                     initializeMonterreyMap();
                 }, 200);
                 return;
             }
+
+            console.log('🗺️ Inicializando mapa de Monterrey...');
 
             // Coordenadas del centro de Monterrey
             const monterreyCenter = { lat: 25.6866, lng: -100.3161 };
@@ -2774,8 +2776,17 @@
         });
     </script>
 
+    <!-- Callback para cuando Google Maps API se cargue -->
+    <script>
+        window.googleMapsReady = false;
+        function initGoogleMapsCallback() {
+            window.googleMapsReady = true;
+            console.log('✅ Google Maps API cargada y lista');
+        }
+    </script>
+
     <!-- Cargar Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&libraries=places" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&libraries=places&callback=initGoogleMapsCallback" async defer></script>
 
     <style>
         @keyframes slideUp {
