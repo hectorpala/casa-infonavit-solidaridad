@@ -15699,195 +15699,22 @@
     <!-- Map Modal (Zillow Style) - Culiacán -->
     <div id="mapModal" class="fixed inset-0 bg-black/70 z-[9999] hidden items-center justify-center backdrop-blur-sm">
         <div class="bg-white w-full h-full flex flex-col shadow-2xl">
-            <!-- Modal Header (Zillow-style) -->
-            <div class="bg-white border-b border-gray-200 px-3 sm:px-6 py-3 sm:py-4">
-                <!-- Desktop Layout -->
-                <div class="hidden md:flex items-center justify-between">
-                    <!-- Left: Logo/Brand -->
+            <!-- Modal Header Simple -->
+            <div class="bg-white border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center justify-between">
                     <div class="flex items-center">
-                        <a href="/" class="flex items-center space-x-2 group mr-8">
-                            <svg class="w-8 h-8 text-hector transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+                        <a href="/" class="flex items-center space-x-2">
+                            <svg class="w-8 h-8 text-hector" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8L18 11v8h-2v-6h-6v6H8v-8l4-5.2z"/>
                             </svg>
                             <span class="text-xl font-bold text-gray-900">Hector<span class="text-hector">BR</span></span>
                         </a>
                     </div>
-
-                    <!-- Center: Filters -->
-                    <div class="flex items-center gap-3">
-                        <!-- For Sale Filter -->
-                        <div class="relative">
-                            <button id="forsale-btn" onclick="toggleForSaleDropdown()" class="inline-flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50 hover:border-blue-500 transition-all shadow-sm">
-                                <span>For Sale</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </button>
-                            <!-- Dropdown For Sale -->
-                            <div id="forsale-dropdown" class="hidden absolute top-full mt-2 left-0 bg-white border border-gray-200 rounded-xl shadow-2xl z-[10000] min-w-[220px]">
-                                <div class="py-2">
-                                    <button onclick="selectForSale('venta')" class="w-full text-left px-4 py-3 hover:bg-blue-50 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
-                                        <div class="flex items-center justify-between">
-                                            <span>En Venta</span>
-                                        </div>
-                                    </button>
-                                    <button onclick="selectForSale('renta')" class="w-full text-left px-4 py-3 hover:bg-blue-50 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
-                                        <div class="flex items-center justify-between">
-                                            <span>En Renta</span>
-                                        </div>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Price Filter -->
-                        <div class="relative">
-                            <button id="price-btn" onclick="togglePriceDropdown()" class="inline-flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50 hover:border-blue-500 transition-all shadow-sm">
-                                <span>Price</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </button>
-                            <!-- Dropdown Price -->
-                            <div id="price-dropdown" class="hidden absolute top-full mt-2 left-0 bg-white border border-gray-200 rounded-xl shadow-2xl z-[10000] min-w-[340px]">
-                                <div class="p-5">
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <label class="block text-xs font-semibold text-gray-700 mb-2">Mínimo</label>
-                                            <select id="price-min-select" class="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg text-sm font-medium focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
-                                                <option value="0">Sin mínimo</option>
-                                                <option value="500000">$500,000</option>
-                                                <option value="1000000">$1,000,000</option>
-                                                <option value="2000000">$2,000,000</option>
-                                                <option value="3000000">$3,000,000</option>
-                                                <option value="5000000">$5,000,000</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="block text-xs font-semibold text-gray-700 mb-2">Máximo</label>
-                                            <select id="price-max-select" class="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg text-sm font-medium focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
-                                                <option value="999999999">Sin máximo</option>
-                                                <option value="1000000">$1,000,000</option>
-                                                <option value="2000000">$2,000,000</option>
-                                                <option value="3000000">$3,000,000</option>
-                                                <option value="5000000">$5,000,000</option>
-                                                <option value="10000000">$10,000,000</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <button onclick="applyPriceFilter()" class="w-full mt-4 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition-all">
-                                        Aplicar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Beds & Baths Filter -->
-                        <div class="relative">
-                            <button id="bedsbaths-btn" onclick="toggleBedsBathsDropdown()" class="inline-flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50 hover:border-blue-500 transition-all shadow-sm">
-                                <span>Beds & Baths</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </button>
-                            <!-- Dropdown Beds & Baths -->
-                            <div id="bedsbaths-dropdown" class="hidden absolute top-full mt-2 left-0 bg-white border border-gray-200 rounded-xl shadow-2xl z-[10000] min-w-[280px]">
-                                <div class="p-5">
-                                    <div class="mb-4">
-                                        <label class="block text-xs font-semibold text-gray-700 mb-3">Recámaras</label>
-                                        <div id="beds-buttons" class="flex gap-2">
-                                            <button onclick="selectBeds(1)" data-beds="1" class="beds-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">1+</button>
-                                            <button onclick="selectBeds(2)" data-beds="2" class="beds-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">2+</button>
-                                            <button onclick="selectBeds(3)" data-beds="3" class="beds-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">3+</button>
-                                            <button onclick="selectBeds(4)" data-beds="4" class="beds-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">4+</button>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label class="block text-xs font-semibold text-gray-700 mb-3">Baños</label>
-                                        <div id="baths-buttons" class="flex gap-2">
-                                            <button onclick="selectBaths(1)" data-baths="1" class="baths-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">1+</button>
-                                            <button onclick="selectBaths(2)" data-baths="2" class="baths-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">2+</button>
-                                            <button onclick="selectBaths(3)" data-baths="3" class="baths-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">3+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Reset Filters Button -->
-                        <button onclick="resetMapFilters()" class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                            </svg>
-                            <span>Reset</span>
-                        </button>
-                    </div>
-
-                    <!-- Right: Close Button -->
-                    <button onclick="closeMapModal()" class="p-2.5 hover:bg-gray-100 rounded-lg transition-colors group">
-                        <svg class="w-6 h-6 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button onclick="closeMapModal()" class="p-2.5 hover:bg-gray-100 rounded-lg transition-colors">
+                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                         </svg>
                     </button>
-                </div>
-
-                <!-- Mobile Layout -->
-                <div class="md:hidden">
-                    <!-- Top Row: Logo + Close -->
-                    <div class="flex items-center justify-between mb-3">
-                        <a href="/" class="flex items-center space-x-2">
-                            <svg class="w-7 h-7 text-hector" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8L18 11v8h-2v-6h-6v6H8v-8l4-5.2z"/>
-                            </svg>
-                            <span class="text-lg font-bold text-gray-900">Hector<span class="text-hector">BR</span></span>
-                        </a>
-                        <button onclick="closeMapModal()" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
-                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <!-- Filters Row: Scroll horizontal en móvil -->
-                    <div class="flex items-center gap-2 overflow-x-auto pb-2 -mx-3 px-3">
-                        <!-- For Sale Filter (Mobile) -->
-                        <div class="relative flex-shrink-0">
-                            <button id="forsale-btn-mobile" onclick="toggleForSaleDropdown()" class="inline-flex items-center gap-1.5 px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-800 bg-white hover:bg-gray-50 hover:border-blue-500 transition-all shadow-sm whitespace-nowrap">
-                                <span>For Sale</span>
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Price Filter (Mobile) -->
-                        <div class="relative flex-shrink-0">
-                            <button id="price-btn-mobile" onclick="togglePriceDropdown()" class="inline-flex items-center gap-1.5 px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-800 bg-white hover:bg-gray-50 hover:border-blue-500 transition-all shadow-sm whitespace-nowrap">
-                                <span>Price</span>
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Beds & Baths Filter (Mobile) -->
-                        <div class="relative flex-shrink-0">
-                            <button id="bedsbaths-btn-mobile" onclick="toggleBedsBathsDropdown()" class="inline-flex items-center gap-1.5 px-3 py-2 border border-gray-300 rounded-lg text-xs font-semibold text-gray-800 bg-white hover:bg-gray-50 hover:border-blue-500 transition-all shadow-sm whitespace-nowrap">
-                                <span>Beds & Baths</span>
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Reset Button (Mobile) -->
-                        <button onclick="resetMapFilters()" class="flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-blue-600 hover:bg-blue-50 rounded-lg transition-all whitespace-nowrap">
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                            </svg>
-                            <span>Reset</span>
-                        </button>
-                    </div>
                 </div>
             </div>
 
@@ -15919,6 +15746,300 @@
         </div>
     </div>
 
+    <!-- ===== ZILLOW: BOTTOM SHEETS PARA FILTROS ===== -->
+    <div class="bottom-sheet-overlay" id="sheet-overlay-culiacan" onclick="closeBottomSheet()"></div>
+
+    <!-- ZILLOW: Bottom Sheet 1 - EN VENTA (Tipo de listado) -->
+    <div class="bottom-sheet-culiacan" id="sheet-type-culiacan">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Tipo de Propiedad</h3>
+            <button class="sheet-apply" onclick="applyFilter('type')">Listo</button>
+        </div>
+        <div class="sheet-content">
+            <div class="button-group">
+                <button class="option-btn selected" data-value="venta" onclick="selectOption(this, 'type', 'venta')">En Venta</button>
+                <button class="option-btn" data-value="renta" onclick="selectOption(this, 'type', 'renta')">En Renta</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZILLOW: Bottom Sheet 2 - PRECIO (actualizado) -->
+    <div class="bottom-sheet-culiacan" id="sheet-price-culiacan">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Precio</h3>
+            <button class="sheet-apply" onclick="applyFilter('price')">Listo</button>
+        </div>
+        <div class="sheet-content">
+            <div class="price-options">
+                <button class="price-btn" data-value="" onclick="selectPrice(this, '')">Sin Límite</button>
+                <button class="price-btn" data-value="0-2500000" onclick="selectPrice(this, '0-2500000')">$0 - $2.5M</button>
+                <button class="price-btn" data-value="2500000-3000000" onclick="selectPrice(this, '2500000-3000000')">$2.5M - $3.0M</button>
+                <button class="price-btn" data-value="3000000-3500000" onclick="selectPrice(this, '3000000-3500000')">$3.0M - $3.5M</button>
+                <button class="price-btn" data-value="3500000-999999999" onclick="selectPrice(this, '3500000-999999999')">$3.5M+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZILLOW: Bottom Sheet 3 - RECÁMARAS Y BAÑOS (combinado) -->
+    <div class="bottom-sheet-culiacan" id="sheet-beds-baths-culiacan">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Recámaras y Baños</h3>
+            <button class="sheet-apply" onclick="applyFilter('beds-baths')">Listo</button>
+        </div>
+        <div class="sheet-content">
+            <!-- Sección: Recámaras -->
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Recámaras</h4>
+            <div class="button-group" style="margin-bottom: 24px;">
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bedrooms', '')">Cualquiera</button>
+                <button class="option-btn" data-value="1" onclick="selectOption(this, 'bedrooms', '1')">1+</button>
+                <button class="option-btn" data-value="2" onclick="selectOption(this, 'bedrooms', '2')">2+</button>
+                <button class="option-btn" data-value="3" onclick="selectOption(this, 'bedrooms', '3')">3+</button>
+                <button class="option-btn" data-value="4" onclick="selectOption(this, 'bedrooms', '4')">4+</button>
+                <button class="option-btn" data-value="5" onclick="selectOption(this, 'bedrooms', '5')">5+</button>
+            </div>
+
+            <!-- Sección: Baños -->
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Baños</h4>
+            <div class="button-group">
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bathrooms', '')">Cualquiera</button>
+                <button class="option-btn" data-value="1" onclick="selectOption(this, 'bathrooms', '1')">1+</button>
+                <button class="option-btn" data-value="2" onclick="selectOption(this, 'bathrooms', '2')">2+</button>
+                <button class="option-btn" data-value="3" onclick="selectOption(this, 'bathrooms', '3')">3+</button>
+                <button class="option-btn" data-value="4" onclick="selectOption(this, 'bathrooms', '4')">4+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZILLOW: Bottom Sheet 4 - MÁS (Zona + Limpiar Todo) -->
+    <div class="bottom-sheet-culiacan" id="sheet-more-culiacan">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Más Filtros</h3>
+            <button class="sheet-apply" onclick="applyFilter('more')">Listo</button>
+        </div>
+        <div class="sheet-content">
+            <!-- Sección: Zona -->
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Zona</h4>
+            <div class="button-group" style="margin-bottom: 24px;">
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'zone', '')">Cualquiera</button>
+                <button class="option-btn" data-value="infonavit" onclick="selectOption(this, 'zone', 'infonavit')">Infonavit</button>
+                <button class="option-btn" data-value="centro" onclick="selectOption(this, 'zone', 'centro')">Centro</button>
+                <button class="option-btn" data-value="norte" onclick="selectOption(this, 'zone', 'norte')">Zona Norte</button>
+            </div>
+
+            <!-- Botón Limpiar Todos los Filtros -->
+            <button onclick="resetFilters()" style="width: 100%; padding: 12px 16px; border-radius: 4px; background: #fff; border: 1px solid #A7A6AB; color: #2A2A33; font-size: 14px; font-weight: 700; cursor: pointer; transition: background-color 0.2s ease;">
+                Limpiar Todos los Filtros
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== ZILLOW: ESTILOS PARA FILTROS ===== -->
+    <style>
+        /* Filter Chips */
+        .filter-chip {
+            background: white;
+            border: 1px solid #d4d2d0;
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2A2A33;
+            transition: all 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            pointer-events: auto;
+            position: relative;
+            z-index: 999999;
+        }
+
+        .filter-chip:hover {
+            background: #f7f7f7;
+            border-color: #2A2A33;
+        }
+
+        .filter-chip.active {
+            background: #2A2A33;
+            color: white;
+            border-color: #2A2A33;
+        }
+
+        .filter-chip.active:hover {
+            background: #1a1a1f;
+        }
+
+        .filter-chip .chip-icon {
+            font-size: 10px;
+        }
+
+        .filter-chip.active .chip-icon {
+            color: white;
+        }
+
+        .filter-chip.active .chip-icon.fa-chevron-down {
+            display: none;
+        }
+
+        /* Bottom Sheet Overlay */
+        .bottom-sheet-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .bottom-sheet-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Bottom Sheets */
+        .bottom-sheet-culiacan {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+            z-index: 10001;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-out;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .bottom-sheet-culiacan.active {
+            transform: translateY(0);
+        }
+
+        .sheet-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1;
+        }
+
+        .sheet-header h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2A2A33;
+        }
+
+        .sheet-close {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            color: #666;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .sheet-apply {
+            background: #006AFF;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .sheet-content {
+            padding: 20px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .option-btn {
+            flex: 1;
+            min-width: 80px;
+            padding: 10px 16px;
+            border: 1px solid #d4d2d0;
+            border-radius: 6px;
+            background: white;
+            color: #2A2A33;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover {
+            background: #f7f7f7;
+        }
+
+        .option-btn.selected {
+            background: #2A2A33;
+            color: white;
+            border-color: #2A2A33;
+        }
+
+        .price-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .price-btn {
+            padding: 12px 16px;
+            border: 1px solid #d4d2d0;
+            border-radius: 6px;
+            background: white;
+            color: #2A2A33;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s;
+        }
+
+        .price-btn:hover {
+            background: #f7f7f7;
+        }
+
+        .price-btn.selected {
+            background: #2A2A33;
+            color: white;
+            border-color: #2A2A33;
+        }
+
+        /* Responsive para móvil */
+        @media (max-width: 768px) {
+            .filter-chip {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .bottom-sheet-culiacan {
+                max-height: 90vh;
+            }
+        }
+    </style>
+
     <!-- Map Modal JavaScript -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&libraries=places" async defer></script>
     <script>
@@ -15947,284 +16068,364 @@
             document.body.style.overflow = '';
         }
 
-        // ===== ZILLOW-STYLE FILTERS FUNCTIONS =====
+        // ===== ZILLOW: SISTEMA DE FILTROS (GLOBAL SCOPE) =====
 
-        // Toggle dropdowns
-        function toggleForSaleDropdown() {
-            const dropdown = document.getElementById('forsale-dropdown');
-            dropdown.classList.toggle('hidden');
-            // Close others
-            document.getElementById('price-dropdown').classList.add('hidden');
-            document.getElementById('bedsbaths-dropdown').classList.add('hidden');
-        }
-
-        function togglePriceDropdown() {
-            const dropdown = document.getElementById('price-dropdown');
-            dropdown.classList.toggle('hidden');
-            // Close others
-            document.getElementById('forsale-dropdown').classList.add('hidden');
-            document.getElementById('bedsbaths-dropdown').classList.add('hidden');
-        }
-
-        function toggleBedsBathsDropdown() {
-            const dropdown = document.getElementById('bedsbaths-dropdown');
-            dropdown.classList.toggle('hidden');
-            // Close others
-            document.getElementById('forsale-dropdown').classList.add('hidden');
-            document.getElementById('price-dropdown').classList.add('hidden');
-        }
-
-        // Filter selections
-        let mapFilters = {
-            forSale: 'venta',
-            priceMin: 0,
-            priceMax: 999999999,
-            beds: 0,
-            baths: 0
+        // Active filters con nuevo filtro "type"
+        const activeFilters = {
+            type: 'venta',  // Default: En Venta
+            price: '',
+            bedrooms: '',
+            bathrooms: '',
+            zone: ''
         };
 
-        // Función principal para aplicar todos los filtros
-        function applyMapFilters() {
-            if (!window.allCuliacanMarkers || window.allCuliacanMarkers.length === 0) {
-                console.log('⚠️ No markers available yet');
-                return;
-            }
+        // Abrir bottom sheet
+        function openBottomSheet(filterType) {
+            console.log('🔵 openBottomSheet llamada con:', filterType);
+            const overlay = document.getElementById('sheet-overlay-culiacan');
+            const sheet = document.getElementById(`sheet-${filterType}-culiacan`);
 
-            if (!window.mapCuliacan) {
-                console.log('⚠️ Map not initialized yet');
-                return;
-            }
+            console.log('Overlay encontrado:', overlay);
+            console.log('Sheet encontrado:', sheet);
 
-            let visibleCount = 0;
-
-            console.log('=== APLICANDO FILTROS ===');
-            console.log('Filtros activos:', mapFilters);
-            console.log('Total markers:', window.allCuliacanMarkers.length);
-
-            window.allCuliacanMarkers.forEach((marker, index) => {
-                const property = marker.property;
-
-                // Parsear precio desde priceFull (formato: "$1,750,000")
-                const priceValue = parseInt(property.priceFull.replace(/[$,]/g, ''));
-
-                // Aplicar filtros
-                let showMarker = true;
-                let reasons = [];
-
-                // Filtro de precio
-                if (priceValue < mapFilters.priceMin || priceValue > mapFilters.priceMax) {
-                    showMarker = false;
-                    reasons.push(`precio ${priceValue} fuera de rango [${mapFilters.priceMin}, ${mapFilters.priceMax}]`);
-                }
-
-                // Filtro de recámaras (mayor o igual)
-                if (mapFilters.beds > 0 && property.bedrooms < mapFilters.beds) {
-                    showMarker = false;
-                    reasons.push(`recámaras ${property.bedrooms} < ${mapFilters.beds}`);
-                }
-
-                // Filtro de baños (mayor o igual)
-                if (mapFilters.baths > 0 && property.bathrooms < mapFilters.baths) {
-                    showMarker = false;
-                    reasons.push(`baños ${property.bathrooms} < ${mapFilters.baths}`);
-                }
-
-                // Debug log para primeras 5 propiedades
-                if (index < 5) {
-                    console.log(`${index + 1}. ${property.title}:`);
-                    console.log(`   - Precio: ${property.priceFull} → ${priceValue}`);
-                    console.log(`   - Beds: ${property.bedrooms}, Baths: ${property.bathrooms}`);
-                    console.log(`   - Visible: ${showMarker}`, reasons.length > 0 ? reasons : '✓');
-                }
-
-                // Mostrar/ocultar marcador
-                if (showMarker) {
-                    marker.setMap(window.mapCuliacan);
-                    visibleCount++;
-                } else {
-                    marker.setMap(null);
-                }
-            });
-
-            console.log(`✅ RESULTADO: ${visibleCount} de ${window.allCuliacanMarkers.length} propiedades visibles`);
-
-            // Actualizar contador en el footer del modal
-            const countElement = document.getElementById('map-property-count');
-            if (countElement) {
-                countElement.textContent = `${visibleCount} propiedades`;
+            if (overlay && sheet) {
+                overlay.classList.add('active');
+                sheet.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('✅ Bottom sheet abierto');
+            } else {
+                console.error('❌ No se encontraron elementos overlay o sheet');
             }
         }
 
-        // Función para resetear todos los filtros
-        function resetMapFilters() {
-            // Resetear valores
-            mapFilters.priceMin = 0;
-            mapFilters.priceMax = 999999999;
-            mapFilters.beds = 0;
-            mapFilters.baths = 0;
+        // Cerrar bottom sheet
+        function closeBottomSheet() {
+            const overlay = document.getElementById('sheet-overlay-culiacan');
+            const sheets = document.querySelectorAll('.bottom-sheet-culiacan');
 
-            // Resetear UI de botones principales (desktop)
-            document.getElementById('forsale-btn').querySelector('span').textContent = 'For Sale';
-            document.getElementById('price-btn').querySelector('span').textContent = 'Price';
-            document.getElementById('bedsbaths-btn').querySelector('span').textContent = 'Beds & Baths';
+            overlay.classList.remove('active');
+            sheets.forEach(sheet => sheet.classList.remove('active'));
+            document.body.style.overflow = ''; // Restore scroll
+        }
 
-            // Resetear UI de botones móviles
-            const forsaleMobile = document.getElementById('forsale-btn-mobile')?.querySelector('span');
-            if (forsaleMobile) forsaleMobile.textContent = 'For Sale';
+        // Seleccionar opción en bottom sheet (bedrooms, bathrooms, zone)
+        function selectOption(button, filterType, value) {
+            // Remover selected de todos los botones del grupo
+            const group = button.parentElement;
+            group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
 
-            const priceMobile = document.getElementById('price-btn-mobile')?.querySelector('span');
-            if (priceMobile) priceMobile.textContent = 'Price';
+            // Marcar como selected
+            button.classList.add('selected');
 
-            const bedsbathsMobile = document.getElementById('bedsbaths-btn-mobile')?.querySelector('span');
-            if (bedsbathsMobile) bedsbathsMobile.textContent = 'Beds & Baths';
+            // Guardar en estado temporal (se aplicará al hacer clic en "Listo")
+            activeFilters[filterType] = value;
+        }
 
-            // Resetear dropdowns de precio
-            document.getElementById('price-min-select').value = '0';
-            document.getElementById('price-max-select').value = '999999999';
+        // Seleccionar precio (funciona diferente)
+        function selectPrice(button, value) {
+            const group = button.parentElement;
+            group.querySelectorAll('.price-btn').forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            activeFilters.price = value;
+        }
 
-            // Resetear estado visual de botones de recámaras
-            document.querySelectorAll('.beds-btn').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
-                btn.classList.add('border-gray-300');
-            });
+        // Aplicar filtro y cerrar sheet
+        function applyFilter(filterType) {
+            // ZILLOW: Para "beds-baths", actualizar ambos chips
+            if (filterType === 'beds-baths') {
+                updateChipState('bedrooms');
+                updateChipState('bathrooms');
+            } else if (filterType === 'more') {
+                // ZILLOW: Para "more", actualizar zone
+                updateChipState('zone');
+            } else {
+                updateChipState(filterType);
+            }
+            closeBottomSheet();
+            applyFiltersToMap();
+        }
 
-            // Resetear estado visual de botones de baños
-            document.querySelectorAll('.baths-btn').forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
-                btn.classList.add('border-gray-300');
-            });
+        // Actualizar estado visual del chip
+        function updateChipState(filterType) {
+            // ZILLOW: Para "beds-baths" y "more" necesitamos mapear a los chips reales
+            let chipId = filterType;
 
-            // Mostrar todos los marcadores
-            if (window.allCuliacanMarkers && window.mapCuliacan) {
-                window.allCuliacanMarkers.forEach(marker => {
-                    marker.setMap(window.mapCuliacan);
+            // ZILLOW: Mapear bedrooms/bathrooms/zone a sus nuevos chips
+            if (filterType === 'bedrooms' || filterType === 'bathrooms') {
+                chipId = 'beds-baths';
+            } else if (filterType === 'zone') {
+                chipId = 'more';
+            }
+
+            const chip = document.getElementById(`chip-${chipId}-culiacan`);
+            const value = activeFilters[filterType];
+
+            if (value) {
+                chip.classList.add('active');
+
+                // Actualizar texto del chip con valor seleccionado
+                let displayText = '';
+                if (filterType === 'type') {
+                    displayText = value === 'venta' ? 'En Venta' : 'En Renta';
+                } else if (filterType === 'price') {
+                    const ranges = {
+                        '0-2500000': '$0-$2.5M',
+                        '2500000-3000000': '$2.5M-$3.0M',
+                        '3000000-3500000': '$3.0M-$3.5M',
+                        '3500000-999999999': '$3.5M+'
+                    };
+                    displayText = ranges[value] || 'Precio';
+                } else if (filterType === 'bedrooms') {
+                    displayText = value + '+ rec';
+                } else if (filterType === 'bathrooms') {
+                    displayText = value + '+ baños';
+                } else if (filterType === 'zone') {
+                    const zones = {
+                        'infonavit': 'Infonavit',
+                        'centro': 'Centro',
+                        'norte': 'Zona Norte'
+                    };
+                    displayText = zones[value] || 'Zona';
+                }
+
+                // ZILLOW: Para beds-baths, mostrar ambos si están activos
+                if (chipId === 'beds-baths') {
+                    const bedValue = activeFilters.bedrooms;
+                    const bathValue = activeFilters.bathrooms;
+                    if (bedValue && bathValue) {
+                        displayText = `${bedValue}+ rec, ${bathValue}+ baños`;
+                    } else if (bedValue) {
+                        displayText = `${bedValue}+ rec`;
+                    } else if (bathValue) {
+                        displayText = `${bathValue}+ baños`;
+                    }
+                }
+
+                chip.innerHTML = `
+                    <span class="chip-label">${displayText}</span>
+                    <i class="fas fa-times chip-icon"></i>
+                `;
+
+                // Al hacer clic en chip activo, remover filtro
+                chip.onclick = () => removeFilter(filterType);
+            } else {
+                // ZILLOW: Si es beds-baths, verificar si el otro está activo
+                if (chipId === 'beds-baths') {
+                    const bedValue = activeFilters.bedrooms;
+                    const bathValue = activeFilters.bathrooms;
+                    if (!bedValue && !bathValue) {
+                        chip.classList.remove('active');
+                        resetChipAppearance(chipId);
+                    }
+                } else if (chipId === 'more') {
+                    // ZILLOW: Para "more", verificar si zone está activo
+                    if (!activeFilters.zone) {
+                        chip.classList.remove('active');
+                        resetChipAppearance(chipId);
+                    }
+                } else {
+                    chip.classList.remove('active');
+                    resetChipAppearance(filterType);
+                }
+            }
+        }
+
+        // Remover filtro individual
+        function removeFilter(filterType) {
+            activeFilters[filterType] = '';
+            resetChipAppearance(filterType);
+
+            // Remover selected de opciones en el sheet
+            const sheet = document.getElementById(`sheet-${filterType}-culiacan`);
+            if (sheet) {
+                sheet.querySelectorAll('.option-btn, .price-btn').forEach(btn => btn.classList.remove('selected'));
+            }
+
+            applyFiltersToMap();
+        }
+
+        // Reset apariencia de chip a estado inicial
+        function resetChipAppearance(filterType) {
+            const chip = document.getElementById(`chip-${filterType}-culiacan`);
+            if (!chip) return;
+
+            chip.classList.remove('active');
+
+            // ZILLOW: Labels actualizados a español
+            const labels = {
+                type: 'En Venta',
+                price: 'Precio',
+                'beds-baths': 'Recámaras y Baños',
+                more: 'Más',
+                bedrooms: 'Recámaras y Baños',
+                bathrooms: 'Recámaras y Baños',
+                zone: 'Más'
+            };
+
+            chip.innerHTML = `
+                <span class="chip-label">${labels[filterType]}</span>
+                <i class="fas fa-chevron-down chip-icon"></i>
+            `;
+
+            chip.onclick = () => openBottomSheet(filterType);
+        }
+
+        // Aplicar todos los filtros activos al mapa
+        function applyFiltersToMap() {
+            try {
+                console.log('\n🎯 Aplicando filtros Zillow al mapa...');
+                console.log('Filtros activos:', activeFilters);
+
+                if (!window.allCuliacanMarkers || window.allCuliacanMarkers.length === 0) {
+                    console.error('❌ ERROR: No hay marcadores en window.allCuliacanMarkers');
+                    return;
+                }
+
+                let visibleCount = 0;
+
+                window.allCuliacanMarkers.forEach((marker, index) => {
+                    if (!marker.property) {
+                        marker.setMap(mapCuliacan);
+                        visibleCount++;
+                        return;
+                    }
+
+                    const property = marker.property;
+                    let shouldShow = true;
+
+                    // Filtro de tipo (venta/renta)
+                    if (activeFilters.type) {
+                        const markerType = property.type || 'venta';
+                        if (markerType !== activeFilters.type) {
+                            shouldShow = false;
+                        }
+                    }
+
+                    // Filtro de precio
+                    if (shouldShow && activeFilters.price) {
+                        const [min, max] = activeFilters.price.split('-').map(Number);
+                        const priceStr = property.priceFull?.replace(/[$,\/mes]/g, '') || '0';
+                        const price = parseInt(priceStr);
+                        if (price < min || price > max) {
+                            shouldShow = false;
+                        }
+                    }
+
+                    // Filtro de recámaras (>=)
+                    if (shouldShow && activeFilters.bedrooms) {
+                        if ((property.bedrooms || 0) < parseInt(activeFilters.bedrooms)) {
+                            shouldShow = false;
+                        }
+                    }
+
+                    // Filtro de baños (>=)
+                    if (shouldShow && activeFilters.bathrooms) {
+                        if ((property.bathrooms || 0) < parseInt(activeFilters.bathrooms)) {
+                            shouldShow = false;
+                        }
+                    }
+
+                    // Filtro de zona
+                    if (shouldShow && activeFilters.zone) {
+                        if (property.zone !== activeFilters.zone) {
+                            shouldShow = false;
+                        }
+                    }
+
+                    if (shouldShow) {
+                        marker.setMap(mapCuliacan);
+                        visibleCount++;
+                    } else {
+                        marker.setMap(null);
+                    }
                 });
 
-                // Actualizar contador
-                const countElement = document.getElementById('map-property-count');
-                if (countElement) {
-                    countElement.textContent = `${window.allCuliacanMarkers.length} propiedades`;
-                }
+                console.log(`✅ Filtro: ${visibleCount} de ${window.allCuliacanMarkers.length} propiedades visibles`);
 
-                console.log('✅ Filtros reseteados - Todas las propiedades visibles');
+            } catch (error) {
+                console.error('❌ ERROR en applyFiltersToMap():', error);
             }
         }
 
-        function selectForSale(type) {
-            mapFilters.forSale = type;
-            const text = type === 'venta' ? 'En Venta' : 'En Renta';
+        // Limpiar TODOS los filtros
+        function resetFilters() {
+            activeFilters.type = 'venta';  // Reset to default "En Venta"
+            activeFilters.price = '';
+            activeFilters.bedrooms = '';
+            activeFilters.bathrooms = '';
+            activeFilters.zone = '';
 
-            // Actualizar desktop
-            document.getElementById('forsale-btn').querySelector('span').textContent = text;
+            // Reset visual de todos los chips (usando los nuevos IDs)
+            ['type', 'price', 'beds-baths', 'more'].forEach(chipId => {
+                resetChipAppearance(chipId);
+            });
 
-            // Actualizar mobile
-            const mobileBtnSpan = document.getElementById('forsale-btn-mobile')?.querySelector('span');
-            if (mobileBtnSpan) mobileBtnSpan.textContent = text;
-
-            document.getElementById('forsale-dropdown').classList.add('hidden');
-            console.log('For Sale filter:', type);
-            // Nota: Todas las propiedades actuales son "venta", este filtro está listo para futuras rentas
-        }
-
-        function applyPriceFilter() {
-            mapFilters.priceMin = parseInt(document.getElementById('price-min-select').value);
-            mapFilters.priceMax = parseInt(document.getElementById('price-max-select').value);
-
-            const minText = mapFilters.priceMin === 0 ? 'Sin mín' : `$${(mapFilters.priceMin/1000000).toFixed(1)}M`;
-            const maxText = mapFilters.priceMax === 999999999 ? 'Sin máx' : `$${(mapFilters.priceMax/1000000).toFixed(1)}M`;
-            const priceText = `${minText} - ${maxText}`;
-
-            // Actualizar desktop
-            document.getElementById('price-btn').querySelector('span').textContent = priceText;
-
-            // Actualizar mobile
-            const mobileBtnSpan = document.getElementById('price-btn-mobile')?.querySelector('span');
-            if (mobileBtnSpan) mobileBtnSpan.textContent = priceText;
-
-            document.getElementById('price-dropdown').classList.add('hidden');
-
-            // Aplicar filtros inmediatamente
-            applyMapFilters();
-            console.log('Price filter applied:', mapFilters.priceMin, '-', mapFilters.priceMax);
-        }
-
-        function selectBeds(num) {
-            mapFilters.beds = num;
-            updateBedsBathsLabel();
-
-            // Actualizar estado visual de botones
-            document.querySelectorAll('.beds-btn').forEach(btn => {
-                const btnNum = parseInt(btn.getAttribute('data-beds'));
-                if (btnNum === num) {
-                    btn.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
-                    btn.classList.remove('border-gray-300');
-                } else {
-                    btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
-                    btn.classList.add('border-gray-300');
+            // Reset selección en todos los sheets
+            ['sheet-type-culiacan', 'sheet-price-culiacan', 'sheet-beds-baths-culiacan', 'sheet-more-culiacan'].forEach(sheetId => {
+                const sheet = document.getElementById(sheetId);
+                if (sheet) {
+                    sheet.querySelectorAll('.option-btn, .price-btn').forEach(btn => {
+                        btn.classList.remove('selected');
+                    });
+                    // Reseleccionar "En Venta" por defecto en sheet-type
+                    if (sheetId === 'sheet-type-culiacan') {
+                        const forSaleBtn = sheet.querySelector('[data-value="venta"]');
+                        if (forSaleBtn) forSaleBtn.classList.add('selected');
+                    }
                 }
             });
 
-            // Cerrar dropdown
-            document.getElementById('bedsbaths-dropdown').classList.add('hidden');
-
-            // Aplicar filtros inmediatamente
-            applyMapFilters();
-            console.log('Beds filter applied:', num);
+            closeBottomSheet();
+            applyFiltersToMap();
         }
 
-        function selectBaths(num) {
-            mapFilters.baths = num;
-            updateBedsBathsLabel();
+        // Inicializar filtros Zillow cuando el mapa esté listo
+        function initZillowFilters() {
+            const modalMap = document.querySelector('#map-culiacan');
+            if (!modalMap) {
+                console.error('❌ No se encontró el elemento #map-culiacan para agregar filtros');
+                return;
+            }
+            console.log('✅ Inicializando filtros Zillow...');
 
-            // Actualizar estado visual de botones
-            document.querySelectorAll('.baths-btn').forEach(btn => {
-                const btnNum = parseInt(btn.getAttribute('data-baths'));
-                if (btnNum === num) {
-                    btn.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
-                    btn.classList.remove('border-gray-300');
-                } else {
-                    btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
-                    btn.classList.add('border-gray-300');
-                }
-            });
+            // Insertar chips de filtros arriba del mapa
+            const filterChipsHTML = `
+            <div style="
+                position: absolute;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 999999;
+                pointer-events: auto;
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            ">
+                <div class="filter-chip" id="chip-type-culiacan" onclick="openBottomSheet('type')">
+                    <span class="chip-label">En Venta</span>
+                    <i class="fas fa-chevron-down chip-icon"></i>
+                </div>
+                <div class="filter-chip" id="chip-price-culiacan" onclick="openBottomSheet('price')">
+                    <span class="chip-label">Precio</span>
+                    <i class="fas fa-chevron-down chip-icon"></i>
+                </div>
+                <div class="filter-chip" id="chip-beds-baths-culiacan" onclick="openBottomSheet('beds-baths')">
+                    <span class="chip-label">Recámaras y Baños</span>
+                    <i class="fas fa-chevron-down chip-icon"></i>
+                </div>
+                <div class="filter-chip" id="chip-more-culiacan" onclick="openBottomSheet('more')">
+                    <span class="chip-label">Más</span>
+                    <i class="fas fa-chevron-down chip-icon"></i>
+                </div>
+            </div>
+            `;
 
-            // Cerrar dropdown
-            document.getElementById('bedsbaths-dropdown').classList.add('hidden');
-
-            // Aplicar filtros inmediatamente
-            applyMapFilters();
-            console.log('Baths filter applied:', num);
+            modalMap.insertAdjacentHTML('afterbegin', filterChipsHTML);
+            console.log('✅ Filter chips insertados');
         }
 
-        function updateBedsBathsLabel() {
-            let label = 'Beds & Baths';
-            if (mapFilters.beds > 0 || mapFilters.baths > 0) {
-                const parts = [];
-                if (mapFilters.beds > 0) parts.push(`${mapFilters.beds}+ rec`);
-                if (mapFilters.baths > 0) parts.push(`${mapFilters.baths}+ baños`);
-                label = parts.join(', ');
-            }
-
-            // Actualizar desktop
-            document.getElementById('bedsbaths-btn').querySelector('span').textContent = label;
-
-            // Actualizar mobile
-            const mobileBtnSpan = document.getElementById('bedsbaths-btn-mobile')?.querySelector('span');
-            if (mobileBtnSpan) mobileBtnSpan.textContent = label;
-        }
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('#forsale-btn') && !e.target.closest('#forsale-dropdown')) {
-                document.getElementById('forsale-dropdown').classList.add('hidden');
-            }
-            if (!e.target.closest('#price-btn') && !e.target.closest('#price-dropdown')) {
-                document.getElementById('price-dropdown').classList.add('hidden');
-            }
-            if (!e.target.closest('#bedsbaths-btn') && !e.target.closest('#bedsbaths-dropdown')) {
-                document.getElementById('bedsbaths-dropdown').classList.add('hidden');
-            }
-        });
+        // ===== CÓDIGO VIEJO ELIMINADO - AHORA USAMOS SISTEMA ZILLOW =====
 
         // Función para crear marcador personalizado (igual que las propiedades individuales)
         function createPropertyMarkerForMap(property, map, isCurrent = false) {
@@ -18548,235 +18749,8 @@
                 }
             });
 
-
-            // ==== FILTRO DE PRECIO ESTILO ZILLOW ====
-            function initPriceFilter() {
-                const modalMap = document.querySelector('#map-culiacan');
-                if (!modalMap) {
-                    console.error('❌ No se encontró el elemento #map-culiacan para agregar filtros');
-                    return;
-                }
-                console.log('✅ Elemento del mapa encontrado, agregando filtros...');
-                
-                const filterHTML = `
-                <div id="map-price-filter" style="
-                    position: absolute;
-                    top: 10px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: white;
-                    padding: 12px 20px;
-                    border-radius: 30px;
-                    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-                    z-index: 1000;
-                    display: flex;
-                    align-items: center;
-                    gap: 15px;
-                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                ">
-                    <!-- BOTÓN CERRAR -->
-                    <button id="close-filter" style="
-                        background: transparent;
-                        border: none;
-                        font-size: 20px;
-                        color: #999;
-                        cursor: pointer;
-                        padding: 0;
-                        width: 24px;
-                        height: 24px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        border-radius: 50%;
-                        transition: all 0.2s;
-                    " onmouseover="this.style.background='#f0f0f0'; this.style.color='#333'"
-                       onmouseout="this.style.background='transparent'; this.style.color='#999'"
-                       title="Cerrar filtros">
-                        ×
-                    </button>
-
-                    <!-- FILTRO DE TIPO -->
-                    <label style="font-weight: 600; font-size: 13px; color: #333;">Tipo:</label>
-                    <select id="property-type" style="
-                        padding: 6px 12px;
-                        border: 1px solid #ddd;
-                        border-radius: 8px;
-                        font-size: 12px;
-                        cursor: pointer;
-                        outline: none;
-                    ">
-                        <option value="all">Todos</option>
-                        <option value="venta">Venta</option>
-                        <option value="renta">Renta</option>
-                    </select>
-
-                    <span style="color: #ddd;">|</span>
-
-                    <!-- FILTRO DE PRECIO -->
-                    <label style="font-weight: 600; font-size: 13px; color: #333;">Precio:</label>
-
-                    <select id="price-min" style="
-                        padding: 6px 12px;
-                        border: 1px solid #ddd;
-                        border-radius: 8px;
-                        font-size: 12px;
-                        cursor: pointer;
-                        outline: none;
-                    ">
-                        <option value="0">Sin mínimo</option>
-                        <option value="1000000">$1M</option>
-                        <option value="1500000">$1.5M</option>
-                        <option value="2000000">$2M</option>
-                        <option value="2500000">$2.5M</option>
-                        <option value="3000000">$3M</option>
-                        <option value="4000000">$4M</option>
-                        <option value="5000000">$5M</option>
-                    </select>
-
-                    <span style="color: #999;">—</span>
-
-                    <select id="price-max" style="
-                        padding: 6px 12px;
-                        border: 1px solid #ddd;
-                        border-radius: 8px;
-                        font-size: 12px;
-                        cursor: pointer;
-                        outline: none;
-                    ">
-                        <option value="999999999">Sin máximo</option>
-                        <option value="2000000">$2M</option>
-                        <option value="3000000">$3M</option>
-                        <option value="4000000">$4M</option>
-                        <option value="5000000">$5M</option>
-                        <option value="6000000">$6M</option>
-                        <option value="8000000">$8M</option>
-                        <option value="10000000">$10M</option>
-                    </select>
-                </div>
-
-                <style>
-                    /* Responsive para móvil */
-                    @media (max-width: 768px) {
-                        #map-price-filter {
-                            flex-direction: column !important;
-                            gap: 10px !important;
-                            padding: 10px 15px !important;
-                            width: calc(100% - 20px) !important;
-                            left: 10px !important;
-                            transform: none !important;
-                            max-width: none !important;
-                        }
-
-                        #map-price-filter label {
-                            font-size: 12px !important;
-                            width: 100%;
-                            text-align: center;
-                        }
-
-                        #map-price-filter select {
-                            width: 100% !important;
-                            padding: 8px 12px !important;
-                            font-size: 14px !important;
-                        }
-
-                        #map-price-filter span {
-                            display: none !important;
-                        }
-
-                        #map-price-filter button {
-                            width: 100% !important;
-                            padding: 10px 16px !important;
-                            font-size: 14px !important;
-                        }
-                    }
-                </style>
-                `;
-
-                modalMap.insertAdjacentHTML('afterbegin', filterHTML);
-                
-                function filterMarkers() {
-                    try {
-                        console.log('\n🎯 filterMarkers() EJECUTÁNDOSE...');
-
-                        const minPrice = parseInt(document.getElementById('price-min').value);
-                        const maxPrice = parseInt(document.getElementById('price-max').value);
-                        const propertyType = document.getElementById('property-type').value;
-
-                        console.log(`   📊 Valores leídos:`, { minPrice, maxPrice, propertyType });
-                        console.log(`   📍 Total marcadores disponibles: ${window.allCuliacanMarkers?.length || 0}`);
-
-                        if (!window.allCuliacanMarkers || window.allCuliacanMarkers.length === 0) {
-                            console.error('❌ ERROR: No hay marcadores en window.allCuliacanMarkers');
-                            return;
-                        }
-
-                        let visibleCount = 0;
-                        console.log(`\n🔍 Filtrando por tipo: "${propertyType}", precio: $${minPrice} - $${maxPrice}`);
-
-                    window.allCuliacanMarkers.forEach((marker, index) => {
-                        if (!marker.property || !marker.property.priceFull) {
-                            marker.setMap(mapCuliacan);
-                            visibleCount++;
-                            console.log(`   [${index}] Sin datos de precio → VISIBLE`);
-                            return;
-                        }
-
-                        // Filtro de tipo
-                        const markerType = marker.property.type || 'venta'; // Default a venta si no tiene type
-                        const propertyTitle = marker.property.title || 'Sin título';
-
-                        if (propertyType !== 'all' && markerType !== propertyType) {
-                            marker.setMap(null);
-                            console.log(`   [${index}] ${propertyTitle} (tipo: ${markerType}) → OCULTO por tipo`);
-                            return;
-                        }
-
-                        // Filtro de precio (eliminar "/mes" si existe)
-                        const priceStr = marker.property.priceFull.replace(/[$,\/mes]/g, '');
-                        const price = parseInt(priceStr);
-
-                        if (price >= minPrice && price <= maxPrice) {
-                            marker.setMap(mapCuliacan);
-                            visibleCount++;
-                            console.log(`   [${index}] ${propertyTitle} (tipo: ${markerType}, precio: $${price}) → VISIBLE`);
-                        } else {
-                            marker.setMap(null);
-                            console.log(`   [${index}] ${propertyTitle} (tipo: ${markerType}, precio: $${price}) → OCULTO por precio`);
-                        }
-                    });
-
-                    console.log(`\n✅ Filtro: ${visibleCount} de ${window.allCuliacanMarkers.length} propiedades visibles\n`);
-
-                    } catch (error) {
-                        console.error('❌ ERROR en filterMarkers():', error);
-                        console.error('   Stack:', error.stack);
-                    }
-                }
-
-                // Filtrar automáticamente al cambiar cualquier select
-                document.getElementById('property-type').addEventListener('change', function() {
-                    console.log('🔄 Tipo cambiado a:', this.value);
-                    filterMarkers();
-                });
-
-                document.getElementById('price-min').addEventListener('change', function() {
-                    console.log('🔄 Precio mínimo cambiado a:', this.value);
-                    filterMarkers();
-                });
-
-                document.getElementById('price-max').addEventListener('change', function() {
-                    console.log('🔄 Precio máximo cambiado a:', this.value);
-                    filterMarkers();
-                });
-
-                document.getElementById('close-filter').addEventListener('click', () => {
-                    document.getElementById('map-price-filter').style.display = 'none';
-                    console.log('✅ Filtros ocultados');
-                });
-            }
-            
-            // Inicializar filtro cuando el mapa esté listo
-            setTimeout(initPriceFilter, 500);
+            // Inicializar filtros Zillow cuando el mapa esté listo
+            setTimeout(initZillowFilters, 500);
 
             // Esperar a que se carguen todos los marcadores y luego actualizar el contador
             setTimeout(() => {
