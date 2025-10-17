@@ -1,0 +1,235 @@
+// ===== LOTE 1: 5 NUEVAS PROPIEDADES (Agregar después de stanzaProperty) =====
+
+            // Propiedad 6: Casa en Venta en Privada La Cantera
+            const privada_la_canteraProperty = {
+                address: "Privada La Cantera, Culiacán",
+                priceShort: "$21.5M",
+                priceFull: "$21,496,000",
+                title: "Casa en Venta en Privada La Cantera",
+                location: "Privada La Cantera",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "N/D",
+                url: "https://casasenventa.info/culiacan/casa-en-venta-en-privada-la-cantera/",
+                photos: [
+                    "casa-en-venta-en-privada-la-cantera/images/foto-1.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-2.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-3.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-4.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-5.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-6.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-7.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-8.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-9.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-10.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-11.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-12.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-13.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-14.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-15.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-16.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-17.jpg",
+                    "casa-en-venta-en-privada-la-cantera/images/foto-18.jpg"
+                ]
+            };
+
+            // Propiedad 7: Se Vende Casa en Isla del Oeste en La Primavera
+            const isla_del_oeste_en_la_primProperty = {
+                address: "Isla del Oeste, La Primavera, Culiacán",
+                priceShort: "$30.1M",
+                priceFull: "$30,135,000",
+                title: "Se Vende Casa en Isla del Oeste en La Primavera",
+                location: "Isla del Oeste",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "N/D",
+                url: "https://casasenventa.info/culiacan/se-vende-casa-en-isla-del-oeste-en-la-primavera/",
+                photos: [
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-1.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-2.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-3.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-4.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-5.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-6.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-7.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-8.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-9.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-10.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-11.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-12.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-13.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-14.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-15.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-16.jpg",
+                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-17.jpg"
+                ]
+            };
+
+            // Propiedad 8: Casa en Venta Stanza Granada Salida Norte
+            const stanza_granada_salida_norProperty = {
+                address: "Stanza Granada, Salida Norte, Culiacán",
+                priceShort: "$1.6M",
+                priceFull: "$1,580,000",
+                title: "Casa en Venta Stanza Granada Salida Norte",
+                location: "Stanza Granada",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "N/D",
+                url: "https://casasenventa.info/culiacan/casa-en-venta-stanza-granada-salida-norte/",
+                photos: [
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-1.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-2.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-3.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-4.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-5.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-6.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-7.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-8.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-9.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-10.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-11.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-12.jpg",
+                    "casa-en-venta-stanza-granada-salida-norte/images/foto-13.jpg"
+                ]
+            };
+
+            // Propiedad 9: Casa en Venta en Stanza Corcega A2
+            const stanza_corcega_a2Property = {
+                address: "Stanza Corcega A2, Culiacán",
+                priceShort: "$1.29M",
+                priceFull: "$1,290,000",
+                title: "Casa en Venta en Stanza Corcega A2",
+                location: "Stanza Corcega A2",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "N/D",
+                url: "https://casasenventa.info/culiacan/casa-en-venta-en-stanza-corcega-a2/",
+                photos: [
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-1.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-2.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-3.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-4.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-5.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-6.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-7.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-8.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-9.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-10.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-11.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-12.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-13.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-14.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-15.jpg",
+                    "casa-en-venta-en-stanza-corcega-a2/images/foto-16.jpg"
+                ]
+            };
+
+            // Propiedad 10: Casa en Venta en Villas del Río Elite Zona Norte Culiacan, Sinaloa
+            const villas_del_rio_elite_zonaProperty = {
+                address: "Villas del Río Elite, Zona Norte, Culiacán",
+                priceShort: "$1.65M",
+                priceFull: "$1,650,000",
+                title: "Casa en Venta en Villas del Río Elite Zona Norte Culiacan, Sinaloa",
+                location: "Villas del Río Elite",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "N/D",
+                url: "https://casasenventa.info/culiacan/casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/",
+                photos: [
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-1.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-2.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-3.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-4.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-5.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-6.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-7.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-8.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-9.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-10.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-11.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-12.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-13.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-14.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-15.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-16.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-17.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-18.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-19.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-20.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-21.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-22.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-23.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-24.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-25.jpg",
+                    "casa-en-venta-en-villas-del-rio-elite-zona-norte-culiacan-si/images/foto-26.jpg"
+                ]
+            };
+
+
+// ===== GEOCODIFICACIONES (Agregar antes de window.mapCuliacanInitialized = true) =====
+
+            // Geocodificar Casa en Venta en Privada La Cantera
+            geocoder.geocode({ address: privada_la_canteraProperty.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(privada_la_canteraProperty, mapCuliacan);
+                    const marker = new CustomMarkerClass(position, mapCuliacan, privada_la_canteraProperty);
+                    culiacanMarkers.push(marker);
+                    console.log('Marcador Casa en Venta en Privada La Cantera creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error Casa en Venta en Privada La Cantera:', status);
+                }
+            });
+
+            // Geocodificar Se Vende Casa en Isla del Oeste en La Primavera
+            geocoder.geocode({ address: isla_del_oeste_en_la_primProperty.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(isla_del_oeste_en_la_primProperty, mapCuliacan);
+                    const marker = new CustomMarkerClass(position, mapCuliacan, isla_del_oeste_en_la_primProperty);
+                    culiacanMarkers.push(marker);
+                    console.log('Marcador Se Vende Casa en Isla del Oeste en La Primavera creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error Se Vende Casa en Isla del Oeste en La Primavera:', status);
+                }
+            });
+
+            // Geocodificar Casa en Venta Stanza Granada Salida Norte
+            geocoder.geocode({ address: stanza_granada_salida_norProperty.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(stanza_granada_salida_norProperty, mapCuliacan);
+                    const marker = new CustomMarkerClass(position, mapCuliacan, stanza_granada_salida_norProperty);
+                    culiacanMarkers.push(marker);
+                    console.log('Marcador Casa en Venta Stanza Granada Salida Norte creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error Casa en Venta Stanza Granada Salida Norte:', status);
+                }
+            });
+
+            // Geocodificar Casa en Venta en Stanza Corcega A2
+            geocoder.geocode({ address: stanza_corcega_a2Property.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(stanza_corcega_a2Property, mapCuliacan);
+                    const marker = new CustomMarkerClass(position, mapCuliacan, stanza_corcega_a2Property);
+                    culiacanMarkers.push(marker);
+                    console.log('Marcador Casa en Venta en Stanza Corcega A2 creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error Casa en Venta en Stanza Corcega A2:', status);
+                }
+            });
+
+            // Geocodificar Casa en Venta en Villas del Río Elite Zona Norte Culiacan, Sinaloa
+            geocoder.geocode({ address: villas_del_rio_elite_zonaProperty.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(villas_del_rio_elite_zonaProperty, mapCuliacan);
+                    const marker = new CustomMarkerClass(position, mapCuliacan, villas_del_rio_elite_zonaProperty);
+                    culiacanMarkers.push(marker);
+                    console.log('Marcador Casa en Venta en Villas del Río Elite Zona Norte Culiacan, Sinaloa creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error Casa en Venta en Villas del Río Elite Zona Norte Culiacan, Sinaloa:', status);
+                }
+            });
+
