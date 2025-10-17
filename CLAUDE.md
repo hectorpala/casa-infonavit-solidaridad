@@ -3,6 +3,25 @@
 ## 🏠 CONTEXTO DEL PROYECTO
 Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado en compra, remodelación y venta/renta de propiedades.
 
+## 🚀 RESUMEN RÁPIDO - GENERACIÓN DE PÁGINAS
+
+### **VENTA (Badge Verde)**
+- **Método:** `generateFromMasterTemplateWithValidation(config)`
+- **Template:** `automation/templates/master-template.html`
+- **Color:** Verde `#10b981`
+- **Incluye:** Calculadora hipotecaria + todas las features
+
+### **RENTA (Badge Naranja)** ⭐ **[NUEVO - Oct 2025]**
+- **Método:** `generateFromMasterTemplateRental(config)`
+- **Template:** `automation/templates/master-template-rental.html`
+- **Color:** Naranja `#ff6a00`
+- **Diferencia:** Sin calculadora + badge "Amueblada/Sin amueblar"
+- **Modern Features:** TODAS incluidas (sticky bar, animations, lightbox, share)
+
+**Ver sección "Generador de Propiedades" más abajo para detalles completos.**
+
+---
+
 ## 🎯 COMANDOS PRINCIPALES
 
 ### ⚡ SCRAPER AUTOMÁTICO - MÉTODO MÁS RÁPIDO (3 MINUTOS) ✨ **[RECOMENDADO]**
@@ -287,16 +306,149 @@ Scraper: ✅ Scrapeando... → Publicando... → ✅ Listo
 - **Estructura:** Hero + Contact + todas las modern features
 
 **PARA RENTA:**
-- **Método:** `generateFromSolidaridadTemplate(config)` ⭐
-- **Template:** Copia EXACTA de `casa-renta-rincon-colonial-697816.html`
-- **Estructura:** Hero + Contact (SOLO 2 secciones)
-- **Garantía:** 100% idéntica a Casa Rincón Colonial
-- **Fotos:** 12 fotos (estructura completa con carrusel)
+- **Método:** `generateFromMasterTemplateRental(config)` ⭐ **[NUEVO - Octubre 2025]**
+- **Template:** `automation/templates/master-template-rental.html`
+- **Estructura:** Hero + Features + Details + Contact (sin calculadora)
+- **Badge:** Naranja `#ff6a00` (vs Verde `#10b981` para venta)
+- **Precio:** `$XX,XXX/mes` (incluye "/mes")
+- **Modern Features:** TODAS incluidas (sticky bar, animations, lightbox, share)
+- **Schema.org:** Tipo `Accommodation` con `unitText: "MONTH"`
+- **Inspirado en:** `inmuebles24culiacanscraper.js` (template más robusto del proyecto)
+
+#### 🟠 **DIFERENCIAS VENTA vs RENTA:**
+
+| Característica | VENTA (Verde) | RENTA (Naranja) |
+|---------------|--------------|----------------|
+| **Badge color** | `#10b981` (verde) | `#ff6a00` (naranja) |
+| **Precio label** | "En Venta" | "Renta Mensual" |
+| **Precio format** | `$X,XXX,XXX` | `$XX,XXX/mes` |
+| **Price detail** | "Se acepta contado y créditos" | "Depósito y primer mes" |
+| **Schema @type** | `SingleFamilyResidence` | `Accommodation` |
+| **Calculadora** | ✅ Incluida | ❌ Eliminada |
+| **Badge extra** | N/A | ✅ `{{FURNISHED_STATUS}}` |
+| **Modern features** | ✅ Todas | ✅ Todas (sin calc) |
+
+#### 📦 **PLACEHOLDERS MASTER TEMPLATE RENTAL:**
+
+**Información Básica:**
+- `{{TITLE}}` - Casa en Renta Privanzas Natura
+- `{{PRICE}}` - $25,000
+- `{{PRICE_NUMBER}}` - 25000 (sin formato)
+- `{{SLUG}}` - privanzas-natura-renta
+
+**Ubicación:**
+- `{{LOCATION}}` - Privanzas Natura, Culiacán, Sinaloa
+- `{{LOCATION_SHORT}}` - Privanzas Natura
+- `{{FULL_ADDRESS}}` - Calle Ébano 123, Privanzas Natura, 80000 Culiacán
+- `{{STREET_ADDRESS}}` - Calle Ébano 123
+- `{{ADDRESS_LOCALITY}}` - Privanzas Natura
+- `{{POSTAL_CODE}}` - 80000
+- `{{LATITUDE}}` - 24.8091
+- `{{LONGITUDE}}` - -107.3940
+
+**Características:**
+- `{{BEDROOMS}}` - 3
+- `{{BATHROOMS}}` - 2
+- `{{PARKING_SPACES}}` - 2
+- `{{CONSTRUCTION_AREA}}` - 180
+- `{{LAND_AREA}}` - 200
+- `{{FLOORS}}` - 2
+- `{{TOTAL_ROOMS}}` - 5
+- `{{FURNISHED_STATUS}}` - Amueblada / Semi-amueblada / Sin amueblar
+
+**Fotos:**
+- `{{PHOTO_COUNT}}` - 12
+- `{{CAROUSEL_SLIDES}}` - HTML generado automático
+- `{{CAROUSEL_DOTS}}` - HTML generado automático
+- `{{LIGHTBOX_IMAGES_ARRAY}}` - Array JS generado
+
+**SEO:**
+- `{{META_DESCRIPTION}}` - Meta description
+- `{{OG_DESCRIPTION}}` - Open Graph description
+- `{{SCHEMA_DESCRIPTION}}` - Schema.org description
+- `{{HERO_SUBTITLE}}` - Subtítulo del hero
+- `{{AMENITIES_JSON}}` - JSON array amenidades
+- `{{WHATSAPP_MESSAGE_ENCODED}}` - Mensaje WhatsApp URL-encoded
+
+#### 🚀 **USO MASTER TEMPLATE RENTAL:**
+
+```javascript
+const PropertyPageGenerator = require('./automation/generador-de-propiedades');
+const generator = new PropertyPageGenerator(false);
+
+const html = generator.generateFromMasterTemplateRental({
+    // Básico
+    title: 'Casa en Renta Privanzas Natura',
+    price: '$25,000',
+    priceNumber: 25000,
+    slug: 'privanzas-natura-renta',
+
+    // Ubicación
+    location: 'Privanzas Natura, Culiacán, Sinaloa',
+    locationShort: 'Privanzas Natura',
+
+    // Características
+    bedrooms: 3,
+    bathrooms: 2,
+    parkingSpaces: 2,
+    constructionArea: 180,
+    landArea: 200,
+    furnishedStatus: 'Amueblada',
+
+    // Fotos
+    photoCount: 12,
+
+    // SEO
+    metaDescription: 'Casa amueblada en renta en Privanzas Natura, Culiacán.',
+    heroSubtitle: 'Casa amueblada en excelente estado...',
+
+    // Amenidades
+    amenitiesJson: [
+        { "@type": "LocationFeatureSpecification", "name": "Amueblada", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Jardín", "value": true }
+    ]
+});
+
+fs.writeFileSync('casa-renta-privanzas-natura.html', html, 'utf8');
+```
+
+#### 📂 **ESTRUCTURA ARCHIVOS RENTA (ROOT):**
+```
+/
+├── casa-renta-privanzas-natura.html  ← HTML principal
+├── images/
+│   └── privanzas-natura-renta/
+│       ├── foto-1.jpg                ← FACHADA (primera)
+│       └── ...
+└── styles.css                        ← CSS 87KB (actualizado)
+```
+
+#### 🎨 **TARJETA EN INDEX.HTML (BADGE NARANJA):**
+```html
+<div class="property-card">
+    <!-- Badge NARANJA -->
+    <div class="absolute top-3 right-3 bg-orange-500 ...">
+        $25,000/mes
+    </div>
+
+    <!-- CTA NARANJA -->
+    <a href="../casa-renta-privanzas-natura.html"
+       class="from-orange-500 to-orange-600 ...">
+        Ver Detalles
+    </a>
+</div>
+```
 
 #### ⚠️ **MÉTODOS OBSOLETOS - NO USAR:**
-- ❌ `generateIndividualPage()` - Genera estructura incorrecta para RENTA (5 secciones en vez de 2)
-- ❌ `rental-template-perfect.html` - Template con secciones extra que no deben estar
-- ❌ `replaceTemplatePlaceholders()` directo - Requiere trabajo manual adicional
+- ❌ `generateFromSolidaridadTemplate()` - Template antiguo sin modern features
+- ❌ `generateIndividualPage()` - Genera estructura incorrecta (5 secciones)
+- ❌ `rental-template-perfect.html` - Template con secciones extra
+- ❌ `replaceTemplatePlaceholders()` directo - Requiere trabajo manual
+
+#### 📖 **DOCUMENTACIÓN COMPLETA RENTA:**
+- **Template:** `automation/templates/master-template-rental.html`
+- **README:** `automation/MASTER-TEMPLATE-RENTAL-README.md` (400+ líneas)
+- **Inspiración:** `inmuebles24culiacanscraper.js` (líneas 326-704)
 
 ### ⚠️ **REQUISITO CRÍTICO: CSS ACTUALIZADO EN ROOT**
 - **Archivo:** `styles.css` (87KB - versión completa con carrusel)
