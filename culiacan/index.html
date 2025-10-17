@@ -568,75 +568,101 @@
 </head>
 <body class="font-poppins bg-gray-50 text-gray-900">
     <!-- Zillow-Style App Bar -->
-    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 py-3">
-            <!-- Top Row: Logo + Search + Sign In -->
-            <div class="flex items-center justify-between gap-4">
+        <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <div class="w-full px-6">
+            <!-- Main Row -->
+            <div class="flex items-center justify-between h-20">
                 <!-- Logo (Left) -->
-                <div class="flex items-center space-x-2 flex-shrink-0">
-                    <svg class="w-7 h-7 text-hector" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8L18 11v8h-2v-6h-6v6H8v-8l4-5.2z"/>
-                    </svg>
-                    <span class="text-lg font-bold text-gray-900 hidden md:inline">Hector BR</span>
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center space-x-2 group mr-8">
+                        <svg class="w-9 h-9 text-hector transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8L18 11v8h-2v-6h-6v6H8v-8l4-5.2z"/>
+                        </svg>
+                        <span class="text-2xl font-bold text-gray-900">Hector<span class="text-hector">BR</span></span>
+                    </a>
                 </div>
 
-                <!-- Search Input (Center) -->
-                <div class="flex-1 max-w-2xl">
+                <!-- Center: Search Bar (PROMINENTE) -->
+                <div class="flex-1 max-w-3xl mx-8">
                     <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </div>
                         <input
                             type="text"
-                            id="search-location"
-                            placeholder="Culiacán, Sinaloa"
-                            value="Culiacán, Sinaloa"
-                            class="w-full pl-4 pr-20 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-hector focus:border-transparent text-sm"
+                            placeholder="Ingresa dirección, colonia o código postal"
+                            class="w-full pl-12 pr-4 py-3.5 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-base placeholder-gray-500 hover:border-gray-400 transition-colors"
                         />
-                        <div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-2">
-                            <button onclick="document.getElementById('search-location').value=''" class="text-gray-400 hover:text-gray-600">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                                </svg>
-                            </button>
-                            <button class="text-gray-600 hover:text-hector">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                                </svg>
-                            </button>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Sign In (Right) -->
-                <a href="https://wa.me/526671631231" class="text-sm font-medium text-hector hover:text-hector-dark hidden md:block whitespace-nowrap">
-                    Contactar
-                </a>
+                <!-- Right: Actions -->
+                <div class="flex items-center space-x-6">
+                    <!-- Navigation Links -->
+                    <nav class="hidden lg:flex items-center space-x-6">
+                        <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap">
+                            Comprar
+                        </a>
+                        <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap">
+                            Rentar
+                        </a>
+                        <a href="#" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors whitespace-nowrap">
+                            Vender
+                        </a>
+                    </nav>
+
+                    <!-- Guardados -->
+                    <button class="hidden lg:flex items-center space-x-1.5 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                        <span>Guardados</span>
+                    </button>
+
+                    <!-- Contactar Button -->
+                    <a href="https://wa.me/526671631231" target="_blank" class="hidden md:inline-flex items-center space-x-2 px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-hector to-orange-600 hover:from-orange-600 hover:to-hector rounded-lg transition-all shadow-sm hover:shadow-md">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        <span>Contactar</span>
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
 
-            <!-- Controls Bar (Chips Row) -->
-            <div class="flex items-center gap-3 mt-3 overflow-x-auto pb-2 -mb-2">
-                <!-- Save Search Button -->
-                <button class="inline-flex items-center gap-2 px-4 py-2 bg-hector text-white rounded-full text-sm font-medium hover:bg-hector-dark transition-colors whitespace-nowrap">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            <!-- Secondary Row: Location + Map Button -->
+            <div class="flex items-center justify-between pb-4 pt-2">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                     </svg>
-                    <span>Guardar búsqueda</span>
-                </button>
+                    <span class="text-sm font-medium text-gray-700">Culiacán, Sinaloa</span>
+                </div>
 
-                <!-- Ver en Mapa Button (Zillow Style) -->
-                <button onclick="openMapModal()" class="inline-flex items-center gap-2 px-4 py-2 border-2 border-hector text-hector rounded-full text-sm font-bold hover:bg-hector hover:text-white transition-all duration-300 whitespace-nowrap">
+                <button onclick="openMapModal()" class="inline-flex items-center space-x-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition-all">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
                     </svg>
-                    <span class="font-semibold">Ver en Mapa</span>
+                    <span>Ver en Mapa</span>
                 </button>
             </div>
         </div>
     </header>
 
+
     <!-- Main Content -->
     <main id="listado" class="max-w-7xl mx-auto px-4 py-6">
         <!-- Results Header (Zillow Style) -->
         <div class="mb-6">
-            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2 font-poppins">Culiacán, Sinaloa · Casas en Venta</h1>
             <div class="flex items-center gap-3 text-sm text-gray-600">
                 <span id="results-count" class="font-medium">161 resultados</span>
                 <span class="text-gray-400">|</span>
@@ -15580,19 +15606,130 @@
     </script>
 
     <!-- Map Modal (Zillow Style) - Culiacán -->
-    <div id="mapModal" class="fixed inset-0 bg-black/70 z-[9999] hidden items-center justify-center p-4 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl w-full max-w-7xl h-[90vh] flex flex-col shadow-2xl animate-slideUp">
-            <!-- Modal Header -->
-            <div class="flex items-center justify-between p-4 md:p-6 border-b border-gray-200">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 font-poppins">Mapa de Propiedades</h2>
-                    <p class="text-sm text-gray-600 mt-1">Culiacán, Sinaloa</p>
+    <div id="mapModal" class="fixed inset-0 bg-black/70 z-[9999] hidden items-center justify-center backdrop-blur-sm">
+        <div class="bg-white w-full h-full flex flex-col shadow-2xl">
+            <!-- Modal Header (Zillow-style) -->
+            <div class="bg-white border-b border-gray-200 px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Left: Logo/Brand -->
+                    <div class="flex items-center">
+                        <a href="/" class="flex items-center space-x-2 group mr-8">
+                            <svg class="w-8 h-8 text-hector transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8L18 11v8h-2v-6h-6v6H8v-8l4-5.2z"/>
+                            </svg>
+                            <span class="text-xl font-bold text-gray-900">Hector<span class="text-hector">BR</span></span>
+                        </a>
+                    </div>
+
+                    <!-- Center: Filters -->
+                    <div class="flex items-center gap-3">
+                        <!-- For Sale Filter -->
+                        <div class="relative">
+                            <button id="forsale-btn" onclick="toggleForSaleDropdown()" class="inline-flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50 hover:border-blue-500 transition-all shadow-sm">
+                                <span>For Sale</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <!-- Dropdown For Sale -->
+                            <div id="forsale-dropdown" class="hidden absolute top-full mt-2 left-0 bg-white border border-gray-200 rounded-xl shadow-2xl z-[10000] min-w-[220px]">
+                                <div class="py-2">
+                                    <button onclick="selectForSale('venta')" class="w-full text-left px-4 py-3 hover:bg-blue-50 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                                        <div class="flex items-center justify-between">
+                                            <span>En Venta</span>
+                                        </div>
+                                    </button>
+                                    <button onclick="selectForSale('renta')" class="w-full text-left px-4 py-3 hover:bg-blue-50 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                                        <div class="flex items-center justify-between">
+                                            <span>En Renta</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price Filter -->
+                        <div class="relative">
+                            <button id="price-btn" onclick="togglePriceDropdown()" class="inline-flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50 hover:border-blue-500 transition-all shadow-sm">
+                                <span>Price</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <!-- Dropdown Price -->
+                            <div id="price-dropdown" class="hidden absolute top-full mt-2 left-0 bg-white border border-gray-200 rounded-xl shadow-2xl z-[10000] min-w-[340px]">
+                                <div class="p-5">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-xs font-semibold text-gray-700 mb-2">Mínimo</label>
+                                            <select id="price-min-select" class="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg text-sm font-medium focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                                <option value="0">Sin mínimo</option>
+                                                <option value="500000">$500,000</option>
+                                                <option value="1000000">$1,000,000</option>
+                                                <option value="2000000">$2,000,000</option>
+                                                <option value="3000000">$3,000,000</option>
+                                                <option value="5000000">$5,000,000</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-xs font-semibold text-gray-700 mb-2">Máximo</label>
+                                            <select id="price-max-select" class="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg text-sm font-medium focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+                                                <option value="999999999">Sin máximo</option>
+                                                <option value="1000000">$1,000,000</option>
+                                                <option value="2000000">$2,000,000</option>
+                                                <option value="3000000">$3,000,000</option>
+                                                <option value="5000000">$5,000,000</option>
+                                                <option value="10000000">$10,000,000</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button onclick="applyPriceFilter()" class="w-full mt-4 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition-all">
+                                        Aplicar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Beds & Baths Filter -->
+                        <div class="relative">
+                            <button id="bedsbaths-btn" onclick="toggleBedsBathsDropdown()" class="inline-flex items-center gap-2 px-4 py-2.5 border border-gray-300 rounded-lg text-sm font-semibold text-gray-800 bg-white hover:bg-gray-50 hover:border-blue-500 transition-all shadow-sm">
+                                <span>Beds & Baths</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                </svg>
+                            </button>
+                            <!-- Dropdown Beds & Baths -->
+                            <div id="bedsbaths-dropdown" class="hidden absolute top-full mt-2 left-0 bg-white border border-gray-200 rounded-xl shadow-2xl z-[10000] min-w-[280px]">
+                                <div class="p-5">
+                                    <div class="mb-4">
+                                        <label class="block text-xs font-semibold text-gray-700 mb-3">Recámaras</label>
+                                        <div class="flex gap-2">
+                                            <button onclick="selectBeds(1)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">1+</button>
+                                            <button onclick="selectBeds(2)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">2+</button>
+                                            <button onclick="selectBeds(3)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">3+</button>
+                                            <button onclick="selectBeds(4)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">4+</button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-700 mb-3">Baños</label>
+                                        <div class="flex gap-2">
+                                            <button onclick="selectBaths(1)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">1+</button>
+                                            <button onclick="selectBaths(2)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">2+</button>
+                                            <button onclick="selectBaths(3)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">3+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Close Button -->
+                    <button onclick="closeMapModal()" class="p-2.5 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <svg class="w-6 h-6 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
                 </div>
-                <button onclick="closeMapModal()" class="p-3 hover:bg-gray-100 rounded-full transition-colors group">
-                    <svg class="w-6 h-6 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
             </div>
 
             <!-- Map Container -->
@@ -15650,6 +15787,99 @@
             modal.classList.remove('flex');
             document.body.style.overflow = '';
         }
+
+        // ===== ZILLOW-STYLE FILTERS FUNCTIONS =====
+
+        // Toggle dropdowns
+        function toggleForSaleDropdown() {
+            const dropdown = document.getElementById('forsale-dropdown');
+            dropdown.classList.toggle('hidden');
+            // Close others
+            document.getElementById('price-dropdown').classList.add('hidden');
+            document.getElementById('bedsbaths-dropdown').classList.add('hidden');
+        }
+
+        function togglePriceDropdown() {
+            const dropdown = document.getElementById('price-dropdown');
+            dropdown.classList.toggle('hidden');
+            // Close others
+            document.getElementById('forsale-dropdown').classList.add('hidden');
+            document.getElementById('bedsbaths-dropdown').classList.add('hidden');
+        }
+
+        function toggleBedsBathsDropdown() {
+            const dropdown = document.getElementById('bedsbaths-dropdown');
+            dropdown.classList.toggle('hidden');
+            // Close others
+            document.getElementById('forsale-dropdown').classList.add('hidden');
+            document.getElementById('price-dropdown').classList.add('hidden');
+        }
+
+        // Filter selections
+        let mapFilters = {
+            forSale: 'venta',
+            priceMin: 0,
+            priceMax: 999999999,
+            beds: 0,
+            baths: 0
+        };
+
+        function selectForSale(type) {
+            mapFilters.forSale = type;
+            document.getElementById('forsale-btn').querySelector('span').textContent =
+                type === 'venta' ? 'En Venta' : 'En Renta';
+            document.getElementById('forsale-dropdown').classList.add('hidden');
+            console.log('For Sale filter:', type);
+        }
+
+        function applyPriceFilter() {
+            mapFilters.priceMin = parseInt(document.getElementById('price-min-select').value);
+            mapFilters.priceMax = parseInt(document.getElementById('price-max-select').value);
+
+            const minText = mapFilters.priceMin === 0 ? 'Sin mín' : `$${(mapFilters.priceMin/1000000).toFixed(1)}M`;
+            const maxText = mapFilters.priceMax === 999999999 ? 'Sin máx' : `$${(mapFilters.priceMax/1000000).toFixed(1)}M`;
+
+            document.getElementById('price-btn').querySelector('span').textContent =
+                `${minText} - ${maxText}`;
+            document.getElementById('price-dropdown').classList.add('hidden');
+            console.log('Price filter:', mapFilters.priceMin, '-', mapFilters.priceMax);
+        }
+
+        function selectBeds(num) {
+            mapFilters.beds = num;
+            updateBedsBathsLabel();
+            console.log('Beds filter:', num);
+        }
+
+        function selectBaths(num) {
+            mapFilters.baths = num;
+            updateBedsBathsLabel();
+            console.log('Baths filter:', num);
+        }
+
+        function updateBedsBathsLabel() {
+            let label = 'Beds & Baths';
+            if (mapFilters.beds > 0 || mapFilters.baths > 0) {
+                const parts = [];
+                if (mapFilters.beds > 0) parts.push(`${mapFilters.beds}+ rec`);
+                if (mapFilters.baths > 0) parts.push(`${mapFilters.baths}+ baños`);
+                label = parts.join(', ');
+            }
+            document.getElementById('bedsbaths-btn').querySelector('span').textContent = label;
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#forsale-btn') && !e.target.closest('#forsale-dropdown')) {
+                document.getElementById('forsale-dropdown').classList.add('hidden');
+            }
+            if (!e.target.closest('#price-btn') && !e.target.closest('#price-dropdown')) {
+                document.getElementById('price-dropdown').classList.add('hidden');
+            }
+            if (!e.target.closest('#bedsbaths-btn') && !e.target.closest('#bedsbaths-dropdown')) {
+                document.getElementById('bedsbaths-dropdown').classList.add('hidden');
+            }
+        });
 
         // Función para crear marcador personalizado (igual que las propiedades individuales)
         function createPropertyMarkerForMap(property, map, isCurrent = false) {
