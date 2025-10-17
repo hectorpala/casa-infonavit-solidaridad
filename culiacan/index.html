@@ -16549,7 +16549,7 @@
             const culiacanCenter = { lat: 24.8091, lng: -107.3940 };
 
             // Crear mapa centrado en Culiacán
-            window.mapCuliacan = new google.maps.Map(document.getElementById('map-culiacan'), {
+            mapCuliacan = new google.maps.Map(document.getElementById('map-culiacan'), {
                 center: culiacanCenter,
                 zoom: 13,
                 mapTypeId: 'roadmap',
@@ -16569,6 +16569,8 @@
                 gestureHandling: 'greedy'
             });
 
+            window.mapCuliacan = mapCuliacan;
+            
             
             // Inicializar array global de marcadores para el filtro
             window.allCuliacanMarkers = [];
