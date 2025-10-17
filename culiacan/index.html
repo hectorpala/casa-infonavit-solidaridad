@@ -15703,24 +15703,32 @@
                                 <div class="p-5">
                                     <div class="mb-4">
                                         <label class="block text-xs font-semibold text-gray-700 mb-3">Recámaras</label>
-                                        <div class="flex gap-2">
-                                            <button onclick="selectBeds(1)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">1+</button>
-                                            <button onclick="selectBeds(2)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">2+</button>
-                                            <button onclick="selectBeds(3)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">3+</button>
-                                            <button onclick="selectBeds(4)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">4+</button>
+                                        <div id="beds-buttons" class="flex gap-2">
+                                            <button onclick="selectBeds(1)" data-beds="1" class="beds-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">1+</button>
+                                            <button onclick="selectBeds(2)" data-beds="2" class="beds-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">2+</button>
+                                            <button onclick="selectBeds(3)" data-beds="3" class="beds-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">3+</button>
+                                            <button onclick="selectBeds(4)" data-beds="4" class="beds-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">4+</button>
                                         </div>
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-gray-700 mb-3">Baños</label>
-                                        <div class="flex gap-2">
-                                            <button onclick="selectBaths(1)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">1+</button>
-                                            <button onclick="selectBaths(2)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">2+</button>
-                                            <button onclick="selectBaths(3)" class="flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">3+</button>
+                                        <div id="baths-buttons" class="flex gap-2">
+                                            <button onclick="selectBaths(1)" data-baths="1" class="baths-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">1+</button>
+                                            <button onclick="selectBaths(2)" data-baths="2" class="baths-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">2+</button>
+                                            <button onclick="selectBaths(3)" data-baths="3" class="baths-btn flex-1 px-3 py-2.5 border-2 border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-500 text-sm font-medium transition-all">3+</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Reset Filters Button -->
+                        <button onclick="resetMapFilters()" class="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-blue-600 hover:bg-blue-50 rounded-lg transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                            <span>Reset</span>
+                        </button>
                     </div>
 
                     <!-- Right: Close Button -->
@@ -15824,12 +15832,130 @@
             baths: 0
         };
 
+        // Función principal para aplicar todos los filtros
+        function applyMapFilters() {
+            if (!window.allCuliacanMarkers || window.allCuliacanMarkers.length === 0) {
+                console.log('⚠️ No markers available yet');
+                return;
+            }
+
+            if (!window.mapCuliacan) {
+                console.log('⚠️ Map not initialized yet');
+                return;
+            }
+
+            let visibleCount = 0;
+
+            console.log('=== APLICANDO FILTROS ===');
+            console.log('Filtros activos:', mapFilters);
+            console.log('Total markers:', window.allCuliacanMarkers.length);
+
+            window.allCuliacanMarkers.forEach((marker, index) => {
+                const property = marker.property;
+
+                // Parsear precio desde priceFull (formato: "$1,750,000")
+                const priceValue = parseInt(property.priceFull.replace(/[$,]/g, ''));
+
+                // Aplicar filtros
+                let showMarker = true;
+                let reasons = [];
+
+                // Filtro de precio
+                if (priceValue < mapFilters.priceMin || priceValue > mapFilters.priceMax) {
+                    showMarker = false;
+                    reasons.push(`precio ${priceValue} fuera de rango [${mapFilters.priceMin}, ${mapFilters.priceMax}]`);
+                }
+
+                // Filtro de recámaras (mayor o igual)
+                if (mapFilters.beds > 0 && property.bedrooms < mapFilters.beds) {
+                    showMarker = false;
+                    reasons.push(`recámaras ${property.bedrooms} < ${mapFilters.beds}`);
+                }
+
+                // Filtro de baños (mayor o igual)
+                if (mapFilters.baths > 0 && property.bathrooms < mapFilters.baths) {
+                    showMarker = false;
+                    reasons.push(`baños ${property.bathrooms} < ${mapFilters.baths}`);
+                }
+
+                // Debug log para primeras 5 propiedades
+                if (index < 5) {
+                    console.log(`${index + 1}. ${property.title}:`);
+                    console.log(`   - Precio: ${property.priceFull} → ${priceValue}`);
+                    console.log(`   - Beds: ${property.bedrooms}, Baths: ${property.bathrooms}`);
+                    console.log(`   - Visible: ${showMarker}`, reasons.length > 0 ? reasons : '✓');
+                }
+
+                // Mostrar/ocultar marcador
+                if (showMarker) {
+                    marker.setMap(window.mapCuliacan);
+                    visibleCount++;
+                } else {
+                    marker.setMap(null);
+                }
+            });
+
+            console.log(`✅ RESULTADO: ${visibleCount} de ${window.allCuliacanMarkers.length} propiedades visibles`);
+
+            // Actualizar contador en el footer del modal
+            const countElement = document.getElementById('map-property-count');
+            if (countElement) {
+                countElement.textContent = `${visibleCount} propiedades`;
+            }
+        }
+
+        // Función para resetear todos los filtros
+        function resetMapFilters() {
+            // Resetear valores
+            mapFilters.priceMin = 0;
+            mapFilters.priceMax = 999999999;
+            mapFilters.beds = 0;
+            mapFilters.baths = 0;
+
+            // Resetear UI de botones principales
+            document.getElementById('forsale-btn').querySelector('span').textContent = 'For Sale';
+            document.getElementById('price-btn').querySelector('span').textContent = 'Price';
+            document.getElementById('bedsbaths-btn').querySelector('span').textContent = 'Beds & Baths';
+
+            // Resetear dropdowns de precio
+            document.getElementById('price-min-select').value = '0';
+            document.getElementById('price-max-select').value = '999999999';
+
+            // Resetear estado visual de botones de recámaras
+            document.querySelectorAll('.beds-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+                btn.classList.add('border-gray-300');
+            });
+
+            // Resetear estado visual de botones de baños
+            document.querySelectorAll('.baths-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+                btn.classList.add('border-gray-300');
+            });
+
+            // Mostrar todos los marcadores
+            if (window.allCuliacanMarkers && window.mapCuliacan) {
+                window.allCuliacanMarkers.forEach(marker => {
+                    marker.setMap(window.mapCuliacan);
+                });
+
+                // Actualizar contador
+                const countElement = document.getElementById('map-property-count');
+                if (countElement) {
+                    countElement.textContent = `${window.allCuliacanMarkers.length} propiedades`;
+                }
+
+                console.log('✅ Filtros reseteados - Todas las propiedades visibles');
+            }
+        }
+
         function selectForSale(type) {
             mapFilters.forSale = type;
             document.getElementById('forsale-btn').querySelector('span').textContent =
                 type === 'venta' ? 'En Venta' : 'En Renta';
             document.getElementById('forsale-dropdown').classList.add('hidden');
             console.log('For Sale filter:', type);
+            // Nota: Todas las propiedades actuales son "venta", este filtro está listo para futuras rentas
         }
 
         function applyPriceFilter() {
@@ -15842,19 +15968,58 @@
             document.getElementById('price-btn').querySelector('span').textContent =
                 `${minText} - ${maxText}`;
             document.getElementById('price-dropdown').classList.add('hidden');
-            console.log('Price filter:', mapFilters.priceMin, '-', mapFilters.priceMax);
+
+            // Aplicar filtros inmediatamente
+            applyMapFilters();
+            console.log('Price filter applied:', mapFilters.priceMin, '-', mapFilters.priceMax);
         }
 
         function selectBeds(num) {
             mapFilters.beds = num;
             updateBedsBathsLabel();
-            console.log('Beds filter:', num);
+
+            // Actualizar estado visual de botones
+            document.querySelectorAll('.beds-btn').forEach(btn => {
+                const btnNum = parseInt(btn.getAttribute('data-beds'));
+                if (btnNum === num) {
+                    btn.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+                    btn.classList.remove('border-gray-300');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+                    btn.classList.add('border-gray-300');
+                }
+            });
+
+            // Cerrar dropdown
+            document.getElementById('bedsbaths-dropdown').classList.add('hidden');
+
+            // Aplicar filtros inmediatamente
+            applyMapFilters();
+            console.log('Beds filter applied:', num);
         }
 
         function selectBaths(num) {
             mapFilters.baths = num;
             updateBedsBathsLabel();
-            console.log('Baths filter:', num);
+
+            // Actualizar estado visual de botones
+            document.querySelectorAll('.baths-btn').forEach(btn => {
+                const btnNum = parseInt(btn.getAttribute('data-baths'));
+                if (btnNum === num) {
+                    btn.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+                    btn.classList.remove('border-gray-300');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+                    btn.classList.add('border-gray-300');
+                }
+            });
+
+            // Cerrar dropdown
+            document.getElementById('bedsbaths-dropdown').classList.add('hidden');
+
+            // Aplicar filtros inmediatamente
+            applyMapFilters();
+            console.log('Baths filter applied:', num);
         }
 
         function updateBedsBathsLabel() {
@@ -15983,7 +16148,7 @@
             const culiacanCenter = { lat: 24.8091, lng: -107.3940 };
 
             // Crear mapa centrado en Culiacán
-            mapCuliacan = new google.maps.Map(document.getElementById('map-culiacan'), {
+            window.mapCuliacan = new google.maps.Map(document.getElementById('map-culiacan'), {
                 center: culiacanCenter,
                 zoom: 13,
                 mapTypeId: 'roadmap',
@@ -17308,8 +17473,8 @@
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, solidaridadProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, solidaridadProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador solidaridad creado en:', position.lat(), position.lng());
                 } else {
@@ -17321,8 +17486,8 @@
             geocoder.geocode({ address: "San Agustín 266, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(laPrimaveraProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, laPrimaveraProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(laPrimaveraProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, laPrimaveraProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador laPrimavera creado en:', position.lat(), position.lng());
                 } else {
@@ -17334,8 +17499,8 @@
             geocoder.geocode({ address: "Paseos del Rey, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(monacoProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, monacoProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(monacoProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, monacoProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador monaco creado en:', position.lat(), position.lng());
                 } else {
@@ -17347,8 +17512,8 @@
             geocoder.geocode({ address: "Amorada, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(amoradaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, amoradaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(amoradaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, amoradaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador amorada creado en:', position.lat(), position.lng());
                 } else {
@@ -17360,8 +17525,8 @@
             geocoder.geocode({ address: "Fraccionamiento Stanza, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(stanzaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, stanzaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(stanzaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, stanzaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador stanza creado en:', position.lat(), position.lng());
                 } else {
@@ -17373,8 +17538,8 @@
             geocoder.geocode({ address: "Privada La Cantera, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(privadaLaCanteraProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, privadaLaCanteraProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(privadaLaCanteraProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, privadaLaCanteraProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador privadaLaCantera creado en:', position.lat(), position.lng());
                 } else {
@@ -17386,8 +17551,8 @@
             geocoder.geocode({ address: "Isla del Oeste, La Primavera, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(islaDelOesteProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, islaDelOesteProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(islaDelOesteProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, islaDelOesteProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador islaDelOeste creado en:', position.lat(), position.lng());
                 } else {
@@ -17399,8 +17564,8 @@
             geocoder.geocode({ address: "Stanza Granada, Salida Norte, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(stanzaGranadaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, stanzaGranadaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(stanzaGranadaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, stanzaGranadaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador stanzaGranada creado en:', position.lat(), position.lng());
                 } else {
@@ -17412,8 +17577,8 @@
             geocoder.geocode({ address: "Stanza Corcega A2, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(stanzaCorcegaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, stanzaCorcegaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(stanzaCorcegaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, stanzaCorcegaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador stanzaCorcega creado en:', position.lat(), position.lng());
                 } else {
@@ -17425,8 +17590,8 @@
             geocoder.geocode({ address: "Villas del Río Elite, Zona Norte, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(villasDelRioProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, villasDelRioProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(villasDelRioProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, villasDelRioProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador villasDelRio creado en:', position.lat(), position.lng());
                 } else {
@@ -17438,8 +17603,8 @@
             geocoder.geocode({ address: "Urbivilla, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(urbivillaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, urbivillaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(urbivillaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, urbivillaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador urbivilla creado en:', position.lat(), position.lng());
                 } else {
@@ -17451,8 +17616,8 @@
             geocoder.geocode({ address: "Sector Aeropuerto, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(sectorAeropuertoProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, sectorAeropuertoProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(sectorAeropuertoProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, sectorAeropuertoProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador sectorAeropuerto creado en:', position.lat(), position.lng());
                 } else {
@@ -17464,8 +17629,8 @@
             geocoder.geocode({ address: "Nuevo Culiacán, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(nuevoCuliacanProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, nuevoCuliacanProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(nuevoCuliacanProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, nuevoCuliacanProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador nuevoCuliacan creado en:', position.lat(), position.lng());
                 } else {
@@ -17477,8 +17642,8 @@
             geocoder.geocode({ address: "Valles del Sol, Sector Terranova, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(vallesDelSolProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, vallesDelSolProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(vallesDelSolProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, vallesDelSolProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador vallesDelSol creado en:', position.lat(), position.lng());
                 } else {
@@ -17490,8 +17655,8 @@
             geocoder.geocode({ address: "Inf. Barrancos, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(infbarrancosProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, infbarrancosProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(infbarrancosProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, infbarrancosProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador infbarrancos creado en:', position.lat(), position.lng());
                 } else {
@@ -17504,8 +17669,8 @@
             geocoder.geocode({ address: fraccionamientostanzaProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(fraccionamientostanzaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, fraccionamientostanzaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(fraccionamientostanzaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, fraccionamientostanzaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador fraccionamientostanza creado en:', position.lat(), position.lng());
                 } else {
@@ -17517,8 +17682,8 @@
             geocoder.geocode({ address: lasamericasbr56Property.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(lasamericasbr56Property, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, lasamericasbr56Property);
+                    const CustomMarkerClass = createZillowPropertyMarker(lasamericasbr56Property, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, lasamericasbr56Property);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador lasamericasbr56 creado en:', position.lat(), position.lng());
                 } else {
@@ -17530,8 +17695,8 @@
             geocoder.geocode({ address: adolfolopezmateosProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(adolfolopezmateosProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, adolfolopezmateosProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(adolfolopezmateosProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, adolfolopezmateosProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador adolfolopezmateos creado en:', position.lat(), position.lng());
                 } else {
@@ -17543,8 +17708,8 @@
             geocoder.geocode({ address: privadamonacopaseosdelreyProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(privadamonacopaseosdelreyProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, privadamonacopaseosdelreyProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(privadamonacopaseosdelreyProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, privadamonacopaseosdelreyProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador privadamonacopaseosdelrey creado en:', position.lat(), position.lng());
                 } else {
@@ -17556,8 +17721,8 @@
             geocoder.geocode({ address: recamarasenportalegreenculiacanProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(recamarasenportalegreenculiacanProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, recamarasenportalegreenculiacanProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(recamarasenportalegreenculiacanProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, recamarasenportalegreenculiacanProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador recamarasenportalegreenculiacan creado en:', position.lat(), position.lng());
                 } else {
@@ -17570,8 +17735,8 @@
             geocoder.geocode({ address: callemarianoescobedocentrodelaciudadProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(callemarianoescobedocentrodelaciudadProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, callemarianoescobedocentrodelaciudadProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(callemarianoescobedocentrodelaciudadProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, callemarianoescobedocentrodelaciudadProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador callemarianoescobedocentrodelaciudad creado en:', position.lat(), position.lng());
                 } else {
@@ -17583,8 +17748,8 @@
             geocoder.geocode({ address: lacanteraculiacanProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(lacanteraculiacanProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, lacanteraculiacanProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(lacanteraculiacanProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, lacanteraculiacanProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador lacanteraculiacan creado en:', position.lat(), position.lng());
                 } else {
@@ -17596,8 +17761,8 @@
             geocoder.geocode({ address: enlaprimaverabarriosanfranciscosur01Property.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(enlaprimaverabarriosanfranciscosur01Property, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, enlaprimaverabarriosanfranciscosur01Property);
+                    const CustomMarkerClass = createZillowPropertyMarker(enlaprimaverabarriosanfranciscosur01Property, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, enlaprimaverabarriosanfranciscosur01Property);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador enlaprimaverabarriosanfranciscosur01 creado en:', position.lat(), position.lng());
                 } else {
@@ -17609,8 +17774,8 @@
             geocoder.geocode({ address: enfracccolinasdesanmiguelProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(enfracccolinasdesanmiguelProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, enfracccolinasdesanmiguelProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(enfracccolinasdesanmiguelProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, enfracccolinasdesanmiguelProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador enfracccolinasdesanmiguel creado en:', position.lat(), position.lng());
                 } else {
@@ -17622,8 +17787,8 @@
             geocoder.geocode({ address: enprivadaconexcedente4recamarassectorlaconquistaProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(enprivadaconexcedente4recamarassectorlaconquistaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, enprivadaconexcedente4recamarassectorlaconquistaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(enprivadaconexcedente4recamarassectorlaconquistaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, enprivadaconexcedente4recamarassectorlaconquistaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador enprivadaconexcedente4recamarassectorlaconquista creado en:', position.lat(), position.lng());
                 } else {
@@ -17636,8 +17801,8 @@
             geocoder.geocode({ address: tierrablancaProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(tierrablancaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, tierrablancaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(tierrablancaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, tierrablancaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador tierrablanca creado en:', position.lat(), position.lng());
                 } else {
@@ -17649,8 +17814,8 @@
             geocoder.geocode({ address: privadaconalbercaamoradaProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(privadaconalbercaamoradaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, privadaconalbercaamoradaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(privadaconalbercaamoradaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, privadaconalbercaamoradaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador privadaconalbercaamorada creado en:', position.lat(), position.lng());
                 } else {
@@ -17662,8 +17827,8 @@
             geocoder.geocode({ address: fracclaprimaveraProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(fracclaprimaveraProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, fracclaprimaveraProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(fracclaprimaveraProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, fracclaprimaveraProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador fracclaprimavera creado en:', position.lat(), position.lng());
                 } else {
@@ -17675,8 +17840,8 @@
             geocoder.geocode({ address: barriosanfranciscolaprimavera01Property.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(barriosanfranciscolaprimavera01Property, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, barriosanfranciscolaprimavera01Property);
+                    const CustomMarkerClass = createZillowPropertyMarker(barriosanfranciscolaprimavera01Property, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, barriosanfranciscolaprimavera01Property);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador barriosanfranciscolaprimavera01 creado en:', position.lat(), position.lng());
                 } else {
@@ -17688,8 +17853,8 @@
             geocoder.geocode({ address: privadatabachinesProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(privadatabachinesProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, privadatabachinesProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(privadatabachinesProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, privadatabachinesProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador privadatabachines creado en:', position.lat(), position.lng());
                 } else {
@@ -17702,8 +17867,8 @@
             geocoder.geocode({ address: barcelonacomonuevaacabadosdeprimeraProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(barcelonacomonuevaacabadosdeprimeraProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, barcelonacomonuevaacabadosdeprimeraProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(barcelonacomonuevaacabadosdeprimeraProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, barcelonacomonuevaacabadosdeprimeraProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador barcelonacomonuevaacabadosdeprimera creado en:', position.lat(), position.lng());
                 } else {
@@ -17715,8 +17880,8 @@
             geocoder.geocode({ address: quintaamericanasectorlasquintasProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(quintaamericanasectorlasquintasProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, quintaamericanasectorlasquintasProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(quintaamericanasectorlasquintasProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, quintaamericanasectorlasquintasProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador quintaamericanasectorlasquintas creado en:', position.lat(), position.lng());
                 } else {
@@ -17728,8 +17893,8 @@
             geocoder.geocode({ address: islamusalaculiacanProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(islamusalaculiacanProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, islamusalaculiacanProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(islamusalaculiacanProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, islamusalaculiacanProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador islamusalaculiacan creado en:', position.lat(), position.lng());
                 } else {
@@ -17741,8 +17906,8 @@
             geocoder.geocode({ address: recursoshidraulicosprivadasantainesProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(recursoshidraulicosprivadasantainesProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, recursoshidraulicosprivadasantainesProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(recursoshidraulicosprivadasantainesProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, recursoshidraulicosprivadasantainesProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador recursoshidraulicosprivadasantaines creado en:', position.lat(), position.lng());
                 } else {
@@ -17754,8 +17919,8 @@
             geocoder.geocode({ address: hermosabelcanttoresidenciallistaparahabitarProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(hermosabelcanttoresidenciallistaparahabitarProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, hermosabelcanttoresidenciallistaparahabitarProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(hermosabelcanttoresidenciallistaparahabitarProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, hermosabelcanttoresidenciallistaparahabitarProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador hermosabelcanttoresidenciallistaparahabitar creado en:', position.lat(), position.lng());
                 } else {
@@ -17768,8 +17933,8 @@
             geocoder.geocode({ address: islamusalaculiacansinaloaProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(islamusalaculiacansinaloaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, islamusalaculiacansinaloaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(islamusalaculiacansinaloaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, islamusalaculiacansinaloaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador islamusalaculiacansinaloa creado en:', position.lat(), position.lng());
                 } else {
@@ -17781,8 +17946,8 @@
             geocoder.geocode({ address: guadalupeProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(guadalupeProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, guadalupeProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(guadalupeProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, guadalupeProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador guadalupe creado en:', position.lat(), position.lng());
                 } else {
@@ -17794,8 +17959,8 @@
             geocoder.geocode({ address: privadaprivanzasProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(privadaprivanzasProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, privadaprivanzasProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(privadaprivanzasProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, privadaprivanzasProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador privadaprivanzas creado en:', position.lat(), position.lng());
                 } else {
@@ -17807,8 +17972,8 @@
             geocoder.geocode({ address: colinassanmiguelculiacan8450000Property.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(colinassanmiguelculiacan8450000Property, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, colinassanmiguelculiacan8450000Property);
+                    const CustomMarkerClass = createZillowPropertyMarker(colinassanmiguelculiacan8450000Property, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, colinassanmiguelculiacan8450000Property);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador colinassanmiguelculiacan8450000 creado en:', position.lat(), position.lng());
                 } else {
@@ -17820,8 +17985,8 @@
             geocoder.geocode({ address: villafontanaenesquinaProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(villafontanaenesquinaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, villafontanaenesquinaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(villafontanaenesquinaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, villafontanaenesquinaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador villafontanaenesquina creado en:', position.lat(), position.lng());
                 } else {
@@ -17834,8 +17999,8 @@
             geocoder.geocode({ address: stanzacastillaprivadaavilaProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(stanzacastillaprivadaavilaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, stanzacastillaprivadaavilaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(stanzacastillaprivadaavilaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, stanzacastillaprivadaavilaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador stanzacastillaprivadaavila creado en:', position.lat(), position.lng());
                 } else {
@@ -17847,8 +18012,8 @@
             geocoder.geocode({ address: terrenoexcedentestanzavallealtoProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(terrenoexcedentestanzavallealtoProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, terrenoexcedentestanzavallealtoProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(terrenoexcedentestanzavallealtoProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, terrenoexcedentestanzavallealtoProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador terrenoexcedentestanzavallealto creado en:', position.lat(), position.lng());
                 } else {
@@ -17860,8 +18025,8 @@
             geocoder.geocode({ address: portalegremisionProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(portalegremisionProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, portalegremisionProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(portalegremisionProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, portalegremisionProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador portalegremision creado en:', position.lat(), position.lng());
                 } else {
@@ -17873,8 +18038,8 @@
             geocoder.geocode({ address: carpatosvallealtoCuliacanProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(carpatosvallealtoCuliacanProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, carpatosvallealtoCuliacanProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(carpatosvallealtoCuliacanProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, carpatosvallealtoCuliacanProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador carpatosvallealtoCuliacan creado en:', position.lat(), position.lng());
                 } else {
@@ -17886,8 +18051,8 @@
             geocoder.geocode({ address: lariojamodeloestrellaProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(lariojamodeloestrellaProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, lariojamodeloestrellaProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(lariojamodeloestrellaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, lariojamodeloestrellaProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador lariojamodeloest rella creado en:', position.lat(), position.lng());
                 } else {
@@ -17900,8 +18065,8 @@
             geocoder.geocode({ address: barcelonaselectProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(barcelonaselectProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, barcelonaselectProperty);
+                    const CustomMarkerClass = createZillowPropertyMarker(barcelonaselectProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, barcelonaselectProperty);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador barcelonaselect creado en:', position.lat(), position.lng());
                 } else {
@@ -17913,8 +18078,8 @@
             geocoder.geocode({ address: larioja477140Property.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(larioja477140Property, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, larioja477140Property);
+                    const CustomMarkerClass = createZillowPropertyMarker(larioja477140Property, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, larioja477140Property);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador larioja477140 creado en:', position.lat(), position.lng());
                 } else {
@@ -17926,8 +18091,8 @@
             geocoder.geocode({ address: lasmoras421156Property.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(lasmoras421156Property, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, lasmoras421156Property);
+                    const CustomMarkerClass = createZillowPropertyMarker(lasmoras421156Property, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, lasmoras421156Property);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador lasmoras421156 creado en:', position.lat(), position.lng());
                 } else {
@@ -17939,8 +18104,8 @@
             geocoder.geocode({ address: sanagustin349077Property.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(sanagustin349077Property, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, sanagustin349077Property);
+                    const CustomMarkerClass = createZillowPropertyMarker(sanagustin349077Property, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, sanagustin349077Property);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador sanagustin349077 creado en:', position.lat(), position.lng());
                 } else {
@@ -17952,8 +18117,8 @@
             geocoder.geocode({ address: centro277608Property.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(centro277608Property, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, centro277608Property);
+                    const CustomMarkerClass = createZillowPropertyMarker(centro277608Property, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, centro277608Property);
                     window.allCuliacanMarkers.push(marker);
                     console.log('Marcador centro277608 creado en:', position.lat(), position.lng());
                 } else {
@@ -18096,6 +18261,16 @@
             // Inicializar filtro cuando el mapa esté listo
             setTimeout(initPriceFilter, 500);
 
+            // Esperar a que se carguen todos los marcadores y luego actualizar el contador
+            setTimeout(() => {
+                if (window.allCuliacanMarkers && window.allCuliacanMarkers.length > 0) {
+                    const countElement = document.getElementById('map-property-count');
+                    if (countElement) {
+                        countElement.textContent = `${window.allCuliacanMarkers.length} propiedades`;
+                    }
+                    console.log(`✅ ${window.allCuliacanMarkers.length} marcadores cargados y visibles en el mapa`);
+                }
+            }, 3000); // Esperar 3 segundos para que todos los marcadores se geocodifiquen
 
             window.mapCuliacanInitialized = true;
             console.log('Mapa de Culiacán inicializado correctamente');
