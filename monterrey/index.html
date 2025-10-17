@@ -2090,14 +2090,26 @@
         let mapMonterrey;
         let monterreyMarker;
 
-        function openMapModal() {
+        // Asegurar que la función está en scope global
+        window.openMapModal = function() {
+            console.log('🔵 openMapModal() llamada - Abriendo modal...');
             const modal = document.getElementById('mapModal');
+
+            if (!modal) {
+                console.error('❌ ERROR: Modal #mapModal no encontrado en DOM');
+                return;
+            }
+
+            console.log('✅ Modal encontrado, mostrando...');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             document.body.style.overflow = 'hidden';
 
+            console.log('🗺️ Estado de mapInitialized:', window.mapInitialized);
+
             // Inicializar mapa si aún no existe
             if (!window.mapInitialized) {
+                console.log('⏳ Inicializando mapa por primera vez...');
                 // Esperar un momento para que el modal se muestre
                 setTimeout(() => {
                     initializeMonterreyMap();
@@ -2105,7 +2117,7 @@
             }
         }
 
-        function closeMapModal() {
+        window.closeMapModal = function() {
             const modal = document.getElementById('mapModal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
@@ -2193,7 +2205,7 @@
         let currentPhotoIndexMty = 0;
         let currentInfoWindowMty = null;
 
-        function initializeMonterreyMap() {
+        window.initializeMonterreyMap = function() {
             // Verificar si Google Maps API está cargada usando callback
             if (!window.googleMapsReady || typeof google === 'undefined' || typeof google.maps === 'undefined') {
                 console.log('⏳ Esperando a que Google Maps API se cargue...');
