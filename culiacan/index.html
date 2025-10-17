@@ -18652,36 +18652,6 @@
                         <option value="8000000">$8M</option>
                         <option value="10000000">$10M</option>
                     </select>
-
-                    <button id="apply-filter" style="
-                        background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
-                        color: white;
-                        border: none;
-                        padding: 8px 16px;
-                        border-radius: 20px;
-                        font-size: 12px;
-                        font-weight: 600;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                    " onmouseover="this.style.transform='scale(1.05)'"
-                       onmouseout="this.style.transform='scale(1)'">
-                        Aplicar
-                    </button>
-
-                    <button id="reset-filter" style="
-                        background: #f5f5f5;
-                        color: #666;
-                        border: 1px solid #ddd;
-                        padding: 8px 16px;
-                        border-radius: 20px;
-                        font-size: 12px;
-                        font-weight: 600;
-                        cursor: pointer;
-                        transition: all 0.2s;
-                    " onmouseover="this.style.background='#e0e0e0'"
-                       onmouseout="this.style.background='#f5f5f5'">
-                        Reset
-                    </button>
                 </div>
 
                 <style>
@@ -18783,15 +18753,19 @@
                     }
                 }
 
-                document.getElementById('apply-filter').addEventListener('click', function() {
-                    console.log('🖱️ Click en botón Aplicar detectado');
+                // Filtrar automáticamente al cambiar cualquier select
+                document.getElementById('property-type').addEventListener('change', function() {
+                    console.log('🔄 Tipo cambiado a:', this.value);
                     filterMarkers();
                 });
-                
-                document.getElementById('reset-filter').addEventListener('click', () => {
-                    document.getElementById('property-type').value = 'all';
-                    document.getElementById('price-min').value = '0';
-                    document.getElementById('price-max').value = '999999999';
+
+                document.getElementById('price-min').addEventListener('change', function() {
+                    console.log('🔄 Precio mínimo cambiado a:', this.value);
+                    filterMarkers();
+                });
+
+                document.getElementById('price-max').addEventListener('change', function() {
+                    console.log('🔄 Precio máximo cambiado a:', this.value);
                     filterMarkers();
                 });
 
