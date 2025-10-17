@@ -492,12 +492,45 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-16T23:16:53.188Z"
+    },
+    {
+      "id": "v015",
+      "nombre": "FLORES ASESORIA INMOBILIARIA",
+      "telefono": "6671773014",
+      "telefonoFormateado": "667-177-3014",
+      "whatsapp": "https://wa.me/526671773014",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147879282",
+          "titulo": "Se Renta Casa en Fraccionamiento Tres Rios a un Costado de Walmart y Sams Club",
+          "precio": "MN 12,000",
+          "ubicacion": "Boulevard Rotarismo, Fraccionamiento 3 Ríos, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-se-renta-casa-en-fraccionamiento-tres-rios-a-un-147879282.html",
+          "fechaScrapeo": "2025-10-17",
+          "fechaPublicacion": "Publicado hace 3 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Boulevard Rotarismo, Fraccionamiento 3 Ríos, Culiacán",
+      "tags": [
+        "inmuebles24",
+        "boulevard-rotarismo",
+        "fraccionamiento-3-ríos",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-17T18:30:04.839Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 14,
-    "totalPropiedades": 24,
-    "ultimaActualizacion": "2025-10-17T01:16:22.366Z"
+    "totalVendedores": 15,
+    "totalPropiedades": 25,
+    "ultimaActualizacion": "2025-10-17T18:44:02.984Z"
   },
   "busquedas": [
     {

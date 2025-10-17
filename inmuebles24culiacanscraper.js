@@ -120,6 +120,26 @@ function detectCityFromUrl(url) {
 }
 
 /**
+ * Detecta si es VENTA o RENTA desde la URL de Inmuebles24
+ * @param {string} url - URL de la propiedad en Inmuebles24
+ * @returns {string} - Tipo detectado: 'venta' o 'renta'
+ */
+function detectPropertyType(url) {
+    const urlLower = url.toLowerCase();
+
+    // Detectar RENTA (alquiler, renta, arrendar)
+    if (urlLower.includes('alquiler') ||
+        urlLower.includes('renta') ||
+        urlLower.includes('arrendar') ||
+        urlLower.includes('alquilar')) {
+        return 'renta';
+    }
+
+    // Default: VENTA
+    return 'venta';
+}
+
+/**
  * Confirma la ciudad con el usuario
  * @param {string} detectedCity - Ciudad detectada automáticamente
  * @returns {Promise<string>} - Ciudad confirmada por el usuario
@@ -165,11 +185,12 @@ async function confirmCity(detectedCity) {
 }
 
 /**
- * Obtiene la configuración específica de la ciudad
+ * Obtiene la configuración específica de la ciudad y tipo de propiedad
  * @param {string} city - Ciudad: 'monterrey', 'mazatlan', o 'culiacan'
+ * @param {string} propertyType - Tipo: 'venta' o 'renta'
  * @returns {object} - Configuración de la ciudad
  */
-function getCityConfig(city) {
+function getCityConfig(city, propertyType = 'venta') {
     const configs = {
         monterrey: {
             city: 'monterrey',
@@ -180,8 +201,11 @@ function getCityConfig(city) {
             stateShort: 'N.L.',
             coords: { lat: 25.6866, lng: -100.3161, name: 'Monterrey' },
             whatsapp: '528111652545',
-            templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
-            stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
+            templatePath: propertyType === 'renta'
+                ? 'automation/templates/master-template-rental.html'
+                : 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
+            stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css',
+            isRental: propertyType === 'renta'
         },
         mazatlan: {
             city: 'mazatlan',
@@ -192,8 +216,11 @@ function getCityConfig(city) {
             stateShort: 'Sin.',
             coords: { lat: 23.2494, lng: -106.4111, name: 'Mazatlán' },
             whatsapp: '526691652545',
-            templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
-            stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
+            templatePath: propertyType === 'renta'
+                ? 'automation/templates/master-template-rental.html'
+                : 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
+            stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css',
+            isRental: propertyType === 'renta'
         },
         culiacan: {
             city: 'culiacan',
@@ -204,8 +231,11 @@ function getCityConfig(city) {
             stateShort: 'Sin.',
             coords: { lat: 24.8091, lng: -107.3940, name: 'Culiacán' },
             whatsapp: '526672317963',
-            templatePath: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
-            stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css'
+            templatePath: propertyType === 'renta'
+                ? 'automation/templates/master-template-rental.html'
+                : 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/index.html',
+            stylesSource: 'culiacan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/styles.css',
+            isRental: propertyType === 'renta'
         }
     };
 
@@ -1304,6 +1334,18 @@ async function scrapeInmuebles24(url) {
             if (result.description) break;
         }
 
+        // Detección de "Amueblada/Sin amueblar" (para RENTAS)
+        const fullText = bodyText + ' ' + (result.description || '');
+        if (/amueblad[ao]/i.test(fullText)) {
+            result.furnished = 'Amueblada';
+        } else if (/semi(\s|-)?amueblad[ao]/i.test(fullText)) {
+            result.furnished = 'Semi-amueblada';
+        } else if (/(sin amueblar|no amueblad[ao]|sin muebles)/i.test(fullText)) {
+            result.furnished = 'Sin amueblar';
+        } else {
+            result.furnished = 'Sin especificar';
+        }
+
         // PASO 1: Buscar datos en TODO el body text (incluyendo descripción)
         // Reutilizar bodyText ya declarado arriba para ubicación
 
@@ -2000,13 +2042,19 @@ async function main() {
     }
 
     try {
-        // 1. Detectar ciudad desde URL
+        // 1. Detectar ciudad y tipo de propiedad desde URL
         const detectedCity = detectCityFromUrl(url);
+        const propertyType = detectPropertyType(url);
+
+        // Mostrar tipo detectado
+        const typeIcon = propertyType === 'renta' ? '🏘️' : '🏠';
+        const typeLabel = propertyType === 'renta' ? 'RENTA' : 'VENTA';
+        console.log(`${typeIcon} Tipo detectado: ${typeLabel}\n`);
 
         // 2. Confirmar ciudad con el usuario
         const confirmedCity = await confirmCity(detectedCity);
-        const cityConfig = getCityConfig(confirmedCity);
-        console.log(`🚀 Iniciando scraper para: ${cityConfig.name}, ${cityConfig.state}\n`);
+        const cityConfig = getCityConfig(confirmedCity, propertyType);
+        console.log(`🚀 Iniciando scraper para: ${typeLabel} en ${cityConfig.name}, ${cityConfig.state}\n`);
 
         // 2. Scrapear datos
         const data = await scrapeInmuebles24(url);
