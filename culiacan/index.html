@@ -18700,12 +18700,23 @@
                 modalMap.insertAdjacentHTML('afterbegin', filterHTML);
                 
                 function filterMarkers() {
-                    const minPrice = parseInt(document.getElementById('price-min').value);
-                    const maxPrice = parseInt(document.getElementById('price-max').value);
-                    const propertyType = document.getElementById('property-type').value;
+                    try {
+                        console.log('\n🎯 filterMarkers() EJECUTÁNDOSE...');
 
-                    let visibleCount = 0;
-                    console.log(`\n🔍 Filtrando por tipo: "${propertyType}", precio: $${minPrice} - $${maxPrice}`);
+                        const minPrice = parseInt(document.getElementById('price-min').value);
+                        const maxPrice = parseInt(document.getElementById('price-max').value);
+                        const propertyType = document.getElementById('property-type').value;
+
+                        console.log(`   📊 Valores leídos:`, { minPrice, maxPrice, propertyType });
+                        console.log(`   📍 Total marcadores disponibles: ${window.allCuliacanMarkers?.length || 0}`);
+
+                        if (!window.allCuliacanMarkers || window.allCuliacanMarkers.length === 0) {
+                            console.error('❌ ERROR: No hay marcadores en window.allCuliacanMarkers');
+                            return;
+                        }
+
+                        let visibleCount = 0;
+                        console.log(`\n🔍 Filtrando por tipo: "${propertyType}", precio: $${minPrice} - $${maxPrice}`);
 
                     window.allCuliacanMarkers.forEach((marker, index) => {
                         if (!marker.property || !marker.property.priceFull) {
@@ -18740,9 +18751,17 @@
                     });
 
                     console.log(`\n✅ Filtro: ${visibleCount} de ${window.allCuliacanMarkers.length} propiedades visibles\n`);
+
+                    } catch (error) {
+                        console.error('❌ ERROR en filterMarkers():', error);
+                        console.error('   Stack:', error.stack);
+                    }
                 }
-                
-                document.getElementById('apply-filter').addEventListener('click', filterMarkers);
+
+                document.getElementById('apply-filter').addEventListener('click', function() {
+                    console.log('🖱️ Click en botón Aplicar detectado');
+                    filterMarkers();
+                });
                 
                 document.getElementById('reset-filter').addEventListener('click', () => {
                     document.getElementById('property-type').value = 'all';
