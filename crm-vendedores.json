@@ -402,6 +402,20 @@
           "fechaScrapeo": "2025-10-16",
           "fechaPublicacion": "Publicado hace 10 días",
           "vistas": 0
+        },
+        {
+          "id": "146870552",
+          "titulo": "Cumbres de 3 Niveles, Incluye Cocina Integral y 6 Paneles Solares",
+          "precio": "MN 3,785,250",
+          "ubicacion": "PASEO DE LOS LEONES, Cumbres, Monterrey",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-cumbres-de-3-niveles-incluye-cocina-integral-y-6-146870552.html",
+          "fechaScrapeo": "2025-10-17",
+          "fechaPublicacion": "Publicado hace 108 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Culiacán, Sinaloa",
@@ -482,8 +496,8 @@
   ],
   "estadisticas": {
     "totalVendedores": 14,
-    "totalPropiedades": 23,
-    "ultimaActualizacion": "2025-10-17T00:27:36.118Z"
+    "totalPropiedades": 24,
+    "ultimaActualizacion": "2025-10-17T01:16:22.366Z"
   },
   "busquedas": [
     {
