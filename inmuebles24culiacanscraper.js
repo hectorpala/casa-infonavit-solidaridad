@@ -1,39 +1,47 @@
 #!/usr/bin/env node
 
 /**
- * SCRAPER Y PUBLICADOR AUTOMÁTICO - INMUEBLES24.COM (CULIACÁN)
+ * SCRAPER Y PUBLICADOR AUTOMÁTICO - INMUEBLES24.COM + CRM VENDEDORES
  *
- * 🏙️ ESPECÍFICO PARA CULIACÁN - Siempre publica en culiacan/
+ * ✨ MULTI-CIUDAD: Detecta automáticamente la ciudad desde la URL y publica en la carpeta correcta
  *
  * USO SCRAPER:
- *   node inmuebles24culiacanscraper.js "URL_DE_INMUEBLES24"
+ *   node inmuebles24-scraper-y-publicar.js "URL_DE_INMUEBLES24"
  *
  * USO CRM:
- *   node inmuebles24culiacanscraper.js --crm-buscar <nombre|teléfono|tag>
- *   node inmuebles24culiacanscraper.js --crm-lista
- *   node inmuebles24culiacanscraper.js --crm-stats
+ *   node inmuebles24-scraper-y-publicar.js --crm-buscar <nombre|teléfono|tag>
+ *   node inmuebles24-scraper-y-publicar.js --crm-lista
+ *   node inmuebles24-scraper-y-publicar.js --crm-stats
  *
  * PROCESO COMPLETO:
- * 1. SIEMPRE publica en culiacan/ (no detecta ciudad, forzado a Culiacán)
+ * 1. Detecta ciudad desde URL (Monterrey, Mazatlán, o Culiacán)
  * 2. Scrapea datos de Inmuebles24 (título, precio, fotos, descripción, características)
  * 3. Descarga todas las fotos automáticamente
- * 4. Genera página HTML con Master Template de Culiacán
- * 5. Agrega tarjeta a culiacan/index.html
+ * 4. Genera página HTML con Master Template
+ * 5. Agrega tarjeta a [ciudad]/index.html
  * 6. Commit y push automático a GitHub
  * 7. Actualiza CRM de vendedores automáticamente
  * 8. Listo en 2-3 minutos
  *
- * CIUDAD FORZADA:
- * - Culiacán, Sinaloa → culiacan/ (SIEMPRE)
+ * CIUDADES SOPORTADAS:
+ * - Monterrey, Nuevo León → monterrey/
+ * - Mazatlán, Sinaloa → mazatlan/
+ * - Culiacán, Sinaloa → culiacan/ (default)
  *
  * EJEMPLOS:
- *   # Cualquier URL de Inmuebles24 → se publica en Culiacán
- *   node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/casa-en-venta-123.html"
+ *   # Monterrey (detecta "monterrey" en URL)
+ *   node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/propiedades/.../monterrey-..."
+ *
+ *   # Mazatlán (detecta "mazatlan" en URL)
+ *   node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/propiedades/.../mazatlan-..."
+ *
+ *   # Culiacán (default si no detecta ciudad)
+ *   node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/propiedades/.../culiacan-..."
  *
  * EJEMPLOS CRM:
- *   node inmuebles24culiacanscraper.js --crm-buscar alejandra
- *   node inmuebles24culiacanscraper.js --crm-buscar 6671603643
- *   node inmuebles24culiacanscraper.js --crm-buscar san-miguel
+ *   node inmuebles24-scraper-y-publicar.js --crm-buscar alejandra
+ *   node inmuebles24-scraper-y-publicar.js --crm-buscar 6671603643
+ *   node inmuebles24-scraper-y-publicar.js --crm-buscar centro-historico
  */
 
 // Puppeteer con Stealth Plugin para evitar detección
@@ -91,12 +99,23 @@ function askQuestion(question) {
 
 /**
  * Detecta la ciudad desde la URL de Inmuebles24
- * ⚠️ SCRAPER ESPECÍFICO PARA CULIACÁN - SIEMPRE RETORNA 'culiacan'
  * @param {string} url - URL de la propiedad en Inmuebles24
- * @returns {string} - Siempre 'culiacan'
+ * @returns {string} - Ciudad detectada: 'monterrey', 'mazatlan', o 'culiacan' (default)
  */
 function detectCityFromUrl(url) {
-    // FORZADO A CULIACÁN - Este scraper es específico para Culiacán
+    const urlLower = url.toLowerCase();
+
+    // Detectar Monterrey
+    if (urlLower.includes('monterrey') || urlLower.includes('nuevo-leon') || urlLower.includes('nuevo-león')) {
+        return 'monterrey';
+    }
+
+    // Detectar Mazatlán
+    if (urlLower.includes('mazatlan') || urlLower.includes('mazatlán')) {
+        return 'mazatlan';
+    }
+
+    // Default: Culiacán
     return 'culiacan';
 }
 
