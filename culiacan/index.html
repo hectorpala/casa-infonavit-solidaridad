@@ -16217,204 +16217,204 @@
                     "casa-en-venta-en-inf-barrancos/images/foto-23.jpg"
                 ]
             };
-
-            // Geocodificar la dirección de Infonavit Solidaridad
-            geocoder.geocode({ address: solidaridadProperty.address }, function(results, status) {
+            // ===== GEOCODIFICACION DE TODAS LAS PROPIEDADES =====
+            // ===== GEOCODIFICACION DE TODAS LAS PROPIEDADES =====
+            
+            // Geocodificar solidaridad
+            geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
-
-                    // Centrar mapa en la propiedad
-                    mapCuliacan.setCenter(position);
-                    mapCuliacan.setZoom(13); // Zoom out para ver más propiedades
-
-                    // Crear marcador personalizado estilo Zillow
                     const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, solidaridadProperty);
                     culiacanMarkers.push(marker);
-
-                    console.log('Marcador de Infonavit Solidaridad creado en:', position.lat(), position.lng());
+                    console.log('Marcador solidaridad creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error:', status);
-                    // Fallback: usar coordenadas aproximadas
-                    const fallbackPos = { lat: 24.7891, lng: -107.4181 };
-                    mapCuliacan.setCenter(fallbackPos);
-                    mapCuliacan.setZoom(13);
-
-                    const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(fallbackPos, mapCuliacan, solidaridadProperty);
-                    culiacanMarkers.push(marker);
+                    console.error('Geocode error solidaridad:', status);
                 }
             });
-// Geocodificar Casa La Primavera
-            geocoder.geocode({ address: laPrimaveraProperty.address }, function(results, status) {
+            
+            // Geocodificar laPrimavera
+            geocoder.geocode({ address: "San Agustín 266, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(laPrimaveraProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, laPrimaveraProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Casa La Primavera creado en:', position.lat(), position.lng());
+                    console.log('Marcador laPrimavera creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Casa La Primavera:', status);
+                    console.error('Geocode error laPrimavera:', status);
                 }
             });
-
-            console.log('Marcador Casa La Primavera creado en:', positionLaPrimavera.lat, positionLaPrimavera.lng);
-
-            // Crear marcador para Casa Monaco (coordenadas fijas)
-            const positionMonaco = { lat: monacoProperty.lat, lng: monacoProperty.lng };
-            const CustomMarkerClassMonaco = createZillowPropertyMarker(monacoProperty, mapCuliacan);
-            const markerMonaco = new CustomMarkerClassMonaco(positionMonaco, mapCuliacan, monacoProperty);
-            culiacanMarkers.push(markerMonaco);
-            console.log('Marcador Casa Monaco creado en:', positionMonaco.lat, positionMonaco.lng);
-
-            // Crear marcador para Casa Amorada (coordenadas fijas)
-            const positionAmorada = { lat: amoradaProperty.lat, lng: amoradaProperty.lng };
-            const CustomMarkerClassAmorada = createZillowPropertyMarker(amoradaProperty, mapCuliacan);
-            const markerAmorada = new CustomMarkerClassAmorada(positionAmorada, mapCuliacan, amoradaProperty);
-            culiacanMarkers.push(markerAmorada);
-            console.log('Marcador Casa Amorada creado en:', positionAmorada.lat, positionAmorada.lng);
-
-            // Crear marcador para Casa Stanza (coordenadas fijas)
-            const positionStanza = { lat: stanzaProperty.lat, lng: stanzaProperty.lng };
-            const CustomMarkerClassStanza = createZillowPropertyMarker(stanzaProperty, mapCuliacan);
-            const markerStanza = new CustomMarkerClassStanza(positionStanza, mapCuliacan, stanzaProperty);
-            culiacanMarkers.push(markerStanza);
-            console.log('Marcador Casa Stanza creado en:', positionStanza.lat, positionStanza.lng);
-
-
-            // ===== GEOCODIFICACIONES LOTE 1 =====
-
-            // Geocodificar Privada La Cantera
-            geocoder.geocode({ address: privadaLaCanteraProperty.address }, function(results, status) {
+            
+            // Geocodificar monaco
+            geocoder.geocode({ address: "Paseos del Rey, Culiacán, Sinaloa" }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(monacoProperty, mapCuliacan);
+                    const marker = new CustomMarkerClass(position, mapCuliacan, monacoProperty);
+                    culiacanMarkers.push(marker);
+                    console.log('Marcador monaco creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error monaco:', status);
+                }
+            });
+            
+            // Geocodificar amorada
+            geocoder.geocode({ address: "Amorada, Culiacán, Sinaloa" }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(amoradaProperty, mapCuliacan);
+                    const marker = new CustomMarkerClass(position, mapCuliacan, amoradaProperty);
+                    culiacanMarkers.push(marker);
+                    console.log('Marcador amorada creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error amorada:', status);
+                }
+            });
+            
+            // Geocodificar stanza
+            geocoder.geocode({ address: "Fraccionamiento Stanza, Culiacán, Sinaloa" }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(stanzaProperty, mapCuliacan);
+                    const marker = new CustomMarkerClass(position, mapCuliacan, stanzaProperty);
+                    culiacanMarkers.push(marker);
+                    console.log('Marcador stanza creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error stanza:', status);
+                }
+            });
+            
+            // Geocodificar privadaLaCantera
+            geocoder.geocode({ address: "Privada La Cantera, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(privadaLaCanteraProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, privadaLaCanteraProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Privada La Cantera creado en:', position.lat(), position.lng());
+                    console.log('Marcador privadaLaCantera creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Privada La Cantera:', status);
+                    console.error('Geocode error privadaLaCantera:', status);
                 }
             });
-
-            // Geocodificar Isla del Oeste
-            geocoder.geocode({ address: islaDelOesteProperty.address }, function(results, status) {
+            
+            // Geocodificar islaDelOeste
+            geocoder.geocode({ address: "Isla del Oeste, La Primavera, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(islaDelOesteProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, islaDelOesteProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Isla del Oeste creado en:', position.lat(), position.lng());
+                    console.log('Marcador islaDelOeste creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Isla del Oeste:', status);
+                    console.error('Geocode error islaDelOeste:', status);
                 }
             });
-
-            // Geocodificar Stanza Granada
-            geocoder.geocode({ address: stanzaGranadaProperty.address }, function(results, status) {
+            
+            // Geocodificar stanzaGranada
+            geocoder.geocode({ address: "Stanza Granada, Salida Norte, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(stanzaGranadaProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, stanzaGranadaProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Stanza Granada creado en:', position.lat(), position.lng());
+                    console.log('Marcador stanzaGranada creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Stanza Granada:', status);
+                    console.error('Geocode error stanzaGranada:', status);
                 }
             });
-
-            // Geocodificar Stanza Corcega
-            geocoder.geocode({ address: stanzaCorcegaProperty.address }, function(results, status) {
+            
+            // Geocodificar stanzaCorcega
+            geocoder.geocode({ address: "Stanza Corcega A2, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(stanzaCorcegaProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, stanzaCorcegaProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Stanza Corcega creado en:', position.lat(), position.lng());
+                    console.log('Marcador stanzaCorcega creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Stanza Corcega:', status);
+                    console.error('Geocode error stanzaCorcega:', status);
                 }
             });
-
-            // Geocodificar Villas del Río
-            geocoder.geocode({ address: villasDelRioProperty.address }, function(results, status) {
+            
+            // Geocodificar villasDelRio
+            geocoder.geocode({ address: "Villas del Río Elite, Zona Norte, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(villasDelRioProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, villasDelRioProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Villas del Río creado en:', position.lat(), position.lng());
+                    console.log('Marcador villasDelRio creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Villas del Río:', status);
+                    console.error('Geocode error villasDelRio:', status);
                 }
             });
-
-            // ===== GEOCODIFICACIONES LOTE 2 =====
-
-            // Geocodificar Urbivilla
-            geocoder.geocode({ address: urbivillaProperty.address }, function(results, status) {
+            
+            // Geocodificar urbivilla
+            geocoder.geocode({ address: "Urbivilla, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(urbivillaProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, urbivillaProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Urbivilla creado en:', position.lat(), position.lng());
+                    console.log('Marcador urbivilla creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Urbivilla:', status);
+                    console.error('Geocode error urbivilla:', status);
                 }
             });
-
-            // Geocodificar Sector Aeropuerto
-            geocoder.geocode({ address: sectorAeropuertoProperty.address }, function(results, status) {
+            
+            // Geocodificar sectorAeropuerto
+            geocoder.geocode({ address: "Sector Aeropuerto, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(sectorAeropuertoProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, sectorAeropuertoProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Sector Aeropuerto creado en:', position.lat(), position.lng());
+                    console.log('Marcador sectorAeropuerto creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Sector Aeropuerto:', status);
+                    console.error('Geocode error sectorAeropuerto:', status);
                 }
             });
-
-            // Geocodificar Nuevo Culiacán
-            geocoder.geocode({ address: nuevoCuliacanProperty.address }, function(results, status) {
+            
+            // Geocodificar nuevoCuliacan
+            geocoder.geocode({ address: "Nuevo Culiacán, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(nuevoCuliacanProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, nuevoCuliacanProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Nuevo Culiacán creado en:', position.lat(), position.lng());
+                    console.log('Marcador nuevoCuliacan creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Nuevo Culiacán:', status);
+                    console.error('Geocode error nuevoCuliacan:', status);
                 }
             });
-
-            // Geocodificar Valles del Sol
-            geocoder.geocode({ address: vallesDelSolProperty.address }, function(results, status) {
+            
+            // Geocodificar vallesDelSol
+            geocoder.geocode({ address: "Valles del Sol, Sector Terranova, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(vallesDelSolProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, vallesDelSolProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Valles del Sol creado en:', position.lat(), position.lng());
+                    console.log('Marcador vallesDelSol creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Valles del Sol:', status);
+                    console.error('Geocode error vallesDelSol:', status);
                 }
             });
-
-            // Geocodificar Inf. Barrancos
-            geocoder.geocode({ address: infbarrancosProperty.address }, function(results, status) {
+            
+            // Geocodificar infbarrancos
+            geocoder.geocode({ address: "Inf. Barrancos, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(infbarrancosProperty, mapCuliacan);
                     const marker = new CustomMarkerClass(position, mapCuliacan, infbarrancosProperty);
                     culiacanMarkers.push(marker);
-                    console.log('Marcador Inf. Barrancos creado en:', position.lat(), position.lng());
+                    console.log('Marcador infbarrancos creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error Inf. Barrancos:', status);
+                    console.error('Geocode error infbarrancos:', status);
                 }
             });
+            
             window.mapCuliacanInitialized = true;
             console.log('Mapa de Culiacán inicializado correctamente');
         }
