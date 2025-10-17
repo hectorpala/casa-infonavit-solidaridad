@@ -1880,7 +1880,7 @@
             <div class="flex items-center justify-between p-4 md:p-6 border-b border-gray-200">
                 <div>
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-900 font-poppins">Mapa de Propiedades</h2>
-                    <p class="text-sm text-gray-600 mt-1">Monterrey, Sinaloa</p>
+                    <p class="text-sm text-gray-600 mt-1">Monterrey, Nuevo León</p>
                 </div>
                 <button onclick="closeMapModal()" class="p-3 hover:bg-gray-100 rounded-full transition-colors group">
                     <svg class="w-6 h-6 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1890,19 +1890,18 @@
             </div>
 
             <!-- Map Container -->
-            <div id="map-culiacan" class="flex-1 relative bg-gray-100">
+            <div id="map-monterrey" class="flex-1 relative bg-gray-100">
                 <!-- El mapa de Google Maps se cargará aquí dinámicamente -->
             </div>
 
             <!-- Map Footer (Optional Controls) -->
             <div class="p-4 border-t border-gray-200 bg-gray-50">
-                <div class="flex items-center justify-between flex-wrap gap-4">
+                <div class="flex items-center justify-between">
                     <div class="flex items-center gap-4">
                         <label class="inline-flex items-center gap-2 cursor-pointer">
                             <input type="checkbox" checked class="w-4 h-4 text-hector rounded focus:ring-hector">
                             <span class="text-sm font-medium text-gray-700">Mostrar todas las propiedades</span>
                         </label>
-                        <span class="text-sm text-gray-600" id="map-property-count">5 propiedades destacadas</span>
                     </div>
                     <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20información%20sobre%20propiedades%20en%20Monterrey"
                        target="_blank"
@@ -1921,8 +1920,8 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&libraries=places" async defer></script>
     <script>
         // Variables globales para el mapa de Monterrey
-        let mapCuliacan;
-        let culiacanMarkers = [];
+        let mapMonterrey;
+        let monterreyMarker;
 
         function openMapModal() {
             const modal = document.getElementById('mapModal');
@@ -1931,9 +1930,10 @@
             document.body.style.overflow = 'hidden';
 
             // Inicializar mapa si aún no existe
-            if (!window.mapCuliacanInitialized) {
+            if (!window.mapInitialized) {
+                // Esperar un momento para que el modal se muestre
                 setTimeout(() => {
-                    initializeCuliacanMap();
+                    initializeMonterreyMap();
                 }, 100);
             }
         }
@@ -1945,8 +1945,8 @@
             document.body.style.overflow = '';
         }
 
-        // Función para crear marcador personalizado (igual que las propiedades individuales)
-        function createPropertyMarkerForMap(property, map, isCurrent = false) {
+        // Función para crear marcador personalizado (igual que Culiacán)
+        function createPropertyMarker(property, map, isCurrent = false) {
             const markerHTML = `
                 <div style="
                     background: ${isCurrent ? 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)'};
@@ -1987,19 +1987,11 @@
                                 <h4 style="margin: 0 0 8px 0; color: ${this.isCurrent ? '#FF6B35' : '#10b981'}; font-size: 16px; font-weight: 700;">${this.property.priceShort}</h4>
                                 <h5 style="margin: 0 0 6px 0; color: #1f2937; font-size: 14px; font-weight: 600;">${this.property.title}</h5>
                                 <p style="margin: 0 0 10px 0; color: #6b7280; font-size: 13px; line-height: 1.4;">${this.property.location}</p>
-                                <div style="display: flex; gap: 8px;">
-                                    <a href="${this.property.url}"
-                                       style="display: inline-block; background: #FF6A00; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; flex: 1; text-align: center;">
-                                        Ver Detalles
-                                    </a>
-                                    <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20${encodeURIComponent(this.property.title)}"
-                                       target="_blank"
-                                       style="display: inline-block; background: #25D366; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;">
-                                        <svg style="width: 16px; height: 16px; display: inline;" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                                        </svg>
-                                    </a>
-                                </div>
+                                <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20${encodeURIComponent(this.property.title)}"
+                                   target="_blank"
+                                   style="display: inline-block; background: #25D366; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;">
+                                    Contactar por WhatsApp
+                                </a>
                             </div>
                         `
                     });
@@ -2030,25 +2022,17 @@
             return CustomMarker;
         }
 
-        function initializeCuliacanMap() {
-            // Verificar si Google Maps API está cargada
-            if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
-                console.log('⏳ Esperando a que Google Maps API se cargue...');
-                setTimeout(() => {
-                    initializeCuliacanMap();
-                }, 200);
-                return;
-            }
+        // Variable global para controlar el índice de foto actual
+        let currentPhotoIndexMty = 0;
+        let currentInfoWindowMty = null;
 
-            // Inicializar geocoder
-            const geocoder = new google.maps.Geocoder();
-
+        function initializeMonterreyMap() {
             // Coordenadas del centro de Monterrey
-            const culiacanCenter = { lat: 25.6866, lng: -100.3161 };
+            const monterreyCenter = { lat: 25.6866, lng: -100.3161 };
 
             // Crear mapa centrado en Monterrey
-            mapCuliacan = new google.maps.Map(document.getElementById('map-culiacan'), {
-                center: culiacanCenter,
+            mapMonterrey = new google.maps.Map(document.getElementById('map-monterrey'), {
+                center: monterreyCenter,
                 zoom: 13,
                 mapTypeId: 'roadmap',
                 styles: [
@@ -2065,161 +2049,229 @@
                 fullscreenControl: true
             });
 
-            // Propiedad: Casa Infonavit Solidaridad
-            const solidaridadProperty = {
-                address: "Blvrd Elbert 2609, Infonavit Solidaridad, Monterrey, Sinaloa",
-                priceShort: "$1.65M",
-                priceFull: "$1,650,000",
-                title: "Casa Infonavit Solidaridad",
-                location: "Infonavit Solidaridad, Monterrey",
-                bedrooms: 2,
+            // Propiedad de ejemplo para Monterrey (Próximamente)
+            const monterreyProperty = {
+                address: "Real Cumbres, Monterrey, Nuevo León",
+                priceShort: "$2.55M",
+                priceFull: "$2,550,000",
+                title: "Casa en Venta Real Cumbres",
+                location: "Real Cumbres, Monterrey, N.L.",
+                bedrooms: 3,
+                bathrooms: 1,
+                area: "72m²",
+                url: "https://casasenventa.info/monterrey/casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/",
+                photos: [
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-1.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-2.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-3.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-4.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-5.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-6.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-7.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-8.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-9.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-10.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-11.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-12.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-13.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-14.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-15.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-16.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-17.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-18.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-19.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-20.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-21.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-22.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-23.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-24.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-25.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-26.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-27.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-28.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-29.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-30.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-31.jpg",
+                    "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/images/foto-32.jpg"
+                ]
+            };
+
+            // Crear marcador personalizado estilo Zillow para primera propiedad
+            const CustomMarkerClass = createZillowPropertyMarkerMty(monterreyProperty, mapMonterrey);
+            monterreyMarker = new CustomMarkerClass(monterreyCenter, mapMonterrey, monterreyProperty);
+
+            // Segunda propiedad: Casa en Cumbres Equipada a Estrenar
+            const cumbresEquipadaProperty = {
+                address: "Cumbres, Monterrey, Nuevo León",
+                priceShort: "$2.99M",
+                priceFull: "$2,990,000",
+                title: "Casa en Cumbres Equipada a Estrenar",
+                location: "Cumbres, Monterrey, N.L.",
+                bedrooms: 4,
                 bathrooms: 2,
-                area: "91.6m²",
-                url: "https://casasenventa.info/culiacan/infonavit-solidaridad/",
+                area: "136m²",
+                url: "https://casasenventa.info/monterrey/casa-en-cumbres-equipada-a-estrenar/",
                 photos: [
-                    "infonavit-solidaridad/images/foto-1.jpg",
-                    "infonavit-solidaridad/images/foto-2.jpg",
-                    "infonavit-solidaridad/images/foto-3.jpg",
-                    "infonavit-solidaridad/images/foto-4.jpg",
-                    "infonavit-solidaridad/images/foto-5.jpg",
-                    "infonavit-solidaridad/images/foto-6.jpg",
-                    "infonavit-solidaridad/images/foto-7.jpg",
-                    "infonavit-solidaridad/images/foto-8.jpg",
-                    "infonavit-solidaridad/images/foto-9.jpg",
-                    "infonavit-solidaridad/images/foto-10.jpg",
-                    "infonavit-solidaridad/images/foto-11.jpg",
-                    "infonavit-solidaridad/images/foto-12.jpg",
-                    "infonavit-solidaridad/images/foto-13.jpg",
-                    "infonavit-solidaridad/images/foto-14.jpg"
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-1.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-2.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-3.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-4.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-5.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-6.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-7.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-8.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-9.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-10.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-11.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-12.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-13.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-14.jpg",
+                    "casa-en-cumbres-equipada-a-estrenar/images/foto-15.jpg"
                 ]
             };
 
-            // Segunda propiedad: Casa La Primavera
-            const laPrimaveraProperty = {
-                lat: 24.7625, lng: -107.4244, // Fracc. La Primavera, Monterrey
-                priceShort: "$6.0M",
-                priceFull: "$6,000,000",
-                title: "Casa en Fracc La Primavera",
-                location: "La Primavera, Monterrey",
-                bedrooms: 2,
+            // Tercera propiedad: Casa en Venta en Urbivilla Colonial
+            const urbivillaColonialProperty = {
+                address: "LAGO TITICACA 213, URBIVILLA COLONIAL, Monterrey, Nuevo León",
+                priceShort: "$2.3M",
+                priceFull: "$2,300,000",
+                title: "Casa en Venta en Urbivilla Colonial",
+                location: "Urbivilla Colonial, Monterrey, N.L.",
+                bedrooms: 3,
                 bathrooms: 1,
-                area: "220m²",
-                url: "https://casasenventa.info/culiacan/casa-en-venta-en-fracc-la-primavera/",
+                area: "N/D", // Datos incorrectos en Inmuebles24 (19617m² es error)
+                url: "https://casasenventa.info/monterrey/casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/",
                 photos: [
-                    "casa-en-venta-en-fracc-la-primavera/images/foto-1.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-2.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-3.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-4.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-5.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-6.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-7.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-8.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-9.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-10.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-11.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-12.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-13.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-14.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-15.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-16.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-17.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-18.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-19.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-20.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-21.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-22.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-23.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-24.jpg","casa-en-venta-en-fracc-la-primavera/images/foto-25.jpg"
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-1.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-2.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-3.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-4.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-5.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-6.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-7.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-8.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-9.jpg",
+                    "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon/images/foto-10.jpg"
                 ]
             };
 
-            // Tercera propiedad: Casa Privada Monaco
-            const monacoProperty = {
-                lat: 24.8245, lng: -107.3755, // Paseos del Rey, Monterrey
-                priceShort: "$1.59M",
-                priceFull: "$1,590,000",
-                title: "Casa Privada Monaco",
-                location: "Paseos del Rey, Monterrey",
-                bedrooms: 2,
-                bathrooms: 1,
-                area: "52m²",
-                url: "https://casasenventa.info/culiacan/casa-en-privada-monaco-paseos-del-rey/",
+            // Cuarta propiedad: Venta en Cumbres 3 Niveles Frente a Parque
+            const cumbres3NivelesProperty = {
+                address: "Venta en Cumbres 3 Niveles Frente a Parque, Cumbres, Monterrey, Nuevo León",
+                priceShort: "$3.55M",
+                priceFull: "$3,550,000",
+                title: "Venta en Cumbres 3 Niveles Frente a Parque",
+                location: "Cumbres, Monterrey, N.L.",
+                bedrooms: 4,
+                bathrooms: 3,
+                area: "184m²",
+                url: "https://casasenventa.info/monterrey/venta-en-cumbres-3-niveles-frente-a-parque/",
                 photos: [
-                    "casa-en-privada-monaco-paseos-del-rey/images/foto-1.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-2.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-3.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-4.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-5.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-6.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-7.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-8.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-9.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-10.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-11.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-12.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-13.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-14.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-15.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-16.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-17.jpg","casa-en-privada-monaco-paseos-del-rey/images/foto-18.jpg"
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-1.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-2.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-3.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-4.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-5.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-6.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-7.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-8.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-9.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-10.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-11.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-12.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-13.jpg",
+                    "venta-en-cumbres-3-niveles-frente-a-parque/images/foto-14.jpg"
+                ]
+            };
+            // Casa en Venta Zona Cumbres
+            const casa_en_venta_zona_cumbresProperty = {
+                address: "Sierra Azul 6208, Misión Lincoln 2 Sector, Monterrey",
+                priceShort: "$2.60M",
+                priceFull: "$2,600,000",
+                title: "Casa en Venta Zona Cumbres",
+                location: "Sierra Azul 6208, Monterrey, N.L.",
+                bedrooms: 3,
+                bathrooms: 2,
+                area: "100m²",
+                url: "https://casasenventa.info/monterrey/casa-en-venta-zona-cumbres/",
+                photos: [
+                    "casa-en-venta-zona-cumbres/images/foto-1.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-2.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-3.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-4.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-5.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-6.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-7.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-8.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-9.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-10.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-11.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-12.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-13.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-14.jpg",
+                    "casa-en-venta-zona-cumbres/images/foto-15.jpg"
                 ]
             };
 
-            // Cuarta propiedad: Casa de Lujo Amorada
-            const amoradaProperty = {
-                lat: 24.8523, lng: -107.4012, // Privada Amorada, zona norte Monterrey
-                priceShort: "$6.75M",
-                priceFull: "$6,750,000",
-                title: "Casa de Lujo Privada Amorada",
-                location: "Amorada, Monterrey",
-                bedrooms: 2,
-                bathrooms: 1,
-                area: "365m²",
-                url: "https://casasenventa.info/culiacan/casa-de-lujo-en-venta-privada-con-alberca-amorada/",
-                photos: [
-                    "casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-1.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-2.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-3.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-4.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-5.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-6.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-7.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-8.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-9.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-10.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-11.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-12.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-13.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-14.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-15.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-16.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-17.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-18.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-19.jpg","casa-de-lujo-en-venta-privada-con-alberca-amorada/images/foto-20.jpg"
-                ]
-            };
 
-            // Quinta propiedad: Casa Stanza
-            const stanzaProperty = {
-                lat: 24.7734, lng: -107.4455, // Fracc. Stanza, Monterrey
-                priceShort: "$1.58M",
-                priceFull: "$1,580,000",
-                title: "Casa Fraccionamiento Stanza",
-                location: "Stanza, Monterrey",
-                bedrooms: 2,
-                bathrooms: 1,
-                area: "N/D",
-                url: "https://casasenventa.info/culiacan/casa-en-fraccionamiento-stanza/",
-                photos: [
-                    "casa-en-fraccionamiento-stanza/images/foto-1.jpg","casa-en-fraccionamiento-stanza/images/foto-2.jpg","casa-en-fraccionamiento-stanza/images/foto-3.jpg","casa-en-fraccionamiento-stanza/images/foto-4.jpg","casa-en-fraccionamiento-stanza/images/foto-5.jpg","casa-en-fraccionamiento-stanza/images/foto-6.jpg","casa-en-fraccionamiento-stanza/images/foto-7.jpg","casa-en-fraccionamiento-stanza/images/foto-8.jpg","casa-en-fraccionamiento-stanza/images/foto-9.jpg","casa-en-fraccionamiento-stanza/images/foto-10.jpg","casa-en-fraccionamiento-stanza/images/foto-11.jpg"
-                ]
-            };
-
-            // Geocodificar la dirección de Infonavit Solidaridad
-            geocoder.geocode({ address: solidaridadProperty.address }, function(results, status) {
-                if (status === 'OK' && results[0]) {
+            // Geocodificar y crear marcador para segunda propiedad
+            const geocoder2 = new google.maps.Geocoder();
+            geocoder2.geocode({ address: cumbresEquipadaProperty.address }, function(results, status) {
+                if (status === 'OK') {
                     const position = results[0].geometry.location;
-
-                    // Centrar mapa en la propiedad
-                    mapCuliacan.setCenter(position);
-                    mapCuliacan.setZoom(13); // Zoom out para ver más propiedades
-
-                    // Crear marcador personalizado estilo Zillow
-                    const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(position, mapCuliacan, solidaridadProperty);
-                    culiacanMarkers.push(marker);
-
-                    console.log('Marcador de Infonavit Solidaridad creado en:', position.lat(), position.lng());
+                    const CustomMarkerClass2 = createZillowPropertyMarkerMty(cumbresEquipadaProperty, mapMonterrey);
+                    const marker2 = new CustomMarkerClass2(position, mapMonterrey, cumbresEquipadaProperty);
+                    console.log('Marcador Casa Cumbres Equipada creado en:', position.lat(), position.lng());
                 } else {
-                    console.error('Geocode error:', status);
-                    // Fallback: usar coordenadas aproximadas
-                    const fallbackPos = { lat: 24.7891, lng: -107.4181 };
-                    mapCuliacan.setCenter(fallbackPos);
-                    mapCuliacan.setZoom(13);
-
-                    const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, mapCuliacan);
-                    const marker = new CustomMarkerClass(fallbackPos, mapCuliacan, solidaridadProperty);
-                    culiacanMarkers.push(marker);
+                    console.error('Geocode error para Casa Cumbres Equipada:', status);
                 }
             });
 
-            // Crear marcador para Casa La Primavera (coordenadas fijas)
-            const positionLaPrimavera = { lat: laPrimaveraProperty.lat, lng: laPrimaveraProperty.lng };
-            const CustomMarkerClassLaPrimavera = createZillowPropertyMarker(laPrimaveraProperty, mapCuliacan);
-            const markerLaPrimavera = new CustomMarkerClassLaPrimavera(positionLaPrimavera, mapCuliacan, laPrimaveraProperty);
-            culiacanMarkers.push(markerLaPrimavera);
-            console.log('Marcador Casa La Primavera creado en:', positionLaPrimavera.lat, positionLaPrimavera.lng);
+            // Geocodificar y crear marcador para tercera propiedad
+            const geocoder3 = new google.maps.Geocoder();
+            geocoder3.geocode({ address: urbivillaColonialProperty.address }, function(results, status) {
+                if (status === 'OK') {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass3 = createZillowPropertyMarkerMty(urbivillaColonialProperty, mapMonterrey);
+                    const marker3 = new CustomMarkerClass3(position, mapMonterrey, urbivillaColonialProperty);
+                    console.log('Marcador Casa Urbivilla Colonial creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error para Casa Urbivilla Colonial:', status);
+                }
+            });
 
-            // Crear marcador para Casa Monaco (coordenadas fijas)
-            const positionMonaco = { lat: monacoProperty.lat, lng: monacoProperty.lng };
-            const CustomMarkerClassMonaco = createZillowPropertyMarker(monacoProperty, mapCuliacan);
-            const markerMonaco = new CustomMarkerClassMonaco(positionMonaco, mapCuliacan, monacoProperty);
-            culiacanMarkers.push(markerMonaco);
-            console.log('Marcador Casa Monaco creado en:', positionMonaco.lat, positionMonaco.lng);
+            // Geocodificar y crear marcador para cuarta propiedad
+            const geocoder4 = new google.maps.Geocoder();
+            geocoder4.geocode({ address: cumbres3NivelesProperty.address }, function(results, status) {
+                if (status === 'OK') {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass4 = createZillowPropertyMarkerMty(cumbres3NivelesProperty, mapMonterrey);
+                    const marker4 = new CustomMarkerClass4(position, mapMonterrey, cumbres3NivelesProperty);
+                    console.log('Marcador Cumbres 3 Niveles creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error para Cumbres 3 Niveles:', status);
+                }
+            });
+            // Geocodificar y crear marcador para Casa en Venta Zona Cumbres
+            const geocoder4 = new google.maps.Geocoder();
+            geocoder4.geocode({ address: casa_en_venta_zona_cumbresProperty.address }, function(results, status) {
+                if (status === 'OK') {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass4 = createZillowPropertyMarkerMty(casa_en_venta_zona_cumbresProperty, mapMonterrey);
+                    const marker4 = new CustomMarkerClass4(position, mapMonterrey, casa_en_venta_zona_cumbresProperty);
+                    console.log('Marcador Casa en Venta Zona Cumbres creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error para Casa en Venta Zona Cumbres:', status);
+                }
+            });
 
-            // Crear marcador para Casa Amorada (coordenadas fijas)
-            const positionAmorada = { lat: amoradaProperty.lat, lng: amoradaProperty.lng };
-            const CustomMarkerClassAmorada = createZillowPropertyMarker(amoradaProperty, mapCuliacan);
-            const markerAmorada = new CustomMarkerClassAmorada(positionAmorada, mapCuliacan, amoradaProperty);
-            culiacanMarkers.push(markerAmorada);
-            console.log('Marcador Casa Amorada creado en:', positionAmorada.lat, positionAmorada.lng);
 
-            // Crear marcador para Casa Stanza (coordenadas fijas)
-            const positionStanza = { lat: stanzaProperty.lat, lng: stanzaProperty.lng };
-            const CustomMarkerClassStanza = createZillowPropertyMarker(stanzaProperty, mapCuliacan);
-            const markerStanza = new CustomMarkerClassStanza(positionStanza, mapCuliacan, stanzaProperty);
-            culiacanMarkers.push(markerStanza);
-            console.log('Marcador Casa Stanza creado en:', positionStanza.lat, positionStanza.lng);
-
-            window.mapCuliacanInitialized = true;
+            window.mapInitialized = true;
             console.log('Mapa de Monterrey inicializado correctamente');
         }
 
-        // Función para crear marcador estilo Zillow con tarjeta de fotos en abanico
-        function createZillowPropertyMarker(property, map) {
+        // Función para crear marcador estilo Zillow con tarjeta de fotos en abanico (Monterrey)
+        function createZillowPropertyMarkerMty(property, map) {
             const markerHTML = `
                 <div style="
                     background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
@@ -2254,7 +2306,7 @@
 
                 // Al hacer clic, mostrar tarjeta Zillow con fotos en abanico
                 div.addEventListener('click', () => {
-                    showZillowCard(this.property, this.position, map);
+                    showZillowCardMty(this.property, this.position, map);
                 });
 
                 this.div = div;
@@ -2280,16 +2332,12 @@
             return CustomMarker;
         }
 
-        // Variable global para controlar el índice de foto actual
-        let currentPhotoIndex = 0;
-        let currentInfoWindow = null;
-
-        // Función para mostrar tarjeta Zillow con carrusel de fotos
-        function showZillowCard(property, position, map) {
-            currentPhotoIndex = 0; // Resetear al abrir la tarjeta
+        // Función para mostrar tarjeta Zillow con carrusel de fotos (Monterrey)
+        function showZillowCardMty(property, position, map) {
+            currentPhotoIndexMty = 0; // Resetear al abrir la tarjeta
 
             // Crear ID único para este carrusel
-            const carouselId = 'carousel-' + Date.now();
+            const carouselId = 'carousel-mty-' + Date.now();
 
             // Generar HTML del carrusel con flechas
             const cardContent = `
@@ -2364,7 +2412,7 @@
             infoWindow.open(map);
 
             // Guardar referencia al InfoWindow actual
-            currentInfoWindow = infoWindow;
+            currentInfoWindowMty = infoWindow;
 
             // Esperar a que el contenido se renderice y agregar event listeners
             google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
@@ -2379,7 +2427,7 @@
                     if (newIndex < 0) newIndex = property.photos.length - 1;
                     if (newIndex >= property.photos.length) newIndex = 0;
 
-                    currentPhotoIndex = newIndex;
+                    currentPhotoIndexMty = newIndex;
 
                     // Fade effect
                     img.style.opacity = '0';
@@ -2406,12 +2454,12 @@
                 // Event listeners para flechas
                 prevBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    updatePhoto(currentPhotoIndex - 1);
+                    updatePhoto(currentPhotoIndexMty - 1);
                 });
 
                 nextBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    updatePhoto(currentPhotoIndex + 1);
+                    updatePhoto(currentPhotoIndexMty + 1);
                 });
 
                 // Event listeners para dots
@@ -2424,41 +2472,33 @@
 
                 // Soporte para teclado (flechas)
                 document.addEventListener('keydown', function handleKeyPress(e) {
-                    if (!currentInfoWindow) {
+                    if (!currentInfoWindowMty) {
                         document.removeEventListener('keydown', handleKeyPress);
                         return;
                     }
-                    if (e.key === 'ArrowLeft') updatePhoto(currentPhotoIndex - 1);
-                    if (e.key === 'ArrowRight') updatePhoto(currentPhotoIndex + 1);
+                    if (e.key === 'ArrowLeft') updatePhoto(currentPhotoIndexMty - 1);
+                    if (e.key === 'ArrowRight') updatePhoto(currentPhotoIndexMty + 1);
                 });
             });
 
             // Limpiar al cerrar
             google.maps.event.addListener(infoWindow, 'closeclick', function() {
-                currentInfoWindow = null;
-                currentPhotoIndex = 0;
+                currentInfoWindowMty = null;
+                currentPhotoIndexMty = 0;
             });
         }
 
         // Cerrar modal con ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                const modal = document.getElementById('mapModal');
-                if (modal && modal.classList.contains('flex')) {
-                    closeMapModal();
-                }
+                closeMapModal();
             }
         });
 
         // Cerrar modal al hacer clic fuera
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('mapModal');
-            if (modal) {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        closeMapModal();
-                    }
-                });
+        document.getElementById('mapModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeMapModal();
             }
         });
     </script>
