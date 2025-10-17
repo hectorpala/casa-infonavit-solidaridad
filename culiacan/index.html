@@ -18551,8 +18551,12 @@
 
             // ==== FILTRO DE PRECIO ESTILO ZILLOW ====
             function initPriceFilter() {
-                const modalMap = document.querySelector('#modal-map-culiacan .relative');
-                if (!modalMap) return;
+                const modalMap = document.querySelector('#map-culiacan');
+                if (!modalMap) {
+                    console.error('❌ No se encontró el elemento #map-culiacan para agregar filtros');
+                    return;
+                }
+                console.log('✅ Elemento del mapa encontrado, agregando filtros...');
                 
                 const filterHTML = `
                 <div id="map-price-filter" style="
