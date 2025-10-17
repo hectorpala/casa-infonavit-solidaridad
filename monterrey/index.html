@@ -1923,27 +1923,37 @@
         let mapMonterrey;
         let monterreyMarker;
 
-        function openMapModal() {
+        // Funciones globales del modal (disponibles desde el onclick)
+        window.openMapModal = function() {
+            console.log('🔵 openMapModal llamada');
             const modal = document.getElementById('mapModal');
+
+            if (!modal) {
+                console.error('❌ Modal no encontrado');
+                return;
+            }
+
+            console.log('✅ Modal encontrado, abriendo...');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             document.body.style.overflow = 'hidden';
 
             // Inicializar mapa si aún no existe
             if (!window.mapInitialized) {
+                console.log('⏳ Inicializando mapa...');
                 // Esperar un momento para que el modal se muestre
                 setTimeout(() => {
                     initializeMonterreyMap();
                 }, 100);
             }
-        }
+        };
 
-        function closeMapModal() {
+        window.closeMapModal = function() {
             const modal = document.getElementById('mapModal');
             modal.classList.add('hidden');
             modal.classList.remove('flex');
             document.body.style.overflow = '';
-        }
+        };
 
         // Función para crear marcador personalizado (igual que Culiacán)
         function createPropertyMarker(property, map, isCurrent = false) {
