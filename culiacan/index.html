@@ -19150,6 +19150,50 @@
                 ]
             };
 
+            // RENTA: Casa Bosques del Río
+            const bosquesDelRioProperty = {
+                address: "BLVD. UNIVERSO 17, Bosques del Rey, Culiacán, Sinaloa",
+                priceShort: "$11K",
+                priceFull: "$11,000/mes",
+                title: "Renta de Casa en Privada Bosques del Rio",
+                location: "Bosques del Rey, Culiacán",
+                bedrooms: 3,
+                bathrooms: 1,
+                area: "170m²",
+                type: "renta",
+                url: "https://casasenventa.info/culiacan/renta-de-casa-en-privada-bosques-del-rio/",
+                photos: [
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-1.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-2.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-3.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-4.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-5.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-6.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-7.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-8.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-9.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-10.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-11.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-12.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-13.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-14.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-15.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-16.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-17.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-18.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-19.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-20.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-21.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-22.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-23.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-24.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-25.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-26.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-27.jpg",
+                    "renta-de-casa-en-privada-bosques-del-rio/images/foto-28.jpg"
+                ]
+            };
+
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -19984,6 +20028,13 @@
             const riberasTamazulaMarker = new riberasTamazulaMarkerClass(riberasTamazulaPosition, window.mapCuliacan, riberasTamazulaProperty);
             window.allCuliacanMarkers.push(riberasTamazulaMarker);
             console.log('Marcador Riberas de Tamazula (RENTA) creado en:', riberasTamazulaPosition.lat(), riberasTamazulaPosition.lng());
+
+            // Bosques del Río (RENTA) - Coordenadas exactas
+            const bosquesDelRioPosition = new google.maps.LatLng(24.8265, -107.4150);
+            const bosquesDelRioMarkerClass = createZillowPropertyMarker(bosquesDelRioProperty, window.mapCuliacan);
+            const bosquesDelRioMarker = new bosquesDelRioMarkerClass(bosquesDelRioPosition, window.mapCuliacan, bosquesDelRioProperty);
+            window.allCuliacanMarkers.push(bosquesDelRioMarker);
+            console.log('Marcador Bosques del Río (RENTA) creado en:', bosquesDelRioPosition.lat(), bosquesDelRioPosition.lng());
 
             // Inicializar filtros Zillow cuando el mapa esté listo
             setTimeout(initZillowFilters, 500);
