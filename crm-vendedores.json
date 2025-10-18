@@ -571,12 +571,45 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-18T04:21:49.276Z"
+    },
+    {
+      "id": "v017",
+      "nombre": "Maryna Montes Real Estate",
+      "telefono": "6675742052",
+      "telefonoFormateado": "667-574-2052",
+      "whatsapp": "https://wa.me/526675742052",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147701128",
+          "titulo": "Casa en Renta Circuito Tabachines Culiacan Sinaloa",
+          "precio": "MN 19,000",
+          "ubicacion": "Avenida Federalismo 10, Recursos HidrAulicos, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-circuito-tabachines-culiacan-sinaloa-147701128.html",
+          "fechaScrapeo": "2025-10-18",
+          "fechaPublicacion": "Publicado hace 23 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Avenida Federalismo 10, Recursos HidrAulicos, Culiacán",
+      "tags": [
+        "inmuebles24",
+        "avenida-federalismo-10",
+        "recursos-hidraulicos",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-18T04:40:06.263Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 16,
-    "totalPropiedades": 27,
-    "ultimaActualizacion": "2025-10-18T04:21:49.276Z"
+    "totalVendedores": 17,
+    "totalPropiedades": 28,
+    "ultimaActualizacion": "2025-10-18T04:40:06.263Z"
   },
   "busquedas": [
     {
