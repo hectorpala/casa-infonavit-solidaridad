@@ -735,11 +735,6 @@
             </div>
             <div class="border-t border-slate-200">
                 <div class="max-w-7xl mx-auto px-4 lg:px-6 py-3 flex flex-wrap items-center gap-2">
-                    <button class="chip-button" data-filter-chip="type">
-                        <i class="fa-solid fa-house"></i>
-                        <span class="chip-label" data-chip-label="type">Venta y renta</span>
-                        <i class="fa-solid fa-chevron-down chip-icon"></i>
-                    </button>
                     <button class="chip-button" data-filter-chip="price">
                         <i class="fa-solid fa-dollar-sign"></i>
                         <span class="chip-label" data-chip-label="price">Precio</span>
@@ -765,29 +760,6 @@
                     </span>
                 </div>
             </div>
-            <div class="border-t border-slate-200 bg-white/95">
-                <div class="max-w-7xl mx-auto px-4 lg:px-6 py-2 flex items-center gap-2 overflow-x-auto text-sm text-slate-600">
-                    <span class="text-xs uppercase tracking-[0.2em] text-slate-400 mr-2 shrink-0">Ciudades</span>
-                    <button data-city-filter="Culiacán Centro" class="feature-pill whitespace-nowrap">
-                        Centro
-                    </button>
-                    <button data-city-filter="Privanzas" class="feature-pill whitespace-nowrap">
-                        Privanzas
-                    </button>
-                    <button data-city-filter="La Primavera" class="feature-pill whitespace-nowrap">
-                        La Primavera
-                    </button>
-                    <button data-city-filter="Real del Valle" class="feature-pill whitespace-nowrap">
-                        Real del Valle
-                    </button>
-                    <button data-city-filter="Stanza Castilla" class="feature-pill whitespace-nowrap">
-                        Stanza Castilla
-                    </button>
-                    <button data-city-filter="Valles del Sol" class="feature-pill whitespace-nowrap">
-                        Valles del Sol
-                    </button>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -800,7 +772,6 @@
             const drawerClose = document.getElementById('filters-drawer-close');
             const panels = drawer ? drawer.querySelectorAll('[data-panel]') : [];
             const filterType = document.getElementById('filter-type');
-            const listingTypeRadios = document.querySelectorAll('input[name="listing-type-preset"]');
             const priceMin = document.getElementById('price-min');
             const priceMax = document.getElementById('price-max');
             const filterBeds = document.getElementById('filter-beds');
@@ -818,11 +789,9 @@
             chips.forEach(chip => chipButtons[chip.dataset.filterChip] = chip);
             const openFiltersDrawerBtn = document.getElementById('open-filters-drawer');
             const saveSearchBtn = document.getElementById('save-search-btn');
-            const cityFilterButtons = document.querySelectorAll('[data-city-filter]');
             const searchInput = document.getElementById('header-search');
 
             const panelTitles = {
-                type: 'Tipo de listado',
                 price: 'Rango de precio',
                 beds: 'Recámaras y baños',
                 more: 'Más filtros'
@@ -882,17 +851,6 @@
                 alert('Tu búsqueda se ha guardado. Te notificaremos cuando haya propiedades nuevas en Culiacán.');
             });
 
-            cityFilterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const value = button.dataset.cityFilter || '';
-                    if (searchInput) {
-                        searchInput.value = value;
-                        searchInput.focus();
-                    }
-                    window.scrollTo({ top: document.getElementById('listado')?.offsetTop || 0, behavior: 'smooth' });
-                });
-            });
-
             document.addEventListener('keydown', event => {
                 if (event.key === 'Escape') {
                     closePanel();
@@ -908,33 +866,6 @@
                 }
             });
 
-            function syncListingTypeControls() {
-                const currentValue = filterType?.value || '';
-                listingTypeRadios.forEach(radio => {
-                    radio.checked = (radio.value === currentValue);
-                });
-            }
-
-            listingTypeRadios.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    if (!filterType) return;
-                    filterType.value = radio.value;
-                    const changeEvent = new Event('change', { bubbles: true });
-                    filterType.dispatchEvent(changeEvent);
-                    filterProperties();
-                    window.refreshPrimaryChipLabels?.();
-                });
-            });
-
-            filterType?.addEventListener('change', () => {
-                syncListingTypeControls();
-                filterProperties();
-                window.refreshPrimaryChipLabels?.();
-            });
-
-            syncListingTypeControls();
-            window.syncListingTypeControls = syncListingTypeControls;
-
             function formatCurrency(value) {
                 if (!value) return '';
                 const numeric = parseInt(value.toString().replace(/[^\d]/g, ''), 10);
@@ -943,15 +874,9 @@
             }
 
             function refreshChipLabels() {
-                const typeChipLabel = document.querySelector('[data-chip-label="type"]');
                 const priceChipLabel = document.querySelector('[data-chip-label="price"]');
                 const bedsChipLabel = document.querySelector('[data-chip-label="beds"]');
                 const moreChipLabel = document.querySelector('[data-chip-label="more"]');
-
-                const typeValue = filterType?.value || '';
-                let typeText = 'Venta y renta';
-                if (typeValue === 'venta') typeText = 'Solo venta';
-                if (typeValue === 'renta') typeText = 'Solo renta';
 
                 const minText = formatCurrency(priceMin?.value);
                 const maxText = formatCurrency(priceMax?.value);
@@ -982,12 +907,10 @@
                     moreText = `${amenitiesCount} amenidades`;
                 }
 
-                if (typeChipLabel) typeChipLabel.textContent = typeText;
                 if (priceChipLabel) priceChipLabel.textContent = priceText;
                 if (bedsChipLabel) bedsChipLabel.textContent = bedsText;
                 if (moreChipLabel) moreChipLabel.textContent = moreText;
 
-                if (chipButtons.type) chipButtons.type.classList.toggle('active', !!typeValue);
                 if (chipButtons.price) chipButtons.price.classList.toggle('active', !!(minText || maxText));
                 if (chipButtons.beds) chipButtons.beds.classList.toggle('active', !!(bedsValue || bathsValue));
                 if (chipButtons.more) chipButtons.more.classList.toggle('active', !!(homeTypeValue || amenitiesCount));
@@ -1014,35 +937,6 @@
                     <button id="filters-drawer-close" class="p-2 text-slate-400 hover:text-slate-700 transition-colors">
                         <i class="fa-solid fa-xmark text-lg"></i>
                     </button>
-                </div>
-                <div class="filter-section-grid space-y-4 hidden" data-panel="type">
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="flex flex-col gap-2">
-                            <label for="filter-type">Tipo de operación</label>
-                            <select id="filter-type" class="w-full">
-                                <option value="">Venta y renta</option>
-                                <option value="venta">Solo venta</option>
-                                <option value="renta">Solo renta</option>
-                            </select>
-                        </div>
-                        <div class="flex flex-col gap-2">
-                            <label>Acceso rápido</label>
-                            <div class="flex flex-wrap gap-2">
-                                <label class="feature-pill">
-                                    <input type="radio" name="listing-type-preset" value="" checked>
-                                    <span>Venta y renta</span>
-                                </label>
-                                <label class="feature-pill">
-                                    <input type="radio" name="listing-type-preset" value="venta">
-                                    <span>Solo venta</span>
-                                </label>
-                                <label class="feature-pill">
-                                    <input type="radio" name="listing-type-preset" value="renta">
-                                    <span>Solo renta</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="space-y-8">
                     <div class="filter-section-grid space-y-4 hidden" data-panel="price">
@@ -15845,8 +15739,7 @@
         if (filterFurnished) filterFurnished.checked = false;
         if (filterGarden) filterGarden.checked = false;
         if (filterSecurity) filterSecurity.checked = false;
-        window.syncListingTypeControls?.();
-        
+
         if (typeof window.refreshPrimaryChipLabels === 'function') {
           window.refreshPrimaryChipLabels();
         }
