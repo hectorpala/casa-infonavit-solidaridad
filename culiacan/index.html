@@ -19461,6 +19461,37 @@
                 ]
             };
 
+            // VENTA: Casa en Fraccionamiento Cañadas
+            const casa_en_fraccionamiento_canadasProperty = {
+                address: "Cañadas, Culiacán, Sinaloa, Mexico, Fraccionamiento Cañadas",
+                priceShort: "$3M",
+                priceFull: "$2,990,000",
+                title: "Casa en Fraccionamiento Cañadas",
+                location: "Cañadas, Culiacán",
+                bedrooms: 3,
+                bathrooms: 4,
+                area: "185m²",
+                type: "venta",
+                url: "https://casasenventa.info/culiacan/casa-en-fraccionamiento-canadas/",
+                photos: [
+                    "casa-en-fraccionamiento-canadas/images/foto-1.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-2.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-3.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-4.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-5.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-6.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-7.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-8.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-9.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-10.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-11.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-12.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-13.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-14.jpg",
+                    "casa-en-fraccionamiento-canadas/images/foto-15.jpg"
+                ]
+            };
+
             // VENTA: Casa en Fraccionamiento Los Angeles
             const casa_en_fraccionamiento_los_angelesProperty = {
                 address: "Coto Trentino, Benevento Residencial al 4800, Culiacán, Sinaloa, Mexico, Fraccionamiento Los Angeles",
@@ -20527,6 +20558,13 @@
             const casa_en_renta_en_privada_kentia_valle_altoMarker = new casa_en_renta_en_privada_kentia_valle_altoMarkerClass(casa_en_renta_en_privada_kentia_valle_altoPosition, window.mapCuliacan, casa_en_renta_en_privada_kentia_valle_altoProperty);
             window.allCuliacanMarkers.push(casa_en_renta_en_privada_kentia_valle_altoMarker);
             console.log('Marcador Valle Alto Kentia (RENTA) creado en:', casa_en_renta_en_privada_kentia_valle_altoPosition.lat(), casa_en_renta_en_privada_kentia_valle_altoPosition.lng());
+
+            // Cañadas (VENTA) - Coordenadas aproximadas zona sur Culiacán
+            const casa_en_fraccionamiento_canadasPosition = new google.maps.LatLng(24.770000, -107.410000);
+            const casa_en_fraccionamiento_canadasMarkerClass = createZillowPropertyMarker(casa_en_fraccionamiento_canadasProperty, window.mapCuliacan);
+            const casa_en_fraccionamiento_canadasMarker = new casa_en_fraccionamiento_canadasMarkerClass(casa_en_fraccionamiento_canadasPosition, window.mapCuliacan, casa_en_fraccionamiento_canadasProperty);
+            window.allCuliacanMarkers.push(casa_en_fraccionamiento_canadasMarker);
+            console.log('Marcador Cañadas (VENTA) creado en:', casa_en_fraccionamiento_canadasPosition.lat(), casa_en_fraccionamiento_canadasPosition.lng());
 
             // Los Angeles (VENTA) - Coordenadas aproximadas zona noreste Culiacán
             const casa_en_fraccionamiento_los_angelesPosition = new google.maps.LatLng(24.820000, -107.380000);
