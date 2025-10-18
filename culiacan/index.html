@@ -20544,5 +20544,51 @@
         }
     });
     </script>
+
+    <!-- Script para calcular dinámicamente "Publicado hace X días" -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function updatePublishedDates() {
+            const cards = document.querySelectorAll('.property-card[data-published-date]');
+
+            cards.forEach(card => {
+                const publishedDateRaw = card.getAttribute('data-published-date');
+                const dateTextEl = card.querySelector('.published-date-text');
+
+                if (!publishedDateRaw || !dateTextEl) return;
+
+                // Parsear "Publicado hace X días" a número
+                const daysMatch = publishedDateRaw.match(/(\d+)\s+día/i);
+
+                if (daysMatch) {
+                    const daysAgo = parseInt(daysMatch[1]);
+                    const publishDate = new Date();
+                    publishDate.setDate(publishDate.getDate() - daysAgo);
+
+                    // Calcular días desde hoy
+                    const today = new Date();
+                    const diffTime = Math.abs(today - publishDate);
+                    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+                    // Actualizar texto
+                    if (diffDays === 0) {
+                        dateTextEl.textContent = 'Publicado hoy';
+                    } else if (diffDays === 1) {
+                        dateTextEl.textContent = 'Publicado hace 1 día';
+                    } else {
+                        dateTextEl.textContent = `Publicado hace ${diffDays} días`;
+                    }
+                } else {
+                    // Si no se puede parsear, mostrar el texto original
+                    dateTextEl.textContent = publishedDateRaw;
+                }
+            });
+        }
+
+        // Ejecutar al cargar y cada 24 horas
+        updatePublishedDates();
+        setInterval(updatePublishedDates, 24 * 60 * 60 * 1000);
+    });
+    </script>
 </body>
 </html>

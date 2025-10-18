@@ -1972,7 +1972,8 @@ function addToIndex(data, slug, cityConfig) {
     const card = `
     <!-- BEGIN CARD-ADV ${slug} -->
     <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow property-card relative"
-         data-href="${slug}/index.html">
+         data-href="${slug}/index.html"
+         data-published-date="${data.publishedDate || ''}">
         <div class="relative aspect-video">
             <div class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold z-20">
                 ${formatPrice(data.price)}
@@ -2021,7 +2022,10 @@ function addToIndex(data, slug, cityConfig) {
 
         <div class="p-6">
             <h3 class="text-2xl font-bold text-gray-900 mb-1 font-poppins">${formatPrice(data.price)}</h3>
-            <p class="text-gray-600 mb-4 font-poppins">${data.title}</p>
+            <p class="text-gray-600 mb-2 font-poppins">${data.title}</p>
+            <p class="text-xs text-gray-500 mb-4 font-poppins published-date-text">
+                ${data.publishedDate || ''}
+            </p>
 
             <div class="flex flex-wrap gap-3 mb-6">
                 <div class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-1 text-sm text-gray-700">
