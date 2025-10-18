@@ -19894,26 +19894,24 @@
                 }
             });
 
-            // Geocodificar Riberas de Tamazula (RENTA)
-            console.log('🔍 INICIO: Geocodificando Riberas de Tamazula con address:', riberasTamazulaProperty.address);
-            console.log('🔍 Property data completa:', riberasTamazulaProperty);
-            geocoder.geocode({ address: riberasTamazulaProperty.address }, function(results, status) {
-                console.log('🔍 Riberas geocode status:', status);
-                console.log('🔍 Riberas geocode results:', results);
-                if (status === 'OK' && results[0]) {
-                    const position = results[0].geometry.location;
-                    console.log('✅ Geocode OK - formatted_address:', results[0].formatted_address);
-                    console.log('✅ Coordenadas:', position.lat(), position.lng());
-                    const CustomMarkerClass = createZillowPropertyMarker(riberasTamazulaProperty, window.mapCuliacan);
-                    const marker = new CustomMarkerClass(position, window.mapCuliacan, riberasTamazulaProperty);
-                    window.allCuliacanMarkers.push(marker);
-                    console.log('✅ Marcador Riberas de Tamazula (RENTA) creado y agregado a allCuliacanMarkers');
-                    console.log('✅ Total markers en array:', window.allCuliacanMarkers.length);
-                } else {
-                    console.error('❌ Geocode error Riberas de Tamazula:', status);
-                    console.error('❌ Results:', results);
-                }
-            });
+            // Geocodificar Riberas de Tamazula (RENTA) - CON COORDENADAS FIJAS
+            console.log('🔍 INICIO: Geocodificando Riberas de Tamazula');
+            document.body.insertAdjacentHTML('beforeend', '<div id="debug-riberas" style="position:fixed;bottom:20px;right:20px;background:#ff9800;color:#fff;padding:10px;z-index:9999;font-family:monospace;font-size:12px;">🔍 Buscando Riberas…</div>');
+
+            // USAR COORDENADAS FIJAS PARA EVITAR PROBLEMAS DE GEOCODIFICACIÓN
+            const position = new google.maps.LatLng(24.8213, -107.4068); // Coordenadas aproximadas de Riberas de Tamazula
+            const CustomMarkerClass = createZillowPropertyMarker(riberasTamazulaProperty, window.mapCuliacan);
+            const marker = new CustomMarkerClass(position, window.mapCuliacan, riberasTamazulaProperty);
+            window.allCuliacanMarkers.push(marker);
+
+            // Actualizar mensaje debug
+            const debugEl = document.getElementById('debug-riberas');
+            if (debugEl) {
+                debugEl.innerHTML = '✅ Marcador creado!<br>Total: ' + window.allCuliacanMarkers.length + '<br>Type: ' + riberasTamazulaProperty.type + '<br>Coords: ' + position.lat() + ', ' + position.lng();
+            }
+            console.log('✅ Marcador Riberas de Tamazula creado con coordenadas fijas');
+            console.log('✅ Total markers:', window.allCuliacanMarkers.length);
+            console.log('✅ Property type:', riberasTamazulaProperty.type);
 
             // Inicializar filtros Zillow cuando el mapa esté listo
             setTimeout(initZillowFilters, 500);
