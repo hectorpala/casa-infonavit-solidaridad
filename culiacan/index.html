@@ -16220,6 +16220,23 @@
             display: none;
         }
 
+        @media (max-width: 640px) {
+            #zillow-filters-container {
+                position: static;
+                transform: none;
+                width: 100%;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 0 12px;
+            }
+
+            #zillow-filters-container .filter-chip {
+                flex: 1 1 calc(50% - 8px);
+                justify-content: center;
+            }
+        }
+
         /* Bottom Sheet Overlay */
         .bottom-sheet-overlay {
             position: fixed;
