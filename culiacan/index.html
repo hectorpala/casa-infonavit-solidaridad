@@ -19293,6 +19293,58 @@
                 ]
             };
 
+            // RENTA: Casa en Renta en Valle Alto A2
+            const casa_en_renta_en_valle_alto_a2Property = {
+                address: "Casa en Renta en Valle Alto A2, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+                priceShort: "$11K",
+                priceFull: "$10,500/mes",
+                title: "Casa en Renta en Valle Alto A2",
+                location: "Valle Alto A2, Culiacán",
+                bedrooms: 3,
+                bathrooms: 2,
+                area: "105m²",
+                type: "renta",
+                url: "https://casasenventa.info/culiacan/casa-en-renta-en-valle-alto-a2/",
+                photos: [
+                    "casa-en-renta-en-valle-alto-a2/images/foto-1.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-2.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-3.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-4.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-5.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-6.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-7.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-8.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-9.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-10.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-11.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-12.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-13.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-14.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-15.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-16.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-17.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-18.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-19.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-20.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-21.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-22.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-23.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-24.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-25.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-26.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-27.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-28.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-29.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-30.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-31.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-32.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-33.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-34.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-35.jpg",
+                    "casa-en-renta-en-valle-alto-a2/images/foto-36.jpg"
+                ]
+            };
+
             // RENTA: Casa Riberas de Tamazula
             const riberasTamazulaProperty = {
                 address: "Riberas de Tamazula, Culiacán, Sinaloa, Mexico",
@@ -20262,6 +20314,13 @@
             const casa_en_renta_en_privada_kentia_valle_altoMarker = new casa_en_renta_en_privada_kentia_valle_altoMarkerClass(casa_en_renta_en_privada_kentia_valle_altoPosition, window.mapCuliacan, casa_en_renta_en_privada_kentia_valle_altoProperty);
             window.allCuliacanMarkers.push(casa_en_renta_en_privada_kentia_valle_altoMarker);
             console.log('Marcador Valle Alto Kentia (RENTA) creado en:', casa_en_renta_en_privada_kentia_valle_altoPosition.lat(), casa_en_renta_en_privada_kentia_valle_altoPosition.lng());
+
+            // Valle Alto A2 (RENTA) - Coordenadas aproximadas zona Valle Alto
+            const casa_en_renta_en_valle_alto_a2Position = new google.maps.LatLng(24.804500, -107.465000);
+            const casa_en_renta_en_valle_alto_a2MarkerClass = createZillowPropertyMarker(casa_en_renta_en_valle_alto_a2Property, window.mapCuliacan);
+            const casa_en_renta_en_valle_alto_a2Marker = new casa_en_renta_en_valle_alto_a2MarkerClass(casa_en_renta_en_valle_alto_a2Position, window.mapCuliacan, casa_en_renta_en_valle_alto_a2Property);
+            window.allCuliacanMarkers.push(casa_en_renta_en_valle_alto_a2Marker);
+            console.log('Marcador Valle Alto A2 (RENTA) creado en:', casa_en_renta_en_valle_alto_a2Position.lat(), casa_en_renta_en_valle_alto_a2Position.lng());
 
             // Inicializar filtros Zillow cuando el mapa esté listo
             setTimeout(initZillowFilters, 500);
