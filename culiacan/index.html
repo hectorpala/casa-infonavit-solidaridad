@@ -15753,13 +15753,13 @@
     <div class="bottom-sheet-culiacan" id="sheet-type-culiacan">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Tipo de Propiedad</h3>
-            <button class="sheet-apply" onclick="applyFilter('type')">Listo</button>
+            <h3>Listing Type</h3>
+            <button class="sheet-apply" onclick="applyFilter('type')">Done</button>
         </div>
         <div class="sheet-content">
             <div class="button-group">
-                <button class="option-btn selected" data-value="venta" onclick="selectOption(this, 'type', 'venta')">En Venta</button>
-                <button class="option-btn" data-value="renta" onclick="selectOption(this, 'type', 'renta')">En Renta</button>
+                <button class="option-btn selected" data-value="venta" onclick="selectOption(this, 'type', 'venta')">For Sale</button>
+                <button class="option-btn" data-value="renta" onclick="selectOption(this, 'type', 'renta')">For Rent</button>
             </div>
         </div>
     </div>
@@ -15768,12 +15768,12 @@
     <div class="bottom-sheet-culiacan" id="sheet-price-culiacan">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Precio</h3>
-            <button class="sheet-apply" onclick="applyFilter('price')">Listo</button>
+            <h3>Price</h3>
+            <button class="sheet-apply" onclick="applyFilter('price')">Done</button>
         </div>
         <div class="sheet-content">
             <div class="price-options">
-                <button class="price-btn" data-value="" onclick="selectPrice(this, '')">Sin Límite</button>
+                <button class="price-btn" data-value="" onclick="selectPrice(this, '')">No Min - No Max</button>
                 <button class="price-btn" data-value="0-2500000" onclick="selectPrice(this, '0-2500000')">$0 - $2.5M</button>
                 <button class="price-btn" data-value="2500000-3000000" onclick="selectPrice(this, '2500000-3000000')">$2.5M - $3.0M</button>
                 <button class="price-btn" data-value="3000000-3500000" onclick="selectPrice(this, '3000000-3500000')">$3.0M - $3.5M</button>
@@ -15786,14 +15786,14 @@
     <div class="bottom-sheet-culiacan" id="sheet-beds-baths-culiacan">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Recámaras y Baños</h3>
-            <button class="sheet-apply" onclick="applyFilter('beds-baths')">Listo</button>
+            <h3>Beds &amp; Baths</h3>
+            <button class="sheet-apply" onclick="applyFilter('beds-baths')">Done</button>
         </div>
         <div class="sheet-content">
             <!-- Sección: Recámaras -->
-            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Recámaras</h4>
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Bedrooms</h4>
             <div class="button-group" style="margin-bottom: 24px;">
-                <button class="option-btn" data-value="" onclick="selectOption(this, 'bedrooms', '')">Cualquiera</button>
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bedrooms', '')">Any</button>
                 <button class="option-btn" data-value="1" onclick="selectOption(this, 'bedrooms', '1')">1+</button>
                 <button class="option-btn" data-value="2" onclick="selectOption(this, 'bedrooms', '2')">2+</button>
                 <button class="option-btn" data-value="3" onclick="selectOption(this, 'bedrooms', '3')">3+</button>
@@ -15802,9 +15802,9 @@
             </div>
 
             <!-- Sección: Baños -->
-            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Baños</h4>
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Bathrooms</h4>
             <div class="button-group">
-                <button class="option-btn" data-value="" onclick="selectOption(this, 'bathrooms', '')">Cualquiera</button>
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bathrooms', '')">Any</button>
                 <button class="option-btn" data-value="1" onclick="selectOption(this, 'bathrooms', '1')">1+</button>
                 <button class="option-btn" data-value="2" onclick="selectOption(this, 'bathrooms', '2')">2+</button>
                 <button class="option-btn" data-value="3" onclick="selectOption(this, 'bathrooms', '3')">3+</button>
@@ -15817,22 +15817,22 @@
     <div class="bottom-sheet-culiacan" id="sheet-more-culiacan">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Más Filtros</h3>
-            <button class="sheet-apply" onclick="applyFilter('more')">Listo</button>
+            <h3>More Filters</h3>
+            <button class="sheet-apply" onclick="applyFilter('more')">Done</button>
         </div>
         <div class="sheet-content">
             <!-- Sección: Zona -->
-            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Zona</h4>
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Neighborhood</h4>
             <div class="button-group" style="margin-bottom: 24px;">
-                <button class="option-btn" data-value="" onclick="selectOption(this, 'zone', '')">Cualquiera</button>
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'zone', '')">Any</button>
                 <button class="option-btn" data-value="infonavit" onclick="selectOption(this, 'zone', 'infonavit')">Infonavit</button>
                 <button class="option-btn" data-value="centro" onclick="selectOption(this, 'zone', 'centro')">Centro</button>
-                <button class="option-btn" data-value="norte" onclick="selectOption(this, 'zone', 'norte')">Zona Norte</button>
+                <button class="option-btn" data-value="norte" onclick="selectOption(this, 'zone', 'norte')">North Zone</button>
             </div>
 
             <!-- Botón Limpiar Todos los Filtros -->
             <button onclick="resetFilters()" style="width: 100%; padding: 12px 16px; border-radius: 4px; background: #fff; border: 1px solid #A7A6AB; color: #2A2A33; font-size: 14px; font-weight: 700; cursor: pointer; transition: background-color 0.2s ease;">
-                Limpiar Todos los Filtros
+                Clear All Filters
             </button>
         </div>
     </div>
@@ -16166,26 +16166,26 @@
                 // Actualizar texto del chip con valor seleccionado
                 let displayText = '';
                 if (filterType === 'type') {
-                    displayText = value === 'venta' ? 'En Venta' : 'En Renta';
+                    displayText = value === 'renta' ? 'For Rent' : 'For Sale';
                 } else if (filterType === 'price') {
                     const ranges = {
-                        '0-2500000': '$0-$2.5M',
-                        '2500000-3000000': '$2.5M-$3.0M',
-                        '3000000-3500000': '$3.0M-$3.5M',
+                        '0-2500000': '$0 - $2.5M',
+                        '2500000-3000000': '$2.5M - $3.0M',
+                        '3000000-3500000': '$3.0M - $3.5M',
                         '3500000-999999999': '$3.5M+'
                     };
-                    displayText = ranges[value] || 'Precio';
+                    displayText = ranges[value] || 'Price';
                 } else if (filterType === 'bedrooms') {
-                    displayText = value + '+ rec';
+                    displayText = `${value}+ bd`;
                 } else if (filterType === 'bathrooms') {
-                    displayText = value + '+ baños';
+                    displayText = `${value}+ ba`;
                 } else if (filterType === 'zone') {
                     const zones = {
                         'infonavit': 'Infonavit',
                         'centro': 'Centro',
-                        'norte': 'Zona Norte'
+                        'norte': 'North Zone'
                     };
-                    displayText = zones[value] || 'Zona';
+                    displayText = zones[value] || 'Neighborhood';
                 }
 
                 // ZILLOW: Para beds-baths, mostrar ambos si están activos
@@ -16193,11 +16193,11 @@
                     const bedValue = activeFilters.bedrooms;
                     const bathValue = activeFilters.bathrooms;
                     if (bedValue && bathValue) {
-                        displayText = `${bedValue}+ rec, ${bathValue}+ baños`;
+                        displayText = `${bedValue}+ bd, ${bathValue}+ ba`;
                     } else if (bedValue) {
-                        displayText = `${bedValue}+ rec`;
+                        displayText = `${bedValue}+ bd`;
                     } else if (bathValue) {
-                        displayText = `${bathValue}+ baños`;
+                        displayText = `${bathValue}+ ba`;
                     }
                 }
 
@@ -16232,13 +16232,28 @@
 
         // Remover filtro individual
         function removeFilter(filterType) {
-            activeFilters[filterType] = '';
-            resetChipAppearance(filterType);
-
-            // Remover selected de opciones en el sheet
-            const sheet = document.getElementById(`sheet-${filterType}-culiacan`);
-            if (sheet) {
-                sheet.querySelectorAll('.option-btn, .price-btn').forEach(btn => btn.classList.remove('selected'));
+            if (filterType === 'bedrooms' || filterType === 'bathrooms') {
+                activeFilters.bedrooms = '';
+                activeFilters.bathrooms = '';
+                resetChipAppearance('beds-baths');
+                const sheet = document.getElementById('sheet-beds-baths-culiacan');
+                if (sheet) {
+                    sheet.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+                }
+            } else if (filterType === 'zone') {
+                activeFilters.zone = '';
+                resetChipAppearance('more');
+                const sheet = document.getElementById('sheet-more-culiacan');
+                if (sheet) {
+                    sheet.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+                }
+            } else {
+                activeFilters[filterType] = '';
+                resetChipAppearance(filterType);
+                const sheet = document.getElementById(`sheet-${filterType}-culiacan`);
+                if (sheet) {
+                    sheet.querySelectorAll('.option-btn, .price-btn').forEach(btn => btn.classList.remove('selected'));
+                }
             }
 
             applyFiltersToMap();
@@ -16246,28 +16261,31 @@
 
         // Reset apariencia de chip a estado inicial
         function resetChipAppearance(filterType) {
-            const chip = document.getElementById(`chip-${filterType}-culiacan`);
+            let chipId = filterType;
+            if (filterType === 'bedrooms' || filterType === 'bathrooms') {
+                chipId = 'beds-baths';
+            } else if (filterType === 'zone') {
+                chipId = 'more';
+            }
+
+            const chip = document.getElementById(`chip-${chipId}-culiacan`);
             if (!chip) return;
 
             chip.classList.remove('active');
 
-            // ZILLOW: Labels actualizados a español
             const labels = {
-                type: 'En Venta',
-                price: 'Precio',
-                'beds-baths': 'Recámaras y Baños',
-                more: 'Más',
-                bedrooms: 'Recámaras y Baños',
-                bathrooms: 'Recámaras y Baños',
-                zone: 'Más'
+                type: 'For Sale',
+                price: 'Price',
+                'beds-baths': 'Beds & Baths',
+                more: 'More'
             };
 
             chip.innerHTML = `
-                <span class="chip-label">${labels[filterType]}</span>
+                <span class="chip-label">${labels[chipId]}</span>
                 <i class="fas fa-chevron-down chip-icon"></i>
             `;
 
-            chip.onclick = () => openBottomSheet(filterType);
+            chip.onclick = () => openBottomSheet(chipId);
         }
 
         // Aplicar todos los filtros activos al mapa
@@ -16402,19 +16420,19 @@
                 gap: 10px;
             ">
                 <div class="filter-chip" id="chip-type-culiacan">
-                    <span>En Venta</span>
+                    <span>For Sale</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="filter-chip" id="chip-price-culiacan">
-                    <span>Precio</span>
+                    <span>Price</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="filter-chip" id="chip-beds-baths-culiacan">
-                    <span>Rec y Baños</span>
+                    <span>Beds & Baths</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="filter-chip" id="chip-more-culiacan">
-                    <span>Más</span>
+                    <span>More</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
