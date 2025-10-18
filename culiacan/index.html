@@ -19894,24 +19894,12 @@
                 }
             });
 
-            // Geocodificar Riberas de Tamazula (RENTA) - CON COORDENADAS FIJAS
-            console.log('🔍 INICIO: Geocodificando Riberas de Tamazula');
-            document.body.insertAdjacentHTML('beforeend', '<div id="debug-riberas" style="position:fixed;bottom:20px;right:20px;background:#ff9800;color:#fff;padding:10px;z-index:9999;font-family:monospace;font-size:12px;">🔍 Buscando Riberas…</div>');
-
-            // USAR COORDENADAS FIJAS PARA EVITAR PROBLEMAS DE GEOCODIFICACIÓN
-            const position = new google.maps.LatLng(24.8213, -107.4068); // Coordenadas aproximadas de Riberas de Tamazula
-            const CustomMarkerClass = createZillowPropertyMarker(riberasTamazulaProperty, window.mapCuliacan);
-            const marker = new CustomMarkerClass(position, window.mapCuliacan, riberasTamazulaProperty);
-            window.allCuliacanMarkers.push(marker);
-
-            // Actualizar mensaje debug
-            const debugEl = document.getElementById('debug-riberas');
-            if (debugEl) {
-                debugEl.innerHTML = '✅ Marcador creado!<br>Total: ' + window.allCuliacanMarkers.length + '<br>Type: ' + riberasTamazulaProperty.type + '<br>Coords: ' + position.lat() + ', ' + position.lng();
-            }
-            console.log('✅ Marcador Riberas de Tamazula creado con coordenadas fijas');
-            console.log('✅ Total markers:', window.allCuliacanMarkers.length);
-            console.log('✅ Property type:', riberasTamazulaProperty.type);
+            // Riberas de Tamazula (RENTA) - Coordenadas exactas
+            const riberasTamazulaPosition = new google.maps.LatLng(24.829214, -107.37305);
+            const riberasTamazulaMarkerClass = createZillowPropertyMarker(riberasTamazulaProperty, window.mapCuliacan);
+            const riberasTamazulaMarker = new riberasTamazulaMarkerClass(riberasTamazulaPosition, window.mapCuliacan, riberasTamazulaProperty);
+            window.allCuliacanMarkers.push(riberasTamazulaMarker);
+            console.log('Marcador Riberas de Tamazula (RENTA) creado en:', riberasTamazulaPosition.lat(), riberasTamazulaPosition.lng());
 
             // Inicializar filtros Zillow cuando el mapa esté listo
             setTimeout(initZillowFilters, 500);
