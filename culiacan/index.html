@@ -16500,7 +16500,7 @@
                 // Actualizar texto del chip con valor seleccionado
                 let displayText = '';
                 if (filterType === 'type') {
-                    displayText = value === 'renta' ? 'For Rent' : 'For Sale';
+                    displayText = value === 'renta' ? 'En renta' : 'En venta';
                 } else if (filterType === 'price') {
                     const ranges = {
                         '0-2500000': '$0 - $2.5M',
@@ -16611,7 +16611,7 @@
             chip.classList.remove('active');
 
             const labels = {
-                type: 'For Sale',
+                type: 'En venta',
                 price: 'Precio',
                 'beds-baths': 'Recámaras y baños',
                 more: 'Más'
