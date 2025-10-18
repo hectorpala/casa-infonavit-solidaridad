@@ -19710,6 +19710,75 @@
                 ]
             };
 
+            // ===== LOTE 1 TEST - Propiedades antiguas RENTA =====
+
+            // RENTA: Casa Pontevedra
+            const pontevedraProperty = {
+                address: "La Isla Privada Pontevedra, Culiacán, Sinaloa",
+                priceShort: "$19K",
+                priceFull: "$19,000/mes",
+                title: "Casa en Renta Privada Pontevedra",
+                location: "La Isla, Culiacán",
+                bedrooms: 3,
+                bathrooms: 2,
+                area: "280m²",
+                type: "renta",
+                url: "https://casasenventa.info/culiacan/renta-casa-en-la-isla-privada-pontevedra/",
+                photos: [
+                    "renta-casa-en-la-isla-privada-pontevedra/images/foto-1.jpg",
+                    "renta-casa-en-la-isla-privada-pontevedra/images/foto-2.jpg",
+                    "renta-casa-en-la-isla-privada-pontevedra/images/foto-3.jpg",
+                    "renta-casa-en-la-isla-privada-pontevedra/images/foto-4.jpg",
+                    "renta-casa-en-la-isla-privada-pontevedra/images/foto-5.jpg"
+                ]
+            };
+
+            // RENTA: Casa Privanzas Natura
+            const privanzasNaturaProperty = {
+                address: "Privanzas Natura, Culiacán, Sinaloa",
+                priceShort: "$27K",
+                priceFull: "$27,000/mes",
+                title: "Casa Amplia Privanzas Natura",
+                location: "Privanzas Natura, Culiacán",
+                bedrooms: 4,
+                bathrooms: 4.5,
+                area: "N/D",
+                type: "renta",
+                url: "https://casasenventa.info/casa-renta-privanzas-natura.html",
+                photos: [
+                    "../images/casa-renta-privanzas-natura/cover.jpg",
+                    "../images/casa-renta-privanzas-natura/00f0d925-8959-11f0-a51d-e9c6bf00a08e.jpeg",
+                    "../images/casa-renta-privanzas-natura/00f123c6-8959-11f0-ba94-e9c6bf00a08e.jpeg",
+                    "../images/casa-renta-privanzas-natura/1f9c9fb7-8958-11f0-9a54-e9c6bf00a08e.jpeg",
+                    "../images/casa-renta-privanzas-natura/3a99f6f7-8958-11f0-9d7e-e9c6bf00a08e.jpeg",
+                    "../images/casa-renta-privanzas-natura/4fe9fb63-8958-11f0-b16d-e9c6bf00a08e.jpeg",
+                    "../images/casa-renta-privanzas-natura/637c8a03-8958-11f0-a7c7-e9c6bf00a08e.jpeg",
+                    "../images/casa-renta-privanzas-natura/7c8f3f91-8958-11f0-8ec2-e9c6bf00a08e.jpeg"
+                ]
+            };
+
+            // RENTA: Casa Santa Lourdes
+            const santaLourdesProperty = {
+                address: "Country del Rio, Culiacán, Sinaloa",
+                priceShort: "$7.5K",
+                priceFull: "$7,500/mes",
+                title: "Casa Renta Santa Lourdes",
+                location: "Country del Rio, Culiacán",
+                bedrooms: 2,
+                bathrooms: 1.5,
+                area: "N/D",
+                type: "renta",
+                url: "https://casasenventa.info/casa-renta-santa-lourdes.html",
+                photos: [
+                    "../images/casa-renta-santa-lourdes/cover.jpg",
+                    "../images/casa-renta-santa-lourdes/1a35be01-8dbb-11f0-816c-813b6b24b2ff.jpg",
+                    "../images/casa-renta-santa-lourdes/1a35c6ca-8dbb-11f0-9611-813b6b24b2ff.jpg",
+                    "../images/casa-renta-santa-lourdes/1a35d473-8dbb-11f0-a346-813b6b24b2ff.jpg",
+                    "../images/casa-renta-santa-lourdes/1a3758b6-8dbb-11f0-b9cb-813b6b24b2ff.jpg",
+                    "../images/casa-renta-santa-lourdes/f1191fef-8dba-11f0-9a82-813b6b24b2ff.jpg"
+                ]
+            };
+
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -20558,6 +20627,29 @@
             const casa_en_renta_en_privada_kentia_valle_altoMarker = new casa_en_renta_en_privada_kentia_valle_altoMarkerClass(casa_en_renta_en_privada_kentia_valle_altoPosition, window.mapCuliacan, casa_en_renta_en_privada_kentia_valle_altoProperty);
             window.allCuliacanMarkers.push(casa_en_renta_en_privada_kentia_valle_altoMarker);
             console.log('Marcador Valle Alto Kentia (RENTA) creado en:', casa_en_renta_en_privada_kentia_valle_altoPosition.lat(), casa_en_renta_en_privada_kentia_valle_altoPosition.lng());
+
+            // ===== LOTE 1 TEST - Marcadores con coordenadas fijas =====
+
+            // Pontevedra (RENTA) - Coordenadas aproximadas zona La Isla
+            const pontevedraPosition = new google.maps.LatLng(24.795000, -107.420000);
+            const pontevedraMarkerClass = createZillowPropertyMarker(pontevedraProperty, window.mapCuliacan);
+            const pontevedraMarker = new pontevedraMarkerClass(pontevedraPosition, window.mapCuliacan, pontevedraProperty);
+            window.allCuliacanMarkers.push(pontevedraMarker);
+            console.log('Marcador Pontevedra (RENTA) creado en:', pontevedraPosition.lat(), pontevedraPosition.lng());
+
+            // Privanzas Natura (RENTA) - Coordenadas aproximadas zona norte Culiacán
+            const privanzasNaturaPosition = new google.maps.LatLng(24.825000, -107.425000);
+            const privanzasNaturaMarkerClass = createZillowPropertyMarker(privanzasNaturaProperty, window.mapCuliacan);
+            const privanzasNaturaMarker = new privanzasNaturaMarkerClass(privanzasNaturaPosition, window.mapCuliacan, privanzasNaturaProperty);
+            window.allCuliacanMarkers.push(privanzasNaturaMarker);
+            console.log('Marcador Privanzas Natura (RENTA) creado en:', privanzasNaturaPosition.lat(), privanzasNaturaPosition.lng());
+
+            // Santa Lourdes (RENTA) - Coordenadas aproximadas Country del Rio
+            const santaLourdesPosition = new google.maps.LatLng(24.768000, -107.445000);
+            const santaLourdesMarkerClass = createZillowPropertyMarker(santaLourdesProperty, window.mapCuliacan);
+            const santaLourdesMarker = new santaLourdesMarkerClass(santaLourdesPosition, window.mapCuliacan, santaLourdesProperty);
+            window.allCuliacanMarkers.push(santaLourdesMarker);
+            console.log('Marcador Santa Lourdes (RENTA) creado en:', santaLourdesPosition.lat(), santaLourdesPosition.lng());
 
             // Cañadas (VENTA) - Coordenadas aproximadas zona sur Culiacán
             const casa_en_fraccionamiento_canadasPosition = new google.maps.LatLng(24.770000, -107.410000);
