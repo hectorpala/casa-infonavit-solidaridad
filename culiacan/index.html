@@ -19937,17 +19937,39 @@
                 card.dataset.propertyType = type;
             });
 
+            // Función para actualizar el contador de resultados
+            function updateResultsCount(visibleCount, filterType) {
+                const resultsCountEl = document.getElementById('results-count');
+                if (resultsCountEl) {
+                    let label = '';
+                    if (filterType === 'all') {
+                        label = `${visibleCount} resultados`;
+                    } else if (filterType === 'sale') {
+                        label = `${visibleCount} ${visibleCount === 1 ? 'casa en venta' : 'casas en venta'}`;
+                    } else if (filterType === 'rent') {
+                        label = `${visibleCount} ${visibleCount === 1 ? 'casa en renta' : 'casas en renta'}`;
+                    }
+                    resultsCountEl.textContent = label;
+                }
+            }
+
             // Función para aplicar el filtro
             function applyPropertyFilter(selectedType) {
+                let visibleCount = 0;
+
                 propertyCards.forEach(card => {
                     const cardType = card.dataset.propertyType;
 
                     if (selectedType === 'all' || cardType === selectedType) {
                         card.style.removeProperty('display');
+                        visibleCount++;
                     } else {
                         card.style.setProperty('display', 'none', 'important');
                     }
                 });
+
+                // Actualizar contador
+                updateResultsCount(visibleCount, selectedType);
             }
 
             // Event listener para cambios en el selector
