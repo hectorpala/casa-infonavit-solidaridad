@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 deferredPrompt = null;
             });
-            
+
             // Ocultar botón
             const installButton = document.querySelector('[onclick="installPWA()"]');
             if (installButton) {
@@ -162,4 +162,51 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     };
+
+    // Property Type Filter (Venta/Renta)
+    const propertyTypeFilter = document.getElementById('property-type-filter');
+    if (propertyTypeFilter) {
+        const propertyCards = document.querySelectorAll('#properties-grid .property-card');
+
+        // Función para determinar el tipo de propiedad según el badge
+        function getPropertyType(card) {
+            const badge = card.querySelector('.absolute.top-3.right-3');
+            if (!badge) return 'sale'; // Default a venta
+
+            // RENTA tiene bg-orange-500, VENTA tiene bg-green-600
+            if (badge.classList.contains('bg-orange-500')) {
+                return 'rent';
+            } else if (badge.classList.contains('bg-green-600')) {
+                return 'sale';
+            }
+            return 'sale'; // Default
+        }
+
+        // Etiquetar cada tarjeta con su tipo
+        propertyCards.forEach(card => {
+            const type = getPropertyType(card);
+            card.dataset.propertyType = type;
+        });
+
+        // Función para aplicar el filtro
+        function applyPropertyFilter(selectedType) {
+            propertyCards.forEach(card => {
+                const cardType = card.dataset.propertyType;
+
+                if (selectedType === 'all' || cardType === selectedType) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Event listener para cambios en el selector
+        propertyTypeFilter.addEventListener('change', function(e) {
+            applyPropertyFilter(e.target.value);
+        });
+
+        // Aplicar filtro inicial (mostrar todas)
+        applyPropertyFilter('all');
+    }
 });

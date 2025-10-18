@@ -937,3 +937,19 @@
 .fade-in {
     animation: fadeInUp 0.8s ease-out;
 }
+
+/* Property Type Filter */
+#property-type-filter {
+    transition: all 0.3s ease;
+}
+
+#property-type-filter:hover {
+    border-color: #ff6a00;
+}
+
+/* Responsive adjustments for filter */
+@media (max-width: 768px) {
+    #property-type-filter {
+        width: 100%;
+    }
+}

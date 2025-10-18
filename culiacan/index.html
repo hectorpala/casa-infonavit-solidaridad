@@ -1036,6 +1036,16 @@
             </div>
         </section>
 
+        <!-- Property Type Filter -->
+        <div class="flex justify-end items-center mb-6 gap-3">
+            <label for="property-type-filter" class="text-gray-700 font-medium font-poppins">Tipo de operación:</label>
+            <select id="property-type-filter" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent font-poppins">
+                <option value="all">Todas</option>
+                <option value="sale">Venta</option>
+                <option value="rent">Renta</option>
+            </select>
+        </div>
+
         <!-- Properties Grid -->
         <div id="properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
@@ -19883,6 +19893,72 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        /* Property Type Filter Styles */
+        #property-type-filter {
+            transition: all 0.3s ease;
+        }
+
+        #property-type-filter:hover {
+            border-color: #ff6a00;
+        }
+
+        @media (max-width: 768px) {
+            #property-type-filter {
+                width: 100%;
+            }
+        }
     </style>
+
+    <!-- Property Type Filter Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const propertyTypeFilter = document.getElementById('property-type-filter');
+        if (propertyTypeFilter) {
+            const propertyCards = document.querySelectorAll('#properties-grid .property-card');
+
+            // Función para determinar el tipo de propiedad según el badge
+            function getPropertyType(card) {
+                const badge = card.querySelector('.absolute.top-3.right-3');
+                if (!badge) return 'sale'; // Default a venta
+
+                // RENTA tiene bg-orange-500, VENTA tiene bg-green-600
+                if (badge.classList.contains('bg-orange-500')) {
+                    return 'rent';
+                } else if (badge.classList.contains('bg-green-600')) {
+                    return 'sale';
+                }
+                return 'sale'; // Default
+            }
+
+            // Etiquetar cada tarjeta con su tipo
+            propertyCards.forEach(card => {
+                const type = getPropertyType(card);
+                card.dataset.propertyType = type;
+            });
+
+            // Función para aplicar el filtro
+            function applyPropertyFilter(selectedType) {
+                propertyCards.forEach(card => {
+                    const cardType = card.dataset.propertyType;
+
+                    if (selectedType === 'all' || cardType === selectedType) {
+                        card.style.removeProperty('display');
+                    } else {
+                        card.style.setProperty('display', 'none', 'important');
+                    }
+                });
+            }
+
+            // Event listener para cambios en el selector
+            propertyTypeFilter.addEventListener('change', function(e) {
+                applyPropertyFilter(e.target.value);
+            });
+
+            // Aplicar filtro inicial (mostrar todas)
+            applyPropertyFilter('all');
+        }
+    });
+    </script>
 </body>
 </html>
