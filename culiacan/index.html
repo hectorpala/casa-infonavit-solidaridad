@@ -16281,6 +16281,62 @@
           } catch (e) { /* no-op */ }
         });
       }
+      
+      // ===== Asegurar fechas para ordenamiento "Más recientes"
+      function ensureCardDates() {
+        const today = new Date();
+        const formatDate = (date) => date.toISOString().split('T')[0];
+
+        allCards.forEach(card => {
+          if (card.dataset.date) return;
+
+          const raw = (card.getAttribute('data-published-date') || '').toLowerCase();
+          if (!raw) return;
+
+          const daysMatch = raw.match(/(\d+)\s+d[ií]as?/i);
+          const hoursMatch = raw.match(/(\d+)\s+horas?/i);
+          const minutesMatch = raw.match(/(\d+)\s+minutos?/i);
+
+          const inferredDate = new Date(today);
+
+          if (raw.includes('hoy')) {
+            card.dataset.date = formatDate(inferredDate);
+            return;
+          }
+
+          if (raw.includes('ayer')) {
+            inferredDate.setDate(inferredDate.getDate() - 1);
+            card.dataset.date = formatDate(inferredDate);
+            return;
+          }
+
+          if (daysMatch) {
+            const daysAgo = parseInt(daysMatch[1], 10);
+            if (!Number.isNaN(daysAgo)) {
+              inferredDate.setDate(inferredDate.getDate() - daysAgo);
+              card.dataset.date = formatDate(inferredDate);
+            }
+            return;
+          }
+
+          if (hoursMatch) {
+            const hoursAgo = parseInt(hoursMatch[1], 10);
+            if (!Number.isNaN(hoursAgo)) {
+              inferredDate.setHours(inferredDate.getHours() - hoursAgo);
+              card.dataset.date = formatDate(inferredDate);
+            }
+            return;
+          }
+
+          if (minutesMatch) {
+            const minutesAgo = parseInt(minutesMatch[1], 10);
+            if (!Number.isNaN(minutesAgo)) {
+              inferredDate.setMinutes(inferredDate.getMinutes() - minutesAgo);
+              card.dataset.date = formatDate(inferredDate);
+            }
+          }
+        });
+      }
 
       // ===== Toggle Filters (Zillow Style)
       function toggleFilters() {
@@ -16579,6 +16635,7 @@
       
       // Extraer datos de propiedades para filtrado
       extractPropertyData();
+      ensureCardDates();
       
       // Asegurar que todas las cards queden visibles y sin residuos de estilos previos
       allCards.forEach(card => { 
