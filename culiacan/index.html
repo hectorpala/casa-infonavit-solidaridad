@@ -16085,13 +16085,13 @@
     <div class="bottom-sheet-culiacan" id="sheet-type-culiacan">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Listing Type</h3>
-            <button class="sheet-apply" onclick="applyFilter('type')">Done</button>
+            <h3>Tipo de listado</h3>
+            <button class="sheet-apply" onclick="applyFilter('type')">Listo</button>
         </div>
         <div class="sheet-content">
             <div class="button-group">
-                <button class="option-btn selected" data-value="venta" onclick="selectOption(this, 'type', 'venta')">For Sale</button>
-                <button class="option-btn" data-value="renta" onclick="selectOption(this, 'type', 'renta')">For Rent</button>
+                <button class="option-btn selected" data-value="venta" onclick="selectOption(this, 'type', 'venta')">En Venta</button>
+                <button class="option-btn" data-value="renta" onclick="selectOption(this, 'type', 'renta')">En Renta</button>
             </div>
         </div>
     </div>
@@ -16100,12 +16100,12 @@
     <div class="bottom-sheet-culiacan" id="sheet-price-culiacan">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Price</h3>
-            <button class="sheet-apply" onclick="applyFilter('price')">Done</button>
+            <h3>Precio</h3>
+            <button class="sheet-apply" onclick="applyFilter('price')">Listo</button>
         </div>
         <div class="sheet-content">
             <div class="price-options">
-                <button class="price-btn" data-value="" onclick="selectPrice(this, '')">No Min - No Max</button>
+                <button class="price-btn" data-value="" onclick="selectPrice(this, '')">Sin límite</button>
                 <button class="price-btn" data-value="0-2500000" onclick="selectPrice(this, '0-2500000')">$0 - $2.5M</button>
                 <button class="price-btn" data-value="2500000-3000000" onclick="selectPrice(this, '2500000-3000000')">$2.5M - $3.0M</button>
                 <button class="price-btn" data-value="3000000-3500000" onclick="selectPrice(this, '3000000-3500000')">$3.0M - $3.5M</button>
@@ -16118,14 +16118,14 @@
     <div class="bottom-sheet-culiacan" id="sheet-beds-baths-culiacan">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>Beds &amp; Baths</h3>
-            <button class="sheet-apply" onclick="applyFilter('beds-baths')">Done</button>
+            <h3>Recámaras y baños</h3>
+            <button class="sheet-apply" onclick="applyFilter('beds-baths')">Listo</button>
         </div>
         <div class="sheet-content">
             <!-- Sección: Recámaras -->
-            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Bedrooms</h4>
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Recámaras</h4>
             <div class="button-group" style="margin-bottom: 24px;">
-                <button class="option-btn" data-value="" onclick="selectOption(this, 'bedrooms', '')">Any</button>
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bedrooms', '')">Cualquiera</button>
                 <button class="option-btn" data-value="1" onclick="selectOption(this, 'bedrooms', '1')">1+</button>
                 <button class="option-btn" data-value="2" onclick="selectOption(this, 'bedrooms', '2')">2+</button>
                 <button class="option-btn" data-value="3" onclick="selectOption(this, 'bedrooms', '3')">3+</button>
@@ -16134,9 +16134,9 @@
             </div>
 
             <!-- Sección: Baños -->
-            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Bathrooms</h4>
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Baños</h4>
             <div class="button-group">
-                <button class="option-btn" data-value="" onclick="selectOption(this, 'bathrooms', '')">Any</button>
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bathrooms', '')">Cualquiera</button>
                 <button class="option-btn" data-value="1" onclick="selectOption(this, 'bathrooms', '1')">1+</button>
                 <button class="option-btn" data-value="2" onclick="selectOption(this, 'bathrooms', '2')">2+</button>
                 <button class="option-btn" data-value="3" onclick="selectOption(this, 'bathrooms', '3')">3+</button>
@@ -16149,14 +16149,14 @@
     <div class="bottom-sheet-culiacan" id="sheet-more-culiacan">
         <div class="sheet-header">
             <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
-            <h3>More Filters</h3>
-            <button class="sheet-apply" onclick="applyFilter('more')">Done</button>
+            <h3>Más filtros</h3>
+            <button class="sheet-apply" onclick="applyFilter('more')">Listo</button>
         </div>
         <div class="sheet-content">
             <!-- Sección: Zona -->
             <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Neighborhood</h4>
             <div class="button-group" style="margin-bottom: 24px;">
-                <button class="option-btn" data-value="" onclick="selectOption(this, 'zone', '')">Any</button>
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'zone', '')">Cualquiera</button>
                 <button class="option-btn" data-value="infonavit" onclick="selectOption(this, 'zone', 'infonavit')">Infonavit</button>
                 <button class="option-btn" data-value="centro" onclick="selectOption(this, 'zone', 'centro')">Centro</button>
                 <button class="option-btn" data-value="norte" onclick="selectOption(this, 'zone', 'norte')">North Zone</button>
@@ -16506,9 +16506,10 @@
                         '3000000-3500000': '$3.0M - $3.5M',
                         '3500000-999999999': '$3.5M+'
                     };
-                    displayText = ranges[value] || 'Price';
+                    displayText = ranges[value] || 'Precio';
                 } else if (filterType === 'bedrooms') {
-                    displayText = `${value}+ bd`;
+                    displayText = `${value}+ rec`;
+                    
                 } else if (filterType === 'bathrooms') {
                     displayText = `${value}+ ba`;
                 } else if (filterType === 'zone') {
@@ -16527,9 +16528,11 @@
                     if (bedValue && bathValue) {
                         displayText = `${bedValue}+ bd, ${bathValue}+ ba`;
                     } else if (bedValue) {
-                        displayText = `${bedValue}+ bd`;
+                        displayText = `${bedValue}+ rec`;
+                    
                     } else if (bathValue) {
-                        displayText = `${bathValue}+ ba`;
+                        displayText = `${bathValue}+ baños`;
+                    
                     }
                 }
 
@@ -16607,9 +16610,9 @@
 
             const labels = {
                 type: 'For Sale',
-                price: 'Price',
-                'beds-baths': 'Beds & Baths',
-                more: 'More'
+                price: 'Precio',
+                'beds-baths': 'Recámaras y baños',
+                more: 'Más'
             };
 
             chip.innerHTML = `
@@ -16752,19 +16755,19 @@
                 gap: 10px;
             ">
                 <div class="filter-chip" id="chip-type-culiacan">
-                    <span>For Sale</span>
+                    <span>En Venta</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="filter-chip" id="chip-price-culiacan">
-                    <span>Price</span>
+                    <span>Precio</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="filter-chip" id="chip-beds-baths-culiacan">
-                    <span>Beds & Baths</span>
+                    <span>Recámaras y Baños</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="filter-chip" id="chip-more-culiacan">
-                    <span>More</span>
+                    <span>Más</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
