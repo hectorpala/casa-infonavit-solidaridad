@@ -646,12 +646,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-18T04:40:06.263Z"
+    },
+    {
+      "id": "v018",
+      "nombre": "Indivo Desarrollos",
+      "telefono": "6676034623",
+      "telefonoFormateado": "667-603-4623",
+      "whatsapp": "https://wa.me/526676034623",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147513900",
+          "titulo": "Casa en Renta en Privada Kentia Valle Alto",
+          "precio": "MN 12,500",
+          "ubicacion": "Privada Kentia, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-en-privada-kentia-valle-alto-147513900.html",
+          "fechaScrapeo": "2025-10-18",
+          "fechaPublicacion": "Publicado hace 44 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Privada Kentia, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+      "tags": [
+        "inmuebles24",
+        "privada-kentia",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-valle-alto",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-18T20:49:00.047Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 17,
-    "totalPropiedades": 31,
-    "ultimaActualizacion": "2025-10-18T20:41:05.175Z"
+    "totalVendedores": 18,
+    "totalPropiedades": 32,
+    "ultimaActualizacion": "2025-10-18T20:49:00.047Z"
   },
   "busquedas": [
     {
