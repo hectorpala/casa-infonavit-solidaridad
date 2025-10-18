@@ -735,6 +735,19 @@
             </div>
             <div class="border-t border-slate-200">
                 <div class="max-w-7xl mx-auto px-4 lg:px-6 py-3 flex flex-wrap items-center gap-2">
+                    <div class="type-chip-group hidden sm:flex items-center gap-2">
+                        <button class="chip-button type-chip active" data-type-value="">Todas</button>
+                        <button class="chip-button type-chip" data-type-value="venta">En venta</button>
+                        <button class="chip-button type-chip" data-type-value="renta">En renta</button>
+                    </div>
+                    <div class="relative w-full sm:hidden">
+                        <label class="sr-only" for="type-select-mobile">Tipo de listado</label>
+                        <select id="type-select-mobile" class="w-full px-3 py-2 rounded-full border border-slate-300 text-sm font-semibold text-slate-700 bg-white">
+                            <option value="">Todas</option>
+                            <option value="venta">En venta</option>
+                            <option value="renta">En renta</option>
+                        </select>
+                    </div>
                     <button class="chip-button" data-filter-chip="price">
                         <i class="fa-solid fa-dollar-sign"></i>
                         <span class="chip-label" data-chip-label="price">Precio</span>
@@ -791,7 +804,14 @@
             const saveSearchBtn = document.getElementById('save-search-btn');
             const searchInput = document.getElementById('header-search');
 
+            const typeChips = document.querySelectorAll('.type-chip');
+            const typeChipSheetButtons = document.querySelectorAll('.type-chip-sheet');
+            const typeSelectMobile = document.getElementById('type-select-mobile');
+
+            const chipButtons = {};
+            chips.forEach(chip => chipButtons[chip.dataset.filterChip] = chip);
             const panelTitles = {
+                type: 'Tipo de listado',
                 price: 'Rango de precio',
                 beds: 'Recámaras y baños',
                 more: 'Más filtros'
@@ -822,6 +842,19 @@
                 chips.forEach(chip => chip.classList.toggle('active', chip.dataset.filterChip === panelId));
             }
 
+            function setTypeFilter(value) {
+                if (filterType) filterType.value = value || '';
+                typeChips.forEach(chip => {
+                    chip.classList.toggle('active', chip.dataset.typeValue === value || (!chip.dataset.typeValue && !value));
+                });
+                typeChipSheetButtons.forEach(btn => {
+                    btn.classList.toggle('selected', btn.dataset.value === value || (!btn.dataset.value && !value));
+                });
+                if (typeSelectMobile) typeSelectMobile.value = value || '';
+                window.refreshPrimaryChipLabels?.();
+                filterProperties();
+            }
+
             function closePanel() {
                 if (!drawer) return;
                 drawer.classList.add('hidden');
@@ -836,7 +869,42 @@
                 });
             });
 
+            typeChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    setTypeFilter(chip.dataset.typeValue || '');
+                });
+            });
+
+            typeChipSheetButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setTypeFilter(btn.dataset.value || '');
+                    closePanel();
+                });
+            });
+
+            typeSelectMobile?.addEventListener('change', event => {
+                setTypeFilter(event.target.value || '');
+            });
+
             drawerClose?.addEventListener('click', closePanel);
+            typeChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    setTypeFilter(chip.dataset.typeValue || '');
+                });
+            });
+
+            typeChipSheetButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    setTypeFilter(btn.dataset.value || '');
+                    // cerrar bottom sheet después de seleccionar opción
+                    closePanel();
+                });
+            });
+
+            typeSelectMobile?.addEventListener('change', (event) => {
+                setTypeFilter(event.target.value || '');
+            });
+
 
             openFiltersDrawerBtn?.addEventListener('click', () => {
                 if (!drawer || !drawerTitle) return;
@@ -874,6 +942,12 @@
             }
 
             function refreshChipLabels() {
+                const typeValue = filterType?.value || '';
+                const typeChipDesktop = document.querySelector('.type-chip.active');
+                const typeText = typeChipDesktop ? typeChipDesktop.textContent.trim() : (typeValue === 'venta' ? 'En venta' : typeValue === 'renta' ? 'En renta' : 'Todas');
+                const typeChipButton = document.querySelector('[data-filter-chip="type"] .chip-label');
+                if (typeChipButton) typeChipButton.textContent = typeText;
+
                 const priceChipLabel = document.querySelector('[data-chip-label="price"]');
                 const bedsChipLabel = document.querySelector('[data-chip-label="beds"]');
                 const moreChipLabel = document.querySelector('[data-chip-label="more"]');
@@ -916,6 +990,7 @@
                 if (chipButtons.more) chipButtons.more.classList.toggle('active', !!(homeTypeValue || amenitiesCount));
             }
 
+            setTypeFilter(filterType?.value || '');
             refreshChipLabels();
             window.refreshPrimaryChipLabels = refreshChipLabels;
             window.hectorCloseFiltersDrawer = closePanel;
@@ -937,6 +1012,18 @@
                     <button id="filters-drawer-close" class="p-2 text-slate-400 hover:text-slate-700 transition-colors">
                         <i class="fa-solid fa-xmark text-lg"></i>
                     </button>
+                </div>
+                <div class="space-y-8 hidden" data-panel="type">
+                    <div class="filter-section-grid space-y-4">
+                        <div class="flex flex-col gap-3">
+                            <label class="text-xs font-semibold uppercase tracking-[0.1em] text-slate-500">Tipo de listado</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                <button class="option-btn type-chip-sheet active" data-value="">Todas</button>
+                                <button class="option-btn type-chip-sheet" data-value="venta">En venta</button>
+                                <button class="option-btn type-chip-sheet" data-value="renta">En renta</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="space-y-8">
                     <div class="filter-section-grid space-y-4 hidden" data-panel="price">
@@ -16387,6 +16474,32 @@
         .filter-chip.active .chip-icon.fa-chevron-down {
             display: none;
         }
+        .type-chip-group .chip-button {
+            border-radius: 999px;
+            padding: 0.55rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .type-chip-group .chip-button.active {
+            background: linear-gradient(135deg, #ff6a00, #d35500);
+            color: white;
+            border-color: transparent;
+        }
+
+        .type-chip-group .chip-button:not(.active) {
+            background: #f8fafc;
+        }
+
+        #type-select-mobile {
+            appearance: none;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+
 
         @media (max-width: 640px) {
             #zillow-filters-container {
