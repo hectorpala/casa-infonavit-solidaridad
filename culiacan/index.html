@@ -16780,6 +16780,10 @@
 
             // Event listeners con JavaScript
             setTimeout(() => {
+                document.getElementById('chip-type-culiacan')?.addEventListener('click', () => {
+                    console.log('CLICK TYPE');
+                    openBottomSheet('type');
+                });
                 document.getElementById('chip-price-culiacan')?.addEventListener('click', () => {
                     console.log('CLICK PRICE');
                     openBottomSheet('price');
