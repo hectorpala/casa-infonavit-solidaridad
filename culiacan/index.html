@@ -726,11 +726,6 @@
             </div>
             <div class="border-t border-slate-200">
                 <div class="max-w-7xl mx-auto px-4 lg:px-6 py-3 flex flex-wrap items-center gap-2">
-                    <button class="chip-button" data-filter-chip="type">
-                        <i class="fa-solid fa-sliders"></i>
-                        <span class="chip-label" data-chip-label="type">Tipo de listado</span>
-                        <i class="fa-solid fa-chevron-down chip-icon"></i>
-                    </button>
                     <button class="chip-button" data-filter-chip="price">
                         <i class="fa-solid fa-dollar-sign"></i>
                         <span class="chip-label" data-chip-label="price">Precio</span>
@@ -763,6 +758,7 @@
             const drawerClose = document.getElementById('filters-drawer-close');
             const panels = drawer ? drawer.querySelectorAll('[data-panel]') : [];
             const filterType = document.getElementById('filter-type');
+            const listingTypeRadios = document.querySelectorAll('input[name="listing-type-preset"]');
             const priceMin = document.getElementById('price-min');
             const priceMax = document.getElementById('price-max');
             const filterBeds = document.getElementById('filter-beds');
@@ -776,12 +772,10 @@
                 document.getElementById('filter-garden'),
                 document.getElementById('filter-security')
             ].filter(Boolean);
-            const presetRadios = document.querySelectorAll('input[name="listing-type-preset"]');
             const chipButtons = {};
             chips.forEach(chip => chipButtons[chip.dataset.filterChip] = chip);
 
             const panelTitles = {
-                type: 'Tipo de listado',
                 price: 'Rango de precio',
                 beds: 'Recámaras y baños',
                 more: 'Más filtros'
@@ -843,23 +837,31 @@
                 }
             });
 
-            function syncPresetWithSelect() {
-                presetRadios.forEach(radio => {
-                    radio.checked = radio.value === (filterType?.value || '');
+            function syncListingTypeControls() {
+                const currentValue = filterType?.value || '';
+                listingTypeRadios.forEach(radio => {
+                    radio.checked = (radio.value === currentValue);
                 });
             }
 
-            presetRadios.forEach(radio => {
+            listingTypeRadios.forEach(radio => {
                 radio.addEventListener('change', () => {
                     if (!filterType) return;
                     filterType.value = radio.value;
                     const changeEvent = new Event('change', { bubbles: true });
                     filterType.dispatchEvent(changeEvent);
+                    filterProperties();
+                    window.refreshPrimaryChipLabels?.();
                 });
             });
 
-            filterType?.addEventListener('change', syncPresetWithSelect);
-            syncPresetWithSelect();
+            filterType?.addEventListener('change', () => {
+                syncListingTypeControls();
+                filterProperties();
+                window.refreshPrimaryChipLabels?.();
+            });
+
+            syncListingTypeControls();
 
             function formatCurrency(value) {
                 if (!value) return '';
@@ -869,15 +871,9 @@
             }
 
             function refreshChipLabels() {
-                const typeChipLabel = document.querySelector('[data-chip-label="type"]');
                 const priceChipLabel = document.querySelector('[data-chip-label="price"]');
                 const bedsChipLabel = document.querySelector('[data-chip-label="beds"]');
                 const moreChipLabel = document.querySelector('[data-chip-label="more"]');
-
-                const typeValue = filterType?.value || '';
-                let typeText = 'Tipo de listado';
-                if (typeValue === 'venta') typeText = 'Solo venta';
-                if (typeValue === 'renta') typeText = 'Solo renta';
 
                 const minText = formatCurrency(priceMin?.value);
                 const maxText = formatCurrency(priceMax?.value);
@@ -908,12 +904,10 @@
                     moreText = `${amenitiesCount} amenidades`;
                 }
 
-                if (typeChipLabel) typeChipLabel.textContent = typeText;
                 if (priceChipLabel) priceChipLabel.textContent = priceText;
                 if (bedsChipLabel) bedsChipLabel.textContent = bedsText;
                 if (moreChipLabel) moreChipLabel.textContent = moreText;
 
-                if (chipButtons.type) chipButtons.type.classList.toggle('active', !!typeValue);
                 if (chipButtons.price) chipButtons.price.classList.toggle('active', !!(minText || maxText));
                 if (chipButtons.beds) chipButtons.beds.classList.toggle('active', !!(bedsValue || bathsValue));
                 if (chipButtons.more) chipButtons.more.classList.toggle('active', !!(homeTypeValue || amenitiesCount));
@@ -921,6 +915,7 @@
 
             refreshChipLabels();
             window.refreshPrimaryChipLabels = refreshChipLabels;
+            window.hectorCloseFiltersDrawer = closePanel;
         });
     </script>
 
@@ -940,37 +935,36 @@
                         <i class="fa-solid fa-xmark text-lg"></i>
                     </button>
                 </div>
-                <div class="space-y-8">
-                    <div class="filter-section-grid space-y-4 hidden" data-panel="type">
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div class="flex flex-col gap-2">
-                                <label for="filter-type">Tipo de operación</label>
-                                <select id="filter-type" class="w-full">
-                                    <option value="">Todos</option>
-                                    <option value="venta">Venta</option>
-                                    <option value="renta">Renta</option>
-                                </select>
-                            </div>
-                            <div class="flex flex-col gap-2">
-                                <label>Modalidad</label>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="feature-pill">
-                                        <input type="radio" name="listing-type-preset" value="" checked>
-                                        <span>Venta y renta</span>
-                                    </span>
-                                    <span class="feature-pill">
-                                        <input type="radio" name="listing-type-preset" value="venta">
-                                        <span>Solo venta</span>
-                                    </span>
-                                    <span class="feature-pill">
-                                        <input type="radio" name="listing-type-preset" value="renta">
-                                        <span>Solo renta</span>
-                                    </span>
-                                </div>
+                <div class="filter-section-grid space-y-4">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="flex flex-col gap-2">
+                            <label for="filter-type">Tipo de operación</label>
+                            <select id="filter-type" class="w-full">
+                                <option value="">Venta y renta</option>
+                                <option value="venta">Solo venta</option>
+                                <option value="renta">Solo renta</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label>Acceso rápido</label>
+                            <div class="flex flex-wrap gap-2">
+                                <label class="feature-pill">
+                                    <input type="radio" name="listing-type-preset" value="" checked>
+                                    <span>Venta y renta</span>
+                                </label>
+                                <label class="feature-pill">
+                                    <input type="radio" name="listing-type-preset" value="venta">
+                                    <span>Solo venta</span>
+                                </label>
+                                <label class="feature-pill">
+                                    <input type="radio" name="listing-type-preset" value="renta">
+                                    <span>Solo renta</span>
+                                </label>
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div class="space-y-8">
                     <div class="filter-section-grid space-y-4 hidden" data-panel="price">
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div class="flex flex-col gap-2">
@@ -15799,12 +15793,21 @@
 
       // Formateo automático de inputs de precio
       if (priceMin) {
-        priceMin.addEventListener('input', function() {
+        priceMin.addEventListener('input', function(event) {
           formatPriceInput(this);
           filterProperties();
+          window.refreshPrimaryChipLabels?.();
         });
         priceMin.addEventListener('blur', function() {
           formatPriceInput(this);
+          window.refreshPrimaryChipLabels?.();
+          window.hectorCloseFiltersDrawer?.();
+        });
+        priceMin.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            window.hectorCloseFiltersDrawer?.();
+          }
         });
       }
 
@@ -15812,9 +15815,18 @@
         priceMax.addEventListener('input', function() {
           formatPriceInput(this);
           filterProperties();
+          window.refreshPrimaryChipLabels?.();
         });
         priceMax.addEventListener('blur', function() {
           formatPriceInput(this);
+          window.refreshPrimaryChipLabels?.();
+          window.hectorCloseFiltersDrawer?.();
+        });
+        priceMax.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            window.hectorCloseFiltersDrawer?.();
+          }
         });
       }
 
