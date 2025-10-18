@@ -712,9 +712,13 @@
                         <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 pointer-events-none">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input type="text" id="header-search" placeholder="Buscar por colonia, fraccionamiento o código postal" class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-300 text-sm md:text-base text-slate-700 placeholder-slate-400 focus:outline-none focus:border-hector focus:ring-2 focus:ring-orange-200 transition">
+                        <input type="text" id="header-search" placeholder="Buscar por colonia, fraccionamiento o código postal" class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-300 text-sm md:text-base text-slate-700 placeholder-slate-400 focus:outline-none focus:border-hector focus:ring-2 focus:ring-orange-200 transition" autocomplete="off">
+                        <!-- Autocomplete Dropdown -->
+                        <div id="autocomplete-dropdown" class="absolute z-50 w-full mt-2 bg-white border border-slate-300 rounded-xl shadow-elevation hidden max-h-80 overflow-y-auto">
+                            <!-- Suggestions will be inserted here -->
+                        </div>
                     </div>
-                    <p class="mt-2 text-xs text-slate-500 hidden sm:block">Tip: escribe “Privanzas” o “alberca” para encontrar coincidencias rápidas.</p>
+                    <p class="mt-2 text-xs text-slate-500 hidden sm:block">Tip: escribe "Privanzas" o "alberca" para encontrar coincidencias rápidas.</p>
                 </div>
                 <div class="flex items-center gap-3 self-stretch">
                     <button id="save-search-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-300 text-sm font-semibold text-slate-600 hover:border-hector hover:text-hector transition-colors">
@@ -856,6 +860,196 @@
                     closePanel();
                 }
             });
+
+            // ===== AUTOCOMPLETE DE COLONIAS/FRACCIONAMIENTOS =====
+            // Sistema de autocompletado tolerante a acentos con navegación por teclado
+            (function initAutocomplete() {
+                const dropdown = document.getElementById('autocomplete-dropdown');
+                if (!dropdown || !searchInput) return;
+
+                let colonias = [];
+                let fraccionamientos = [];
+                let currentFocus = -1;
+                let allSuggestions = [];
+
+                // Cargar datos del JSON
+                fetch('../culiacan_colonias.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        colonias = data.colonias || [];
+                        fraccionamientos = data.fraccionamientos || [];
+                        console.log(`Autocomplete cargado: ${colonias.length} colonias, ${fraccionamientos.length} fraccionamientos`);
+                    })
+                    .catch(error => console.error('Error cargando colonias:', error));
+
+                // Normalizar texto (sin acentos, minúsculas, sin espacios extra)
+                function normalize(text) {
+                    return text
+                        .toLowerCase()
+                        .normalize('NFD')
+                        .replace(/[\u0300-\u036f]/g, '')
+                        .trim();
+                }
+
+                // Buscar coincidencias
+                function findMatches(query) {
+                    if (!query || query.length < 2) return [];
+
+                    const normalizedQuery = normalize(query);
+                    const matches = [];
+
+                    // Buscar en colonias
+                    colonias.forEach(item => {
+                        if (normalize(item.name).includes(normalizedQuery)) {
+                            matches.push({
+                                name: item.name,
+                                type: 'colonia',
+                                typeLabel: 'Colonia'
+                            });
+                        }
+                    });
+
+                    // Buscar en fraccionamientos
+                    fraccionamientos.forEach(item => {
+                        if (normalize(item.name).includes(normalizedQuery)) {
+                            matches.push({
+                                name: item.name,
+                                type: 'fraccionamiento',
+                                typeLabel: 'Fraccionamiento'
+                            });
+                        }
+                    });
+
+                    // Limitar a 8 resultados
+                    return matches.slice(0, 8);
+                }
+
+                // Renderizar sugerencias
+                function renderSuggestions(matches) {
+                    if (matches.length === 0) {
+                        dropdown.innerHTML = '<div class="px-4 py-3 text-sm text-slate-500">Sin resultados</div>';
+                        dropdown.classList.remove('hidden');
+                        return;
+                    }
+
+                    const html = matches.map((match, index) => `
+                        <div class="autocomplete-item px-4 py-3 cursor-pointer hover:bg-slate-100 transition-colors ${index === currentFocus ? 'bg-slate-100' : ''}" data-index="${index}" data-value="${match.name}">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm font-medium text-slate-900">${match.name}</span>
+                                <span class="text-xs px-2 py-1 rounded-full ${match.type === 'colonia' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}">${match.typeLabel}</span>
+                            </div>
+                        </div>
+                    `).join('');
+
+                    dropdown.innerHTML = html;
+                    dropdown.classList.remove('hidden');
+                    allSuggestions = matches;
+
+                    // Event listeners para clicks
+                    dropdown.querySelectorAll('.autocomplete-item').forEach(item => {
+                        item.addEventListener('click', () => {
+                            selectSuggestion(item.dataset.value);
+                        });
+                    });
+                }
+
+                // Seleccionar sugerencia
+                function selectSuggestion(value) {
+                    searchInput.value = value;
+                    closeDropdown();
+                    filterByLocation(value);
+                }
+
+                // Cerrar dropdown
+                function closeDropdown() {
+                    dropdown.classList.add('hidden');
+                    currentFocus = -1;
+                    allSuggestions = [];
+                }
+
+                // Filtrar tarjetas por ubicación
+                function filterByLocation(location) {
+                    const normalizedLocation = normalize(location);
+                    const cards = document.querySelectorAll('.property-card');
+                    let visibleCount = 0;
+
+                    cards.forEach(card => {
+                        const cardText = normalize(card.textContent);
+                        if (cardText.includes(normalizedLocation)) {
+                            card.style.display = '';
+                            visibleCount++;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    console.log(`Filtrado: ${visibleCount} propiedades encontradas para "${location}"`);
+                }
+
+                // Event: Input change
+                searchInput.addEventListener('input', (e) => {
+                    const query = e.target.value;
+
+                    if (!query || query.length < 2) {
+                        closeDropdown();
+                        // Restaurar todas las tarjetas
+                        document.querySelectorAll('.property-card').forEach(card => {
+                            card.style.display = '';
+                        });
+                        return;
+                    }
+
+                    const matches = findMatches(query);
+                    renderSuggestions(matches);
+                });
+
+                // Event: Keyboard navigation
+                searchInput.addEventListener('keydown', (e) => {
+                    if (dropdown.classList.contains('hidden')) return;
+
+                    const items = dropdown.querySelectorAll('.autocomplete-item');
+                    if (items.length === 0) return;
+
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        currentFocus = currentFocus < items.length - 1 ? currentFocus + 1 : 0;
+                        updateFocus(items);
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        currentFocus = currentFocus > 0 ? currentFocus - 1 : items.length - 1;
+                        updateFocus(items);
+                    } else if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (currentFocus > -1 && items[currentFocus]) {
+                            selectSuggestion(items[currentFocus].dataset.value);
+                        }
+                    } else if (e.key === 'Escape') {
+                        closeDropdown();
+                    }
+                });
+
+                // Actualizar foco visual
+                function updateFocus(items) {
+                    items.forEach((item, index) => {
+                        if (index === currentFocus) {
+                            item.classList.add('bg-slate-100');
+                            item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                        } else {
+                            item.classList.remove('bg-slate-100');
+                        }
+                    });
+                }
+
+                // Event: Click outside
+                document.addEventListener('click', (e) => {
+                    if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+                        closeDropdown();
+                    }
+                });
+
+                console.log('Autocomplete inicializado ✓');
+            })();
+            // ===== FIN AUTOCOMPLETE =====
 
             document.addEventListener('click', event => {
                 if (!drawer || drawer.classList.contains('hidden')) return;
