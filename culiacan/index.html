@@ -15722,6 +15722,29 @@
         }
       }
 
+
+
+      const priceModeTabs = document.querySelectorAll('#sheet-price-culiacan .price-tab');
+      const presetGrid = document.querySelector('#sheet-price-culiacan .price-preset-grid');
+      const customGrid = document.querySelector('#sheet-price-culiacan .price-custom');
+      priceModeTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          priceModeTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const mode = tab.dataset.mode;
+          if (mode === 'preset') {
+            presetGrid?.classList.remove('hidden');
+            customGrid?.classList.add('hidden');
+          } else {
+            presetGrid?.classList.add('hidden');
+            customGrid?.classList.remove('hidden');
+          }
+        });
+      });
+      // default to preset view
+      priceModeTabs[0]?.classList.add('active');
+      presetGrid?.classList.remove('hidden');
+      customGrid?.classList.add('hidden');
       function clearAllFilters() {
         // Limpiar todos los filtros
         if (filterType) filterType.value = '';
@@ -15882,29 +15905,7 @@
           transition: opacity 0.3s ease, transform 0.3s ease;
         }
         
-        /* Price Tab Styles */
-        .price-tab {
-          position: relative;
-          z-index: 1;
-        }
-        
-        .tab-active {
-          background-color: #ff4e00 !important;
-          color: white !important;
-          box-shadow: 0 2px 4px rgba(255, 78, 0, 0.3);
-        }
-        
-        .tab-inactive {
-          background-color: transparent !important;
-          color: #6b7280 !important;
-        }
-        
-        .tab-inactive:hover {
-          background-color: #f9fafb !important;
-          color: #374151 !important;
-        }
-        
-        /* Custom Range Slider Styles */
+
         .price-slider-container {
           padding: 16px 0;
         }
@@ -16111,6 +16112,7 @@
                 <button class="price-btn" data-value="3000000-3500000" onclick="selectPrice(this, '3000000-3500000')">$3.0M - $3.5M</button>
                 <button class="price-btn" data-value="3500000-999999999" onclick="selectPrice(this, '3500000-999999999')">$3.5M+</button>
             </div>
+            
         </div>
     </div>
 
@@ -16454,13 +16456,13 @@
         }
 
         // Seleccionar precio (funciona diferente)
-        function selectPrice(button, value) {
+  
+      function selectPrice(button, value) {
             const group = button.parentElement;
             group.querySelectorAll('.price-btn').forEach(btn => btn.classList.remove('selected'));
             button.classList.add('selected');
             activeFilters.price = value;
         }
-
         // Aplicar filtro y cerrar sheet
         function applyFilter(filterType) {
             // ZILLOW: Para "beds-baths", actualizar ambos chips
@@ -16778,10 +16780,6 @@
 
             // Event listeners con JavaScript
             setTimeout(() => {
-                document.getElementById('chip-type-culiacan')?.addEventListener('click', () => {
-                    console.log('CLICK TYPE');
-                    openBottomSheet('type');
-                });
                 document.getElementById('chip-price-culiacan')?.addEventListener('click', () => {
                     console.log('CLICK PRICE');
                     openBottomSheet('price');
