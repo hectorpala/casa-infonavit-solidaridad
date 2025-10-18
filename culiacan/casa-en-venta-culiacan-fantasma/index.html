@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casas Vendidas Recientemente | Culiacán Fantasma</title>
+    <meta name="description" content="Historial de ventas recientes estilo Zillow en Culiacán. Explora precios, fechas de cierre y métricas clave con mapa interactivo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --surface: #f5f6fb;
+            --border: #d9dce7;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --chip: #f8fafc;
+            --chip-border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--surface);
+            color: var(--text-main);
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 18px 28px;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: -0.02em;
+        }
+
+        .header-brand span {
+            color: var(--primary);
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 52% 48%;
+            min-height: calc(100vh - 78px);
+        }
+
+        .map-panel {
+            position: relative;
+            border-right: 1px solid var(--border);
+        }
+
+        #map {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .filters-stack {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid var(--chip-border);
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.18s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .filter-chip.active {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.12);
+        }
+
+        .list-panel {
+            background: #fff;
+            padding: 32px 40px;
+            overflow-y: auto;
+        }
+
+        .page-heading {
+            margin: 0 0 18px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .page-subheading {
+            margin: 0 0 28px;
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .listing-card {
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 18px;
+            display: grid;
+            grid-template-columns: 128px auto;
+            gap: 18px;
+            cursor: pointer;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .listing-card.highlighted {
+            border-color: var(--primary);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.12);
+        }
+
+        .listing-thumbnail {
+            width: 128px;
+            height: 112px;
+            border-radius: 14px;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+
+        .listing-price {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .listing-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            margin: 12px 0;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .listing-meta strong {
+            color: var(--text-main);
+        }
+
+        .listing-sale {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.12);
+            color: #047857;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .listing-footer {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .action-button.primary {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .action-button:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .action-button.primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .bottom-sheet {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: -100%;
+            background: #fff;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -8px 30px rgba(15, 23, 42, 0.15);
+            transition: bottom 0.28s ease;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 24px;
+            z-index: 50;
+        }
+
+        .bottom-sheet.active {
+            bottom: 0;
+        }
+
+        .sheet-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.35);
+            backdrop-filter: blur(3px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
+            z-index: 40;
+        }
+
+        .sheet-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sheet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .sheet-title {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 10px;
+        }
+
+        .option-btn {
+            border: 1px solid var(--border);
+            background: #fff;
+            border-radius: 999px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.18s ease;
+        }
+
+        .option-btn.selected {
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.12);
+            color: var(--primary);
+        }
+
+        @media (max-width: 1024px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            #map {
+                position: relative;
+                height: 60vh;
+            }
+
+            .list-panel {
+                padding: 24px;
+            }
+
+            .filters-stack {
+                left: 24px;
+                transform: none;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <i class="fa-solid fa-house-chimney"></i>
+            Ventas Recientes <span>Culiacán</span>
+        </div>
+    </header>
+
+    <div class="layout">
+        <div class="map-panel">
+            <div class="filters-stack">
+                <div class="filter-chip" id="chip-price" onclick="openSheet('price')">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <span>Precio</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="filter-chip" id="chip-beds" onclick="openSheet('beds')">
+                    <i class="fa-solid fa-bed"></i>
+                    <span>Recámaras</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="filter-chip" id="chip-baths" onclick="openSheet('baths')">
+                    <i class="fa-solid fa-shower"></i>
+                    <span>Baños</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="filter-chip" id="chip-days" onclick="openSheet('days')">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Últimos 7 días</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+            <div id="map"></div>
+        </div>
+
+        <aside class="list-panel">
+            <h1 class="page-heading">Cierre de ventas estilo Zillow – Culiacán Fantasma</h1>
+            <p class="page-subheading">Propiedades vendidas entre $1.3M y $4.5M MXN en los últimos días. Da clic en un marcador o tarjeta para explorar métricas.</p>
+
+            <div id="listings"></div>
+        </aside>
+    </div>
+
+    <div id="sheet-overlay" class="sheet-overlay" onclick="closeSheets()"></div>
+
+    <div id="sheet-price" class="bottom-sheet">
+        <div class="sheet-header">
+            <span class="sheet-title">Rango de precio</span>
+            <button class="option-btn" onclick="closeSheets()">Cerrar</button>
+        </div>
+        <div class="option-grid">
+            <button class="option-btn selected" data-value="" onclick="selectFilter('price', '')">Todos</button>
+            <button class="option-btn" data-value="0-2000000" onclick="selectFilter('price', '0-2000000')">$0 - $2.0M</button>
+            <button class="option-btn" data-value="2000000-3000000" onclick="selectFilter('price', '2000000-3000000')">$2.0M - $3.0M</button>
+            <button class="option-btn" data-value="3000000-4500000" onclick="selectFilter('price', '3000000-4500000')">$3.0M - $4.5M</button>
+            <button class="option-btn" data-value="4500000-999999999" onclick="selectFilter('price', '4500000-999999999')">$4.5M+</button>
+        </div>
+    </div>
+
+    <div id="sheet-beds" class="bottom-sheet">
+        <div class="sheet-header">
+            <span class="sheet-title">Recámaras mínimas</span>
+            <button class="option-btn" onclick="closeSheets()">Cerrar</button>
+        </div>
+        <div class="option-grid">
+            <button class="option-btn selected" data-value="" onclick="selectFilter('beds', '')">Cualquiera</button>
+            <button class="option-btn" data-value="2" onclick="selectFilter('beds', '2')">2+</button>
+            <button class="option-btn" data-value="3" onclick="selectFilter('beds', '3')">3+</button>
+            <button class="option-btn" data-value="4" onclick="selectFilter('beds', '4')">4+</button>
+            <button class="option-btn" data-value="5" onclick="selectFilter('beds', '5')">5+</button>
+        </div>
+    </div>
+
+    <div id="sheet-baths" class="bottom-sheet">
+        <div class="sheet-header">
+            <span class="sheet-title">Baños mínimos</span>
+            <button class="option-btn" onclick="closeSheets()">Cerrar</button>
+        </div>
+        <div class="option-grid">
+            <button class="option-btn selected" data-value="" onclick="selectFilter('baths', '')">Cualquiera</button>
+            <button class="option-btn" data-value="1" onclick="selectFilter('baths', '1')">1+</button>
+            <button class="option-btn" data-value="2" onclick="selectFilter('baths', '2')">2+</button>
+            <button class="option-btn" data-value="3" onclick="selectFilter('baths', '3')">3+</button>
+        </div>
+    </div>
+
+    <div id="sheet-days" class="bottom-sheet">
+        <div class="sheet-header">
+            <span class="sheet-title">Antigüedad de la venta</span>
+            <button class="option-btn" onclick="closeSheets()">Cerrar</button>
+        </div>
+        <div class="option-grid">
+            <button class="option-btn selected" data-value="7" onclick="selectFilter('days', '7')">Últimos 7 días</button>
+            <button class="option-btn" data-value="30" onclick="selectFilter('days', '30')">Últimos 30 días</button>
+            <button class="option-btn" data-value="90" onclick="selectFilter('days', '90')">Últimos 90 días</button>
+            <button class="option-btn" data-value="" onclick="selectFilter('days', '')">Todo el historial</button>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&libraries=places"></script>
+    <script>
+        const SOLD_PROPERTIES = [
+            {
+                slug: 'fantasma-primavera',
+                title: 'Residencial La Primavera',
+                price: 4350000,
+                priceShort: '$4.35M',
+                bedrooms: 4,
+                bathrooms: 3,
+                size: 226,
+                location: 'La Primavera, Culiacán',
+                saleDate: '2025-10-19',
+                daysOnMarket: 6,
+                image: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=60',
+                lat: 24.8281,
+                lng: -107.3984,
+                url: '#'
+            },
+            {
+                slug: 'fantasma-sol',
+                title: 'Casa Sold – Valles del Sol',
+                price: 2870000,
+                priceShort: '$2.87M',
+                bedrooms: 3,
+                bathrooms: 2,
+                size: 168,
+                location: 'Fracc. Valles del Sol',
+                saleDate: '2025-10-17',
+                daysOnMarket: 4,
+                image: 'https://images.unsplash.com/photo-1613977257228-287c27138c95?auto=format&fit=crop&w=800&q=60',
+                lat: 24.8197,
+                lng: -107.4211,
+                url: '#'
+            },
+            {
+                slug: 'fantasma-centro',
+                title: 'Histórico Centro Remodelada',
+                price: 1950000,
+                priceShort: '$1.95M',
+                bedrooms: 2,
+                bathrooms: 2,
+                size: 142,
+                location: 'Centro, Culiacán',
+                saleDate: '2025-10-16',
+                daysOnMarket: 12,
+                image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=60',
+                lat: 24.8062,
+                lng: -107.3945,
+                url: '#'
+            },
+            {
+                slug: 'fantasma-cumbres',
+                title: 'Mirador de Cumbres',
+                price: 3650000,
+                priceShort: '$3.65M',
+                bedrooms: 4,
+                bathrooms: 3,
+                size: 210,
+                location: 'Mirador de Cumbres',
+                saleDate: '2025-10-15',
+                daysOnMarket: 19,
+                image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=60',
+                lat: 24.8234,
+                lng: -107.3829,
+                url: '#'
+            },
+            {
+                slug: 'fantasma-stanza',
+                title: 'Stanza Castilla – Privada Ítaca',
+                price: 2420000,
+                priceShort: '$2.42M',
+                bedrooms: 3,
+                bathrooms: 2,
+                size: 160,
+                location: 'Stanza Castilla',
+                saleDate: '2025-10-12',
+                daysOnMarket: 9,
+                image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=60',
+                lat: 24.8098,
+                lng: -107.3782,
+                url: '#'
+            },
+            {
+                slug: 'fantasma-privanzas',
+                title: 'Privada Privanzas Fantasma',
+                price: 4150000,
+                priceShort: '$4.15M',
+                bedrooms: 5,
+                bathrooms: 4,
+                size: 245,
+                location: 'Privadas Privanzas',
+                saleDate: '2025-10-09',
+                daysOnMarket: 27,
+                image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=60',
+                lat: 24.8381,
+                lng: -107.4086,
+                url: '#'
+            }
+        ];
+
+        const filters = {
+            price: '',
+            beds: '',
+            baths: '',
+            days: '7'
+        };
+
+        let map;
+        let markers = {};
+        let infoWindow;
+        let filteredData = [...SOLD_PROPERTIES];
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 24.8179, lng: -107.3957 },
+                zoom: 13,
+                mapTypeControl: false,
+                streetViewControl: false,
+                fullscreenControl: true,
+                styles: [
+                    {
+                        featureType: 'poi',
+                        elementType: 'labels',
+                        stylers: [{ visibility: 'off' }]
+                    }
+                ]
+            });
+
+            infoWindow = new google.maps.InfoWindow();
+            renderMarkers(filteredData);
+            renderListings(filteredData);
+        }
+
+        function renderMarkers(properties) {
+            Object.values(markers).forEach(marker => marker.setMap(null));
+            markers = {};
+
+            properties.forEach(property => {
+                const marker = new google.maps.Marker({
+                    position: { lat: property.lat, lng: property.lng },
+                    map,
+                    title: property.title,
+                    icon: {
+                        url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                            <svg width="90" height="38" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1"/>
+                                        <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect x="0" y="0" rx="18" ry="18" width="90" height="36" fill="url(#grad)" stroke="#fff" stroke-width="2"/>
+                                <text x="45" y="23" font-family="Inter, sans-serif" font-size="15" font-weight="600" fill="#ffffff" text-anchor="middle">${property.priceShort}</text>
+                            </svg>
+                        `)}`,
+                        scaledSize: new google.maps.Size(90, 38),
+                        anchor: new google.maps.Point(45, 38)
+                    }
+                });
+
+                marker.addListener('click', () => {
+                    focusPropertyCard(property.slug);
+                    infoWindow.setContent(`
+                        <div style="font-family: Inter, sans-serif; max-width: 260px;">
+                            <div style="font-size:16px;font-weight:600;margin-bottom:4px;color:#1e293b;">${property.priceShort}</div>
+                            <div style="font-size:14px;color:#475569;margin-bottom:6px;">${property.location}</div>
+                            <div style="font-size:13px;color:#475569;margin-bottom:10px;">
+                                ${property.bedrooms} rec • ${property.bathrooms} baños • ${property.size} m²<br>
+                                Vendida el ${formatSaleDate(property.saleDate)}
+                            </div>
+                            <a href="${property.url}" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#2563eb;text-decoration:none;">
+                                Ver detalles
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    `);
+                    infoWindow.open(map, marker);
+                });
+
+                marker.addListener('mouseover', () => highlightCard(property.slug));
+                marker.addListener('mouseout', () => unhighlightCard(property.slug));
+
+                markers[property.slug] = marker;
+            });
+        }
+
+        function renderListings(properties) {
+            const container = document.getElementById('listings');
+            container.innerHTML = '';
+
+            if (properties.length === 0) {
+                container.innerHTML = `
+                    <div style="padding:40px;text-align:center;border:1px dashed var(--border);border-radius:20px;background:var(--chip);">
+                        <h3 style="margin:0 0 12px;">Sin resultados con estos filtros</h3>
+                        <p style="margin:0 0 18px;color:var(--text-muted);">Amplía tu rango de precio o antigüedad para ver más cierres de venta.</p>
+                        <button class="action-button primary" onclick="resetFilters()">Limpiar filtros</button>
+                    </div>
+                `;
+                return;
+            }
+
+            properties.forEach(property => {
+                const card = document.createElement('article');
+                card.className = 'listing-card';
+                card.id = `card-${property.slug}`;
+                card.innerHTML = `
+                    <img class="listing-thumbnail" src="${property.image}" alt="${property.title}" onerror="this.src='https://via.placeholder.com/128x112?text=Casa'">
+                    <div>
+                        <p class="listing-price">${property.priceShort}</p>
+                        <div class="listing-meta">
+                            <span><strong>${property.bedrooms}</strong> recámaras</span>
+                            <span><strong>${property.bathrooms}</strong> baños</span>
+                            <span><strong>${property.size} m²</strong> construcción</span>
+                            <span>${property.location}</span>
+                        </div>
+                        <div class="listing-sale">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Vendida el ${formatSaleDate(property.saleDate)} • ${property.daysOnMarket} días en mercado
+                        </div>
+                        <div class="listing-footer">
+                            <a class="action-button primary" href="${property.url}">
+                                Ver reporte
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                            <button class="action-button" onclick="focusMap('${property.slug}')">
+                                Ver en mapa
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                card.addEventListener('mouseenter', () => highlightMarker(property.slug));
+                card.addEventListener('mouseleave', () => unhighlightMarker(property.slug));
+                card.addEventListener('click', () => focusMap(property.slug));
+
+                container.appendChild(card);
+            });
+        }
+
+        function formatSaleDate(isoDate) {
+            const formatter = new Intl.DateTimeFormat('es-MX', { day: 'numeric', month: 'short', year: 'numeric' });
+            return formatter.format(new Date(isoDate));
+        }
+
+        function focusMap(slug) {
+            const marker = markers[slug];
+            if (marker) {
+                map.panTo(marker.getPosition());
+                map.setZoom(14);
+                google.maps.event.trigger(marker, 'click');
+            }
+        }
+
+        function highlightMarker(slug) {
+            if (markers[slug]) {
+                markers[slug].setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(() => markers[slug] && markers[slug].setAnimation(null), 600);
+            }
+        }
+
+        function unhighlightMarker(slug) {
+            if (markers[slug]) {
+                markers[slug].setAnimation(null);
+            }
+        }
+
+        function highlightCard(slug) {
+            document.querySelectorAll('.listing-card').forEach(card => card.classList.remove('highlighted'));
+            const card = document.getElementById(`card-${slug}`);
+            if (!card) return;
+            card.classList.add('highlighted');
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function focusPropertyCard(slug) {
+            highlightCard(slug);
+        }
+
+        function unhighlightCard(slug) {
+            const card = document.getElementById(`card-${slug}`);
+            if (card) card.classList.remove('highlighted');
+        }
+
+        function openSheet(type) {
+            closeSheets();
+            document.getElementById('sheet-overlay').classList.add('active');
+            document.getElementById(`sheet-${type}`).classList.add('active');
+        }
+
+        function closeSheets() {
+            document.getElementById('sheet-overlay').classList.remove('active');
+            document.querySelectorAll('.bottom-sheet').forEach(sheet => sheet.classList.remove('active'));
+        }
+
+        function selectFilter(filter, value) {
+            filters[filter] = value;
+            document.querySelectorAll(`#sheet-${filter === 'beds' || filter === 'baths' ? filter : filter} .option-btn`).forEach(btn => {
+                if (btn.dataset && 'value' in btn.dataset) {
+                    btn.classList.toggle('selected', btn.dataset.value === value);
+                }
+            });
+
+            updateChips();
+            applyFilters();
+            closeSheets();
+        }
+
+        function updateChips() {
+            const priceChip = document.querySelector('#chip-price span:nth-child(2)');
+            const bedsChip = document.querySelector('#chip-beds span:nth-child(2)');
+            const bathsChip = document.querySelector('#chip-baths span:nth-child(2)');
+            const daysChip = document.querySelector('#chip-days span:nth-child(2)');
+
+            const rangeLabels = {
+                '0-2000000': '$0 - $2.0M',
+                '2000000-3000000': '$2.0M - $3.0M',
+                '3000000-4500000': '$3.0M - $4.5M',
+                '4500000-999999999': '$4.5M+'
+            };
+
+            priceChip.textContent = filters.price ? rangeLabels[filters.price] || 'Custom' : 'Precio';
+            bedsChip.textContent = filters.beds ? `${filters.beds}+ Recámaras` : 'Recámaras';
+            bathsChip.textContent = filters.baths ? `${filters.baths}+ Baños` : 'Baños';
+            daysChip.textContent = filters.days ? `Últimos ${filters.days} días` : 'Todo el historial';
+
+            document.getElementById('chip-price').classList.toggle('active', !!filters.price);
+            document.getElementById('chip-beds').classList.toggle('active', !!filters.beds);
+            document.getElementById('chip-baths').classList.toggle('active', !!filters.baths);
+            document.getElementById('chip-days').classList.toggle('active', !!filters.days);
+        }
+
+        function applyFilters() {
+            filteredData = SOLD_PROPERTIES.filter(property => {
+                let include = true;
+
+                if (filters.price) {
+                    const [min, max] = filters.price.split('-').map(Number);
+                    include = include && property.price >= min && property.price <= max;
+                }
+
+                if (filters.beds) {
+                    include = include && property.bedrooms >= Number(filters.beds);
+                }
+
+                if (filters.baths) {
+                    include = include && property.bathrooms >= Number(filters.baths);
+                }
+
+                if (filters.days) {
+                    const daysLimit = Number(filters.days);
+                    const saleDate = new Date(property.saleDate);
+                    const now = new Date();
+                    const diffDays = (now - saleDate) / (1000 * 60 * 60 * 24);
+                    include = include && diffDays <= daysLimit;
+                }
+
+                return include;
+            });
+
+            renderMarkers(filteredData);
+            renderListings(filteredData);
+        }
+
+        function resetFilters() {
+            filters.price = '';
+            filters.beds = '';
+            filters.baths = '';
+            filters.days = '7';
+
+            document.querySelectorAll('.bottom-sheet .option-btn').forEach(btn => btn.classList.remove('selected'));
+            document.querySelector('#sheet-price .option-btn[data-value=""]').classList.add('selected');
+            document.querySelector('#sheet-beds .option-btn[data-value=""]').classList.add('selected');
+            document.querySelector('#sheet-baths .option-btn[data-value=""]').classList.add('selected');
+            document.querySelector('#sheet-days .option-btn[data-value="7"]').classList.add('selected');
+
+            updateChips();
+            applyFilters();
+        }
+
+        window.addEventListener('load', () => {
+            initMap();
+            updateChips();
+        });
+    </script>
+</body>
+</html>
+
