@@ -997,7 +997,7 @@ function mostrarVendedorCRM(vendedor) {
 // SCRAPER DE INMUEBLES24
 // ============================================
 
-async function scrapeInmuebles24(url) {
+async function scrapeInmuebles24(url, cityMeta = {}) {
     console.log('🚀 Iniciando scraper de Inmuebles24...\n');
     console.log(`📍 URL: ${url}\n`);
 
@@ -1146,7 +1146,13 @@ async function scrapeInmuebles24(url) {
 
     console.log('📊 Extrayendo datos...');
 
-    const data = await page.evaluate(() => {
+    const locationContext = {
+        cityName: cityMeta.name || cityMeta.cityName || 'Culiacán',
+        stateName: cityMeta.state || cityMeta.stateName || 'Sinaloa',
+        fallbackLocation: cityMeta.fallbackLocation || `${cityMeta.name || cityMeta.cityName || 'Culiacán'}, ${cityMeta.state || cityMeta.stateName || 'Sinaloa'}`
+    };
+
+    const data = await page.evaluate((meta) => {
         const result = {
             title: '',
             price: '',
@@ -1160,6 +1166,9 @@ async function scrapeInmuebles24(url) {
             images: [],
             features: [],
             vendedor: { nombre: '', telefono: '' },
+            latitude: null,
+            longitude: null,
+            addressSource: '',
             // Metadatos para detectar duplicados
             propertyId: '',
             publishedDate: '',
@@ -1248,48 +1257,119 @@ async function scrapeInmuebles24(url) {
         // ============================================
 
         // FUENTE PRIORITARIA 1: JSON-LD con datos estructurados
-        try {
-            const jsonLdScript = document.querySelector('script[type="application/ld+json"]');
-            if (jsonLdScript) {
-                const jsonData = JSON.parse(jsonLdScript.textContent);
+        function appendCityState(parts) {
+            const lowerParts = parts.map(p => p.toLowerCase());
+            if (meta?.cityName && !lowerParts.some(part => part.includes(meta.cityName.toLowerCase()))) {
+                parts.push(meta.cityName);
+            }
+            if (meta?.stateName && !lowerParts.some(part => part.includes(meta.stateName.toLowerCase()))) {
+                parts.push(meta.stateName);
+            }
+            return parts;
+        }
 
-                // Intentar extraer dirección de Schema.org
-                if (jsonData.address) {
-                    const addr = jsonData.address.streetAddress || jsonData.address.addressLocality;
-                    if (addr && usableAddress(addr)) {
-                        const score = scoreAddress(addr) + 10; // +10 bonus por JSON-LD
-                        addressCandidates.push({
-                            address: addr,
-                            score: score,
-                            source: 'JSON-LD'
-                        });
-                        console.log(`   🎯 JSON-LD address found: ${addr} (score: ${score})`);
-                    }
-                }
+        function registerAddressCandidate(address, baseScore, source) {
+            if (!address) return;
+            const cleaned = address
+                .replace(/\s+,/g, ',')
+                .replace(/,\s+/g, ', ')
+                .replace(/,\s*,/g, ', ')
+                .replace(/\s+/g, ' ')
+                .trim();
+            if (!usableAddress(cleaned)) return;
+            const score = scoreAddress(cleaned) + (baseScore || 0);
+            addressCandidates.push({
+                address: cleaned,
+                score,
+                source
+            });
+            console.log(`   🎯 ${source} address found: ${cleaned} (score: ${score})`);
+        }
 
-                // Intentar extraer coordenadas de Schema.org
-                if (jsonData.geo) {
-                    result.latitude = jsonData.geo.latitude;
-                    result.longitude = jsonData.geo.longitude;
-                    console.log(`   📍 Coordenadas from JSON-LD: ${result.latitude}, ${result.longitude}`);
+        function extractJsonLdAddress(node) {
+            if (!node || typeof node !== 'object') return;
+
+            // Coordenadas
+            if (node.geo && node.geo.latitude && node.geo.longitude) {
+                const lat = parseFloat(node.geo.latitude);
+                const lng = parseFloat(node.geo.longitude);
+                if (!Number.isNaN(lat) && !Number.isNaN(lng)) {
+                    result.latitude = lat;
+                    result.longitude = lng;
+                    console.log(`   📍 Coordenadas from JSON-LD: ${lat}, ${lng}`);
                 }
             }
+
+            // Direcciones anidadas
+            if (node.address) {
+                const addrNode = node.address;
+                if (typeof addrNode === 'string') {
+                    const parts = appendCityState([addrNode.trim()]);
+                    registerAddressCandidate(parts.join(', '), 10, 'JSON-LD');
+                } else if (typeof addrNode === 'object') {
+                    const sanitizePart = (value) => {
+                        if (!value || typeof value !== 'string') return null;
+                        return value.replace(/\s+/g, ' ').replace(/,\s*$/, '').trim();
+                    };
+
+                    const parts = [];
+                    const street = sanitizePart(addrNode.streetAddress);
+                    const locality = sanitizePart(addrNode.addressLocality);
+                    const region = sanitizePart(addrNode.addressRegion);
+                    const postalCode = sanitizePart(addrNode.postalCode);
+
+                    if (street) parts.push(street);
+                    if (locality) parts.push(locality);
+                    if (region) parts.push(region);
+                    if (postalCode && /\d/.test(postalCode)) parts.push(postalCode);
+
+                    if (parts.length) {
+                        const uniqueParts = [];
+                        parts.forEach(part => {
+                            const normalized = part.toLowerCase();
+                            if (!uniqueParts.some(existing => existing.toLowerCase() === normalized)) {
+                                uniqueParts.push(part);
+                            }
+                        });
+                        appendCityState(uniqueParts);
+                        registerAddressCandidate(uniqueParts.join(', '), 10, 'JSON-LD');
+                    }
+                }
+            }
+
+            // Recursión en @graph o array de elementos anidados
+            if (Array.isArray(node['@graph'])) {
+                node['@graph'].forEach(extractJsonLdAddress);
+            }
+        }
+
+        try {
+            const jsonLdScripts = Array.from(document.querySelectorAll('script[type="application/ld+json"]'));
+            jsonLdScripts.forEach(script => {
+                try {
+                    const jsonContent = script.textContent.trim();
+                    if (!jsonContent) return;
+                    const parsed = JSON.parse(jsonContent);
+                    if (Array.isArray(parsed)) {
+                        parsed.forEach(item => extractJsonLdAddress(item));
+                    } else {
+                        extractJsonLdAddress(parsed);
+                    }
+                } catch (err) {
+                    console.log('   ⚠️  Error parsing JSON-LD snippet:', err.message);
+                }
+            });
         } catch (e) {
-            console.log('   ⚠️  Error parsing JSON-LD:', e.message);
+            console.log('   ⚠️  Error reading JSON-LD scripts:', e.message);
         }
 
         // FUENTE PRIORITARIA 2: data-testid="address-text"
         const addressTestId = document.querySelector('[data-testid="address-text"]');
         if (addressTestId) {
             const addr = addressTestId.textContent.trim();
-            if (addr && usableAddress(addr)) {
-                const score = scoreAddress(addr) + 8; // +8 bonus por selector específico
-                addressCandidates.push({
-                    address: addr,
-                    score: score,
-                    source: 'data-testid'
-                });
-                console.log(`   🎯 data-testid address found: ${addr} (score: ${score})`);
+            if (addr) {
+                const parts = appendCityState([addr]);
+                registerAddressCandidate(parts.join(', '), 8, 'data-testid');
             }
         }
 
@@ -1297,14 +1377,9 @@ async function scrapeInmuebles24(url) {
         const mapSection = document.querySelector('#mapSection li span, section[data-testid="property-features"] li span');
         if (mapSection) {
             const addr = mapSection.textContent.trim();
-            if (addr && usableAddress(addr)) {
-                const score = scoreAddress(addr) + 7; // +7 bonus
-                addressCandidates.push({
-                    address: addr,
-                    score: score,
-                    source: 'mapSection'
-                });
-                console.log(`   🎯 mapSection address found: ${addr} (score: ${score})`);
+            if (addr) {
+                const parts = appendCityState([addr]);
+                registerAddressCandidate(parts.join(', '), 7, 'mapSection');
             }
         }
 
@@ -1324,13 +1399,7 @@ async function scrapeInmuebles24(url) {
                     /(fracc|colonia|blvd|avenida|calle|privada)/i.test(trimmed)) {
 
                     const cleaned = trimmed.replace(/\s+,/g, ',').replace(/,\s+/g, ', ');
-                    const score = scoreAddress(cleaned);
-
-                    addressCandidates.push({
-                        address: cleaned,
-                        score: score,
-                        source: 'bodyText'
-                    });
+                    registerAddressCandidate(cleaned, 0, 'bodyText');
                 }
             }
         });
@@ -1349,15 +1418,7 @@ async function scrapeInmuebles24(url) {
                 // Aplicar cleanBreadcrumb si contiene palabras prohibidas
                 const hasBlacklisted = /inmuebles24|clasificado|propiedades/i.test(text);
                 const cleaned = hasBlacklisted ? cleanBreadcrumb(text) : text.replace(/\s+,/g, ',').replace(/,\s+/g, ', ');
-
-                if (usableAddress(cleaned)) {
-                    const score = scoreAddress(cleaned);
-                    addressCandidates.push({
-                        address: cleaned,
-                        score: score,
-                        source: 'breadcrumbs' + (hasBlacklisted ? '-cleaned' : '')
-                    });
-                }
+                registerAddressCandidate(cleaned, hasBlacklisted ? 2 : 0, 'breadcrumbs' + (hasBlacklisted ? '-cleaned' : ''));
             }
         });
 
@@ -1366,12 +1427,7 @@ async function scrapeInmuebles24(url) {
         if (metaLocation) {
             const address = metaLocation.getAttribute('content');
             if (address && address.length > 15) {
-                const score = scoreAddress(address);
-                addressCandidates.push({
-                    address: address,
-                    score: score,
-                    source: 'metaTags'
-                });
+                registerAddressCandidate(address, 1, 'metaTags');
             }
         }
 
@@ -1399,21 +1455,28 @@ async function scrapeInmuebles24(url) {
         }
 
         // Seleccionar la dirección con mayor puntuación
-        if (uniqueCandidates.length > 0 && uniqueCandidates[0].score > 0) {
-            const selectedAddress = uniqueCandidates[0].address;
+        if (uniqueCandidates.length > 0 && uniqueCandidates[0].score >= 0) {
+            let selectedAddress = uniqueCandidates[0].address;
+            if (meta?.cityName && !selectedAddress.toLowerCase().includes(meta.cityName.toLowerCase())) {
+                selectedAddress += `, ${meta.cityName}`;
+            }
+            if (meta?.stateName && !selectedAddress.toLowerCase().includes(meta.stateName.toLowerCase())) {
+                selectedAddress += `, ${meta.stateName}`;
+            }
 
             // Validación final: asegurar que la dirección es utilizable
             if (usableAddress(selectedAddress)) {
                 result.location = selectedAddress;
                 console.log(`   ✅ Dirección seleccionada: ${result.location} (${uniqueCandidates[0].source})`);
+                result.addressSource = uniqueCandidates[0].source;
             } else {
                 console.log(`   ⚠️  Dirección descartada (no utilizable): ${selectedAddress}`);
-                result.location = 'Culiacán, Sinaloa';
+                result.location = meta?.fallbackLocation || 'Culiacán, Sinaloa';
                 console.log('   ⚠️  Usando fallback: Culiacán, Sinaloa');
             }
         } else {
             // Fallback final: usar ciudad y estado detectados
-            result.location = 'Culiacán, Sinaloa';
+            result.location = meta?.fallbackLocation || 'Culiacán, Sinaloa';
             console.log('   ⚠️  No se encontró dirección específica, usando fallback');
         }
 
@@ -1546,7 +1609,7 @@ async function scrapeInmuebles24(url) {
         }
 
         return result;
-    });
+    }, locationContext);
 
     // Agregar datos del vendedor al objeto data
     data.vendedor = vendedorData;
@@ -2153,7 +2216,14 @@ async function main() {
         console.log(`🚀 Iniciando scraper para: ${typeLabel} en ${cityConfig.name}, ${cityConfig.state}\n`);
 
         // 2. Scrapear datos
-        const data = await scrapeInmuebles24(url);
+        const data = await scrapeInmuebles24(url, {
+            name: cityConfig.name,
+            state: cityConfig.state,
+            stateShort: cityConfig.stateShort,
+            fallbackLocation: `${cityConfig.name}, ${cityConfig.state}`,
+            cityName: cityConfig.name,
+            stateName: cityConfig.state
+        });
 
         // 2.1 Verificar duplicados por ID
         if (data.propertyId) {

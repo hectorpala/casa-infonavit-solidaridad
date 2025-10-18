@@ -14,6 +14,20 @@
           "precio": "MN 4,000,000",
           "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-por-calle-mariano-escobedo-centro-de-la-143508352.html",
           "fechaScrapeo": "2025-10-08"
+        },
+        {
+          "id": "147300315",
+          "titulo": "Renta Casa en La Isla Privada Pontevedra",
+          "precio": "MN 19,000",
+          "ubicacion": "Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-renta-casa-en-la-isla-privada-pontevedra-147300315.html",
+          "fechaScrapeo": "2025-10-18",
+          "fechaPublicacion": "Publicado hace 64 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedora Centro Histórico Culiacán",
@@ -593,6 +607,20 @@
           "fechaScrapeo": "2025-10-18",
           "fechaPublicacion": "Publicado hace 23 días",
           "vistas": 0
+        },
+        {
+          "id": "147564220",
+          "titulo": "Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa",
+          "precio": "MN 10,000",
+          "ubicacion": "Inmuebles24  Casa  Renta  Sinaloa  Culiacán  Lomas Del Magisterio  Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-colonia-lomas-del-pedregal-culiacan-147564220.html",
+          "fechaScrapeo": "2025-10-18",
+          "fechaPublicacion": "Publicado hace 22 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Avenida Federalismo 10, Recursos HidrAulicos, Culiacán",
@@ -608,8 +636,8 @@
   ],
   "estadisticas": {
     "totalVendedores": 17,
-    "totalPropiedades": 28,
-    "ultimaActualizacion": "2025-10-18T04:40:06.263Z"
+    "totalPropiedades": 30,
+    "ultimaActualizacion": "2025-10-18T19:51:07.687Z"
   },
   "busquedas": [
     {
