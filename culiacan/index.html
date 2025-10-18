@@ -19895,15 +19895,23 @@
             });
 
             // Geocodificar Riberas de Tamazula (RENTA)
+            console.log('🔍 INICIO: Geocodificando Riberas de Tamazula con address:', riberasTamazulaProperty.address);
+            console.log('🔍 Property data completa:', riberasTamazulaProperty);
             geocoder.geocode({ address: riberasTamazulaProperty.address }, function(results, status) {
+                console.log('🔍 Riberas geocode status:', status);
+                console.log('🔍 Riberas geocode results:', results);
                 if (status === 'OK' && results[0]) {
                     const position = results[0].geometry.location;
+                    console.log('✅ Geocode OK - formatted_address:', results[0].formatted_address);
+                    console.log('✅ Coordenadas:', position.lat(), position.lng());
                     const CustomMarkerClass = createZillowPropertyMarker(riberasTamazulaProperty, window.mapCuliacan);
                     const marker = new CustomMarkerClass(position, window.mapCuliacan, riberasTamazulaProperty);
                     window.allCuliacanMarkers.push(marker);
-                    console.log('Marcador Riberas de Tamazula (RENTA) creado en:', position.lat(), position.lng());
+                    console.log('✅ Marcador Riberas de Tamazula (RENTA) creado y agregado a allCuliacanMarkers');
+                    console.log('✅ Total markers en array:', window.allCuliacanMarkers.length);
                 } else {
-                    console.error('Geocode error Riberas de Tamazula:', status);
+                    console.error('❌ Geocode error Riberas de Tamazula:', status);
+                    console.error('❌ Results:', results);
                 }
             });
 
