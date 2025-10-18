@@ -15836,19 +15836,16 @@
       // Extraer datos de propiedades para filtrado
       extractPropertyData();
       
-      // Asegurar que todas las cards sean visibles inicialmente
+      // Asegurar que todas las cards queden visibles y sin residuos de estilos previos
       allCards.forEach(card => { 
-        card.style.display = 'block !important'; 
-        card.style.visibility = 'visible !important';
-        card.style.opacity = '1 !important';
-        card.style.height = 'auto !important';
-        card.style.margin = '';
-        card.style.padding = '';
+        card.style.removeProperty('display');
+        card.style.removeProperty('visibility');
+        card.style.removeProperty('opacity');
+        card.style.removeProperty('height');
+        card.style.removeProperty('margin');
+        card.style.removeProperty('padding');
         card.classList.remove('hidden');
       });
-      
-      // Inicializar display de resultados
-      updateResultsDisplay(allCards.length);
 
       // Ordenar por más recientes al cargar la página
       if (filterSort) {
@@ -15864,6 +15861,9 @@
         }
         console.log('🔥 Propiedades ordenadas por más recientes');
       }
+
+      // Aplicar filtros una vez para inicializar estado y contador
+      filterProperties();
 
       console.log('🔥 Sistema de filtros avanzado listo');
       // ===== Estilos CSS para filtros
