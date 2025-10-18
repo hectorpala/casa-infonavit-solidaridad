@@ -216,42 +216,6 @@
         </div>
     </section>
 
-    <!-- Rental Calculator -->
-    <section class="simple-calc" id="calculadora">
-        <div class="container">
-            <h2>🏠 Calculadora de Renta</h2>
-            <div class="calc-box">
-                <div class="input-group">
-                    <label>Renta mensual:</label>
-                    <input type="number" id="renta" value="{{PROPERTY_PRICE_NUMBER}}" min="1000" step="500">
-                </div>
-                
-                <div class="input-group">
-                    <label>Meses de depósito:</label>
-                    <select id="deposito">
-                        <option value="1" selected>1 mes</option>
-                        <option value="2">2 meses</option>
-                        <option value="3">3 meses</option>
-                    </select>
-                </div>
-                
-                <div class="input-group">
-                    <label>Gastos adicionales:</label>
-                    <input type="number" id="gastos" value="3000" min="0" step="500" placeholder="Servicios, limpieza, etc.">
-                </div>
-                
-                <button onclick="calcularRenta()" class="calc-btn">🧮 CALCULAR</button>
-                
-                <div class="result-box">
-                    <h3>💰 Para entrar: <span id="entrada">$0</span></h3>
-                    <p>🏠 Renta mensual: <span id="rentaMensual">$0</span></p>
-                    <p>📋 Gastos adicionales: <span id="gastosMensuales">$0</span></p>
-                    <p>💎 Total mensual: <span id="totalMensual">$0</span></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
@@ -367,25 +331,6 @@ document.addEventListener("DOMContentLoaded", function() {
         dots[currentGalleryIndex].classList.add('active');
     }
 
-        // Rental calculator functions
-        function calcularRenta() {
-            const renta = parseFloat(document.getElementById('renta').value) || {{PROPERTY_PRICE_NUMBER}};
-            const mesesDeposito = parseInt(document.getElementById('deposito').value) || 1;
-            const gastosAdicionales = parseFloat(document.getElementById('gastos').value) || 3000;
-
-            const depositoTotal = renta * mesesDeposito;
-            const gastosEntrada = depositoTotal + renta;
-            const totalMensual = renta + gastosAdicionales;
-
-            document.getElementById('entrada').textContent = '$' + gastosEntrada.toLocaleString('es-MX');
-            document.getElementById('rentaMensual').textContent = '$' + renta.toLocaleString('es-MX');
-            document.getElementById('gastosMensuales').textContent = '$' + gastosAdicionales.toLocaleString('es-MX');
-            document.getElementById('totalMensual').textContent = '$' + totalMensual.toLocaleString('es-MX');
-        }
-
-        // Initialize calculator
-        calcularRenta();
-
         // Universal changeImage function for compatibility
         window.changeImage = function(carouselElement, direction) {
             if (carouselElement.closest('.hero')) {
@@ -403,7 +348,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         };
         
-        window.calcularRenta = calcularRenta;
 });
     </script>
 </body>
