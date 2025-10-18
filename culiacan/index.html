@@ -19933,6 +19933,59 @@ const rinconColonial295459Property = {
     ]
 };
 
+// ===== LOTE 4 - Propiedades antiguas RENTA (saltando belcantto duplicado) =====
+
+// RENTA: Casa Centenario
+const centenarioProperty = {
+    address: "Centenario, Culiacán, Sinaloa",
+    priceShort: "$18K",
+    priceFull: "$18,000/mes",
+    title: "Casa en Renta Colonia Centenario",
+    location: "Centenario, Culiacán",
+    bedrooms: 3,
+    bathrooms: 2.5,
+    area: "183m²",
+    type: "renta",
+    url: "https://casasenventa.info/casa-renta-centenario.html",
+    photos: [
+        "../images/centenario/avenida-astral-4731-4731-centenario-culiacan-sinaloa-30312866-foto-01.jpeg",
+        "../images/centenario/avenida-astral-4731-4731-centenario-culiacan-sinaloa-30312866-foto-02 (1).jpeg",
+        "../images/centenario/avenida-astral-4731-4731-centenario-culiacan-sinaloa-30312866-foto-02.jpeg",
+        "../images/centenario/avenida-astral-4731-4731-centenario-culiacan-sinaloa-30312866-foto-04.jpeg",
+        "../images/centenario/avenida-astral-4731-4731-centenario-culiacan-sinaloa-30312866-foto-05 (1).jpeg",
+        "../images/centenario/avenida-astral-4731-4731-centenario-culiacan-sinaloa-30312866-foto-05.jpeg",
+        "../images/centenario/avenida-astral-4731-4731-centenario-culiacan-sinaloa-30312866-foto-13.jpeg",
+        "../images/centenario/avenida-astral-4731-4731-centenario-culiacan-sinaloa-30312866-foto-14.jpeg"
+    ]
+};
+
+// RENTA: Casa Portareal Camino Real
+const portarealCaminoRealProperty = {
+    address: "Portareal, Camino del Real, Culiacán, Sinaloa",
+    priceShort: "$12K",
+    priceFull: "$12,000/mes",
+    title: "Casa Remodelada Portareal",
+    location: "Portareal, Camino del Real, Culiacán",
+    bedrooms: 3,
+    bathrooms: 2.5,
+    area: "183m²",
+    type: "renta",
+    url: "https://casasenventa.info/casa-renta-portareal-camino-real.html",
+    photos: [
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-01.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-02.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-03.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-04.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-05.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-06.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-07.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-08.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-09.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-10.jpg",
+        "../images/portareal-camino-real/calle-santo-domingo-fraccionamiento-camino-real-camino-real-culiacan-sinaloa-30100549-foto-11.jpg"
+    ]
+};
+
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -20850,6 +20903,22 @@ const rinconColonial295459Property = {
             const rinconColonial295459Marker = new rinconColonial295459MarkerClass(rinconColonial295459Position, window.mapCuliacan, rinconColonial295459Property);
             window.allCuliacanMarkers.push(rinconColonial295459Marker);
             console.log('Marcador Rincón Colonial #295459 (RENTA) creado en:', rinconColonial295459Position.lat(), rinconColonial295459Position.lng());
+
+            // ===== LOTE 4 - Marcadores con coordenadas fijas (saltando belcantto duplicado) =====
+
+            // Centenario (RENTA) - Coordenadas aproximadas zona Centenario
+            const centenarioPosition = new google.maps.LatLng(24.814000, -107.420000);
+            const centenarioMarkerClass = createZillowPropertyMarker(centenarioProperty, window.mapCuliacan);
+            const centenarioMarker = new centenarioMarkerClass(centenarioPosition, window.mapCuliacan, centenarioProperty);
+            window.allCuliacanMarkers.push(centenarioMarker);
+            console.log('Marcador Centenario (RENTA) creado en:', centenarioPosition.lat(), centenarioPosition.lng());
+
+            // Portareal Camino Real (RENTA) - Coordenadas aproximadas salida Sanalona
+            const portarealCaminoRealPosition = new google.maps.LatLng(24.830000, -107.415000);
+            const portarealCaminoRealMarkerClass = createZillowPropertyMarker(portarealCaminoRealProperty, window.mapCuliacan);
+            const portarealCaminoRealMarker = new portarealCaminoRealMarkerClass(portarealCaminoRealPosition, window.mapCuliacan, portarealCaminoRealProperty);
+            window.allCuliacanMarkers.push(portarealCaminoRealMarker);
+            console.log('Marcador Portareal Camino Real (RENTA) creado en:', portarealCaminoRealPosition.lat(), portarealCaminoRealPosition.lng());
 
             // Cañadas (VENTA) - Coordenadas aproximadas zona sur Culiacán
             const casa_en_fraccionamiento_canadasPosition = new google.maps.LatLng(24.770000, -107.410000);
