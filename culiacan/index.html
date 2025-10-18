@@ -798,8 +798,6 @@
                 document.getElementById('filter-garden'),
                 document.getElementById('filter-security')
             ].filter(Boolean);
-            const chipButtons = {};
-            chips.forEach(chip => chipButtons[chip.dataset.filterChip] = chip);
             const openFiltersDrawerBtn = document.getElementById('open-filters-drawer');
             const saveSearchBtn = document.getElementById('save-search-btn');
             const searchInput = document.getElementById('header-search');
@@ -886,24 +884,7 @@
                 setTypeFilter(event.target.value || '');
             });
 
-            drawerClose?.addEventListener('click', closePanel);
-            typeChips.forEach(chip => {
-                chip.addEventListener('click', () => {
-                    setTypeFilter(chip.dataset.typeValue || '');
-                });
-            });
-
-            typeChipSheetButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    setTypeFilter(btn.dataset.value || '');
-                    // cerrar bottom sheet después de seleccionar opción
-                    closePanel();
-                });
-            });
-
-            typeSelectMobile?.addEventListener('change', (event) => {
-                setTypeFilter(event.target.value || '');
-            });
+            drawerClose?.addEventListener(click, closePanel);
 
 
             openFiltersDrawerBtn?.addEventListener('click', () => {
