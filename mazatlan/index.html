@@ -2307,7 +2307,7 @@ body.map-animating .listing-card .listing-image {
             marker.addListener('click', () => {
                 Object.values(infoWindows).forEach(iw => iw.close());
                 infoWindow.open(map, marker);
-                highlightCard(property.slug);
+                focusPropertyCard(property.slug);
             });
 
             marker.addListener('mouseover', () => highlightCard(property.slug));
@@ -2517,6 +2517,31 @@ body.map-animating .listing-card .listing-image {
                 setTimeout(() => {
                     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 200);
+            }
+        }
+
+        function focusPropertyCard(slug) {
+            if (!Array.isArray(filteredProperties) || filteredProperties.length === 0) {
+                highlightCard(slug);
+                return;
+            }
+
+            const propertyIndex = filteredProperties.findIndex(property => property.slug === slug);
+            if (propertyIndex === -1) {
+                highlightCard(slug);
+                return;
+            }
+
+            const targetPage = Math.floor(propertyIndex / ITEMS_PER_PAGE) + 1;
+            if (currentPage !== targetPage) {
+                goToPage(targetPage);
+                setTimeout(() => highlightCard(slug), 150);
+            } else {
+                highlightCard(slug);
+            }
+
+            if (typeof syncMobileListings === 'function') {
+                setTimeout(() => syncMobileListings(), 200);
             }
         }
 
@@ -3761,6 +3786,7 @@ body.map-animating .listing-card .listing-image {
                 // Cerrar todas las otras info windows
                 Object.values(mobileInfoWindows || {}).forEach(iw => iw.close());
                 infoWindow.open(mapMobile, marker);
+                focusPropertyCard(property.slug);
             });
 
             // Guardar info window
@@ -4008,6 +4034,7 @@ body.map-animating .listing-card .listing-image {
                     });
                     infoWindow.setPosition(this.position);
                     infoWindow.open(map);
+                    focusPropertyCard(this.property.slug);
                 });
 
                 this.div = div;
