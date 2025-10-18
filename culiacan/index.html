@@ -15830,17 +15830,19 @@
         
         allCards.forEach((card, index) => {
           let show = true;
-          const priceBadge = card.querySelector('.bg-green-600, .bg-orange-500, .bg-emerald-500');
-          const priceText = priceBadge?.textContent?.trim() || '';
-          const inferredType = card.dataset.type || '';
-          const isRenta = inferredType === 'renta' || /(renta|\/mes)/i.test(priceText);
-          const isVenta = inferredType === 'venta' || (!inferredType && !isRenta);
-          const cardType = inferredType || (isRenta ? 'renta' : (isVenta ? 'venta' : ''));
+          // Buscar badge de precio (verde para venta, naranja para renta)
+          const priceBadge = card.querySelector('.bg-green-600, .bg-orange-500');
+          const priceText = priceBadge?.textContent || '';
+          // Detectar por palabra RENTA o VENTA en el badge, o por /mes como fallback
+          const isRenta = priceText.toUpperCase().includes('RENTA') || priceText.includes('/mes');
+          const isVenta = priceText.toUpperCase().includes('VENTA') || !isRenta;
           const priceNumber = parseInt(priceText.replace(/[^\d]/g, '')) || 0;
           const cardText = card.textContent.toLowerCase();
 
+          // 1. Filtro por tipo de operación
           if (filters.type) {
-            if (cardType !== filters.type) show = false;
+            if (filters.type === 'renta' && !isRenta) show = false;
+            if (filters.type === 'venta' && !isVenta) show = false;
           }
           
           // 2. Filtro por precio mínimo
