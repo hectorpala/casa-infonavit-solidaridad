@@ -18730,6 +18730,39 @@
                 ]
             };
 
+            // RENTA: Casa Circuito Tabachines
+            const circuitoTabachinesProperty = {
+                address: "Avenida Federalismo 10, Recursos Hidráulicos, Culiacán, Sinaloa",
+                priceShort: "$19K",
+                priceFull: "$19,000/mes",
+                title: "Casa en Renta Circuito Tabachines Culiacan Sinaloa",
+                location: "Recursos Hidráulicos, Culiacán",
+                bedrooms: 3,
+                bathrooms: 3,
+                area: "160m²",
+                type: "renta",
+                url: "https://casasenventa.info/culiacan/casa-en-renta-circuito-tabachines-culiacan-sinaloa/",
+                photos: [
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-1.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-2.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-3.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-4.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-5.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-6.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-7.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-8.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-9.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-10.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-11.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-12.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-13.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-14.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-15.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-16.jpg",
+                    "casa-en-renta-circuito-tabachines-culiacan-sinaloa/images/foto-17.jpg"
+                ]
+            };
+
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -19542,6 +19575,19 @@
                     console.log('Marcador Portalegre Valley (RENTA) creado en:', position.lat(), position.lng());
                 } else {
                     console.error('Geocode error Portalegre Valley:', status);
+                }
+            });
+
+            // Geocodificar Circuito Tabachines (RENTA)
+            geocoder.geocode({ address: circuitoTabachinesProperty.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(circuitoTabachinesProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, circuitoTabachinesProperty);
+                    window.allCuliacanMarkers.push(marker);
+                    console.log('Marcador Circuito Tabachines (RENTA) creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error Circuito Tabachines:', status);
                 }
             });
 
