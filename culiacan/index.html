@@ -1037,7 +1037,7 @@
         </section>
 
         <!-- Properties Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="properties-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
     
     
@@ -15509,7 +15509,7 @@
       const clearFiltersBtn = document.getElementById('clear-filters');
       const filterResults = document.getElementById('filter-results');
       const resultsCount = document.getElementById('results-count');
-      const grid = document.querySelector('.properties-grid') || document.querySelector('.grid') || document.body;
+      const grid = document.getElementById('properties-grid') || document.body;
       const cardsNodeList = document.querySelectorAll('.property-card');
       const allCards = Array.from(cardsNodeList);
 
