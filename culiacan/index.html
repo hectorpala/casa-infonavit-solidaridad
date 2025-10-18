@@ -19025,6 +19025,47 @@
                 ]
             };
 
+            // RENTA: Casa Riberas de Tamazula
+            const riberasTamazulaProperty = {
+                address: "Riberas de Tamazula, Culiacán, Sinaloa, Mexico",
+                priceShort: "$13K",
+                priceFull: "$12,500/mes",
+                title: "Casa Amueblada en Renta en Riberas de Tamazula",
+                location: "Riberas de Tamazula, Culiacán",
+                bedrooms: 2,
+                bathrooms: 2,
+                area: "N/D",
+                type: "renta",
+                url: "https://casasenventa.info/culiacan/casa-amueblada-en-renta-en-riberas-de-tamazula/",
+                photos: [
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-1.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-2.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-3.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-4.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-5.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-6.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-7.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-8.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-9.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-10.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-11.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-12.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-13.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-14.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-15.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-16.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-17.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-18.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-19.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-20.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-21.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-22.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-23.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-24.jpg",
+                    "casa-amueblada-en-renta-en-riberas-de-tamazula/images/foto-25.jpg"
+                ]
+            };
+
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -19850,6 +19891,19 @@
                     console.log('Marcador Circuito Tabachines (RENTA) creado en:', position.lat(), position.lng());
                 } else {
                     console.error('Geocode error Circuito Tabachines:', status);
+                }
+            });
+
+            // Geocodificar Riberas de Tamazula (RENTA)
+            geocoder.geocode({ address: riberasTamazulaProperty.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(riberasTamazulaProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, riberasTamazulaProperty);
+                    window.allCuliacanMarkers.push(marker);
+                    console.log('Marcador Riberas de Tamazula (RENTA) creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error Riberas de Tamazula:', status);
                 }
             });
 
