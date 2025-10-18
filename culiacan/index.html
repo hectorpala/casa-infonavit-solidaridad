@@ -805,6 +805,7 @@
             const typeChips = document.querySelectorAll('.type-chip');
             const typeChipSheetButtons = document.querySelectorAll('.type-chip-sheet');
             const typeSelectMobile = document.getElementById('type-select-mobile');
+            let currentTypeFilter = '';
 
             const chipButtons = {};
             chips.forEach(chip => chipButtons[chip.dataset.filterChip] = chip);
@@ -840,17 +841,19 @@
                 chips.forEach(chip => chip.classList.toggle('active', chip.dataset.filterChip === panelId));
             }
 
-            function setTypeFilter(value) {
-                if (filterType) filterType.value = value || '';
+            function setTypeFilter(value, { silent = false } = {}) {
+                currentTypeFilter = value || '';
                 typeChips.forEach(chip => {
-                    chip.classList.toggle('active', chip.dataset.typeValue === value || (!chip.dataset.typeValue && !value));
+                    chip.classList.toggle('active', chip.dataset.typeValue === currentTypeFilter || (!chip.dataset.typeValue && !currentTypeFilter));
                 });
                 typeChipSheetButtons.forEach(btn => {
-                    btn.classList.toggle('selected', btn.dataset.value === value || (!btn.dataset.value && !value));
+                    btn.classList.toggle('selected', btn.dataset.value === currentTypeFilter || (!btn.dataset.value && !currentTypeFilter));
                 });
-                if (typeSelectMobile) typeSelectMobile.value = value || '';
+                if (typeSelectMobile) typeSelectMobile.value = currentTypeFilter;
                 window.refreshPrimaryChipLabels?.();
-                filterProperties();
+                if (!silent) {
+                    filterProperties();
+                }
             }
 
             function closePanel() {
@@ -923,12 +926,6 @@
             }
 
             function refreshChipLabels() {
-                const typeValue = filterType?.value || '';
-                const typeChipDesktop = document.querySelector('.type-chip.active');
-                const typeText = typeChipDesktop ? typeChipDesktop.textContent.trim() : (typeValue === 'venta' ? 'En venta' : typeValue === 'renta' ? 'En renta' : 'Todas');
-                const typeChipButton = document.querySelector('[data-filter-chip="type"] .chip-label');
-                if (typeChipButton) typeChipButton.textContent = typeText;
-
                 const priceChipLabel = document.querySelector('[data-chip-label="price"]');
                 const bedsChipLabel = document.querySelector('[data-chip-label="beds"]');
                 const moreChipLabel = document.querySelector('[data-chip-label="more"]');
@@ -971,7 +968,7 @@
                 if (chipButtons.more) chipButtons.more.classList.toggle('active', !!(homeTypeValue || amenitiesCount));
             }
 
-            setTypeFilter(filterType?.value || '');
+            setTypeFilter(currentTypeFilter, { silent: true });
             refreshChipLabels();
             window.refreshPrimaryChipLabels = refreshChipLabels;
             window.hectorCloseFiltersDrawer = closePanel;
@@ -15811,7 +15808,7 @@
         
         // Obtener todos los valores de filtros
         const filters = {
-          type: filterType?.value || '',
+          type: currentTypeFilter || '',
           priceMin: priceMin ? getPriceValue(priceMin) : null,
           priceMax: priceMax ? getPriceValue(priceMax) : null,
           beds: filterBeds?.value ? parseInt(filterBeds.value) : null,
@@ -15983,7 +15980,7 @@
       customGrid?.classList.add('hidden');
       function clearAllFilters() {
         // Limpiar todos los filtros
-        if (filterType) filterType.value = '';
+        setTypeFilter('', { silent: true });
         if (priceMin) priceMin.value = '';
         if (priceMax) priceMax.value = '';
         if (filterBeds) filterBeds.value = '';
@@ -15999,10 +15996,7 @@
         if (filterGarden) filterGarden.checked = false;
         if (filterSecurity) filterSecurity.checked = false;
 
-        if (typeof window.refreshPrimaryChipLabels === 'function') {
-          window.refreshPrimaryChipLabels();
-        }
-
+        window.refreshPrimaryChipLabels?.();
         filterProperties();
       }
 
@@ -16064,7 +16058,7 @@
       }
 
       // Aplicar filtros automáticamente cuando cambian
-      const autoFilterElements = [filterType, filterBeds, filterBaths, filterHomeType, filterSort];
+      const autoFilterElements = [filterBeds, filterBaths, filterHomeType, filterSort];
       autoFilterElements.forEach(element => {
         if (element) {
           element.addEventListener('change', filterProperties);
