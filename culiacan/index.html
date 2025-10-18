@@ -18619,6 +18619,33 @@
                 ]
             };
 
+            // RENTA: Casa Portalegre Valley
+            const portalegreValleyProperty = {
+                address: "Fraccionamiento Portalegre, Culiacán, Sinaloa",
+                priceShort: "$42K",
+                priceFull: "$42,000/mes",
+                title: "Casa en Renta en Portalegre Valley Totalmente Equipada",
+                location: "Fraccionamiento Portalegre, Culiacán",
+                bedrooms: 3,
+                bathrooms: 4,
+                area: "286m²",
+                type: "renta",
+                url: "https://casasenventa.info/culiacan/casa-en-renta-en-portalegre-valley-totalmente-equipada/",
+                photos: [
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-1.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-2.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-3.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-4.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-5.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-6.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-7.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-8.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-9.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-10.jpg",
+                    "casa-en-renta-en-portalegre-valley-totalmente-equipada/images/foto-11.jpg"
+                ]
+            };
+
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -19418,6 +19445,19 @@
                     console.log('Marcador Belcantto (RENTA) creado en:', position.lat(), position.lng());
                 } else {
                     console.error('Geocode error Belcantto:', status);
+                }
+            });
+
+            // Geocodificar Portalegre Valley (RENTA)
+            geocoder.geocode({ address: portalegreValleyProperty.address }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(portalegreValleyProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, portalegreValleyProperty);
+                    window.allCuliacanMarkers.push(marker);
+                    console.log('Marcador Portalegre Valley (RENTA) creado en:', position.lat(), position.lng());
+                } else {
+                    console.error('Geocode error Portalegre Valley:', status);
                 }
             });
 

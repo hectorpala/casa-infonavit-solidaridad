@@ -539,12 +539,44 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-17T18:30:04.839Z"
+    },
+    {
+      "id": "v016",
+      "nombre": "3R Bienes Raices",
+      "telefono": "6677857180",
+      "telefonoFormateado": "667-785-7180",
+      "whatsapp": "https://wa.me/526677857180",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147928773",
+          "titulo": "Casa en Renta en Portalegre Valley Totalmente Equipada",
+          "precio": "MN 42,000",
+          "ubicacion": "Inmuebles24  Casa  Renta  Sinaloa  Culiacán  Fraccionamiento Portalegre  Casa en Renta en Portalegre Valley Totalmente Equipada",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-en-portalegre-valley-totalmente-equipada-147928773.html",
+          "fechaScrapeo": "2025-10-18",
+          "fechaPublicacion": "Publicado hoy",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Inmuebles24  Casa  Renta  Sinaloa  Culiacán  Fraccionamiento Portalegre  Casa en Renta en Portalegre Valley Totalmente Equipada",
+      "tags": [
+        "inmuebles24",
+        "inmuebles24-casa-renta-sinaloa-culiacán-fraccionamiento-portalegre-casa-en-renta-en-portalegre-valley-totalmente-equipada",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-18T04:21:49.276Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 15,
-    "totalPropiedades": 26,
-    "ultimaActualizacion": "2025-10-17T19:32:44.768Z"
+    "totalVendedores": 16,
+    "totalPropiedades": 27,
+    "ultimaActualizacion": "2025-10-18T04:21:49.276Z"
   },
   "busquedas": [
     {
