@@ -19854,6 +19854,85 @@ const privadaAmericanaPerisurProperty = {
     ]
 };
 
+// ===== LOTE 3 - Propiedades antiguas RENTA =====
+
+// RENTA: Casa Rincón Colonial #697816
+const rinconColonial697816Property = {
+    address: "Rincón Colonial, Culiacán, Sinaloa",
+    priceShort: "$12.7K",
+    priceFull: "$12,700/mes",
+    title: "Casa en Renta Rincón Colonial",
+    location: "Rincón Colonial, Culiacán",
+    bedrooms: 2,
+    bathrooms: 2,
+    area: "185m²",
+    type: "renta",
+    url: "https://casasenventa.info/casa-renta-rincon-colonial-697816.html",
+    photos: [
+        "../images/casa-renta-rincon-colonial-697816/foto-1.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-2.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-3.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-4.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-5.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-6.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-7.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-8.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-9.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-10.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-11.jpg",
+        "../images/casa-renta-rincon-colonial-697816/foto-12.jpg"
+    ]
+};
+
+// RENTA: Casa Colina del Rey
+const colinaDelReyProperty = {
+    address: "Colina del Rey, Culiacán, Sinaloa",
+    priceShort: "$12.5K",
+    priceFull: "$12,500/mes",
+    title: "Casa en Renta Colina del Rey",
+    location: "Colina del Rey, Culiacán",
+    bedrooms: 2,
+    bathrooms: 2,
+    area: "212m²",
+    type: "renta",
+    url: "https://casasenventa.info/casa-renta-colina-del-rey-718158.html",
+    photos: [
+        "../images/casa-renta-colina-del-rey-718158/foto-1.jpg",
+        "../images/casa-renta-colina-del-rey-718158/foto-2.jpg",
+        "../images/casa-renta-colina-del-rey-718158/foto-3.jpg",
+        "../images/casa-renta-colina-del-rey-718158/foto-4.jpg",
+        "../images/casa-renta-colina-del-rey-718158/foto-5.jpg"
+    ]
+};
+
+// RENTA: Casa Rincón Colonial #295459
+const rinconColonial295459Property = {
+    address: "Rincón Colonial, Culiacán, Sinaloa",
+    priceShort: "$12.7K",
+    priceFull: "$12,700/mes",
+    title: "Casa en Renta Rincón Colonial",
+    location: "Rincón Colonial, Culiacán",
+    bedrooms: 2,
+    bathrooms: 2,
+    area: "185m²",
+    type: "renta",
+    url: "https://casasenventa.info/casa-renta-rincon-colonial-295459.html",
+    photos: [
+        "../images/casa-renta-rincon-colonial-295459/foto-1.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-2.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-3.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-4.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-5.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-6.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-7.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-8.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-9.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-10.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-11.jpg",
+        "../images/casa-renta-rincon-colonial-295459/foto-12.jpg"
+    ]
+};
+
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -20748,6 +20827,29 @@ const privadaAmericanaPerisurProperty = {
             const privadaAmericanaPerisurMarker = new privadaAmericanaPerisurMarkerClass(privadaAmericanaPerisurPosition, window.mapCuliacan, privadaAmericanaPerisurProperty);
             window.allCuliacanMarkers.push(privadaAmericanaPerisurMarker);
             console.log('Marcador Privada Americana Perisur (RENTA) creado en:', privadaAmericanaPerisurPosition.lat(), privadaAmericanaPerisurPosition.lng());
+
+            // ===== LOTE 3 - Marcadores con coordenadas fijas =====
+
+            // Rincón Colonial #697816 (RENTA) - Coordenadas aproximadas zona norte cerca UdO
+            const rinconColonial697816Position = new google.maps.LatLng(24.825000, -107.405000);
+            const rinconColonial697816MarkerClass = createZillowPropertyMarker(rinconColonial697816Property, window.mapCuliacan);
+            const rinconColonial697816Marker = new rinconColonial697816MarkerClass(rinconColonial697816Position, window.mapCuliacan, rinconColonial697816Property);
+            window.allCuliacanMarkers.push(rinconColonial697816Marker);
+            console.log('Marcador Rincón Colonial #697816 (RENTA) creado en:', rinconColonial697816Position.lat(), rinconColonial697816Position.lng());
+
+            // Colina del Rey (RENTA) - Coordenadas aproximadas zona centro norte
+            const colinaDelReyPosition = new google.maps.LatLng(24.818000, -107.398000);
+            const colinaDelReyMarkerClass = createZillowPropertyMarker(colinaDelReyProperty, window.mapCuliacan);
+            const colinaDelReyMarker = new colinaDelReyMarkerClass(colinaDelReyPosition, window.mapCuliacan, colinaDelReyProperty);
+            window.allCuliacanMarkers.push(colinaDelReyMarker);
+            console.log('Marcador Colina del Rey (RENTA) creado en:', colinaDelReyPosition.lat(), colinaDelReyPosition.lng());
+
+            // Rincón Colonial #295459 (RENTA) - Coordenadas aproximadas zona norte cerca UdO (segunda propiedad)
+            const rinconColonial295459Position = new google.maps.LatLng(24.826000, -107.404000);
+            const rinconColonial295459MarkerClass = createZillowPropertyMarker(rinconColonial295459Property, window.mapCuliacan);
+            const rinconColonial295459Marker = new rinconColonial295459MarkerClass(rinconColonial295459Position, window.mapCuliacan, rinconColonial295459Property);
+            window.allCuliacanMarkers.push(rinconColonial295459Marker);
+            console.log('Marcador Rincón Colonial #295459 (RENTA) creado en:', rinconColonial295459Position.lat(), rinconColonial295459Position.lng());
 
             // Cañadas (VENTA) - Coordenadas aproximadas zona sur Culiacán
             const casa_en_fraccionamiento_canadasPosition = new google.maps.LatLng(24.770000, -107.410000);
