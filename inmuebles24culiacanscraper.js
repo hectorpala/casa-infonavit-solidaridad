@@ -2081,6 +2081,16 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
     const indexPath = cityConfig.indexPath;
     let indexHtml = fs.readFileSync(indexPath, 'utf8');
 
+    // Verificar si tenemos coordenadas del JSON-LD
+    if (!data.latitude || !data.longitude) {
+        console.log(`   ⚠️  No se encontraron coordenadas en JSON-LD`);
+        console.log(`   ℹ️  La propiedad NO se agregará al mapa modal automáticamente`);
+        console.log(`   ℹ️  Puedes agregarla manualmente después con coordenadas aproximadas\n`);
+        return;
+    }
+
+    console.log(`   ✅ Coordenadas encontradas: ${data.latitude}, ${data.longitude}`);
+
     // Generar array de fotos dinámicamente
     const photosArray = [];
     for (let i = 1; i <= photoCount; i++) {
@@ -2096,18 +2106,26 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
     // Extraer primera parte de la ubicación (antes de la primera coma)
     const locationShort = data.location.split(',')[0].trim();
 
+    // Detectar tipo (RENTA o VENTA)
+    const tipoPropiedad = data.price.toLowerCase().includes('renta') ||
+                          data.title.toLowerCase().includes('renta') ? 'renta' : 'venta';
+
+    // Variable name sanitizada
+    const varName = slug.replace(/-/g, '_');
+
     // Código de la nueva propiedad para el mapa
     const newPropertyCode = `
-            // ${data.title}
-            const ${slug.replace(/-/g, '_')}Property = {
+            // ${tipoPropiedad.toUpperCase()}: ${data.title}
+            const ${varName}Property = {
                 address: "${data.location}",
                 priceShort: "${priceShort}",
                 priceFull: "${formatPrice(data.price)}",
                 title: "${data.title}",
-                location: "${locationShort}, ${cityConfig.name}, ${cityConfig.stateShort}",
+                location: "${locationShort}, ${cityConfig.name}",
                 bedrooms: ${data.bedrooms || 'null'},
                 bathrooms: ${data.bathrooms || 'null'},
                 area: "${data.construction_area ? data.construction_area + 'm²' : 'N/D'}",
+                type: "${tipoPropiedad}",
                 url: "https://casasenventa.info/${cityConfig.folder}/${slug}/",
                 photos: [
                     ${photosArray.join(',\n                    ')}
@@ -2115,64 +2133,81 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
             };
 `;
 
-    // Código del geocoder para la nueva propiedad
-    const mapSuffix = cityConfig.city === 'monterrey' ? 'Mty' :
-                      cityConfig.city === 'mazatlan' ? 'Mzt' : '';
-
+    // Mapa variable name según ciudad
     const mapVarName = cityConfig.city === 'monterrey' ? 'mapMonterrey' :
                        cityConfig.city === 'mazatlan' ? 'mapMazatlan' :
                        'mapCuliacan';
 
-    // Buscar el número de geocoder actual (contar cuántos geocoders ya existen)
-    const geocoderMatches = indexHtml.match(/const geocoder(\d+) = new google\.maps\.Geocoder\(\);/g) || [];
-    const nextGeocoderNum = geocoderMatches.length + 1;
-
-    const newGeocoderCode = `
-            // Geocodificar y crear marcador para ${data.title}
-            const geocoder${nextGeocoderNum} = new google.maps.Geocoder();
-            geocoder${nextGeocoderNum}.geocode({ address: ${slug.replace(/-/g, '_')}Property.address }, function(results, status) {
-                if (status === 'OK') {
-                    const position = results[0].geometry.location;
-                    const CustomMarkerClass${nextGeocoderNum} = createZillowPropertyMarker${mapSuffix}(${slug.replace(/-/g, '_')}Property, ${mapVarName});
-                    const marker${nextGeocoderNum} = new CustomMarkerClass${nextGeocoderNum}(position, ${mapVarName}, ${slug.replace(/-/g, '_')}Property);
-                    console.log('Marcador ${data.title} creado en:', position.lat(), position.lng());
-                } else {
-                    console.error('Geocode error para ${data.title}:', status);
-                }
-            });
+    // Código con coordenadas FIJAS (más rápido y confiable que geocodificación)
+    const newMarkerCode = `
+            // ${data.title} - Coordenadas exactas del JSON-LD
+            const ${varName}Position = new google.maps.LatLng(${data.latitude}, ${data.longitude});
+            const ${varName}MarkerClass = createZillowPropertyMarker(${varName}Property, window.${mapVarName});
+            const ${varName}Marker = new ${varName}MarkerClass(${varName}Position, window.${mapVarName}, ${varName}Property);
+            window.allCuliacanMarkers.push(${varName}Marker);
+            console.log('Marcador ${data.title} (${tipoPropiedad.toUpperCase()}) creado en:', ${varName}Position.lat(), ${varName}Position.lng());
 `;
 
-    // Buscar dónde insertar el código de la propiedad
-    // Lo insertamos ANTES del primer geocoder existente
-    const firstGeocoderMatch = indexHtml.match(/(\s+)\/\/ Geocodificar y crear marcador para (primera|segunda|tercera|cuarta)/);
+    // Buscar dónde insertar la definición de la propiedad
+    // Intentar múltiples patrones para máxima compatibilidad
+    const patterns = [
+        /(\s+)\/\/ RENTA: Casa Riberas de Tamazula/,
+        /(\s+)\/\/ RENTA: Casa Bosques del Río/,
+        /(\s+)const circuitoTabachinesProperty = \{/,
+        /(\s+)\/\/ Geocodificar solidaridad/
+    ];
 
-    if (firstGeocoderMatch) {
-        const insertIndex = indexHtml.indexOf(firstGeocoderMatch[0]);
-        indexHtml = indexHtml.substring(0, insertIndex) +
-                    newPropertyCode +
-                    indexHtml.substring(insertIndex);
+    let insertionPoint = null;
+    for (const pattern of patterns) {
+        const match = indexHtml.match(pattern);
+        if (match) {
+            insertionPoint = indexHtml.indexOf(match[0]);
+            console.log(`   ✅ Punto de inserción encontrado (definición)`);
+            break;
+        }
+    }
 
-        console.log(`   ✅ Definición de propiedad agregada al mapa\n`);
-    } else {
-        console.log(`   ⚠️  No se encontró ubicación para agregar la propiedad\n`);
+    if (!insertionPoint) {
+        console.log(`   ⚠️  No se encontró punto de inserción para la definición\n`);
         return;
     }
 
-    // Buscar dónde insertar el código del geocoder
-    // Lo insertamos ANTES de "window.mapInitialized = true"
-    const mapInitMatch = indexHtml.match(/(\s+)window\.mapInitialized = true;/);
+    // Insertar definición de propiedad
+    indexHtml = indexHtml.substring(0, insertionPoint) +
+                newPropertyCode +
+                indexHtml.substring(insertionPoint);
 
-    if (mapInitMatch) {
-        const insertIndex = indexHtml.indexOf(mapInitMatch[0]);
-        indexHtml = indexHtml.substring(0, insertIndex) +
-                    newGeocoderCode +
-                    indexHtml.substring(insertIndex);
+    console.log(`   ✅ Definición de propiedad agregada al mapa`);
 
-        console.log(`   ✅ Marcador agregado al mapa de ${cityConfig.name}\n`);
-    } else {
-        console.log(`   ⚠️  No se encontró ubicación para agregar el marcador\n`);
+    // Buscar dónde insertar el código del marcador
+    // Buscar después de Riberas de Tamazula o Bosques del Río
+    const markerPatterns = [
+        /(\s+)\/\/ Bosques del Río \(RENTA\) - Coordenadas exactas[\s\S]*?console\.log\('Marcador Bosques del Río[^']*'\);/,
+        /(\s+)\/\/ Riberas de Tamazula \(RENTA\) - Coordenadas exactas[\s\S]*?console\.log\('Marcador Riberas de Tamazula[^']*'\);/,
+        /(\s+)\/\/ Inicializar filtros Zillow cuando el mapa esté listo/
+    ];
+
+    let markerInsertionPoint = null;
+    for (const pattern of markerPatterns) {
+        const match = indexHtml.match(pattern);
+        if (match) {
+            markerInsertionPoint = indexHtml.indexOf(match[0]) + match[0].length;
+            console.log(`   ✅ Punto de inserción encontrado (marcador)`);
+            break;
+        }
+    }
+
+    if (!markerInsertionPoint) {
+        console.log(`   ⚠️  No se encontró punto de inserción para el marcador\n`);
         return;
     }
+
+    // Insertar código del marcador
+    indexHtml = indexHtml.substring(0, markerInsertionPoint) +
+                newMarkerCode +
+                indexHtml.substring(markerInsertionPoint);
+
+    console.log(`   ✅ Marcador con coordenadas exactas agregado al mapa de ${cityConfig.name}\n`);
 
     fs.writeFileSync(indexPath, indexHtml, 'utf8');
 }
