@@ -2,7 +2,7 @@
 
 ## Archivo Principal (FUENTE OFICIAL)
 
-**📁 Ubicación:** `/Users/hectorpc/Desktop/colonias y fraccionamientos culiacan.xlsx`
+**📁 Ubicación:** `colonias-fraccionamientos-culiacan-oficial.xlsx` (en este repositorio)
 
 **📊 Contenido:**
 - **631 registros totales**
@@ -11,6 +11,8 @@
 - **Fuente:** Catálogo Nacional de Códigos Postales (Correos de México)
 - **Filtrado:** Solo municipio Culiacán, Sinaloa
 - **Fecha:** Octubre 18, 2025
+
+**✅ Archivo guardado en git** - Puedes borrar la copia del Desktop
 
 **📋 Columnas:**
 1. Tipo (Colonia/Fraccionamiento)
@@ -34,8 +36,8 @@
 ## Uso
 
 - **Para filtros del sitio web:** Usar `culiacan_colonias.json` (ya en producción)
-- **Para referencia completa:** Usar Excel en Desktop (631 registros oficiales)
-- **Para actualizar autocomplete:** Agregar manualmente al JSON las colonias/fraccionamientos más comunes
+- **Para referencia completa:** Usar `colonias-fraccionamientos-culiacan-oficial.xlsx` (631 registros oficiales)
+- **Para actualizar autocomplete:** Agregar manualmente al JSON las colonias/fraccionamientos más comunes desde el Excel oficial
 
 ---
 Generado: Octubre 18, 2025
