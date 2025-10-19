@@ -795,6 +795,107 @@
             const saveSearchBtn = document.getElementById('save-search-btn');
             const searchInput = document.getElementById('header-search');
 
+            // Normalizador compartido (acentos + espacios)
+            const normalizeText = (text = '') => text
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+
+            const locationStopWords = new Set([
+                'colonia',
+                'fraccionamiento',
+                'fracc',
+                'residencial',
+                'privada',
+                'privadas',
+                'villa',
+                'villas',
+                'sector',
+                'zona',
+                'parque',
+                'conjunto',
+                'resid'
+            ]);
+
+            window.normalizeTextForSearch = normalizeText;
+            window.locationStopWordsForSearch = locationStopWords;
+
+            function buildLocationPattern(rawValue = '') {
+                const normalized = normalizeText(rawValue);
+                const tokens = normalized.split(' ').filter(Boolean);
+                const coreTokens = tokens.filter(token => !locationStopWords.has(token));
+                return {
+                    raw: rawValue,
+                    normalized,
+                    tokens,
+                    coreTokens
+                };
+            }
+
+            function matchesLocationPattern(text, pattern) {
+                if (!pattern || !pattern.normalized) return true;
+                const normalizedText = normalizeText(text);
+                if (pattern.normalized && normalizedText.includes(pattern.normalized)) return true;
+                if (pattern.coreTokens.length && pattern.coreTokens.every(token => normalizedText.includes(token))) return true;
+                if (pattern.tokens.length && pattern.tokens.every(token => normalizedText.includes(token))) return true;
+                return false;
+            }
+
+            window.matchesLocationForCards = matchesLocationPattern;
+            window.buildLocationPatternForSearch = buildLocationPattern;
+
+            function applyLocationFilter(pattern) {
+                window.__activeLocationFilter = pattern;
+                // Usar el sistema de filtros avanzado si está disponible
+                if (typeof window.filterPropertiesAdvanced === 'function') {
+                    window.filterPropertiesAdvanced();
+                    return;
+                }
+
+                // FIX: Plan B debe recalcular filterResults y resultsCount
+                const cards = document.querySelectorAll('.property-card');
+                let visible = 0;
+                cards.forEach(card => {
+                    if (matchesLocationPattern(card.textContent, pattern)) {
+                        card.style.display = '';
+                        card.classList.remove('hidden');
+                        visible++;
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.add('hidden');
+                    }
+                });
+                console.log(`Filtrado manual: ${visible} propiedades visibles`);
+
+                // Actualizar UI de resultados
+                if (typeof window.updateResultsDisplay === 'function') {
+                    window.updateResultsDisplay(visible);
+                } else {
+                    // Fallback: actualizar solo el contador
+                    const resultsCount = document.getElementById('results-count');
+                    if (resultsCount) {
+                        resultsCount.textContent = `${visible} propiedades · Filtrado`;
+                    }
+                }
+            }
+
+            function clearLocationFilter() {
+                window.__activeLocationFilter = null;
+                if (typeof window.filterPropertiesAdvanced === 'function') {
+                    window.filterPropertiesAdvanced();
+                    return;
+                }
+                document.querySelectorAll('.property-card').forEach(card => {
+                    card.style.display = '';
+                    card.classList.remove('hidden');
+                });
+            }
+
+            window.applyLocationFilterFromSearch = applyLocationFilter;
+            window.clearLocationFilterFromSearch = clearLocationFilter;
+
             const panelTitles = {
                 price: 'Rango de precio',
                 beds: 'Recámaras y baños',
@@ -882,25 +983,16 @@
                     })
                     .catch(error => console.error('Error cargando colonias:', error));
 
-                // Normalizar texto (sin acentos, minúsculas, sin espacios extra)
-                function normalize(text) {
-                    return text
-                        .toLowerCase()
-                        .normalize('NFD')
-                        .replace(/[\u0300-\u036f]/g, '')
-                        .trim();
-                }
-
                 // Buscar coincidencias
                 function findMatches(query) {
                     if (!query || query.length < 2) return [];
 
-                    const normalizedQuery = normalize(query);
+                    const normalizedQuery = normalizeText(query);
                     const matches = [];
 
                     // Buscar en colonias
                     colonias.forEach(item => {
-                        if (normalize(item.name).includes(normalizedQuery)) {
+                        if (normalizeText(item.name).includes(normalizedQuery)) {
                             matches.push({
                                 name: item.name,
                                 type: 'colonia',
@@ -911,7 +1003,7 @@
 
                     // Buscar en fraccionamientos
                     fraccionamientos.forEach(item => {
-                        if (normalize(item.name).includes(normalizedQuery)) {
+                        if (normalizeText(item.name).includes(normalizedQuery)) {
                             matches.push({
                                 name: item.name,
                                 type: 'fraccionamiento',
@@ -957,7 +1049,8 @@
                 function selectSuggestion(value) {
                     searchInput.value = value;
                     closeDropdown();
-                    filterByLocation(value);
+                    const pattern = buildLocationPattern(value);
+                    applyLocationFilter(pattern);
                 }
 
                 // Cerrar dropdown
@@ -967,24 +1060,8 @@
                     allSuggestions = [];
                 }
 
-                // Filtrar tarjetas por ubicación
-                function filterByLocation(location) {
-                    const normalizedLocation = normalize(location);
-                    const cards = document.querySelectorAll('.property-card');
-                    let visibleCount = 0;
-
-                    cards.forEach(card => {
-                        const cardText = normalize(card.textContent);
-                        if (cardText.includes(normalizedLocation)) {
-                            card.style.display = '';
-                            visibleCount++;
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-
-                    console.log(`Filtrado: ${visibleCount} propiedades encontradas para "${location}"`);
-                }
+                // Exponer closeDropdown() para ser invocado desde clearAllFilters()
+                window.__autocompleteCloseDropdown = closeDropdown;
 
                 // Event: Input change
                 searchInput.addEventListener('input', (e) => {
@@ -992,10 +1069,7 @@
 
                     if (!query || query.length < 2) {
                         closeDropdown();
-                        // Restaurar todas las tarjetas
-                        document.querySelectorAll('.property-card').forEach(card => {
-                            card.style.display = '';
-                        });
+                        clearLocationFilter();
                         return;
                     }
 
@@ -1003,8 +1077,26 @@
                     renderSuggestions(matches);
                 });
 
-                // Event: Keyboard navigation
+                // Event: Keyboard navigation + submit
                 searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const items = dropdown.querySelectorAll('.autocomplete-item');
+                        if (!dropdown.classList.contains('hidden') && items.length > 0 && currentFocus > -1 && items[currentFocus]) {
+                            selectSuggestion(items[currentFocus].dataset.value);
+                        } else {
+                            const value = searchInput.value.trim();
+                            if (value.length >= 2) {
+                                const pattern = buildLocationPattern(value);
+                                applyLocationFilter(pattern);
+                            } else {
+                                clearLocationFilter();
+                            }
+                            closeDropdown();
+                        }
+                        return;
+                    }
+
                     if (dropdown.classList.contains('hidden')) return;
 
                     const items = dropdown.querySelectorAll('.autocomplete-item');
@@ -1018,11 +1110,6 @@
                         e.preventDefault();
                         currentFocus = currentFocus > 0 ? currentFocus - 1 : items.length - 1;
                         updateFocus(items);
-                    } else if (e.key === 'Enter') {
-                        e.preventDefault();
-                        if (currentFocus > -1 && items[currentFocus]) {
-                            selectSuggestion(items[currentFocus].dataset.value);
-                        }
                     } else if (e.key === 'Escape') {
                         closeDropdown();
                     }
@@ -16452,7 +16539,7 @@
         if (searchInput) {
             searchInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
-                    alert('Buscando: ' + this.value);
+                    e.preventDefault();
                 }
             });
         }
@@ -16515,11 +16602,23 @@
       const grid = document.getElementById('properties-grid') || document.body;
       const cardsNodeList = document.querySelectorAll('.property-card');
       const allCards = Array.from(cardsNodeList);
+      const normalizeSearchText = window.normalizeTextForSearch || ((text = '') => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim());
+      const matchesLocationForCards = window.matchesLocationForCards || ((text, pattern) => {
+        if (!pattern || !pattern.normalized) return true;
+        const normalizedText = normalizeSearchText(text);
+        if (pattern.normalized && normalizedText.includes(pattern.normalized)) return true;
+        if (pattern.coreTokens?.length && pattern.coreTokens.every(token => normalizedText.includes(token))) return true;
+        if (pattern.tokens?.length && pattern.tokens.every(token => normalizedText.includes(token))) return true;
+        return false;
+      });
 
       // ===== Extraer datos de cada card (type, price, bedrooms, features)
       function extractPropertyData() {
         allCards.forEach((card, i) => {
           try {
+            if (!card.dataset.searchIndex) {
+              card.dataset.searchIndex = normalizeSearchText(card.textContent);
+            }
             const priceEl =
               card.querySelector('.bg-orange-500') ||
               card.querySelector('[class*="price"]') ||
@@ -16653,7 +16752,8 @@
         console.log('🔥 Filtros activos:', filters);
         
         let visibleCards = [];
-        
+        const locationPattern = window.__activeLocationFilter;
+
         allCards.forEach((card, index) => {
           let show = true;
           // Buscar badge de precio (verde para venta, naranja para renta)
@@ -16663,7 +16763,9 @@
           const isRenta = priceText.toUpperCase().includes('RENTA') || priceText.includes('/mes');
           const isVenta = priceText.toUpperCase().includes('VENTA') || !isRenta;
           const priceNumber = parseInt(priceText.replace(/[^\d]/g, '')) || 0;
-          const cardText = card.textContent.toLowerCase();
+          // FIX: Usar dataset.searchIndex precargado para evitar reconstruir textContent cada vez
+          const cardSearchText = card.dataset.searchIndex || normalizeSearchText(card.textContent);
+          const cardText = cardSearchText; // Reusar el mismo texto normalizado
 
           // 1. Filtro por tipo de operación
           if (filters.type) {
@@ -16706,6 +16808,12 @@
           }
           
           // Aplicar visibilidad
+          if (show && locationPattern && locationPattern.normalized) {
+            if (!matchesLocationForCards(cardSearchText, locationPattern)) {
+              show = false;
+            }
+          }
+
           if (show) {
             card.style.display = 'block';
             card.classList.remove('hidden');
@@ -16731,6 +16839,8 @@
         }
       }
       
+      window.filterPropertiesAdvanced = filterProperties;
+
       // ===== Función de ordenamiento
       function applySort(visibleCards) {
         const sortValue = filterSort?.value || 'relevance';
@@ -16821,6 +16931,18 @@
         if (filterFurnished) filterFurnished.checked = false;
         if (filterGarden) filterGarden.checked = false;
         if (filterSecurity) filterSecurity.checked = false;
+
+        window.__activeLocationFilter = null;
+        const headerSearchInput = document.getElementById('header-search');
+        if (headerSearchInput) headerSearchInput.value = '';
+
+        // FIX: Invocar closeDropdown() interno en vez de solo ocultar el dropdown
+        if (typeof window.__autocompleteCloseDropdown === 'function') {
+          window.__autocompleteCloseDropdown();
+        } else {
+          const dropdown = document.getElementById('autocomplete-dropdown');
+          dropdown?.classList.add('hidden');
+        }
 
         if (typeof window.refreshPrimaryChipLabels === 'function') {
           window.refreshPrimaryChipLabels();
