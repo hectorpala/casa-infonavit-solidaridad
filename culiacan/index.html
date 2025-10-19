@@ -966,12 +966,25 @@
             // Sistema de autocompletado tolerante a acentos con navegación por teclado
             (function initAutocomplete() {
                 const dropdown = document.getElementById('autocomplete-dropdown');
-                if (!dropdown || !searchInput) return;
 
+                // FIX: Exponer estado ANTES del guard clause para que clearAllFilters() siempre pueda resetear
                 let colonias = [];
                 let fraccionamientos = [];
                 let currentFocus = -1;
                 let allSuggestions = [];
+
+                // Función de reseteo expuesta globalmente ANTES del guard
+                function resetAutocompleteState() {
+                    currentFocus = -1;
+                    allSuggestions = [];
+                    if (dropdown) dropdown.classList.add('hidden');
+                }
+                window.__autocompleteReset = resetAutocompleteState;
+
+                if (!dropdown || !searchInput) {
+                    console.warn('Autocomplete: dropdown o searchInput no encontrado');
+                    return;
+                }
 
                 // Cargar datos del JSON
                 fetch('../culiacan_colonias.json')
@@ -1053,15 +1066,10 @@
                     applyLocationFilter(pattern);
                 }
 
-                // Cerrar dropdown
+                // Cerrar dropdown (usa la función global de reseteo)
                 function closeDropdown() {
-                    dropdown.classList.add('hidden');
-                    currentFocus = -1;
-                    allSuggestions = [];
+                    resetAutocompleteState();
                 }
-
-                // Exponer closeDropdown() para ser invocado desde clearAllFilters()
-                window.__autocompleteCloseDropdown = closeDropdown;
 
                 // Event: Input change
                 searchInput.addEventListener('input', (e) => {
@@ -16936,12 +16944,9 @@
         const headerSearchInput = document.getElementById('header-search');
         if (headerSearchInput) headerSearchInput.value = '';
 
-        // FIX: Invocar closeDropdown() interno en vez de solo ocultar el dropdown
-        if (typeof window.__autocompleteCloseDropdown === 'function') {
-          window.__autocompleteCloseDropdown();
-        } else {
-          const dropdown = document.getElementById('autocomplete-dropdown');
-          dropdown?.classList.add('hidden');
+        // FIX: Invocar resetAutocompleteState() que SIEMPRE existe (expuesta antes del guard)
+        if (typeof window.__autocompleteReset === 'function') {
+          window.__autocompleteReset();
         }
 
         if (typeof window.refreshPrimaryChipLabels === 'function') {
