@@ -1074,14 +1074,17 @@
                 // Event: Input change
                 searchInput.addEventListener('input', (e) => {
                     const query = e.target.value;
+                    console.log(`🔍 Autocomplete input: "${query}"`);
 
                     if (!query || query.length < 2) {
+                        console.log('❌ Query muy corto o vacío, cerrando dropdown');
                         closeDropdown();
                         clearLocationFilter();
                         return;
                     }
 
                     const matches = findMatches(query);
+                    console.log(`✅ Encontradas ${matches.length} coincidencias:`, matches);
                     renderSuggestions(matches);
                 });
 
