@@ -18135,11 +18135,11 @@
             // Geocodificar y agregar marcador para Colinas de San Miguel
             geocoder.geocode({ address: colinasSanMiguelProperty.address }, function(results, status) {
                 if (status === 'OK' && results[0]) {
-                    const position = {
+                    colinasSanMiguelProperty.position = {
                         lat: results[0].geometry.location.lat(),
                         lng: results[0].geometry.location.lng()
                     };
-                    const marker = createPropertyMarker(colinasSanMiguelProperty, position, mapCuliacan);
+                    const marker = createPropertyMarkerForMap(colinasSanMiguelProperty, mapCuliacan, false);
                     window.allCuliacanMarkers.push({ marker: marker, property: colinasSanMiguelProperty });
                 } else {
                     console.error('Geocode falló para Colinas de San Miguel:', status);
