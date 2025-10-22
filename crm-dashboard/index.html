@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hector BR CRM - Gestión de Propiedades</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-orange': '#FF6A00',
+                        'brand-orange-dark': '#E55F00',
+                        'brand-dark': '#1F2933',
+                        'brand-gray': '#52606D',
+                        'brand-light': '#F5F7FA'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { font-family: 'Inter', system-ui, sans-serif; }
+
+        .property-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .property-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .filter-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #FF6A00 0%, #E55F00 100%);
+        }
+
+        .skeleton {
+            animation: skeleton-loading 1s linear infinite alternate;
+        }
+
+        @keyframes skeleton-loading {
+            0% { background-color: #E5E7EB; }
+            100% { background-color: #F3F4F6; }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 9999px;
+        }
+
+        .badge-venta {
+            background-color: #D1FAE5;
+            color: #065F46;
+        }
+
+        .badge-renta {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6A00 0%, #E55F00 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgba(255, 106, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #52606D;
+            border: 1px solid #E5E7EB;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: #F5F7FA;
+            border-color: #D1D5DB;
+        }
+
+        .empty-state {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .property-detail-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .contact-panel {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .truncate-2 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        #colonia-autocomplete {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        #colonia-autocomplete::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #colonia-autocomplete::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        #colonia-autocomplete::-webkit-scrollbar-thumb {
+            background: #FF6A00;
+            border-radius: 10px;
+        }
+
+        #colonia-autocomplete::-webkit-scrollbar-thumb:hover {
+            background: #E55F00;
+        }
+    </style>
+</head>
+<body class="bg-brand-light min-h-screen">
+    <!-- Top Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-orange to-brand-orange-dark rounded-lg flex items-center justify-center">
+                        <i class="fas fa-home text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-brand-dark">Hector BR CRM</h1>
+                        <p class="text-xs text-brand-gray">Gestión de Propiedades</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="hidden md:flex items-center gap-2">
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span class="text-sm text-brand-gray">En línea</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-brand-light px-4 py-2 rounded-lg">
+                        <i class="fas fa-database text-brand-orange"></i>
+                        <span id="header-total" class="text-sm font-semibold text-brand-dark">-- propiedades</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="stat-card rounded-xl p-6 text-white">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-orange-100 text-sm font-medium">Propiedades</p>
+                        <p id="stat-properties" class="text-4xl font-bold mt-2">0</p>
+                    </div>
+                    <div class="bg-white/20 p-4 rounded-lg">
+                        <i class="fas fa-home text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-brand-gray text-sm font-medium">Vendedores</p>
+                        <p id="stat-sellers" class="text-4xl font-bold text-brand-dark mt-2">0</p>
+                    </div>
+                    <div class="bg-brand-light p-4 rounded-lg">
+                        <i class="fas fa-users text-brand-orange text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-brand-gray text-sm font-medium">Última Actualización</p>
+                        <p id="stat-updated" class="text-lg font-semibold text-brand-dark mt-2">--</p>
+                    </div>
+                    <div class="bg-brand-light p-4 rounded-lg">
+                        <i class="fas fa-clock text-brand-orange text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="bg-white rounded-xl border border-gray-200 p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <!-- Search Input -->
+                <div class="md:col-span-2">
+                    <label class="block text-sm font-semibold text-brand-dark mb-2">
+                        <i class="fas fa-search text-brand-orange mr-2"></i>Buscar
+                    </label>
+                    <input
+                        type="text"
+                        id="search-text"
+                        placeholder="ID, título, colonia, vendedor..."
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition"
+                    />
+                </div>
+
+                <!-- City Select -->
+                <div>
+                    <label class="block text-sm font-semibold text-brand-dark mb-2">
+                        <i class="fas fa-map-marker-alt text-brand-orange mr-2"></i>Ciudad
+                    </label>
+                    <select
+                        id="filter-city"
+                        class="filter-select w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none appearance-none transition"
+                    >
+                        <option value="all">Todas las ciudades</option>
+                        <option value="culiacan">Culiacán</option>
+                        <option value="mazatlan">Mazatlán</option>
+                        <option value="monterrey">Monterrey</option>
+                    </select>
+                </div>
+
+                <!-- Colonia Input (Autocomplete) - Only visible for Culiacán -->
+                <div id="colonia-filter-container" style="display: none;">
+                    <label class="block text-sm font-semibold text-brand-dark mb-2">
+                        <i class="fas fa-map-pin text-brand-orange mr-2"></i>Colonia
+                    </label>
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="filter-colonia"
+                            placeholder="Buscar colonia..."
+                            autocomplete="off"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none transition"
+                        />
+                        <div id="colonia-autocomplete" class="absolute z-50 w-full bg-white border border-gray-300 rounded-lg shadow-lg mt-1 max-h-60 overflow-y-auto hidden"></div>
+                    </div>
+                </div>
+
+                <!-- Type Select -->
+                <div>
+                    <label class="block text-sm font-semibold text-brand-dark mb-2">
+                        <i class="fas fa-tag text-brand-orange mr-2"></i>Tipo
+                    </label>
+                    <select
+                        id="filter-type"
+                        class="filter-select w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-orange focus:border-transparent outline-none appearance-none transition"
+                    >
+                        <option value="all">Venta y Renta</option>
+                        <option value="venta">Venta</option>
+                        <option value="renta">Renta</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="flex items-center justify-between mt-6 pt-6 border-t border-gray-200">
+                <div class="flex items-center gap-3">
+                    <span id="results-info" class="text-sm text-brand-gray">
+                        Mostrando <span id="showing-count" class="font-semibold text-brand-dark">0</span> de <span id="total-count" class="font-semibold text-brand-dark">0</span>
+                    </span>
+                </div>
+                <button onclick="clearFilters()" class="btn btn-secondary text-sm">
+                    <i class="fas fa-rotate-left mr-2"></i>Limpiar filtros
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Properties List -->
+            <div class="lg:col-span-2 space-y-4">
+                <div id="properties-container">
+                    <!-- Properties will be rendered here -->
+                    <div class="empty-state">
+                        <div class="skeleton w-full h-48 rounded-xl mb-4"></div>
+                        <div class="skeleton w-full h-48 rounded-xl mb-4"></div>
+                        <div class="skeleton w-full h-48 rounded-xl"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Detail & Contact Panel -->
+            <div class="lg:col-span-1">
+                <div id="detail-panel" class="contact-panel">
+                    <div class="property-detail-card">
+                        <div class="empty-state">
+                            <div class="inline-flex items-center justify-center w-20 h-20 bg-brand-light rounded-full mb-4">
+                                <i class="fas fa-hand-pointer text-brand-orange text-3xl"></i>
+                            </div>
+                            <h3 class="text-lg font-semibold text-brand-dark mb-2">Selecciona una propiedad</h3>
+                            <p class="text-sm text-brand-gray max-w-xs mx-auto">Haz clic en cualquier propiedad de la lista para ver los detalles y contacto del vendedor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let allData = null;
+        let allProperties = [];
+        let selectedProperty = null;
+        let culiacanColonias = []; // Catálogo de colonias de Culiacán
+
+        // Filters state
+        const filters = {
+            search: '',
+            city: 'all',
+            type: 'all',
+            colonia: '' // Filtro de colonia
+        };
+
+        // Extract location from property
+        function extractLocation(prop) {
+            // Try ubicacion field first
+            if (prop.ubicacion && prop.ubicacion.trim()) {
+                // Clean up location string - remove Inmuebles24 prefix and split by double spaces
+                const cleaned = prop.ubicacion
+                    .replace(/Inmuebles24\s+Casa\s+(Venta|Renta)\s+Sinaloa\s+Culiacán\s+/gi, '')
+                    .replace(/Inmuebles24\s+Casa\s+(Venta|Renta)\s+Sinaloa\s+/gi, '')
+                    .trim();
+
+                // Split by double spaces or " Casa " to get parts
+                const parts = cleaned.split(/\s{2,}|\s+Casa\s+/);
+
+                // Look for "Fraccionamiento X" or "Colonia X" pattern
+                for (let part of parts) {
+                    part = part.trim();
+
+                    // Remove "Fraccionamiento " or "Colonia " prefix but keep the name
+                    const coloniaMatch = part.match(/(?:Fraccionamiento|Colonia)\s+(.+)/i);
+                    if (coloniaMatch && coloniaMatch[1]) {
+                        const colonia = coloniaMatch[1].trim();
+                        // Make sure it's not too long (likely contains full title)
+                        if (colonia.length < 50 && !colonia.includes('Casa')) {
+                            return colonia;
+                        }
+                    }
+
+                    // If no prefix, but it's a short meaningful part
+                    if (part.length > 3 && part.length < 50 && !part.includes('Casa')) {
+                        return part;
+                    }
+                }
+            }
+
+            // Try to extract from title
+            const titleMatch = prop.titulo.match(/(?:en|de)\s+([^,(]+)/i);
+            if (titleMatch && titleMatch[1]) {
+                const extracted = titleMatch[1].trim();
+                // Clean up common patterns
+                return extracted
+                    .replace(/Fraccionamiento\s+/gi, '')
+                    .replace(/Colonia\s+/gi, '')
+                    .trim();
+            }
+
+            return 'Colonia no registrada';
+        }
+
+        // Detect city from property
+        function detectCity(prop) {
+            const text = `${prop.titulo} ${prop.ubicacion || ''} ${prop.url || ''}`.toLowerCase();
+            if (text.includes('monterrey')) return 'monterrey';
+            if (text.includes('mazatlan') || text.includes('mazatlán')) return 'mazatlan';
+            return 'culiacan';
+        }
+
+        // Detect type from property
+        function detectType(prop) {
+            const text = `${prop.titulo} ${prop.url || ''}`.toLowerCase();
+            if (text.includes('renta') || text.includes('alclcain')) return 'renta';
+            return 'venta';
+        }
+
+        // Extract price number
+        function extractPriceNumber(priceStr) {
+            if (!priceStr) return 0;
+            const match = priceStr.match(/[\d,]+/);
+            if (!match) return 0;
+            return parseInt(match[0].replace(/,/g, ''), 10);
+        }
+
+        // Format price
+        function formatPrice(priceStr) {
+            const num = extractPriceNumber(priceStr);
+            if (num === 0) return priceStr || 'Precio no disponible';
+            return new Intl.NumberFormat('es-MX', {
+                style: 'currency',
+                currency: 'MXN',
+                maximumFractionDigits: 0
+            }).format(num);
+        }
+
+        // Load data
+        async function loadData() {
+            try {
+                const response = await fetch('../crm-vendedores.json');
+                allData = await response.json();
+
+                // Flatten properties
+                allProperties = [];
+                allData.vendedores.forEach(vendedor => {
+                    vendedor.propiedades.forEach(prop => {
+                        // Usar colonia del JSON si está disponible, sino extraer
+                        const colonia = prop.colonia || extractLocation(prop);
+                        // Usar ciudad del JSON si está disponible, sino detectar
+                        const ciudad = prop.ciudad || detectCity(prop);
+
+                        allProperties.push({
+                            ...prop,
+                            vendedor: vendedor,
+                            ciudad: ciudad,
+                            tipo: detectType(prop),
+                            ubicacion: prop.ubicacion || '',
+                            colonia: colonia,
+                            fotoPrincipal: prop.fotoPrincipal || null,
+                            priceNumber: extractPriceNumber(prop.precio)
+                        });
+                    });
+                });
+
+                console.log(`✅ Loaded ${allProperties.length} properties from ${allData.vendedores.length} sellers`);
+
+                // Debug: Show all unique colonias extracted
+                const colonias = [...new Set(allProperties.map(p => p.colonia))].sort();
+                console.log('📍 Colonias extraídas del JSON:', colonias);
+
+                updateStats();
+                applyFilters();
+
+            } catch (error) {
+                console.error('❌ Error loading data:', error);
+                showError('No se pudo cargar la información. Por favor, recarga la página.');
+            }
+        }
+
+        // Update stats
+        function updateStats() {
+            document.getElementById('stat-properties').textContent = allProperties.length;
+            document.getElementById('stat-sellers').textContent = allData.vendedores.length;
+            document.getElementById('header-total').textContent = `${allProperties.length} propiedades`;
+
+            if (allData.estadisticas?.ultimaActualizacion) {
+                const date = new Date(allData.estadisticas.ultimaActualizacion);
+                document.getElementById('stat-updated').textContent = date.toLocaleDateString('es-MX', {
+                    day: '2-digit',
+                    month: 'short',
+                    year: 'numeric'
+                });
+            }
+        }
+
+        // Apply filters
+        function applyFilters() {
+            let filtered = [...allProperties];
+
+            console.log('🔍 Aplicando filtros:', filters);
+            console.log('📦 Total propiedades antes de filtrar:', filtered.length);
+
+            // Text search
+            if (filters.search) {
+                const search = filters.search.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                filtered = filtered.filter(prop => {
+                    const text = `${prop.id} ${prop.titulo} ${prop.colonia} ${prop.vendedor.nombre}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                    return text.includes(search);
+                });
+                console.log('📝 Después de búsqueda de texto:', filtered.length);
+            }
+
+            // City filter
+            if (filters.city !== 'all') {
+                filtered = filtered.filter(prop => prop.ciudad === filters.city);
+                console.log(`🏙️ Después de filtro ciudad (${filters.city}):`, filtered.length);
+            }
+
+            // Colonia filter
+            if (filters.colonia) {
+                const coloniaSearch = filters.colonia.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                console.log('🏘️ Buscando colonia:', filters.colonia, '→ normalizado:', coloniaSearch);
+
+                // Debug: Mostrar colonias disponibles en propiedades filtradas
+                console.log('📍 Colonias disponibles en propiedades actuales:');
+                filtered.forEach((prop, idx) => {
+                    const propColonia = prop.colonia.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                    console.log(`  ${idx + 1}. "${prop.colonia}" → normalizado: "${propColonia}"`);
+                });
+
+                filtered = filtered.filter(prop => {
+                    const propColonia = prop.colonia.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                    const matches = propColonia.includes(coloniaSearch) || coloniaSearch.includes(propColonia);
+
+                    if (matches) {
+                        console.log(`  ✅ Match encontrado: "${prop.colonia}" (${prop.titulo})`);
+                    }
+
+                    return matches;
+                });
+
+                console.log(`🏘️ Después de filtro colonia (${filters.colonia}):`, filtered.length);
+            }
+
+            // Type filter
+            if (filters.type !== 'all') {
+                filtered = filtered.filter(prop => prop.tipo === filters.type);
+                console.log(`🏷️ Después de filtro tipo (${filters.type}):`, filtered.length);
+            }
+
+            // Calculate total available based on city filter
+            let totalAvailable = allProperties.length;
+            if (filters.city !== 'all') {
+                totalAvailable = allProperties.filter(prop => prop.ciudad === filters.city).length;
+            }
+
+            // Update UI
+            document.getElementById('showing-count').textContent = filtered.length;
+            document.getElementById('total-count').textContent = totalAvailable;
+
+            console.log('✅ Propiedades finales a renderizar:', filtered.length);
+            renderProperties(filtered);
+        }
+
+        // Render properties
+        function renderProperties(properties) {
+            const container = document.getElementById('properties-container');
+
+            // Empty state
+            if (properties.length === 0) {
+                const cityName = filters.city === 'all' ? 'todas las ciudades' :
+                               filters.city === 'culiacan' ? 'Culiacán' :
+                               filters.city === 'mazatlan' ? 'Mazatlán' : 'Monterrey';
+
+                const coloniaName = filters.colonia || '';
+
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="inline-flex items-center justify-center w-20 h-20 bg-brand-light rounded-full mb-4">
+                            <i class="fas fa-search text-brand-gray text-3xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-brand-dark mb-2">No encontramos propiedades activas</h3>
+                        <p class="text-sm text-brand-gray max-w-md mx-auto">
+                            ${coloniaName ? `No hay propiedades disponibles en <strong>${coloniaName}</strong>.` : `No hay propiedades que coincidan con tu búsqueda en <strong>${cityName}</strong>.`}
+                            ${coloniaName ? '<br>Intenta con otra colonia o limpia los filtros.' : 'Intenta ajustar los filtros.'}
+                        </p>
+                        <div class="flex gap-3 justify-center mt-4">
+                            <button onclick="clearFilters()" class="btn btn-secondary">
+                                <i class="fas fa-rotate-left mr-2"></i>Limpiar filtros
+                            </button>
+                            ${coloniaName ? `<a href="https://wa.me/526671234567?text=${encodeURIComponent('Hola, busco propiedades en ' + coloniaName)}" target="_blank" class="btn btn-primary">
+                                <i class="fab fa-whatsapp mr-2"></i>Contactar equipo
+                            </a>` : ''}
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Vista especial cuando hay filtro de colonia activo
+            if (filters.colonia) {
+                renderColoniaView(properties);
+                return;
+            }
+
+            container.innerHTML = properties.slice(0, 50).map(prop => `
+                <div class="property-card bg-white rounded-xl border border-gray-200 p-6 cursor-pointer" onclick='selectProperty(${JSON.stringify(prop).replace(/'/g, "&apos;")})'>
+                    <div class="flex gap-6">
+                        <div class="w-32 h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-home text-gray-400 text-4xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-start justify-between gap-4 mb-3">
+                                <div class="flex-1 min-w-0">
+                                    <h3 class="text-lg font-bold text-brand-dark truncate-2 mb-2">${prop.titulo}</h3>
+                                    <div class="flex flex-wrap items-center gap-2 text-sm text-brand-gray">
+                                        <span class="flex items-center gap-1">
+                                            <i class="fas fa-map-marker-alt text-brand-orange"></i>
+                                            ${prop.colonia}
+                                        </span>
+                                        <span>•</span>
+                                        <span>${prop.ciudad.charAt(0).toUpperCase() + prop.ciudad.slice(1)}</span>
+                                        ${prop.id ? `<span>•</span><span class="font-mono text-xs">#${prop.id}</span>` : ''}
+                                    </div>
+                                </div>
+                                <span class="badge badge-${prop.tipo}">
+                                    <i class="fas fa-${prop.tipo === 'venta' ? 'tag' : 'key'} mr-1"></i>
+                                    ${prop.tipo.toUpperCase()}
+                                </span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-2xl font-bold text-brand-orange">${formatPrice(prop.precio)}</p>
+                                    ${prop.fechaPublicacion ? `<p class="text-xs text-brand-gray mt-1">${prop.fechaPublicacion}</p>` : ''}
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-sm text-brand-gray">Vendedor</p>
+                                    <p class="text-sm font-semibold text-brand-dark">${prop.vendedor.nombre}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render colonia-focused view (grid with vendor info)
+        function renderColoniaView(properties) {
+            const container = document.getElementById('properties-container');
+            const coloniaName = filters.colonia;
+
+            container.innerHTML = `
+                <!-- Colonia Header -->
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-brand-dark mb-2">
+                        <i class="fas fa-map-marker-alt text-brand-orange mr-3"></i>
+                        Propiedades en ${coloniaName}
+                    </h2>
+                    <p class="text-brand-gray text-lg">
+                        ${properties.length} ${properties.length === 1 ? 'propiedad encontrada' : 'propiedades encontradas'}
+                    </p>
+                </div>
+
+                <!-- Grid de propiedades -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    ${properties.map(prop => `
+                        <div class="colonia-property-card bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
+                            <!-- Imagen destacada -->
+                            <div class="relative h-64 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                                <i class="fas fa-home text-gray-400 text-6xl"></i>
+                                <span class="absolute top-4 right-4 badge badge-${prop.tipo}">
+                                    <i class="fas fa-${prop.tipo === 'venta' ? 'tag' : 'key'} mr-1"></i>
+                                    ${prop.tipo.toUpperCase()}
+                                </span>
+                                ${prop.id ? `<span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-mono text-brand-dark">#${prop.id}</span>` : ''}
+                            </div>
+
+                            <!-- Contenido de la tarjeta -->
+                            <div class="p-6">
+                                <!-- Título y precio -->
+                                <h3 class="text-xl font-bold text-brand-dark mb-2 leading-tight">${prop.titulo}</h3>
+                                <p class="text-3xl font-bold text-brand-orange mb-4">${formatPrice(prop.precio)}</p>
+
+                                <!-- Ubicación -->
+                                <div class="flex items-center gap-2 text-sm text-brand-gray mb-4">
+                                    <i class="fas fa-map-pin text-brand-orange"></i>
+                                    <span>${prop.colonia}, ${prop.ciudad.charAt(0).toUpperCase() + prop.ciudad.slice(1)}</span>
+                                </div>
+
+                                <!-- Info del vendedor -->
+                                <div class="bg-brand-light rounded-lg p-4 mb-4">
+                                    <div class="flex items-center justify-between mb-3">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fas fa-user-tie text-brand-orange"></i>
+                                            <span class="font-semibold text-brand-dark">${prop.vendedor.nombre}</span>
+                                        </div>
+                                        <button onclick="filterByVendor('${prop.vendedor.nombre.replace(/'/g, "\\'")}')" class="text-xs px-3 py-1 bg-white border border-gray-300 rounded-full hover:bg-brand-orange hover:text-white hover:border-brand-orange transition">
+                                            <i class="fas fa-filter mr-1"></i>Ver todas
+                                        </button>
+                                    </div>
+
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <input type="text" value="${prop.vendedor.telefono}" id="phone-${prop.id}" class="hidden">
+                                        <button onclick="copyPhoneNumber('${prop.vendedor.telefono}', '${prop.id}')" class="flex-1 text-sm px-3 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition flex items-center justify-center gap-2">
+                                            <i class="fas fa-phone text-brand-orange"></i>
+                                            <span class="font-mono">${prop.vendedor.telefonoFormateado || prop.vendedor.telefono}</span>
+                                            <i class="fas fa-copy text-gray-400"></i>
+                                        </button>
+                                    </div>
+
+                                    ${prop.vendedor.fuente ? `
+                                    <div class="flex items-center gap-2 text-xs text-brand-gray">
+                                        <i class="fas fa-building"></i>
+                                        <span>${prop.vendedor.fuente}</span>
+                                    </div>` : ''}
+                                </div>
+
+                                <!-- Botones de acción -->
+                                <div class="grid grid-cols-2 gap-3">
+                                    <a href="${prop.url && prop.url.startsWith('http') ? prop.url : ('../' + (prop.url || '#'))}" target="_blank" class="btn btn-secondary text-center">
+                                        <i class="fas fa-external-link-alt mr-2"></i>Ver página
+                                    </a>
+                                    <a href="${prop.vendedor.whatsapp || 'https://wa.me/52' + prop.vendedor.telefono}" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg transition flex items-center justify-center">
+                                        <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Filter by vendor name
+        function filterByVendor(vendorName) {
+            filters.search = vendorName;
+            filters.colonia = ''; // Limpiar filtro de colonia
+            document.getElementById('search-text').value = vendorName;
+            document.getElementById('filter-colonia').value = '';
+            document.getElementById('colonia-filter-container').style.display = 'none';
+            applyFilters();
+        }
+
+        // Copy phone number from colonia view
+        function copyPhoneNumber(phone, propId) {
+            const input = document.createElement('input');
+            input.value = phone;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+
+            // Visual feedback
+            event.target.closest('button').classList.add('bg-green-100', 'border-green-500');
+            const originalHTML = event.target.closest('button').innerHTML;
+            event.target.closest('button').innerHTML = '<i class="fas fa-check text-green-600"></i><span class="text-green-600 ml-2">Copiado!</span>';
+
+            setTimeout(() => {
+                event.target.closest('button').classList.remove('bg-green-100', 'border-green-500');
+                event.target.closest('button').innerHTML = originalHTML;
+            }, 2000);
+        }
+
+        // Select property
+        function selectProperty(prop) {
+            selectedProperty = prop;
+
+            const slug = prop.titulo.toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^\w\s-]/g, '')
+                .replace(/\s+/g, '-');
+
+            const detailPanel = document.getElementById('detail-panel');
+            detailPanel.innerHTML = `
+                <div class="property-detail-card">
+                    <!-- Property Image -->
+                    <div class="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                        <i class="fas fa-home text-gray-400 text-6xl"></i>
+                    </div>
+
+                    <!-- Property Info -->
+                    <div class="p-6 border-b border-gray-200">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="badge badge-${prop.tipo}">
+                                <i class="fas fa-${prop.tipo === 'venta' ? 'tag' : 'key'} mr-1"></i>
+                                ${prop.tipo.toUpperCase()}
+                            </span>
+                            ${prop.id ? `<span class="text-xs font-mono text-brand-gray">#${prop.id}</span>` : ''}
+                        </div>
+                        <h2 class="text-xl font-bold text-brand-dark mb-3 leading-tight">${prop.titulo}</h2>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center gap-2 text-brand-gray">
+                                <i class="fas fa-map-marker-alt text-brand-orange w-4"></i>
+                                <span>${prop.colonia}, ${prop.ciudad.charAt(0).toUpperCase() + prop.ciudad.slice(1)}</span>
+                            </div>
+                            ${prop.fechaPublicacion ? `
+                            <div class="flex items-center gap-2 text-brand-gray">
+                                <i class="fas fa-clock text-brand-orange w-4"></i>
+                                <span>${prop.fechaPublicacion}</span>
+                            </div>` : ''}
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                            <p class="text-3xl font-bold text-brand-orange">${formatPrice(prop.precio)}</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="p-6 bg-brand-light border-b border-gray-200">
+                        <h3 class="text-sm font-semibold text-brand-dark mb-4 flex items-center gap-2">
+                            <i class="fas fa-user-circle text-brand-orange"></i>
+                            Contacto del Vendedor
+                        </h3>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-xs text-brand-gray mb-1">Nombre</p>
+                                <p class="font-semibold text-brand-dark">${prop.vendedor.nombre}</p>
+                            </div>
+                            ${prop.vendedor.telefono ? `
+                            <div>
+                                <p class="text-xs text-brand-gray mb-1">Teléfono</p>
+                                <div class="flex gap-2">
+                                    <input
+                                        type="text"
+                                        value="${prop.vendedor.telefonoFormateado || prop.vendedor.telefono}"
+                                        id="phone-input"
+                                        readonly
+                                        class="flex-1 px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm font-mono"
+                                    />
+                                    <button onclick="copyPhone()" class="btn btn-secondary px-3 py-2">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>` : ''}
+                            <div>
+                                <p class="text-xs text-brand-gray mb-1">Canal</p>
+                                <span class="inline-flex items-center gap-1 text-sm text-brand-dark">
+                                    <i class="fas fa-globe text-brand-orange"></i>
+                                    ${prop.vendedor.fuente}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="p-6 space-y-3">
+                        <a href="https://casasenventa.info/${prop.ciudad}/${slug}/" target="_blank" class="btn btn-primary w-full">
+                            <i class="fas fa-external-link-alt mr-2"></i>Ver Página
+                        </a>
+                        ${prop.vendedor.whatsapp && prop.vendedor.telefono ? `
+                        <a href="${prop.vendedor.whatsapp}?text=Hola, vi la propiedad ${encodeURIComponent(prop.titulo)}" target="_blank" class="btn btn-secondary w-full bg-green-500 hover:bg-green-600 text-white border-green-500">
+                            <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                        </a>` : ''}
+
+                        ${prop.vendedor.propiedades.length > 1 ? `
+                        <div class="pt-4 border-t border-gray-200">
+                            <p class="text-xs text-brand-gray mb-3">
+                                <i class="fas fa-list mr-1"></i>
+                                Otras propiedades de ${prop.vendedor.nombre} (${prop.vendedor.propiedades.length})
+                            </p>
+                            <div class="space-y-2 max-h-40 overflow-y-auto">
+                                ${prop.vendedor.propiedades.slice(0, 5).map(p => `
+                                    <div class="text-xs p-2 bg-white rounded border border-gray-200 hover:border-brand-orange cursor-pointer transition" onclick='selectPropertyById("${p.id || p.titulo}")'>
+                                        <p class="font-medium text-brand-dark truncate">${p.titulo}</p>
+                                        <p class="text-brand-gray">${p.precio || 'N/A'}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>` : ''}
+                    </div>
+                </div>
+            `;
+
+            // Scroll to detail panel on mobile
+            if (window.innerWidth < 1024) {
+                detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Select property by ID
+        function selectPropertyById(id) {
+            const prop = allProperties.find(p => p.id === id || p.titulo === id);
+            if (prop) {
+                selectProperty(prop);
+            }
+        }
+
+        // Copy phone
+        function copyPhone() {
+            const input = document.getElementById('phone-input');
+            input.select();
+            document.execCommand('copy');
+
+            const btn = event.target.closest('button');
+            const original = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i>';
+            btn.classList.add('bg-green-500', 'text-white', 'border-green-500');
+
+            setTimeout(() => {
+                btn.innerHTML = original;
+                btn.classList.remove('bg-green-500', 'text-white', 'border-green-500');
+            }, 2000);
+        }
+
+        // Clear filters
+        function clearFilters() {
+            filters.search = '';
+            filters.city = 'all';
+            filters.type = 'all';
+            filters.colonia = '';
+
+            document.getElementById('search-text').value = '';
+            document.getElementById('filter-city').value = 'all';
+            document.getElementById('filter-type').value = 'all';
+            document.getElementById('filter-colonia').value = '';
+            document.getElementById('colonia-filter-container').style.display = 'none';
+
+            applyFilters();
+        }
+
+        // Show error
+        function showError(message) {
+            document.getElementById('properties-container').innerHTML = `
+                <div class="empty-state">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-red-100 rounded-full mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-brand-dark mb-2">Error</h3>
+                    <p class="text-sm text-brand-gray">${message}</p>
+                </div>
+            `;
+        }
+
+        // Load Culiacán colonias catalog
+        async function loadColoniasCatalog() {
+            try {
+                console.log('🔄 Intentando cargar catálogo de colonias...');
+                const response = await fetch('../culiacan_colonias.json');
+                console.log('📡 Response status:', response.status);
+
+                if (!response.ok) throw new Error('No se pudo cargar el catálogo de colonias');
+
+                const data = await response.json();
+                console.log('📦 Datos recibidos:', data);
+
+                // Combinar colonias y fraccionamientos (si existen)
+                const coloniasList = data.colonias ? data.colonias.map(c => c.name) : [];
+                const fraccionamientosList = data.fraccionamientos ? data.fraccionamientos.map(f => f.name) : [];
+
+                culiacanColonias = [...coloniasList, ...fraccionamientosList].sort();
+
+                console.log(`✅ Catálogo cargado: ${coloniasList.length} colonias + ${fraccionamientosList.length} fraccionamientos = ${culiacanColonias.length} total`);
+                console.log('🔍 Primeras 10 opciones:', culiacanColonias.slice(0, 10));
+                console.log('🔍 Buscando "Quintas":', culiacanColonias.filter(c => c.toLowerCase().includes('quinta')));
+            } catch (error) {
+                console.error('❌ Error completo:', error);
+                console.warn('⚠️ No se pudo cargar culiacan_colonias.json:', error.message);
+                console.info('💡 Solución: Abre el CRM con un servidor local (no file://)');
+                console.info('   Ejemplo: python3 -m http.server 8080');
+                culiacanColonias = [];
+
+                // Mostrar advertencia visible en la UI
+                const coloniaContainer = document.getElementById('colonia-filter-container');
+                if (coloniaContainer) {
+                    const label = coloniaContainer.querySelector('label');
+                    if (label) {
+                        label.innerHTML = '<i class="fas fa-exclamation-triangle text-orange-500 mr-2"></i>Colonia (requiere servidor local)';
+                        label.title = 'Para usar este filtro, abre el CRM con: python3 -m http.server 8080';
+                    }
+                }
+            }
+        }
+
+        // Toggle colonia filter visibility
+        function toggleColoniaFilter() {
+            const container = document.getElementById('colonia-filter-container');
+            if (filters.city === 'culiacan' && culiacanColonias.length > 0) {
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+                filters.colonia = '';
+                document.getElementById('filter-colonia').value = '';
+            }
+        }
+
+        // Show autocomplete suggestions
+        function showColoniaAutocomplete(searchTerm) {
+            const autocomplete = document.getElementById('colonia-autocomplete');
+
+            if (!searchTerm) {
+                autocomplete.classList.add('hidden');
+                return;
+            }
+
+            const normalized = searchTerm.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            const matches = culiacanColonias.filter(colonia => {
+                const coloniaLower = colonia.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                return coloniaLower.includes(normalized);
+            }).slice(0, 10); // Mostrar máximo 10 sugerencias
+
+            if (matches.length === 0) {
+                autocomplete.innerHTML = '<div class="px-4 py-2 text-sm text-brand-gray">No se encontraron colonias</div>';
+                autocomplete.classList.remove('hidden');
+                return;
+            }
+
+            autocomplete.innerHTML = matches.map(colonia => `
+                <div class="px-4 py-2 hover:bg-brand-light cursor-pointer text-sm transition" onclick="selectColonia('${colonia.replace(/'/g, "\\'")}')">
+                    ${colonia}
+                </div>
+            `).join('');
+            autocomplete.classList.remove('hidden');
+        }
+
+        // Select colonia from autocomplete
+        function selectColonia(colonia) {
+            filters.colonia = colonia;
+            document.getElementById('filter-colonia').value = colonia;
+            document.getElementById('colonia-autocomplete').classList.add('hidden');
+            applyFilters();
+        }
+
+        // Event listeners
+        document.getElementById('search-text').addEventListener('input', (e) => {
+            filters.search = e.target.value;
+            applyFilters();
+        });
+
+        document.getElementById('filter-city').addEventListener('change', (e) => {
+            filters.city = e.target.value;
+            toggleColoniaFilter();
+            applyFilters();
+        });
+
+        document.getElementById('filter-type').addEventListener('change', (e) => {
+            filters.type = e.target.value;
+            applyFilters();
+        });
+
+        // Colonia filter events
+        document.getElementById('filter-colonia').addEventListener('input', (e) => {
+            const value = e.target.value;
+            showColoniaAutocomplete(value);
+            filters.colonia = value;
+            applyFilters();
+        });
+
+        // Hide autocomplete when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#colonia-filter-container')) {
+                document.getElementById('colonia-autocomplete').classList.add('hidden');
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadColoniasCatalog();
+            loadData();
+        });
+    </script>
+</body>
+</html>

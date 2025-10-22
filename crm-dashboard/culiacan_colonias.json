@@ -1,0 +1,1899 @@
+{
+  "colonias": [
+    {
+      "name": "10 de Abril"
+    },
+    {
+      "name": "10 de Mayo"
+    },
+    {
+      "name": "12 de Diciembre"
+    },
+    {
+      "name": "16 de Septiembre"
+    },
+    {
+      "name": "18 de Marzo"
+    },
+    {
+      "name": "20 de Noviembre"
+    },
+    {
+      "name": "21 de Marzo"
+    },
+    {
+      "name": "22 de Diciembre"
+    },
+    {
+      "name": "4 de Marzo"
+    },
+    {
+      "name": "5 de Febrero"
+    },
+    {
+      "name": "5 de Mayo"
+    },
+    {
+      "name": "6 de Enero"
+    },
+    {
+      "name": "7 Gotas"
+    },
+    {
+      "name": "8 de Febrero"
+    },
+    {
+      "name": "9 de Marzo"
+    },
+    {
+      "name": "Adolfo López Mateos"
+    },
+    {
+      "name": "Adolfo Ruiz Cortinez"
+    },
+    {
+      "name": "Aeropuerto"
+    },
+    {
+      "name": "Agrarista Mexicana"
+    },
+    {
+      "name": "Aguaruto Centro"
+    },
+    {
+      "name": "Aguaruto Viejo"
+    },
+    {
+      "name": "Agustina Ramírez"
+    },
+    {
+      "name": "Agustina Ramírez"
+    },
+    {
+      "name": "Alto de la Victoria"
+    },
+    {
+      "name": "Alto de Quilá (San Francisco)"
+    },
+    {
+      "name": "Altos de Bachigualato"
+    },
+    {
+      "name": "Amado Nervo"
+    },
+    {
+      "name": "Ampliación El Barrio"
+    },
+    {
+      "name": "Ampliación los Ángeles"
+    },
+    {
+      "name": "Ampliación Unión (Nueva)"
+    },
+    {
+      "name": "Antonio Rosales"
+    },
+    {
+      "name": "Antonio Toledo Corro"
+    },
+    {
+      "name": "Aquiles Serdán"
+    },
+    {
+      "name": "Arroyo del Toro"
+    },
+    {
+      "name": "Aurora"
+    },
+    {
+      "name": "Aviación"
+    },
+    {
+      "name": "Bachigualato"
+    },
+    {
+      "name": "Barrio Estación"
+    },
+    {
+      "name": "Bellavista"
+    },
+    {
+      "name": "Benito Juárez"
+    },
+    {
+      "name": "Benito Juárez Norte"
+    },
+    {
+      "name": "Benito Juárez Sur"
+    },
+    {
+      "name": "Bicentenario"
+    },
+    {
+      "name": "Buena Vista"
+    },
+    {
+      "name": "Buenos Aires"
+    },
+    {
+      "name": "Burócrata"
+    },
+    {
+      "name": "Campesina El Barrio"
+    },
+    {
+      "name": "Campestre las Fuentes"
+    },
+    {
+      "name": "Campestre Los Laureles"
+    },
+    {
+      "name": "Campestre San Jorge"
+    },
+    {
+      "name": "Campo Batán"
+    },
+    {
+      "name": "Cañitas"
+    },
+    {
+      "name": "Carlos Solidario"
+    },
+    {
+      "name": "Cedros"
+    },
+    {
+      "name": "Centro"
+    },
+    {
+      "name": "Centro"
+    },
+    {
+      "name": "Centro Sinaloa"
+    },
+    {
+      "name": "Chapultepec"
+    },
+    {
+      "name": "CNOP"
+    },
+    {
+      "name": "Colinas del Humaya"
+    },
+    {
+      "name": "Constitución CROC"
+    },
+    {
+      "name": "Constituyentes"
+    },
+    {
+      "name": "Demetrio Vallejo"
+    },
+    {
+      "name": "Diana Laura Riojas de Colosio"
+    },
+    {
+      "name": "Domingo Rubí"
+    },
+    {
+      "name": "Ejidal"
+    },
+    {
+      "name": "El Barrio"
+    },
+    {
+      "name": "El Mirador"
+    },
+    {
+      "name": "El Pipila"
+    },
+    {
+      "name": "El Ranchito"
+    },
+    {
+      "name": "El Real"
+    },
+    {
+      "name": "El Vallado"
+    },
+    {
+      "name": "Emancipación"
+    },
+    {
+      "name": "Emiliano Zapata"
+    },
+    {
+      "name": "Emiliano Zapata"
+    },
+    {
+      "name": "Estación Obispo"
+    },
+    {
+      "name": "Esthela Ortiz de Toledo"
+    },
+    {
+      "name": "Felipe Ángeles"
+    },
+    {
+      "name": "Ferrocarrilera"
+    },
+    {
+      "name": "Francisco Alarcon Fregoso"
+    },
+    {
+      "name": "Francisco I. Madero"
+    },
+    {
+      "name": "Francisco Labastida Ochoa"
+    },
+    {
+      "name": "Francisco Villa"
+    },
+    {
+      "name": "Francisco Villa"
+    },
+    {
+      "name": "Gabriel Leyva"
+    },
+    {
+      "name": "Genaro Estrada"
+    },
+    {
+      "name": "General Zapata"
+    },
+    {
+      "name": "Girasoles"
+    },
+    {
+      "name": "Grecia"
+    },
+    {
+      "name": "Guadalupe"
+    },
+    {
+      "name": "Guadalupe Victoria"
+    },
+    {
+      "name": "Gustavo Díaz Ordaz"
+    },
+    {
+      "name": "Heraclio Bernal"
+    },
+    {
+      "name": "Hermanos Flores Magón"
+    },
+    {
+      "name": "Huizaches"
+    },
+    {
+      "name": "Humaya"
+    },
+    {
+      "name": "Ignacio Allende"
+    },
+    {
+      "name": "Ignacio Zaragoza"
+    },
+    {
+      "name": "Independencia"
+    },
+    {
+      "name": "Independencia"
+    },
+    {
+      "name": "Industrial Bravo"
+    },
+    {
+      "name": "Industrial El Palmito"
+    },
+    {
+      "name": "INFONAVIT 88"
+    },
+    {
+      "name": "INFONAVIT Alondras"
+    },
+    {
+      "name": "INFONAVIT Prados del Sol"
+    },
+    {
+      "name": "Ingenio"
+    },
+    {
+      "name": "Insurgentes"
+    },
+    {
+      "name": "ISSSTE Insurgentes"
+    },
+    {
+      "name": "Jardines de San Bartolome"
+    },
+    {
+      "name": "Jesús Manuel Camez Valdez"
+    },
+    {
+      "name": "Jesús Valdez Aldana"
+    },
+    {
+      "name": "Joel Ramírez"
+    },
+    {
+      "name": "Jorge Almada"
+    },
+    {
+      "name": "Josefa Ortiz de Domínguez"
+    },
+    {
+      "name": "Juan de Dios Bátiz"
+    },
+    {
+      "name": "Juan de Dios Bátiz"
+    },
+    {
+      "name": "Juntas de Humaya"
+    },
+    {
+      "name": "La Amistad"
+    },
+    {
+      "name": "La Cascada"
+    },
+    {
+      "name": "La Ceiba"
+    },
+    {
+      "name": "La Compuerta"
+    },
+    {
+      "name": "La Costera"
+    },
+    {
+      "name": "La Esperanza"
+    },
+    {
+      "name": "La Lima"
+    },
+    {
+      "name": "La Limita de Itaje"
+    },
+    {
+      "name": "Las Águilas"
+    },
+    {
+      "name": "Las Amapas"
+    },
+    {
+      "name": "Las Amapas"
+    },
+    {
+      "name": "Las Américas"
+    },
+    {
+      "name": "Las Carpas"
+    },
+    {
+      "name": "Las Coloradas"
+    },
+    {
+      "name": "Las Cucas"
+    },
+    {
+      "name": "Las Flores"
+    },
+    {
+      "name": "Las Huertas"
+    },
+    {
+      "name": "Las Ilusiones"
+    },
+    {
+      "name": "Las Palmas"
+    },
+    {
+      "name": "Las Piedritas"
+    },
+    {
+      "name": "Las Vegas"
+    },
+    {
+      "name": "Lázaro Cárdenas"
+    },
+    {
+      "name": "Libertad"
+    },
+    {
+      "name": "Loma de Rodriguera"
+    },
+    {
+      "name": "Loma Linda"
+    },
+    {
+      "name": "Lomas de Tamazula"
+    },
+    {
+      "name": "Lomas Del Humaya"
+    },
+    {
+      "name": "Lomas Del Magisterio"
+    },
+    {
+      "name": "Lomas Verdes"
+    },
+    {
+      "name": "Los Alamitos"
+    },
+    {
+      "name": "Los Álamos"
+    },
+    {
+      "name": "Los Cerritos"
+    },
+    {
+      "name": "Los Chinitos"
+    },
+    {
+      "name": "Los Mezcales"
+    },
+    {
+      "name": "Los Pinos"
+    },
+    {
+      "name": "Los Sabinos Tres Ríos"
+    },
+    {
+      "name": "Luis Donaldo Colosio"
+    },
+    {
+      "name": "Magisterial"
+    },
+    {
+      "name": "Margarita"
+    },
+    {
+      "name": "Melchor Ocampo"
+    },
+    {
+      "name": "Mi Ranchito"
+    },
+    {
+      "name": "Miguel Alemán"
+    },
+    {
+      "name": "Miguel de La Madrid"
+    },
+    {
+      "name": "Miguel Hidalgo"
+    },
+    {
+      "name": "Miguel Hidalgo"
+    },
+    {
+      "name": "Morelos"
+    },
+    {
+      "name": "Nueva"
+    },
+    {
+      "name": "Nueva Galaxia"
+    },
+    {
+      "name": "Nuevas Cañitas"
+    },
+    {
+      "name": "Nuevo Bachigualato"
+    },
+    {
+      "name": "Nuevo Culiacán"
+    },
+    {
+      "name": "Nuevo México"
+    },
+    {
+      "name": "Obrero Campesino"
+    },
+    {
+      "name": "Palos Altos"
+    },
+    {
+      "name": "Pedregal del Humaya"
+    },
+    {
+      "name": "PEMEX"
+    },
+    {
+      "name": "Periodista"
+    },
+    {
+      "name": "Piggy Back"
+    },
+    {
+      "name": "Plutarco Elias Calles"
+    },
+    {
+      "name": "Popular"
+    },
+    {
+      "name": "Popular"
+    },
+    {
+      "name": "Praderas del Humaya"
+    },
+    {
+      "name": "Presidentes de México"
+    },
+    {
+      "name": "Progreso"
+    },
+    {
+      "name": "Quilá Centro"
+    },
+    {
+      "name": "Rafael Buelna"
+    },
+    {
+      "name": "Recursos Hidráulicos"
+    },
+    {
+      "name": "Renato Vega Alvarado"
+    },
+    {
+      "name": "Renato Vega Amador"
+    },
+    {
+      "name": "Renato Vega Amador"
+    },
+    {
+      "name": "República Mexicana"
+    },
+    {
+      "name": "Revolución"
+    },
+    {
+      "name": "Revolución"
+    },
+    {
+      "name": "Rincón Feliz"
+    },
+    {
+      "name": "Rosario Uzarraga"
+    },
+    {
+      "name": "Rosita"
+    },
+    {
+      "name": "Rotarismo"
+    },
+    {
+      "name": "Ruben Jaramillo"
+    },
+    {
+      "name": "S.T.A.S.A.C."
+    },
+    {
+      "name": "Salvador Alvarado"
+    },
+    {
+      "name": "San Javier"
+    },
+    {
+      "name": "San Juan"
+    },
+    {
+      "name": "San Rafael"
+    },
+    {
+      "name": "Santa María"
+    },
+    {
+      "name": "Santa Rosa"
+    },
+    {
+      "name": "Simón Bolívar"
+    },
+    {
+      "name": "Sinaloa"
+    },
+    {
+      "name": "Sinaloa"
+    },
+    {
+      "name": "Solidaridad"
+    },
+    {
+      "name": "Solidaridad"
+    },
+    {
+      "name": "Solidaridad Campesina"
+    },
+    {
+      "name": "Tierra Blanca"
+    },
+    {
+      "name": "Unión"
+    },
+    {
+      "name": "Unión Antorchista"
+    },
+    {
+      "name": "Universitaria"
+    },
+    {
+      "name": "Vallado Viejo"
+    },
+    {
+      "name": "Valle Del Rio"
+    },
+    {
+      "name": "Veracruz"
+    },
+    {
+      "name": "Vicente Guerrero"
+    },
+    {
+      "name": "Vicente Lombardo Toledano"
+    },
+    {
+      "name": "Villa Arredondo"
+    },
+    {
+      "name": "Villa Del Sol"
+    },
+    {
+      "name": "Villa Dorada"
+    },
+    {
+      "name": "Villa Rica"
+    },
+    {
+      "name": "Villarreal (Las Coloradas)"
+    },
+    {
+      "name": "Villegas"
+    },
+    {
+      "name": "Vista Hermosa"
+    }
+  ],
+  "fraccionamientos": [
+    {
+      "name": "Acanto"
+    },
+    {
+      "name": "Acueducto"
+    },
+    {
+      "name": "Acueducto III"
+    },
+    {
+      "name": "Alameda"
+    },
+    {
+      "name": "Albaterra"
+    },
+    {
+      "name": "Alcalá del Rey"
+    },
+    {
+      "name": "Alegranza"
+    },
+    {
+      "name": "Altamira"
+    },
+    {
+      "name": "Altamira Sección Altana"
+    },
+    {
+      "name": "Altamira Sección Barceló"
+    },
+    {
+      "name": "Altaria"
+    },
+    {
+      "name": "Altezza"
+    },
+    {
+      "name": "Altos Bacurimi"
+    },
+    {
+      "name": "Alturas del Sur"
+    },
+    {
+      "name": "Amapas"
+    },
+    {
+      "name": "Amorada"
+    },
+    {
+      "name": "Antonio Nakayama"
+    },
+    {
+      "name": "Arboledas"
+    },
+    {
+      "name": "Arcadia Residencial"
+    },
+    {
+      "name": "Avellaneda"
+    },
+    {
+      "name": "Azaleas Residencial"
+    },
+    {
+      "name": "Azucena"
+    },
+    {
+      "name": "Balcones de San Miguel"
+    },
+    {
+      "name": "Balcones Del Humaya"
+    },
+    {
+      "name": "Balcones Del Valle"
+    },
+    {
+      "name": "Banjercito"
+    },
+    {
+      "name": "Banús 360 Coruña"
+    },
+    {
+      "name": "Banús 360 Salduero"
+    },
+    {
+      "name": "Banús 360 Tenerife"
+    },
+    {
+      "name": "Barcelona Sección Villa Barcelona"
+    },
+    {
+      "name": "Barcelona Sección Villa Barcelona Etapa II"
+    },
+    {
+      "name": "Barcelona Sección Villa Barcelona Etapa III"
+    },
+    {
+      "name": "Barrio de San Anselmo"
+    },
+    {
+      "name": "Barrio de San Luis"
+    },
+    {
+      "name": "Barrio San Agustín"
+    },
+    {
+      "name": "Barrio San Alberto"
+    },
+    {
+      "name": "Barrio San Eugenio"
+    },
+    {
+      "name": "Barrio San Francisco"
+    },
+    {
+      "name": "Barrio San José"
+    },
+    {
+      "name": "Barrio San Juan"
+    },
+    {
+      "name": "Barrio San Miguel"
+    },
+    {
+      "name": "Barrio San Pablo"
+    },
+    {
+      "name": "Belcantto"
+    },
+    {
+      "name": "Benevento Residencial"
+    },
+    {
+      "name": "Bloom"
+    },
+    {
+      "name": "Bonanza"
+    },
+    {
+      "name": "Bonaterra"
+    },
+    {
+      "name": "Bosque Encinos"
+    },
+    {
+      "name": "Bosques Del Álamo"
+    },
+    {
+      "name": "Bosques del Humaya"
+    },
+    {
+      "name": "Bosques del Rey"
+    },
+    {
+      "name": "Bosques del Río"
+    },
+    {
+      "name": "Brisas de Humaya"
+    },
+    {
+      "name": "Bugambilias"
+    },
+    {
+      "name": "Camino Real"
+    },
+    {
+      "name": "Campestre"
+    },
+    {
+      "name": "Campestre Tres Ríos"
+    },
+    {
+      "name": "Campo Bello"
+    },
+    {
+      "name": "CANACO"
+    },
+    {
+      "name": "Cañadas"
+    },
+    {
+      "name": "Cantabria"
+    },
+    {
+      "name": "Cantaluna"
+    },
+    {
+      "name": "Capistrano Residencial"
+    },
+    {
+      "name": "Casa Blanca"
+    },
+    {
+      "name": "Casas Lindas"
+    },
+    {
+      "name": "Centenario"
+    },
+    {
+      "name": "Chapultepec Del Rio"
+    },
+    {
+      "name": "Chulavista"
+    },
+    {
+      "name": "Cibeles"
+    },
+    {
+      "name": "Cimas del Humaya"
+    },
+    {
+      "name": "Colina del Rey"
+    },
+    {
+      "name": "Colinas de la Campiña"
+    },
+    {
+      "name": "Colinas de La Rivera"
+    },
+    {
+      "name": "Colinas de la Rivera Segunda Sección"
+    },
+    {
+      "name": "Colinas de San Antonio"
+    },
+    {
+      "name": "Colinas de San Miguel"
+    },
+    {
+      "name": "Colinas del Bosque"
+    },
+    {
+      "name": "Colinas Del Parque"
+    },
+    {
+      "name": "Colinas del Sol"
+    },
+    {
+      "name": "Colinas del Tamazula"
+    },
+    {
+      "name": "Comunicadores"
+    },
+    {
+      "name": "Condesa"
+    },
+    {
+      "name": "Conquista del Rey"
+    },
+    {
+      "name": "Córcega"
+    },
+    {
+      "name": "Córcega Elite"
+    },
+    {
+      "name": "Costa del Sol"
+    },
+    {
+      "name": "Country Álamos"
+    },
+    {
+      "name": "Country Courts"
+    },
+    {
+      "name": "Country del Río"
+    },
+    {
+      "name": "Country Tres Ríos"
+    },
+    {
+      "name": "Cuauhtémoc"
+    },
+    {
+      "name": "Culiacán Tres Ríos"
+    },
+    {
+      "name": "Cumbre Real"
+    },
+    {
+      "name": "Cumbres Tres Ríos"
+    },
+    {
+      "name": "Danubio"
+    },
+    {
+      "name": "Del Camino"
+    },
+    {
+      "name": "Del Humaya"
+    },
+    {
+      "name": "Diamante"
+    },
+    {
+      "name": "Dos Puntas"
+    },
+    {
+      "name": "El Álamo Campestre"
+    },
+    {
+      "name": "El Olivar"
+    },
+    {
+      "name": "Enrique Félix Castro"
+    },
+    {
+      "name": "Esmeralda Life"
+    },
+    {
+      "name": "Espacios Barcelona"
+    },
+    {
+      "name": "Espacios Marsella"
+    },
+    {
+      "name": "Estrella Nueva Galicia"
+    },
+    {
+      "name": "Fincas de las Colinas"
+    },
+    {
+      "name": "Fincas del Humaya"
+    },
+    {
+      "name": "Finisterra"
+    },
+    {
+      "name": "Florenza"
+    },
+    {
+      "name": "Floresta"
+    },
+    {
+      "name": "Floresta Tres Ríos"
+    },
+    {
+      "name": "Florida"
+    },
+    {
+      "name": "FOVISSSTE Abelardo de La Torre"
+    },
+    {
+      "name": "FOVISSSTE Diamante"
+    },
+    {
+      "name": "FOVISSSTE Humaya"
+    },
+    {
+      "name": "Fresnos"
+    },
+    {
+      "name": "Fuentes Del Valle"
+    },
+    {
+      "name": "Gran Sur"
+    },
+    {
+      "name": "Gran Vía"
+    },
+    {
+      "name": "Granada"
+    },
+    {
+      "name": "Hacienda Alameda"
+    },
+    {
+      "name": "Hacienda Arboledas"
+    },
+    {
+      "name": "Hacienda de La Mora"
+    },
+    {
+      "name": "Hacienda Del Valle"
+    },
+    {
+      "name": "Hacienda Los Huertos"
+    },
+    {
+      "name": "Hacienda los Huertos Sección Bosques de la Colina"
+    },
+    {
+      "name": "Hacienda Molino de Flores"
+    },
+    {
+      "name": "Hacienda Santa Clara"
+    },
+    {
+      "name": "Haciendas del Río"
+    },
+    {
+      "name": "Horizontes"
+    },
+    {
+      "name": "Huertos del Pedregal"
+    },
+    {
+      "name": "Humaya del Super"
+    },
+    {
+      "name": "Ibérica"
+    },
+    {
+      "name": "INFONAVIT Barrancos"
+    },
+    {
+      "name": "INFONAVIT Barrancos II"
+    },
+    {
+      "name": "INFONAVIT Barrancos III"
+    },
+    {
+      "name": "INFONAVIT Barrancos IV"
+    },
+    {
+      "name": "INFONAVIT Cañadas"
+    },
+    {
+      "name": "INFONAVIT El Barrio"
+    },
+    {
+      "name": "INFONAVIT FTS"
+    },
+    {
+      "name": "INFONAVIT Humaya"
+    },
+    {
+      "name": "INFONAVIT Solidaridad"
+    },
+    {
+      "name": "Interlomas"
+    },
+    {
+      "name": "Isla del Oeste"
+    },
+    {
+      "name": "ISSSTESIN"
+    },
+    {
+      "name": "Jardín Real"
+    },
+    {
+      "name": "Jardines de La Sierra"
+    },
+    {
+      "name": "Jardines de Santa Fe"
+    },
+    {
+      "name": "Jardines Del Pedregal"
+    },
+    {
+      "name": "Jardines del Rey"
+    },
+    {
+      "name": "Jardines Del Valle"
+    },
+    {
+      "name": "Jardines Tres Ríos"
+    },
+    {
+      "name": "Joyas del Valle"
+    },
+    {
+      "name": "La Campiña"
+    },
+    {
+      "name": "La Candelaria"
+    },
+    {
+      "name": "La Cantera"
+    },
+    {
+      "name": "La Cascada"
+    },
+    {
+      "name": "La Conquista"
+    },
+    {
+      "name": "La Cúspide"
+    },
+    {
+      "name": "La Jolla"
+    },
+    {
+      "name": "La Paloma"
+    },
+    {
+      "name": "La Primavera"
+    },
+    {
+      "name": "La Primavera Sección Parque Industrial"
+    },
+    {
+      "name": "La Puerta"
+    },
+    {
+      "name": "La Ribera Residencial"
+    },
+    {
+      "name": "La Rioja"
+    },
+    {
+      "name": "La Ventana"
+    },
+    {
+      "name": "Lago Tres Ríos"
+    },
+    {
+      "name": "Las Alondras"
+    },
+    {
+      "name": "Las Canarias"
+    },
+    {
+      "name": "Las Cerezas"
+    },
+    {
+      "name": "Las Cerezas II"
+    },
+    {
+      "name": "Las Dunas"
+    },
+    {
+      "name": "Las Flores"
+    },
+    {
+      "name": "Las Glorias"
+    },
+    {
+      "name": "Las Mañanitas"
+    },
+    {
+      "name": "Las Moras"
+    },
+    {
+      "name": "Las Palmas"
+    },
+    {
+      "name": "Las Palomas"
+    },
+    {
+      "name": "Las Quintas"
+    },
+    {
+      "name": "Las Terrazas"
+    },
+    {
+      "name": "Latitud Norte"
+    },
+    {
+      "name": "Latitud Sur"
+    },
+    {
+      "name": "Laureles"
+    },
+    {
+      "name": "Laureles Pinos"
+    },
+    {
+      "name": "Lirios del Río"
+    },
+    {
+      "name": "Loma Bonita"
+    },
+    {
+      "name": "Loma Linda"
+    },
+    {
+      "name": "Lomas de Guadalupe"
+    },
+    {
+      "name": "Lomas de San Isidro"
+    },
+    {
+      "name": "Lomas de San Isidro Sección Cumbres del Sur"
+    },
+    {
+      "name": "Lomas de San Isidro Sección Paseo Azteca"
+    },
+    {
+      "name": "Lomas de San Jerónimo"
+    },
+    {
+      "name": "Lomas del Bosque"
+    },
+    {
+      "name": "Lomas del Boulevard"
+    },
+    {
+      "name": "Lomas Del Pedregal"
+    },
+    {
+      "name": "Lomas del Sol"
+    },
+    {
+      "name": "Lomas del Sol Duplex"
+    },
+    {
+      "name": "Lomas Paraíso"
+    },
+    {
+      "name": "Lomas Verdes"
+    },
+    {
+      "name": "Los Agaves"
+    },
+    {
+      "name": "Los Álamos"
+    },
+    {
+      "name": "Los Almendros"
+    },
+    {
+      "name": "Los Ángeles"
+    },
+    {
+      "name": "Los Ciruelos"
+    },
+    {
+      "name": "Los Cisnes"
+    },
+    {
+      "name": "Los Girasoles"
+    },
+    {
+      "name": "Los Helechos"
+    },
+    {
+      "name": "Los Huertos"
+    },
+    {
+      "name": "Los Mezcales Residencial"
+    },
+    {
+      "name": "Los Olivos"
+    },
+    {
+      "name": "Los Olivos"
+    },
+    {
+      "name": "Los Patios 1"
+    },
+    {
+      "name": "Los Patios 2"
+    },
+    {
+      "name": "Los Pinos"
+    },
+    {
+      "name": "Los Portales"
+    },
+    {
+      "name": "Los Sabinos"
+    },
+    {
+      "name": "Los Sauces"
+    },
+    {
+      "name": "Magnolias Residencial"
+    },
+    {
+      "name": "Maralago"
+    },
+    {
+      "name": "Massara"
+    },
+    {
+      "name": "Mezquitillo"
+    },
+    {
+      "name": "Miravalle"
+    },
+    {
+      "name": "Misión del Álamo"
+    },
+    {
+      "name": "Misión San Fernando"
+    },
+    {
+      "name": "Misiones"
+    },
+    {
+      "name": "Mónaco"
+    },
+    {
+      "name": "Mont Alto"
+    },
+    {
+      "name": "Mont Blanc"
+    },
+    {
+      "name": "Montebello"
+    },
+    {
+      "name": "Montebello Sección Dalí"
+    },
+    {
+      "name": "Montecarlo Residencial"
+    },
+    {
+      "name": "Montereal"
+    },
+    {
+      "name": "Montesierra"
+    },
+    {
+      "name": "Montserrat"
+    },
+    {
+      "name": "Músala Isla Bonita"
+    },
+    {
+      "name": "Nativa"
+    },
+    {
+      "name": "Nueva Galicia"
+    },
+    {
+      "name": "Nueva Vizcaya"
+    },
+    {
+      "name": "Palermo"
+    },
+    {
+      "name": "Palma Dorada"
+    },
+    {
+      "name": "Palmanova"
+    },
+    {
+      "name": "Palmillas Residencial"
+    },
+    {
+      "name": "Paraíso"
+    },
+    {
+      "name": "Parque Alameda"
+    },
+    {
+      "name": "Parque Andares"
+    },
+    {
+      "name": "Parque Industrial Nueva Estación"
+    },
+    {
+      "name": "Paseo Alameda"
+    },
+    {
+      "name": "Paseo de los Arcos"
+    },
+    {
+      "name": "Paseo Del Rio"
+    },
+    {
+      "name": "Paseos del Rey"
+    },
+    {
+      "name": "Paseos del Valle"
+    },
+    {
+      "name": "Pedregal de San Ángel"
+    },
+    {
+      "name": "Perisur"
+    },
+    {
+      "name": "Perisur II"
+    },
+    {
+      "name": "Pontevedra"
+    },
+    {
+      "name": "Portabelo"
+    },
+    {
+      "name": "Portabelo III"
+    },
+    {
+      "name": "Portafe"
+    },
+    {
+      "name": "Portalegre"
+    },
+    {
+      "name": "Portales Del Country"
+    },
+    {
+      "name": "Portales del Río"
+    },
+    {
+      "name": "Portanova"
+    },
+    {
+      "name": "Portareal"
+    },
+    {
+      "name": "Pradera Dorada"
+    },
+    {
+      "name": "Pradera Dorada II"
+    },
+    {
+      "name": "Praderas Del Rey"
+    },
+    {
+      "name": "Prados de La Conquista"
+    },
+    {
+      "name": "Prados de Occidente"
+    },
+    {
+      "name": "Prados Del Sol"
+    },
+    {
+      "name": "Prados Del Sur"
+    },
+    {
+      "name": "Prados Residencial"
+    },
+    {
+      "name": "Privada Del Real"
+    },
+    {
+      "name": "Privada Del Rey"
+    },
+    {
+      "name": "Privada La Rinconada"
+    },
+    {
+      "name": "Privada La Rivera"
+    },
+    {
+      "name": "Privada Real del Valle"
+    },
+    {
+      "name": "Privadas la Estancia"
+    },
+    {
+      "name": "Privanzas"
+    },
+    {
+      "name": "Privanzas Natura"
+    },
+    {
+      "name": "Provenza"
+    },
+    {
+      "name": "Providencia"
+    },
+    {
+      "name": "Pueblo Bonito"
+    },
+    {
+      "name": "Puerta de Hierro"
+    },
+    {
+      "name": "Punto Oriente"
+    },
+    {
+      "name": "Quinta Americana"
+    },
+    {
+      "name": "Quinta Real"
+    },
+    {
+      "name": "Rancho Contento"
+    },
+    {
+      "name": "Real de Chapultepec"
+    },
+    {
+      "name": "Real de Minas"
+    },
+    {
+      "name": "Real de Santa Fe"
+    },
+    {
+      "name": "Real del Álamo"
+    },
+    {
+      "name": "Real Del Country"
+    },
+    {
+      "name": "Real Del Parque"
+    },
+    {
+      "name": "Real San Ángel"
+    },
+    {
+      "name": "Real San Sebastián"
+    },
+    {
+      "name": "Residencial Hacienda"
+    },
+    {
+      "name": "Residencial San José"
+    },
+    {
+      "name": "Residencial Santa Sofía"
+    },
+    {
+      "name": "Riberas de Tamazula"
+    },
+    {
+      "name": "Riberas del Humaya"
+    },
+    {
+      "name": "Rincón Alameda"
+    },
+    {
+      "name": "Rincón Colonial"
+    },
+    {
+      "name": "Rincón Del Humaya"
+    },
+    {
+      "name": "Rincón Del Parque"
+    },
+    {
+      "name": "Rincón del Valle"
+    },
+    {
+      "name": "Rincón Las Palmas"
+    },
+    {
+      "name": "Rincón Real"
+    },
+    {
+      "name": "Rincón San Rafael"
+    },
+    {
+      "name": "Rincón Santa Rosa"
+    },
+    {
+      "name": "Roma Residencial"
+    },
+    {
+      "name": "San Agustin"
+    },
+    {
+      "name": "San Ángel"
+    },
+    {
+      "name": "San Ángel"
+    },
+    {
+      "name": "San Benito"
+    },
+    {
+      "name": "San Carlos"
+    },
+    {
+      "name": "San Cipriano"
+    },
+    {
+      "name": "San Diego"
+    },
+    {
+      "name": "San Fermín"
+    },
+    {
+      "name": "San Florencio"
+    },
+    {
+      "name": "San José"
+    },
+    {
+      "name": "San Luis Residencial"
+    },
+    {
+      "name": "San Luis Residencial II"
+    },
+    {
+      "name": "San Marcos"
+    },
+    {
+      "name": "San Sebastián"
+    },
+    {
+      "name": "San Valentino"
+    },
+    {
+      "name": "Santa Aynes"
+    },
+    {
+      "name": "Santa Bárbara"
+    },
+    {
+      "name": "Santa Clara"
+    },
+    {
+      "name": "Santa Elena"
+    },
+    {
+      "name": "Santa Fe"
+    },
+    {
+      "name": "Santa Fe Real"
+    },
+    {
+      "name": "Santa Inés"
+    },
+    {
+      "name": "Santa Margarita"
+    },
+    {
+      "name": "Santa Rocio"
+    },
+    {
+      "name": "Santa Susana"
+    },
+    {
+      "name": "Santa Teresa"
+    },
+    {
+      "name": "Sección Cumbres"
+    },
+    {
+      "name": "Senderos"
+    },
+    {
+      "name": "Servidor Publico Municipal"
+    },
+    {
+      "name": "Sfera Residencial"
+    },
+    {
+      "name": "Stanza Castilla"
+    },
+    {
+      "name": "Stanza Solare"
+    },
+    {
+      "name": "Stanza Toscana"
+    },
+    {
+      "name": "STASE"
+    },
+    {
+      "name": "STASE II"
+    },
+    {
+      "name": "STASE III"
+    },
+    {
+      "name": "Tabachines"
+    },
+    {
+      "name": "Terranova"
+    },
+    {
+      "name": "Torralba"
+    },
+    {
+      "name": "Torre Dorada"
+    },
+    {
+      "name": "Torres Aeropuerto"
+    },
+    {
+      "name": "Tres Ríos"
+    },
+    {
+      "name": "Tulipanes"
+    },
+    {
+      "name": "Umbrales"
+    },
+    {
+      "name": "Universidad 94"
+    },
+    {
+      "name": "Universidad 94 II"
+    },
+    {
+      "name": "Urbi Villa del Sol"
+    },
+    {
+      "name": "Urbivilla del Prado"
+    },
+    {
+      "name": "Valencia"
+    },
+    {
+      "name": "Valle Alto"
+    },
+    {
+      "name": "Valle Bonito"
+    },
+    {
+      "name": "Valle de Amapa"
+    },
+    {
+      "name": "Valle de Encino"
+    },
+    {
+      "name": "Valle del Agua"
+    },
+    {
+      "name": "Valle Dorado"
+    },
+    {
+      "name": "Valle Real"
+    },
+    {
+      "name": "Valles Del Sol"
+    },
+    {
+      "name": "Valles Españoles"
+    },
+    {
+      "name": "Verona"
+    },
+    {
+      "name": "Versalles"
+    },
+    {
+      "name": "Vía San José"
+    },
+    {
+      "name": "Victoria"
+    },
+    {
+      "name": "Villa Andalucía"
+    },
+    {
+      "name": "Villa Bonita"
+    },
+    {
+      "name": "Villa Colonial"
+    },
+    {
+      "name": "Villa Contenta"
+    },
+    {
+      "name": "Villa del Cedro"
+    },
+    {
+      "name": "Villa del Pedregal"
+    },
+    {
+      "name": "Villa del Prado"
+    },
+    {
+      "name": "Villa Del Real"
+    },
+    {
+      "name": "Villa del Roble"
+    },
+    {
+      "name": "Villa Fontana"
+    },
+    {
+      "name": "Villa Satélite"
+    },
+    {
+      "name": "Villa Serena"
+    },
+    {
+      "name": "Villa Universidad"
+    },
+    {
+      "name": "Villa Verde"
+    },
+    {
+      "name": "Villas de Bacurimí Sección Acacia"
+    },
+    {
+      "name": "Villas de Bacurimí Sección Britania"
+    },
+    {
+      "name": "Villas de Cortés"
+    },
+    {
+      "name": "Villas de Culiacán"
+    },
+    {
+      "name": "Villas del Humaya"
+    },
+    {
+      "name": "Villas Del Manantial"
+    },
+    {
+      "name": "Villas Del Rio"
+    },
+    {
+      "name": "Villas Del Rio Elite"
+    },
+    {
+      "name": "Villas San Antonio"
+    },
+    {
+      "name": "Villas Santa Anita"
+    },
+    {
+      "name": "Villas Victoria"
+    },
+    {
+      "name": "Viñedos"
+    },
+    {
+      "name": "Vinoramas"
+    },
+    {
+      "name": "Virreyes SC"
+    },
+    {
+      "name": "Vistanova"
+    },
+    {
+      "name": "Vistas del Lago"
+    },
+    {
+      "name": "Vistas del Lago la Primavera"
+    },
+    {
+      "name": "Zona Dorada"
+    },
+    {
+      "name": "Zona Dorada II"
+    }
+  ]
+}
