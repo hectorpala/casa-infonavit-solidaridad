@@ -924,6 +924,20 @@
           "fechaScrapeo": "2025-10-22",
           "fechaPublicacion": "Publicado hace 7 días",
           "vistas": 0
+        },
+        {
+          "id": "147814499",
+          "titulo": "Casa en Venta Colonia Guadalupe Culiacán",
+          "precio": "MN 4,300,000",
+          "ubicacion": "Rio Quelite Colonia Guadalupe, Culiacán, Sinaloa, Mexico, Guadalupe",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-guadalupe-culiacan-147814499.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=14",
+          "fechaScrapeo": "2025-10-22",
+          "fechaPublicacion": "Publicado hace 15 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Casa Rio Culiacán y Paliza, Culiacán, Sinaloa, Mexico, Guadalupe",
@@ -4195,9 +4209,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-22T18:26:24.401Z",
+    "ultimaActualizacion": "2025-10-22T19:37:44.794Z",
     "totalVendedores": 22,
-    "totalPropiedades": 231,
+    "totalPropiedades": 232,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
