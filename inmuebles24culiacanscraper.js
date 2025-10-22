@@ -1683,7 +1683,7 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         }
 
         // FUENTE PRIORITARIA 0: Texto arriba del mapa de Google (MÁXIMA PRIORIDAD)
-        // Buscar h2, h3, o divs con "location/address" cerca de iframes de Google Maps
+        // Buscar texto completo cerca de iframes de Google Maps
         const mapCandidates = [];
 
         // Buscar iframes de Google Maps
@@ -1692,17 +1692,33 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         );
 
         googleMapIframes.forEach(iframe => {
-            // Buscar elementos hermanos anteriores o padres con texto
+            // Estrategia 1: Buscar hermano anterior directo
+            let previousSibling = iframe.previousElementSibling;
+            if (previousSibling) {
+                const text = previousSibling.textContent.trim();
+                if (text.length > 15 && text.length < 300) {
+                    console.log(`   🔍 Hermano anterior del mapa: "${text}"`);
+                    mapCandidates.push(text);
+                }
+            }
+
+            // Estrategia 2: Buscar en el contenedor padre del mapa
             let current = iframe.parentElement;
-            for (let i = 0; i < 5 && current; i++) {
-                // Buscar h2, h3, p, div, span con texto relevante
-                const headers = current.querySelectorAll('h2, h3, h4, p, div[class*="location"], div[class*="address"], div[class*="ubicacion"]');
-                headers.forEach(el => {
-                    const text = el.textContent.trim();
-                    // Verificar que sea una dirección válida (tiene longitud adecuada y contiene comas o palabras clave)
-                    if (text.length > 15 && text.length < 200 &&
-                        (text.match(/,/) || /(fracc|colonia|blvd|avenida|calle|privada)/i.test(text))) {
-                        mapCandidates.push(text);
+            for (let i = 0; i < 3 && current; i++) {
+                // Buscar TODOS los elementos de texto antes del iframe en este nivel
+                const allTextElements = Array.from(current.querySelectorAll('h1, h2, h3, h4, h5, p, span, div, li'));
+
+                allTextElements.forEach(el => {
+                    // Solo considerar elementos que están ANTES del iframe en el DOM
+                    if (el.compareDocumentPosition(iframe) & Node.DOCUMENT_POSITION_FOLLOWING) {
+                        const text = el.textContent.trim();
+                        // Buscar direcciones válidas
+                        if (text.length > 20 && text.length < 300 &&
+                            (text.match(/,.*,/) || // Al menos 2 comas
+                             /(calle|avenida|blvd|boulevard|privada|fracc|fraccionamiento|colonia|residencial)/i.test(text))) {
+                            console.log(`   🔍 Texto encontrado antes del mapa: "${text}"`);
+                            mapCandidates.push(text);
+                        }
                     }
                 });
                 current = current.parentElement;
@@ -1712,7 +1728,9 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         // Registrar las direcciones encontradas cerca del mapa con máxima prioridad
         if (mapCandidates.length > 0) {
             console.log(`   🗺️  Encontradas ${mapCandidates.length} dirección(es) cerca del mapa de Google`);
-            mapCandidates.forEach(addr => {
+            // Eliminar duplicados
+            const uniqueCandidates = [...new Set(mapCandidates)];
+            uniqueCandidates.forEach(addr => {
                 const parts = appendCityState([addr]);
                 registerAddressCandidate(parts.join(', '), 10, 'mapGoogleAbove');
             });
