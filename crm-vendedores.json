@@ -34,6 +34,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "147055011",
+          "titulo": "Casa en Venta Col Chapultepec Culiacán",
+          "precio": "MN 5,250,000",
+          "ubicacion": "Avenida Juan Escutia Norte, Culiacán, Sinaloa, Mexico, Fraccionamiento Chapultepec Del Rio",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-col-chapultepec-culiacan-147055011.html?n_src=Listado&n_pills=Patio&n_pg=2&n_pos=13",
+          "fechaScrapeo": "2025-10-22",
+          "fechaPublicacion": "Publicado hace 95 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedora Centro Histórico Culiacán",
@@ -4117,9 +4131,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-22T05:17:02.671Z",
+    "ultimaActualizacion": "2025-10-22T05:30:50.021Z",
     "totalVendedores": 21,
-    "totalPropiedades": 227,
+    "totalPropiedades": 228,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
