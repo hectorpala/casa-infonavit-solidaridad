@@ -18105,7 +18105,7 @@
 
             // Propiedad: Casa Colinas de San Miguel
             const colinasSanMiguelProperty = {
-                address: "Fraccionamiento Colinas de San Miguel, Culiacán, Sinaloa",
+                lat: 24.8156, lng: -107.4382, // Fraccionamiento Colinas de San Miguel, Culiacán
                 priceShort: "$6.0M",
                 priceFull: "$5,990,000",
                 title: "Casa con Vista Espectacular en Colinas de San Miguel (Privada)",
@@ -18131,20 +18131,6 @@
                     "casa-con-vista-espectacular-en-colinas-de-san-miguel-privada/images/foto-13.jpg"
                 ]
             };
-
-            // Geocodificar y agregar marcador para Colinas de San Miguel
-            geocoder.geocode({ address: colinasSanMiguelProperty.address }, function(results, status) {
-                if (status === 'OK' && results[0]) {
-                    colinasSanMiguelProperty.position = {
-                        lat: results[0].geometry.location.lat(),
-                        lng: results[0].geometry.location.lng()
-                    };
-                    const marker = createPropertyMarkerForMap(colinasSanMiguelProperty, mapCuliacan, false);
-                    window.allCuliacanMarkers.push({ marker: marker, property: colinasSanMiguelProperty });
-                } else {
-                    console.error('Geocode falló para Colinas de San Miguel:', status);
-                }
-            });
 
             // Propiedad: Casa Infonavit Solidaridad
             const solidaridadProperty = {
@@ -20400,6 +20386,13 @@ const losPinosProperty = {
         "../images/los-pinos/rio-nazas-1249-los-pinos-culiacan-sinaloa-30221373-foto-11.jpg"
     ]
 };
+
+// Crear marcador para Colinas de San Miguel (coordenadas hardcodeadas)
+            const colinasSanMiguelPosition = new google.maps.LatLng(colinasSanMiguelProperty.lat, colinasSanMiguelProperty.lng);
+            const colinasSanMiguelMarkerClass = createZillowPropertyMarker(colinasSanMiguelProperty, window.mapCuliacan);
+            const colinasSanMiguelMarker = new colinasSanMiguelMarkerClass(colinasSanMiguelPosition, window.mapCuliacan, colinasSanMiguelProperty);
+            window.allCuliacanMarkers.push(colinasSanMiguelMarker);
+            console.log('Marcador Colinas de San Miguel creado en:', colinasSanMiguelProperty.lat, colinasSanMiguelProperty.lng);
 
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
