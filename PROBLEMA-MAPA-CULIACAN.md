@@ -2,8 +2,26 @@
 
 **Estado:** Pendiente de refactorización
 **Prioridad:** Media-Alta
-**Tiempo estimado:** 3-4 horas
+**Tiempo estimado:** 4-5 horas
 **Fecha identificación:** 2025-10-21
+
+## 🔧 Fix Temporal Aplicado
+
+**Propiedad:** Casa Colinas de San Miguel
+**Fecha:** 2025-10-21
+**Commit:** [pendiente]
+
+### Cambios aplicados:
+✅ Metadata limpio (title, description, keywords, OG, Schema.org)
+✅ Eliminado array ALL_MAZATLAN_PROPERTIES (20 líneas)
+✅ Mapa muestra solo marcador actual (sin otras propiedades)
+✅ Comentarios TODO actualizados apuntando a ALL_CULIACAN_PROPERTIES
+
+### Comportamiento actual:
+- ✅ Mapa modal funciona (1 solo marcador)
+- ❌ No muestra otras propiedades de Culiacán (esperado)
+- ✅ No muestra propiedades de Mazatlán (corregido)
+- 📝 Requiere refactorización completa para funcionalidad multi-marcador
 
 ---
 
