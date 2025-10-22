@@ -458,6 +458,20 @@
           "fechaScrapeo": "2025-10-18",
           "fechaPublicacion": "Publicado hace 114 días",
           "vistas": 0
+        },
+        {
+          "id": "",
+          "titulo": "Casa con Vista Espectacular en Colinas de San Miguel (Privada)",
+          "precio": "MN 5,990,000",
+          "ubicacion": "Inmuebles24  Casa  Venta  Sinaloa  Culiacán  Fraccionamiento Colinas de San Miguel  Casa con Vista Espectacular en Colinas de San Miguel (Privada)",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-vista-espectacular-en-colinas-de-san-miguel-147904217.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=1",
+          "fechaScrapeo": "2025-10-21",
+          "fechaPublicacion": "Publicado hace 6 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Culiacán, Sinaloa",
@@ -685,8 +699,8 @@
   ],
   "estadisticas": {
     "totalVendedores": 18,
-    "totalPropiedades": 32,
-    "ultimaActualizacion": "2025-10-18T20:49:00.047Z"
+    "totalPropiedades": 33,
+    "ultimaActualizacion": "2025-10-21T23:35:56.308Z"
   },
   "busquedas": [
     {
