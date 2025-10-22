@@ -1264,6 +1264,32 @@ function actualizarVendedorCRM(vendedorData, propertyData) {
 
     saveCRM(crm);
     console.log(`   ✅ CRM actualizado: ${crm.estadisticas.totalVendedores} vendedores, ${crm.estadisticas.totalPropiedades} propiedades\n`);
+
+    // Publicar cambios del CRM automáticamente
+    try {
+        console.log('📤 Publicando cambios del CRM a GitHub...\n');
+        execSync('git add crm-vendedores.json inmuebles24-scraped-properties.json', { stdio: 'pipe' });
+
+        // Verificar si hay cambios para hacer commit
+        const status = execSync('git status --porcelain', { encoding: 'utf8' });
+        if (status.trim()) {
+            execSync(`git commit -m "CRM: Actualizar base de datos automáticamente
+
+- Propiedad agregada/actualizada en el CRM
+- Total: ${crm.estadisticas.totalVendedores} vendedores, ${crm.estadisticas.totalPropiedades} propiedades
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'pipe' });
+
+            execSync('git push origin main', { stdio: 'pipe' });
+            console.log('   ✅ CRM publicado exitosamente a GitHub\n');
+        } else {
+            console.log('   ℹ️  No hay cambios nuevos en el CRM para publicar\n');
+        }
+    } catch (error) {
+        console.log('   ⚠️  No se pudo publicar el CRM automáticamente (continuando...)\n');
+    }
 }
 
 function buscarVendedorCRM(query) {
