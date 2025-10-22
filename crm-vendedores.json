@@ -122,6 +122,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "144422903",
+          "titulo": "Venta de Casa en La Col. 5 de Mayo, Culiacan Sinaloa",
+          "precio": "MN 1,600,000",
+          "ubicacion": "29 DE DICIEMBRE 1429, 5 de Mayo, 80230 Culiacán, Sinaloa, México, Culiacán, Sinaloa, Mexico, 5 de Mayo",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-en-la-col.-5-de-mayo-culiacan-sinaloa-144422903.html?n_src=Listado&n_pills=Terraza&n_pg=2&n_pos=19",
+          "fechaScrapeo": "2025-10-22",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -4131,9 +4145,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-22T05:30:50.021Z",
+    "ultimaActualizacion": "2025-10-22T05:49:25.289Z",
     "totalVendedores": 21,
-    "totalPropiedades": 228,
+    "totalPropiedades": 229,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
