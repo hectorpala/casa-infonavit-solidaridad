@@ -1995,10 +1995,48 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         // METADATOS PARA DETECCIÓN DE DUPLICADOS
         // ============================================
 
-        // Fecha de publicación - buscar en elementos con clase userViews
+        // Fecha de publicación - MÚLTIPLES SELECTORES DE RESPALDO
+        let dateFound = false;
+
+        // Método 1: Buscar por clase específica
         const dateEl = document.querySelector('.userViews-module__post-antiquity-views___8Zfch, [class*="post-antiquity"]');
-        if (dateEl) {
+        if (dateEl && dateEl.textContent.trim()) {
             result.publishedDate = dateEl.textContent.trim();
+            dateFound = true;
+        }
+
+        // Método 2: Buscar por clase que contenga "antiquity" o "date"
+        if (!dateFound) {
+            const altDateEl = document.querySelector('[class*="antiquity"], [class*="publish"], [class*="fecha"]');
+            if (altDateEl && altDateEl.textContent.match(/publicado|hace|días/i)) {
+                result.publishedDate = altDateEl.textContent.trim();
+                dateFound = true;
+            }
+        }
+
+        // Método 3: Buscar en el body con regex
+        if (!dateFound) {
+            const bodyText = document.body.innerText;
+            const dateMatch = bodyText.match(/Publicado\s+hace\s+(\d+)\s+(día|días|mes|meses|año|años)/i);
+            if (dateMatch) {
+                result.publishedDate = `Publicado hace ${dateMatch[1]} ${dateMatch[2]}`;
+                dateFound = true;
+            }
+        }
+
+        // Método 4: Buscar "hace X días" o similar
+        if (!dateFound) {
+            const bodyText = document.body.innerText;
+            const haceMatch = bodyText.match(/hace\s+(\d+|hoy|ayer|más de \d+)\s+(día|días|mes|meses|año|años)?/i);
+            if (haceMatch) {
+                result.publishedDate = `Publicado ${haceMatch[0]}`;
+                dateFound = true;
+            }
+        }
+
+        // Si no se encuentra nada, dejar vacío (se capturará como "No disponible" en el CRM)
+        if (!dateFound) {
+            result.publishedDate = '';
         }
 
         // Visualizaciones - extraer número de "X visualizaciones"
