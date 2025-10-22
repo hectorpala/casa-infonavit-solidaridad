@@ -1682,6 +1682,42 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             console.log('   ⚠️  Error reading JSON-LD scripts:', e.message);
         }
 
+        // FUENTE PRIORITARIA 0: Texto arriba del mapa de Google (MÁXIMA PRIORIDAD)
+        // Buscar h2, h3, o divs con "location/address" cerca de iframes de Google Maps
+        const mapCandidates = [];
+
+        // Buscar iframes de Google Maps
+        const googleMapIframes = Array.from(document.querySelectorAll('iframe')).filter(iframe =>
+            iframe.src && iframe.src.includes('google.com/maps')
+        );
+
+        googleMapIframes.forEach(iframe => {
+            // Buscar elementos hermanos anteriores o padres con texto
+            let current = iframe.parentElement;
+            for (let i = 0; i < 5 && current; i++) {
+                // Buscar h2, h3, p, div, span con texto relevante
+                const headers = current.querySelectorAll('h2, h3, h4, p, div[class*="location"], div[class*="address"], div[class*="ubicacion"]');
+                headers.forEach(el => {
+                    const text = el.textContent.trim();
+                    // Verificar que sea una dirección válida (tiene longitud adecuada y contiene comas o palabras clave)
+                    if (text.length > 15 && text.length < 200 &&
+                        (text.match(/,/) || /(fracc|colonia|blvd|avenida|calle|privada)/i.test(text))) {
+                        mapCandidates.push(text);
+                    }
+                });
+                current = current.parentElement;
+            }
+        });
+
+        // Registrar las direcciones encontradas cerca del mapa con máxima prioridad
+        if (mapCandidates.length > 0) {
+            console.log(`   🗺️  Encontradas ${mapCandidates.length} dirección(es) cerca del mapa de Google`);
+            mapCandidates.forEach(addr => {
+                const parts = appendCityState([addr]);
+                registerAddressCandidate(parts.join(', '), 10, 'mapGoogleAbove');
+            });
+        }
+
         // FUENTE PRIORITARIA 2: data-testid="address-text"
         const addressTestId = document.querySelector('[data-testid="address-text"]');
         if (addressTestId) {
