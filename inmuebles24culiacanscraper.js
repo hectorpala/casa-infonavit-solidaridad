@@ -2652,13 +2652,14 @@ async function main() {
 
         // 8. Commit y push automático
         console.log('🚀 Publicando a GitHub...\n');
-        execSync(`git add ${propertyDir} ${cityConfig.indexPath}`, { stdio: 'inherit' });
+        execSync(`git add ${propertyDir} ${cityConfig.indexPath} crm-vendedores.json`, { stdio: 'inherit' });
         execSync(`git commit -m "Add: ${data.title} (Inmuebles24 - ${cityConfig.name})
 
 - Scrapeado de Inmuebles24
 - ${photoCount} fotos descargadas
 - Master Template aplicado
 - Tarjeta agregada a ${cityConfig.indexPath}
+- CRM actualizado automáticamente
 - Ciudad: ${cityConfig.name}, ${cityConfig.state}
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
