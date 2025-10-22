@@ -910,6 +910,20 @@
           "colonia": "Sinaloa",
           "ciudad": "culiacan",
           "fotoPrincipal": "culiacan/casa-abajo-del-valor-avaluo-en-nuevo-culiacan/images/foto-1.jpg"
+        },
+        {
+          "id": "147903309",
+          "titulo": "Casa en Venta en Sector Tres Rios Culiacán",
+          "precio": "MN 27,000,000",
+          "ubicacion": "Privada en Sector Tres Rios, Culiacán, Sinaloa, Mexico, Zona comercial Desarrollo Urbano 3 Ríos",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-sector-tres-rios-culiacan-147903309.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=2",
+          "fechaScrapeo": "2025-10-22",
+          "fechaPublicacion": "Publicado hace 7 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Casa Rio Culiacán y Paliza, Culiacán, Sinaloa, Mexico, Guadalupe",
@@ -4181,9 +4195,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-22T18:13:08.949Z",
+    "ultimaActualizacion": "2025-10-22T18:26:24.401Z",
     "totalVendedores": 22,
-    "totalPropiedades": 230,
+    "totalPropiedades": 231,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
