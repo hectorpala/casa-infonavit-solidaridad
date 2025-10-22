@@ -117,11 +117,16 @@
                     <p class="text-gray-600" id="successMessage">Tu propiedad ya está en línea</p>
                 </div>
 
-                <div class="bg-green-50 border-2 border-green-200 rounded-lg p-4 mb-6">
+                <div class="bg-green-50 border-2 border-green-200 rounded-lg p-4 mb-4">
                     <p class="text-sm text-gray-600 mb-2">URL de la propiedad:</p>
                     <a id="propertyLink" href="#" target="_blank" class="text-green-600 font-semibold hover:text-green-700 break-all">
                         https://casasenventa.info/culiacan/...
                     </a>
+                </div>
+
+                <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-3 mb-6">
+                    <p class="text-xs text-gray-500 mb-1">ID de Propiedad</p>
+                    <p class="text-sm font-mono text-gray-700" id="propertyId">N/A</p>
                 </div>
 
                 <div class="flex gap-3">
@@ -162,6 +167,7 @@
         const newButton = document.getElementById('newButton');
         const propertyLink = document.getElementById('propertyLink');
         const successMessage = document.getElementById('successMessage');
+        const propertyIdEl = document.getElementById('propertyId');
 
         let eventSource = null;
         let currentProgress = 0;
@@ -221,6 +227,11 @@
                 }
             } else if (data.type === 'error') {
                 addLog('❌ ' + data.message, 'error');
+            } else if (data.type === 'duplicate') {
+                updateProgress(100);
+                setTimeout(() => {
+                    showDuplicate(data);
+                }, 500);
             } else if (data.type === 'complete') {
                 updateProgress(100);
                 setTimeout(() => {
@@ -280,8 +291,35 @@
             successMessage.textContent = data.title || 'Tu propiedad ya está en línea';
             propertyLink.href = data.url;
             propertyLink.textContent = data.url;
+            propertyIdEl.textContent = data.propertyId || 'N/A';
 
             viewButton.onclick = () => window.open(data.url, '_blank');
+        }
+
+        function showDuplicate(data) {
+            progressSection.classList.add('hidden');
+
+            // Create duplicate warning section
+            const duplicateSection = document.createElement('div');
+            duplicateSection.className = 'text-center';
+            duplicateSection.innerHTML = `
+                <div class="bg-yellow-500/10 border-2 border-yellow-500 rounded-xl p-8 mb-6">
+                    <div class="text-6xl mb-4">⚠️</div>
+                    <h2 class="text-2xl font-bold text-yellow-400 mb-3">Propiedad Duplicada</h2>
+                    <p class="text-gray-300 mb-4">${data.message}</p>
+                    <div class="bg-gray-800/50 rounded-lg p-4 mb-4">
+                        <p class="text-sm text-gray-400 mb-2">ID de Propiedad</p>
+                        <p class="text-xl font-mono text-yellow-400">${data.propertyId || 'N/A'}</p>
+                    </div>
+                    <p class="text-sm text-gray-400">Esta propiedad ya fue scrapeada anteriormente. No se crearon archivos duplicados.</p>
+                </div>
+                <button onclick="location.reload()"
+                        class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 px-8 rounded-lg transition-all transform hover:scale-105">
+                    Agregar Otra Propiedad
+                </button>
+            `;
+
+            progressSection.parentElement.appendChild(duplicateSection);
         }
 
         // Cancel button

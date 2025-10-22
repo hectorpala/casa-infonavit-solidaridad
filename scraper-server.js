@@ -46,6 +46,8 @@ app.post('/run-scraper', (req, res) => {
     let outputBuffer = '';
     let propertySlug = '';
     let propertyTitle = '';
+    let propertyId = '';
+    let isDuplicate = false;
 
     // Capturar stdout
     scraper.stdout.on('data', (data) => {
@@ -71,6 +73,16 @@ app.post('/run-scraper', (req, res) => {
                     propertyTitle = match[1].trim();
                 }
             }
+            if (line.includes('🆔 ID Propiedad:')) {
+                // Ejemplo: "🆔 ID Propiedad: 144439344"
+                const match = line.match(/🆔 ID Propiedad:\s*(.+)/);
+                if (match) {
+                    propertyId = match[1].trim();
+                }
+            }
+            if (line.includes('PROPIEDAD DUPLICADA DETECTADA')) {
+                isDuplicate = true;
+            }
 
             // Enviar evento SSE
             res.write(`data: ${JSON.stringify({
@@ -94,19 +106,33 @@ app.post('/run-scraper', (req, res) => {
     // Cuando el scraper termine
     scraper.on('close', (code) => {
         console.log(`[${new Date().toISOString()}] Scraper terminó con código: ${code}`);
-        if (code === 0) {
+
+        // Si es duplicado (exit code 0 pero no hay slug generado)
+        if (code === 0 && isDuplicate) {
+            res.write(`data: ${JSON.stringify({
+                type: 'duplicate',
+                propertyId: propertyId,
+                message: `⚠️ Propiedad duplicada (ID: ${propertyId}). Ya fue scrapeada anteriormente.`,
+                progress: 100
+            })}\n\n`);
+        }
+        // Si completó exitosamente
+        else if (code === 0 && propertySlug) {
             const propertyUrl = `https://casasenventa.info/culiacan/${propertySlug}/`;
             res.write(`data: ${JSON.stringify({
                 type: 'complete',
                 slug: propertySlug,
                 title: propertyTitle || 'Propiedad',
+                propertyId: propertyId || 'N/A',
                 url: propertyUrl,
                 progress: 100
             })}\n\n`);
-        } else {
+        }
+        // Si hubo error
+        else {
             res.write(`data: ${JSON.stringify({
                 type: 'error',
-                message: `Scraper terminó con código ${code}`
+                message: code === 0 ? 'Scraper completado pero no se generó slug' : `Scraper terminó con código ${code}`
             })}\n\n`);
         }
         res.end();
