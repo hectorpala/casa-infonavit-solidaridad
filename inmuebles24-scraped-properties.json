@@ -144,7 +144,7 @@
     "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-en-privada-kentia-valle-alto-147513900.html"
   },
   {
-    "propertyId": "",
+    "propertyId": "147904217",
     "title": "Casa con Vista Espectacular en Colinas de San Miguel (Privada)",
     "slug": "casa-con-vista-espectacular-en-colinas-de-san-miguel-privada",
     "price": "MN 5,990,000",
@@ -153,12 +153,21 @@
     "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-vista-espectacular-en-colinas-de-san-miguel-147904217.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=1"
   },
   {
-    "propertyId": "",
+    "propertyId": "146266554",
     "title": "Vendo Casa en Colonia Guadalupe Culiacán",
     "slug": "vendo-casa-en-colonia-guadalupe-culiacan",
     "price": "MN 9,900,000",
     "publishedDate": "Publicado hace 180 días",
     "scrapedAt": "2025-10-22T01:11:03.377Z",
     "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-vendo-casa-en-colonia-guadalupe-culiacan-146266554.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=24"
+  },
+  {
+    "propertyId": "144439344",
+    "title": "Casa en Venta en Stanza Toscana",
+    "slug": "casa-en-venta-en-stanza-toscana",
+    "price": "MN 2,990,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "scrapedAt": "2025-10-22T01:32:55.055Z",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-stanza-toscana-144439344.html?n_src=Listado&n_pills=Terraza&n_pg=3&n_pos=26"
   }
 ]
