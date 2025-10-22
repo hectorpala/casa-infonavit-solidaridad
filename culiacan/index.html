@@ -20387,13 +20387,6 @@ const losPinosProperty = {
     ]
 };
 
-// Crear marcador para Colinas de San Miguel (coordenadas hardcodeadas)
-            const colinasSanMiguelPosition = new google.maps.LatLng(colinasSanMiguelProperty.lat, colinasSanMiguelProperty.lng);
-            const colinasSanMiguelMarkerClass = createZillowPropertyMarker(colinasSanMiguelProperty, window.mapCuliacan);
-            const colinasSanMiguelMarker = new colinasSanMiguelMarkerClass(colinasSanMiguelPosition, window.mapCuliacan, colinasSanMiguelProperty);
-            window.allCuliacanMarkers.push(colinasSanMiguelMarker);
-            console.log('Marcador Colinas de San Miguel creado en:', colinasSanMiguelProperty.lat, colinasSanMiguelProperty.lng);
-
 // Geocodificar solidaridad
             geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
@@ -21371,6 +21364,13 @@ const losPinosProperty = {
             const casa_en_renta_en_valle_alto_a2Marker = new casa_en_renta_en_valle_alto_a2MarkerClass(casa_en_renta_en_valle_alto_a2Position, window.mapCuliacan, casa_en_renta_en_valle_alto_a2Property);
             window.allCuliacanMarkers.push(casa_en_renta_en_valle_alto_a2Marker);
             console.log('Marcador Valle Alto A2 (RENTA) creado en:', casa_en_renta_en_valle_alto_a2Position.lat(), casa_en_renta_en_valle_alto_a2Position.lng());
+
+            // Colinas de San Miguel (VENTA) - Se crea AL FINAL para aparecer encima de otros marcadores
+            const colinasSanMiguelPosition = new google.maps.LatLng(colinasSanMiguelProperty.lat, colinasSanMiguelProperty.lng);
+            const colinasSanMiguelMarkerClass = createZillowPropertyMarker(colinasSanMiguelProperty, window.mapCuliacan);
+            const colinasSanMiguelMarker = new colinasSanMiguelMarkerClass(colinasSanMiguelPosition, window.mapCuliacan, colinasSanMiguelProperty);
+            window.allCuliacanMarkers.push(colinasSanMiguelMarker);
+            console.log('Marcador Colinas de San Miguel creado en:', colinasSanMiguelProperty.lat, colinasSanMiguelProperty.lng);
 
             // Inicializar filtros Zillow cuando el mapa esté listo
             setTimeout(initZillowFilters, 500);
