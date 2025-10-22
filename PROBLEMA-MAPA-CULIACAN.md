@@ -9,7 +9,8 @@
 
 **Propiedad:** Casa Colinas de San Miguel
 **Fecha:** 2025-10-21
-**Commit:** [pendiente]
+**Commits:** 9b52132 (metadata) + 532fe63 (cleanup)
+**Deploy:** https://casasenventa.info/culiacan/casa-con-vista-espectacular-en-colinas-de-san-miguel-privada/
 
 ### Cambios aplicados:
 ✅ Metadata limpio (title, description, keywords, OG, Schema.org)
