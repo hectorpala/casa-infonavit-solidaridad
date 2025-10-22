@@ -485,10 +485,10 @@
     },
     {
       "id": "v012",
-      "nombre": "León y Asociados Grupo Inmobiliario",
-      "telefono": "815028902",
-      "telefonoFormateado": "815028902",
-      "whatsapp": "https://wa.me/52815028902",
+      "nombre": "DAVID GONZALEZ",
+      "telefono": "PENDIENTE_VERIFICAR",
+      "telefonoFormateado": "PENDIENTE_VERIFICAR",
+      "whatsapp": "",
       "fuente": "Inmuebles24",
       "propiedades": [
         {
@@ -642,14 +642,15 @@
           "vistas": 0
         }
       ],
-      "notas": "Vendedor de Culiacán, Sinaloa",
+      "notas": "Vendedor real: DAVID GONZALEZ (Publisher ID: 51305925). Teléfono requiere login en Inmuebles24. Número 815028902 es incorrecto (Monterrey).",
       "tags": [
         "inmuebles24",
         "sinaloa",
         "culiacan"
       ],
       "ultimoContacto": null,
-      "agregado": "2025-10-16T19:40:51.643Z"
+      "agregado": "2025-10-16T19:40:51.643Z",
+      "publisherId": "51305925"
     },
     {
       "id": "v013",
