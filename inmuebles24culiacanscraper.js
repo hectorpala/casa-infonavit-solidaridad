@@ -1842,8 +1842,8 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
     // Agregar datos del vendedor al objeto data
     data.vendedor = vendedorData;
 
-    // Extraer ID de propiedad de la URL
-    const idMatch = url.match(/-(\d+)\.html$/);
+    // Extraer ID de propiedad de la URL (funciona con o sin query params)
+    const idMatch = url.match(/-(\d+)\.html/);
     if (idMatch) {
         data.propertyId = idMatch[1];
     }
