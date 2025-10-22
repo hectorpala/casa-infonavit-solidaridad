@@ -171,6 +171,49 @@ npm install
 - Verificar que `inmuebles24culiacanscraper.js` existe
 - Verificar permisos de ejecución: `chmod +x inmuebles24culiacanscraper.js`
 
+## ✅ Correcciones Aplicadas (Octubre 2025)
+
+### Commit f8f8221 - Web Scraper Interface Improvements
+
+**Problemas resueltos:**
+
+1. **✅ Extracción de slug mejorada**
+   - Antes: Buscaba "Slug generado:" (no existe en logs)
+   - Ahora: Extrae de "HTML generado: culiacan/[slug]/index.html"
+   - Regex: `/culiacan\/([^\/]+)\/index\.html/`
+
+2. **✅ Extracción de título con regex**
+   - Antes: Split simple que fallaba con caracteres especiales
+   - Ahora: Regex robusto `/Título:\s*(.+)/`
+   - Maneja emojis y caracteres especiales correctamente
+
+3. **✅ Progreso mejorado con más hitos**
+   - Agregados: "Capturando datos" (15%), "Publicando a GitHub" (85%)
+   - Agregados: "main ->" (92%), "CRM actualizado" (95%)
+   - Total: 13 milestones de progreso (vs 10 original)
+
+4. **✅ Flag --auto-confirm funcionando**
+   - El scraper se ejecuta sin prompt de ciudad
+   - SSE streams logs en tiempo real
+   - Exit code 0 = éxito, muestra URL final
+
+**Cómo funciona ahora:**
+
+```
+Usuario pega URL → Click "Ejecutar Scraper"
+                 ↓
+Servidor spawn: node inmuebles24culiacanscraper.js "URL" --auto-confirm
+                 ↓
+SSE stream: logs en tiempo real → actualiza barra de progreso
+                 ↓
+Scraper termina (code 0) → Confetti 🎉 + URL casasenventa.info
+```
+
+**Testing:**
+- ✅ Probado con Casa Stanza Toscana (commit 691abbf)
+- ✅ 13 fotos descargadas, HTML generado, publicado a GitHub
+- ✅ Tiempo total: ~45 segundos
+
 ---
 
 **Powered by Claude Code** • Hector es Bienes Raíces
