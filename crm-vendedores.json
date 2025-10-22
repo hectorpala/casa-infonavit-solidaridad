@@ -598,6 +598,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "146847493",
+          "titulo": "Casa en Guadalupe",
+          "precio": "MN 2,102,000",
+          "ubicacion": "C. Salvador Elizondo 5839, Culiacán, Sinaloa, Mexico, Fraccionamiento Finisterra",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-guadalupe-146847493.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=5&n_pos=13",
+          "fechaScrapeo": "2025-10-22",
+          "fechaPublicacion": "Publicado hace 117 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Culiacán, Sinaloa",
@@ -4065,9 +4079,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-22T04:50:21.496Z",
+    "ultimaActualizacion": "2025-10-22T05:01:53.256Z",
     "totalVendedores": 20,
-    "totalPropiedades": 225,
+    "totalPropiedades": 226,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

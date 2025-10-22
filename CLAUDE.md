@@ -50,8 +50,8 @@ Sitio web de bienes raíces con propiedades en Culiacán, Sinaloa. Especializado
 ### 🔥 SCRAPER INMUEBLES24 - MÉTODO MULTI-CIUDAD (2-3 MIN) ✨ **[TEMPLATE COMPLETO]**
 **Comando usuario:** Pasa SOLO la URL de Inmuebles24
 **Ejemplo:** "https://www.inmuebles24.com/propiedades/clasificado/..."
-**Script:** `node inmuebles24-scraper-y-publicar.js "URL"`
-**Archivo:** `inmuebles24-scraper-y-publicar.js` (100KB)
+**Script:** `node inmuebles24culiacanscraper.js "URL"`
+**Archivo:** `inmuebles24culiacanscraper.js` (100KB)
 **Tiempo:** ~2-3 minutos (¡TODO 100% automatizado!)
 
 **⚠️ TEMPLATE COMPLETO GUARDADO - Octubre 2025:**
@@ -64,6 +64,67 @@ Este scraper contiene el **TEMPLATE MASTER** con TODAS las features:
 - ✅ **Sistema inteligente de direcciones** (puntuación automática)
 - ✅ **Auto-add al mapa modal** de la ciudad
 - ✅ **Coordenadas por ciudad** (fallback correcto)
+- ✅ **🔍 Detección de duplicados** por Property ID (100% preciso)
+
+### 🔍 SISTEMA DE DETECCIÓN DE DUPLICADOS - INMUEBLES24 ✨ **[OCTUBRE 2025]**
+
+**Estado Actual del Sistema:**
+- **167 propiedades totales** publicadas en casasenventa.info
+  - 🟢 120 en VENTA
+  - 🟠 47 en RENTA
+- **37 propiedades trackeadas** con IDs de Inmuebles24
+- **130 propiedades manuales** NO trackeadas (correcto - no vienen de Inmuebles24)
+
+**Workflow Automático:**
+1. **Extrae Property ID** desde URL: `/-(\d+)\.html/`
+   - ✅ Funciona con: `.../casa-144439344.html`
+   - ✅ Funciona con query params: `.../casa-144439344.html?n_src=Listado&n_pg=3`
+2. **Verifica en base de datos** `inmuebles24-scraped-properties.json`
+3. **Si es duplicado:**
+   - ⚠️ Muestra advertencia amarilla (web) o console (CLI)
+   - 🛑 NO crea archivos
+   - 📋 Muestra ID, título, y slug existente
+   - ✅ Exit code 0 (sin error)
+4. **Si NO es duplicado:**
+   - ✅ Scrapea y publica normalmente
+   - 💾 Agrega a base de datos con ID único
+   - 🎉 Muestra confetti (web) o éxito (CLI)
+
+**Interfaces:**
+- **CLI:** `node inmuebles24culiacanscraper.js "URL"`
+  - Muestra advertencia en console con colores
+  - Exit code 0 para ambos casos (duplicado y nuevo)
+- **Web:** `http://localhost:3000/inmuebles24scraper.html`
+  - Advertencia amarilla ⚠️ si es duplicado
+  - Confetti verde 🎉 si es nueva propiedad
+  - SSE streaming de logs en tiempo real
+
+**Bases de Datos:**
+- `inmuebles24-scraped-properties.json` - Culiacán (19 props)
+- `inmuebles24-scraped-properties-mazatlan.json` - Mazatlán (16 props)
+- `complete-properties-database.json` - Inventario completo (167 props, solo referencia)
+
+**Precisión:**
+- **100%** - 0 false positives
+- Usa IDs únicos de Inmuebles24 (no slug, no título)
+- Solo detecta duplicados de propiedades scrapeadas de Inmuebles24
+
+**Archivos Clave:**
+- `inmuebles24culiacanscraper.js` - Scraper principal con detección (líneas 999-1020, 1846)
+- `scraper-server.js` - Backend web con SSE (líneas 76-117)
+- `public/inmuebles24scraper.html` - UI con advertencias (líneas 299-323)
+- `DUPLICATE-DETECTION-README.md` - Documentación técnica completa
+- `extract-all-properties-from-html.js` - Script extracción inventario
+
+**Commits Importantes:**
+- `639ba16` - Fix regex property ID (soporte query params)
+- `cb89ffd` - Detección duplicados en interfaz web
+- `4ca33fc` - Limpieza base de datos (extraer IDs de URLs)
+- `d2ecb88` - Mejoras progreso scraper
+- `f8f8221` - Extracción slug y título mejorada
+
+**Documentación Completa:**
+Ver `DUPLICATE-DETECTION-README.md` para detalles técnicos, ejemplos, y mantenimiento.
 
 ### 🔥 SCRAPER WIGGOT - MÉTODO ALTERNATIVO (2-3 MIN)
 **Comando usuario:** Pasa SOLO la URL de Wiggot

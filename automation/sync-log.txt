@@ -1,0 +1,674 @@
+[2025-10-22T04:12:40.273Z] 🚀 Iniciando sincronización CRM...
+[2025-10-22T04:12:40.275Z] 
+[2025-10-22T04:12:40.275Z] ✅ CRM cargado: 20 vendedores
+[2025-10-22T04:12:40.275Z] 
+[2025-10-22T04:12:40.275Z] 👤 Procesando vendedor: Alejandra (2 propiedades)
+[2025-10-22T04:12:40.275Z]   🏠 143508352: Venta de Casa por Calle Mariano Escobedo
+[2025-10-22T04:12:40.275Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.338Z]   ⚠️  No se encontró HTML publicado para 143508352
+[2025-10-22T04:12:40.338Z]   🏠 147300315: Renta Casa en La Isla Privada Pontevedra
+[2025-10-22T04:12:40.338Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.351Z]   ⚠️  No se encontró HTML publicado para 147300315
+[2025-10-22T04:12:40.351Z] 
+[2025-10-22T04:12:40.351Z] 👤 Procesando vendedor: Invictus (2 propiedades)
+[2025-10-22T04:12:40.351Z]   🏠 147661732: Casa en Venta, La Cantera, Culiacan
+[2025-10-22T04:12:40.351Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.363Z]   ⚠️  No se encontró HTML publicado para 147661732
+[2025-10-22T04:12:40.363Z]   🏠 147682613: Casa en Renta 3 Habitaciones 2 Plantas, Vitia Granada
+[2025-10-22T04:12:40.363Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.375Z]   ⚠️  No se encontró HTML publicado para 147682613
+[2025-10-22T04:12:40.375Z] 
+[2025-10-22T04:12:40.375Z] 👤 Procesando vendedor: iad Inmobiliaria (1 propiedades)
+[2025-10-22T04:12:40.375Z]   🏠 145915393: Venta de Casa 3 Recamaras en Portalegre en Culiacan
+[2025-10-22T04:12:40.375Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.387Z]   ⚠️  No se encontró HTML publicado para 145915393
+[2025-10-22T04:12:40.387Z] 
+[2025-10-22T04:12:40.387Z] 👤 Procesando vendedor: JCB Bienes Raíces (3 propiedades)
+[2025-10-22T04:12:40.387Z]   🏠 147424326: Casa en Privada Monaco, Paseos del Rey
+[2025-10-22T04:12:40.387Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.399Z]   ⚠️  No se encontró HTML publicado para 147424326
+[2025-10-22T04:12:40.399Z]   🏠 147345206: Casa Abajo del Valor Avaluó en Nuevo Culiacán
+[2025-10-22T04:12:40.399Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.411Z]   ⚠️  No se encontró HTML publicado para 147345206
+[2025-10-22T04:12:40.411Z]   🏠 147369068: Casa en Sector Aeropuerto
+[2025-10-22T04:12:40.411Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.423Z]   ⚠️  No se encontró HTML publicado para 147369068
+[2025-10-22T04:12:40.423Z] 
+[2025-10-22T04:12:40.423Z] 👤 Procesando vendedor: DAVID GONZALEZ (2 propiedades)
+[2025-10-22T04:12:40.423Z]   🏠 143635683: Casa en Adolfo Lopez Mateos
+[2025-10-22T04:12:40.423Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.435Z]   ⚠️  No se encontró HTML publicado para 143635683
+[2025-10-22T04:12:40.435Z]   🏠 147048897: Casa en Fraccionamiento Stanza
+[2025-10-22T04:12:40.435Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.447Z]   ⚠️  No se encontró HTML publicado para 147048897
+[2025-10-22T04:12:40.447Z] 
+[2025-10-22T04:12:40.447Z] 👤 Procesando vendedor: Atia Inmobiliaria (3 propiedades)
+[2025-10-22T04:12:40.447Z]   🏠 146594849: Casa en Venta Las Américas Br56
+[2025-10-22T04:12:40.447Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.459Z]   ⚠️  No se encontró HTML publicado para 146594849
+[2025-10-22T04:12:40.459Z]   🏠 146342696: Casa en Venta en Stanza Corcega A2
+[2025-10-22T04:12:40.459Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.470Z]   ⚠️  No se encontró HTML publicado para 146342696
+[2025-10-22T04:12:40.470Z]   🏠 : Casa en Venta en Stanza Toscana
+[2025-10-22T04:12:40.470Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.470Z]   📄 HTML encontrado: /Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/culiacan/casa-abajo-del-valor-avaluo-en-nuevo-culiacan/index.html
+[2025-10-22T04:12:40.471Z]   📍 Colonia desde MARKER_CONFIG: "Sinaloa"
+[2025-10-22T04:12:40.471Z]   📷 Foto principal: culiacan/casa-abajo-del-valor-avaluo-en-nuevo-culiacan/images/foto-1.jpg
+[2025-10-22T04:12:40.471Z]   ✅ Propiedad enriquecida exitosamente
+[2025-10-22T04:12:40.471Z] 
+[2025-10-22T04:12:40.471Z] 
+[2025-10-22T04:12:40.471Z] 👤 Procesando vendedor: Moises Cabrera (1 propiedades)
+[2025-10-22T04:12:40.471Z]   🏠 146675321: Casa en Venta en Inf. Barrancos
+[2025-10-22T04:12:40.471Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.483Z]   ⚠️  No se encontró HTML publicado para 146675321
+[2025-10-22T04:12:40.483Z] 
+[2025-10-22T04:12:40.483Z] 👤 Procesando vendedor: Red Clover Real Estate (2 propiedades)
+[2025-10-22T04:12:40.483Z]   🏠 147542921: Casa en Venta Valles del Sol, Sector Terranova, Culiacan, Sinaloa
+[2025-10-22T04:12:40.483Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.495Z]   ⚠️  No se encontró HTML publicado para 147542921
+[2025-10-22T04:12:40.495Z]   🏠 147542767: Casa en Venta en Villas del Río Elite Zona Norte Culiacan, Sinaloa
+[2025-10-22T04:12:40.495Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.506Z]   ⚠️  No se encontró HTML publicado para 147542767
+[2025-10-22T04:12:40.506Z] 
+[2025-10-22T04:12:40.506Z] 👤 Procesando vendedor: KW Centro Qro (1 propiedades)
+[2025-10-22T04:12:40.506Z]   🏠 147111285: Casa en Venta Fraccionamineto Urbivilla
+[2025-10-22T04:12:40.506Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.517Z]   ⚠️  No se encontró HTML publicado para 147111285
+[2025-10-22T04:12:40.517Z] 
+[2025-10-22T04:12:40.517Z] 👤 Procesando vendedor: Fernando Peña Bienes Raíces (1 propiedades)
+[2025-10-22T04:12:40.517Z]   🏠 146962388: Casa en Venta Stanza Granada Salida Norte
+[2025-10-22T04:12:40.517Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.529Z]   ⚠️  No se encontró HTML publicado para 146962388
+[2025-10-22T04:12:40.529Z] 
+[2025-10-22T04:12:40.529Z] 👤 Procesando vendedor: VIEDAS Fianzas & Bienes Raíces (2 propiedades)
+[2025-10-22T04:12:40.529Z]   🏠 147501147: Se Vende Casa en Isla del Oeste en La Primavera
+[2025-10-22T04:12:40.529Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.541Z]   ⚠️  No se encontró HTML publicado para 147501147
+[2025-10-22T04:12:40.541Z]   🏠 147500481: Casa en Venta en Privada La Cantera
+[2025-10-22T04:12:40.541Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.553Z]   ⚠️  No se encontró HTML publicado para 147500481
+[2025-10-22T04:12:40.553Z] 
+[2025-10-22T04:12:40.553Z] 👤 Procesando vendedor: León y Asociados Grupo Inmobiliario (8 propiedades)
+[2025-10-22T04:12:40.553Z]   🏠 147643837: Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada
+[2025-10-22T04:12:40.553Z]   🌆 Ciudad detectada: monterrey
+[2025-10-22T04:12:40.558Z]   ⚠️  No se encontró HTML publicado para 147643837
+[2025-10-22T04:12:40.559Z]   🏠 147908740: Casa en Cumbres Equipada a Estrenar
+[2025-10-22T04:12:40.559Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.570Z]   ⚠️  No se encontró HTML publicado para 147908740
+[2025-10-22T04:12:40.571Z]   🏠 145373833: Venta en Cumbres 3 Niveles Frente a Parque
+[2025-10-22T04:12:40.571Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.582Z]   ⚠️  No se encontró HTML publicado para 145373833
+[2025-10-22T04:12:40.582Z]   🏠 147799701: Casa en Venta Zona Cumbres
+[2025-10-22T04:12:40.582Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.594Z]   ⚠️  No se encontró HTML publicado para 147799701
+[2025-10-22T04:12:40.594Z]   🏠 146870552: Cumbres de 3 Niveles, Incluye Cocina Integral y 6 Paneles Solares
+[2025-10-22T04:12:40.594Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.606Z]   ⚠️  No se encontró HTML publicado para 146870552
+[2025-10-22T04:12:40.606Z]   🏠 146839974: Renta de Casa en Privada Bosques del Rio
+[2025-10-22T04:12:40.606Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.617Z]   ⚠️  No se encontró HTML publicado para 146839974
+[2025-10-22T04:12:40.617Z]   🏠 : Casa con Vista Espectacular en Colinas de San Miguel (Privada)
+[2025-10-22T04:12:40.617Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.617Z]   📄 HTML encontrado: /Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/culiacan/casa-abajo-del-valor-avaluo-en-nuevo-culiacan/index.html
+[2025-10-22T04:12:40.618Z]   📍 Colonia desde MARKER_CONFIG: "Sinaloa"
+[2025-10-22T04:12:40.618Z]   📷 Foto principal: culiacan/casa-abajo-del-valor-avaluo-en-nuevo-culiacan/images/foto-1.jpg
+[2025-10-22T04:12:40.618Z]   ✅ Propiedad enriquecida exitosamente
+[2025-10-22T04:12:40.618Z] 
+[2025-10-22T04:12:40.618Z]   🏠 142723254: Casa en Fraccionamiento Las Quintas
+[2025-10-22T04:12:40.618Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.629Z]   ⚠️  No se encontró HTML publicado para 142723254
+[2025-10-22T04:12:40.629Z] 
+[2025-10-22T04:12:40.629Z] 👤 Procesando vendedor: Master (1 propiedades)
+[2025-10-22T04:12:40.629Z]   🏠 146747635: Casa en Venta en Urbivilla Colonial, Monterrey. Nuevo Leon
+[2025-10-22T04:12:40.629Z]   🌆 Ciudad detectada: monterrey
+[2025-10-22T04:12:40.630Z]   ⚠️  No se encontró HTML publicado para 146747635
+[2025-10-22T04:12:40.630Z] 
+[2025-10-22T04:12:40.630Z] 👤 Procesando vendedor: Ad.consulting Bienes Raíces. (1 propiedades)
+[2025-10-22T04:12:40.630Z]   🏠 147215910: Casa en Venta en Cumbres Monterrey
+[2025-10-22T04:12:40.630Z]   🌆 Ciudad detectada: monterrey
+[2025-10-22T04:12:40.631Z]   ⚠️  No se encontró HTML publicado para 147215910
+[2025-10-22T04:12:40.631Z] 
+[2025-10-22T04:12:40.631Z] 👤 Procesando vendedor: FLORES ASESORIA INMOBILIARIA (1 propiedades)
+[2025-10-22T04:12:40.631Z]   🏠 147879282: Se Renta Casa en Fraccionamiento Tres Rios a un Costado de Walmart y Sams Club
+[2025-10-22T04:12:40.631Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.643Z]   ⚠️  No se encontró HTML publicado para 147879282
+[2025-10-22T04:12:40.643Z] 
+[2025-10-22T04:12:40.643Z] 👤 Procesando vendedor: 3R Bienes Raices (1 propiedades)
+[2025-10-22T04:12:40.643Z]   🏠 147928773: Casa en Renta en Portalegre Valley Totalmente Equipada
+[2025-10-22T04:12:40.643Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.654Z]   ⚠️  No se encontró HTML publicado para 147928773
+[2025-10-22T04:12:40.654Z] 
+[2025-10-22T04:12:40.654Z] 👤 Procesando vendedor: Maryna Montes Real Estate (2 propiedades)
+[2025-10-22T04:12:40.654Z]   🏠 147701128: Casa en Renta Circuito Tabachines Culiacan Sinaloa
+[2025-10-22T04:12:40.654Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.666Z]   ⚠️  No se encontró HTML publicado para 147701128
+[2025-10-22T04:12:40.666Z]   🏠 147564220: Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa
+[2025-10-22T04:12:40.666Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.678Z]   ⚠️  No se encontró HTML publicado para 147564220
+[2025-10-22T04:12:40.678Z] 
+[2025-10-22T04:12:40.678Z] 👤 Procesando vendedor: Indivo Desarrollos (1 propiedades)
+[2025-10-22T04:12:40.678Z]   🏠 147513900: Casa en Renta en Privada Kentia Valle Alto
+[2025-10-22T04:12:40.678Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.690Z]   ⚠️  No se encontró HTML publicado para 147513900
+[2025-10-22T04:12:40.690Z] 
+[2025-10-22T04:12:40.690Z] 👤 Procesando vendedor: Grupo Inmobiliario del Noroeste (1 propiedades)
+[2025-10-22T04:12:40.690Z]   🏠 : Vendo Casa en Colonia Guadalupe Culiacán
+[2025-10-22T04:12:40.690Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.690Z]   📄 HTML encontrado: /Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/culiacan/casa-abajo-del-valor-avaluo-en-nuevo-culiacan/index.html
+[2025-10-22T04:12:40.690Z]   📍 Colonia desde MARKER_CONFIG: "Sinaloa"
+[2025-10-22T04:12:40.690Z]   📷 Foto principal: culiacan/casa-abajo-del-valor-avaluo-en-nuevo-culiacan/images/foto-1.jpg
+[2025-10-22T04:12:40.690Z]   ✅ Propiedad enriquecida exitosamente
+[2025-10-22T04:12:40.690Z] 
+[2025-10-22T04:12:40.690Z] 
+[2025-10-22T04:12:40.690Z] 👤 Procesando vendedor: Hector BR (167 propiedades)
+[2025-10-22T04:12:40.690Z]   🏠 PROP-11065235: Casa en Venta en Stanza Toscana
+[2025-10-22T04:12:40.690Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.701Z]   ⚠️  No se encontró HTML publicado para PROP-11065235
+[2025-10-22T04:12:40.701Z]   🏠 PROP-11065235: Casa en Venta en Stanza Toscana
+[2025-10-22T04:12:40.701Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.711Z]   ⚠️  No se encontró HTML publicado para PROP-11065235
+[2025-10-22T04:12:40.711Z]   🏠 PROP-36467240: Vendo Casa en Colonia Guadalupe Culiacán
+[2025-10-22T04:12:40.711Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.721Z]   ⚠️  No se encontró HTML publicado para PROP-36467240
+[2025-10-22T04:12:40.721Z]   🏠 PROP-11534516: Casa en Venta Colinas de San Miguel
+[2025-10-22T04:12:40.721Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.731Z]   ⚠️  No se encontró HTML publicado para PROP-11534516
+[2025-10-22T04:12:40.731Z]   🏠 PROP-57958655: Casa en Fraccionamiento Cañadas
+[2025-10-22T04:12:40.731Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.741Z]   ⚠️  No se encontró HTML publicado para PROP-57958655
+[2025-10-22T04:12:40.741Z]   🏠 PROP-42143949: Casa en Fraccionamiento Los Angeles
+[2025-10-22T04:12:40.741Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.752Z]   ⚠️  No se encontró HTML publicado para PROP-42143949
+[2025-10-22T04:12:40.752Z]   🏠 PROP-2: Casa en Renta en Valle Alto A2
+[2025-10-22T04:12:40.752Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.761Z]   ⚠️  No se encontró HTML publicado para PROP-2
+[2025-10-22T04:12:40.761Z]   🏠 PROP-36513560: Casa en Renta en Privada Kentia Valle Alto
+[2025-10-22T04:12:40.761Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.772Z]   ⚠️  No se encontró HTML publicado para PROP-36513560
+[2025-10-22T04:12:40.772Z]   🏠 PROP-76742772: Renta de Casa en Privada Bosques del Rio
+[2025-10-22T04:12:40.772Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.782Z]   ⚠️  No se encontró HTML publicado para PROP-76742772
+[2025-10-22T04:12:40.782Z]   🏠 PROP-18626076: Casa Amueblada en Renta en Riberas de Tamazula
+[2025-10-22T04:12:40.782Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.793Z]   ⚠️  No se encontró HTML publicado para PROP-18626076
+[2025-10-22T04:12:40.793Z]   🏠 PROP-53232668: Renta Casa en La Isla Privada Pontevedra
+[2025-10-22T04:12:40.793Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.803Z]   ⚠️  No se encontró HTML publicado para PROP-53232668
+[2025-10-22T04:12:40.803Z]   🏠 PROP-15142429: Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa
+[2025-10-22T04:12:40.803Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.814Z]   ⚠️  No se encontró HTML publicado para PROP-15142429
+[2025-10-22T04:12:40.814Z]   🏠 PROP-33382856: Casa en Renta Circuito Tabachines Culiacan Sinaloa
+[2025-10-22T04:12:40.814Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.824Z]   ⚠️  No se encontró HTML publicado para PROP-33382856
+[2025-10-22T04:12:40.824Z]   🏠 PROP-89784983: Casa en Renta en Portalegre Valley Totalmente Equipada
+[2025-10-22T04:12:40.824Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.835Z]   ⚠️  No se encontró HTML publicado para PROP-89784983
+[2025-10-22T04:12:40.835Z]   🏠 PROP-3: Casa en Renta 3 Habitaciones 2 Plantas, Vitia Granada
+[2025-10-22T04:12:40.835Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.844Z]   ⚠️  No se encontró HTML publicado para PROP-3
+[2025-10-22T04:12:40.844Z]   🏠 PROP-87517626: Casa en Venta en Privada La Cantera
+[2025-10-22T04:12:40.844Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.855Z]   ⚠️  No se encontró HTML publicado para PROP-87517626
+[2025-10-22T04:12:40.855Z]   🏠 PROP-84278547: Se Vende Casa en Isla del Oeste en La Primavera
+[2025-10-22T04:12:40.855Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.865Z]   ⚠️  No se encontró HTML publicado para PROP-84278547
+[2025-10-22T04:12:40.865Z]   🏠 PROP-84697816: Casa en Venta Stanza Granada Salida Norte
+[2025-10-22T04:12:40.865Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.875Z]   ⚠️  No se encontró HTML publicado para PROP-84697816
+[2025-10-22T04:12:40.875Z]   🏠 PROP-2: Casa en Venta en Stanza Corcega A2
+[2025-10-22T04:12:40.875Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.885Z]   ⚠️  No se encontró HTML publicado para PROP-2
+[2025-10-22T04:12:40.885Z]   🏠 PROP-28909065: Casa en Venta en Villas del Río Elite Zona Norte Culiacan, Sinaloa
+[2025-10-22T04:12:40.885Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.895Z]   ⚠️  No se encontró HTML publicado para PROP-28909065
+[2025-10-22T04:12:40.895Z]   🏠 PROP-57993448: Casa en Venta Fraccionamineto Urbivilla
+[2025-10-22T04:12:40.895Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.906Z]   ⚠️  No se encontró HTML publicado para PROP-57993448
+[2025-10-22T04:12:40.906Z]   🏠 PROP-85878151: Casa en Sector Aeropuerto
+[2025-10-22T04:12:40.906Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.916Z]   ⚠️  No se encontró HTML publicado para PROP-85878151
+[2025-10-22T04:12:40.916Z]   🏠 PROP-15026263: Casa Abajo del Valor Avaluó en Nuevo Culiacán
+[2025-10-22T04:12:40.916Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.927Z]   ⚠️  No se encontró HTML publicado para PROP-15026263
+[2025-10-22T04:12:40.927Z]   🏠 PROP-44126413: Casa en Venta Valles del Sol, Sector Terranova, Culiacan, Sinaloa
+[2025-10-22T04:12:40.927Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.938Z]   ⚠️  No se encontró HTML publicado para PROP-44126413
+[2025-10-22T04:12:40.938Z]   🏠 PROP-48857183: Casa en Venta en Inf. Barrancos
+[2025-10-22T04:12:40.938Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.949Z]   ⚠️  No se encontró HTML publicado para PROP-48857183
+[2025-10-22T04:12:40.949Z]   🏠 PROP-44640486: Casa en Fraccionamiento Stanza
+[2025-10-22T04:12:40.949Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.959Z]   ⚠️  No se encontró HTML publicado para PROP-44640486
+[2025-10-22T04:12:40.959Z]   🏠 PROP-56: Casa en Venta Las Américas Br56
+[2025-10-22T04:12:40.959Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.971Z]   ⚠️  No se encontró HTML publicado para PROP-56
+[2025-10-22T04:12:40.971Z]   🏠 PROP-33460498: Casa en Adolfo Lopez Mateos
+[2025-10-22T04:12:40.971Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.981Z]   ⚠️  No se encontró HTML publicado para PROP-33460498
+[2025-10-22T04:12:40.981Z]   🏠 PROP-89968314: Casa en Privada Monaco, Paseos del Rey
+[2025-10-22T04:12:40.981Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:40.991Z]   ⚠️  No se encontró HTML publicado para PROP-89968314
+[2025-10-22T04:12:40.991Z]   🏠 PROP-3: Venta de Casa 3 Recamaras en Portalegre en Culiacan
+[2025-10-22T04:12:40.991Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.000Z]   ⚠️  No se encontró HTML publicado para PROP-3
+[2025-10-22T04:12:41.000Z]   🏠 PROP-16073398: Casa en Venta Sinaloa, Culiacán
+[2025-10-22T04:12:41.000Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.010Z]   ⚠️  No se encontró HTML publicado para PROP-16073398
+[2025-10-22T04:12:41.010Z]   🏠 PROP-30537558: Casa en Venta La Cantera, Culiacán
+[2025-10-22T04:12:41.010Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.021Z]   ⚠️  No se encontró HTML publicado para PROP-30537558
+[2025-10-22T04:12:41.021Z]   🏠 PROP-01: CASA EN VENTA EN LA PRIMAVERA. BARRIO SAN FRANCISCO SUR. (01)
+[2025-10-22T04:12:41.021Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.032Z]   ⚠️  No se encontró HTML publicado para PROP-01
+[2025-10-22T04:12:41.032Z]   🏠 PROP-76072311: Casa en venta en Fracc Colinas De San Miguel
+[2025-10-22T04:12:41.032Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.042Z]   ⚠️  No se encontró HTML publicado para PROP-76072311
+[2025-10-22T04:12:41.042Z]   🏠 PROP-4: Casa en Venta en Privada con Excedente 4 Recámaras sector La Conquista.
+[2025-10-22T04:12:41.042Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.052Z]   ⚠️  No se encontró HTML publicado para PROP-4
+[2025-10-22T04:12:41.052Z]   🏠 PROP-60192634: Casa en venta en Tierra Blanca
+[2025-10-22T04:12:41.052Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.062Z]   ⚠️  No se encontró HTML publicado para PROP-60192634
+[2025-10-22T04:12:41.062Z]   🏠 PROP-48987711: Casa de Lujo en Venta Privada con Alberca AMORADA
+[2025-10-22T04:12:41.062Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.072Z]   ⚠️  No se encontró HTML publicado para PROP-48987711
+[2025-10-22T04:12:41.072Z]   🏠 PROP-23533754: Casa en venta en Fracc La Primavera
+[2025-10-22T04:12:41.072Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.082Z]   ⚠️  No se encontró HTML publicado para PROP-23533754
+[2025-10-22T04:12:41.082Z]   🏠 PROP-01: Residencia en venta en Barrio San Francisco la Primavera .01 *
+[2025-10-22T04:12:41.082Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.094Z]   ⚠️  No se encontró HTML publicado para PROP-01
+[2025-10-22T04:12:41.094Z]   🏠 PROP-88372061: VENTA CASA PRIVADA TABACHINES
+[2025-10-22T04:12:41.094Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.104Z]   ⚠️  No se encontró HTML publicado para PROP-88372061
+[2025-10-22T04:12:41.104Z]   🏠 PROP-10277400: Casa Espacios Barcelona como Nueva, acabados de Primera!
+[2025-10-22T04:12:41.104Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.115Z]   ⚠️  No se encontró HTML publicado para PROP-10277400
+[2025-10-22T04:12:41.115Z]   🏠 PROP-82925819: Casa en venta en Quinta Americana sector Las Quintas
+[2025-10-22T04:12:41.115Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.125Z]   ⚠️  No se encontró HTML publicado para PROP-82925819
+[2025-10-22T04:12:41.125Z]   🏠 PROP-33052047: Casa en Venta en Isla Musalá, Culiacán
+[2025-10-22T04:12:41.125Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.135Z]   ⚠️  No se encontró HTML publicado para PROP-33052047
+[2025-10-22T04:12:41.135Z]   🏠 PROP-24535808: Casa en venta en Recursos Hidraulicos privada Santa Inés
+[2025-10-22T04:12:41.135Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.146Z]   ⚠️  No se encontró HTML publicado para PROP-24535808
+[2025-10-22T04:12:41.146Z]   🏠 PROP-62945410: Hermosa casa en venta en Belcantto Residencial, lista para habitar
+[2025-10-22T04:12:41.146Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.156Z]   ⚠️  No se encontró HTML publicado para PROP-62945410
+[2025-10-22T04:12:41.156Z]   🏠 PROP-56449183: CASA EN VENTA EN LA ISLA MUSALA , CULIACÀN SINALOA
+[2025-10-22T04:12:41.156Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.167Z]   ⚠️  No se encontró HTML publicado para PROP-56449183
+[2025-10-22T04:12:41.167Z]   🏠 PROP-25158764: Venta casa guadalupe
+[2025-10-22T04:12:41.167Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.177Z]   ⚠️  No se encontró HTML publicado para PROP-25158764
+[2025-10-22T04:12:41.177Z]   🏠 PROP-15662516: VENTA PROPIEDAD PRIVADA PRIVANZAS
+[2025-10-22T04:12:41.177Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.187Z]   ⚠️  No se encontró HTML publicado para PROP-15662516
+[2025-10-22T04:12:41.187Z]   🏠 PROP-8: Casa Venta Colinas San Miguel Culiacán
+[2025-10-22T04:12:41.187Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.196Z]   ⚠️  No se encontró HTML publicado para PROP-8
+[2025-10-22T04:12:41.196Z]   🏠 PROP-43238237: Estrene casa en Villa Fontana en esquina
+[2025-10-22T04:12:41.196Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.207Z]   ⚠️  No se encontró HTML publicado para PROP-43238237
+[2025-10-22T04:12:41.207Z]   🏠 PROP-62833997: Casa en Venta Stanza Castilla Privada Ávila
+[2025-10-22T04:12:41.207Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.217Z]   ⚠️  No se encontró HTML publicado para PROP-62833997
+[2025-10-22T04:12:41.217Z]   🏠 PROP-18693515: Casa en Venta Terreno Excedente Stanza Valle Alto
+[2025-10-22T04:12:41.217Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.227Z]   ⚠️  No se encontró HTML publicado para PROP-18693515
+[2025-10-22T04:12:41.227Z]   🏠 PROP-60276396: Casa en Portalegre Misión
+[2025-10-22T04:12:41.227Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.237Z]   ⚠️  No se encontró HTML publicado para PROP-60276396
+[2025-10-22T04:12:41.237Z]   🏠 PROP-57554955: Casa en Venta y Renta en Carpatos en Valle Alto
+[2025-10-22T04:12:41.237Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.248Z]   ⚠️  No se encontró HTML publicado para PROP-57554955
+[2025-10-22T04:12:41.248Z]   🏠 PROP-45890583: Casa La Rioja Modelo Estrella
+[2025-10-22T04:12:41.248Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.258Z]   ⚠️  No se encontró HTML publicado para PROP-45890583
+[2025-10-22T04:12:41.258Z]   🏠 PROP-53649060: Casa en Venta en Barcelona Select
+[2025-10-22T04:12:41.258Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.269Z]   ⚠️  No se encontró HTML publicado para PROP-53649060
+[2025-10-22T04:12:41.269Z]   🏠 PROP-477140: Casa en Venta La Rioja
+[2025-10-22T04:12:41.269Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.279Z]   ⚠️  No se encontró HTML publicado para PROP-477140
+[2025-10-22T04:12:41.279Z]   🏠 PROP-421156: Casa en Venta Las Moras
+[2025-10-22T04:12:41.279Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.291Z]   ⚠️  No se encontró HTML publicado para PROP-421156
+[2025-10-22T04:12:41.291Z]   🏠 PROP-349077: Casa en Venta San Agustin
+[2025-10-22T04:12:41.291Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.301Z]   ⚠️  No se encontró HTML publicado para PROP-349077
+[2025-10-22T04:12:41.301Z]   🏠 PROP-277608: Casa en Venta Centro
+[2025-10-22T04:12:41.301Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.313Z]   ⚠️  No se encontró HTML publicado para PROP-277608
+[2025-10-22T04:12:41.313Z]   🏠 PROP-221408: Casa en Venta Bosques Del Rio
+[2025-10-22T04:12:41.313Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.323Z]   ⚠️  No se encontró HTML publicado para PROP-221408
+[2025-10-22T04:12:41.323Z]   🏠 PROP-163926: Departamento en Venta Los Alamitos
+[2025-10-22T04:12:41.323Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.334Z]   ⚠️  No se encontró HTML publicado para PROP-163926
+[2025-10-22T04:12:41.334Z]   🏠 PROP-089732: Casa en Venta Centro
+[2025-10-22T04:12:41.334Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.346Z]   ⚠️  No se encontró HTML publicado para PROP-089732
+[2025-10-22T04:12:41.346Z]   🏠 PROP-368717: Casa en Venta Sinaloa
+[2025-10-22T04:12:41.346Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.356Z]   ⚠️  No se encontró HTML publicado para PROP-368717
+[2025-10-22T04:12:41.356Z]   🏠 PROP-135345: Departamento en Venta INFONAVIT Barrancos
+[2025-10-22T04:12:41.356Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.367Z]   ⚠️  No se encontró HTML publicado para PROP-135345
+[2025-10-22T04:12:41.367Z]   🏠 PROP-062215: Casa en Venta Loma Linda
+[2025-10-22T04:12:41.367Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.378Z]   ⚠️  No se encontró HTML publicado para PROP-062215
+[2025-10-22T04:12:41.378Z]   🏠 PROP-991132: Casa en Venta Vistas del Lago
+[2025-10-22T04:12:41.378Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.389Z]   ⚠️  No se encontró HTML publicado para PROP-991132
+[2025-10-22T04:12:41.389Z]   🏠 PROP-933493: Departamento en Venta Riberas de Tamazula
+[2025-10-22T04:12:41.389Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.399Z]   ⚠️  No se encontró HTML publicado para PROP-933493
+[2025-10-22T04:12:41.399Z]   🏠 PROP-295574: Casa en Venta INFONAVIT Barrancos
+[2025-10-22T04:12:41.399Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.410Z]   ⚠️  No se encontró HTML publicado para PROP-295574
+[2025-10-22T04:12:41.410Z]   🏠 PROP-238020: Casa en Venta Rosales
+[2025-10-22T04:12:41.410Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.420Z]   ⚠️  No se encontró HTML publicado para PROP-238020
+[2025-10-22T04:12:41.420Z]   🏠 PROP-150941: Casa en Venta Villa Del Real
+[2025-10-22T04:12:41.420Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.431Z]   ⚠️  No se encontró HTML publicado para PROP-150941
+[2025-10-22T04:12:41.431Z]   🏠 PROP-093670: Casa en Venta Country del Río IV
+[2025-10-22T04:12:41.431Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.442Z]   ⚠️  No se encontró HTML publicado para PROP-093670
+[2025-10-22T04:12:41.442Z]   🏠 PROP-035668: Casa en Venta Villa del Roble
+[2025-10-22T04:12:41.442Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.453Z]   ⚠️  No se encontró HTML publicado para PROP-035668
+[2025-10-22T04:12:41.453Z]   🏠 PROP-585173: Casa en Venta INFONAVIT Barrancos
+[2025-10-22T04:12:41.453Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.464Z]   ⚠️  No se encontró HTML publicado para PROP-585173
+[2025-10-22T04:12:41.464Z]   🏠 PROP-529535: Departamento en Venta Privada Mont Blanc
+[2025-10-22T04:12:41.464Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.474Z]   ⚠️  No se encontró HTML publicado para PROP-529535
+[2025-10-22T04:12:41.474Z]   🏠 PROP-472517: Casa en Venta Albaterra
+[2025-10-22T04:12:41.474Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.485Z]   ⚠️  No se encontró HTML publicado para PROP-472517
+[2025-10-22T04:12:41.485Z]   🏠 PROP-842305: Casa en Venta Real San Ángel
+[2025-10-22T04:12:41.485Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.496Z]   ⚠️  No se encontró HTML publicado para PROP-842305
+[2025-10-22T04:12:41.496Z]   🏠 PROP-785461: Casa en Venta Valle Bonito
+[2025-10-22T04:12:41.496Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.507Z]   ⚠️  No se encontró HTML publicado para PROP-785461
+[2025-10-22T04:12:41.507Z]   🏠 PROP-729271: Casa en Venta Terranova
+[2025-10-22T04:12:41.507Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.517Z]   ⚠️  No se encontró HTML publicado para PROP-729271
+[2025-10-22T04:12:41.517Z]   🏠 PROP-671323: Casa en Venta Bonaterra
+[2025-10-22T04:12:41.517Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.528Z]   ⚠️  No se encontró HTML publicado para PROP-671323
+[2025-10-22T04:12:41.528Z]   🏠 PROP-606442: Casa en Venta Providencia
+[2025-10-22T04:12:41.528Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.538Z]   ⚠️  No se encontró HTML publicado para PROP-606442
+[2025-10-22T04:12:41.538Z]   🏠 PROP-196364: Casa en Venta Culiacán (Culiacán)
+[2025-10-22T04:12:41.538Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.548Z]   ⚠️  No se encontró HTML publicado para PROP-196364
+[2025-10-22T04:12:41.548Z]   🏠 PROP-139209: Departamento en Venta Villa del Roble
+[2025-10-22T04:12:41.548Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.559Z]   ⚠️  No se encontró HTML publicado para PROP-139209
+[2025-10-22T04:12:41.559Z]   🏠 PROP-079358: Casa en Venta Terranova
+[2025-10-22T04:12:41.559Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.569Z]   ⚠️  No se encontró HTML publicado para PROP-079358
+[2025-10-22T04:12:41.569Z]   🏠 PROP-022926: Departamento en Venta Los Alamitos
+[2025-10-22T04:12:41.569Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.580Z]   ⚠️  No se encontró HTML publicado para PROP-022926
+[2025-10-22T04:12:41.580Z]   🏠 PROP-965870: Departamento en Venta Las Vegas
+[2025-10-22T04:12:41.580Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.590Z]   ⚠️  No se encontró HTML publicado para PROP-965870
+[2025-10-22T04:12:41.590Z]   🏠 PROP-874501: Casa en Venta INFONAVIT Barrancos
+[2025-10-22T04:12:41.590Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.601Z]   ⚠️  No se encontró HTML publicado para PROP-874501
+[2025-10-22T04:12:41.601Z]   🏠 PROP-644365: Casa en Venta Guadalupe Victoria
+[2025-10-22T04:12:41.601Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.611Z]   ⚠️  No se encontró HTML publicado para PROP-644365
+[2025-10-22T04:12:41.611Z]   🏠 PROP-524582: Casa en Venta Ruben Jaramillo
+[2025-10-22T04:12:41.611Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.622Z]   ⚠️  No se encontró HTML publicado para PROP-524582
+[2025-10-22T04:12:41.622Z]   🏠 PROP-581422: Casa en Venta Emiliano Zapata
+[2025-10-22T04:12:41.622Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.632Z]   ⚠️  No se encontró HTML publicado para PROP-581422
+[2025-10-22T04:12:41.632Z]   🏠 PROP-466994: Departamento en Venta Finisterra
+[2025-10-22T04:12:41.632Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.642Z]   ⚠️  No se encontró HTML publicado para PROP-466994
+[2025-10-22T04:12:41.642Z]   🏠 PROP-348109: Casa en Venta Nueva Galicia
+[2025-10-22T04:12:41.642Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.653Z]   ⚠️  No se encontró HTML publicado para PROP-348109
+[2025-10-22T04:12:41.653Z]   🏠 PROP-228474: Casa en Venta Ruben Jaramillo
+[2025-10-22T04:12:41.653Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.663Z]   ⚠️  No se encontró HTML publicado para PROP-228474
+[2025-10-22T04:12:41.663Z]   🏠 PROP-594408: Casa en Venta La Rioja
+[2025-10-22T04:12:41.663Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.674Z]   ⚠️  No se encontró HTML publicado para PROP-594408
+[2025-10-22T04:12:41.674Z]   🏠 PROP-171034: Casa en Venta Ruben Jaramillo
+[2025-10-22T04:12:41.674Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.685Z]   ⚠️  No se encontró HTML publicado para PROP-171034
+[2025-10-22T04:12:41.685Z]   🏠 PROP-049304: Casa en Venta Ruben Jaramillo
+[2025-10-22T04:12:41.685Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.695Z]   ⚠️  No se encontró HTML publicado para PROP-049304
+[2025-10-22T04:12:41.695Z]   🏠 PROP-249209: Casa en Venta Libertad
+[2025-10-22T04:12:41.695Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.706Z]   ⚠️  No se encontró HTML publicado para PROP-249209
+[2025-10-22T04:12:41.706Z]   🏠 PROP-367869: Casa en Venta Centro Sinaloa
+[2025-10-22T04:12:41.706Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.716Z]   ⚠️  No se encontró HTML publicado para PROP-367869
+[2025-10-22T04:12:41.716Z]   🏠 PROP-520890: Casa en Venta Bugambilias
+[2025-10-22T04:12:41.716Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.727Z]   ⚠️  No se encontró HTML publicado para PROP-520890
+[2025-10-22T04:12:41.727Z]   🏠 PROP-517819: Casa en Venta Benevento Residencial
+[2025-10-22T04:12:41.727Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.738Z]   ⚠️  No se encontró HTML publicado para PROP-517819
+[2025-10-22T04:12:41.738Z]   🏠 PROP-697816: Casa en Renta Rincón Colonial
+[2025-10-22T04:12:41.738Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.748Z]   ⚠️  No se encontró HTML publicado para PROP-697816
+[2025-10-22T04:12:41.748Z]   🏠 PROP-110733: Casa en Venta Privada Residencial San José
+[2025-10-22T04:12:41.748Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.759Z]   ⚠️  No se encontró HTML publicado para PROP-110733
+[2025-10-22T04:12:41.759Z]   🏠 PROP-718158: Casa en Renta Colina del Rey
+[2025-10-22T04:12:41.759Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.770Z]   ⚠️  No se encontró HTML publicado para PROP-718158
+[2025-10-22T04:12:41.770Z]   🏠 PROP-295459: Casa en Renta Rincón Colonial
+[2025-10-22T04:12:41.770Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.780Z]   ⚠️  No se encontró HTML publicado para PROP-295459
+[2025-10-22T04:12:41.780Z]   🏠 PROP-085303: Departamento en Renta Tres Ríos
+[2025-10-22T04:12:41.780Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.791Z]   ⚠️  No se encontró HTML publicado para PROP-085303
+[2025-10-22T04:12:41.791Z]   🏠 PROP-324200: Casa en Renta Belcantto
+[2025-10-22T04:12:41.791Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.801Z]   ⚠️  No se encontró HTML publicado para PROP-324200
+[2025-10-22T04:12:41.801Z]   🏠 PROP-390863: Casa en Venta Vinoramas
+[2025-10-22T04:12:41.801Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.812Z]   ⚠️  No se encontró HTML publicado para PROP-390863
+[2025-10-22T04:12:41.812Z]   🏠 PROP-456286: Casa en Venta La Campiña
+[2025-10-22T04:12:41.812Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.823Z]   ⚠️  No se encontró HTML publicado para PROP-456286
+[2025-10-22T04:12:41.823Z]   🏠 PROP-521867: Casa en Venta La Primavera
+[2025-10-22T04:12:41.823Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.833Z]   ⚠️  No se encontró HTML publicado para PROP-521867
+[2025-10-22T04:12:41.833Z]   🏠 PROP-588180: Casa en Venta La Primavera
+[2025-10-22T04:12:41.833Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.844Z]   ⚠️  No se encontró HTML publicado para PROP-588180
+[2025-10-22T04:12:41.844Z]   🏠 PROP-658194: Casa en Venta Benevento Residencial
+[2025-10-22T04:12:41.844Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.854Z]   ⚠️  No se encontró HTML publicado para PROP-658194
+[2025-10-22T04:12:41.854Z]   🏠 PROP-521145: Departamento en Venta Humaya
+[2025-10-22T04:12:41.854Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.865Z]   ⚠️  No se encontró HTML publicado para PROP-521145
+[2025-10-22T04:12:41.865Z]   🏠 PROP-045360: Casa en Venta Portalegre
+[2025-10-22T04:12:41.865Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.876Z]   ⚠️  No se encontró HTML publicado para PROP-045360
+[2025-10-22T04:12:41.876Z]   🏠 PROP-021450: Casa en Venta Santa Fe
+[2025-10-22T04:12:41.876Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.886Z]   ⚠️  No se encontró HTML publicado para PROP-021450
+[2025-10-22T04:12:41.886Z]   🏠 PROP-63455524: Casa en Venta Privada Ávila
+[2025-10-22T04:12:41.886Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.897Z]   ⚠️  No se encontró HTML publicado para PROP-63455524
+[2025-10-22T04:12:41.897Z]   🏠 PROP-0: Casa en Venta Bugambilias, Zona Aeropuerto, habitación en Plata Baja ¡Lista para habitarse!
+[2025-10-22T04:12:41.897Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.906Z]   ⚠️  No se encontró HTML publicado para PROP-0
+[2025-10-22T04:12:41.906Z]   🏠 PROP-33908633: Casa Remodelada en Infonavit Solidaridad
+[2025-10-22T04:12:41.906Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.916Z]   ⚠️  No se encontró HTML publicado para PROP-33908633
+[2025-10-22T04:12:41.916Z]   🏠 PROP-58880025: Casa en Venta Fracc Portabelo
+[2025-10-22T04:12:41.916Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.926Z]   ⚠️  No se encontró HTML publicado para PROP-58880025
+[2025-10-22T04:12:41.926Z]   🏠 PROP-2: Casa en Venta Lomas del Sol en esquina, 2 Recámaras con terreno Excedente
+[2025-10-22T04:12:41.926Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.936Z]   ⚠️  No se encontró HTML publicado para PROP-2
+[2025-10-22T04:12:41.936Z]   🏠 PROP-5: Casa en Venta Fracc Lomas De San Isidro
+[2025-10-22T04:12:41.936Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.945Z]   ⚠️  No se encontró HTML publicado para PROP-5
+[2025-10-22T04:12:41.945Z]   🏠 PROP-62185723: Casa en Venta Fracc Capistrano,Sector Sur de Culiacán.
+[2025-10-22T04:12:41.945Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.955Z]   ⚠️  No se encontró HTML publicado para PROP-62185723
+[2025-10-22T04:12:41.955Z]   🏠 PROP-10247595: Casa en Venta Prados del Sur
+[2025-10-22T04:12:41.955Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.965Z]   ⚠️  No se encontró HTML publicado para PROP-10247595
+[2025-10-22T04:12:41.965Z]   🏠 PROP-7: Casa en Venta Alameda
+[2025-10-22T04:12:41.965Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.975Z]   ⚠️  No se encontró HTML publicado para PROP-7
+[2025-10-22T04:12:41.975Z]   🏠 PROP-7: Sin título
+[2025-10-22T04:12:41.975Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.984Z]   ⚠️  No se encontró HTML publicado para PROP-7
+[2025-10-22T04:12:41.984Z]   🏠 PROP-9: Casa en Venta Fracc Zona Dorada
+[2025-10-22T04:12:41.984Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:41.993Z]   ⚠️  No se encontró HTML publicado para PROP-9
+[2025-10-22T04:12:41.993Z]   🏠 PROP-5: Casa en Venta LOMAS DEL SOL CULIACAN SINALOA
+[2025-10-22T04:12:41.993Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.002Z]   ⚠️  No se encontró HTML publicado para PROP-5
+[2025-10-22T04:12:42.002Z]   🏠 PROP-6: Casa en Venta Fracc Riveras De Tamazula
+[2025-10-22T04:12:42.002Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.011Z]   ⚠️  No se encontró HTML publicado para PROP-6
+[2025-10-22T04:12:42.011Z]   🏠 PROP-62049484: Casa en Venta Privada Punta Azul
+[2025-10-22T04:12:42.011Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.022Z]   ⚠️  No se encontró HTML publicado para PROP-62049484
+[2025-10-22T04:12:42.022Z]   🏠 PROP-4: Casa en Venta Nuevo Culiacán, La Casa de Buscabas
+[2025-10-22T04:12:42.022Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.031Z]   ⚠️  No se encontró HTML publicado para PROP-4
+[2025-10-22T04:12:42.031Z]   🏠 PROP-11750012: Casa en Venta Villa Bonita
+[2025-10-22T04:12:42.031Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.041Z]   ⚠️  No se encontró HTML publicado para PROP-11750012
+[2025-10-22T04:12:42.041Z]   🏠 PROP-019512: Departamento en Venta Banus
+[2025-10-22T04:12:42.041Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.051Z]   ⚠️  No se encontró HTML publicado para PROP-019512
+[2025-10-22T04:12:42.051Z]   🏠 PROP-39043096: Casa en Venta San Javier La Primavera
+[2025-10-22T04:12:42.051Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.062Z]   ⚠️  No se encontró HTML publicado para PROP-39043096
+[2025-10-22T04:12:42.062Z]   🏠 PROP-61927463: Casa en Venta Chapultepec
+[2025-10-22T04:12:42.062Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.072Z]   ⚠️  No se encontró HTML publicado para PROP-61927463
+[2025-10-22T04:12:42.072Z]   🏠 PROP-42647515: Casa en Venta Privada Perisur
+[2025-10-22T04:12:42.072Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.082Z]   ⚠️  No se encontró HTML publicado para PROP-42647515
+[2025-10-22T04:12:42.082Z]   🏠 PROP-11586797: Casa en Renta Colonia Centenario
+[2025-10-22T04:12:42.082Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.093Z]   ⚠️  No se encontró HTML publicado para PROP-11586797
+[2025-10-22T04:12:42.093Z]   🏠 PROP-22441026: Casa Amplia Privanzas Natura
+[2025-10-22T04:12:42.093Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.103Z]   ⚠️  No se encontró HTML publicado para PROP-22441026
+[2025-10-22T04:12:42.103Z]   🏠 PROP-57402251: Casa Nueva Privada Natura Perisur
+[2025-10-22T04:12:42.103Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.114Z]   ⚠️  No se encontró HTML publicado para PROP-57402251
+[2025-10-22T04:12:42.114Z]   🏠 PROP-42158604: Casa Remodelada Portareal
+[2025-10-22T04:12:42.114Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.124Z]   ⚠️  No se encontró HTML publicado para PROP-42158604
+[2025-10-22T04:12:42.124Z]   🏠 PROP-10349449: Casa en Renta Fracc Terracota
+[2025-10-22T04:12:42.124Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.135Z]   ⚠️  No se encontró HTML publicado para PROP-10349449
+[2025-10-22T04:12:42.135Z]   🏠 PROP-78674744: Casa en Renta $12,500 - Villa Andalucía
+[2025-10-22T04:12:42.135Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.145Z]   ⚠️  No se encontró HTML publicado para PROP-78674744
+[2025-10-22T04:12:42.145Z]   🏠 PROP-50997524: Casa Renta Altluz Residencial
+[2025-10-22T04:12:42.145Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.156Z]   ⚠️  No se encontró HTML publicado para PROP-50997524
+[2025-10-22T04:12:42.156Z]   🏠 PROP-66278163: Casa Venta Las Glorias
+[2025-10-22T04:12:42.156Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.167Z]   ⚠️  No se encontró HTML publicado para PROP-66278163
+[2025-10-22T04:12:42.167Z]   🏠 PROP-95855939: Casa Venta Hacienda del Rio
+[2025-10-22T04:12:42.167Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.177Z]   ⚠️  No se encontró HTML publicado para PROP-95855939
+[2025-10-22T04:12:42.177Z]   🏠 PROP-21486089: Sin título
+[2025-10-22T04:12:42.177Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.188Z]   ⚠️  No se encontró HTML publicado para PROP-21486089
+[2025-10-22T04:12:42.188Z]   🏠 PROP-11911619: Casa La Campiña cerca Forum
+[2025-10-22T04:12:42.188Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.199Z]   ⚠️  No se encontró HTML publicado para PROP-11911619
+[2025-10-22T04:12:42.199Z]   🏠 PROP-72956935: Casa en Privada Americana, Perisur
+[2025-10-22T04:12:42.199Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.210Z]   ⚠️  No se encontró HTML publicado para PROP-72956935
+[2025-10-22T04:12:42.210Z]   🏠 PROP-73552214: Departamento en Renta Álamos-Tec Monterrey
+[2025-10-22T04:12:42.210Z]   🌆 Ciudad detectada: monterrey
+[2025-10-22T04:12:42.210Z]   ⚠️  No se encontró HTML publicado para PROP-73552214
+[2025-10-22T04:12:42.210Z]   🏠 PROP-39224271: Casa Renta Valle Alto Oaxaca
+[2025-10-22T04:12:42.210Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.221Z]   ⚠️  No se encontró HTML publicado para PROP-39224271
+[2025-10-22T04:12:42.221Z]   🏠 PROP-79935205: Casa en Renta Espacios Marsella
+[2025-10-22T04:12:42.221Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.232Z]   ⚠️  No se encontró HTML publicado para PROP-79935205
+[2025-10-22T04:12:42.232Z]   🏠 PROP-63153512: Casa Amueblada Viñedos de Vascos
+[2025-10-22T04:12:42.232Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.242Z]   ⚠️  No se encontró HTML publicado para PROP-63153512
+[2025-10-22T04:12:42.242Z]   🏠 PROP-82621507: Casa en Venta San Agustín La Primavera
+[2025-10-22T04:12:42.242Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.254Z]   ⚠️  No se encontró HTML publicado para PROP-82621507
+[2025-10-22T04:12:42.254Z]   🏠 PROP-46393542: Casa en Venta Privada La Perla Premium
+[2025-10-22T04:12:42.254Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.264Z]   ⚠️  No se encontró HTML publicado para PROP-46393542
+[2025-10-22T04:12:42.264Z]   🏠 PROP-11963734: Casa en Venta Privada Villas del Rio Elite
+[2025-10-22T04:12:42.264Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.275Z]   ⚠️  No se encontró HTML publicado para PROP-11963734
+[2025-10-22T04:12:42.275Z]   🏠 PROP-10689155: Casa Venta Bosque Monarca
+[2025-10-22T04:12:42.275Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.286Z]   ⚠️  No se encontró HTML publicado para PROP-10689155
+[2025-10-22T04:12:42.286Z]   🏠 PROP-14316517: Casa en Renta Colinas de San Miguel
+[2025-10-22T04:12:42.286Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.296Z]   ⚠️  No se encontró HTML publicado para PROP-14316517
+[2025-10-22T04:12:42.296Z]   🏠 PROP-14627176: Casa en Renta Circuito Canarias
+[2025-10-22T04:12:42.296Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.306Z]   ⚠️  No se encontró HTML publicado para PROP-14627176
+[2025-10-22T04:12:42.306Z]   🏠 PROP-29205241: Casa Exclusiva Los Pinos
+[2025-10-22T04:12:42.306Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.317Z]   ⚠️  No se encontró HTML publicado para PROP-29205241
+[2025-10-22T04:12:42.317Z]   🏠 PROP-3: Casa en Renta 3 Ríos
+[2025-10-22T04:12:42.317Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.326Z]   ⚠️  No se encontró HTML publicado para PROP-3
+[2025-10-22T04:12:42.326Z]   🏠 PROP-30759834: Casa en Venta Valles del Sol
+[2025-10-22T04:12:42.326Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.336Z]   ⚠️  No se encontró HTML publicado para PROP-30759834
+[2025-10-22T04:12:42.336Z]   🏠 PROP-57338208: Casa en Venta Stanza Toscana
+[2025-10-22T04:12:42.336Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.347Z]   ⚠️  No se encontró HTML publicado para PROP-57338208
+[2025-10-22T04:12:42.347Z]   🏠 PROP-712258: Casa en Renta Valle Alto
+[2025-10-22T04:12:42.347Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.357Z]   ⚠️  No se encontró HTML publicado para PROP-712258
+[2025-10-22T04:12:42.357Z]   🏠 PROP-742687: Casa en Renta Portabelo
+[2025-10-22T04:12:42.357Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.368Z]   ⚠️  No se encontró HTML publicado para PROP-742687
+[2025-10-22T04:12:42.368Z]   🏠 PROP-3: Casa en Renta Desarrollo Urbano 3 Ríos
+[2025-10-22T04:12:42.368Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.378Z]   ⚠️  No se encontró HTML publicado para PROP-3
+[2025-10-22T04:12:42.378Z]   🏠 PROP-937431: Casa en Renta Culiacán Tres Ríos
+[2025-10-22T04:12:42.378Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.388Z]   ⚠️  No se encontró HTML publicado para PROP-937431
+[2025-10-22T04:12:42.388Z]   🏠 PROP-839267: Casa en Renta La Alteña I
+[2025-10-22T04:12:42.388Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.399Z]   ⚠️  No se encontró HTML publicado para PROP-839267
+[2025-10-22T04:12:42.399Z]   🏠 PROP-871021: Casa en Renta Portalegre
+[2025-10-22T04:12:42.399Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.409Z]   ⚠️  No se encontró HTML publicado para PROP-871021
+[2025-10-22T04:12:42.409Z]   🏠 PROP-983772: Casa en Renta Villa del Cedro
+[2025-10-22T04:12:42.409Z]   🌆 Ciudad detectada: culiacan
+[2025-10-22T04:12:42.420Z]   ⚠️  No se encontró HTML publicado para PROP-983772
+[2025-10-22T04:12:42.420Z] 
+[2025-10-22T04:12:42.421Z] 💾 crm-vendedores.json actualizado
+[2025-10-22T04:12:42.421Z] 
+[2025-10-22T04:12:42.421Z] 📊 RESUMEN DE SINCRONIZACIÓN
+[2025-10-22T04:12:42.421Z] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2025-10-22T04:12:42.421Z] Total propiedades procesadas: 203
+[2025-10-22T04:12:42.421Z] Propiedades enriquecidas: 3
+[2025-10-22T04:12:42.421Z] Propiedades no encontradas: 200
+[2025-10-22T04:12:42.421Z] Tasa de éxito: 1.5%
+[2025-10-22T04:12:42.421Z] 

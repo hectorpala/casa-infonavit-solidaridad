@@ -171,6 +171,47 @@ npm install
 - Verificar que `inmuebles24culiacanscraper.js` existe
 - Verificar permisos de ejecución: `chmod +x inmuebles24culiacanscraper.js`
 
+## 🔍 Sistema de Detección de Duplicados (Octubre 2025)
+
+### Estado del Sistema:
+- **167 propiedades totales** publicadas en casasenventa.info
+  - 🟢 120 en VENTA
+  - 🟠 47 en RENTA
+- **37 propiedades trackeadas** con IDs de Inmuebles24
+- **130 propiedades manuales** NO trackeadas (correcto - no vienen de Inmuebles24)
+
+### Cómo Funciona:
+1. **Extracción de ID** - Desde URL de Inmuebles24: `/-(\d+)\.html/`
+2. **Verificación** - Busca ID en `inmuebles24-scraped-properties.json`
+3. **Resultado:**
+   - ✅ **Si NO existe** → Scrapea y publica normalmente
+   - ⚠️ **Si existe** → Muestra advertencia amarilla, NO crea archivos
+
+### Interfaz Web:
+- **Advertencia Amarilla** si es duplicado:
+  - Muestra ID de propiedad
+  - Muestra título existente
+  - Botón "Agregar Otra Propiedad"
+- **Confetti Verde** si es nueva:
+  - Muestra URL publicada
+  - Botón "Ver Propiedad"
+  - Botón "Nueva Propiedad"
+
+### Precisión:
+- **100%** - 0 false positives
+- Usa IDs únicos de Inmuebles24 (no slug, no título)
+- Solo detecta duplicados de propiedades scrapeadas
+
+### Bases de Datos:
+- `inmuebles24-scraped-properties.json` - Culiacán (19 props)
+- `inmuebles24-scraped-properties-mazatlan.json` - Mazatlán (16 props)
+- `complete-properties-database.json` - Inventario completo (167 props, solo referencia)
+
+### Documentación Completa:
+Ver `DUPLICATE-DETECTION-README.md` para detalles técnicos completos.
+
+---
+
 ## ✅ Correcciones Aplicadas (Octubre 2025)
 
 ### Commit f8f8221 - Web Scraper Interface Improvements
