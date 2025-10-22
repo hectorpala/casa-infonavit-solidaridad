@@ -18270,6 +18270,32 @@
 
             <!-- Map Footer (Optional Controls) -->
             <div class="p-4 border-t border-gray-200 bg-gray-50">
+                <!-- Coordinate Jump Controls -->
+                <div class="mb-4 p-4 bg-white rounded-lg border border-gray-300 shadow-sm">
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <label class="text-sm font-semibold text-gray-700">Buscar por coordenadas:</label>
+                        <input type="text" id="coord-lat" placeholder="Latitud (ej: 24.824)"
+                               class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-hector focus:border-hector w-40">
+                        <input type="text" id="coord-lng" placeholder="Longitud (ej: -107.399)"
+                               class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-hector focus:border-hector w-40">
+                        <button onclick="jumpToCoordinates()"
+                                class="px-4 py-2 bg-hector text-white rounded-md font-medium hover:bg-hector-dark transition-colors shadow-md hover:shadow-lg">
+                            <svg class="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            Ir a ubicación
+                        </button>
+                        <button onclick="clearCoordinateSearch()"
+                                class="px-3 py-2 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-md transition-colors">
+                            Limpiar
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">
+                        💡 Ejemplo: Casa Guadalupe V1.5 está en <button onclick="fillCoordinates(24.824, -107.399)" class="text-hector hover:underline font-medium">24.824, -107.399</button>
+                    </p>
+                </div>
+
                 <div class="flex items-center justify-between flex-wrap gap-4">
                     <div class="flex items-center gap-4">
                         <label class="inline-flex items-center gap-2 cursor-pointer">
@@ -18629,6 +18655,95 @@
             modal.classList.add('hidden');
             modal.classList.remove('flex');
             document.body.style.overflow = '';
+        }
+
+        // ===== COORDINATE NAVIGATION FUNCTIONS =====
+
+        function jumpToCoordinates() {
+            const latInput = document.getElementById('coord-lat');
+            const lngInput = document.getElementById('coord-lng');
+
+            const lat = parseFloat(latInput.value);
+            const lng = parseFloat(lngInput.value);
+
+            // Validate inputs
+            if (isNaN(lat) || isNaN(lng)) {
+                alert('Por favor ingresa coordenadas válidas.\nEjemplo: Latitud: 24.824, Longitud: -107.399');
+                return;
+            }
+
+            // Check if coordinates are in reasonable range for Culiacán
+            if (lat < 24.0 || lat > 25.5 || lng < -108.0 || lng > -106.5) {
+                const confirmed = confirm('⚠️ Las coordenadas parecen estar fuera del área de Culiacán.\n¿Deseas continuar de todas formas?');
+                if (!confirmed) return;
+            }
+
+            // Check if map exists
+            if (typeof window.mapCuliacan === 'undefined' || !window.mapCuliacan) {
+                alert('El mapa aún no está inicializado. Por favor espera unos segundos.');
+                return;
+            }
+
+            // Create LatLng object
+            const position = new google.maps.LatLng(lat, lng);
+
+            // Center map and zoom
+            window.mapCuliacan.setCenter(position);
+            window.mapCuliacan.setZoom(17); // Zoom level for neighborhood view
+
+            // Add temporary marker
+            if (window.tempCoordMarker) {
+                window.tempCoordMarker.setMap(null);
+            }
+
+            window.tempCoordMarker = new google.maps.Marker({
+                position: position,
+                map: window.mapCuliacan,
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 10,
+                    fillColor: "#FF6A00",
+                    fillOpacity: 0.8,
+                    strokeColor: "#FFFFFF",
+                    strokeWeight: 3
+                },
+                animation: google.maps.Animation.DROP,
+                zIndex: 9999
+            });
+
+            // Add bounce animation
+            window.tempCoordMarker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(() => {
+                if (window.tempCoordMarker) {
+                    window.tempCoordMarker.setAnimation(null);
+                }
+            }, 2000);
+
+            console.log(`🎯 Saltando a coordenadas: ${lat}, ${lng}`);
+        }
+
+        function fillCoordinates(lat, lng) {
+            document.getElementById('coord-lat').value = lat;
+            document.getElementById('coord-lng').value = lng;
+            // Auto-jump after filling
+            setTimeout(() => jumpToCoordinates(), 100);
+        }
+
+        function clearCoordinateSearch() {
+            document.getElementById('coord-lat').value = '';
+            document.getElementById('coord-lng').value = '';
+
+            // Remove temporary marker
+            if (window.tempCoordMarker) {
+                window.tempCoordMarker.setMap(null);
+                window.tempCoordMarker = null;
+            }
+
+            // Reset map to default view (Culiacán center)
+            if (window.mapCuliacan) {
+                window.mapCuliacan.setCenter(new google.maps.LatLng(24.8091, -107.3940));
+                window.mapCuliacan.setZoom(12);
+            }
         }
 
         // ===== ZILLOW: SISTEMA DE FILTROS (GLOBAL SCOPE) =====
@@ -19158,6 +19273,32 @@
             
             // Inicializar array global de marcadores para el filtro
             window.allCuliacanMarkers = [];
+
+            // Propiedad: Casa en Venta Colonia Guadalupe (GEOCODING DINÁMICO - igual que página individual)
+            const guadalupeV15Property = {
+                address: "Rio Quelite Colonia Guadalupe, Culiacán, Sinaloa", // Google Maps API convierte esto a coordenadas en tiempo real
+                priceShort: "$4.3M",
+                priceFull: "$4,300,000",
+                title: "Casa en Venta Colonia Guadalupe Culiacán",
+                location: "Guadalupe, Culiacán",
+                bedrooms: 3,
+                bathrooms: 3,
+                area: "261m²",
+                type: "venta",
+                url: "https://casasenventa.info/culiacan/casa-en-venta-colonia-guadalupe-culiacan/",
+                photos: [
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-1.jpg",
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-2.jpg",
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-3.jpg",
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-4.jpg",
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-5.jpg",
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-6.jpg",
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-7.jpg",
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-8.jpg",
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-9.jpg",
+                    "casa-en-venta-colonia-guadalupe-culiacan/images/foto-10.jpg"
+                ]
+            };
 
             // Propiedad: Casa Colinas de San Miguel
             const colinasSanMiguelProperty = {
@@ -19994,6 +20135,7 @@
 
             // Propiedad 26: Casa en venta en Tierra Blanca
             const tierrablancaProperty = {
+                lat: 24.7830, lng: -107.4080, // Tierra Blanca, Culiacán (Geocoder V1.5)
                 address: "Tierra Blanca, Culiacán",
                 priceShort: "$6.9M",
                 priceFull: "$6,870,000",
@@ -21812,18 +21954,12 @@ const losPinosProperty = {
             });
 
 
-            // Geocodificar tierrablanca
-            geocoder.geocode({ address: tierrablancaProperty.address }, function(results, status) {
-                if (status === 'OK' && results[0]) {
-                    const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(tierrablancaProperty, window.mapCuliacan);
-                    const marker = new CustomMarkerClass(position, window.mapCuliacan, tierrablancaProperty);
-                    window.allCuliacanMarkers.push(marker);
-                    console.log('Marcador tierrablanca creado en:', position.lat(), position.lng());
-                } else {
-                    console.error('Geocode error tierrablanca:', status);
-                }
-            });
+            // Tierra Blanca - usar coordenadas directas (Geocoder V1.5)
+            const tierrablancaPosition = new google.maps.LatLng(tierrablancaProperty.lat, tierrablancaProperty.lng);
+            const tierrablancaMarkerClass = createZillowPropertyMarker(tierrablancaProperty, window.mapCuliacan);
+            const tierrablancaMarker = new tierrablancaMarkerClass(tierrablancaPosition, window.mapCuliacan, tierrablancaProperty);
+            window.allCuliacanMarkers.push(tierrablancaMarker);
+            console.log('Marcador Tierra Blanca creado en:', tierrablancaProperty.lat, tierrablancaProperty.lng);
 
             // Geocodificar privadaconalbercaamorada
             geocoder.geocode({ address: privadaconalbercaamoradaProperty.address }, function(results, status) {
@@ -22468,6 +22604,13 @@ const losPinosProperty = {
             const coloniaGuadalupeMarker = new coloniaGuadalupeMarkerClass(coloniaGuadalupePosition, window.mapCuliacan, coloniaGuadalupeProperty);
             window.allCuliacanMarkers.push(coloniaGuadalupeMarker);
             console.log('Marcador Colonia Guadalupe (VENTA) creado en:', coloniaGuadalupeProperty.lat, coloniaGuadalupeProperty.lng);
+
+            // Casa en Venta Colonia Guadalupe V1.5 (GEOCODER) - Coordenadas REALES del Geocoder V1.5
+            const guadalupeV15Position = new google.maps.LatLng(guadalupeV15Property.lat, guadalupeV15Property.lng);
+            const guadalupeV15MarkerClass = createZillowPropertyMarker(guadalupeV15Property, window.mapCuliacan);
+            const guadalupeV15Marker = new guadalupeV15MarkerClass(guadalupeV15Position, window.mapCuliacan, guadalupeV15Property);
+            window.allCuliacanMarkers.push(guadalupeV15Marker);
+            console.log('🌍 Marcador Casa Guadalupe V1.5 (GEOCODER) creado en:', guadalupeV15Property.lat, guadalupeV15Property.lng);
 
             // Colinas de San Miguel (VENTA) - Se crea AL FINAL para aparecer encima de otros marcadores
             const colinasSanMiguelPosition = new google.maps.LatLng(colinasSanMiguelProperty.lat, colinasSanMiguelProperty.lng);
