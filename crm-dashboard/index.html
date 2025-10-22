@@ -502,7 +502,7 @@
             if (filters.search) {
                 const search = filters.search.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
                 filtered = filtered.filter(prop => {
-                    const text = `${prop.id} ${prop.titulo} ${prop.colonia} ${prop.vendedor.nombre}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                    const text = `${prop.id} ${prop.titulo} ${prop.colonia || ''} ${prop.vendedor.nombre}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
                     return text.includes(search);
                 });
                 console.log('📝 Después de búsqueda de texto:', filtered.length);
@@ -522,11 +522,12 @@
                 // Debug: Mostrar colonias disponibles en propiedades filtradas
                 console.log('📍 Colonias disponibles en propiedades actuales:');
                 filtered.forEach((prop, idx) => {
-                    const propColonia = prop.colonia.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-                    console.log(`  ${idx + 1}. "${prop.colonia}" → normalizado: "${propColonia}"`);
+                    const propColonia = (prop.colonia || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                    console.log(`  ${idx + 1}. "${prop.colonia || 'Sin colonia'}" → normalizado: "${propColonia}"`);
                 });
 
                 filtered = filtered.filter(prop => {
+                    if (!prop.colonia) return false; // Skip properties without colonia
                     const propColonia = prop.colonia.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
                     const matches = propColonia.includes(coloniaSearch) || coloniaSearch.includes(propColonia);
 
