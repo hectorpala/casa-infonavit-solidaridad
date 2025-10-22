@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa en Venta $5,990,000 - Inmuebles24  Casa  Venta  Sinaloa  Culiacán  Fraccionamiento Colinas de San Miguel  Casa con Vista Espectacular en Colinas de San Miguel (Privada), Culiacán | Hector es Bienes Raíces</title>
-    <meta name="description" content="Casa con Vista Espectacular en Colinas de San Miguel (Privada) en Inmuebles24  Casa  Venta  Sinaloa  Culiacán  Fraccionamiento Colinas de San Miguel  Casa con Vista Espectacular en Colinas de San Miguel (Privada). 4 recámaras, 3 baños, 226m² construcción. Agenda tu visita hoy.">
-    <meta name="keywords" content="casa venta Culiacán, Inmuebles24  Casa  Venta  Sinaloa  Culiacán  Fraccionamiento Colinas de San Miguel  Casa con Vista Espectacular en Colinas de San Miguel (Privada), casa remodelada, 4 recámaras, cochera techada, Inmuebles24  Casa  Venta  Sinaloa  Culiacán  Fraccionamiento Colinas de San Miguel  Casa con Vista Espectacular en Colinas de San Miguel (Privada)">
+    <title>Casa en Venta $5,990,000 - Colinas de San Miguel, Culiacán | Hector es Bienes Raíces</title>
+    <meta name="description" content="Casa con Vista Espectacular en Colinas de San Miguel. 4 recámaras, 3 baños, 226m² construcción. Privada con alberca. Agenda tu visita hoy.">
+    <meta name="keywords" content="casa venta Culiacán, Colinas de San Miguel, casa con alberca, 4 recámaras, privada Culiacán, casa vista espectacular">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://casasenventa.info/culiacan/casa-con-vista-espectacular-en-colinas-de-san-miguel-privada/">
     
@@ -26,7 +26,7 @@
     <link rel="manifest" href="../manifest.json">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Casa en Venta $5,990,000 - Inmuebles24  Casa  Venta  Sinaloa  Culiacán  Fraccionamiento Colinas de San Miguel  Casa con Vista Espectacular en Colinas de San Miguel (Privada)">
+    <meta property="og:title" content="Casa en Venta $5,990,000 - Colinas de San Miguel, Culiacán">
     <meta property="og:description" content="4 recámaras • 3 baños • 226m² construcción • 133m² terreno">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://casasenventa.info/culiacan/casa-con-vista-espectacular-en-colinas-de-san-miguel-privada/">
@@ -54,8 +54,8 @@
       ],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Inmuebles24  Casa  Venta  Sinaloa  Culiacán  Fraccionamiento Colinas de San Miguel  Casa con Vista Espectacular en Colinas de San Miguel (Privada)",
-        "addressLocality": "Inmuebles24  Casa  Venta  Sinaloa  Culiacán  Fraccionamiento Colinas de San Miguel  Casa con Vista Espectacular en Colinas de San Miguel (Privada)",
+        "streetAddress": "Fraccionamiento Colinas de San Miguel, Culiacán, Sinaloa",
+        "addressLocality": "Colinas de San Miguel",
         "addressRegion": "Sinaloa",
         "postalCode": "80000",
         "addressCountry": "MX"
@@ -1252,8 +1252,9 @@
             photos: ['images/foto-1.jpg', 'images/foto-2.jpg', 'images/foto-3.jpg', 'images/foto-4.jpg', 'images/foto-5.jpg', 'images/foto-6.jpg', 'images/foto-7.jpg', 'images/foto-8.jpg', 'images/foto-9.jpg', 'images/foto-10.jpg', 'images/foto-11.jpg', 'images/foto-12.jpg', 'images/foto-13.jpg']
         };
 
-        // Array con TODAS las propiedades de Mazatlán
-        const ALL_MAZATLAN_PROPERTIES = [
+        // TEMPORAL FIX: Comentado ALL_MAZATLAN_PROPERTIES para evitar mostrar propiedades de Mazatlán en Culiacán
+        // TODO: Reemplazar con ALL_CULIACAN_PROPERTIES cuando se implemente la refactorización
+        const ALL_MAZATLAN_PROPERTIES_DISABLED = [
             { "slug": "casa-en-venta-real-del-valle", "priceShort": "$3.5M", "title": "Casa en Venta Real del Valle", "location": "Real del Valle", "image": "casa-en-venta-real-del-valle/images/foto-1.jpg" },
             { "slug": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-", "priceShort": "$3.5M", "title": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas", "location": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas", "image": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-/images/foto-1.jpg" },
             { "slug": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas", "priceShort": "$2.6M", "title": "Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.", "location": "Mazatlán Cercana a Marina Mazatlán y Playas.", "image": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas/images/foto-1.jpg" },
@@ -1537,32 +1538,18 @@
                         fullscreenControl: true
                     });
 
-                    // Crear marcador de la propiedad actual (naranja) con datos completos
-                    const currentProperty = isMazatlan
-                        ? ALL_MAZATLAN_PROPERTIES.find(p => currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
-                        : CURRENT_PROPERTY_DATA;
+                    // TEMPORAL FIX: Solo mostrar marcador de la propiedad actual
+                    // TODO: Cuando se implemente ALL_CULIACAN_PROPERTIES, restaurar la funcionalidad multi-marcador
+                    const currentProperty = CURRENT_PROPERTY_DATA;
 
                     if (currentProperty) {
                         const CustomMarkerClass = createPropertyMarker(currentProperty, map, true);
                         marker = new CustomMarkerClass(position, map, currentProperty, true);
 
-                        // Si es Mazatlán, crear marcadores de TODAS las otras propiedades (verdes)
-                        if (isMazatlan) {
-                            ALL_MAZATLAN_PROPERTIES.forEach(property => {
-                                if (property.slug !== currentProperty.slug) {
-                                    geocoder.geocode({ address: property.location }, function(results, status) {
-                                        if (status === 'OK' && results[0]) {
-                                            const otherPosition = {
-                                                lat: results[0].geometry.location.lat(),
-                                                lng: results[0].geometry.location.lng()
-                                            };
-                                            const OtherMarkerClass = createPropertyMarker(property, map, false);
-                                            new OtherMarkerClass(otherPosition, map, property, false);
-                                        }
-                                    });
-                                }
-                            });
-                        }
+                        // Comentado temporalmente: No mostrar otras propiedades hasta que exista ALL_CULIACAN_PROPERTIES
+                        // if (isMazatlan) {
+                        //     ALL_MAZATLAN_PROPERTIES.forEach(property => { ... });
+                        // }
                     }
 
                 } else {
