@@ -1569,8 +1569,8 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             // +5 puntos: Tiene número de calle (ej: "2609", "#123")
             if (/\d+/.test(address)) score += 5;
 
-            // +4 puntos: Tiene nombre de calle (ej: "Blvd", "Av", "Calle", "Privada")
-            if (/(blvd|boulevard|avenida|av\.|calle|c\.|privada|priv\.|paseo|prol\.|prolongación)/i.test(address)) score += 4;
+            // +4 puntos: Tiene nombre de calle (ej: "Blvd", "Av", "Calle", "Privada", "Internacional")
+            if (/(blvd|boulevard|avenida|av\.|calle|c\.|privada|priv\.|paseo|prol\.|prolongación|internacional)/i.test(address)) score += 4;
 
             // +3 puntos: Tiene colonia/fraccionamiento específico (ej: "Fracc. Las Quintas")
             if (/(fracc\.|fraccionamiento|colonia|col\.|residencial|priv\.|privada)/i.test(address)) score += 3;
@@ -1738,10 +1738,19 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
                     // Solo considerar elementos que están ANTES del iframe en el DOM
                     if (el.compareDocumentPosition(iframe) & Node.DOCUMENT_POSITION_FOLLOWING) {
                         const text = el.textContent.trim();
-                        // Buscar direcciones válidas
-                        if (text.length > 20 && text.length < 300 &&
-                            (text.match(/,.*,/) || // Al menos 2 comas
-                             /(calle|avenida|blvd|boulevard|privada|fracc|fraccionamiento|colonia|residencial)/i.test(text))) {
+
+                        // Dirección con número + nombre de calle = ALTA PRIORIDAD
+                        const hasStreetNumber = /\d+/.test(text);
+                        const hasStreetName = /(calle|avenida|av\.|blvd|boulevard|privada|internacional|paseo)/i.test(text);
+                        const hasNeighborhood = /(fracc|fraccionamiento|colonia|col\.|residencial)/i.test(text);
+                        const hasTwoCommas = text.match(/,.*,/);
+
+                        // Capturar si tiene número + nombre de calle (sin importar longitud)
+                        // O si cumple con requisitos originales
+                        if (text.length > 15 && text.length < 300 &&
+                            ((hasStreetNumber && hasStreetName) || // NUEVA CONDICIÓN PRIORITARIA
+                             hasTwoCommas ||
+                             hasNeighborhood)) {
                             console.log(`   🔍 Texto encontrado antes del mapa: "${text}"`);
                             mapCandidates.push(text);
                         }
