@@ -22,8 +22,8 @@ app.post('/run-scraper', (req, res) => {
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
 
-    // Spawn el scraper
-    const scraper = spawn('node', ['inmuebles24culiacanscraper.js', url], {
+    // Spawn el wrapper que auto-confirma la ciudad
+    const scraper = spawn('node', ['inmuebles24-wrapper.js', url], {
         cwd: __dirname,
         env: { ...process.env }
     });
