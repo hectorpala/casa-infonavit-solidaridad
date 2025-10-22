@@ -4,44 +4,135 @@
  * SCRAPER Y PUBLICADOR AUTOMÁTICO - INMUEBLES24.COM + CRM VENDEDORES
  *
  * ✨ MULTI-CIUDAD: Detecta automáticamente la ciudad desde la URL y publica en la carpeta correcta
+ * 🔍 DETECCIÓN DE DUPLICADOS: Sistema inteligente por Property ID de Inmuebles24
  *
- * USO SCRAPER:
- *   node inmuebles24-scraper-y-publicar.js "URL_DE_INMUEBLES24"
+ * ═══════════════════════════════════════════════════════════════════════════
+ * USO BÁSICO
+ * ═══════════════════════════════════════════════════════════════════════════
  *
- * USO CRM:
- *   node inmuebles24-scraper-y-publicar.js --crm-buscar <nombre|teléfono|tag>
- *   node inmuebles24-scraper-y-publicar.js --crm-lista
- *   node inmuebles24-scraper-y-publicar.js --crm-stats
+ * SCRAPER:
+ *   node inmuebles24culiacanscraper.js "URL_DE_INMUEBLES24"
+ *   node inmuebles24culiacanscraper.js "URL" --auto-confirm  # Sin prompt de ciudad
  *
- * PROCESO COMPLETO:
- * 1. Detecta ciudad desde URL (Monterrey, Mazatlán, o Culiacán)
- * 2. Scrapea datos de Inmuebles24 (título, precio, fotos, descripción, características)
- * 3. Descarga todas las fotos automáticamente
- * 4. Genera página HTML con Master Template
- * 5. Agrega tarjeta a [ciudad]/index.html
- * 6. Commit y push automático a GitHub
- * 7. Actualiza CRM de vendedores automáticamente
- * 8. Listo en 2-3 minutos
+ * CRM:
+ *   node inmuebles24culiacanscraper.js --crm-buscar <nombre|teléfono|tag>
+ *   node inmuebles24culiacanscraper.js --crm-lista
+ *   node inmuebles24culiacanscraper.js --crm-stats
  *
- * CIUDADES SOPORTADAS:
+ * ═══════════════════════════════════════════════════════════════════════════
+ * PROCESO COMPLETO (2-3 MINUTOS)
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * 1. 🔍 Extrae Property ID desde URL (ej: 144439344)
+ * 2. 🛡️ Verifica duplicados en base de datos JSON
+ *    - Si existe → ⚠️ Muestra advertencia, NO crea archivos
+ *    - Si no existe → ✅ Continúa con scraping
+ * 3. 🌆 Detecta ciudad desde URL (Monterrey, Mazatlán, o Culiacán)
+ * 4. 📊 Scrapea datos de Inmuebles24 (título, precio, fotos, descripción)
+ * 5. 📸 Descarga todas las fotos automáticamente
+ * 6. 🎨 Genera página HTML con Master Template
+ * 7. 📋 Agrega tarjeta a [ciudad]/index.html
+ * 8. 💾 Guarda en inmuebles24-scraped-properties.json
+ * 9. 🚀 Commit y push automático a GitHub
+ * 10. 👤 Actualiza CRM de vendedores
+ * 11. ✅ Listo - URL en casasenventa.info/[ciudad]/[slug]/
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * SISTEMA DE DETECCIÓN DE DUPLICADOS
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * SCOPE: Solo propiedades de Inmuebles24
+ * - 37 propiedades trackeadas con IDs únicos
+ * - 130 propiedades manuales NO trackeadas (correcto - no vienen de Inmuebles24)
+ * - Total sistema: 167 propiedades publicadas
+ *
+ * CÓMO FUNCIONA:
+ * 1. Extrae ID desde URL: /-(\d+)\.html/
+ *    ✅ .../casa-144439344.html
+ *    ✅ .../casa-144439344.html?n_src=Listado&n_pg=3
+ *
+ * 2. Busca ID en inmuebles24-scraped-properties.json
+ *
+ * 3. Si encuentra coincidencia:
+ *    ⚠️ Muestra advertencia con título y slug existente
+ *    🛑 NO crea archivos nuevos
+ *    ✅ Exit code 0 (sin error)
+ *
+ * 4. Si NO encuentra:
+ *    ✅ Scrapea y publica normalmente
+ *    💾 Agrega a base de datos con ID único
+ *
+ * BASES DE DATOS:
+ * - inmuebles24-scraped-properties.json (Culiacán - 19 props)
+ * - inmuebles24-scraped-properties-mazatlan.json (Mazatlán - 16 props)
+ * - crm-propiedades.json (Vendedores - 0 props)
+ * - culiacan/data/properties.json (Legacy - 2 props)
+ * - complete-properties-database.json (Inventario completo - 167 props, solo referencia)
+ *
+ * INTERFAZ WEB:
+ * - public/inmuebles24scraper.html
+ * - scraper-server.js (Express + SSE)
+ * - Muestra advertencia amarilla con ID y título si es duplicado
+ * - Confetti verde si es nueva propiedad
+ *
+ * PRECISIÓN: 100% - 0 false positives (usa IDs únicos de Inmuebles24)
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * CIUDADES SOPORTADAS
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
  * - Monterrey, Nuevo León → monterrey/
  * - Mazatlán, Sinaloa → mazatlan/
  * - Culiacán, Sinaloa → culiacan/ (default)
  *
- * EJEMPLOS:
- *   # Monterrey (detecta "monterrey" en URL)
- *   node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/propiedades/.../monterrey-..."
+ * DETECCIÓN AUTOMÁTICA:
+ * - "monterrey" en URL → Monterrey
+ * - "mazatlan" en URL → Mazatlán
+ * - Otros casos → Culiacán
  *
- *   # Mazatlán (detecta "mazatlan" en URL)
- *   node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/propiedades/.../mazatlan-..."
+ * CONFIRMACIÓN MANUAL:
+ * - Menú interactivo para confirmar ciudad detectada
+ * - 5 segundos para seleccionar (1/2/3) o Enter para confirmar
+ * - Flag --auto-confirm para saltar confirmación (interfaz web)
  *
- *   # Culiacán (default si no detecta ciudad)
- *   node inmuebles24-scraper-y-publicar.js "https://www.inmuebles24.com/propiedades/.../culiacan-..."
+ * ═══════════════════════════════════════════════════════════════════════════
+ * EJEMPLOS
+ * ═══════════════════════════════════════════════════════════════════════════
  *
- * EJEMPLOS CRM:
- *   node inmuebles24-scraper-y-publicar.js --crm-buscar alejandra
- *   node inmuebles24-scraper-y-publicar.js --crm-buscar 6671603643
- *   node inmuebles24-scraper-y-publicar.js --crm-buscar centro-historico
+ * # Monterrey (detecta "monterrey" en URL)
+ * node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/.../monterrey-..."
+ *
+ * # Mazatlán (detecta "mazatlan" en URL)
+ * node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/.../mazatlan-..."
+ *
+ * # Culiacán (default si no detecta ciudad)
+ * node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/.../culiacan-..."
+ *
+ * # Auto-confirm (sin prompt de ciudad)
+ * node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/..." --auto-confirm
+ *
+ * # CRM Vendedores
+ * node inmuebles24culiacanscraper.js --crm-buscar alejandra
+ * node inmuebles24culiacanscraper.js --crm-buscar 6671603643
+ * node inmuebles24culiacanscraper.js --crm-buscar centro-historico
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * DOCUMENTACIÓN
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * - DUPLICATE-DETECTION-README.md - Sistema completo de duplicados
+ * - SCRAPER-UI-README.md - Interfaz web
+ * - complete-properties-database.json - Inventario 167 propiedades
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * COMMITS IMPORTANTES
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * - 639ba16: Fix regex property ID (soporte query params)
+ * - cb89ffd: Detección duplicados en interfaz web
+ * - 4ca33fc: Limpieza base de datos (extraer IDs de URLs)
+ * - d2ecb88: Mejoras progreso scraper
+ * - f8f8221: Extracción slug y título mejorada
  */
 
 // Puppeteer con Stealth Plugin para evitar detección
@@ -2378,23 +2469,32 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
                        cityConfig.city === 'mazatlan' ? 'mapMazatlan' :
                        'mapCuliacan';
 
+    // Array de marcadores según ciudad (FIX: Multi-ciudad)
+    const markersArrayName = cityConfig.city === 'monterrey' ? 'allMonterreyMarkers' :
+                             cityConfig.city === 'mazatlan' ? 'allMazatlanMarkers' :
+                             'allCuliacanMarkers';
+
     // Código con coordenadas FIJAS (más rápido y confiable que geocodificación)
     const newMarkerCode = `
             // ${data.title} - Coordenadas exactas del JSON-LD
             const ${varName}Position = new google.maps.LatLng(${data.latitude}, ${data.longitude});
             const ${varName}MarkerClass = createZillowPropertyMarker(${varName}Property, window.${mapVarName});
             const ${varName}Marker = new ${varName}MarkerClass(${varName}Position, window.${mapVarName}, ${varName}Property);
-            window.allCuliacanMarkers.push(${varName}Marker);
+            window.${markersArrayName}.push(${varName}Marker);
             console.log('Marcador ${data.title} (${tipoPropiedad.toUpperCase()}) creado en:', ${varName}Position.lat(), ${varName}Position.lng());
 `;
 
     // Buscar dónde insertar la definición de la propiedad
-    // Intentar múltiples patrones para máxima compatibilidad
+    // Patrones genéricos que funcionan en TODAS las ciudades + fallback robusto
     const patterns = [
-        /(\s+)\/\/ RENTA: Casa Riberas de Tamazula/,
-        /(\s+)\/\/ RENTA: Casa Bosques del Río/,
-        /(\s+)const circuitoTabachinesProperty = \{/,
-        /(\s+)\/\/ Geocodificar solidaridad/
+        // Patrón 1: Buscar cualquier propiedad existente (RENTA o VENTA)
+        /(\s+)\/\/ (RENTA|VENTA):/,
+        // Patrón 2: Buscar const *Property = {
+        /(\s+)const \w+Property = \{/,
+        // Patrón 3: Buscar comentario de geocodificación
+        /(\s+)\/\/ Geocodificar/,
+        // Patrón 4: Fallback - buscar window.all*Markers = []
+        new RegExp(`(\\s+)window\\.${markersArrayName} = \\[\\];`)
     ];
 
     let insertionPoint = null;
@@ -2420,11 +2520,16 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
     console.log(`   ✅ Definición de propiedad agregada al mapa`);
 
     // Buscar dónde insertar el código del marcador
-    // Buscar después de Riberas de Tamazula o Bosques del Río
+    // Patrones genéricos que funcionan en TODAS las ciudades
     const markerPatterns = [
-        /(\s+)\/\/ Bosques del Río \(RENTA\) - Coordenadas exactas[\s\S]*?console\.log\('Marcador Bosques del Río[^']*'\);/,
-        /(\s+)\/\/ Riberas de Tamazula \(RENTA\) - Coordenadas exactas[\s\S]*?console\.log\('Marcador Riberas de Tamazula[^']*'\);/,
-        /(\s+)\/\/ Inicializar filtros Zillow cuando el mapa esté listo/
+        // Patrón 1: Buscar cualquier console.log('Marcador ...')
+        /(\s+)console\.log\('Marcador [^']*'\);/,
+        // Patrón 2: Buscar window.all*Markers.push(...)
+        new RegExp(`(\\s+)window\\.${markersArrayName}\\.push\\(`),
+        // Patrón 3: Buscar comentario de filtros Zillow
+        /(\s+)\/\/ Inicializar filtros Zillow cuando el mapa esté listo/,
+        // Patrón 4: Fallback - buscar google.maps.event.addListener
+        /(\s+)google\.maps\.event\.addListener\(/
     ];
 
     let markerInsertionPoint = null;
