@@ -4076,12 +4076,50 @@
           "fechaAgregada": "2025-10-22T04:21:47.183Z"
         }
       ]
+    },
+    {
+      "id": "v021",
+      "nombre": "InmoFácil",
+      "telefono": "6671010683",
+      "telefonoFormateado": "667-101-0683",
+      "whatsapp": "https://wa.me/526671010683",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147309710",
+          "titulo": "Casa en Venta Ubicada en Nuevo Culiacán",
+          "precio": "MN 2,800,000",
+          "ubicacion": "Nuevo Culiacan, Culiacán, Sinaloa, Mexico, Nuevo Culiacán",
+          "recamaras": 4,
+          "banos": 2,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "culiacan/casa-en-venta-ubicada-en-nuevo-culiacan/",
+          "fechaScrapeo": "2025-10-22",
+          "fechaPublicacion": "Publicado hace 65 días",
+          "vistas": 0,
+          "colonia": "Nuevo Culiacán",
+          "ciudad": "culiacan",
+          "fotoPrincipal": "culiacan/casa-en-venta-ubicada-en-nuevo-culiacan/images/foto-1.jpg"
+        }
+      ],
+      "notas": "Vendedor de Nuevo Culiacan, Culiacán, Sinaloa, Mexico, Nuevo Culiacán",
+      "tags": [
+        "inmuebles24",
+        "nuevo-culiacan",
+        "sinaloa",
+        "mexico",
+        "nuevo-culiacán",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-22T05:17:02.671Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-22T05:01:53.256Z",
-    "totalVendedores": 20,
-    "totalPropiedades": 226,
+    "ultimaActualizacion": "2025-10-22T05:17:02.671Z",
+    "totalVendedores": 21,
+    "totalPropiedades": 227,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
