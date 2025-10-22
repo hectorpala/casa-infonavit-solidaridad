@@ -142,14 +142,21 @@ function detectPropertyType(url) {
 /**
  * Confirma la ciudad con el usuario
  * @param {string} detectedCity - Ciudad detectada automáticamente
+ * @param {boolean} autoConfirm - Si true, skip el prompt y auto-confirmar
  * @returns {Promise<string>} - Ciudad confirmada por el usuario
  */
-async function confirmCity(detectedCity) {
+async function confirmCity(detectedCity, autoConfirm = false) {
     const cityNames = {
         'monterrey': 'Monterrey, Nuevo León',
         'mazatlan': 'Mazatlán, Sinaloa',
         'culiacan': 'Culiacán, Sinaloa'
     };
+
+    // Si autoConfirm está activo, skip el prompt
+    if (autoConfirm) {
+        console.log(`\n🤖 Auto-confirmado: ${cityNames[detectedCity]}\n`);
+        return detectedCity;
+    }
 
     console.log('╔═══════════════════════════════════════════════╗');
     console.log('║  🌆 CONFIRMACIÓN DE CIUDAD (IMPORTANTE)      ║');
@@ -2461,6 +2468,7 @@ async function main() {
     }
 
     const url = args[0];
+    const autoConfirm = args.includes('--auto-confirm');
 
     // Validar URL
     if (!url.includes('inmuebles24.com')) {
@@ -2478,8 +2486,8 @@ async function main() {
         const typeLabel = propertyType === 'renta' ? 'RENTA' : 'VENTA';
         console.log(`${typeIcon} Tipo detectado: ${typeLabel}\n`);
 
-        // 2. Confirmar ciudad con el usuario
-        const confirmedCity = await confirmCity(detectedCity);
+        // 2. Confirmar ciudad con el usuario (o auto-confirmar si flag está activo)
+        const confirmedCity = await confirmCity(detectedCity, autoConfirm);
         const cityConfig = getCityConfig(confirmedCity, propertyType);
         console.log(`🚀 Iniciando scraper para: ${typeLabel} en ${cityConfig.name}, ${cityConfig.state}\n`);
 
