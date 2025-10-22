@@ -280,13 +280,6 @@
                          decoding="async"
                          onclick="openLightbox(11)">
                 </div>
-                <div class="carousel-slide" data-slide="12">
-                    <img src="images/foto-13.jpg"
-                         alt="casa-en-venta-en-stanza-toscana - Vista 13"
-                         loading="lazy"
-                         decoding="async"
-                         onclick="openLightbox(12)">
-                </div>
                 
                     <!-- Navigation arrows -->
                     <button class="carousel-arrow carousel-prev" onclick="changeSlideHero(-1); openLightboxFromCarousel();" aria-label="Foto anterior">
@@ -317,7 +310,6 @@
                     <span class="carousel-dot" onclick="goToSlide(9)"></span>
                     <span class="carousel-dot" onclick="goToSlide(10)"></span>
                     <span class="carousel-dot" onclick="goToSlide(11)"></span>
-                    <span class="carousel-dot" onclick="goToSlide(12)"></span>
                 </div>
             </div>
         </div>
@@ -1226,7 +1218,7 @@
         const CURRENT_CITY = "culiacan";
         const DEFAULT_WHATSAPP = "526672317963";
         const FALLBACK_URL = window.location.href;
-        const FALLBACK_PHOTOS = ["images/foto-1.jpg","images/foto-2.jpg","images/foto-3.jpg","images/foto-4.jpg","images/foto-5.jpg","images/foto-6.jpg","images/foto-7.jpg","images/foto-8.jpg","images/foto-9.jpg","images/foto-10.jpg","images/foto-11.jpg","images/foto-12.jpg","images/foto-13.jpg"];
+        const FALLBACK_PHOTOS = ["images/foto-1.jpg","images/foto-2.jpg","images/foto-3.jpg","images/foto-4.jpg","images/foto-5.jpg","images/foto-6.jpg","images/foto-7.jpg","images/foto-8.jpg","images/foto-9.jpg","images/foto-10.jpg","images/foto-11.jpg","images/foto-12.jpg"];
         const FALLBACK_PRICE_FULL = "MN 2,990,000";
         const FALLBACK_PRICE_SHORT = "3.0M";
         const FALLBACK_BEDROOMS = 3;
@@ -1700,7 +1692,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             let currentSlide = 0;
-        const totalSlides = 13;
+        const totalSlides = 12;
         let touchStartX = 0;
         let touchEndX = 0;
         
@@ -2325,8 +2317,7 @@
         'images/foto-9.jpg',
         'images/foto-10.jpg',
         'images/foto-11.jpg',
-        'images/foto-12.jpg',
-        'images/foto-13.jpg'
+        'images/foto-12.jpg'
     ];
 
         let currentLightboxIndex = 0;
