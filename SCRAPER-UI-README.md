@@ -1,0 +1,176 @@
+# 🏠 Interfaz Web del Scraper de Inmuebles24
+
+Interfaz web sencilla para ejecutar el scraper de Inmuebles24 desde el navegador.
+
+## 🚀 Inicio Rápido
+
+### 1. Iniciar el servidor
+
+```bash
+npm run scraper-ui
+```
+
+### 2. Abrir en el navegador
+
+```
+http://localhost:3000/inmuebles24scraper.html
+```
+
+## 📋 Uso
+
+1. **Pegar URL**: Copia la URL de una propiedad de Inmuebles24
+   - Ejemplo: `https://www.inmuebles24.com/propiedades/clasificado/veclcain-...`
+
+2. **Ejecutar**: Click en el botón "Ejecutar Scraper"
+
+3. **Observar progreso**:
+   - Barra de progreso animada con shimmer effect
+   - Console log en tiempo real
+   - Porcentaje de avance
+
+4. **Resultado**:
+   - Animación de confetti 🎉
+   - Link directo a la propiedad publicada
+   - Botón para ver la propiedad
+   - Botón para agregar otra
+
+## 🎨 Características
+
+### Visual
+- ✅ Diseño moderno con Tailwind CSS
+- ✅ Gradientes verde/esmeralda (brand colors)
+- ✅ Barra de progreso con efecto shimmer
+- ✅ Animación de confetti al completar
+- ✅ Console log estilo terminal
+- ✅ Responsive design
+
+### Funcional
+- ✅ Server-Sent Events (SSE) para logs en tiempo real
+- ✅ Cálculo automático de progreso basado en hitos
+- ✅ Botón cancelar para detener el scraper
+- ✅ Botón limpiar console
+- ✅ Enter key para ejecutar
+- ✅ Validación de URL de Inmuebles24
+
+## 🔧 Arquitectura
+
+### Backend (`scraper-server.js`)
+- Express.js server
+- Endpoint `/run-scraper` (POST)
+- Spawn del script `inmuebles24culiacanscraper.js`
+- SSE para streaming de logs
+- Cálculo de progreso basado en keywords
+
+### Frontend (`public/inmuebles24scraper.html`)
+- HTML/CSS/JS puro
+- Tailwind CSS (CDN)
+- Canvas Confetti (CDN)
+- Fetch API para comunicación
+- ReadableStream para procesar SSE
+
+## 📊 Progreso Automático
+
+El progreso se calcula automáticamente basado en los logs del scraper:
+
+| Keyword | Progreso |
+|---------|----------|
+| "Navegando" | 10% |
+| "Extrayendo datos" | 20% |
+| "Datos extraídos" | 30% |
+| "Descargando" | 40% |
+| "descargadas" | 60% |
+| "Generando HTML" | 70% |
+| "HTML generado" | 80% |
+| "Agregando tarjeta" | 85% |
+| "Publicando" | 90% |
+| "COMPLETADO" | 100% |
+
+## 🎯 Para Producción
+
+Para desplegar en producción (casasenventa.info/inmuebles24scraper):
+
+1. **Configurar proxy inverso en GitHub Pages** (no soportado directamente)
+
+   **Alternativa A**: Usar Netlify/Vercel Functions
+   ```bash
+   # Subir a Netlify con serverless functions
+   netlify deploy --prod
+   ```
+
+   **Alternativa B**: Usar servidor VPS/Cloud
+   ```bash
+   # Nginx reverse proxy
+   location /inmuebles24scraper {
+       proxy_pass http://localhost:3000;
+   }
+   ```
+
+2. **Variables de entorno**
+   ```bash
+   PORT=3000
+   NODE_ENV=production
+   ```
+
+3. **PM2 para mantener servidor activo**
+   ```bash
+   pm2 start scraper-server.js --name "scraper-ui"
+   pm2 save
+   pm2 startup
+   ```
+
+## 🛠️ Desarrollo
+
+### Modificar el puerto
+Edita `scraper-server.js`:
+```javascript
+const PORT = 3000; // Cambiar aquí
+```
+
+### Agregar más hitos de progreso
+Edita la función `calculateProgress()` en `scraper-server.js`:
+```javascript
+const milestones = [
+    { keyword: 'Tu keyword', progress: 50 },
+    // ...
+];
+```
+
+### Personalizar confetti
+Edita el código en `inmuebles24scraper.html`:
+```javascript
+function fire(particleRatio, opts) {
+    confetti({
+        particleCount: Math.floor(200 * particleRatio),
+        spread: 90,
+        // ... más opciones
+    });
+}
+```
+
+## 📝 Notas
+
+- El servidor corre en puerto **3000** por defecto
+- Solo acepta URLs de `inmuebles24.com`
+- El scraper se ejecuta en el mismo proceso Node
+- Los logs se envían en tiempo real vía SSE
+- Al cerrar el navegador, el scraper se detiene automáticamente
+
+## 🐛 Troubleshooting
+
+### Puerto ocupado
+```bash
+lsof -ti:3000 | xargs kill -9
+```
+
+### Express no encontrado
+```bash
+npm install
+```
+
+### Scraper no inicia
+- Verificar que `inmuebles24culiacanscraper.js` existe
+- Verificar permisos de ejecución: `chmod +x inmuebles24culiacanscraper.js`
+
+---
+
+**Powered by Claude Code** • Hector es Bienes Raíces

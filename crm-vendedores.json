@@ -695,12 +695,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-18T20:49:00.047Z"
+    },
+    {
+      "id": "v019",
+      "nombre": "Grupo Inmobiliario del Noroeste",
+      "telefono": "6677752228",
+      "telefonoFormateado": "667-775-2228",
+      "whatsapp": "https://wa.me/526677752228",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "",
+          "titulo": "Vendo Casa en Colonia Guadalupe Culiacán",
+          "precio": "MN 9,900,000",
+          "ubicacion": "Casa Rio Culiacán y Paliza, Culiacán, Sinaloa, Mexico, Guadalupe",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-vendo-casa-en-colonia-guadalupe-culiacan-146266554.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=24",
+          "fechaScrapeo": "2025-10-22",
+          "fechaPublicacion": "Publicado hace 180 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Casa Rio Culiacán y Paliza, Culiacán, Sinaloa, Mexico, Guadalupe",
+      "tags": [
+        "inmuebles24",
+        "casa-rio-culiacán-y-paliza",
+        "sinaloa",
+        "mexico",
+        "guadalupe",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-22T01:11:03.379Z"
     }
   ],
   "estadisticas": {
-    "totalVendedores": 18,
-    "totalPropiedades": 33,
-    "ultimaActualizacion": "2025-10-21T23:35:56.308Z"
+    "totalVendedores": 19,
+    "totalPropiedades": 34,
+    "ultimaActualizacion": "2025-10-22T01:11:03.379Z"
   },
   "busquedas": [
     {

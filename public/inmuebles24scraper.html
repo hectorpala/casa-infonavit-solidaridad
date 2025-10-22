@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inmuebles24 Scraper | Hector es Bienes Raíces</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, #10b981 0%, #34d399 50%, #10b981 100%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        .progress-bar {
+            transition: width 0.3s ease-in-out;
+        }
+
+        .log-line {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pulse-button {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .7; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-50 to-emerald-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-2xl w-full">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">🏠 Inmuebles24 Scraper</h1>
+            <p class="text-gray-600">Agrega propiedades automáticamente a casasenventa.info</p>
+        </div>
+
+        <!-- Main Card -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8">
+            <!-- Input Section -->
+            <div id="inputSection">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    URL de Inmuebles24
+                </label>
+                <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="https://www.inmuebles24.com/propiedades/clasificado/..."
+                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all mb-4"
+                />
+
+                <button
+                    id="runButton"
+                    class="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-6 rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105 active:scale-95"
+                >
+                    <span class="flex items-center justify-center gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        Ejecutar Scraper
+                    </span>
+                </button>
+            </div>
+
+            <!-- Progress Section (hidden initially) -->
+            <div id="progressSection" class="hidden">
+                <div class="mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-semibold text-gray-700">Progreso</span>
+                        <span id="progressPercent" class="text-sm font-bold text-green-600">0%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                        <div id="progressBar" class="progress-bar shimmer h-4 rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Log Console -->
+                <div class="bg-gray-900 rounded-lg p-4 h-64 overflow-y-auto mb-4">
+                    <div id="logConsole" class="text-xs font-mono text-green-400 space-y-1"></div>
+                </div>
+
+                <div class="flex gap-3">
+                    <button
+                        id="cancelButton"
+                        class="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition-all"
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        id="clearButton"
+                        class="flex-1 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition-all"
+                    >
+                        Limpiar Log
+                    </button>
+                </div>
+            </div>
+
+            <!-- Success Section (hidden initially) -->
+            <div id="successSection" class="hidden text-center">
+                <div class="mb-6">
+                    <div class="text-6xl mb-4">🎉</div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">¡Propiedad Publicada!</h2>
+                    <p class="text-gray-600" id="successMessage">Tu propiedad ya está en línea</p>
+                </div>
+
+                <div class="bg-green-50 border-2 border-green-200 rounded-lg p-4 mb-6">
+                    <p class="text-sm text-gray-600 mb-2">URL de la propiedad:</p>
+                    <a id="propertyLink" href="#" target="_blank" class="text-green-600 font-semibold hover:text-green-700 break-all">
+                        https://casasenventa.info/culiacan/...
+                    </a>
+                </div>
+
+                <div class="flex gap-3">
+                    <button
+                        id="viewButton"
+                        class="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-3 px-6 rounded-lg transition-all"
+                    >
+                        Ver Propiedad
+                    </button>
+                    <button
+                        id="newButton"
+                        class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-all"
+                    >
+                        Nueva Propiedad
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-6 text-gray-600 text-sm">
+            <p>Powered by <strong>Claude Code</strong> • Hector es Bienes Raíces</p>
+        </div>
+    </div>
+
+    <script>
+        const urlInput = document.getElementById('urlInput');
+        const runButton = document.getElementById('runButton');
+        const inputSection = document.getElementById('inputSection');
+        const progressSection = document.getElementById('progressSection');
+        const successSection = document.getElementById('successSection');
+        const progressBar = document.getElementById('progressBar');
+        const progressPercent = document.getElementById('progressPercent');
+        const logConsole = document.getElementById('logConsole');
+        const cancelButton = document.getElementById('cancelButton');
+        const clearButton = document.getElementById('clearButton');
+        const viewButton = document.getElementById('viewButton');
+        const newButton = document.getElementById('newButton');
+        const propertyLink = document.getElementById('propertyLink');
+        const successMessage = document.getElementById('successMessage');
+
+        let eventSource = null;
+        let currentProgress = 0;
+
+        // Run Scraper
+        runButton.addEventListener('click', async () => {
+            const url = urlInput.value.trim();
+
+            if (!url || !url.includes('inmuebles24.com')) {
+                alert('Por favor ingresa una URL válida de Inmuebles24');
+                return;
+            }
+
+            // Reset y mostrar progreso
+            inputSection.classList.add('hidden');
+            progressSection.classList.remove('hidden');
+            successSection.classList.add('hidden');
+            logConsole.innerHTML = '';
+            currentProgress = 0;
+            updateProgress(0);
+
+            // Server-Sent Events
+            try {
+                const response = await fetch('/run-scraper', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url })
+                });
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    const chunk = decoder.decode(value);
+                    const lines = chunk.split('\n\n');
+
+                    lines.forEach(line => {
+                        if (line.startsWith('data: ')) {
+                            const data = JSON.parse(line.substring(6));
+                            handleScraperEvent(data);
+                        }
+                    });
+                }
+            } catch (error) {
+                addLog('❌ Error: ' + error.message, 'error');
+            }
+        });
+
+        function handleScraperEvent(data) {
+            if (data.type === 'log') {
+                addLog(data.message);
+                if (data.progress) {
+                    updateProgress(data.progress);
+                }
+            } else if (data.type === 'error') {
+                addLog('❌ ' + data.message, 'error');
+            } else if (data.type === 'complete') {
+                updateProgress(100);
+                setTimeout(() => {
+                    showSuccess(data);
+                }, 500);
+            }
+        }
+
+        function addLog(message, type = 'info') {
+            const logLine = document.createElement('div');
+            logLine.className = 'log-line';
+
+            if (type === 'error') {
+                logLine.classList.add('text-red-400');
+            } else if (message.includes('✅')) {
+                logLine.classList.add('text-green-400');
+            } else if (message.includes('⚠️')) {
+                logLine.classList.add('text-yellow-400');
+            }
+
+            logLine.textContent = message;
+            logConsole.appendChild(logLine);
+            logConsole.scrollTop = logConsole.scrollHeight;
+        }
+
+        function updateProgress(progress) {
+            currentProgress = Math.max(currentProgress, progress);
+            progressBar.style.width = currentProgress + '%';
+            progressPercent.textContent = currentProgress + '%';
+        }
+
+        function showSuccess(data) {
+            progressSection.classList.add('hidden');
+            successSection.classList.remove('hidden');
+
+            // Confetti animation
+            const count = 200;
+            const defaults = { origin: { y: 0.7 } };
+
+            function fire(particleRatio, opts) {
+                confetti({
+                    ...defaults,
+                    ...opts,
+                    particleCount: Math.floor(count * particleRatio),
+                    spread: 90,
+                    startVelocity: 55,
+                });
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
+
+            // Update success info
+            successMessage.textContent = data.title || 'Tu propiedad ya está en línea';
+            propertyLink.href = data.url;
+            propertyLink.textContent = data.url;
+
+            viewButton.onclick = () => window.open(data.url, '_blank');
+        }
+
+        // Cancel button
+        cancelButton.addEventListener('click', () => {
+            if (confirm('¿Seguro que quieres cancelar el scraper?')) {
+                location.reload();
+            }
+        });
+
+        // Clear log button
+        clearButton.addEventListener('click', () => {
+            logConsole.innerHTML = '';
+        });
+
+        // New property button
+        newButton.addEventListener('click', () => {
+            location.reload();
+        });
+
+        // Enter key to run
+        urlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                runButton.click();
+            }
+        });
+    </script>
+</body>
+</html>
