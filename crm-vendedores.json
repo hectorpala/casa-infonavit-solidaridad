@@ -4143,12 +4143,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-22T05:17:02.671Z"
+    },
+    {
+      "id": "v022",
+      "nombre": "CENTURY 21 EDEN",
+      "telefono": "6675725052",
+      "telefonoFormateado": "667-572-5052",
+      "whatsapp": "https://wa.me/526675725052",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "91269633",
+          "titulo": "Casa en Venta en Culiacán, Sinaloa.",
+          "precio": "MN 3,385,000",
+          "ubicacion": "Internacional 2660, Culiacán, Sinaloa, Mexico, Fraccionamiento Del Humaya",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-sinaloa.-91269633.html?n_src=Listado&n_pg=2&n_pos=2",
+          "fechaScrapeo": "2025-10-22",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Internacional 2660, Culiacán, Sinaloa, Mexico, Fraccionamiento Del Humaya",
+      "tags": [
+        "inmuebles24",
+        "internacional-2660",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-del-humaya",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-22T18:13:08.948Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-22T05:49:25.289Z",
-    "totalVendedores": 21,
-    "totalPropiedades": 229,
+    "ultimaActualizacion": "2025-10-22T18:13:08.949Z",
+    "totalVendedores": 22,
+    "totalPropiedades": 230,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
