@@ -242,6 +242,132 @@ function getCityConfig(city, propertyType = 'venta') {
     return configs[city] || configs.culiacan;
 }
 
+/**
+ * Normaliza la cadena de ubicación para mapas y UI.
+ * Elimina breadcrumbs de Inmuebles24 y genera versiones:
+ *  - primary: nombre corto del fraccionamiento/colonia
+ *  - display: versión amigable para la ficha (incluye ciudad si falta)
+ *  - mapLocation: dirección apta para geocodificación (incluye ciudad y estado)
+ * @param {string} rawLocation - Cadena original proveniente del scrape
+ * @param {string} cityName - Nombre de la ciudad (ej. "Culiacán")
+ * @param {string} stateName - Nombre del estado (ej. "Sinaloa")
+ * @returns {{primary: string, display: string, mapLocation: string}}
+ */
+function normalizeLocationForCity(rawLocation, cityName, stateName) {
+    const fallbackPrimary = cityName;
+    const fallbackDisplay = cityName;
+    const fallbackMap = stateName ? `${cityName}, ${stateName}` : cityName;
+
+    if (!rawLocation || typeof rawLocation !== 'string') {
+        return {
+            primary: fallbackPrimary,
+            display: fallbackDisplay,
+            mapLocation: fallbackMap
+        };
+    }
+
+    // Limpieza básica de breadcrumbs conocidos
+    let location = rawLocation
+        .replace(/Inmuebles24/gi, ' ')
+        .replace(/Casa\s+Venta/gi, ' ')
+        .replace(/Casa\s+Renta/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+    const lowerCity = cityName.toLowerCase();
+    const lowerState = (stateName || '').toLowerCase();
+
+    let primary = null;
+
+    // 1) Si hay coma, tomar la primera sección (antes suele venir la colonia)
+    if (location.includes(',')) {
+        const [firstSection] = location.split(',');
+        const candidate = firstSection.trim();
+        if (candidate && !/^(casa|departamento|propiedad)\b/i.test(candidate)) {
+            primary = candidate;
+        }
+    }
+
+    // 2) Si aún no hay primary, intentar con separadores dobles (breadcrumbs sin comas)
+    if (!primary) {
+        const tokens = rawLocation
+            .split(/\s{2,}/)
+            .map(token => token.trim())
+            .filter(Boolean);
+
+        if (tokens.length) {
+            const blacklist = new Set([
+                'inmuebles24',
+                'casa',
+                'venta',
+                'renta',
+                lowerCity,
+                lowerState,
+                'mexico',
+                'méxico'
+            ]);
+
+            const priorityKeywords = [
+                'fraccionamiento',
+                'colonia',
+                'residencial',
+                'privada',
+                'coto',
+                'zona',
+                'sector',
+                'villa',
+                'plaza',
+                'parque',
+                'torre',
+                'boulevard',
+                'blvd',
+                'avenida',
+                'av'
+            ];
+
+            const findCandidate = (predicate) => tokens.find(token => {
+                const lower = token.toLowerCase();
+                if (!lower || blacklist.has(lower)) return false;
+                if (lower.includes('casa ') || lower.includes('departamento ')) return false;
+                return predicate(lower);
+            });
+
+            let candidate = findCandidate(lower =>
+                priorityKeywords.some(keyword => lower.includes(keyword))
+            );
+
+            if (!candidate) {
+                candidate = findCandidate(() => true);
+            }
+
+            if (candidate) {
+                primary = candidate;
+            }
+        }
+    }
+
+    if (!primary) {
+        primary = fallbackPrimary;
+    }
+
+    const primaryLower = primary.toLowerCase();
+    const includesCity = primaryLower.includes(lowerCity);
+
+    const display = includesCity ? primary : `${primary}, ${cityName}`;
+
+    const mapParts = [];
+    if (primary) mapParts.push(primary);
+    if (!includesCity) mapParts.push(cityName);
+    if (stateName) mapParts.push(stateName);
+    const mapLocation = mapParts.join(', ');
+
+    return {
+        primary,
+        display,
+        mapLocation
+    };
+}
+
 function generateSlug(title) {
     return title
         .toLowerCase()
@@ -339,70 +465,71 @@ function detectAddressPrecision(location) {
 }
 
 /**
- * Genera HTML de mapa interactivo con marcador personalizado naranja
+ * Genera el HTML completo del mapa interactivo con marcador personalizado
+ * aprovechando la información normalizada de la propiedad.
  *
  * @param {Object} config
- * @param {string} config.location - Dirección completa
- * @param {string} config.price - Precio de la propiedad (ej: "$3,200,000")
+ * @param {string} config.mapLocation - Dirección geocodificable (incluye ciudad/estado)
+ * @param {string} config.displayLocation - Dirección amigable mostrada en la ficha
+ * @param {string} config.primaryLocation - Nombre corto del fraccionamiento/colonia
+ * @param {string} config.price - Precio completo
  * @param {string} config.title - Título de la propiedad
  * @param {number} config.photoCount - Número total de fotos
- * @param {number} config.bedrooms - Número de recámaras
- * @param {number} config.bathrooms - Número de baños
- * @param {string} config.area - Área de construcción
- * @param {string} config.whatsapp - Número de WhatsApp
- * @param {string} [config.propertyIndex=0] - Índice para offset si hay múltiples en misma colonia
- * @returns {string} HTML del mapa con script
+ * @param {number|string} config.bedrooms - Número de recámaras
+ * @param {number|string} config.bathrooms - Número de baños
+ * @param {string} config.area - Área de construcción (texto)
+ * @param {string} config.whatsapp - Número de WhatsApp de la ciudad
+ * @param {number} [config.propertyIndex=0] - Offset en caso de varias propiedades en misma zona
+ * @param {Object} [config.cityCoords] - Coordenadas de fallback para la ciudad
+ * @param {string} [config.city] - Slug de la ciudad (culiacan|mazatlan|monterrey)
+ * @param {string} [config.cityName] - Nombre legible de la ciudad
+ * @param {string} [config.stateName] - Nombre del estado
+ * @returns {string} HTML del mapa con script listo para incrustar
  */
 function generateMapWithCustomMarker(config) {
-    const { location, price, title, propertyIndex = 0, cityCoords = { lat: 24.8091, lng: -107.3940, name: 'Culiacán' }, photoCount = 1, bedrooms = 'N/A', bathrooms = 'N/A', area = 'N/D', whatsapp = '526681234567' } = config;
+    const {
+        mapLocation,
+        displayLocation,
+        primaryLocation,
+        price,
+        title,
+        propertyIndex = 0,
+        cityCoords = { lat: 24.8091, lng: -107.3940, name: 'Culiacán' },
+        photoCount = 1,
+        bedrooms = 'N/A',
+        bathrooms = 'N/A',
+        area = 'N/D',
+        whatsapp = '526681234567',
+        city = 'culiacan',
+        cityName = cityCoords.name || 'Culiacán',
+        stateName = 'Sinaloa'
+    } = config;
+
+    const resolvedMapLocation = (mapLocation && mapLocation.trim()) ||
+        [primaryLocation, cityName, stateName].filter(Boolean).join(', ');
+    const resolvedDisplayLocation = (displayLocation && displayLocation.trim()) ||
+        (primaryLocation ? `${primaryLocation}, ${cityName}` : cityName);
+
     const priceShort = formatPriceShort(price);
-    const precision = detectAddressPrecision(location);
+    const precision = detectAddressPrecision(resolvedMapLocation);
 
     // Calcular offset si hay múltiples propiedades en misma zona
     const latOffset = precision.offsetNeeded ? (propertyIndex * 0.002) : 0;
     const lngOffset = precision.offsetNeeded ? (propertyIndex * 0.002) : 0;
 
-    // Generar array de fotos dinámicamente
-    const photosArray = [];
-    for (let i = 1; i <= photoCount; i++) {
-        photosArray.push(`'images/foto-${i}.jpg'`);
-    }
+    // Fotos de fallback para tarjetas/markers
+    const fallbackPhotos = Array.from({ length: photoCount }, (_, i) => `images/foto-${i + 1}.jpg`);
+    const fallbackPhotosJSON = JSON.stringify(fallbackPhotos);
 
-    return `
-    <!-- Mapa con Marcador Personalizado -->
-    <div id="map-container" style="width: 100%; height: 450px; border-radius: 12px; overflow: hidden;"></div>
+    const sanitizedTitle = (title || '').replace(/"/g, '\\"');
+    const sanitizedArea = (area || '').replace(/"/g, '\\"');
+    const sanitizedPrice = (price || '').replace(/"/g, '\\"');
+    const sanitizedMapLocation = resolvedMapLocation.replace(/"/g, '\\"');
+    const sanitizedDisplayLocation = resolvedDisplayLocation.replace(/"/g, '\\"');
+    const fallbackBedroomsJSON = JSON.stringify(bedrooms);
+    const fallbackBathroomsJSON = JSON.stringify(bathrooms);
 
-    <script>
-        // Variables globales para el mapa
-        let map;
-        let marker;
-        let geocoder;
-
-        // Configuración del marcador personalizado
-        const MARKER_CONFIG = {
-            location: "${location.replace(/"/g, '\\"')}",
-            priceShort: "${priceShort}",
-            title: "${title.replace(/"/g, '\\"')}",
-            precision: "${precision.level}",
-            latOffset: ${latOffset},
-            lngOffset: ${lngOffset}
-        };
-
-        // Datos completos de la propiedad actual (para el InfoWindow con carrusel)
-        const CURRENT_PROPERTY_DATA = {
-            priceShort: "${priceShort}",
-            priceFull: "${price}",
-            title: "${title.replace(/"/g, '\\"')}",
-            location: "${location.replace(/"/g, '\\"')}",
-            bedrooms: ${bedrooms},
-            bathrooms: ${bathrooms},
-            area: "${area}",
-            whatsapp: "${whatsapp}",
-            url: "#", // URL a la página de detalles (# = página actual)
-            photos: [${photosArray.join(', ')}]
-        };
-
-        // Array con TODAS las propiedades de Mazatlán
+    const mazatlanPropertiesBlock = city === 'mazatlan' ? `
         const ALL_MAZATLAN_PROPERTIES = [
             { "slug": "casa-en-venta-real-del-valle", "priceShort": "$3.5M", "title": "Casa en Venta Real del Valle", "location": "Real del Valle", "image": "casa-en-venta-real-del-valle/images/foto-1.jpg" },
             { "slug": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-", "priceShort": "$3.5M", "title": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas", "location": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas", "image": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-/images/foto-1.jpg" },
@@ -423,6 +550,73 @@ function generateMapWithCustomMarker(config) {
             { "slug": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z", "priceShort": "$2.4M", "title": "Casa en Venta De Los Peces", "location": "De Los Peces, Fraccionamiento Tortugas, Mazatlán", "image": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z/images/foto-1.jpg" },
             { "slug": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01", "priceShort": "$6.3M", "title": "Casa en Venta Barrio San Francisco", "location": "Barrio San Francisco, Barrio San Francisco, Mazatlán, Sinaloa", "image": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/images/foto-1.jpg" }
         ];
+    ` : `// TODO: Implementar ALL_${city.toUpperCase()}_PROPERTIES. Ver PROBLEMA-MAPA-CULIACAN.md para refactor completo.`;
+
+    return `
+    <!-- Mapa con Marcador Personalizado -->
+    <div id="map-container" style="width: 100%; height: 450px; border-radius: 12px; overflow: hidden;"></div>
+
+    <script>
+        const CURRENT_CITY = "${city}";
+        const DEFAULT_WHATSAPP = "${whatsapp}";
+        const FALLBACK_URL = window.location.href;
+        const FALLBACK_PHOTOS = ${fallbackPhotosJSON};
+        const FALLBACK_PRICE_FULL = "${sanitizedPrice}";
+        const FALLBACK_PRICE_SHORT = "${priceShort}";
+        const FALLBACK_BEDROOMS = ${fallbackBedroomsJSON};
+        const FALLBACK_BATHROOMS = ${fallbackBathroomsJSON};
+        const FALLBACK_AREA = "${sanitizedArea}";
+        const CITY_NAME = "${cityName}";
+        const STATE_NAME = "${stateName || ''}";
+${mazatlanPropertiesBlock}
+
+        // Variables globales para el mapa
+        let map;
+        let marker;
+        let geocoder;
+
+        // Configuración del marcador personalizado
+        const MARKER_CONFIG = {
+            location: "${sanitizedMapLocation}",
+            priceShort: "${priceShort}",
+            title: "${sanitizedTitle}",
+            precision: "${precision.level}",
+            latOffset: ${latOffset},
+            lngOffset: ${lngOffset}
+        };
+
+        // Datos completos de la propiedad actual (para el InfoWindow con carrusel)
+        const CURRENT_PROPERTY_DATA = {
+            priceShort: FALLBACK_PRICE_SHORT,
+            priceFull: FALLBACK_PRICE_FULL,
+            title: "${sanitizedTitle}",
+            location: "${sanitizedDisplayLocation}",
+            bedrooms: FALLBACK_BEDROOMS,
+            bathrooms: FALLBACK_BATHROOMS,
+            area: FALLBACK_AREA,
+            whatsapp: DEFAULT_WHATSAPP,
+            url: FALLBACK_URL,
+            photos: FALLBACK_PHOTOS
+        };
+
+        function enrichProperty(property) {
+            const source = property || {};
+            const photos = Array.isArray(source.photos) && source.photos.length ? source.photos : FALLBACK_PHOTOS;
+
+            return {
+                ...CURRENT_PROPERTY_DATA,
+                ...source,
+                photos,
+                priceFull: source.priceFull || CURRENT_PROPERTY_DATA.priceFull,
+                priceShort: source.priceShort || CURRENT_PROPERTY_DATA.priceShort,
+                bedrooms: source.bedrooms ?? CURRENT_PROPERTY_DATA.bedrooms,
+                bathrooms: source.bathrooms ?? CURRENT_PROPERTY_DATA.bathrooms,
+                area: source.area || CURRENT_PROPERTY_DATA.area,
+                location: source.location || CURRENT_PROPERTY_DATA.location,
+                whatsapp: source.whatsapp || DEFAULT_WHATSAPP,
+                url: source.url || CURRENT_PROPERTY_DATA.url
+            };
+        }
 
         // Variable global para el InfoWindow actual y el índice de foto
         let currentInfoWindow = null;
@@ -431,6 +625,17 @@ function generateMapWithCustomMarker(config) {
         // Función para mostrar tarjeta con carrusel de fotos completo (estilo Zillow)
         function showPropertyCard(property, position, map, isCurrent = false) {
             currentPhotoIndex = 0; // Resetear al abrir
+
+            const enrichedProperty = enrichProperty(property);
+            const photos = Array.isArray(enrichedProperty.photos) && enrichedProperty.photos.length ? enrichedProperty.photos : FALLBACK_PHOTOS;
+            const priceFull = enrichedProperty.priceFull || FALLBACK_PRICE_FULL;
+            const bedroomsValue = enrichedProperty.bedrooms ?? FALLBACK_BEDROOMS;
+            const bathroomsValue = enrichedProperty.bathrooms ?? FALLBACK_BATHROOMS;
+            const areaValue = enrichedProperty.area || FALLBACK_AREA;
+            const propertyLocation = enrichedProperty.location || CURRENT_PROPERTY_DATA.location;
+            const propertyUrl = enrichedProperty.url || FALLBACK_URL;
+            const whatsappNumber = enrichedProperty.whatsapp || DEFAULT_WHATSAPP;
+            const markerTitle = enrichedProperty.title || "${sanitizedTitle}";
 
             // Crear ID único para este carrusel
             const carouselId = 'carousel-prop-' + Date.now();
@@ -442,8 +647,8 @@ function generateMapWithCustomMarker(config) {
                     <div style="position: relative; height: 200px; margin-bottom: 10px; overflow: hidden; border-radius: 8px 8px 0 0;">
                         <!-- Imagen actual -->
                         <img id="\${carouselId}-img"
-                             src="\${property.photos[0]}"
-                             alt="\${property.title}"
+                             src="\${photos[0]}"
+                             alt="\${markerTitle}"
                              style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
 
                         <!-- Flechas de navegación -->
@@ -462,12 +667,12 @@ function generateMapWithCustomMarker(config) {
 
                         <!-- Contador de fotos -->
                         <div style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 6px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; z-index: 10;">
-                            <span id="\${carouselId}-counter">1</span> / \${property.photos.length}
+                            <span id="\${carouselId}-counter">1</span> / \${photos.length}
                         </div>
 
                         <!-- Dots indicadores -->
                         <div id="\${carouselId}-dots" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10;">
-                            \${property.photos.map((_, index) => \`
+                            \${photos.map((_, index) => \`
                                 <div class="carousel-dot" data-index="\${index}"
                                      style="width: \${index === 0 ? '20px' : '8px'}; height: 8px; border-radius: 4px; background: \${index === 0 ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer; transition: all 0.3s;"></div>
                             \`).join('')}
@@ -476,21 +681,21 @@ function generateMapWithCustomMarker(config) {
 
                     <!-- Info de la propiedad -->
                     <div style="padding: 12px;">
-                        <h3 style="margin: 0 0 8px 0; color: \${isCurrent ? '#FF6B35' : '#10b981'}; font-size: 20px; font-weight: 700;">\${property.priceFull}</h3>
+                        <h3 style="margin: 0 0 8px 0; color: \${isCurrent ? '#FF6B35' : '#10b981'}; font-size: 20px; font-weight: 700;">\${priceFull}</h3>
                         <div style="display: flex; gap: 12px; margin-bottom: 8px; color: #6b7280; font-size: 14px;">
-                            <span><i class="fas fa-bed"></i> \${property.bedrooms} rec</span>
-                            <span><i class="fas fa-bath"></i> \${property.bathrooms} baños</span>
-                            <span><i class="fas fa-ruler-combined"></i> \${property.area}</span>
+                            <span><i class="fas fa-bed"></i> \${bedroomsValue} rec</span>
+                            <span><i class="fas fa-bath"></i> \${bathroomsValue} baños</span>
+                            <span><i class="fas fa-ruler-combined"></i> \${areaValue}</span>
                         </div>
-                        <p style="margin: 0 0 12px 0; color: #4b5563; font-size: 13px; line-height: 1.4;">\${property.location}</p>
+                        <p style="margin: 0 0 12px 0; color: #4b5563; font-size: 13px; line-height: 1.4;">\${propertyLocation}</p>
 
                         <!-- Botones de acción -->
                         <div style="display: flex; gap: 8px;">
-                            <button onclick="window.open('\${property.url}', '_blank')"
+                            <button onclick="window.open('\${propertyUrl}', '_blank')"
                                style="flex: 1; background: #FF6A00; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
                                 Ver Detalles
                             </button>
-                            <button onclick="window.open('https://wa.me/\${property.whatsapp}?text=Hola,%20me%20interesa%20\${encodeURIComponent(property.title)}%20en%20\${encodeURIComponent(property.priceFull)}', '_blank')"
+                            <button onclick="window.open('https://wa.me/\${whatsappNumber}?text=Hola,%20me%20interesa%20\${encodeURIComponent(markerTitle)}%20en%20\${encodeURIComponent(priceFull)}', '_blank')"
                                style="flex: 1; background: #25D366; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
                                 WhatsApp
                             </button>
@@ -520,15 +725,15 @@ function generateMapWithCustomMarker(config) {
 
                 // Función para actualizar la foto
                 function updatePhoto(newIndex) {
-                    if (newIndex < 0) newIndex = property.photos.length - 1;
-                    if (newIndex >= property.photos.length) newIndex = 0;
+                    if (newIndex < 0) newIndex = photos.length - 1;
+                    if (newIndex >= photos.length) newIndex = 0;
 
                     currentPhotoIndex = newIndex;
 
                     // Fade effect
                     img.style.opacity = '0';
                     setTimeout(() => {
-                        img.src = property.photos[newIndex];
+                        img.src = photos[newIndex];
                         img.style.opacity = '1';
                     }, 150);
 
@@ -586,6 +791,7 @@ function generateMapWithCustomMarker(config) {
 
         // Función para crear marcador personalizado para otras propiedades
         function createPropertyMarker(property, map, isCurrent = false) {
+            const displayPrice = property.priceShort || property.priceFull || FALLBACK_PRICE_SHORT;
             const markerHTML = \`
                 <div style="
                     background: \${isCurrent ? 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)'};
@@ -600,7 +806,7 @@ function generateMapWithCustomMarker(config) {
                     white-space: nowrap;
                     transition: transform 0.2s;
                 " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                    \${property.priceShort}
+                    \${displayPrice}
                 </div>
             \`;
 
@@ -664,7 +870,7 @@ function generateMapWithCustomMarker(config) {
                     };
 
                     // Detectar si es propiedad de Mazatlán
-                    const isMazatlan = window.location.href.includes('/mazatlan/');
+                    const isMazatlan = CURRENT_CITY === 'mazatlan' || window.location.href.includes('/mazatlan/');
                     const currentSlug = window.location.pathname.split('/').filter(p => p).pop();
 
                     // Crear mapa con zoom ajustado para Mazatlán
@@ -687,32 +893,47 @@ function generateMapWithCustomMarker(config) {
                         fullscreenControl: true
                     });
 
-                    // Crear marcador de la propiedad actual (naranja) con datos completos
-                    const currentProperty = isMazatlan
-                        ? ALL_MAZATLAN_PROPERTIES.find(p => currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
-                        : CURRENT_PROPERTY_DATA;
+                    let currentPropertySource = CURRENT_PROPERTY_DATA;
+                    if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
+                        const matched = ALL_MAZATLAN_PROPERTIES.find(p =>
+                            currentSlug && (currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
+                        );
+                        if (matched) {
+                            currentPropertySource = { ...matched };
+                        }
+                    }
 
-                    if (currentProperty) {
-                        const CustomMarkerClass = createPropertyMarker(currentProperty, map, true);
-                        marker = new CustomMarkerClass(position, map, currentProperty, true);
+                    const enrichedCurrent = enrichProperty(currentPropertySource);
+                    const CustomMarkerClass = createPropertyMarker(enrichedCurrent, map, true);
+                    marker = new CustomMarkerClass(position, map, enrichedCurrent, true);
 
-                        // Si es Mazatlán, crear marcadores de TODAS las otras propiedades (verdes)
-                        if (isMazatlan) {
-                            ALL_MAZATLAN_PROPERTIES.forEach(property => {
-                                if (property.slug !== currentProperty.slug) {
-                                    geocoder.geocode({ address: property.location }, function(results, status) {
-                                        if (status === 'OK' && results[0]) {
-                                            const otherPosition = {
-                                                lat: results[0].geometry.location.lat(),
-                                                lng: results[0].geometry.location.lng()
-                                            };
-                                            const OtherMarkerClass = createPropertyMarker(property, map, false);
-                                            new OtherMarkerClass(otherPosition, map, property, false);
-                                        }
-                                    });
+                    if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
+                        const referenceSlug = enrichedCurrent.slug || currentSlug;
+
+                        ALL_MAZATLAN_PROPERTIES.forEach(property => {
+                            const enriched = enrichProperty(property);
+                            const propertySlug = enriched.slug || property.slug;
+
+                            if (referenceSlug && propertySlug && propertySlug === referenceSlug) {
+                                return;
+                            }
+
+                            const baseLocation = enriched.location || property.location || CITY_NAME;
+                            const geocodeAddress = baseLocation.toLowerCase().includes(CITY_NAME.toLowerCase())
+                                ? baseLocation
+                                : \`\${baseLocation}, \${CITY_NAME}, \${STATE_NAME}\`;
+
+                            geocoder.geocode({ address: geocodeAddress }, function(results, status) {
+                                if (status === 'OK' && results[0]) {
+                                    const otherPosition = {
+                                        lat: results[0].geometry.location.lat(),
+                                        lng: results[0].geometry.location.lng()
+                                    };
+                                    const OtherMarkerClass = createPropertyMarker(enriched, map, false);
+                                    new OtherMarkerClass(otherPosition, map, enriched, false);
                                 }
                             });
-                        }
+                        });
                     }
 
                 } else {
@@ -1689,7 +1910,10 @@ function generateHTML(data, slug, photoCount, cityConfig) {
     // Datos calculados
     const priceFormatted = formatPrice(data.price);
     const priceNumeric = extractPriceNumber(data.price);
-    const neighborhood = data.location.split(',')[0].trim();
+    const normalizedLocation = normalizeLocationForCity(data.location, cityConfig.name, cityConfig.state);
+    const neighborhood = normalizedLocation.primary;
+    const locationDisplay = normalizedLocation.display;
+    const mapLocation = normalizedLocation.mapLocation;
     const bedrooms = data.bedrooms || 'N/A';
     const bathrooms = data.bathrooms || 'N/A';
     const construction = data.construction_area || null;
@@ -1706,10 +1930,10 @@ function generateHTML(data, slug, photoCount, cityConfig) {
         `<title>Casa en Venta ${priceFormatted} - ${neighborhood}, ${cityConfig.name} | Hector es Bienes Raíces</title>`);
 
     html = html.replace(/<meta name="description" content=".*?">/,
-        `<meta name="description" content="${data.title} en ${data.location}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños, ' : ''}${constructionText} construcción. Agenda tu visita hoy.">`);
+        `<meta name="description" content="${data.title} en ${mapLocation}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños, ' : ''}${constructionText} construcción. Agenda tu visita hoy.">`);
 
     html = html.replace(/<meta name="keywords" content=".*?">/,
-        `<meta name="keywords" content="casa venta ${cityConfig.name}, ${neighborhood}, casa remodelada, ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}cochera techada, ${data.location}">`);
+        `<meta name="keywords" content="casa venta ${cityConfig.name}, ${neighborhood}, casa remodelada, ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}cochera techada, ${mapLocation}">`);
 
     html = html.replace(/<link rel="canonical" href=".*?">/,
         `<link rel="canonical" href="https://casasenventa.info/${cityConfig.folder}/${slug}/">`);
@@ -1744,7 +1968,7 @@ function generateHTML(data, slug, photoCount, cityConfig) {
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "${neighborhood}",
-        "addressLocality": "${data.location}",
+        "addressLocality": "${locationDisplay}",
         "addressRegion": "${cityConfig.state}",
         "postalCode": "80000",
         "addressCountry": "MX"
@@ -1873,7 +2097,7 @@ function generateHTML(data, slug, photoCount, cityConfig) {
         `<div class="detail-value price">${priceFormatted}</div>`);
 
     html = html.replace(/<div class="detail-value">.*?<\/div>.*?<!-- ubicación -->/s,
-        `<div class="detail-value">${data.location}</div> <!-- ubicación -->`);
+        `<div class="detail-value">${locationDisplay}</div> <!-- ubicación -->`);
 
     // PRICE BADGE en hero
     html = html.replace(/<span class="price-amount">\$[\d,]+<\/span>/g,
@@ -1897,7 +2121,9 @@ function generateHTML(data, slug, photoCount, cityConfig) {
 
     // MAPA - reemplazar iframe con mapa interactivo personalizado
     const customMapHTML = generateMapWithCustomMarker({
-        location: data.location,
+        mapLocation: mapLocation,
+        displayLocation: locationDisplay,
+        primaryLocation: neighborhood,
         price: data.price,
         title: data.title,
         photoCount: photoCount, // Total de fotos descargadas
@@ -1906,7 +2132,10 @@ function generateHTML(data, slug, photoCount, cityConfig) {
         area: constructionText, // Área de construcción formateada
         whatsapp: cityConfig.whatsapp, // WhatsApp según ciudad
         propertyIndex: 0, // Por ahora siempre 0, luego se puede calcular por colonia
-        cityCoords: cityConfig.coords // Coordenadas de la ciudad para fallback
+        cityCoords: cityConfig.coords, // Coordenadas de la ciudad para fallback
+        city: cityConfig.city,
+        cityName: cityConfig.name,
+        stateName: cityConfig.state
     });
 
     // Reemplazar toda la sección del mapa (div + script completo + API script)
@@ -1918,9 +2147,8 @@ function generateHTML(data, slug, photoCount, cityConfig) {
 
     // LOCATION SUBTITLE - texto arriba del mapa (solo ubicación corta, como en Culiacán)
     // Extraer solo la colonia/fraccionamiento de la ubicación completa
-    const locationShortForSubtitle = data.location.split(',')[0].trim(); // Primera parte antes de la coma
     html = html.replace(/<p class="location-subtitle">.*?<\/p>/g,
-        `<p class="location-subtitle">${locationShortForSubtitle}, ${cityConfig.name}</p>`);
+        `<p class="location-subtitle">${locationDisplay}</p>`);
 
     // STICKY BAR LABEL - nombre de la casa
     html = html.replace(/<span class="sticky-price-label">Casa [^<]+<\/span>/g,
@@ -1928,7 +2156,7 @@ function generateHTML(data, slug, photoCount, cityConfig) {
 
     // FOOTER - dirección completa
     html = html.replace(/<p><i class="fas fa-map-marker-alt"><\/i>\s*[^<]+<\/p>/g,
-        `<p><i class="fas fa-map-marker-alt"></i> ${data.title}, ${data.location}</p>`);
+        `<p><i class="fas fa-map-marker-alt"></i> ${data.title}, ${mapLocation}</p>`);
 
     // SHARE TEXT - texto para compartir
     html = html.replace(/const text = encodeURIComponent\('¡Mira esta increíble casa en venta en [^']+'\);/g,
@@ -1936,7 +2164,7 @@ function generateHTML(data, slug, photoCount, cityConfig) {
 
     // WHATSAPP LINKS - actualizar mensaje con ciudad dinámica
     const whatsappMsg = encodeURIComponent(
-        `Hola! Me interesa la propiedad:\n${data.title}\n${priceFormatted}\n${data.location}\nhttps://casasenventa.info/${cityConfig.folder}/${slug}/`
+        `Hola! Me interesa la propiedad:\n${data.title}\n${priceFormatted}\n${mapLocation}\nhttps://casasenventa.info/${cityConfig.folder}/${slug}/`
     );
     html = html.replace(/https:\/\/wa\.me\/52\d+\?text=[^"]+/g,
         `https://wa.me/${cityConfig.whatsapp}?text=${whatsappMsg}`);
@@ -2107,8 +2335,8 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
         ? `$${(priceNum / 1000000).toFixed(2)}M`.replace('.00M', 'M')
         : `$${(priceNum / 1000).toFixed(0)}K`;
 
-    // Extraer primera parte de la ubicación (antes de la primera coma)
-    const locationShort = data.location.split(',')[0].trim();
+    const normalizedLocation = normalizeLocationForCity(data.location, cityConfig.name, cityConfig.state);
+    const locationShort = normalizedLocation.primary;
 
     // Detectar tipo (RENTA o VENTA)
     const tipoPropiedad = data.price.toLowerCase().includes('renta') ||
@@ -2121,16 +2349,17 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
     const newPropertyCode = `
             // ${tipoPropiedad.toUpperCase()}: ${data.title}
             const ${varName}Property = {
-                address: "${data.location}",
+                address: "${normalizedLocation.mapLocation}",
                 priceShort: "${priceShort}",
                 priceFull: "${formatPrice(data.price)}",
                 title: "${data.title}",
-                location: "${locationShort}, ${cityConfig.name}",
+                location: "${normalizedLocation.display}",
                 bedrooms: ${data.bedrooms || 'null'},
                 bathrooms: ${data.bathrooms || 'null'},
                 area: "${data.construction_area ? data.construction_area + 'm²' : 'N/D'}",
                 type: "${tipoPropiedad}",
                 url: "https://casasenventa.info/${cityConfig.folder}/${slug}/",
+                whatsapp: "${cityConfig.whatsapp}",
                 photos: [
                     ${photosArray.join(',\n                    ')}
                 ]
