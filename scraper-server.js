@@ -23,9 +23,24 @@ app.post('/run-scraper', (req, res) => {
     res.setHeader('Connection', 'keep-alive');
 
     // Spawn el scraper con flag --auto-confirm
+    console.log(`[${new Date().toISOString()}] Iniciando scraper para: ${url}`);
+    console.log(`[${new Date().toISOString()}] CWD: ${__dirname}`);
+    console.log(`[${new Date().toISOString()}] Comando: node inmuebles24culiacanscraper.js "${url}" --auto-confirm`);
+
     const scraper = spawn('node', ['inmuebles24culiacanscraper.js', url, '--auto-confirm'], {
         cwd: __dirname,
-        env: { ...process.env }
+        env: { ...process.env },
+        stdio: ['pipe', 'pipe', 'pipe']
+    });
+
+    // Manejar errores del spawn
+    scraper.on('error', (err) => {
+        console.error(`[${new Date().toISOString()}] Error al spawn scraper:`, err);
+        res.write(`data: ${JSON.stringify({
+            type: 'error',
+            message: `Error al iniciar scraper: ${err.message}`
+        })}\n\n`);
+        res.end();
     });
 
     let outputBuffer = '';
@@ -34,6 +49,7 @@ app.post('/run-scraper', (req, res) => {
 
     // Capturar stdout
     scraper.stdout.on('data', (data) => {
+        console.log('[SCRAPER STDOUT]:', data.toString().substring(0, 100));
         const text = data.toString();
         outputBuffer += text;
 
@@ -41,11 +57,19 @@ app.post('/run-scraper', (req, res) => {
         const lines = text.split('\n').filter(line => line.trim());
         lines.forEach(line => {
             // Extraer información importante
-            if (line.includes('Slug generado:')) {
-                propertySlug = line.split('Slug generado:')[1].trim();
+            if (line.includes('HTML generado:')) {
+                // Ejemplo: "✅ HTML generado: culiacan/casa-en-venta-en-stanza-toscana/index.html"
+                const match = line.match(/culiacan\/([^\/]+)\/index\.html/);
+                if (match) {
+                    propertySlug = match[1];
+                }
             }
             if (line.includes('Título:')) {
-                propertyTitle = line.split('Título:')[1].trim();
+                // Ejemplo: "📝 Título: Casa en Venta en Stanza Toscana"
+                const match = line.match(/Título:\s*(.+)/);
+                if (match) {
+                    propertyTitle = match[1].trim();
+                }
             }
 
             // Enviar evento SSE
@@ -60,6 +84,7 @@ app.post('/run-scraper', (req, res) => {
     // Capturar stderr
     scraper.stderr.on('data', (data) => {
         const text = data.toString();
+        console.log('[SCRAPER STDERR]:', text.substring(0, 100));
         res.write(`data: ${JSON.stringify({
             type: 'error',
             message: text
@@ -68,6 +93,7 @@ app.post('/run-scraper', (req, res) => {
 
     // Cuando el scraper termine
     scraper.on('close', (code) => {
+        console.log(`[${new Date().toISOString()}] Scraper terminó con código: ${code}`);
         if (code === 0) {
             const propertyUrl = `https://casasenventa.info/culiacan/${propertySlug}/`;
             res.write(`data: ${JSON.stringify({
@@ -88,7 +114,9 @@ app.post('/run-scraper', (req, res) => {
 
     // Manejar desconexión del cliente
     req.on('close', () => {
-        scraper.kill();
+        console.log(`[${new Date().toISOString()}] Cliente desconectado, pero dejando scraper corriendo`);
+        // NO matar el scraper, dejarlo terminar
+        // scraper.kill();
     });
 });
 
@@ -96,15 +124,18 @@ app.post('/run-scraper', (req, res) => {
 function calculateProgress(logLine) {
     const milestones = [
         { keyword: 'Navegando', progress: 10 },
-        { keyword: 'Extrayendo datos', progress: 20 },
-        { keyword: 'Datos extraídos', progress: 30 },
-        { keyword: 'Descargando', progress: 40 },
-        { keyword: 'descargadas', progress: 60 },
-        { keyword: 'Generando HTML', progress: 70 },
-        { keyword: 'HTML generado', progress: 80 },
-        { keyword: 'Agregando tarjeta', progress: 85 },
-        { keyword: 'Publicando', progress: 90 },
-        { keyword: 'COMPLETADO', progress: 100 }
+        { keyword: 'Capturando datos', progress: 15 },
+        { keyword: 'Datos extraídos', progress: 25 },
+        { keyword: 'Descargando', progress: 35 },
+        { keyword: 'descargadas', progress: 55 },
+        { keyword: 'Generando HTML', progress: 65 },
+        { keyword: 'HTML generado', progress: 75 },
+        { keyword: 'Agregando tarjeta', progress: 80 },
+        { keyword: 'Publicando a GitHub', progress: 85 },
+        { keyword: 'main ->', progress: 92 },
+        { keyword: 'CRM actualizado', progress: 95 },
+        { keyword: 'COMPLETADO', progress: 100 },
+        { keyword: 'Deployment completado', progress: 100 }
     ];
 
     for (const milestone of milestones) {
