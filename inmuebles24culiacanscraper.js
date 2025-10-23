@@ -548,7 +548,7 @@ function detectAddressPrecision(location) {
     const hasStreet = /(calle|avenida|av\.|blvd|boulevard|privada|priv\.|paseo)/i.test(location);
     const hasFraccionamiento = /fraccionamiento/i.test(location);
 
-    let level = 'generic';
+    let level = 'neighborhood'; // Default a 'neighborhood' para evitar clustering genérico
     if (hasNumber && hasStreet) {
         level = 'exact'; // Calle + número
     } else if (hasStreet && !hasNumber) {
