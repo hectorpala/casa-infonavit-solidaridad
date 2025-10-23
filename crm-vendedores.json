@@ -4220,12 +4220,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-22T18:13:08.948Z"
+    },
+    {
+      "id": "v023",
+      "nombre": "El Santuario Inmobiliaria",
+      "telefono": "6672431700",
+      "telefonoFormateado": "667-243-1700",
+      "whatsapp": "https://wa.me/526672431700",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "146849328",
+          "titulo": "Casa en Cnop",
+          "precio": "MN 2,200,000",
+          "ubicacion": "Avenida 15 de Septiembre Cnop, Culiacán, Sinaloa, Mexico, Cnop",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-cnop-146849328.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=27",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 118 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Avenida 15 de Septiembre Cnop, Culiacán, Sinaloa, Mexico, Cnop",
+      "tags": [
+        "inmuebles24",
+        "avenida-15-de-septiembre-cnop",
+        "sinaloa",
+        "mexico",
+        "cnop",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-23T18:56:28.397Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T18:49:11.074Z",
-    "totalVendedores": 22,
-    "totalPropiedades": 233,
+    "ultimaActualizacion": "2025-10-23T18:56:28.398Z",
+    "totalVendedores": 23,
+    "totalPropiedades": 234,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
