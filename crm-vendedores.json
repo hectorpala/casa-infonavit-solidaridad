@@ -4347,12 +4347,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-23T19:22:51.769Z"
+    },
+    {
+      "id": "v025",
+      "nombre": "LOPORTO INMOBILIARIA MAZATLAN",
+      "telefono": "553077845",
+      "telefonoFormateado": "553077845",
+      "whatsapp": "https://wa.me/52553077845",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147303199",
+          "titulo": "Casa en Venta de Real del Valle Coto 14",
+          "precio": "MN 2,990,000",
+          "ubicacion": "Real del Valle, Sinaloa, Mexico, Mazatlán, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-real-del-valle-coto-14-147303199.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 69 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Real del Valle, Sinaloa, Mexico, Mazatlán, Culiacán",
+      "tags": [
+        "inmuebles24",
+        "real-del-valle",
+        "sinaloa",
+        "mexico",
+        "mazatlán",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-23T19:48:15.063Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T19:43:07.075Z",
-    "totalVendedores": 24,
-    "totalPropiedades": 239,
+    "ultimaActualizacion": "2025-10-23T19:48:15.063Z",
+    "totalVendedores": 25,
+    "totalPropiedades": 240,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
