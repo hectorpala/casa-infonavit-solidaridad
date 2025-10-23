@@ -4347,6 +4347,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "146081948",
+          "titulo": "Casa en Venta en Mazatlan, Fraccionamiento Real Pacifico",
+          "precio": "MN 2,100,000",
+          "ubicacion": "Calle del Mar 3843, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real Pacífico",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-fraccionamiento-real-146081948.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 206 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4471,9 +4485,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T20:03:27.221Z",
+    "ultimaActualizacion": "2025-10-23T20:08:32.072Z",
     "totalVendedores": 27,
-    "totalPropiedades": 243,
+    "totalPropiedades": 244,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
