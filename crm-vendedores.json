@@ -200,9 +200,9 @@
     {
       "id": "v005",
       "nombre": "DAVID GONZALEZ",
-      "telefono": "",
-      "telefonoFormateado": "",
-      "whatsapp": "https://wa.me/52",
+      "telefono": "6677232335",
+      "telefonoFormateado": "667-723-2335",
+      "whatsapp": "https://wa.me/526677232335",
       "fuente": "Inmuebles24",
       "propiedades": [
         {
@@ -224,6 +224,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "145649453",
+          "titulo": "Estrena Casa con Acabados de Lujo",
+          "precio": "MN 3,500,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Stanza Torralba Casa Nueva, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-estrena-casa-con-acabados-de-lujo-145649453.html?n_src=Listado&n_pg=1&n_pos=28",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 259 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -4569,9 +4583,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T20:39:01.708Z",
+    "ultimaActualizacion": "2025-10-23T23:54:38.437Z",
     "totalVendedores": 27,
-    "totalPropiedades": 250,
+    "totalPropiedades": 251,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
