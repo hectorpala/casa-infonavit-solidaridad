@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa en Venta $2,700,000 - Mazatlán, Mazatlán | Hector es Bienes Raíces</title>
-    <meta name="description" content="Casa en Venta en Mazatlán. en Mazatlán. 2 recámaras, 1 baños, 89m² construcción. Agenda tu visita hoy.">
-    <meta name="keywords" content="casa venta Mazatlán, Mazatlán, casa remodelada, 2 recámaras, cochera techada, Mazatlán">
+    <title>Casa en Venta $2,700,000 - Villa Galaxia, Mazatlán | Hector es Bienes Raíces</title>
+    <meta name="description" content="Casa en Venta en Mazatlán. en Villa Galaxia, Mazatlán, Sinaloa. 4 recámaras, 1 baños, 89m² construcción. Agenda tu visita hoy.">
+    <meta name="keywords" content="casa venta Mazatlán, Villa Galaxia, casa remodelada, 4 recámaras, cochera techada, Villa Galaxia, Mazatlán, Sinaloa">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://casasenventa.info/mazatlan/casa-en-venta-en-mazatlan/">
     
@@ -26,8 +26,8 @@
     <link rel="manifest" href="../manifest.json">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Casa en Venta $2,700,000 - Mazatlán">
-    <meta property="og:description" content="2 recámaras • 1 baños • 89m² construcción • 140m² terreno">
+    <meta property="og:title" content="Casa en Venta $2,700,000 - Villa Galaxia">
+    <meta property="og:description" content="4 recámaras • 1 baños • 89m² construcción • 140m² terreno">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://casasenventa.info/mazatlan/casa-en-venta-en-mazatlan/">
     <meta property="og:image" content="https://casasenventa.info/mazatlan/casa-en-venta-en-mazatlan/images/foto-1.jpg">
@@ -54,8 +54,8 @@
       ],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Mazatlán",
-        "addressLocality": "Mazatlán",
+        "streetAddress": "Villa Galaxia",
+        "addressLocality": "Villa Galaxia, Mazatlán",
         "addressRegion": "Sinaloa",
         "postalCode": "80000",
         "addressCountry": "MX"
@@ -70,7 +70,7 @@
         "value": 140,
         "unitCode": "MTK"
       },
-      "numberOfBedrooms": 2,
+      "numberOfBedrooms": 4,
       "numberOfBathroomsTotal": 1,
       "numberOfFullBathrooms": 1,
       "offers": {
@@ -429,7 +429,7 @@
             <div class="features-inline">
                 <div class="feature-item">
                     <i class="fas fa-bed"></i>
-                    <span class="feature-value">2</span>
+                    <span class="feature-value">4</span>
                     <span class="feature-label">rec</span>
                 </div>
                 <div class="feature-item">
@@ -1264,10 +1264,10 @@
     <div id="sticky-price-bar" class="sticky-price-bar">
         <div class="sticky-price-content">
             <div class="sticky-price-info">
-                <span class="sticky-price-label">Casa Mazatlán</span>
+                <span class="sticky-price-label">Casa Villa Galaxia</span>
                 <span class="sticky-price-amount">$2,700,000</span>
             </div>
-            <a href="https://wa.me/528111652545?text=Hola!%20Me%20interesa%20la%20propiedad%3A%0ACasa%20en%20Venta%20en%20Mazatl%C3%A1n.%0A%242%2C700%2C000%0AMazatl%C3%A1n%0Ahttps%3A%2F%2Fcasasenventa.info%2Fmazatlan%2Fcasa-en-venta-en-mazatlan%2F"
+            <a href="https://wa.me/526691652545?text=Hola!%20Me%20interesa%20la%20propiedad%3A%0ACasa%20en%20Venta%20en%20Mazatl%C3%A1n.%0A%242%2C700%2C000%0AVilla%20Galaxia%2C%20Mazatl%C3%A1n%2C%20Sinaloa%0Ahttps%3A%2F%2Fcasasenventa.info%2Fmazatlan%2Fcasa-en-venta-en-mazatlan%2F"
                class="sticky-whatsapp-btn" target="_blank" onclick="vibrate(50)">
                 <i class="fab fa-whatsapp"></i>
                 <span>Contactar</span>
@@ -1279,12 +1279,48 @@
     <section class="location-map scroll-animate" id="location">
         <div class="container">
             <h2 class="section-title">Ubicación</h2>
-            <p class="location-subtitle">Fraccionamiento Villa Galaxia, Mazatlán, Sinaloa</p>
+            <p class="location-subtitle">Villa Galaxia, Mazatlán</p>
             
+    <!-- Mapa con Marcador Personalizado -->
+    
     <!-- Mapa con Marcador Personalizado -->
     <div id="map-container" style="width: 100%; height: 450px; border-radius: 12px; overflow: hidden;"></div>
 
     <script>
+        const CURRENT_CITY = "mazatlan";
+        const DEFAULT_WHATSAPP = "526691652545";
+        const FALLBACK_URL = window.location.href;
+        const FALLBACK_PHOTOS = ["images/foto-1.jpg","images/foto-2.jpg","images/foto-3.jpg","images/foto-4.jpg","images/foto-5.jpg","images/foto-6.jpg","images/foto-7.jpg","images/foto-8.jpg","images/foto-9.jpg","images/foto-10.jpg","images/foto-11.jpg","images/foto-12.jpg","images/foto-13.jpg","images/foto-14.jpg","images/foto-15.jpg","images/foto-16.jpg","images/foto-17.jpg","images/foto-18.jpg","images/foto-19.jpg","images/foto-20.jpg","images/foto-21.jpg"];
+        const FALLBACK_PRICE_FULL = "MN 2,700,000";
+        const FALLBACK_PRICE_SHORT = "2.7M";
+        const FALLBACK_BEDROOMS = 4;
+        const FALLBACK_BATHROOMS = 1;
+        const FALLBACK_AREA = "89m²";
+        const CITY_NAME = "Mazatlán";
+        const STATE_NAME = "Sinaloa";
+
+        const ALL_MAZATLAN_PROPERTIES = [
+            { "slug": "casa-en-venta-real-del-valle", "priceShort": "$3.5M", "title": "Casa en Venta Real del Valle", "location": "Real del Valle", "image": "casa-en-venta-real-del-valle/images/foto-1.jpg" },
+            { "slug": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-", "priceShort": "$3.5M", "title": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas", "location": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas", "image": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas", "priceShort": "$2.6M", "title": "Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.", "location": "Mazatlán Cercana a Marina Mazatlán y Playas.", "image": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-veredas-mazatlan-sin", "priceShort": "$3.3M", "title": "Casa en Venta en Veredas, Mazatlan, Sin.", "location": "Veredas, Mazatlan, Sin.", "image": "casa-en-venta-en-veredas-mazatlan-sin/images/foto-1.jpg" },
+            { "slug": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido", "priceShort": "$2.3M", "title": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido", "location": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido", "image": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-de-real-del-valle-coto-14", "priceShort": "$3.0M", "title": "Casa en Venta de Real del Valle Coto 14", "location": "de Real del Valle Coto 14", "image": "casa-en-venta-de-real-del-valle-coto-14/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza", "priceShort": "$3.4M", "title": "Casa en Venta Residencial con Alberca en Real del Valle Mazatlan", "location": "Residencial con Alberca en Real del Valle Mazatlan", "image": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa", "priceShort": "$2.6M", "title": "Casa en Venta en El Fracc Porto Molino Mazatlan Sinaloa", "location": "El Fracc Porto Molino Mazatlan Sinaloa", "image": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa/images/foto-1.jpg" },
+            { "slug": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res", "priceShort": "$3.2M", "title": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial", "location": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial", "image": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico", "priceShort": "$2.1M", "title": "Casa en Venta en Mazatlan, Fraccionamiento Real Pacifico", "location": "Mazatlan, Fraccionamiento Real Pacifico", "image": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-mazatlan-residencial-palmilla-super-precio", "priceShort": "$3.7M", "title": "Casa en Venta Mazatlan, Residencial Palmilla Super Precio!", "location": "Mazatlan, Residencial Palmilla Super Precio!", "image": "casa-en-venta-mazatlan-residencial-palmilla-super-precio/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-privada-con-alberca-en-mazatlan", "priceShort": "$3.3M", "title": "Casa en Venta en Privada con Alberca en Mazatlán", "location": "Privada con Alberca en Mazatlán", "image": "casa-en-venta-en-privada-con-alberca-en-mazatlan/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia", "priceShort": "$2.0M", "title": "Casa en Venta en Mazatlan, Sinaloa (Villa Galaxia)", "location": "Mazatlan, Sinaloa (Villa Galaxia)", "image": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue", "priceShort": "$2.4M", "title": "Casa en Venta en Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)", "location": "Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)", "image": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model", "priceShort": "$2.7M", "title": "Casa en Venta en Mazatlán en Coto Privado Camila Hills Modelo Nova", "location": "Av Paseo del Pacífico, Mazatlán, Sinaloa", "image": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-mazatlan", "priceShort": "$2.7M", "title": "Casa en Venta en Mazatlán.", "location": "Mazatlán", "image": "casa-en-venta-en-mazatlan/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z", "priceShort": "$2.4M", "title": "Casa en Venta De Los Peces", "location": "De Los Peces, Fraccionamiento Tortugas, Mazatlán", "image": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z/images/foto-1.jpg" },
+            { "slug": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01", "priceShort": "$6.3M", "title": "Casa en Venta Barrio San Francisco", "location": "Barrio San Francisco, Barrio San Francisco, Mazatlán, Sinaloa", "image": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/images/foto-1.jpg" }
+        ];
+    
+
         // Variables globales para el mapa
         let map;
         let marker;
@@ -1292,232 +1328,380 @@
 
         // Configuración del marcador personalizado
         const MARKER_CONFIG = {
-            location: "Mazatlán",
-            priceShort: "$2.7M",
+            location: "Villa Galaxia, Mazatlán, Sinaloa",
+            priceShort: "2.7M",
             title: "Casa en Venta en Mazatlán.",
-            precision: "generic",
+            precision: "neighborhood",
             latOffset: 0,
-            lngOffset: 0
+            lngOffset: 0,
+            lat: 24.8090649, // ✅ Coordenadas de Geocoder V1.5
+            lng: -107.3940117  // ✅ Coordenadas de Geocoder V1.5
         };
 
-        // Inicializar mapa
-        // Array con TODAS las propiedades de Mazatlán
-const ALL_MAZATLAN_PROPERTIES = [
-    {
-        "slug": "casa-en-venta-real-del-valle",
-        "priceShort": "$3.5M",
-        "title": "Casa en Venta Real del Valle",
-        "location": "Real del Valle",
-        "image": "casa-en-venta-real-del-valle/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-",
-        "priceShort": "$3.5M",
-        "title": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas",
-        "location": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas",
-        "image": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas",
-        "priceShort": "$3.5M",
-        "title": "Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.",
-        "location": "Mazatlán Cercana a Marina Mazatlán y Playas.",
-        "image": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-veredas-mazatlan-sin",
-        "priceShort": "$3.3M",
-        "title": "Casa en Venta en Veredas, Mazatlan, Sin.",
-        "location": "Veredas, Mazatlan, Sin.",
-        "image": "casa-en-venta-en-veredas-mazatlan-sin/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido",
-        "priceShort": "$3.5M",
-        "title": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido",
-        "location": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido",
-        "image": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-de-real-del-valle-coto-14",
-        "priceShort": "$3.0M",
-        "title": "Casa en Venta de Real del Valle Coto 14",
-        "location": "de Real del Valle Coto 14",
-        "image": "casa-en-venta-de-real-del-valle-coto-14/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza",
-        "priceShort": "$3.4M",
-        "title": "Casa en Venta Residencial con Alberca en Real del Valle Mazatlan",
-        "location": "Residencial con Alberca en Real del Valle Mazatlan",
-        "image": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa",
-        "priceShort": "$2.6M",
-        "title": "Casa en Venta en El Fracc Porto Molino Mazatlan Sinaloa",
-        "location": "El Fracc Porto Molino Mazatlan Sinaloa",
-        "image": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res",
-        "priceShort": "$3.2M",
-        "title": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial",
-        "location": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial",
-        "image": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico",
-        "priceShort": "$3.3M",
-        "title": "Casa en Venta en Mazatlan, Fraccionamiento Real Pacifico",
-        "location": "Mazatlan, Fraccionamiento Real Pacifico",
-        "image": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-mazatlan-residencial-palmilla-super-precio",
-        "priceShort": "$3.7M",
-        "title": "Casa en Venta Mazatlan, Residencial Palmilla Super Precio!",
-        "location": "Mazatlan, Residencial Palmilla Super Precio!",
-        "image": "casa-en-venta-mazatlan-residencial-palmilla-super-precio/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-privada-con-alberca-en-mazatlan",
-        "priceShort": "$3.3M",
-        "title": "Casa en Venta en Privada con Alberca en Mazatlán",
-        "location": "Privada con Alberca en Mazatlán",
-        "image": "casa-en-venta-en-privada-con-alberca-en-mazatlan/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia",
-        "priceShort": "$2.3M",
-        "title": "Casa en Venta en Mazatlan, Sinaloa (Villa Galaxia)",
-        "location": "Mazatlan, Sinaloa (Villa Galaxia)",
-        "image": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue",
-        "priceShort": "$3.0M",
-        "title": "Casa en Venta en Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)",
-        "location": "Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)",
-        "image": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model",
-        "priceShort": "$3.4M",
-        "title": "Casa en Venta en Mazatlán en Coto Privado Camila Hills Modelo Nova",
-        "location": "Av Paseo del Pacífico, Mazatlán, Sinaloa",
-        "image": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-mazatlan",
-        "priceShort": "$2.6M",
-        "title": "Casa en Venta en Mazatlán.",
-        "location": "Mazatlán",
-        "image": "casa-en-venta-en-mazatlan/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z",
-        "priceShort": "$3.2M",
-        "title": "Casa en Venta De Los Peces",
-        "location": "De Los Peces, Fraccionamiento Tortugas, Mazatlán",
-        "image": "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z/images/foto-1.jpg"
-    },
-    {
-        "slug": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01",
-        "priceShort": "$6.3M",
-        "title": "Casa en Venta Barrio San Francisco",
-        "location": "Barrio San Francisco, Barrio San Francisco, Mazatlán, Sinaloa",
-        "image": "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/images/foto-1.jpg"
-    }
-];
+        // Datos completos de la propiedad actual (para el InfoWindow con carrusel)
+        const CURRENT_PROPERTY_DATA = {
+            priceShort: FALLBACK_PRICE_SHORT,
+            priceFull: FALLBACK_PRICE_FULL,
+            title: "Casa en Venta en Mazatlán.",
+            location: "Villa Galaxia, Mazatlán",
+            bedrooms: FALLBACK_BEDROOMS,
+            bathrooms: FALLBACK_BATHROOMS,
+            area: FALLBACK_AREA,
+            whatsapp: DEFAULT_WHATSAPP,
+            url: FALLBACK_URL,
+            photos: FALLBACK_PHOTOS
+        };
 
-// Función para crear marcador personalizado para otras propiedades
-function createPropertyMarker(property, map, isCurrent = false) {
-    const markerHTML = `
-        <div style="
-            background: ${isCurrent ? 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)'};
-            color: white;
-            padding: ${isCurrent ? '8px 14px' : '6px 10px'};
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: ${isCurrent ? '14px' : '12px'};
-            border: 3px solid white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            white-space: nowrap;
-            transition: transform 0.2s;
-        " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-            ${property.priceShort}
-        </div>
-    `;
+        function enrichProperty(property) {
+            const source = property || {};
+            const photos = Array.isArray(source.photos) && source.photos.length ? source.photos : FALLBACK_PHOTOS;
 
-    const CustomMarker = function(position, map, property, isCurrent) {
-        this.position = position;
-        this.property = property;
-        this.isCurrent = isCurrent;
-        this.div = null;
-        this.setMap(map);
-    };
+            return {
+                ...CURRENT_PROPERTY_DATA,
+                ...source,
+                photos,
+                priceFull: source.priceFull || CURRENT_PROPERTY_DATA.priceFull,
+                priceShort: source.priceShort || CURRENT_PROPERTY_DATA.priceShort,
+                bedrooms: source.bedrooms ?? CURRENT_PROPERTY_DATA.bedrooms,
+                bathrooms: source.bathrooms ?? CURRENT_PROPERTY_DATA.bathrooms,
+                area: source.area || CURRENT_PROPERTY_DATA.area,
+                location: source.location || CURRENT_PROPERTY_DATA.location,
+                whatsapp: source.whatsapp || DEFAULT_WHATSAPP,
+                url: source.url || CURRENT_PROPERTY_DATA.url
+            };
+        }
 
-    CustomMarker.prototype = new google.maps.OverlayView();
+        // Variable global para el InfoWindow actual y el índice de foto
+        let currentInfoWindow = null;
+        let currentPhotoIndex = 0;
 
-    CustomMarker.prototype.onAdd = function() {
-        const div = document.createElement('div');
-        div.style.position = 'absolute';
-        div.innerHTML = markerHTML;
+        // Función para mostrar tarjeta con carrusel de fotos completo (estilo Zillow)
+        function showPropertyCard(property, position, map, isCurrent = false) {
+            currentPhotoIndex = 0; // Resetear al abrir
 
-        div.addEventListener('click', () => {
-            const baseUrl = window.location.href.includes('mazatlan/')
-                ? '../'
-                : '';
+            const enrichedProperty = enrichProperty(property);
+            const photos = Array.isArray(enrichedProperty.photos) && enrichedProperty.photos.length ? enrichedProperty.photos : FALLBACK_PHOTOS;
+            const priceFull = enrichedProperty.priceFull || FALLBACK_PRICE_FULL;
+            const bedroomsValue = enrichedProperty.bedrooms ?? FALLBACK_BEDROOMS;
+            const bathroomsValue = enrichedProperty.bathrooms ?? FALLBACK_BATHROOMS;
+            const areaValue = enrichedProperty.area || FALLBACK_AREA;
+            const propertyLocation = enrichedProperty.location || CURRENT_PROPERTY_DATA.location;
+            const propertyUrl = enrichedProperty.url || FALLBACK_URL;
+            const whatsappNumber = enrichedProperty.whatsapp || DEFAULT_WHATSAPP;
+            const markerTitle = enrichedProperty.title || "Casa en Venta en Mazatlán.";
 
-            const infoWindow = new google.maps.InfoWindow({
-                content: `
-                    <div style="padding: 0; max-width: 260px;">
-                        <img src="${baseUrl}${this.property.image}"
-                             alt="${this.property.title}"
-                             style="width: 100%; height: 160px; object-fit: cover; display: block; border-radius: 4px 4px 0 0;">
-                        <div style="padding: 8px 10px;">
-                            <h4 style="margin: 0 0 4px 0; color: ${this.isCurrent ? '#FF6B35' : '#10b981'}; font-size: 14px; font-weight: 600;">${this.property.priceShort}</h4>
-                            <h5 style="margin: 0 0 3px 0; color: #1f2937; font-size: 12px; font-weight: 600;">${this.property.title}</h5>
-                            <p style="margin: 0 0 6px 0; color: #6b7280; font-size: 11px; line-height: 1.3;">${this.property.location}</p>
-                            ${!this.isCurrent ? '<a href="' + baseUrl + this.property.slug + '/index.html" style="display: block; background: #10b981; color: white; text-align: center; padding: 6px 10px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: 600;">Ver Propiedad →</a>' : ''}
+            // Crear ID único para este carrusel
+            const carouselId = 'carousel-prop-' + Date.now();
+
+            // Generar HTML del carrusel con TODAS las fotos
+            const cardContent = `
+                <div id="${carouselId}" style="max-width: 320px; font-family: 'Poppins', sans-serif;">
+                    <!-- Carrusel de fotos -->
+                    <div style="position: relative; height: 200px; margin-bottom: 10px; overflow: hidden; border-radius: 8px 8px 0 0;">
+                        <!-- Imagen actual -->
+                        <img id="${carouselId}-img"
+                             src="${photos[0]}"
+                             alt="${markerTitle}"
+                             style="width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s ease;">
+
+                        <!-- Flechas de navegación -->
+                        <button id="${carouselId}-prev"
+                                style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 10; transition: background 0.2s;"
+                                onmouseover="this.style.background='rgba(0,0,0,0.8)'"
+                                onmouseout="this.style.background='rgba(0,0,0,0.6)'">
+                            ‹
+                        </button>
+                        <button id="${carouselId}-next"
+                                style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 10; transition: background 0.2s;"
+                                onmouseover="this.style.background='rgba(0,0,0,0.8)'"
+                                onmouseout="this.style.background='rgba(0,0,0,0.6)'">
+                            ›
+                        </button>
+
+                        <!-- Contador de fotos -->
+                        <div style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 6px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; z-index: 10;">
+                            <span id="${carouselId}-counter">1</span> / ${photos.length}
+                        </div>
+
+                        <!-- Dots indicadores -->
+                        <div id="${carouselId}-dots" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10;">
+                            ${photos.map((_, index) => `
+                                <div class="carousel-dot" data-index="${index}"
+                                     style="width: ${index === 0 ? '20px' : '8px'}; height: 8px; border-radius: 4px; background: ${index === 0 ? 'white' : 'rgba(255,255,255,0.5)'}; cursor: pointer; transition: all 0.3s;"></div>
+                            `).join('')}
                         </div>
                     </div>
-                `
+
+                    <!-- Info de la propiedad -->
+                    <div style="padding: 12px;">
+                        <h3 style="margin: 0 0 8px 0; color: ${isCurrent ? '#FF6B35' : '#10b981'}; font-size: 20px; font-weight: 700;">${priceFull}</h3>
+                        <div style="display: flex; gap: 12px; margin-bottom: 8px; color: #6b7280; font-size: 14px;">
+                            <span><i class="fas fa-bed"></i> ${bedroomsValue} rec</span>
+                            <span><i class="fas fa-bath"></i> ${bathroomsValue} baños</span>
+                            <span><i class="fas fa-ruler-combined"></i> ${areaValue}</span>
+                        </div>
+                        <p style="margin: 0 0 12px 0; color: #4b5563; font-size: 13px; line-height: 1.4;">${propertyLocation}</p>
+
+                        <!-- Botones de acción -->
+                        <div style="display: flex; gap: 8px;">
+                            <button onclick="window.open('${propertyUrl}', '_blank')"
+                               style="flex: 1; background: #FF6A00; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
+                                Ver Detalles
+                            </button>
+                            <button onclick="window.open('https://wa.me/${whatsappNumber}?text=Hola,%20me%20interesa%20${encodeURIComponent(markerTitle)}%20en%20${encodeURIComponent(priceFull)}', '_blank')"
+                               style="flex: 1; background: #25D366; color: white; padding: 10px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; text-align: center; cursor: pointer; font-family: 'Poppins', sans-serif;">
+                                WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const infoWindow = new google.maps.InfoWindow({
+                content: cardContent,
+                maxWidth: 340
             });
-            infoWindow.setPosition(this.position);
+
+            infoWindow.setPosition(position);
             infoWindow.open(map);
-        });
 
-        this.div = div;
-        const panes = this.getPanes();
-        panes.overlayMouseTarget.appendChild(div);
-    };
+            // Guardar referencia al InfoWindow actual
+            currentInfoWindow = infoWindow;
 
-    CustomMarker.prototype.draw = function() {
-        const overlayProjection = this.getProjection();
-        const position = overlayProjection.fromLatLngToDivPixel(this.position);
-        const div = this.div;
-        div.style.left = (position.x - (this.isCurrent ? 40 : 30)) + 'px';
-        div.style.top = (position.y - (this.isCurrent ? 20 : 16)) + 'px';
-    };
+            // Esperar a que el contenido se renderice y agregar event listeners
+            google.maps.event.addListenerOnce(infoWindow, 'domready', function() {
+                const img = document.getElementById(`${carouselId}-img`);
+                const counter = document.getElementById(`${carouselId}-counter`);
+                const prevBtn = document.getElementById(`${carouselId}-prev`);
+                const nextBtn = document.getElementById(`${carouselId}-next`);
+                const dots = document.querySelectorAll(`#${carouselId}-dots .carousel-dot`);
 
-    CustomMarker.prototype.onRemove = function() {
-        if (this.div) {
-            this.div.parentNode.removeChild(this.div);
-            this.div = null;
+                // Función para actualizar la foto
+                function updatePhoto(newIndex) {
+                    if (newIndex < 0) newIndex = photos.length - 1;
+                    if (newIndex >= photos.length) newIndex = 0;
+
+                    currentPhotoIndex = newIndex;
+
+                    // Fade effect
+                    img.style.opacity = '0';
+                    setTimeout(() => {
+                        img.src = photos[newIndex];
+                        img.style.opacity = '1';
+                    }, 150);
+
+                    // Actualizar contador
+                    counter.textContent = newIndex + 1;
+
+                    // Actualizar dots
+                    dots.forEach((dot, index) => {
+                        if (index === newIndex) {
+                            dot.style.width = '20px';
+                            dot.style.background = 'white';
+                        } else {
+                            dot.style.width = '8px';
+                            dot.style.background = 'rgba(255,255,255,0.5)';
+                        }
+                    });
+                }
+
+                // Event listeners para flechas
+                prevBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updatePhoto(currentPhotoIndex - 1);
+                });
+
+                nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    updatePhoto(currentPhotoIndex + 1);
+                });
+
+                // Event listeners para dots
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        updatePhoto(index);
+                    });
+                });
+
+                // Soporte para teclado (flechas)
+                document.addEventListener('keydown', function handleKeyPress(e) {
+                    if (!currentInfoWindow) {
+                        document.removeEventListener('keydown', handleKeyPress);
+                        return;
+                    }
+                    if (e.key === 'ArrowLeft') updatePhoto(currentPhotoIndex - 1);
+                    if (e.key === 'ArrowRight') updatePhoto(currentPhotoIndex + 1);
+                });
+            });
+
+            // Limpiar al cerrar
+            google.maps.event.addListener(infoWindow, 'closeclick', function() {
+                currentInfoWindow = null;
+                currentPhotoIndex = 0;
+            });
         }
-    };
 
-    return CustomMarker;
-}
+        // Función para crear marcador personalizado para otras propiedades
+        function createPropertyMarker(property, map, isCurrent = false) {
+            const displayPrice = property.priceShort || property.priceFull || FALLBACK_PRICE_SHORT;
+            const markerHTML = `
+                <div style="
+                    background: ${isCurrent ? 'linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)'};
+                    color: white;
+                    padding: ${isCurrent ? '8px 14px' : '6px 10px'};
+                    border-radius: 20px;
+                    font-weight: bold;
+                    font-size: ${isCurrent ? '14px' : '12px'};
+                    border: 3px solid white;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: transform 0.2s;
+                " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    ${displayPrice}
+                </div>
+            `;
 
+            const CustomMarker = function(position, map, property, isCurrent) {
+                this.position = position;
+                this.property = property;
+                this.isCurrent = isCurrent;
+                this.div = null;
+                this.setMap(map);
+            };
 
+            CustomMarker.prototype = new google.maps.OverlayView();
+
+            CustomMarker.prototype.onAdd = function() {
+                const div = document.createElement('div');
+                div.style.position = 'absolute';
+                div.innerHTML = markerHTML;
+
+                div.addEventListener('click', () => {
+                    // Cerrar el InfoWindow anterior si existe
+                    if (currentInfoWindow) {
+                        currentInfoWindow.close();
+                    }
+                    // Mostrar tarjeta con carrusel completo
+                    showPropertyCard(this.property, this.position, map, this.isCurrent);
+                });
+
+                this.div = div;
+                const panes = this.getPanes();
+                panes.overlayMouseTarget.appendChild(div);
+            };
+
+            CustomMarker.prototype.draw = function() {
+                const overlayProjection = this.getProjection();
+                const position = overlayProjection.fromLatLngToDivPixel(this.position);
+                const div = this.div;
+                div.style.left = (position.x - (this.isCurrent ? 40 : 30)) + 'px';
+                div.style.top = (position.y - (this.isCurrent ? 20 : 16)) + 'px';
+            };
+
+            CustomMarker.prototype.onRemove = function() {
+                if (this.div) {
+                    this.div.parentNode.removeChild(this.div);
+                    this.div = null;
+                }
+            };
+
+            return CustomMarker;
+        }
+
+        // Helper: Inicializar mapa con coordenadas
+        function initializeMapWithPosition(position) {
+            // Detectar si es propiedad de Mazatlán
+            const isMazatlan = CURRENT_CITY === 'mazatlan' || window.location.href.includes('/mazatlan/');
+            const currentSlug = window.location.pathname.split('/').filter(p => p).pop();
+
+            // Crear mapa con zoom ajustado para Mazatlán
+            map = new google.maps.Map(document.getElementById('map-container'), {
+                center: position,
+                zoom: isMazatlan ? 13 : (MARKER_CONFIG.precision === 'exact' ? 17 :
+                      MARKER_CONFIG.precision === 'street' ? 16 : 15),
+                mapTypeId: 'roadmap',
+                styles: [
+                    {
+                        featureType: 'poi',
+                        elementType: 'labels',
+                        stylers: [{ visibility: 'off' }]
+                    }
+                ],
+                disableDefaultUI: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                streetViewControl: true,
+                fullscreenControl: true
+            });
+
+            let currentPropertySource = CURRENT_PROPERTY_DATA;
+            if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
+                const matched = ALL_MAZATLAN_PROPERTIES.find(p =>
+                    currentSlug && (currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
+                );
+                if (matched) {
+                    currentPropertySource = { ...matched };
+                }
+            }
+
+            const enrichedCurrent = enrichProperty(currentPropertySource);
+            const CustomMarkerClass = createPropertyMarker(enrichedCurrent, map, true);
+            marker = new CustomMarkerClass(position, map, enrichedCurrent, true);
+
+            if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
+                const referenceSlug = enrichedCurrent.slug || currentSlug;
+
+                ALL_MAZATLAN_PROPERTIES.forEach(property => {
+                    const enriched = enrichProperty(property);
+                    const propertySlug = enriched.slug || property.slug;
+
+                    if (referenceSlug && propertySlug && propertySlug === referenceSlug) {
+                        return;
+                    }
+
+                    const baseLocation = enriched.location || property.location || CITY_NAME;
+                    const geocodeAddress = baseLocation.toLowerCase().includes(CITY_NAME.toLowerCase())
+                        ? baseLocation
+                        : `${baseLocation}, ${CITY_NAME}, ${STATE_NAME}`;
+
+                    geocoder.geocode({ address: geocodeAddress }, function(results, status) {
+                        if (status === 'OK' && results[0]) {
+                            const otherPosition = {
+                                lat: results[0].geometry.location.lat(),
+                                lng: results[0].geometry.location.lng()
+                            };
+
+                            const OtherMarkerClass = createPropertyMarker(enriched, map, false);
+                            new OtherMarkerClass(otherPosition, map, enriched, false);
+                        }
+                    });
+                });
+            }
+        }
+
+        // Inicializar mapa
         function initMap() {
+            // Inicializar geocoder (necesario para Mazatlán properties)
             geocoder = new google.maps.Geocoder();
 
-            // Geocodificar la dirección
+            // ✅ PRIORIDAD 1: Usar coordenadas de Geocoder V1.5 si están disponibles
+            if (MARKER_CONFIG.lat !== null && MARKER_CONFIG.lng !== null) {
+                console.log('📍 Usando coordenadas de Geocoder V1.5:', MARKER_CONFIG.lat, MARKER_CONFIG.lng);
+                const position = {
+                    lat: MARKER_CONFIG.lat + MARKER_CONFIG.latOffset,
+                    lng: MARKER_CONFIG.lng + MARKER_CONFIG.lngOffset
+                };
+
+                initializeMapWithPosition(position);
+                return;
+            }
+
+            // ✅ FALLBACK: Usar Google Maps Geocoder si no hay coordenadas de V1.5
+            console.log('⚠️ Coordenadas V1.5 no disponibles, usando Google Maps API como fallback');
+
+            // Geocodificar la dirección con Google Maps API
             geocoder.geocode({ address: MARKER_CONFIG.location }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = {
@@ -1525,46 +1709,7 @@ function createPropertyMarker(property, map, isCurrent = false) {
                         lng: results[0].geometry.location.lng() + MARKER_CONFIG.lngOffset
                     };
 
-                    // Crear mapa
-                    map = new google.maps.Map(document.getElementById('map-container'), {
-                        center: position,
-                        zoom: MARKER_CONFIG.precision === 'exact' ? 17 :
-                              MARKER_CONFIG.precision === 'street' ? 16 : 15,
-                        mapTypeId: 'roadmap',
-                        styles: [
-                            {
-                                featureType: 'poi',
-                                elementType: 'labels',
-                                stylers: [{ visibility: 'off' }]
-                            }
-                        ],
-                        disableDefaultUI: false,
-                        zoomControl: true,
-                        mapTypeControl: false,
-                        streetViewControl: true,
-                        fullscreenControl: true
-                    });
-
-                    // Crear marcador de la propiedad actual (naranja)
-                    const currentProperty = ALL_MAZATLAN_PROPERTIES.find(p => p.slug === 'casa-en-venta-en-mazatlan');
-                    const CustomMarkerClass = createPropertyMarker(currentProperty, map, true);
-                    marker = new CustomMarkerClass(position, map, currentProperty, true);
-
-                    // Crear marcadores de TODAS las otras propiedades (verdes)
-                    ALL_MAZATLAN_PROPERTIES.forEach(property => {
-                        if (property.slug !== 'casa-en-venta-en-mazatlan') {
-                            geocoder.geocode({ address: property.location }, function(results, status) {
-                                if (status === 'OK' && results[0]) {
-                                    const otherPosition = {
-                                        lat: results[0].geometry.location.lat(),
-                                        lng: results[0].geometry.location.lng()
-                                    };
-                                    const OtherMarkerClass = createPropertyMarker(property, map, false);
-                                    new OtherMarkerClass(otherPosition, map, property, false);
-                                }
-                            });
-                        }
-                    });
+                    initializeMapWithPosition(position);
 
                 } else {
                     console.error('Geocode error:', status);
@@ -1581,6 +1726,7 @@ function createPropertyMarker(property, map, isCurrent = false) {
 
     <!-- Cargar Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&callback=initMap&libraries=places" async defer></script>
+    
     
         </div>
     </section>
@@ -1607,10 +1753,20 @@ function createPropertyMarker(property, map, isCurrent = false) {
             overflow: hidden;
         }
 
-        /* Hide map on mobile */
+        /* Show map on mobile with adjusted height */
         @media (max-width: 768px) {
             .location-map {
-                display: none;
+                padding: 2rem 0;
+            }
+
+            #map-container {
+                height: 300px !important;
+                border-radius: 8px;
+            }
+
+            .location-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
             }
         }
     </style>
@@ -1621,7 +1777,7 @@ function createPropertyMarker(property, map, isCurrent = false) {
             <h2 class="section-title">¿Interesado?</h2>
             <p class="contact-subtitle">Contáctanos para más información o para agendar una visita</p>
             <div class="contact-buttons">
-                <a href="https://wa.me/528111652545?text=Hola!%20Me%20interesa%20la%20propiedad%3A%0ACasa%20en%20Venta%20en%20Mazatl%C3%A1n.%0A%242%2C700%2C000%0AMazatl%C3%A1n%0Ahttps%3A%2F%2Fcasasenventa.info%2Fmazatlan%2Fcasa-en-venta-en-mazatlan%2F" 
+                <a href="https://wa.me/526691652545?text=Hola!%20Me%20interesa%20la%20propiedad%3A%0ACasa%20en%20Venta%20en%20Mazatl%C3%A1n.%0A%242%2C700%2C000%0AVilla%20Galaxia%2C%20Mazatl%C3%A1n%2C%20Sinaloa%0Ahttps%3A%2F%2Fcasasenventa.info%2Fmazatlan%2Fcasa-en-venta-en-mazatlan%2F" 
                    class="whatsapp-button" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                     Contactar por WhatsApp
@@ -1632,7 +1788,7 @@ function createPropertyMarker(property, map, isCurrent = false) {
                 </a>
             </div>
             <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Casa en Venta en Mazatlán., Mazatlán</p>
+                <p><i class="fas fa-map-marker-alt"></i> Casa en Venta en Mazatlán., Villa Galaxia, Mazatlán, Sinaloa</p>
                 <p><i class="fas fa-phone"></i> +52 811 165 2545</p>
                 <p><i class="fas fa-envelope"></i> hector@bienesraices.mx</p>
             </div>
@@ -1809,7 +1965,7 @@ function createPropertyMarker(property, map, isCurrent = false) {
     
 
     <!-- Botón Flotante de WhatsApp -->
-    <a href="https://wa.me/528111652545?text=Hola!%20Me%20interesa%20la%20propiedad%3A%0ACasa%20en%20Venta%20en%20Mazatl%C3%A1n.%0A%242%2C700%2C000%0AMazatl%C3%A1n%0Ahttps%3A%2F%2Fcasasenventa.info%2Fmazatlan%2Fcasa-en-venta-en-mazatlan%2F" 
+    <a href="https://wa.me/526691652545?text=Hola!%20Me%20interesa%20la%20propiedad%3A%0ACasa%20en%20Venta%20en%20Mazatl%C3%A1n.%0A%242%2C700%2C000%0AVilla%20Galaxia%2C%20Mazatl%C3%A1n%2C%20Sinaloa%0Ahttps%3A%2F%2Fcasasenventa.info%2Fmazatlan%2Fcasa-en-venta-en-mazatlan%2F" 
        class="whatsapp-float" 
        target="_blank" 
        rel="noopener noreferrer"
@@ -2062,14 +2218,14 @@ function createPropertyMarker(property, map, isCurrent = false) {
         function getShareUrl() {
             const currentUrl = window.location.href;
             if (currentUrl.includes('file://') || currentUrl.includes('localhost')) {
-                return 'https://casasenventa.info/mazatlan/casa-venta-portalegre-045360/';
+                return 'https://casasenventa.info/culiacan/casa-venta-portalegre-045360/';
             }
             return currentUrl;
         }
 
         function shareWhatsApp() {
             const url = encodeURIComponent(getShareUrl());
-            const text = encodeURIComponent('¡Mira esta increíble casa en venta en Mazatlán! $2,700,000');
+            const text = encodeURIComponent('¡Mira esta increíble casa en venta en Villa Galaxia! $2,700,000');
             window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
         }
 
