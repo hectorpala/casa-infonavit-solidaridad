@@ -4319,6 +4319,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 37 días",
           "vistas": 0
+        },
+        {
+          "id": "147794673",
+          "titulo": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido",
+          "precio": "MN 2,310,000",
+          "ubicacion": "Tierra y Libertad, Mazatlán, Sinaloa, Mexico, Valle Del Ejido, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-3-recamaras-y-160-m-sup2--en-venta-valle-del-147794673.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 18 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4336,9 +4350,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T19:38:05.429Z",
+    "ultimaActualizacion": "2025-10-23T19:43:07.075Z",
     "totalVendedores": 24,
-    "totalPropiedades": 238,
+    "totalPropiedades": 239,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
