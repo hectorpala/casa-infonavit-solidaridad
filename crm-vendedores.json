@@ -4403,6 +4403,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 34 días",
           "vistas": 0
+        },
+        {
+          "id": "146668066",
+          "titulo": "Casa en Venta en Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)",
+          "precio": "MN 2,400,000",
+          "ubicacion": "Calle Hacienda los Girasoles 5624, Mazatlán, Sinaloa, Mexico, Fraccionamiento Hacienda del Seminario",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-sinaloa-hacienda-del-146668066.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 136 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4527,9 +4541,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T20:23:48.102Z",
+    "ultimaActualizacion": "2025-10-23T20:28:50.811Z",
     "totalVendedores": 27,
-    "totalPropiedades": 247,
+    "totalPropiedades": 248,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
