@@ -19238,31 +19238,6 @@
 
             <!-- Map Footer (Optional Controls) -->
             <div class="p-4 border-t border-gray-200 bg-gray-50">
-                <!-- Coordinate Jump Controls -->
-                <div class="mb-4 p-4 bg-white rounded-lg border border-gray-300 shadow-sm">
-                    <div class="flex items-center gap-3 flex-wrap">
-                        <label class="text-sm font-semibold text-gray-700">Buscar por coordenadas:</label>
-                        <input type="text" id="coord-lat" placeholder="Latitud (ej: 24.824)"
-                               class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-hector focus:border-hector w-40">
-                        <input type="text" id="coord-lng" placeholder="Longitud (ej: -107.399)"
-                               class="px-3 py-2 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-hector focus:border-hector w-40">
-                        <button onclick="jumpToCoordinates()"
-                                class="px-4 py-2 bg-hector text-white rounded-md font-medium hover:bg-hector-dark transition-colors shadow-md hover:shadow-lg">
-                            <svg class="w-4 h-4 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
-                            Ir a ubicación
-                        </button>
-                        <button onclick="clearCoordinateSearch()"
-                                class="px-3 py-2 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-md transition-colors">
-                            Limpiar
-                        </button>
-                    </div>
-                    <p class="text-xs text-gray-500 mt-2">
-                        💡 Ejemplo: Casa Guadalupe V1.5 está en <button onclick="fillCoordinates(24.824, -107.399)" class="text-hector hover:underline font-medium">24.824, -107.399</button>
-                    </p>
-                </div>
 
                 <div class="flex items-center justify-between flex-wrap gap-4">
                     <div class="flex items-center gap-4">
