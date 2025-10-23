@@ -1360,7 +1360,9 @@
             title: "Se Vende Casa en Perisur II Culiacán",
             precision: "exact",
             latOffset: 0,
-            lngOffset: 0
+            lngOffset: 0,
+            lat: 24.8091, // ✅ Coordenadas de Geocoder V1.5
+            lng: -107.394  // ✅ Coordenadas de Geocoder V1.5
         };
 
         // Datos completos de la propiedad actual (para el InfoWindow con carrusel)
@@ -1635,11 +1637,98 @@
             return CustomMarker;
         }
 
+        // Helper: Inicializar mapa con coordenadas
+        function initializeMapWithPosition(position) {
+            // Detectar si es propiedad de Mazatlán
+            const isMazatlan = CURRENT_CITY === 'mazatlan' || window.location.href.includes('/mazatlan/');
+            const currentSlug = window.location.pathname.split('/').filter(p => p).pop();
+
+            // Crear mapa con zoom ajustado para Mazatlán
+            map = new google.maps.Map(document.getElementById('map-container'), {
+                center: position,
+                zoom: isMazatlan ? 13 : (MARKER_CONFIG.precision === 'exact' ? 17 :
+                      MARKER_CONFIG.precision === 'street' ? 16 : 15),
+                mapTypeId: 'roadmap',
+                styles: [
+                    {
+                        featureType: 'poi',
+                        elementType: 'labels',
+                        stylers: [{ visibility: 'off' }]
+                    }
+                ],
+                disableDefaultUI: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                streetViewControl: true,
+                fullscreenControl: true
+            });
+
+            let currentPropertySource = CURRENT_PROPERTY_DATA;
+            if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
+                const matched = ALL_MAZATLAN_PROPERTIES.find(p =>
+                    currentSlug && (currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
+                );
+                if (matched) {
+                    currentPropertySource = { ...matched };
+                }
+            }
+
+            const enrichedCurrent = enrichProperty(currentPropertySource);
+            const CustomMarkerClass = createPropertyMarker(enrichedCurrent, map, true);
+            marker = new CustomMarkerClass(position, map, enrichedCurrent, true);
+
+            if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
+                const referenceSlug = enrichedCurrent.slug || currentSlug;
+
+                ALL_MAZATLAN_PROPERTIES.forEach(property => {
+                    const enriched = enrichProperty(property);
+                    const propertySlug = enriched.slug || property.slug;
+
+                    if (referenceSlug && propertySlug && propertySlug === referenceSlug) {
+                        return;
+                    }
+
+                    const baseLocation = enriched.location || property.location || CITY_NAME;
+                    const geocodeAddress = baseLocation.toLowerCase().includes(CITY_NAME.toLowerCase())
+                        ? baseLocation
+                        : `${baseLocation}, ${CITY_NAME}, ${STATE_NAME}`;
+
+                    geocoder.geocode({ address: geocodeAddress }, function(results, status) {
+                        if (status === 'OK' && results[0]) {
+                            const otherPosition = {
+                                lat: results[0].geometry.location.lat(),
+                                lng: results[0].geometry.location.lng()
+                            };
+
+                            const OtherMarkerClass = createPropertyMarker(enriched, map, false);
+                            new OtherMarkerClass(otherPosition, map, enriched, false);
+                        }
+                    });
+                });
+            }
+        }
+
         // Inicializar mapa
         function initMap() {
+            // Inicializar geocoder (necesario para Mazatlán properties)
             geocoder = new google.maps.Geocoder();
 
-            // Geocodificar la dirección
+            // ✅ PRIORIDAD 1: Usar coordenadas de Geocoder V1.5 si están disponibles
+            if (MARKER_CONFIG.lat !== null && MARKER_CONFIG.lng !== null) {
+                console.log('📍 Usando coordenadas de Geocoder V1.5:', MARKER_CONFIG.lat, MARKER_CONFIG.lng);
+                const position = {
+                    lat: MARKER_CONFIG.lat + MARKER_CONFIG.latOffset,
+                    lng: MARKER_CONFIG.lng + MARKER_CONFIG.lngOffset
+                };
+
+                initializeMapWithPosition(position);
+                return;
+            }
+
+            // ✅ FALLBACK: Usar Google Maps Geocoder si no hay coordenadas de V1.5
+            console.log('⚠️ Coordenadas V1.5 no disponibles, usando Google Maps API como fallback');
+
+            // Geocodificar la dirección con Google Maps API
             geocoder.geocode({ address: MARKER_CONFIG.location }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = {
@@ -1647,72 +1736,7 @@
                         lng: results[0].geometry.location.lng() + MARKER_CONFIG.lngOffset
                     };
 
-                    // Detectar si es propiedad de Mazatlán
-                    const isMazatlan = CURRENT_CITY === 'mazatlan' || window.location.href.includes('/mazatlan/');
-                    const currentSlug = window.location.pathname.split('/').filter(p => p).pop();
-
-                    // Crear mapa con zoom ajustado para Mazatlán
-                    map = new google.maps.Map(document.getElementById('map-container'), {
-                        center: position,
-                        zoom: isMazatlan ? 13 : (MARKER_CONFIG.precision === 'exact' ? 17 :
-                              MARKER_CONFIG.precision === 'street' ? 16 : 15),
-                        mapTypeId: 'roadmap',
-                        styles: [
-                            {
-                                featureType: 'poi',
-                                elementType: 'labels',
-                                stylers: [{ visibility: 'off' }]
-                            }
-                        ],
-                        disableDefaultUI: false,
-                        zoomControl: true,
-                        mapTypeControl: false,
-                        streetViewControl: true,
-                        fullscreenControl: true
-                    });
-
-                    let currentPropertySource = CURRENT_PROPERTY_DATA;
-                    if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
-                        const matched = ALL_MAZATLAN_PROPERTIES.find(p =>
-                            currentSlug && (currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
-                        );
-                        if (matched) {
-                            currentPropertySource = { ...matched };
-                        }
-                    }
-
-                    const enrichedCurrent = enrichProperty(currentPropertySource);
-                    const CustomMarkerClass = createPropertyMarker(enrichedCurrent, map, true);
-                    marker = new CustomMarkerClass(position, map, enrichedCurrent, true);
-
-                    if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
-                        const referenceSlug = enrichedCurrent.slug || currentSlug;
-
-                        ALL_MAZATLAN_PROPERTIES.forEach(property => {
-                            const enriched = enrichProperty(property);
-                            const propertySlug = enriched.slug || property.slug;
-
-                            if (referenceSlug && propertySlug && propertySlug === referenceSlug) {
-                                return;
-                            }
-
-                            const baseLocation = enriched.location || property.location || CITY_NAME;
-                            const geocodeAddress = baseLocation.toLowerCase().includes(CITY_NAME.toLowerCase())
-                                ? baseLocation
-                                : `${baseLocation}, ${CITY_NAME}, ${STATE_NAME}`;
-
-                            geocoder.geocode({ address: geocodeAddress }, function(results, status) {
-                                if (status === 'OK' && results[0]) {
-                                    const otherPosition = {
-                                        lat: results[0].geometry.location.lat(),
-                                        lng: results[0].geometry.location.lng()
-                                    };
-                                    const OtherMarkerClass = createPropertyMarker(enriched, map, false);
-                                    new OtherMarkerClass(otherPosition, map, enriched, false);
-                                }
-                            });
-                        });
-                    }
+                    initializeMapWithPosition(position);
 
                 } else {
                     console.error('Geocode error:', status);
