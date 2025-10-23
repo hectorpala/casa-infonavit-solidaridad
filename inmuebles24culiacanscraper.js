@@ -2925,15 +2925,22 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
     const indexPath = cityConfig.indexPath;
     let indexHtml = fs.readFileSync(indexPath, 'utf8');
 
-    // Verificar si tenemos coordenadas del JSON-LD
-    if (!data.latitude || !data.longitude) {
-        console.log(`   ⚠️  No se encontraron coordenadas en JSON-LD`);
+    // Determinar coordenadas finales (priorizar geocodificación V1.5 y fallback a JSON-LD)
+    const latCandidates = [data.lat, data.latitude];
+    const lngCandidates = [data.lng, data.longitude];
+
+    const finalLat = latCandidates.find(value => typeof value === 'number' && !Number.isNaN(value));
+    const finalLng = lngCandidates.find(value => typeof value === 'number' && !Number.isNaN(value));
+
+    if (typeof finalLat !== 'number' || typeof finalLng !== 'number') {
+        console.log(`   ⚠️  No se encontraron coordenadas válidas (geocoder/JSON-LD)`);
         console.log(`   ℹ️  La propiedad NO se agregará al mapa modal automáticamente`);
         console.log(`   ℹ️  Puedes agregarla manualmente después con coordenadas aproximadas\n`);
         return;
     }
 
-    console.log(`   ✅ Coordenadas encontradas: ${data.latitude}, ${data.longitude}`);
+    const coordSource = (typeof data.lat === 'number' && !Number.isNaN(data.lat)) ? 'geocoder' : 'JSON-LD';
+    console.log(`   ✅ Coordenadas (${coordSource}): ${finalLat}, ${finalLng}`);
 
     // Generar array de fotos dinámicamente
     const photosArray = [];
@@ -2990,8 +2997,8 @@ function addPropertyToMap(data, slug, photoCount, cityConfig) {
 
     // Código con coordenadas FIJAS (más rápido y confiable que geocodificación)
     const newMarkerCode = `
-            // ${data.title} - Coordenadas exactas del JSON-LD
-            const ${varName}Position = new google.maps.LatLng(${data.latitude}, ${data.longitude});
+            // ${data.title} - Coordenadas finales (${coordSource})
+            const ${varName}Position = new google.maps.LatLng(${finalLat}, ${finalLng});
             const ${varName}MarkerClass = createZillowPropertyMarker(${varName}Property, window.${mapVarName});
             const ${varName}Marker = new ${varName}MarkerClass(${varName}Position, window.${mapVarName}, ${varName}Property);
             window.${markersArrayName}.push(${varName}Marker);
