@@ -4333,6 +4333,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 18 días",
           "vistas": 0
+        },
+        {
+          "id": "62920289",
+          "titulo": "Casa en Venta en El Fracc Porto Molino Mazatlan Sinaloa",
+          "precio": "MN 2,600,000",
+          "ubicacion": "PortoMolino, Mazatlán, Sinaloa, Mexico, Fraccionamiento Jardines del Bosque",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc-porto-molino-mazatlan-62920289.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4421,9 +4435,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T19:53:19.979Z",
+    "ultimaActualizacion": "2025-10-23T19:58:22.657Z",
     "totalVendedores": 26,
-    "totalPropiedades": 241,
+    "totalPropiedades": 242,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
