@@ -4255,12 +4255,48 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-23T18:56:28.397Z"
+    },
+    {
+      "id": "v024",
+      "nombre": "Realtor Rodolfo",
+      "telefono": "815028902",
+      "telefonoFormateado": "815028902",
+      "whatsapp": "https://wa.me/52815028902",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "143884424",
+          "titulo": "Casa en Venta Real del Valle",
+          "precio": "MN 3,500,000",
+          "ubicacion": "Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-real-del-valle-143884424.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
+      "tags": [
+        "inmuebles24",
+        "sta.-maria-#5315",
+        "mazatlán",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-real-del-valle",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-23T19:22:51.769Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T18:56:28.398Z",
-    "totalVendedores": 23,
-    "totalPropiedades": 234,
+    "ultimaActualizacion": "2025-10-23T19:22:51.770Z",
+    "totalVendedores": 24,
+    "totalPropiedades": 235,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
