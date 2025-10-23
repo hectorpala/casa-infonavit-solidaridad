@@ -1,0 +1,475 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "date": "2025-10-22",
+    "total": 50,
+    "description": "Gazetteer completo para Culiacán con centroides, bboxes y aliases",
+    "bounds_global": {
+      "north": 24.88,
+      "south": 24.70,
+      "east": -107.30,
+      "west": -107.50
+    }
+  },
+  "colonias": {
+    "tres-rios": {
+      "nombre": "Tres Ríos",
+      "centroide": { "lat": 24.8091, "lng": -107.3940 },
+      "bbox": {
+        "north": 24.8191, "south": 24.7991,
+        "east": -107.3840, "west": -107.4040
+      },
+      "aliases": ["desarrollo urbano tres rios", "3 rios", "sector tres rios"]
+    },
+    "del-humaya": {
+      "nombre": "Del Humaya",
+      "centroide": { "lat": 24.8020, "lng": -107.3940 },
+      "bbox": {
+        "north": 24.8120, "south": 24.7920,
+        "east": -107.3840, "west": -107.4040
+      },
+      "aliases": ["humaya"]
+    },
+    "chapultepec": {
+      "nombre": "Chapultepec",
+      "centroide": { "lat": 24.7870, "lng": -107.3930 },
+      "bbox": {
+        "north": 24.7970, "south": 24.7770,
+        "east": -107.3830, "west": -107.4030
+      },
+      "aliases": ["chapultepec del rio"]
+    },
+    "guadalupe": {
+      "nombre": "Guadalupe",
+      "centroide": { "lat": 24.8240, "lng": -107.3990 },
+      "bbox": {
+        "north": 24.8340, "south": 24.8140,
+        "east": -107.3890, "west": -107.4090
+      },
+      "aliases": ["colonia guadalupe"]
+    },
+    "quintas-del-sol": {
+      "nombre": "Quintas del Sol",
+      "centroide": { "lat": 24.8150, "lng": -107.4050 },
+      "bbox": {
+        "north": 24.8230, "south": 24.8070,
+        "east": -107.3970, "west": -107.4130
+      },
+      "aliases": ["quintas sol"]
+    },
+    "las-quintas": {
+      "nombre": "Las Quintas",
+      "centroide": { "lat": 24.7930, "lng": -107.4130 },
+      "bbox": {
+        "north": 24.8030, "south": 24.7830,
+        "east": -107.4030, "west": -107.4230
+      },
+      "aliases": ["quintas", "sector las quintas"]
+    },
+    "stanza-toscana": {
+      "nombre": "Stanza Toscana",
+      "centroide": { "lat": 24.8280, "lng": -107.4210 },
+      "bbox": {
+        "north": 24.8340, "south": 24.8220,
+        "east": -107.4150, "west": -107.4270
+      },
+      "aliases": ["fraccionamiento stanza toscana", "toscana"]
+    },
+    "stanza-granada": {
+      "nombre": "Stanza Granada",
+      "centroide": { "lat": 24.8300, "lng": -107.4180 },
+      "bbox": {
+        "north": 24.8360, "south": 24.8240,
+        "east": -107.4120, "west": -107.4240
+      },
+      "aliases": ["fraccionamiento stanza granada", "granada"]
+    },
+    "centro": {
+      "nombre": "Centro",
+      "centroide": { "lat": 24.8050, "lng": -107.3940 },
+      "bbox": {
+        "north": 24.8150, "south": 24.7950,
+        "east": -107.3840, "west": -107.4040
+      },
+      "aliases": ["centro culiacan", "zona centro"]
+    },
+    "recursos-hidraulicos": {
+      "nombre": "Recursos Hidráulicos",
+      "centroide": { "lat": 24.7990, "lng": -107.3880 },
+      "bbox": {
+        "north": 24.8070, "south": 24.7910,
+        "east": -107.3800, "west": -107.3960
+      },
+      "aliases": ["resources", "recursos hidraulicos"]
+    },
+    "guadalupe-victoria": {
+      "nombre": "Guadalupe Victoria",
+      "centroide": { "lat": 24.7870, "lng": -107.3750 },
+      "bbox": {
+        "north": 24.7970, "south": 24.7770,
+        "east": -107.3650, "west": -107.3850
+      },
+      "aliases": []
+    },
+    "5-de-mayo": {
+      "nombre": "5 de Mayo",
+      "centroide": { "lat": 24.7925, "lng": -107.3820 },
+      "bbox": {
+        "north": 24.8015, "south": 24.7835,
+        "east": -107.3730, "west": -107.3910
+      },
+      "aliases": ["cinco de mayo"]
+    },
+    "infonavit-humaya": {
+      "nombre": "Infonavit Humaya",
+      "centroide": { "lat": 24.7940, "lng": -107.4120 },
+      "bbox": {
+        "north": 24.8040, "south": 24.7840,
+        "east": -107.4020, "west": -107.4220
+      },
+      "aliases": ["inf humaya"]
+    },
+    "infonavit-solidaridad": {
+      "nombre": "Infonavit Solidaridad",
+      "centroide": { "lat": 24.7520, "lng": -107.4230 },
+      "bbox": {
+        "north": 24.7620, "south": 24.7420,
+        "east": -107.4130, "west": -107.4330
+      },
+      "aliases": ["inf solidaridad", "solidaridad"]
+    },
+    "barrio-nuevo": {
+      "nombre": "Barrio Nuevo",
+      "centroide": { "lat": 24.7440, "lng": -107.4180 },
+      "bbox": {
+        "north": 24.7540, "south": 24.7340,
+        "east": -107.4080, "west": -107.4280
+      },
+      "aliases": []
+    },
+    "bachigualato": {
+      "nombre": "Bachigualato",
+      "centroide": { "lat": 24.7280, "lng": -107.4450 },
+      "bbox": {
+        "north": 24.7480, "south": 24.7080,
+        "east": -107.4250, "west": -107.4650
+      },
+      "aliases": []
+    },
+    "adolfo-lopez-mateos": {
+      "nombre": "Adolfo López Mateos",
+      "centroide": { "lat": 24.7610, "lng": -107.4340 },
+      "bbox": {
+        "north": 24.7710, "south": 24.7510,
+        "east": -107.4240, "west": -107.4440
+      },
+      "aliases": ["lopez mateos"]
+    },
+    "colinas-de-san-miguel": {
+      "nombre": "Colinas de San Miguel",
+      "centroide": { "lat": 24.7890, "lng": -107.4450 },
+      "bbox": {
+        "north": 24.7990, "south": 24.7790,
+        "east": -107.4350, "west": -107.4550
+      },
+      "aliases": ["colinas san miguel"]
+    },
+    "lomas-de-rodriguera": {
+      "nombre": "Lomas de Rodriguera",
+      "centroide": { "lat": 24.7750, "lng": -107.4560 },
+      "bbox": {
+        "north": 24.7850, "south": 24.7650,
+        "east": -107.4460, "west": -107.4660
+      },
+      "aliases": ["rodriguera"]
+    },
+    "aguaruto": {
+      "nombre": "Aguaruto",
+      "centroide": { "lat": 24.7550, "lng": -107.4780 },
+      "bbox": {
+        "north": 24.7750, "south": 24.7350,
+        "east": -107.4580, "west": -107.4980
+      },
+      "aliases": ["aguaruto norte", "aguaruto sur"]
+    },
+    "las-americas": {
+      "nombre": "Las Américas",
+      "centroide": { "lat": 24.7980, "lng": -107.3560 },
+      "bbox": {
+        "north": 24.8080, "south": 24.7880,
+        "east": -107.3460, "west": -107.3660
+      },
+      "aliases": ["americas"]
+    },
+    "el-dorado": {
+      "nombre": "El Dorado",
+      "centroide": { "lat": 24.7820, "lng": -107.3480 },
+      "bbox": {
+        "north": 24.7900, "south": 24.7740,
+        "east": -107.3400, "west": -107.3560
+      },
+      "aliases": ["dorado"]
+    },
+    "villa-universidad": {
+      "nombre": "Villa Universidad",
+      "centroide": { "lat": 24.7720, "lng": -107.3320 },
+      "bbox": {
+        "north": 24.7820, "south": 24.7620,
+        "east": -107.3220, "west": -107.3420
+      },
+      "aliases": []
+    },
+    "finisterra": {
+      "nombre": "Finisterra",
+      "centroide": { "lat": 24.7985, "lng": -107.4185 },
+      "bbox": {
+        "north": 24.8045, "south": 24.7925,
+        "east": -107.4125, "west": -107.4245
+      },
+      "aliases": []
+    },
+    "montebello": {
+      "nombre": "Montebello",
+      "centroide": { "lat": 24.8140, "lng": -107.4280 },
+      "bbox": {
+        "north": 24.8220, "south": 24.8060,
+        "east": -107.4200, "west": -107.4360
+      },
+      "aliases": []
+    },
+    "lomas-de-mazatlan": {
+      "nombre": "Lomas de Mazatlán",
+      "centroide": { "lat": 24.7680, "lng": -107.4480 },
+      "bbox": {
+        "north": 24.7780, "south": 24.7580,
+        "east": -107.4380, "west": -107.4580
+      },
+      "aliases": []
+    },
+    "campestre": {
+      "nombre": "Campestre",
+      "centroide": { "lat": 24.8200, "lng": -107.4500 },
+      "bbox": {
+        "north": 24.8350, "south": 24.8050,
+        "east": -107.4350, "west": -107.4650
+      },
+      "aliases": []
+    },
+    "san-isidro": {
+      "nombre": "San Isidro",
+      "centroide": { "lat": 24.8350, "lng": -107.4200 },
+      "bbox": {
+        "north": 24.8450, "south": 24.8250,
+        "east": -107.4100, "west": -107.4300
+      },
+      "aliases": []
+    },
+    "isla-musala": {
+      "nombre": "Isla Musalá",
+      "centroide": { "lat": 24.8430, "lng": -107.4310 },
+      "bbox": {
+        "north": 24.8550, "south": 24.8310,
+        "east": -107.4190, "west": -107.4430
+      },
+      "aliases": ["musala", "isla bonita"]
+    },
+    "villas-del-rio": {
+      "nombre": "Villas del Río",
+      "centroide": { "lat": 24.8180, "lng": -107.3850 },
+      "bbox": {
+        "north": 24.8260, "south": 24.8100,
+        "east": -107.3770, "west": -107.3930
+      },
+      "aliases": ["villas rio", "villas del rio elite"]
+    },
+    "natura": {
+      "nombre": "Natura",
+      "centroide": { "lat": 24.8250, "lng": -107.4350 },
+      "bbox": {
+        "north": 24.8320, "south": 24.8180,
+        "east": -107.4280, "west": -107.4420
+      },
+      "aliases": ["privanzas natura"]
+    },
+    "bosques-del-valle": {
+      "nombre": "Bosques del Valle",
+      "centroide": { "lat": 24.7920, "lng": -107.4380 },
+      "bbox": {
+        "north": 24.8010, "south": 24.7830,
+        "east": -107.4290, "west": -107.4470
+      },
+      "aliases": ["bosques valle"]
+    },
+    "bosques-del-rey": {
+      "nombre": "Bosques del Rey",
+      "centroide": { "lat": 24.7920, "lng": -107.4380 },
+      "bbox": {
+        "north": 24.8010, "south": 24.7830,
+        "east": -107.4290, "west": -107.4470
+      },
+      "aliases": ["bosques rey"]
+    },
+    "parque-industrial": {
+      "nombre": "Parque Industrial",
+      "centroide": { "lat": 24.7650, "lng": -107.3980 },
+      "bbox": {
+        "north": 24.7850, "south": 24.7450,
+        "east": -107.3780, "west": -107.4180
+      },
+      "aliases": []
+    },
+    "el-diez": {
+      "nombre": "El Diez",
+      "centroide": { "lat": 24.7490, "lng": -107.3850 },
+      "bbox": {
+        "north": 24.7670, "south": 24.7310,
+        "east": -107.3670, "west": -107.4030
+      },
+      "aliases": ["diez"]
+    },
+    "tierra-blanca": {
+      "nombre": "Tierra Blanca",
+      "centroide": { "lat": 24.7830, "lng": -107.4080 },
+      "bbox": {
+        "north": 24.7930, "south": 24.7730,
+        "east": -107.3980, "west": -107.4180
+      },
+      "aliases": []
+    },
+    "vallado": {
+      "nombre": "Vallado",
+      "centroide": { "lat": 24.7390, "lng": -107.4520 },
+      "bbox": {
+        "north": 24.7540, "south": 24.7240,
+        "east": -107.4370, "west": -107.4670
+      },
+      "aliases": []
+    },
+    "genaro-estrada": {
+      "nombre": "Genaro Estrada",
+      "centroide": { "lat": 24.7880, "lng": -107.4220 },
+      "bbox": {
+        "north": 24.7980, "south": 24.7780,
+        "east": -107.4120, "west": -107.4320
+      },
+      "aliases": []
+    },
+    "lazaro-cardenas": {
+      "nombre": "Lázaro Cárdenas",
+      "centroide": { "lat": 24.7730, "lng": -107.4190 },
+      "bbox": {
+        "north": 24.7840, "south": 24.7620,
+        "east": -107.4080, "west": -107.4300
+      },
+      "aliases": ["cardenas"]
+    },
+    "villa-verde": {
+      "nombre": "Villa Verde",
+      "centroide": { "lat": 24.7560, "lng": -107.4600 },
+      "bbox": {
+        "north": 24.7680, "south": 24.7440,
+        "east": -107.4480, "west": -107.4720
+      },
+      "aliases": []
+    },
+    "san-rafael": {
+      "nombre": "San Rafael",
+      "centroide": { "lat": 24.8110, "lng": -107.3820 },
+      "bbox": {
+        "north": 24.8190, "south": 24.8030,
+        "east": -107.3740, "west": -107.3900
+      },
+      "aliases": []
+    },
+    "libertad": {
+      "nombre": "Libertad",
+      "centroide": { "lat": 24.8030, "lng": -107.3760 },
+      "bbox": {
+        "north": 24.8120, "south": 24.7940,
+        "east": -107.3670, "west": -107.3850
+      },
+      "aliases": []
+    },
+    "miguel-aleman": {
+      "nombre": "Miguel Alemán",
+      "centroide": { "lat": 24.7950, "lng": -107.4280 },
+      "bbox": {
+        "north": 24.8050, "south": 24.7850,
+        "east": -107.4180, "west": -107.4380
+      },
+      "aliases": ["miguel aleman"]
+    },
+    "miguel-de-la-madrid": {
+      "nombre": "Miguel de la Madrid",
+      "centroide": { "lat": 24.7440, "lng": -107.4290 },
+      "bbox": {
+        "north": 24.7580, "south": 24.7300,
+        "east": -107.4150, "west": -107.4430
+      },
+      "aliases": []
+    },
+    "zona-dorada": {
+      "nombre": "Zona Dorada",
+      "centroide": { "lat": 24.8160, "lng": -107.4100 },
+      "bbox": {
+        "north": 24.8340, "south": 24.7980,
+        "east": -107.3920, "west": -107.4280
+      },
+      "aliases": ["dorada"]
+    },
+    "imss": {
+      "nombre": "IMSS",
+      "centroide": { "lat": 24.7860, "lng": -107.3910 },
+      "bbox": {
+        "north": 24.7960, "south": 24.7760,
+        "east": -107.3810, "west": -107.4010
+      },
+      "aliases": []
+    },
+    "barcelona": {
+      "nombre": "Barcelona",
+      "centroide": { "lat": 24.8100, "lng": -107.4200 },
+      "bbox": {
+        "north": 24.8180, "south": 24.8020,
+        "east": -107.4120, "west": -107.4280
+      },
+      "aliases": ["fraccionamiento barcelona", "barcelona select"]
+    },
+    "valle-alto": {
+      "nombre": "Valle Alto",
+      "centroide": { "lat": 24.8200, "lng": -107.4150 },
+      "bbox": {
+        "north": 24.8300, "south": 24.8100,
+        "east": -107.4050, "west": -107.4250
+      },
+      "aliases": ["fracc valle alto"]
+    },
+    "nuevo-culiacan": {
+      "nombre": "Nuevo Culiacán",
+      "centroide": { "lat": 24.7850, "lng": -107.4300 },
+      "bbox": {
+        "north": 24.7950, "south": 24.7750,
+        "east": -107.4200, "west": -107.4400
+      },
+      "aliases": ["fraccionamiento nuevo culiacan"]
+    },
+    "barrio-san-alberto": {
+      "nombre": "Barrio San Alberto",
+      "centroide": { "lat": 24.7780, "lng": -107.4100 },
+      "bbox": {
+        "north": 24.7880, "south": 24.7680,
+        "east": -107.4000, "west": -107.4200
+      },
+      "aliases": ["san alberto", "la primavera san alberto"]
+    },
+    "alamedas": {
+      "nombre": "Alamedas",
+      "centroide": { "lat": 24.8050, "lng": -107.4250 },
+      "bbox": {
+        "north": 24.8150, "south": 24.7950,
+        "east": -107.4150, "west": -107.4350
+      },
+      "aliases": ["fraccionamiento alamedas"]
+    }
+  }
+}

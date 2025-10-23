@@ -1,0 +1,4430 @@
+{
+  "metadata": {
+    "origen": "colonias-fraccionamientos-culiacan-oficial.xlsx",
+    "fechaConversion": "2025-10-22T18:44:05.709Z",
+    "totalEntradas": 631,
+    "tipos": {
+      "colonias": 224,
+      "fraccionamientos": 407
+    }
+  },
+  "colonias": [
+    {
+      "tipo": "Colonia",
+      "nombre": "Centro",
+      "codigoPostal": "80000",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Centro Sinaloa",
+      "codigoPostal": "80000",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Arboledas",
+      "codigoPostal": "80010",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ignacio Allende",
+      "codigoPostal": "80010",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "6 de Enero",
+      "codigoPostal": "80010",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Vicente Lombardo Toledano",
+      "codigoPostal": "80010",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Universidad",
+      "codigoPostal": "80010",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Los Sabinos Tres Ríos",
+      "codigoPostal": "80010",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Fresnos",
+      "codigoPostal": "80010",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Espacios Marsella",
+      "codigoPostal": "80010",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Obrero Campesino",
+      "codigoPostal": "80013",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Universitaria",
+      "codigoPostal": "80013",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Agrarista Mexicana",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Buena Vista",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Rosario Uzarraga",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Zona Dorada II",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valle del Agua",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Amorada",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Sfera Residencial",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Portabelo",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Albaterra",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Benevento Residencial",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Lomas Verdes",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Gran Vía",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Vía San José",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Lomas de Tamazula",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Acanto",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ampliación los Ángeles",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Portabelo III",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Provenza",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Palmanova",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Jardín Real",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San José",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Águilas",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Palos Altos",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Ángeles",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Nueva Galaxia",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Floresta",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Glorias",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Maralago",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Zona Dorada",
+      "codigoPostal": "80014",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas de San Jerónimo",
+      "codigoPostal": "80015",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Campestre",
+      "codigoPostal": "80015",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ruben Jaramillo",
+      "codigoPostal": "80015",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Solidaridad",
+      "codigoPostal": "80015",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Villa Del Sol",
+      "codigoPostal": "80015",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Lomas Del Magisterio",
+      "codigoPostal": "80015",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Grecia",
+      "codigoPostal": "80015",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Residencial Hacienda",
+      "codigoPostal": "80015",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "16 de Septiembre",
+      "codigoPostal": "80016",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Juan de Dios Bátiz",
+      "codigoPostal": "80016",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas Del Pedregal",
+      "codigoPostal": "80016",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas del Sol",
+      "codigoPostal": "80016",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Américas",
+      "codigoPostal": "80016",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas del Sol Duplex",
+      "codigoPostal": "80016",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Interlomas",
+      "codigoPostal": "80016",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "El Mirador",
+      "codigoPostal": "80017",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Jesús Valdez Aldana",
+      "codigoPostal": "80017",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Montesierra",
+      "codigoPostal": "80017",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Cucas",
+      "codigoPostal": "80018",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Los Alamitos",
+      "codigoPostal": "80018",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lirios del Río",
+      "codigoPostal": "80018",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Bosques Del Álamo",
+      "codigoPostal": "80018",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Ciruelos",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Hacienda Alameda",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Loma de Rodriguera",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Los Mezcales",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Hacienda los Huertos Sección Bosques de la Colina",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Cerezas",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Mont Alto",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Bicentenario",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Amapas",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Alameda",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Mezcales Residencial",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Cerezas II",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Huertos",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Cantaluna",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Girasoles",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Jardines de La Sierra",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Paseo Alameda",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Hacienda Arboledas",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Rotarismo",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Hacienda Los Huertos",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Fermín",
+      "codigoPostal": "80019",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "FOVISSSTE Diamante",
+      "codigoPostal": "80020",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Humaya",
+      "codigoPostal": "80020",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "INFONAVIT Humaya",
+      "codigoPostal": "80020",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "STASE",
+      "codigoPostal": "80020",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Tres Ríos",
+      "codigoPostal": "80020",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "STASE III",
+      "codigoPostal": "80020",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Privada La Rivera",
+      "codigoPostal": "80020",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Bonanza",
+      "codigoPostal": "80020",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Pueblo Bonito",
+      "codigoPostal": "80020",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa del Pedregal",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Brisas de Humaya",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Olivos",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Nueva Vizcaya",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "STASE II",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Bosques del Humaya",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colinas de la Rivera Segunda Sección",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Jardines del Rey",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Riberas del Humaya",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Jardines Del Pedregal",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colinas de La Rivera",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Canarias",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas del Humaya",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Alegranza",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Ribera Residencial",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Humaya del Super",
+      "codigoPostal": "80025",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ISSSTESIN",
+      "codigoPostal": "80026",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Cuauhtémoc",
+      "codigoPostal": "80027",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Campestre Los Laureles",
+      "codigoPostal": "80027",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lago Tres Ríos",
+      "codigoPostal": "80027",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Altamira",
+      "codigoPostal": "80027",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Altamira Sección Altana",
+      "codigoPostal": "80027",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Altamira Sección Barceló",
+      "codigoPostal": "80027",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Almendros",
+      "codigoPostal": "80027",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Agustina Ramírez",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Sauces",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Elena",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Tulipanes",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Fontana",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Portafe",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Balcones Del Humaya",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Puerta",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Campestre las Fuentes",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Cascada",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas Verdes",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rincón Real",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Privada La Rinconada",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas de Culiacán",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Campestre Tres Ríos",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Portanova",
+      "codigoPostal": "80028",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Fincas del Humaya",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Colinas del Humaya",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "10 de Abril",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "FOVISSSTE Humaya",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Pedregal del Humaya",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Real de Santa Fe",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Cimas del Humaya",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Joel Ramírez",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Cibeles",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Heraclio Bernal",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Montserrat",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Fincas de las Colinas",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Fe",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Cumbres Tres Ríos",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Lomas Del Humaya",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Sección Cumbres",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Jardines de Santa Fe",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Fe Real",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Campestre San Jorge",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Cumbre Real",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Los Cerritos",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Santa Rosa",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Bosque Encinos",
+      "codigoPostal": "80029",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Burócrata",
+      "codigoPostal": "80030",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Gabriel Leyva",
+      "codigoPostal": "80030",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Tierra Blanca",
+      "codigoPostal": "80030",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Vistanova",
+      "codigoPostal": "80030",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Portales del Río",
+      "codigoPostal": "80030",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Jolla",
+      "codigoPostal": "80030",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Parque Alameda",
+      "codigoPostal": "80030",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Comunicadores",
+      "codigoPostal": "80034",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Olivos",
+      "codigoPostal": "80034",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Cisnes",
+      "codigoPostal": "80034",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rincón Alameda",
+      "codigoPostal": "80034",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "FOVISSSTE Abelardo de La Torre",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Chapultepec",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "La Lima",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Margarita",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Chapultepec Del Rio",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Paseo Del Rio",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Privada Del Real",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Riberas de Tamazula",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Teresa",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Real de Chapultepec",
+      "codigoPostal": "80040",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Hermanos Flores Magón",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Juntas de Humaya",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas Del Rio",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Rioja",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Culiacán Tres Ríos",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas de Bacurimí Sección Acacia",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas de Bacurimí Sección Britania",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Country del Río",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Bosques del Río",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Valle Del Rio",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas Del Rio Elite",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valle Alto",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Stanza Toscana",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Enrique Félix Castro",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Avellaneda",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Prados de Occidente",
+      "codigoPostal": "80050",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "4 de Marzo",
+      "codigoPostal": "80054",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Horizontes",
+      "codigoPostal": "80054",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Montecarlo Residencial",
+      "codigoPostal": "80054",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Misiones",
+      "codigoPostal": "80054",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Del Humaya",
+      "codigoPostal": "80054",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Universidad 94 II",
+      "codigoPostal": "80055",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Pradera Dorada",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rincón Del Humaya",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "INFONAVIT Solidaridad",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Universidad 94",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Stanza Castilla",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Conquista del Rey",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Granada",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Bosques del Rey",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Montereal",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Florencio",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa del Prado",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Arcadia Residencial",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas Santa Anita",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas San Antonio",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas Victoria",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Conquista",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "INFONAVIT FTS",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Praderas Del Rey",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rancho Contento",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Aynes",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valle Dorado",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Acueducto",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Pedregal de San Ángel",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Azaleas Residencial",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rincón Colonial",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Prados de La Conquista",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valencia",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Diamante",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Pradera Dorada II",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "9 de Marzo",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Altos Bacurimi",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa del Cedro",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Bonaterra",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Portalegre",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Urbivilla del Prado",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Acueducto III",
+      "codigoPostal": "80058",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CANACO",
+      "codigoPostal": "80059",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barcelona Sección Villa Barcelona",
+      "codigoPostal": "80059",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barcelona Sección Villa Barcelona Etapa II",
+      "codigoPostal": "80059",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barcelona Sección Villa Barcelona Etapa III",
+      "codigoPostal": "80059",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Alcalá del Rey",
+      "codigoPostal": "80059",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Espacios Barcelona",
+      "codigoPostal": "80059",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Praderas del Humaya",
+      "codigoPostal": "80059",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Campiña",
+      "codigoPostal": "80060",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Quintas",
+      "codigoPostal": "80060",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Aurora",
+      "codigoPostal": "80060",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Periodista",
+      "codigoPostal": "80060",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Sabinos",
+      "codigoPostal": "80063",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Viñedos",
+      "codigoPostal": "80063",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Amapas",
+      "codigoPostal": "80063",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Quinta Americana",
+      "codigoPostal": "80063",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Pinos",
+      "codigoPostal": "80063",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "La Limita de Itaje",
+      "codigoPostal": "80064",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Massara",
+      "codigoPostal": "80064",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Mónaco",
+      "codigoPostal": "80064",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colinas de la Campiña",
+      "codigoPostal": "80064",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colinas del Tamazula",
+      "codigoPostal": "80064",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Haciendas del Río",
+      "codigoPostal": "80064",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Verona",
+      "codigoPostal": "80064",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Pontevedra",
+      "codigoPostal": "80065",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Banús 360 Tenerife",
+      "codigoPostal": "80065",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Músala Isla Bonita",
+      "codigoPostal": "80065",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Banús 360 Salduero",
+      "codigoPostal": "80065",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Banús 360 Coruña",
+      "codigoPostal": "80065",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Vicente Guerrero",
+      "codigoPostal": "80070",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "El Barrio",
+      "codigoPostal": "80080",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "INFONAVIT El Barrio",
+      "codigoPostal": "80080",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Genaro Estrada",
+      "codigoPostal": "80080",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Punto Oriente",
+      "codigoPostal": "80080",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Satélite",
+      "codigoPostal": "80088",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Vegas",
+      "codigoPostal": "80090",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Miguel Hidalgo",
+      "codigoPostal": "80090",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Álamos",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Portales Del Country",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Jardines Tres Ríos",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Privanzas Natura",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Country Álamos",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Ángel",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Puerta de Hierro",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Patios 1",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Moras",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Dunas",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Condesa",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Real del Álamo",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Residencial San José",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Misión del Álamo",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Privanzas",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Paloma",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Magnolias Residencial",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Inés",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Patios 2",
+      "codigoPostal": "80100",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Flores",
+      "codigoPostal": "80104",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Real Del Country",
+      "codigoPostal": "80104",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Floresta Tres Ríos",
+      "codigoPostal": "80104",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Tabachines",
+      "codigoPostal": "80104",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Palermo",
+      "codigoPostal": "80104",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Flores",
+      "codigoPostal": "80104",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Recursos Hidráulicos",
+      "codigoPostal": "80105",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Vallado Viejo",
+      "codigoPostal": "80105",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Bloom",
+      "codigoPostal": "80106",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Cantera",
+      "codigoPostal": "80106",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Country Courts",
+      "codigoPostal": "80107",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Country Tres Ríos",
+      "codigoPostal": "80107",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "El Vallado",
+      "codigoPostal": "80110",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Francisco Villa",
+      "codigoPostal": "80110",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas del Boulevard",
+      "codigoPostal": "80110",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Industrial Bravo",
+      "codigoPostal": "80120",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Popular",
+      "codigoPostal": "80120",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Los Pinos",
+      "codigoPostal": "80128",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Aeropuerto",
+      "codigoPostal": "80130",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Altos de Bachigualato",
+      "codigoPostal": "80130",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Helechos",
+      "codigoPostal": "80130",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Andalucía",
+      "codigoPostal": "80130",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Nuevo Bachigualato",
+      "codigoPostal": "80135",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "San Javier",
+      "codigoPostal": "80135",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Rocio",
+      "codigoPostal": "80135",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Joyas del Valle",
+      "codigoPostal": "80135",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Bachigualato",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Campo Bello",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas de Cortés",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Paraíso",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Diego",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Mañanitas",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Luis Residencial",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas Del Manantial",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Danubio",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Terrazas",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valle Bonito",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Alondras",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Real San Ángel",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Paseos del Valle",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Luis Residencial II",
+      "codigoPostal": "80140",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Terranova",
+      "codigoPostal": "80143",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Quinta Real",
+      "codigoPostal": "80143",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Privadas la Estancia",
+      "codigoPostal": "80143",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Bárbara",
+      "codigoPostal": "80143",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valles Del Sol",
+      "codigoPostal": "80143",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Real San Sebastián",
+      "codigoPostal": "80143",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Torres Aeropuerto",
+      "codigoPostal": "80144",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Stanza Solare",
+      "codigoPostal": "80145",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Roma Residencial",
+      "codigoPostal": "80145",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Bugambilias",
+      "codigoPostal": "80145",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Hacienda de La Mora",
+      "codigoPostal": "80145",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Privada Real del Valle",
+      "codigoPostal": "80145",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Versalles",
+      "codigoPostal": "80145",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valles Españoles",
+      "codigoPostal": "80145",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Torre Dorada",
+      "codigoPostal": "80145",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Residencial Santa Sofía",
+      "codigoPostal": "80145",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "San Rafael",
+      "codigoPostal": "80150",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Palmillas Residencial",
+      "codigoPostal": "80150",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rincón Las Palmas",
+      "codigoPostal": "80150",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Palma Dorada",
+      "codigoPostal": "80150",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rincón San Rafael",
+      "codigoPostal": "80150",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rincón del Valle",
+      "codigoPostal": "80155",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Fuentes Del Valle",
+      "codigoPostal": "80155",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Hacienda Molino de Flores",
+      "codigoPostal": "80155",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Palmas",
+      "codigoPostal": "80159",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Contenta",
+      "codigoPostal": "80159",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Serena",
+      "codigoPostal": "80159",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Industrial El Palmito",
+      "codigoPostal": "80160",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Salvador Alvarado",
+      "codigoPostal": "80160",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Morelos",
+      "codigoPostal": "80170",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Nuevo Culiacán",
+      "codigoPostal": "80170",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Virreyes SC",
+      "codigoPostal": "80170",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ISSSTE Insurgentes",
+      "codigoPostal": "80170",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Balcones de San Miguel",
+      "codigoPostal": "80176",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colinas Del Parque",
+      "codigoPostal": "80176",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Loma Linda",
+      "codigoPostal": "80177",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colina del Rey",
+      "codigoPostal": "80177",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Privada Del Rey",
+      "codigoPostal": "80177",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Misión San Fernando",
+      "codigoPostal": "80177",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Cúspide",
+      "codigoPostal": "80177",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Altezza",
+      "codigoPostal": "80177",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Cañadas",
+      "codigoPostal": "80178",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Palomas",
+      "codigoPostal": "80178",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Carlos",
+      "codigoPostal": "80178",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Victoria",
+      "codigoPostal": "80178",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "INFONAVIT Cañadas",
+      "codigoPostal": "80179",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas del Bosque",
+      "codigoPostal": "80179",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Ventana",
+      "codigoPostal": "80179",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Gustavo Díaz Ordaz",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Libertad",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Loma Bonita",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Paseo de los Arcos",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "PEMEX",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Paseos del Rey",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Girasoles",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Portales",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Clara",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Parque Industrial Nueva Estación",
+      "codigoPostal": "80180",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Balcones Del Valle",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "INFONAVIT Barrancos II",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "INFONAVIT Barrancos III",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "INFONAVIT Barrancos IV",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Casas Lindas",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Agustin",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Verde",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Vinoramas",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Mont Blanc",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Dos Puntas",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Belcantto",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Centenario",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Del Camino",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Cipriano",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Sebastián",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Santa Susana",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Villa Dorada",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rincón Santa Rosa",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Casa Blanca",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa del Roble",
+      "codigoPostal": "80184",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "INFONAVIT Barrancos",
+      "codigoPostal": "80189",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Jardines Del Valle",
+      "codigoPostal": "80189",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Miravalle",
+      "codigoPostal": "80189",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Colonial",
+      "codigoPostal": "80189",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "El Olivar",
+      "codigoPostal": "80189",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Azucena",
+      "codigoPostal": "80189",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Adolfo López Mateos",
+      "codigoPostal": "80190",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Aquiles Serdán",
+      "codigoPostal": "80190",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Independencia",
+      "codigoPostal": "80190",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Josefa Ortiz de Domínguez",
+      "codigoPostal": "80190",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Adolfo Ruiz Cortinez",
+      "codigoPostal": "80190",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Domingo Rubí",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ferrocarrilera",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Antonio Nakayama",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Plutarco Elias Calles",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Chulavista",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Finisterra",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Real Del Parque",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Urbi Villa del Sol",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Capistrano Residencial",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas Paraíso",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colinas del Sol",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Prados Residencial",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valle de Amapa",
+      "codigoPostal": "80194",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Esthela Ortiz de Toledo",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Felipe Ángeles",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valle de Encino",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Parque Andares",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Perisur II",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas de San Isidro",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Prados Del Sol",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Rincón Del Parque",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Hacienda Del Valle",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Progreso",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Valle Real",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas de San Isidro Sección Paseo Azteca",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Esmeralda Life",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colinas del Bosque",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Ibérica",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Perisur",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas de San Isidro Sección Cumbres del Sur",
+      "codigoPostal": "80197",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Amado Nervo",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Buenos Aires",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Francisco I. Madero",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Francisco Labastida Ochoa",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "22 de Diciembre",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio San José",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio San Francisco",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Primavera Sección Parque Industrial",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio San Pablo",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio San Juan",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio San Eugenio",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio San Miguel",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Diana Laura Riojas de Colosio",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Francisco Alarcon Fregoso",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Renato Vega Alvarado",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Bonita",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Primavera",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio San Agustín",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Nativa",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio de San Luis",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Isla del Oeste",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio de San Anselmo",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Real de Minas",
+      "codigoPostal": "80199",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Jorge Almada",
+      "codigoPostal": "80200",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Miguel Alemán",
+      "codigoPostal": "80200",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Benito Juárez",
+      "codigoPostal": "80210",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Guadalupe",
+      "codigoPostal": "80220",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Montebello",
+      "codigoPostal": "80227",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Montebello Sección Dalí",
+      "codigoPostal": "80227",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colinas de San Miguel",
+      "codigoPostal": "80228",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Antonio Rosales",
+      "codigoPostal": "80230",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "5 de Mayo",
+      "codigoPostal": "80230",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Melchor Ocampo",
+      "codigoPostal": "80230",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Guadalupe Victoria",
+      "codigoPostal": "80240",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "San Juan",
+      "codigoPostal": "80240",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Banjercito",
+      "codigoPostal": "80246",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Florida",
+      "codigoPostal": "80246",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Laureles Pinos",
+      "codigoPostal": "80246",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Benito",
+      "codigoPostal": "80246",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Vista Hermosa",
+      "codigoPostal": "80246",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Laureles",
+      "codigoPostal": "80246",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Coloradas",
+      "codigoPostal": "80246",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "5 de Febrero",
+      "codigoPostal": "80247",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "7 Gotas",
+      "codigoPostal": "80247",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Portareal",
+      "codigoPostal": "80247",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Torralba",
+      "codigoPostal": "80247",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villa Del Real",
+      "codigoPostal": "80247",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Valentino",
+      "codigoPostal": "80247",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Camino Real",
+      "codigoPostal": "80247",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Florenza",
+      "codigoPostal": "80247",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "La Esperanza",
+      "codigoPostal": "80248",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Revolución",
+      "codigoPostal": "80248",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Rincón Feliz",
+      "codigoPostal": "80248",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Servidor Publico Municipal",
+      "codigoPostal": "80248",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Campesina El Barrio",
+      "codigoPostal": "80249",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Constitución CROC",
+      "codigoPostal": "80249",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "El Pipila",
+      "codigoPostal": "80249",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "La Amistad",
+      "codigoPostal": "80249",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Arroyo del Toro",
+      "codigoPostal": "80249",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ampliación El Barrio",
+      "codigoPostal": "80249",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Lomas de Guadalupe",
+      "codigoPostal": "80250",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Emiliano Zapata",
+      "codigoPostal": "80260",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Rafael Buelna",
+      "codigoPostal": "80260",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Sinaloa",
+      "codigoPostal": "80260",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "10 de Mayo",
+      "codigoPostal": "80270",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Margarita",
+      "codigoPostal": "80270",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "República Mexicana",
+      "codigoPostal": "80279",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Mezquitillo",
+      "codigoPostal": "80280",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "21 de Marzo",
+      "codigoPostal": "80280",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Renato Vega Amador",
+      "codigoPostal": "80280",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Estrella Nueva Galicia",
+      "codigoPostal": "80280",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "La Cascada",
+      "codigoPostal": "80280",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Huertas",
+      "codigoPostal": "80290",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Lázaro Cárdenas",
+      "codigoPostal": "80290",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Simón Bolívar",
+      "codigoPostal": "80290",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Providencia",
+      "codigoPostal": "80290",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Unión Antorchista",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Córcega",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Vistas del Lago",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Vistas del Lago la Primavera",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Mi Ranchito",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Barrio San Alberto",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Córcega Elite",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Latitud Sur",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "El Ranchito",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Jesús Manuel Camez Valdez",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Costa del Sol",
+      "codigoPostal": "80294",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Ilusiones",
+      "codigoPostal": "80295",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Miguel de La Madrid",
+      "codigoPostal": "80295",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Nueva Galicia",
+      "codigoPostal": "80295",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Senderos",
+      "codigoPostal": "80295",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Umbrales",
+      "codigoPostal": "80295",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Altaria",
+      "codigoPostal": "80295",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Alturas del Sur",
+      "codigoPostal": "80295",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Antonio Toledo Corro",
+      "codigoPostal": "80296",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "12 de Diciembre",
+      "codigoPostal": "80296",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "La Costera",
+      "codigoPostal": "80296",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "8 de Febrero",
+      "codigoPostal": "80296",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Gran Sur",
+      "codigoPostal": "80296",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Prados Del Sur",
+      "codigoPostal": "80296",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "CNOP",
+      "codigoPostal": "80297",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Nuevo México",
+      "codigoPostal": "80297",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Huizaches",
+      "codigoPostal": "80298",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Cantabria",
+      "codigoPostal": "80301",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Hacienda Santa Clara",
+      "codigoPostal": "80301",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Latitud Norte",
+      "codigoPostal": "80301",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "El Álamo Campestre",
+      "codigoPostal": "80301",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Huertos del Pedregal",
+      "codigoPostal": "80301",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Aguaruto Centro",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Los Álamos",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Villarreal (Las Coloradas)",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Alto de la Victoria",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "20 de Noviembre",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Demetrio Vallejo",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Agustina Ramírez",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Villegas",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Jardines de San Bartolome",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Nueva",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Miguel Hidalgo",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Palmas",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "La Compuerta",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Rosita",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Aguaruto Viejo",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "La Ceiba",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Presidentes de México",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Luis Donaldo Colosio",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Campo Batán",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Amapas",
+      "codigoPostal": "80308",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Colinas de San Antonio",
+      "codigoPostal": "80309",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Los Agaves",
+      "codigoPostal": "80384",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Insurgentes",
+      "codigoPostal": "80393",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Carlos Solidario",
+      "codigoPostal": "80393",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Piggy Back",
+      "codigoPostal": "80393",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ampliación Unión (Nueva)",
+      "codigoPostal": "80400",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Quilá Centro",
+      "codigoPostal": "80400",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Santa María",
+      "codigoPostal": "80402",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Alto de Quilá (San Francisco)",
+      "codigoPostal": "80402",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Unión",
+      "codigoPostal": "80403",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ejidal",
+      "codigoPostal": "80405",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Cedros",
+      "codigoPostal": "80408",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Bellavista",
+      "codigoPostal": "80408",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "La Candelaria",
+      "codigoPostal": "80408",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Emiliano Zapata",
+      "codigoPostal": "80409",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Aviación",
+      "codigoPostal": "80409",
+      "ciudad": "Quilá",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Marcos",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Centro",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Benito Juárez Norte",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Benito Juárez Sur",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "18 de Marzo",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Cañitas",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Nuevas Cañitas",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Constituyentes",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Juan de Dios Bátiz",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Carpas",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Popular",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Villa Rica",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Solidaridad",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "San Ángel",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Sinaloa",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Las Piedritas",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INFONAVIT Alondras",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Solidaridad Campesina",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INFONAVIT Prados del Sol",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "El Real",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Magisterial",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INFONAVIT 88",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Francisco Villa",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Loma Linda",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "General Zapata",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "S.T.A.S.A.C.",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ignacio Zaragoza",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Veracruz",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ingenio",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Barrio Estación",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Los Chinitos",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Renato Vega Amador",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Independencia",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Revolución",
+      "codigoPostal": "80430",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Villa Arredondo",
+      "codigoPostal": "80437",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Estación Obispo",
+      "codigoPostal": "80485",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Emancipación",
+      "codigoPostal": "80490",
+      "ciudad": "Culiacán Rosales",
+      "zona": "Rural"
+    }
+  ]
+}

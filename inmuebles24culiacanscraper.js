@@ -148,6 +148,9 @@ const crypto = require('crypto');
 const { execSync } = require('child_process');
 const readline = require('readline');
 
+// Geocoder V1.5 para Culiacán
+const { geocoder } = require('./geo-geocoder-culiacan');
+
 // ============================================
 // CONFIGURACIÓN
 // ============================================
@@ -2067,6 +2070,46 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
     }
 
     await browser.close();
+
+    // ============================================
+    // GEOCODIFICACIÓN V1.5 (CULIACÁN)
+    // ============================================
+
+    console.log('\n🌍 Geocodificando ubicación...');
+    let geoResult = null;
+    try {
+        geoResult = await geocoder.geocode(data.location);
+
+        // Agregar datos geocodificados al objeto data
+        data.address_clean = geoResult.address.cleaned;
+        data.lat = geoResult.coordinates.lat;
+        data.lng = geoResult.coordinates.lng;
+        data.locationPrecision = geoResult.precision;  // street|neighborhood|city
+        data.locationConfidence = geoResult.confidence; // 0.0-1.0
+        data.colonia = geoResult.colonia?.nombre || null;
+        data.codigoPostal = geoResult.colonia?.codigoPostal || null;
+        data.mapLink = `https://www.google.com/maps/search/?api=1&query=${data.lat},${data.lng}`;
+        data.directionsLink = `https://www.google.com/maps/dir/?api=1&destination=${data.lat},${data.lng}`;
+
+        // Log resultado geocodificación
+        console.log(`   ✅ Geocodificación: ${data.locationPrecision} (${(data.locationConfidence * 100).toFixed(0)}%)`);
+        if (data.colonia) {
+            console.log(`   🏘️  Colonia: ${data.colonia} (CP: ${data.codigoPostal || 'N/A'})`);
+        }
+        console.log(`   📍 Coordenadas: ${data.lat}, ${data.lng}`);
+    } catch (error) {
+        console.warn(`   ⚠️  Error en geocodificación: ${error.message}`);
+        // Fallback: agregar campos vacíos
+        data.address_clean = data.location;
+        data.lat = 24.8091;  // Centro de Culiacán
+        data.lng = -107.3940;
+        data.locationPrecision = 'city';
+        data.locationConfidence = 0.3;
+        data.colonia = null;
+        data.codigoPostal = null;
+        data.mapLink = `https://www.google.com/maps/search/?api=1&query=${data.lat},${data.lng}`;
+        data.directionsLink = `https://www.google.com/maps/dir/?api=1&destination=${data.lat},${data.lng}`;
+    }
 
     console.log('\n✅ Datos extraídos exitosamente:');
     console.log(`   📝 Título: ${data.title}`);

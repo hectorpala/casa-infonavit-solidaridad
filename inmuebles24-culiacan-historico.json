@@ -1,551 +1,1811 @@
 {
-  "lastCheck": "2025-10-21T21:39:30.075Z",
+  "lastCheck": "2025-10-22T20:29:21.275Z",
   "properties": [
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=1",
-      "title": "Casa La Cantera3 habitaciones, 3. 5 bañosModelo Gris (1) (Sin equipamiento) Area de cocinaSalaComedorSala de tvvestidor en recamara principalPaitio de",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=2",
-      "title": "Casa en venta moderna y en excelentes condiciones en Privada La Cantera con finos acabados y alberca propia, cerca del Tec Milenio y del Hospital Ánge",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-venta-de-casa-amueblada-vitalia-la-conquista-143018721.html?n_src=Listado&n_pg=1&n_pos=3",
-      "title": "Casa nueva Equipada 3 recámaras c baño cada una, 4 aires acondicionados, sala, comedor, cocina, horno, refrigerador, barda trasera alta, cerca eléctri",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-terracota-residencial-147113875.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=4",
-      "title": "Hermosa casa en venta en Residencial Terracota (Zona norte de Culiacán) Con amplios espacios y medidas 7. 5 x 17. 5 metros de superficie, esta propied",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-por-calle-mariano-escobedo-centro-de-la-143508352.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=5",
-      "title": "Venta de casa por Mariano Escobedo primer cuadro de la ciudad. Excelente ubicación, cerca de hospitales, mercado, Restaurant. Supermercado, bancos. La",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-isla-del-oeste-en-la-primavera-147501147.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=6",
-      "title": "Se vende casa en el barrio de Isla del Oeste en La Primavera colindante a canal, con amplios espacios, muy buenos acabados y en una ubicación privileg",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-vista-espectacular-en-colinas-de-san-miguel-147904217.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=7",
-      "title": "? Casa en Venta – Privada Lumeria, Colinas de San Miguel.? Precio: $5, 990, 000? Medidas: • Terreno: 133. 28 m²• Construcción: 226. 18 m²? Cochera tec",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-morelos-culiacan-sinaloa-147325627.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=8",
-      "title": "Casa en Venta Colonia Morelos, en Culiacán, Sinaloa. Superficie de Terreno 230 M2 y 389 M2 de construcción con 5 recámaras. Planta baja: cochera para ",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147662027.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=9",
-      "title": "Casa La Cantera3 habitaciones, 3. 5 bañosModelo Chocolate (2) (Sin equipamiento) Area de cocinaSalaComedorSala de tvvestidor en recamara principalVest",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-y-campestre-en-condado-de-san-francisco-147113904.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=10",
-      "title": "Finca La Abuela en condado de San Francisco (Zona norte de Culiacán): Con valor de $11 millones de pesos. Cuenta con una superficie de 600 m2, tres re",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=11",
-      "title": "Casa en venta, en culiacancito, culican, sinaloa. La propiedad se encuentra cerca de Iglesia, Mercado, Parques, escuelas, Hospitales. Cuenta con servi",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=12",
-      "title": "Casa en venta – Colonia Chapultepec, CuliacánFuncionalidad, ubicación y diseño para vivir o emprenderUbicada en una de las zonas más versátiles y con ",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc.-villa-universidad-143337967.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=13",
-      "title": "Preciosa casa con amplios espacios en villa universidad. * sup: 250 m2 (10 X 25 m) * const: 345 m2 (2 plantas) planta baja: - 1 recamara con baño comp",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-en-fracc.-colinas-de-san-miguel-147004692.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=14",
-      "title": "Preciosa casa en venta en residencial lomita. Fracc. Colinas. de san miguel. * sup: 427 m2 (A. P. 12 x 19. 5 mts) * const: 348 m2 (dos plantas) primer",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-colinas-de-san-miguel-143854309.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=15",
-      "title": "Se vende casa en excelente estado de conservación con muy buenos acabados cerca del Club Colinas",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-casa-sector-terranova-146725068.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
-      "title": "Venta de casa en Terranova cerca de la av principal de las torres, ideal para vivir o negocio. Cuenta distribuida de la sig manera. Planta alta. Son 3",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
-      "title": "? Casa en Venta en Fraccionamiento Interlomas? Amplia y moderna, con una vista inigualable a la ciudad.? Terreno: 170 m² | Construcción: 165 m²? 3 rec",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-sector-tres-rios-culiacan-147903309.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=18",
-      "title": "Casa en venta – Sector Tres Ríos, CuliacánExclusiva residencia ubicada en un coto privado de solo seis casas, con acceso controlado y un entorno de al",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-hermosa-casa-en-venta-en-la-primavera-147708571.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=19",
-      "title": "En venta casa en La PrimaveraSan Juan 329 m2 Construcción345 m2 Terreno. Cocina integral con electrodomesticos incluídos con encimeras de cuarzo. Área",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-guadalupe-culiacan-147814499.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=20",
-      "title": "Casa en Venta – Colonia Guadalupe, CuliacánOportunidad de adquirir una residencia ubicada en una de las zonas más consolidadas y con mayor plusvalía d",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc-colinas-de-san-miguel-81519985.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=21",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc-colinas-de-san-miguel-81519985.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=1",
       "title": "Preciosa casa en venta en fracc. Colinas de san miguel. amplio terreno Y espacios. superficie: 733 m2. contruccion: 600 m2 (dos plantas) planta baja: ",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-portalegre-residencial-147113878.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=22",
-      "title": "Hermosa casa en venta en Fraccionamiento Portalegre Residencial con excelente ubicación en la zona norte de Culiacán, Sinaloa? $1, 850, 000? 2 Habitac",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-vendo-casa-en-colonia-guadalupe-culiacan-146266554.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=23",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-vendo-casa-en-colonia-guadalupe-culiacan-146266554.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=2",
       "title": "Casa en Venta – Estilo Único en Esquina, Colonia Guadalupe, Culiacán¿Buscas una casa con carácter, estilo y amplitud? Esta propiedad ubicada en esquin",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=3",
+      "title": "Casa La Cantera3 habitaciones, 3. 5 bañosModelo Gris (1) (Sin equipamiento) Area de cocinaSalaComedorSala de tvvestidor en recamara principalPaitio de",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-morelos-culiacan-sinaloa-147325627.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=4",
+      "title": "Casa en Venta Colonia Morelos, en Culiacán, Sinaloa. Superficie de Terreno 230 M2 y 389 M2 de construcción con 5 recámaras. Planta baja: cochera para ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc.-villa-universidad-143337967.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=5",
+      "title": "Preciosa casa con amplios espacios en villa universidad. * sup: 250 m2 (10 X 25 m) * const: 345 m2 (2 plantas) planta baja: - 1 recamara con baño comp",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-con-alberca-145337185.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Residencia en venta en Culiacán en Isla Músala con alberca propia, en privada con acceso controlado y alberca propia, A precio oportunidad de venta A ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-y-campestre-en-condado-de-san-francisco-147113904.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=7",
+      "title": "Finca La Abuela en condado de San Francisco (Zona norte de Culiacán): Con valor de $11 millones de pesos. Cuenta con una superficie de 600 m2, tres re",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-en-fracc.-colinas-de-san-miguel-147004692.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=8",
+      "title": "Preciosa casa en venta en residencial lomita. Fracc. Colinas. de san miguel. * sup: 427 m2 (A. P. 12 x 19. 5 mts) * const: 348 m2 (dos plantas) primer",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-guadalupe-culiacan-147814499.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=9",
+      "title": "Casa en Venta – Colonia Guadalupe, CuliacánOportunidad de adquirir una residencia ubicada en una de las zonas más consolidadas y con mayor plusvalía d",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-casa-sector-terranova-146725068.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=10",
+      "title": "Venta de casa en Terranova cerca de la av principal de las torres, ideal para vivir o negocio. Cuenta distribuida de la sig manera. Planta alta. Son 3",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "? Casa en Venta en Fraccionamiento Interlomas? Amplia y moderna, con una vista inigualable a la ciudad.? Terreno: 170 m² | Construcción: 165 m²? 3 rec",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-portalegre-residencial-147113878.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=12",
+      "title": "Hermosa casa en venta en Fraccionamiento Portalegre Residencial con excelente ubicación en la zona norte de Culiacán, Sinaloa? $1, 850, 000? 2 Habitac",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-isla-del-oeste-en-la-primavera-147501147.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=13",
+      "title": "Se vende casa en el barrio de Isla del Oeste en La Primavera colindante a canal, con amplios espacios, muy buenos acabados y en una ubicación privileg",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-hermosa-casa-en-venta-en-la-primavera-147708571.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=14",
+      "title": "En venta casa en La PrimaveraSan Juan 329 m2 Construcción345 m2 Terreno. Cocina integral con electrodomesticos incluídos con encimeras de cuarzo. Área",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-vista-espectacular-en-colinas-de-san-miguel-147904217.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "? Casa en Venta – Privada Lumeria, Colinas de San Miguel.? Precio: $5, 990, 000? Medidas: • Terreno: 133. 28 m²• Construcción: 226. 18 m²? Cochera tec",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-venta-de-casa-amueblada-vitalia-la-conquista-143018721.html?n_src=Listado&n_pg=1&n_pos=16",
+      "title": "Casa nueva Equipada 3 recámaras c baño cada una, 4 aires acondicionados, sala, comedor, cocina, horno, refrigerador, barda trasera alta, cerca eléctri",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147662027.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=17",
+      "title": "Casa La Cantera3 habitaciones, 3. 5 bañosModelo Chocolate (2) (Sin equipamiento) Area de cocinaSalaComedorSala de tvvestidor en recamara principalVest",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-terracota-residencial-147113875.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=18",
+      "title": "Hermosa casa en venta en Residencial Terracota (Zona norte de Culiacán) Con amplios espacios y medidas 7. 5 x 17. 5 metros de superficie, esta propied",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-montebello-culiacan-146604280.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=19",
+      "title": "Casa en venta – montebello, con vista A la ciudadexclusiva residencia ubicada en la mejor zona de Montebello, con una imponente vista a la ciudad. Ide",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altezza-residencial-en-culiacan-146782117.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=20",
+      "title": "Residencia completamente nueva a estrenar con un bonito diseño modernista y con espacios muy amplios en su distribución. Con 260 mts 2 de cosntrucción",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-amplia-casa-en-renta-o-venta-a-2-min.-de-plaza-sendero-144602544.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=21",
+      "title": "Amplia casa en renta en la colonia cuahutemoc cerca de importantes plazas comerciales, escuelas Y avenidas principales. Colonia tranquila Y segura. Ca",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=22",
+      "title": "Casa en venta moderna y en excelentes condiciones en Privada La Cantera con finos acabados y alberca propia, cerca del Tec Milenio y del Hospital Ánge",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-por-calle-mariano-escobedo-centro-de-la-143508352.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=23",
+      "title": "Venta de casa por Mariano Escobedo primer cuadro de la ciudad. Excelente ubicación, cerca de hospitales, mercado, Restaurant. Supermercado, bancos. La",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
     },
     {
       "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-terracota-en-culiacan-147113926.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
       "title": "Se vende?? hermosa casa? En Terracota Residencial (zona norte): * 3 recamaras? Amplias. *? 2 1/2 baños? *? Walk - in closet? En recámara principal. *?",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-hacienda-3-recamaras-144572398.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=25",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-sector-tres-rios-culiacan-147903309.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=25",
+      "title": "Casa en venta – Sector Tres Ríos, CuliacánExclusiva residencia ubicada en un coto privado de solo seis casas, con acceso controlado y un entorno de al",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Casa en venta – Colonia Chapultepec, CuliacánFuncionalidad, ubicación y diseño para vivir o emprenderUbicada en una de las zonas más versátiles y con ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-colinas-de-san-miguel-143854309.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=27",
+      "title": "Se vende casa en excelente estado de conservación con muy buenos acabados cerca del Club Colinas",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-hacienda-3-recamaras-144572398.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=28",
       "title": "Casa en Venta en Residencial Hacienda: • 3 Recámaras. • 2 Baños y 1 medio baño. • 122. 40 M2 de superficie. • 211. 39 M2 de construcción. • Estacionam",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-amplia-casa-en-renta-o-venta-a-2-min.-de-plaza-sendero-144602544.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=26",
-      "title": "Amplia casa en renta en la colonia cuahutemoc cerca de importantes plazas comerciales, escuelas Y avenidas principales. Colonia tranquila Y segura. Ca",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-con-alberca-145337185.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=27",
-      "title": "Residencia en venta en Culiacán en Isla Músala con alberca propia, en privada con acceso controlado y alberca propia, A precio oportunidad de venta A ",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altezza-residencial-en-culiacan-146782117.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=28",
-      "title": "Residencia completamente nueva a estrenar con un bonito diseño modernista y con espacios muy amplios en su distribución. Con 260 mts 2 de cosntrucción",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=29",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
       "title": "En venta casa en La PrimaveraSan Juan 398 m2 Construcción370 m2 Terreno. Ácceso principal/recibidor. Cocina integral con electrodomesticos incluídos c",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-montebello-culiacan-146604280.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=30",
-      "title": "Casa en venta – montebello, con vista A la ciudadexclusiva residencia ubicada en la mejor zona de Montebello, con una imponente vista a la ciudad. Ide",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=30",
+      "title": "Casa en venta, en culiacancito, culican, sinaloa. La propiedad se encuentra cerca de Iglesia, Mercado, Parques, escuelas, Hospitales. Cuenta con servi",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:35.732Z"
+      "scrapedAt": "2025-10-22T20:27:16.358Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=1",
-      "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cuautla-146889945.html?n_src=Listado&n_pg=1&n_pos=2",
-      "title": "Ref: 2 5 1 8 5 3. Acogedora casa en venta ubicada en la zona residencial de Villa de las Flores, Cuautla, Morelos-México. Esta propiedad cuenta con 3 ",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=3",
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=1",
       "title": "Estrena casa o terreno dentro de Rincón Acatitlán, el fraccionamiento más esperado de Valle, ubicado en Acatitlán, la zona con mayor plusvalía y creci",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-ciudad-del-sol-zapopan-147722803.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=4",
-      "title": "Venta casa en ciudad del sol Zapopan Jal. Superficie terreno 600 metros 2. Frente 15 mts por 40 mts de fondo de terreno. Excelente ubicación a cuadra ",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-en-bosque-de-las-lomas-con-cava-subterranea-141872789.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "title": "Casa disponible en venta y renta en Bosque de las Lomas, con 780 m² de terreno y 1100 m² construidos. Cuenta con 4 recámaras y 4 baños completos, más ",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhvin-venta-de-casas-departamentos-y-terrenos-residenciales-141581732.html?n_src=Listado&n_pg=1&n_pos=5",
-      "title": "¿Quieres vivir a tu propio ritmo entre naturaleza y belleza? Si tu respuesta es si, villa brisa es el lugar para construir un estilo de vida de altura",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-townhouse-en-venta-en-dzitya-merida.-entrega-64851257.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=6",
-      "title": "Los Townhouses, con una construcción de 173. 7 m², destacan por sus espacios amplios, abiertos y contemporáneos, que brindan una gran flexibilidad par",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-casa-con-potencial-colinas-del-parque-queretaro-145590134.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=7",
-      "title": "Af - ¡Excelente oportunidad en Colinas del Parque! Presentamos una propiedad única y emocionante en una de las zonas más exclusivas de Querétaro. Con ",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-147879840.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=8",
-      "title": "Exclusiva residencia en una de las mejores calles del Pedregal, con doble caseta de vigilancia. Elegante e iluminada casa desarrollada en una sola pla",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-laguna-del-mar-cancun-146866305.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=9",
-      "title": "B-ilz6520venta de residencia en conjunto laguna del mar, cancúnsuperficie de terreno: 731 m²Superficie construida: 465 m²Distribuida en 3 nivelesDescr",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-carretas-65828175.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=10",
-      "title": "Casa recién remodelada en carretas. Uibicada A dos cuadras de av. De los arcos, en el corazón del centro de querétaro. La casa tiene acabados de lujo,",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-oferta-en-lomas-diamante-precio-144814472.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
-      "title": "Casa en venta de 4 recámaras en fraccionamiento lomas diamante en la Riviera Veracruzana. * Excelente ubicación sobre boulevard principal y frente a p",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-en-fraccionamiento-burgos-bugambilias-147866042.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=12",
-      "title": "Venta de casa en fraccionamiento burgos bugambilias. La casa consta de 4 recamaras 5 baños completos dentro de la casa, sala, comedor, cocina, alberca",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-aldea-ha-puerto-morelos-cancun-147933650.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=13",
-      "title": "Casa en Venta en Aldea Ha – Puerto Morelos, Cancún-Descubre esta exclusiva propiedad ubicada en Aldea Ha, un desarrollo residencial que combina planea",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-nueva-en-venta-en-cuautlancingo-3-recamaras-146890323.html?n_src=Listado&n_pg=1&n_pos=14",
-      "title": "Ref: 2 5 0 3 0 3. Descubre tu próximo hogar en Residencial Quetzalí, un desarrollo residencial nuevo con seguridad 24/7 y excelente ubicación a solo 1",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-departamentos-en-pre-venta-okun-living-cancun-65458480.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=15",
-      "title": "Okün Living Cancún esta ubicado en la Av. Luis Donaldo Colosio, que ofrece una experiencia de vida enfocada en la comodidad, el diseño funcional y la ",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-estrellas-del-sur-puebla-146944083.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=16",
-      "title": "Casa en Venta en Estrellas del Sur, con cinco recámaras planta baja: * Bodega* Jardín* Terraza* Recámara* Cuarto de lavado * Cuarto de servicio * Baño",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-puerto-cancun-146949735.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
-      "title": "B-ilz6481Exclusiva Casa en Venta en Puerto CancúnTe presentamos una oportunidad única para adquirir una hermosa propiedad en el exclusivo desarrollo d",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-bosques-de-las-lomas-147421499.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=18",
-      "title": "Descubre esta impresionante residencia que combina lujo y comodidad en cada rincón. Con 1074 m² de construcción sobre un terreno de 700 m², esta casa ",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-townhouse-en-la-colonia-mexico-norte-merida-146500412.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=19",
-      "title": "Rag. loro un desarrollo de seis exclusivos town houses cuya elegancia y funcionalidad se fusionan para crear un espacio único que honra la historia de",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-alberca-en-venta-diseno-unico-zona-azul-147754157.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=20",
-      "title": "Vive en una hermosa casa, con un diseño único, con espacios sociales abiertos, para disfrutar en familia y con amigos, hermosos jardines con cascadas ",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-monterreal-cholula-147025647.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
-      "title": "Casa en venta en fraccionamiento Monterreal Residencial, Cholula, Puebla. planta baja: * Sala* Comedor* Cocina integral. * Baño completo* Cuarto de tv",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privanzas-san-pedro-garza-garcia-145537224.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=22",
-      "title": "Casa en privada enfrente del parque. Primer piso: cochera para 3 coches, recibidor, cocina totalmente renovada, comedor, sala y bar (con acabados en m",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-al-norte-de-merida-147951908.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=23",
-      "title": "Desarrollo de casas sin régimen de condominio y sin cuotas de mantenimiento pero con una imagen homogénea y en armonía. El tamaño de lotes y el estilo",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-espectacular-residencia-en-rancho-san-juan-143497968.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
-      "title": "Viva en uno de los fraccionamientos mas bellos seguros Y con mayor plusvalia de la zona, espectacular residencia cuenta con: estacionamientp para 8 au",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-antano-en-venta-en-puerta-real-147877642.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=25",
-      "title": "Terreno 272m2. Construcción 283m2. Casa en venta en Puerta Real Residencial Corregidora. Planta baja. Sala y comedor continuos con acceso a terraza y ",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-renovada-y-totalmente-amueblada-en-el-centro-de-147111350.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
-      "title": "Ref: 2 5 0 6 2 0. Te presentamos esta hermosa casa en venta en Conkal, Yucatán, con una ubicación privilegiada en una zona residencial. Esta propiedad",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-zibata-priv.-cardon-queretaro-143752392.html?n_src=Listado&n_pills=%C3%81rea+de+juegos+infantiles&n_pg=1&n_pos=27",
-      "title": "Esta propiedad con 4 habitaciones, amplio jardín de 200m2 y acabados premium se encuentra en Zibatá en la privada Cardón, lugar privilegiado con los p",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-centro-merida-cerca-de-la-plancha-147951961.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=28",
-      "title": "Casa antigua en el Centro, a 3 cuadras del Parque La Plancha y 4 cuadras del corredor gastronómico y 30 metros de MercadoTerreno de 319. 68 m2Construc",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-punto-sur-nueva-galacia-tlajomulco-de-147578666.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
-      "title": "Casa en Venta en Punto Sur – Nueva Galicia, Tlajomulco. Casa en venta en Punto Sur, dentro del exclusivo condominio Antares 1 en Nueva Galicia, Camino",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-zibata-el-marques-147579326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=30",
-      "title": "Vivir el equilibrio perfecto entre naturaleza, diseño y confort. Descubre tu nuevo hogar en Opuntia Zibatá, una comunidad planeada para quienes buscan",
-      "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:28:48.399Z"
-    },
-    {
-      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=1",
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=3",
       "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cuautla-146889945.html?n_src=Listado&n_pg=1&n_pos=2",
-      "title": "Ref: 2 5 1 8 5 3. Acogedora casa en venta ubicada en la zona residencial de Villa de las Flores, Cuautla, Morelos-México. Esta propiedad cuenta con 3 ",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-al-norte-de-merida-147951952.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4",
+      "title": "Ubicada en la zona de Conkal, a escasos minutos del anillo periférico y variedad de servicios. La privada cuenta con una excelente seguridad con barda",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=3",
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-con-alberca-y-jardin-privado-al-sur-de-145063327.html?n_src=Listado&n_pg=1&n_pos=5",
+      "title": "¿Buscas una casa amplia con jardín y alaberca privada, en fraccionamiento con vigilancia, para vivir en tranquilidad con tu familia? El fraccionamient",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-con-4-recamaras-en-temozon-norte-merida-143088872.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Privada que consta de 75 casas residenciales, ubicadas en Temozón Norte, en la ciudad de Mérida, Yucatán. La ubicación es altamente conveniente, ya qu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-la-elegancia-tiene-direccion-valle-tinto-147820544.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=7",
+      "title": "Valle Tinto Residencial. Planta baja: - Cochera 2 autos. - Vestíbulo a doble altura. - Baño de visitas. - Cuarto de lavado. - Sala comedor y cocina a ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-una-de-las-mejores-zonas-del-norte-147951935.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "title": "Casa ubicada en la zona de dzitya Distribución de la propiedad: Cuenta con 2 plantas y doble altura. *2 habitaciones en planta alta. *1 baños completo",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-buenavista.-queretaro-146948511.html?n_src=Listado&n_pg=1&n_pos=9",
+      "title": "La Calle Ignacio Allende, ubicada en la colonia Buenavista, Querétaro, es una excelente opción para quienes buscan casas en venta en Querétaro dentro ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-emiliano-zapata-norte-144559896.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=10",
+      "title": "Residencia de una sola planta ubicada en zona norte con conexión directa a la principal vena de la ciudad de Mérida: Prolongación de Montejo. Fácil ac",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-oportunidad-unica-en-lomas-de-chapultepec:-casa-amplia-143181430.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "Una oportunidad única en una ubicación inmejorable. En el corazón de lomas de chapultepec, esta casa destaca por su gran luminosidad Y amplios espacio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fracc.-la-calma.-puerto-vallarta-147925799.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=12",
+      "title": "Tu nuevo hogar te espera en Fracc. La Calma, un entorno seguro, familiar y con todo el confort que ofrece Puerto Vallarta. Caracteristicas. casa nueva",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lindavista-144812035.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=13",
+      "title": "Ven a descubrir tu nuevo hogar en Lindavista. Distribuido en 3 niveles, se convertirá en el punto de encuentro favorito para familiares y amigos. Al e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-huixquilucan-146005242.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+      "title": "Casa en Venta en Parques de la Herradura - Excelente Estado. Ubicación: Una de las mejores cerradas de Parques de la Herradura. Características de la ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-preciosa-casa-con-vista-panoramica-146997326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "Ubicada en una zona privilegiada, esta residencia estilo contemporaneo, ofrece espacios diseñados para el confort familiar. Cuenta con una distribucio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-dzitya-merida-yucatan.-147932725.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
+      "title": "Casa en Venta ubicada en Dzitya, Mérida, YucatánTerreno: 696 m2 ( 12 x 58. 44) Construcción: 454m2caracteristicas Y distribucion: Planta baja– Garage ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-jurica-queretaro-146731827.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+      "title": "Vhv- Descubre en esta propiedad diseño en iluminación, sistemas de ahorro de energía, funcionalidad, modernidad, acabados de calidad dentro de uno de ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-jeronimo-siller-spgg-146599449.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=18",
+      "title": "Extraordinaria casa con 3 habitaciones cada una con baño completo Y closet en venta en una de las colonias mas tranquilas Y bien ubicadas de spgg! 4 f",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-una-sola-planta-al-norte-de-merida-real-147693571.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=19",
+      "title": "Casa de una planta de dos habitacionses, con dos baños completos, área de sala, comedor y cocina. Ubicada en Real Montejo, zona con cercanía a todos l",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-jardin-roof-garden-y-un-entorno-incomparable-zibata-147885610.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=20",
+      "title": "Zibatá, Turquesa. planta baja. -1/2 baño. -cocina con cubierta de granito. -sala. -comedor. -jardín. -cuarto de lavado. -cisterna. planta alta. -habit",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-victoria-145402551.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+      "title": "Terreno: 290 mts2. construccion: 490 mts2. distribución: sala. comedor. cocina. 5 recamaras. 4 baños. 2 medios baños. cuarto de lavado. cuarto de jueg",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-estilo-colonial-coyoacan-146612593.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=22",
+      "title": "Fraccionamiento exclusivo con vigilancia las 24 hrs. Cuenta con jardín con terraza, fuente y patio. Pisos parquet, puertas de hacienda, vitrales, cand",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-2-hab-sala-de-tv-en-juriquilla-santa-147200510.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=23",
+      "title": "Casa dentro de condominio cerrado en Privada Santa Fe, cerca de plazas comerciales, escuelas y avenidas importantes, dentro del corazón de Juriquilla.",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altos-juriquilla-dentro-de-64943470.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
+      "title": "La casa de tus sueños en un condominio seguro y exclusivo. Eso es Quianá, un desarrollo diseñado para que disfrutes la vida en comunidad, sin perder e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-144228536.html?n_src=Listado&n_pg=1&n_pos=25",
+      "title": "Preciosa Residencia en Jardines del Pedregal, bien iluminada y muy funcional, con vista a un gran jardín desde las áreas sociales y habitaciones; cons",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-venden-townhouse-en-cholul-merida-yucatan-146482166.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Rag. Bienvenido a un exclusivo desarrollo de 8 townhouses que redefine el estilo de vida urbano. Con un diseño moderno y elegante, cada th está cuidad",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-una-vida-comoda-y-familiar-amplio-jardin-nuevo-146374715.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=27",
+      "title": "Nuevo Refugio. planta baja. - garage 2 autos. - recámara con closet Y baño completo. - amplia sala-comedor. - cocina integral Y equipada. - alacena. -",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rincon-del-conchal-143631362.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28",
+      "title": "Casa en VentaRincon del ConchalRiviera Veracruzana $7, 000, 000+Gastos de escrituración $36, 000Renta Mensual incluye mtto. Agua y recolección de basu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rinconada-de-las-arboledas.-parques-146529344.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
+      "title": "Lleva a tu familia al siguiente nivel! El entusiasmo de llegar a tu nuevo hogar producto de tu gran esfuerzo es un logro que merece la mejor recompens",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cancun-en-residencial-isla-dorada-con-145589436.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=30",
+      "title": "Hermosa casa en conjunto Isla Fuego con muelle, ubicada dentro de Residencial Isla Dorada, único en su tipo en el corazón de la Zona Hotelera de Cancu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:30.319Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=1",
       "title": "Estrena casa o terreno dentro de Rincón Acatitlán, el fraccionamiento más esperado de Valle, ubicado en Acatitlán, la zona con mayor plusvalía y creci",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-ciudad-del-sol-zapopan-147722803.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=4",
-      "title": "Venta casa en ciudad del sol Zapopan Jal. Superficie terreno 600 metros 2. Frente 15 mts por 40 mts de fondo de terreno. Excelente ubicación a cuadra ",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-en-bosque-de-las-lomas-con-cava-subterranea-141872789.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "title": "Casa disponible en venta y renta en Bosque de las Lomas, con 780 m² de terreno y 1100 m² construidos. Cuenta con 4 recámaras y 4 baños completos, más ",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhvin-venta-de-casas-departamentos-y-terrenos-residenciales-141581732.html?n_src=Listado&n_pg=1&n_pos=5",
-      "title": "¿Quieres vivir a tu propio ritmo entre naturaleza y belleza? Si tu respuesta es si, villa brisa es el lugar para construir un estilo de vida de altura",
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=3",
+      "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-townhouse-en-venta-en-dzitya-merida.-entrega-64851257.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=6",
-      "title": "Los Townhouses, con una construcción de 173. 7 m², destacan por sus espacios amplios, abiertos y contemporáneos, que brindan una gran flexibilidad par",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-al-norte-de-merida-147951952.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4",
+      "title": "Ubicada en la zona de Conkal, a escasos minutos del anillo periférico y variedad de servicios. La privada cuenta con una excelente seguridad con barda",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-casa-con-potencial-colinas-del-parque-queretaro-145590134.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=7",
-      "title": "Af - ¡Excelente oportunidad en Colinas del Parque! Presentamos una propiedad única y emocionante en una de las zonas más exclusivas de Querétaro. Con ",
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-con-alberca-y-jardin-privado-al-sur-de-145063327.html?n_src=Listado&n_pg=1&n_pos=5",
+      "title": "¿Buscas una casa amplia con jardín y alaberca privada, en fraccionamiento con vigilancia, para vivir en tranquilidad con tu familia? El fraccionamient",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-147879840.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=8",
-      "title": "Exclusiva residencia en una de las mejores calles del Pedregal, con doble caseta de vigilancia. Elegante e iluminada casa desarrollada en una sola pla",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-con-4-recamaras-en-temozon-norte-merida-143088872.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Privada que consta de 75 casas residenciales, ubicadas en Temozón Norte, en la ciudad de Mérida, Yucatán. La ubicación es altamente conveniente, ya qu",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-laguna-del-mar-cancun-146866305.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=9",
-      "title": "B-ilz6520venta de residencia en conjunto laguna del mar, cancúnsuperficie de terreno: 731 m²Superficie construida: 465 m²Distribuida en 3 nivelesDescr",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-la-elegancia-tiene-direccion-valle-tinto-147820544.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=7",
+      "title": "Valle Tinto Residencial. Planta baja: - Cochera 2 autos. - Vestíbulo a doble altura. - Baño de visitas. - Cuarto de lavado. - Sala comedor y cocina a ",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-carretas-65828175.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=10",
-      "title": "Casa recién remodelada en carretas. Uibicada A dos cuadras de av. De los arcos, en el corazón del centro de querétaro. La casa tiene acabados de lujo,",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-una-de-las-mejores-zonas-del-norte-147951935.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "title": "Casa ubicada en la zona de dzitya Distribución de la propiedad: Cuenta con 2 plantas y doble altura. *2 habitaciones en planta alta. *1 baños completo",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-oferta-en-lomas-diamante-precio-144814472.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
-      "title": "Casa en venta de 4 recámaras en fraccionamiento lomas diamante en la Riviera Veracruzana. * Excelente ubicación sobre boulevard principal y frente a p",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-buenavista.-queretaro-146948511.html?n_src=Listado&n_pg=1&n_pos=9",
+      "title": "La Calle Ignacio Allende, ubicada en la colonia Buenavista, Querétaro, es una excelente opción para quienes buscan casas en venta en Querétaro dentro ",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-en-fraccionamiento-burgos-bugambilias-147866042.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=12",
-      "title": "Venta de casa en fraccionamiento burgos bugambilias. La casa consta de 4 recamaras 5 baños completos dentro de la casa, sala, comedor, cocina, alberca",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-emiliano-zapata-norte-144559896.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=10",
+      "title": "Residencia de una sola planta ubicada en zona norte con conexión directa a la principal vena de la ciudad de Mérida: Prolongación de Montejo. Fácil ac",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-aldea-ha-puerto-morelos-cancun-147933650.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=13",
-      "title": "Casa en Venta en Aldea Ha – Puerto Morelos, Cancún-Descubre esta exclusiva propiedad ubicada en Aldea Ha, un desarrollo residencial que combina planea",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-oportunidad-unica-en-lomas-de-chapultepec:-casa-amplia-143181430.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "Una oportunidad única en una ubicación inmejorable. En el corazón de lomas de chapultepec, esta casa destaca por su gran luminosidad Y amplios espacio",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-nueva-en-venta-en-cuautlancingo-3-recamaras-146890323.html?n_src=Listado&n_pg=1&n_pos=14",
-      "title": "Ref: 2 5 0 3 0 3. Descubre tu próximo hogar en Residencial Quetzalí, un desarrollo residencial nuevo con seguridad 24/7 y excelente ubicación a solo 1",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fracc.-la-calma.-puerto-vallarta-147925799.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=12",
+      "title": "Tu nuevo hogar te espera en Fracc. La Calma, un entorno seguro, familiar y con todo el confort que ofrece Puerto Vallarta. Caracteristicas. casa nueva",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-departamentos-en-pre-venta-okun-living-cancun-65458480.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=15",
-      "title": "Okün Living Cancún esta ubicado en la Av. Luis Donaldo Colosio, que ofrece una experiencia de vida enfocada en la comodidad, el diseño funcional y la ",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lindavista-144812035.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=13",
+      "title": "Ven a descubrir tu nuevo hogar en Lindavista. Distribuido en 3 niveles, se convertirá en el punto de encuentro favorito para familiares y amigos. Al e",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-estrellas-del-sur-puebla-146944083.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=16",
-      "title": "Casa en Venta en Estrellas del Sur, con cinco recámaras planta baja: * Bodega* Jardín* Terraza* Recámara* Cuarto de lavado * Cuarto de servicio * Baño",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-huixquilucan-146005242.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+      "title": "Casa en Venta en Parques de la Herradura - Excelente Estado. Ubicación: Una de las mejores cerradas de Parques de la Herradura. Características de la ",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-puerto-cancun-146949735.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
-      "title": "B-ilz6481Exclusiva Casa en Venta en Puerto CancúnTe presentamos una oportunidad única para adquirir una hermosa propiedad en el exclusivo desarrollo d",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-preciosa-casa-con-vista-panoramica-146997326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "Ubicada en una zona privilegiada, esta residencia estilo contemporaneo, ofrece espacios diseñados para el confort familiar. Cuenta con una distribucio",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-bosques-de-las-lomas-147421499.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=18",
-      "title": "Descubre esta impresionante residencia que combina lujo y comodidad en cada rincón. Con 1074 m² de construcción sobre un terreno de 700 m², esta casa ",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-dzitya-merida-yucatan.-147932725.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
+      "title": "Casa en Venta ubicada en Dzitya, Mérida, YucatánTerreno: 696 m2 ( 12 x 58. 44) Construcción: 454m2caracteristicas Y distribucion: Planta baja– Garage ",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-townhouse-en-la-colonia-mexico-norte-merida-146500412.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=19",
-      "title": "Rag. loro un desarrollo de seis exclusivos town houses cuya elegancia y funcionalidad se fusionan para crear un espacio único que honra la historia de",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-jurica-queretaro-146731827.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+      "title": "Vhv- Descubre en esta propiedad diseño en iluminación, sistemas de ahorro de energía, funcionalidad, modernidad, acabados de calidad dentro de uno de ",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-alberca-en-venta-diseno-unico-zona-azul-147754157.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=20",
-      "title": "Vive en una hermosa casa, con un diseño único, con espacios sociales abiertos, para disfrutar en familia y con amigos, hermosos jardines con cascadas ",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-jeronimo-siller-spgg-146599449.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=18",
+      "title": "Extraordinaria casa con 3 habitaciones cada una con baño completo Y closet en venta en una de las colonias mas tranquilas Y bien ubicadas de spgg! 4 f",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-monterreal-cholula-147025647.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
-      "title": "Casa en venta en fraccionamiento Monterreal Residencial, Cholula, Puebla. planta baja: * Sala* Comedor* Cocina integral. * Baño completo* Cuarto de tv",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-una-sola-planta-al-norte-de-merida-real-147693571.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=19",
+      "title": "Casa de una planta de dos habitacionses, con dos baños completos, área de sala, comedor y cocina. Ubicada en Real Montejo, zona con cercanía a todos l",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privanzas-san-pedro-garza-garcia-145537224.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=22",
-      "title": "Casa en privada enfrente del parque. Primer piso: cochera para 3 coches, recibidor, cocina totalmente renovada, comedor, sala y bar (con acabados en m",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-jardin-roof-garden-y-un-entorno-incomparable-zibata-147885610.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=20",
+      "title": "Zibatá, Turquesa. planta baja. -1/2 baño. -cocina con cubierta de granito. -sala. -comedor. -jardín. -cuarto de lavado. -cisterna. planta alta. -habit",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-al-norte-de-merida-147951908.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=23",
-      "title": "Desarrollo de casas sin régimen de condominio y sin cuotas de mantenimiento pero con una imagen homogénea y en armonía. El tamaño de lotes y el estilo",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-victoria-145402551.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+      "title": "Terreno: 290 mts2. construccion: 490 mts2. distribución: sala. comedor. cocina. 5 recamaras. 4 baños. 2 medios baños. cuarto de lavado. cuarto de jueg",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-espectacular-residencia-en-rancho-san-juan-143497968.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
-      "title": "Viva en uno de los fraccionamientos mas bellos seguros Y con mayor plusvalia de la zona, espectacular residencia cuenta con: estacionamientp para 8 au",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-estilo-colonial-coyoacan-146612593.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=22",
+      "title": "Fraccionamiento exclusivo con vigilancia las 24 hrs. Cuenta con jardín con terraza, fuente y patio. Pisos parquet, puertas de hacienda, vitrales, cand",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-antano-en-venta-en-puerta-real-147877642.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=25",
-      "title": "Terreno 272m2. Construcción 283m2. Casa en venta en Puerta Real Residencial Corregidora. Planta baja. Sala y comedor continuos con acceso a terraza y ",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-2-hab-sala-de-tv-en-juriquilla-santa-147200510.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=23",
+      "title": "Casa dentro de condominio cerrado en Privada Santa Fe, cerca de plazas comerciales, escuelas y avenidas importantes, dentro del corazón de Juriquilla.",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-renovada-y-totalmente-amueblada-en-el-centro-de-147111350.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
-      "title": "Ref: 2 5 0 6 2 0. Te presentamos esta hermosa casa en venta en Conkal, Yucatán, con una ubicación privilegiada en una zona residencial. Esta propiedad",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altos-juriquilla-dentro-de-64943470.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
+      "title": "La casa de tus sueños en un condominio seguro y exclusivo. Eso es Quianá, un desarrollo diseñado para que disfrutes la vida en comunidad, sin perder e",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-zibata-priv.-cardon-queretaro-143752392.html?n_src=Listado&n_pills=%C3%81rea+de+juegos+infantiles&n_pg=1&n_pos=27",
-      "title": "Esta propiedad con 4 habitaciones, amplio jardín de 200m2 y acabados premium se encuentra en Zibatá en la privada Cardón, lugar privilegiado con los p",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-144228536.html?n_src=Listado&n_pg=1&n_pos=25",
+      "title": "Preciosa Residencia en Jardines del Pedregal, bien iluminada y muy funcional, con vista a un gran jardín desde las áreas sociales y habitaciones; cons",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-centro-merida-cerca-de-la-plancha-147951961.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=28",
-      "title": "Casa antigua en el Centro, a 3 cuadras del Parque La Plancha y 4 cuadras del corredor gastronómico y 30 metros de MercadoTerreno de 319. 68 m2Construc",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-venden-townhouse-en-cholul-merida-yucatan-146482166.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Rag. Bienvenido a un exclusivo desarrollo de 8 townhouses que redefine el estilo de vida urbano. Con un diseño moderno y elegante, cada th está cuidad",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-punto-sur-nueva-galacia-tlajomulco-de-147578666.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
-      "title": "Casa en Venta en Punto Sur – Nueva Galicia, Tlajomulco. Casa en venta en Punto Sur, dentro del exclusivo condominio Antares 1 en Nueva Galicia, Camino",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-una-vida-comoda-y-familiar-amplio-jardin-nuevo-146374715.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=27",
+      "title": "Nuevo Refugio. planta baja. - garage 2 autos. - recámara con closet Y baño completo. - amplia sala-comedor. - cocina integral Y equipada. - alacena. -",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
     },
     {
-      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-zibata-el-marques-147579326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=30",
-      "title": "Vivir el equilibrio perfecto entre naturaleza, diseño y confort. Descubre tu nuevo hogar en Opuntia Zibatá, una comunidad planeada para quienes buscan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rincon-del-conchal-143631362.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28",
+      "title": "Casa en VentaRincon del ConchalRiviera Veracruzana $7, 000, 000+Gastos de escrituración $36, 000Renta Mensual incluye mtto. Agua y recolección de basu",
       "price": "Consultar",
-      "scrapedAt": "2025-10-21T20:29:02.384Z"
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rinconada-de-las-arboledas.-parques-146529344.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
+      "title": "Lleva a tu familia al siguiente nivel! El entusiasmo de llegar a tu nuevo hogar producto de tu gran esfuerzo es un logro que merece la mejor recompens",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cancun-en-residencial-isla-dorada-con-145589436.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=30",
+      "title": "Hermosa casa en conjunto Isla Fuego con muelle, ubicada dentro de Residencial Isla Dorada, único en su tipo en el corazón de la Zona Hotelera de Cancu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:42.976Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=1",
+      "title": "Estrena casa o terreno dentro de Rincón Acatitlán, el fraccionamiento más esperado de Valle, ubicado en Acatitlán, la zona con mayor plusvalía y creci",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-en-bosque-de-las-lomas-con-cava-subterranea-141872789.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "title": "Casa disponible en venta y renta en Bosque de las Lomas, con 780 m² de terreno y 1100 m² construidos. Cuenta con 4 recámaras y 4 baños completos, más ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=3",
+      "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-al-norte-de-merida-147951952.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4",
+      "title": "Ubicada en la zona de Conkal, a escasos minutos del anillo periférico y variedad de servicios. La privada cuenta con una excelente seguridad con barda",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-con-alberca-y-jardin-privado-al-sur-de-145063327.html?n_src=Listado&n_pg=1&n_pos=5",
+      "title": "¿Buscas una casa amplia con jardín y alaberca privada, en fraccionamiento con vigilancia, para vivir en tranquilidad con tu familia? El fraccionamient",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-con-4-recamaras-en-temozon-norte-merida-143088872.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Privada que consta de 75 casas residenciales, ubicadas en Temozón Norte, en la ciudad de Mérida, Yucatán. La ubicación es altamente conveniente, ya qu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-la-elegancia-tiene-direccion-valle-tinto-147820544.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=7",
+      "title": "Valle Tinto Residencial. Planta baja: - Cochera 2 autos. - Vestíbulo a doble altura. - Baño de visitas. - Cuarto de lavado. - Sala comedor y cocina a ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-una-de-las-mejores-zonas-del-norte-147951935.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "title": "Casa ubicada en la zona de dzitya Distribución de la propiedad: Cuenta con 2 plantas y doble altura. *2 habitaciones en planta alta. *1 baños completo",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-buenavista.-queretaro-146948511.html?n_src=Listado&n_pg=1&n_pos=9",
+      "title": "La Calle Ignacio Allende, ubicada en la colonia Buenavista, Querétaro, es una excelente opción para quienes buscan casas en venta en Querétaro dentro ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-emiliano-zapata-norte-144559896.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=10",
+      "title": "Residencia de una sola planta ubicada en zona norte con conexión directa a la principal vena de la ciudad de Mérida: Prolongación de Montejo. Fácil ac",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-oportunidad-unica-en-lomas-de-chapultepec:-casa-amplia-143181430.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "Una oportunidad única en una ubicación inmejorable. En el corazón de lomas de chapultepec, esta casa destaca por su gran luminosidad Y amplios espacio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fracc.-la-calma.-puerto-vallarta-147925799.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=12",
+      "title": "Tu nuevo hogar te espera en Fracc. La Calma, un entorno seguro, familiar y con todo el confort que ofrece Puerto Vallarta. Caracteristicas. casa nueva",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lindavista-144812035.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=13",
+      "title": "Ven a descubrir tu nuevo hogar en Lindavista. Distribuido en 3 niveles, se convertirá en el punto de encuentro favorito para familiares y amigos. Al e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-huixquilucan-146005242.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+      "title": "Casa en Venta en Parques de la Herradura - Excelente Estado. Ubicación: Una de las mejores cerradas de Parques de la Herradura. Características de la ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-preciosa-casa-con-vista-panoramica-146997326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "Ubicada en una zona privilegiada, esta residencia estilo contemporaneo, ofrece espacios diseñados para el confort familiar. Cuenta con una distribucio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-dzitya-merida-yucatan.-147932725.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
+      "title": "Casa en Venta ubicada en Dzitya, Mérida, YucatánTerreno: 696 m2 ( 12 x 58. 44) Construcción: 454m2caracteristicas Y distribucion: Planta baja– Garage ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-jurica-queretaro-146731827.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+      "title": "Vhv- Descubre en esta propiedad diseño en iluminación, sistemas de ahorro de energía, funcionalidad, modernidad, acabados de calidad dentro de uno de ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-jeronimo-siller-spgg-146599449.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=18",
+      "title": "Extraordinaria casa con 3 habitaciones cada una con baño completo Y closet en venta en una de las colonias mas tranquilas Y bien ubicadas de spgg! 4 f",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-una-sola-planta-al-norte-de-merida-real-147693571.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=19",
+      "title": "Casa de una planta de dos habitacionses, con dos baños completos, área de sala, comedor y cocina. Ubicada en Real Montejo, zona con cercanía a todos l",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-jardin-roof-garden-y-un-entorno-incomparable-zibata-147885610.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=20",
+      "title": "Zibatá, Turquesa. planta baja. -1/2 baño. -cocina con cubierta de granito. -sala. -comedor. -jardín. -cuarto de lavado. -cisterna. planta alta. -habit",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-victoria-145402551.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+      "title": "Terreno: 290 mts2. construccion: 490 mts2. distribución: sala. comedor. cocina. 5 recamaras. 4 baños. 2 medios baños. cuarto de lavado. cuarto de jueg",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-estilo-colonial-coyoacan-146612593.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=22",
+      "title": "Fraccionamiento exclusivo con vigilancia las 24 hrs. Cuenta con jardín con terraza, fuente y patio. Pisos parquet, puertas de hacienda, vitrales, cand",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-2-hab-sala-de-tv-en-juriquilla-santa-147200510.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=23",
+      "title": "Casa dentro de condominio cerrado en Privada Santa Fe, cerca de plazas comerciales, escuelas y avenidas importantes, dentro del corazón de Juriquilla.",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altos-juriquilla-dentro-de-64943470.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
+      "title": "La casa de tus sueños en un condominio seguro y exclusivo. Eso es Quianá, un desarrollo diseñado para que disfrutes la vida en comunidad, sin perder e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-144228536.html?n_src=Listado&n_pg=1&n_pos=25",
+      "title": "Preciosa Residencia en Jardines del Pedregal, bien iluminada y muy funcional, con vista a un gran jardín desde las áreas sociales y habitaciones; cons",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-venden-townhouse-en-cholul-merida-yucatan-146482166.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Rag. Bienvenido a un exclusivo desarrollo de 8 townhouses que redefine el estilo de vida urbano. Con un diseño moderno y elegante, cada th está cuidad",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-una-vida-comoda-y-familiar-amplio-jardin-nuevo-146374715.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=27",
+      "title": "Nuevo Refugio. planta baja. - garage 2 autos. - recámara con closet Y baño completo. - amplia sala-comedor. - cocina integral Y equipada. - alacena. -",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rincon-del-conchal-143631362.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28",
+      "title": "Casa en VentaRincon del ConchalRiviera Veracruzana $7, 000, 000+Gastos de escrituración $36, 000Renta Mensual incluye mtto. Agua y recolección de basu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rinconada-de-las-arboledas.-parques-146529344.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
+      "title": "Lleva a tu familia al siguiente nivel! El entusiasmo de llegar a tu nuevo hogar producto de tu gran esfuerzo es un logro que merece la mejor recompens",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cancun-en-residencial-isla-dorada-con-145589436.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=30",
+      "title": "Hermosa casa en conjunto Isla Fuego con muelle, ubicada dentro de Residencial Isla Dorada, único en su tipo en el corazón de la Zona Hotelera de Cancu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:27:56.308Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=1",
+      "title": "Estrena casa o terreno dentro de Rincón Acatitlán, el fraccionamiento más esperado de Valle, ubicado en Acatitlán, la zona con mayor plusvalía y creci",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-en-bosque-de-las-lomas-con-cava-subterranea-141872789.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "title": "Casa disponible en venta y renta en Bosque de las Lomas, con 780 m² de terreno y 1100 m² construidos. Cuenta con 4 recámaras y 4 baños completos, más ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=3",
+      "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-al-norte-de-merida-147951952.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4",
+      "title": "Ubicada en la zona de Conkal, a escasos minutos del anillo periférico y variedad de servicios. La privada cuenta con una excelente seguridad con barda",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-con-alberca-y-jardin-privado-al-sur-de-145063327.html?n_src=Listado&n_pg=1&n_pos=5",
+      "title": "¿Buscas una casa amplia con jardín y alaberca privada, en fraccionamiento con vigilancia, para vivir en tranquilidad con tu familia? El fraccionamient",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-con-4-recamaras-en-temozon-norte-merida-143088872.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Privada que consta de 75 casas residenciales, ubicadas en Temozón Norte, en la ciudad de Mérida, Yucatán. La ubicación es altamente conveniente, ya qu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-la-elegancia-tiene-direccion-valle-tinto-147820544.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=7",
+      "title": "Valle Tinto Residencial. Planta baja: - Cochera 2 autos. - Vestíbulo a doble altura. - Baño de visitas. - Cuarto de lavado. - Sala comedor y cocina a ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-una-de-las-mejores-zonas-del-norte-147951935.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "title": "Casa ubicada en la zona de dzitya Distribución de la propiedad: Cuenta con 2 plantas y doble altura. *2 habitaciones en planta alta. *1 baños completo",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-buenavista.-queretaro-146948511.html?n_src=Listado&n_pg=1&n_pos=9",
+      "title": "La Calle Ignacio Allende, ubicada en la colonia Buenavista, Querétaro, es una excelente opción para quienes buscan casas en venta en Querétaro dentro ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-emiliano-zapata-norte-144559896.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=10",
+      "title": "Residencia de una sola planta ubicada en zona norte con conexión directa a la principal vena de la ciudad de Mérida: Prolongación de Montejo. Fácil ac",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-oportunidad-unica-en-lomas-de-chapultepec:-casa-amplia-143181430.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "Una oportunidad única en una ubicación inmejorable. En el corazón de lomas de chapultepec, esta casa destaca por su gran luminosidad Y amplios espacio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fracc.-la-calma.-puerto-vallarta-147925799.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=12",
+      "title": "Tu nuevo hogar te espera en Fracc. La Calma, un entorno seguro, familiar y con todo el confort que ofrece Puerto Vallarta. Caracteristicas. casa nueva",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lindavista-144812035.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=13",
+      "title": "Ven a descubrir tu nuevo hogar en Lindavista. Distribuido en 3 niveles, se convertirá en el punto de encuentro favorito para familiares y amigos. Al e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-huixquilucan-146005242.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+      "title": "Casa en Venta en Parques de la Herradura - Excelente Estado. Ubicación: Una de las mejores cerradas de Parques de la Herradura. Características de la ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-preciosa-casa-con-vista-panoramica-146997326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "Ubicada en una zona privilegiada, esta residencia estilo contemporaneo, ofrece espacios diseñados para el confort familiar. Cuenta con una distribucio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-dzitya-merida-yucatan.-147932725.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
+      "title": "Casa en Venta ubicada en Dzitya, Mérida, YucatánTerreno: 696 m2 ( 12 x 58. 44) Construcción: 454m2caracteristicas Y distribucion: Planta baja– Garage ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-jurica-queretaro-146731827.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+      "title": "Vhv- Descubre en esta propiedad diseño en iluminación, sistemas de ahorro de energía, funcionalidad, modernidad, acabados de calidad dentro de uno de ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-jeronimo-siller-spgg-146599449.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=18",
+      "title": "Extraordinaria casa con 3 habitaciones cada una con baño completo Y closet en venta en una de las colonias mas tranquilas Y bien ubicadas de spgg! 4 f",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-una-sola-planta-al-norte-de-merida-real-147693571.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=19",
+      "title": "Casa de una planta de dos habitacionses, con dos baños completos, área de sala, comedor y cocina. Ubicada en Real Montejo, zona con cercanía a todos l",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-jardin-roof-garden-y-un-entorno-incomparable-zibata-147885610.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=20",
+      "title": "Zibatá, Turquesa. planta baja. -1/2 baño. -cocina con cubierta de granito. -sala. -comedor. -jardín. -cuarto de lavado. -cisterna. planta alta. -habit",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-victoria-145402551.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+      "title": "Terreno: 290 mts2. construccion: 490 mts2. distribución: sala. comedor. cocina. 5 recamaras. 4 baños. 2 medios baños. cuarto de lavado. cuarto de jueg",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-estilo-colonial-coyoacan-146612593.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=22",
+      "title": "Fraccionamiento exclusivo con vigilancia las 24 hrs. Cuenta con jardín con terraza, fuente y patio. Pisos parquet, puertas de hacienda, vitrales, cand",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-2-hab-sala-de-tv-en-juriquilla-santa-147200510.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=23",
+      "title": "Casa dentro de condominio cerrado en Privada Santa Fe, cerca de plazas comerciales, escuelas y avenidas importantes, dentro del corazón de Juriquilla.",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altos-juriquilla-dentro-de-64943470.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
+      "title": "La casa de tus sueños en un condominio seguro y exclusivo. Eso es Quianá, un desarrollo diseñado para que disfrutes la vida en comunidad, sin perder e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-144228536.html?n_src=Listado&n_pg=1&n_pos=25",
+      "title": "Preciosa Residencia en Jardines del Pedregal, bien iluminada y muy funcional, con vista a un gran jardín desde las áreas sociales y habitaciones; cons",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-venden-townhouse-en-cholul-merida-yucatan-146482166.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Rag. Bienvenido a un exclusivo desarrollo de 8 townhouses que redefine el estilo de vida urbano. Con un diseño moderno y elegante, cada th está cuidad",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-una-vida-comoda-y-familiar-amplio-jardin-nuevo-146374715.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=27",
+      "title": "Nuevo Refugio. planta baja. - garage 2 autos. - recámara con closet Y baño completo. - amplia sala-comedor. - cocina integral Y equipada. - alacena. -",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rincon-del-conchal-143631362.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28",
+      "title": "Casa en VentaRincon del ConchalRiviera Veracruzana $7, 000, 000+Gastos de escrituración $36, 000Renta Mensual incluye mtto. Agua y recolección de basu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rinconada-de-las-arboledas.-parques-146529344.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
+      "title": "Lleva a tu familia al siguiente nivel! El entusiasmo de llegar a tu nuevo hogar producto de tu gran esfuerzo es un logro que merece la mejor recompens",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cancun-en-residencial-isla-dorada-con-145589436.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=30",
+      "title": "Hermosa casa en conjunto Isla Fuego con muelle, ubicada dentro de Residencial Isla Dorada, único en su tipo en el corazón de la Zona Hotelera de Cancu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:09.895Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=1",
+      "title": "Estrena casa o terreno dentro de Rincón Acatitlán, el fraccionamiento más esperado de Valle, ubicado en Acatitlán, la zona con mayor plusvalía y creci",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-en-bosque-de-las-lomas-con-cava-subterranea-141872789.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "title": "Casa disponible en venta y renta en Bosque de las Lomas, con 780 m² de terreno y 1100 m² construidos. Cuenta con 4 recámaras y 4 baños completos, más ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=3",
+      "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-al-norte-de-merida-147951952.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4",
+      "title": "Ubicada en la zona de Conkal, a escasos minutos del anillo periférico y variedad de servicios. La privada cuenta con una excelente seguridad con barda",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-con-alberca-y-jardin-privado-al-sur-de-145063327.html?n_src=Listado&n_pg=1&n_pos=5",
+      "title": "¿Buscas una casa amplia con jardín y alaberca privada, en fraccionamiento con vigilancia, para vivir en tranquilidad con tu familia? El fraccionamient",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-con-4-recamaras-en-temozon-norte-merida-143088872.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Privada que consta de 75 casas residenciales, ubicadas en Temozón Norte, en la ciudad de Mérida, Yucatán. La ubicación es altamente conveniente, ya qu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-la-elegancia-tiene-direccion-valle-tinto-147820544.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=7",
+      "title": "Valle Tinto Residencial. Planta baja: - Cochera 2 autos. - Vestíbulo a doble altura. - Baño de visitas. - Cuarto de lavado. - Sala comedor y cocina a ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-una-de-las-mejores-zonas-del-norte-147951935.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "title": "Casa ubicada en la zona de dzitya Distribución de la propiedad: Cuenta con 2 plantas y doble altura. *2 habitaciones en planta alta. *1 baños completo",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-buenavista.-queretaro-146948511.html?n_src=Listado&n_pg=1&n_pos=9",
+      "title": "La Calle Ignacio Allende, ubicada en la colonia Buenavista, Querétaro, es una excelente opción para quienes buscan casas en venta en Querétaro dentro ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-emiliano-zapata-norte-144559896.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=10",
+      "title": "Residencia de una sola planta ubicada en zona norte con conexión directa a la principal vena de la ciudad de Mérida: Prolongación de Montejo. Fácil ac",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-oportunidad-unica-en-lomas-de-chapultepec:-casa-amplia-143181430.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "Una oportunidad única en una ubicación inmejorable. En el corazón de lomas de chapultepec, esta casa destaca por su gran luminosidad Y amplios espacio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fracc.-la-calma.-puerto-vallarta-147925799.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=12",
+      "title": "Tu nuevo hogar te espera en Fracc. La Calma, un entorno seguro, familiar y con todo el confort que ofrece Puerto Vallarta. Caracteristicas. casa nueva",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lindavista-144812035.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=13",
+      "title": "Ven a descubrir tu nuevo hogar en Lindavista. Distribuido en 3 niveles, se convertirá en el punto de encuentro favorito para familiares y amigos. Al e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-huixquilucan-146005242.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+      "title": "Casa en Venta en Parques de la Herradura - Excelente Estado. Ubicación: Una de las mejores cerradas de Parques de la Herradura. Características de la ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-preciosa-casa-con-vista-panoramica-146997326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "Ubicada en una zona privilegiada, esta residencia estilo contemporaneo, ofrece espacios diseñados para el confort familiar. Cuenta con una distribucio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-dzitya-merida-yucatan.-147932725.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
+      "title": "Casa en Venta ubicada en Dzitya, Mérida, YucatánTerreno: 696 m2 ( 12 x 58. 44) Construcción: 454m2caracteristicas Y distribucion: Planta baja– Garage ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-jurica-queretaro-146731827.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+      "title": "Vhv- Descubre en esta propiedad diseño en iluminación, sistemas de ahorro de energía, funcionalidad, modernidad, acabados de calidad dentro de uno de ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-jeronimo-siller-spgg-146599449.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=18",
+      "title": "Extraordinaria casa con 3 habitaciones cada una con baño completo Y closet en venta en una de las colonias mas tranquilas Y bien ubicadas de spgg! 4 f",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-una-sola-planta-al-norte-de-merida-real-147693571.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=19",
+      "title": "Casa de una planta de dos habitacionses, con dos baños completos, área de sala, comedor y cocina. Ubicada en Real Montejo, zona con cercanía a todos l",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.454Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-jardin-roof-garden-y-un-entorno-incomparable-zibata-147885610.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=20",
+      "title": "Zibatá, Turquesa. planta baja. -1/2 baño. -cocina con cubierta de granito. -sala. -comedor. -jardín. -cuarto de lavado. -cisterna. planta alta. -habit",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-victoria-145402551.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+      "title": "Terreno: 290 mts2. construccion: 490 mts2. distribución: sala. comedor. cocina. 5 recamaras. 4 baños. 2 medios baños. cuarto de lavado. cuarto de jueg",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-estilo-colonial-coyoacan-146612593.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=22",
+      "title": "Fraccionamiento exclusivo con vigilancia las 24 hrs. Cuenta con jardín con terraza, fuente y patio. Pisos parquet, puertas de hacienda, vitrales, cand",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-2-hab-sala-de-tv-en-juriquilla-santa-147200510.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=23",
+      "title": "Casa dentro de condominio cerrado en Privada Santa Fe, cerca de plazas comerciales, escuelas y avenidas importantes, dentro del corazón de Juriquilla.",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altos-juriquilla-dentro-de-64943470.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
+      "title": "La casa de tus sueños en un condominio seguro y exclusivo. Eso es Quianá, un desarrollo diseñado para que disfrutes la vida en comunidad, sin perder e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-144228536.html?n_src=Listado&n_pg=1&n_pos=25",
+      "title": "Preciosa Residencia en Jardines del Pedregal, bien iluminada y muy funcional, con vista a un gran jardín desde las áreas sociales y habitaciones; cons",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-venden-townhouse-en-cholul-merida-yucatan-146482166.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Rag. Bienvenido a un exclusivo desarrollo de 8 townhouses que redefine el estilo de vida urbano. Con un diseño moderno y elegante, cada th está cuidad",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-una-vida-comoda-y-familiar-amplio-jardin-nuevo-146374715.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=27",
+      "title": "Nuevo Refugio. planta baja. - garage 2 autos. - recámara con closet Y baño completo. - amplia sala-comedor. - cocina integral Y equipada. - alacena. -",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rincon-del-conchal-143631362.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28",
+      "title": "Casa en VentaRincon del ConchalRiviera Veracruzana $7, 000, 000+Gastos de escrituración $36, 000Renta Mensual incluye mtto. Agua y recolección de basu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rinconada-de-las-arboledas.-parques-146529344.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
+      "title": "Lleva a tu familia al siguiente nivel! El entusiasmo de llegar a tu nuevo hogar producto de tu gran esfuerzo es un logro que merece la mejor recompens",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cancun-en-residencial-isla-dorada-con-145589436.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=30",
+      "title": "Hermosa casa en conjunto Isla Fuego con muelle, ubicada dentro de Residencial Isla Dorada, único en su tipo en el corazón de la Zona Hotelera de Cancu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:23.455Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=1",
+      "title": "Estrena casa o terreno dentro de Rincón Acatitlán, el fraccionamiento más esperado de Valle, ubicado en Acatitlán, la zona con mayor plusvalía y creci",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-en-bosque-de-las-lomas-con-cava-subterranea-141872789.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "title": "Casa disponible en venta y renta en Bosque de las Lomas, con 780 m² de terreno y 1100 m² construidos. Cuenta con 4 recámaras y 4 baños completos, más ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=3",
+      "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-al-norte-de-merida-147951952.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4",
+      "title": "Ubicada en la zona de Conkal, a escasos minutos del anillo periférico y variedad de servicios. La privada cuenta con una excelente seguridad con barda",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-con-alberca-y-jardin-privado-al-sur-de-145063327.html?n_src=Listado&n_pg=1&n_pos=5",
+      "title": "¿Buscas una casa amplia con jardín y alaberca privada, en fraccionamiento con vigilancia, para vivir en tranquilidad con tu familia? El fraccionamient",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-con-4-recamaras-en-temozon-norte-merida-143088872.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Privada que consta de 75 casas residenciales, ubicadas en Temozón Norte, en la ciudad de Mérida, Yucatán. La ubicación es altamente conveniente, ya qu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-la-elegancia-tiene-direccion-valle-tinto-147820544.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=7",
+      "title": "Valle Tinto Residencial. Planta baja: - Cochera 2 autos. - Vestíbulo a doble altura. - Baño de visitas. - Cuarto de lavado. - Sala comedor y cocina a ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-una-de-las-mejores-zonas-del-norte-147951935.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "title": "Casa ubicada en la zona de dzitya Distribución de la propiedad: Cuenta con 2 plantas y doble altura. *2 habitaciones en planta alta. *1 baños completo",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-buenavista.-queretaro-146948511.html?n_src=Listado&n_pg=1&n_pos=9",
+      "title": "La Calle Ignacio Allende, ubicada en la colonia Buenavista, Querétaro, es una excelente opción para quienes buscan casas en venta en Querétaro dentro ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-emiliano-zapata-norte-144559896.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=10",
+      "title": "Residencia de una sola planta ubicada en zona norte con conexión directa a la principal vena de la ciudad de Mérida: Prolongación de Montejo. Fácil ac",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-oportunidad-unica-en-lomas-de-chapultepec:-casa-amplia-143181430.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "Una oportunidad única en una ubicación inmejorable. En el corazón de lomas de chapultepec, esta casa destaca por su gran luminosidad Y amplios espacio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fracc.-la-calma.-puerto-vallarta-147925799.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=12",
+      "title": "Tu nuevo hogar te espera en Fracc. La Calma, un entorno seguro, familiar y con todo el confort que ofrece Puerto Vallarta. Caracteristicas. casa nueva",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lindavista-144812035.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=13",
+      "title": "Ven a descubrir tu nuevo hogar en Lindavista. Distribuido en 3 niveles, se convertirá en el punto de encuentro favorito para familiares y amigos. Al e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-huixquilucan-146005242.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+      "title": "Casa en Venta en Parques de la Herradura - Excelente Estado. Ubicación: Una de las mejores cerradas de Parques de la Herradura. Características de la ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-preciosa-casa-con-vista-panoramica-146997326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "Ubicada en una zona privilegiada, esta residencia estilo contemporaneo, ofrece espacios diseñados para el confort familiar. Cuenta con una distribucio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-dzitya-merida-yucatan.-147932725.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
+      "title": "Casa en Venta ubicada en Dzitya, Mérida, YucatánTerreno: 696 m2 ( 12 x 58. 44) Construcción: 454m2caracteristicas Y distribucion: Planta baja– Garage ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-jurica-queretaro-146731827.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+      "title": "Vhv- Descubre en esta propiedad diseño en iluminación, sistemas de ahorro de energía, funcionalidad, modernidad, acabados de calidad dentro de uno de ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-jeronimo-siller-spgg-146599449.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=18",
+      "title": "Extraordinaria casa con 3 habitaciones cada una con baño completo Y closet en venta en una de las colonias mas tranquilas Y bien ubicadas de spgg! 4 f",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-una-sola-planta-al-norte-de-merida-real-147693571.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=19",
+      "title": "Casa de una planta de dos habitacionses, con dos baños completos, área de sala, comedor y cocina. Ubicada en Real Montejo, zona con cercanía a todos l",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-jardin-roof-garden-y-un-entorno-incomparable-zibata-147885610.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=20",
+      "title": "Zibatá, Turquesa. planta baja. -1/2 baño. -cocina con cubierta de granito. -sala. -comedor. -jardín. -cuarto de lavado. -cisterna. planta alta. -habit",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.010Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-victoria-145402551.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+      "title": "Terreno: 290 mts2. construccion: 490 mts2. distribución: sala. comedor. cocina. 5 recamaras. 4 baños. 2 medios baños. cuarto de lavado. cuarto de jueg",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-estilo-colonial-coyoacan-146612593.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=22",
+      "title": "Fraccionamiento exclusivo con vigilancia las 24 hrs. Cuenta con jardín con terraza, fuente y patio. Pisos parquet, puertas de hacienda, vitrales, cand",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-2-hab-sala-de-tv-en-juriquilla-santa-147200510.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=23",
+      "title": "Casa dentro de condominio cerrado en Privada Santa Fe, cerca de plazas comerciales, escuelas y avenidas importantes, dentro del corazón de Juriquilla.",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altos-juriquilla-dentro-de-64943470.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
+      "title": "La casa de tus sueños en un condominio seguro y exclusivo. Eso es Quianá, un desarrollo diseñado para que disfrutes la vida en comunidad, sin perder e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-144228536.html?n_src=Listado&n_pg=1&n_pos=25",
+      "title": "Preciosa Residencia en Jardines del Pedregal, bien iluminada y muy funcional, con vista a un gran jardín desde las áreas sociales y habitaciones; cons",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-venden-townhouse-en-cholul-merida-yucatan-146482166.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Rag. Bienvenido a un exclusivo desarrollo de 8 townhouses que redefine el estilo de vida urbano. Con un diseño moderno y elegante, cada th está cuidad",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-una-vida-comoda-y-familiar-amplio-jardin-nuevo-146374715.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=27",
+      "title": "Nuevo Refugio. planta baja. - garage 2 autos. - recámara con closet Y baño completo. - amplia sala-comedor. - cocina integral Y equipada. - alacena. -",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rincon-del-conchal-143631362.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28",
+      "title": "Casa en VentaRincon del ConchalRiviera Veracruzana $7, 000, 000+Gastos de escrituración $36, 000Renta Mensual incluye mtto. Agua y recolección de basu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rinconada-de-las-arboledas.-parques-146529344.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
+      "title": "Lleva a tu familia al siguiente nivel! El entusiasmo de llegar a tu nuevo hogar producto de tu gran esfuerzo es un logro que merece la mejor recompens",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cancun-en-residencial-isla-dorada-con-145589436.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=30",
+      "title": "Hermosa casa en conjunto Isla Fuego con muelle, ubicada dentro de Residencial Isla Dorada, único en su tipo en el corazón de la Zona Hotelera de Cancu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:36.011Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=1",
+      "title": "Estrena casa o terreno dentro de Rincón Acatitlán, el fraccionamiento más esperado de Valle, ubicado en Acatitlán, la zona con mayor plusvalía y creci",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-en-bosque-de-las-lomas-con-cava-subterranea-141872789.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "title": "Casa disponible en venta y renta en Bosque de las Lomas, con 780 m² de terreno y 1100 m² construidos. Cuenta con 4 recámaras y 4 baños completos, más ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=3",
+      "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-al-norte-de-merida-147951952.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4",
+      "title": "Ubicada en la zona de Conkal, a escasos minutos del anillo periférico y variedad de servicios. La privada cuenta con una excelente seguridad con barda",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-con-alberca-y-jardin-privado-al-sur-de-145063327.html?n_src=Listado&n_pg=1&n_pos=5",
+      "title": "¿Buscas una casa amplia con jardín y alaberca privada, en fraccionamiento con vigilancia, para vivir en tranquilidad con tu familia? El fraccionamient",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-con-4-recamaras-en-temozon-norte-merida-143088872.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Privada que consta de 75 casas residenciales, ubicadas en Temozón Norte, en la ciudad de Mérida, Yucatán. La ubicación es altamente conveniente, ya qu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-la-elegancia-tiene-direccion-valle-tinto-147820544.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=7",
+      "title": "Valle Tinto Residencial. Planta baja: - Cochera 2 autos. - Vestíbulo a doble altura. - Baño de visitas. - Cuarto de lavado. - Sala comedor y cocina a ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-una-de-las-mejores-zonas-del-norte-147951935.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "title": "Casa ubicada en la zona de dzitya Distribución de la propiedad: Cuenta con 2 plantas y doble altura. *2 habitaciones en planta alta. *1 baños completo",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-buenavista.-queretaro-146948511.html?n_src=Listado&n_pg=1&n_pos=9",
+      "title": "La Calle Ignacio Allende, ubicada en la colonia Buenavista, Querétaro, es una excelente opción para quienes buscan casas en venta en Querétaro dentro ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-emiliano-zapata-norte-144559896.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=10",
+      "title": "Residencia de una sola planta ubicada en zona norte con conexión directa a la principal vena de la ciudad de Mérida: Prolongación de Montejo. Fácil ac",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.172Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-oportunidad-unica-en-lomas-de-chapultepec:-casa-amplia-143181430.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "Una oportunidad única en una ubicación inmejorable. En el corazón de lomas de chapultepec, esta casa destaca por su gran luminosidad Y amplios espacio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fracc.-la-calma.-puerto-vallarta-147925799.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=12",
+      "title": "Tu nuevo hogar te espera en Fracc. La Calma, un entorno seguro, familiar y con todo el confort que ofrece Puerto Vallarta. Caracteristicas. casa nueva",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lindavista-144812035.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=13",
+      "title": "Ven a descubrir tu nuevo hogar en Lindavista. Distribuido en 3 niveles, se convertirá en el punto de encuentro favorito para familiares y amigos. Al e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-huixquilucan-146005242.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+      "title": "Casa en Venta en Parques de la Herradura - Excelente Estado. Ubicación: Una de las mejores cerradas de Parques de la Herradura. Características de la ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-preciosa-casa-con-vista-panoramica-146997326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "Ubicada en una zona privilegiada, esta residencia estilo contemporaneo, ofrece espacios diseñados para el confort familiar. Cuenta con una distribucio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-dzitya-merida-yucatan.-147932725.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
+      "title": "Casa en Venta ubicada en Dzitya, Mérida, YucatánTerreno: 696 m2 ( 12 x 58. 44) Construcción: 454m2caracteristicas Y distribucion: Planta baja– Garage ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-jurica-queretaro-146731827.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+      "title": "Vhv- Descubre en esta propiedad diseño en iluminación, sistemas de ahorro de energía, funcionalidad, modernidad, acabados de calidad dentro de uno de ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-jeronimo-siller-spgg-146599449.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=18",
+      "title": "Extraordinaria casa con 3 habitaciones cada una con baño completo Y closet en venta en una de las colonias mas tranquilas Y bien ubicadas de spgg! 4 f",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-una-sola-planta-al-norte-de-merida-real-147693571.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=19",
+      "title": "Casa de una planta de dos habitacionses, con dos baños completos, área de sala, comedor y cocina. Ubicada en Real Montejo, zona con cercanía a todos l",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-jardin-roof-garden-y-un-entorno-incomparable-zibata-147885610.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=20",
+      "title": "Zibatá, Turquesa. planta baja. -1/2 baño. -cocina con cubierta de granito. -sala. -comedor. -jardín. -cuarto de lavado. -cisterna. planta alta. -habit",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-victoria-145402551.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+      "title": "Terreno: 290 mts2. construccion: 490 mts2. distribución: sala. comedor. cocina. 5 recamaras. 4 baños. 2 medios baños. cuarto de lavado. cuarto de jueg",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-estilo-colonial-coyoacan-146612593.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=22",
+      "title": "Fraccionamiento exclusivo con vigilancia las 24 hrs. Cuenta con jardín con terraza, fuente y patio. Pisos parquet, puertas de hacienda, vitrales, cand",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-2-hab-sala-de-tv-en-juriquilla-santa-147200510.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=23",
+      "title": "Casa dentro de condominio cerrado en Privada Santa Fe, cerca de plazas comerciales, escuelas y avenidas importantes, dentro del corazón de Juriquilla.",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altos-juriquilla-dentro-de-64943470.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
+      "title": "La casa de tus sueños en un condominio seguro y exclusivo. Eso es Quianá, un desarrollo diseñado para que disfrutes la vida en comunidad, sin perder e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-144228536.html?n_src=Listado&n_pg=1&n_pos=25",
+      "title": "Preciosa Residencia en Jardines del Pedregal, bien iluminada y muy funcional, con vista a un gran jardín desde las áreas sociales y habitaciones; cons",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-venden-townhouse-en-cholul-merida-yucatan-146482166.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Rag. Bienvenido a un exclusivo desarrollo de 8 townhouses que redefine el estilo de vida urbano. Con un diseño moderno y elegante, cada th está cuidad",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-una-vida-comoda-y-familiar-amplio-jardin-nuevo-146374715.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=27",
+      "title": "Nuevo Refugio. planta baja. - garage 2 autos. - recámara con closet Y baño completo. - amplia sala-comedor. - cocina integral Y equipada. - alacena. -",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rincon-del-conchal-143631362.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28",
+      "title": "Casa en VentaRincon del ConchalRiviera Veracruzana $7, 000, 000+Gastos de escrituración $36, 000Renta Mensual incluye mtto. Agua y recolección de basu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rinconada-de-las-arboledas.-parques-146529344.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
+      "title": "Lleva a tu familia al siguiente nivel! El entusiasmo de llegar a tu nuevo hogar producto de tu gran esfuerzo es un logro que merece la mejor recompens",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cancun-en-residencial-isla-dorada-con-145589436.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=30",
+      "title": "Hermosa casa en conjunto Isla Fuego con muelle, ubicada dentro de Residencial Isla Dorada, único en su tipo en el corazón de la Zona Hotelera de Cancu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:28:53.173Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=1",
+      "title": "Estrena casa o terreno dentro de Rincón Acatitlán, el fraccionamiento más esperado de Valle, ubicado en Acatitlán, la zona con mayor plusvalía y creci",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-en-bosque-de-las-lomas-con-cava-subterranea-141872789.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "title": "Casa disponible en venta y renta en Bosque de las Lomas, con 780 m² de terreno y 1100 m² construidos. Cuenta con 4 recámaras y 4 baños completos, más ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=3",
+      "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-al-norte-de-merida-147951952.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4",
+      "title": "Ubicada en la zona de Conkal, a escasos minutos del anillo periférico y variedad de servicios. La privada cuenta con una excelente seguridad con barda",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-con-alberca-y-jardin-privado-al-sur-de-145063327.html?n_src=Listado&n_pg=1&n_pos=5",
+      "title": "¿Buscas una casa amplia con jardín y alaberca privada, en fraccionamiento con vigilancia, para vivir en tranquilidad con tu familia? El fraccionamient",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-con-4-recamaras-en-temozon-norte-merida-143088872.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Privada que consta de 75 casas residenciales, ubicadas en Temozón Norte, en la ciudad de Mérida, Yucatán. La ubicación es altamente conveniente, ya qu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-la-elegancia-tiene-direccion-valle-tinto-147820544.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=7",
+      "title": "Valle Tinto Residencial. Planta baja: - Cochera 2 autos. - Vestíbulo a doble altura. - Baño de visitas. - Cuarto de lavado. - Sala comedor y cocina a ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-una-de-las-mejores-zonas-del-norte-147951935.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "title": "Casa ubicada en la zona de dzitya Distribución de la propiedad: Cuenta con 2 plantas y doble altura. *2 habitaciones en planta alta. *1 baños completo",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-buenavista.-queretaro-146948511.html?n_src=Listado&n_pg=1&n_pos=9",
+      "title": "La Calle Ignacio Allende, ubicada en la colonia Buenavista, Querétaro, es una excelente opción para quienes buscan casas en venta en Querétaro dentro ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-emiliano-zapata-norte-144559896.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=10",
+      "title": "Residencia de una sola planta ubicada en zona norte con conexión directa a la principal vena de la ciudad de Mérida: Prolongación de Montejo. Fácil ac",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-oportunidad-unica-en-lomas-de-chapultepec:-casa-amplia-143181430.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "Una oportunidad única en una ubicación inmejorable. En el corazón de lomas de chapultepec, esta casa destaca por su gran luminosidad Y amplios espacio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fracc.-la-calma.-puerto-vallarta-147925799.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=12",
+      "title": "Tu nuevo hogar te espera en Fracc. La Calma, un entorno seguro, familiar y con todo el confort que ofrece Puerto Vallarta. Caracteristicas. casa nueva",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lindavista-144812035.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=13",
+      "title": "Ven a descubrir tu nuevo hogar en Lindavista. Distribuido en 3 niveles, se convertirá en el punto de encuentro favorito para familiares y amigos. Al e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-huixquilucan-146005242.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+      "title": "Casa en Venta en Parques de la Herradura - Excelente Estado. Ubicación: Una de las mejores cerradas de Parques de la Herradura. Características de la ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-preciosa-casa-con-vista-panoramica-146997326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "Ubicada en una zona privilegiada, esta residencia estilo contemporaneo, ofrece espacios diseñados para el confort familiar. Cuenta con una distribucio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-dzitya-merida-yucatan.-147932725.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
+      "title": "Casa en Venta ubicada en Dzitya, Mérida, YucatánTerreno: 696 m2 ( 12 x 58. 44) Construcción: 454m2caracteristicas Y distribucion: Planta baja– Garage ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-jurica-queretaro-146731827.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+      "title": "Vhv- Descubre en esta propiedad diseño en iluminación, sistemas de ahorro de energía, funcionalidad, modernidad, acabados de calidad dentro de uno de ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-jeronimo-siller-spgg-146599449.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=18",
+      "title": "Extraordinaria casa con 3 habitaciones cada una con baño completo Y closet en venta en una de las colonias mas tranquilas Y bien ubicadas de spgg! 4 f",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-una-sola-planta-al-norte-de-merida-real-147693571.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=19",
+      "title": "Casa de una planta de dos habitacionses, con dos baños completos, área de sala, comedor y cocina. Ubicada en Real Montejo, zona con cercanía a todos l",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-jardin-roof-garden-y-un-entorno-incomparable-zibata-147885610.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=20",
+      "title": "Zibatá, Turquesa. planta baja. -1/2 baño. -cocina con cubierta de granito. -sala. -comedor. -jardín. -cuarto de lavado. -cisterna. planta alta. -habit",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-victoria-145402551.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+      "title": "Terreno: 290 mts2. construccion: 490 mts2. distribución: sala. comedor. cocina. 5 recamaras. 4 baños. 2 medios baños. cuarto de lavado. cuarto de jueg",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-estilo-colonial-coyoacan-146612593.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=22",
+      "title": "Fraccionamiento exclusivo con vigilancia las 24 hrs. Cuenta con jardín con terraza, fuente y patio. Pisos parquet, puertas de hacienda, vitrales, cand",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-2-hab-sala-de-tv-en-juriquilla-santa-147200510.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=23",
+      "title": "Casa dentro de condominio cerrado en Privada Santa Fe, cerca de plazas comerciales, escuelas y avenidas importantes, dentro del corazón de Juriquilla.",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altos-juriquilla-dentro-de-64943470.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
+      "title": "La casa de tus sueños en un condominio seguro y exclusivo. Eso es Quianá, un desarrollo diseñado para que disfrutes la vida en comunidad, sin perder e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-144228536.html?n_src=Listado&n_pg=1&n_pos=25",
+      "title": "Preciosa Residencia en Jardines del Pedregal, bien iluminada y muy funcional, con vista a un gran jardín desde las áreas sociales y habitaciones; cons",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-venden-townhouse-en-cholul-merida-yucatan-146482166.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Rag. Bienvenido a un exclusivo desarrollo de 8 townhouses que redefine el estilo de vida urbano. Con un diseño moderno y elegante, cada th está cuidad",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-una-vida-comoda-y-familiar-amplio-jardin-nuevo-146374715.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=27",
+      "title": "Nuevo Refugio. planta baja. - garage 2 autos. - recámara con closet Y baño completo. - amplia sala-comedor. - cocina integral Y equipada. - alacena. -",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rincon-del-conchal-143631362.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28",
+      "title": "Casa en VentaRincon del ConchalRiviera Veracruzana $7, 000, 000+Gastos de escrituración $36, 000Renta Mensual incluye mtto. Agua y recolección de basu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rinconada-de-las-arboledas.-parques-146529344.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
+      "title": "Lleva a tu familia al siguiente nivel! El entusiasmo de llegar a tu nuevo hogar producto de tu gran esfuerzo es un logro que merece la mejor recompens",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cancun-en-residencial-isla-dorada-con-145589436.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=30",
+      "title": "Hermosa casa en conjunto Isla Fuego con muelle, ubicada dentro de Residencial Isla Dorada, único en su tipo en el corazón de la Zona Hotelera de Cancu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:05.894Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casas-y-terrenos-en-preventa-fraccionamiento-en-147168732.html?n_src=Listado&n_pg=1&n_pos=1",
+      "title": "Estrena casa o terreno dentro de Rincón Acatitlán, el fraccionamiento más esperado de Valle, ubicado en Acatitlán, la zona con mayor plusvalía y creci",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.003Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-residencia-en-bosque-de-las-lomas-con-cava-subterranea-141872789.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "title": "Casa disponible en venta y renta en Bosque de las Lomas, con 780 m² de terreno y 1100 m² construidos. Cuenta con 4 recámaras y 4 baños completos, más ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.003Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-en-puebla-lomas-de-angelopolis.-142261706.html?n_src=Listado&n_pg=1&n_pos=3",
+      "title": "Casas en Parque Mallorca, Lomas de Angelópolis – Desde $2, 400, 000 mxn. Descubre tu nuevo hogar en Parque Mallorca, un exclusivo conjunto residencial",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.003Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-al-norte-de-merida-147951952.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=4",
+      "title": "Ubicada en la zona de Conkal, a escasos minutos del anillo periférico y variedad de servicios. La privada cuenta con una excelente seguridad con barda",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.003Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/desarrollo/ememhoin-casa-en-venta-con-alberca-y-jardin-privado-al-sur-de-145063327.html?n_src=Listado&n_pg=1&n_pos=5",
+      "title": "¿Buscas una casa amplia con jardín y alaberca privada, en fraccionamiento con vigilancia, para vivir en tranquilidad con tu familia? El fraccionamient",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.003Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-con-4-recamaras-en-temozon-norte-merida-143088872.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "title": "Privada que consta de 75 casas residenciales, ubicadas en Temozón Norte, en la ciudad de Mérida, Yucatán. La ubicación es altamente conveniente, ya qu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.003Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-la-elegancia-tiene-direccion-valle-tinto-147820544.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=7",
+      "title": "Valle Tinto Residencial. Planta baja: - Cochera 2 autos. - Vestíbulo a doble altura. - Baño de visitas. - Cuarto de lavado. - Sala comedor y cocina a ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.003Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-en-una-de-las-mejores-zonas-del-norte-147951935.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "title": "Casa ubicada en la zona de dzitya Distribución de la propiedad: Cuenta con 2 plantas y doble altura. *2 habitaciones en planta alta. *1 baños completo",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.003Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-buenavista.-queretaro-146948511.html?n_src=Listado&n_pg=1&n_pos=9",
+      "title": "La Calle Ignacio Allende, ubicada en la colonia Buenavista, Querétaro, es una excelente opción para quienes buscan casas en venta en Querétaro dentro ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-emiliano-zapata-norte-144559896.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=10",
+      "title": "Residencia de una sola planta ubicada en zona norte con conexión directa a la principal vena de la ciudad de Mérida: Prolongación de Montejo. Fácil ac",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-oportunidad-unica-en-lomas-de-chapultepec:-casa-amplia-143181430.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=11",
+      "title": "Una oportunidad única en una ubicación inmejorable. En el corazón de lomas de chapultepec, esta casa destaca por su gran luminosidad Y amplios espacio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-fracc.-la-calma.-puerto-vallarta-147925799.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=12",
+      "title": "Tu nuevo hogar te espera en Fracc. La Calma, un entorno seguro, familiar y con todo el confort que ofrece Puerto Vallarta. Caracteristicas. casa nueva",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lindavista-144812035.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=13",
+      "title": "Ven a descubrir tu nuevo hogar en Lindavista. Distribuido en 3 niveles, se convertirá en el punto de encuentro favorito para familiares y amigos. Al e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-huixquilucan-146005242.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+      "title": "Casa en Venta en Parques de la Herradura - Excelente Estado. Ubicación: Una de las mejores cerradas de Parques de la Herradura. Características de la ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-en-venta-preciosa-casa-con-vista-panoramica-146997326.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=15",
+      "title": "Ubicada en una zona privilegiada, esta residencia estilo contemporaneo, ofrece espacios diseñados para el confort familiar. Cuenta con una distribucio",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-dzitya-merida-yucatan.-147932725.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=16",
+      "title": "Casa en Venta ubicada en Dzitya, Mérida, YucatánTerreno: 696 m2 ( 12 x 58. 44) Construcción: 454m2caracteristicas Y distribucion: Planta baja– Garage ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-venta-jurica-queretaro-146731827.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+      "title": "Vhv- Descubre en esta propiedad diseño en iluminación, sistemas de ahorro de energía, funcionalidad, modernidad, acabados de calidad dentro de uno de ",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-jeronimo-siller-spgg-146599449.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=18",
+      "title": "Extraordinaria casa con 3 habitaciones cada una con baño completo Y closet en venta en una de las colonias mas tranquilas Y bien ubicadas de spgg! 4 f",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-una-sola-planta-al-norte-de-merida-real-147693571.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=19",
+      "title": "Casa de una planta de dos habitacionses, con dos baños completos, área de sala, comedor y cocina. Ubicada en Real Montejo, zona con cercanía a todos l",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-jardin-roof-garden-y-un-entorno-incomparable-zibata-147885610.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=20",
+      "title": "Zibatá, Turquesa. planta baja. -1/2 baño. -cocina con cubierta de granito. -sala. -comedor. -jardín. -cuarto de lavado. -cisterna. planta alta. -habit",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-residencial-victoria-145402551.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+      "title": "Terreno: 290 mts2. construccion: 490 mts2. distribución: sala. comedor. cocina. 5 recamaras. 4 baños. 2 medios baños. cuarto de lavado. cuarto de jueg",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-estilo-colonial-coyoacan-146612593.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=22",
+      "title": "Fraccionamiento exclusivo con vigilancia las 24 hrs. Cuenta con jardín con terraza, fuente y patio. Pisos parquet, puertas de hacienda, vitrales, cand",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-2-hab-sala-de-tv-en-juriquilla-santa-147200510.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=23",
+      "title": "Casa dentro de condominio cerrado en Privada Santa Fe, cerca de plazas comerciales, escuelas y avenidas importantes, dentro del corazón de Juriquilla.",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altos-juriquilla-dentro-de-64943470.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=24",
+      "title": "La casa de tus sueños en un condominio seguro y exclusivo. Eso es Quianá, un desarrollo diseñado para que disfrutes la vida en comunidad, sin perder e",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-jardines-del-pedregal-144228536.html?n_src=Listado&n_pg=1&n_pos=25",
+      "title": "Preciosa Residencia en Jardines del Pedregal, bien iluminada y muy funcional, con vista a un gran jardín desde las áreas sociales y habitaciones; cons",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-venden-townhouse-en-cholul-merida-yucatan-146482166.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=26",
+      "title": "Rag. Bienvenido a un exclusivo desarrollo de 8 townhouses que redefine el estilo de vida urbano. Con un diseño moderno y elegante, cada th está cuidad",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-una-vida-comoda-y-familiar-amplio-jardin-nuevo-146374715.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=27",
+      "title": "Nuevo Refugio. planta baja. - garage 2 autos. - recámara con closet Y baño completo. - amplia sala-comedor. - cocina integral Y equipada. - alacena. -",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rincon-del-conchal-143631362.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=28",
+      "title": "Casa en VentaRincon del ConchalRiviera Veracruzana $7, 000, 000+Gastos de escrituración $36, 000Renta Mensual incluye mtto. Agua y recolección de basu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-rinconada-de-las-arboledas.-parques-146529344.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=29",
+      "title": "Lleva a tu familia al siguiente nivel! El entusiasmo de llegar a tu nuevo hogar producto de tu gran esfuerzo es un logro que merece la mejor recompens",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cancun-en-residencial-isla-dorada-con-145589436.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=30",
+      "title": "Hermosa casa en conjunto Isla Fuego con muelle, ubicada dentro de Residencial Isla Dorada, único en su tipo en el corazón de la Zona Hotelera de Cancu",
+      "price": "Consultar",
+      "scrapedAt": "2025-10-22T20:29:21.004Z"
     }
   ],
   "stats": {
-    "totalProperties": 90,
-    "nuevasDetectadas": 60,
-    "eliminadasDetectadas": 263,
+    "totalProperties": 300,
+    "nuevasDetectadas": 252,
+    "eliminadasDetectadas": 56,
     "changeLog": [
       {
         "date": "2025-10-13T19:51:49.499Z",
@@ -594,6 +1854,12 @@
         "nuevas": 60,
         "eliminadas": 263,
         "total": 90
+      },
+      {
+        "date": "2025-10-22T20:29:21.276Z",
+        "nuevas": 252,
+        "eliminadas": 56,
+        "total": 300
       }
     ]
   }

@@ -1,0 +1,37 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Inmuebles24",
+    "url": "https://www.inmuebles24.com"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Inmuebles24",
+    "url": "https://www.inmuebles24.com",
+    "logo": "https://img10.naventcdn.com/ficha/RPFICv5.372.0-RC2/images/favicon.png"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "House",
+    "name": "Casa en Guadalupe, Provincia de Sinaloa - Inmuebles24",
+    "description": "Se vende Casa de dos plantas con excelente ubicación; punto medio entre Paseo San Isidro y Explanada, cerca de parques, escuelas, super mer...Fraccionamiento Finisterra",
+    "image": "https://img10.naventcdn.com/avisos/18/01/46/84/74/93/720x532/1542111483.jpg?isFirstImage=true",
+    "numberOfRooms": 2,
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": 118,
+      "unitCode": "MTK"
+    },
+    "numberOfBathroomsTotal": 2,
+    "numberOfBedrooms": 2,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Culiacán, Sinaloa, Mexico, ",
+      "addressRegion": "Fraccionamiento Finisterra",
+      "streetAddress": "C. Salvador Elizondo 5839"
+    },
+    "telephone": "+52  "
+  }
+]
