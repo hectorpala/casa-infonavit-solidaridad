@@ -4389,6 +4389,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 126 días",
           "vistas": 0
+        },
+        {
+          "id": "147651291",
+          "titulo": "Casa en Venta en Mazatlan, Sinaloa (Villa Galaxia)",
+          "precio": "MN 1,960,000",
+          "ubicacion": "Villa Galaxia, Sinaloa, Mexico, Mazatlán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-sinaloa-villa-galaxia-147651291.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 34 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4513,9 +4527,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T20:18:43.227Z",
+    "ultimaActualizacion": "2025-10-23T20:23:48.102Z",
     "totalVendedores": 27,
-    "totalPropiedades": 246,
+    "totalPropiedades": 247,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
