@@ -22914,13 +22914,20 @@ const losPinosProperty = {
             const casa_en_cnopMarker = new casa_en_cnopMarkerClass(casa_en_cnopPosition, window.mapCuliacan, casa_en_cnopProperty);
             window.allCuliacanMarkers.push(casa_en_cnopMarker);
             console.log('Marcador Casa en Cnop (VENTA) creado en:', casa_en_cnopPosition.lat(), casa_en_cnopPosition.lng());
-marker);
+
+            // Geocodificar solidaridad
+            geocoder.geocode({ address: "Blvrd Elbert 2609, Infonavit Solidaridad, Culiacán, Sinaloa" }, function(results, status) {
+                if (status === 'OK' && results[0]) {
+                    const position = results[0].geometry.location;
+                    const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, window.mapCuliacan);
+                    const marker = new CustomMarkerClass(position, window.mapCuliacan, solidaridadProperty);
+                    window.allCuliacanMarkers.push(marker);
                     console.log('Marcador solidaridad creado en:', position.lat(), position.lng());
                 } else {
                     console.error('Geocode error solidaridad:', status);
                 }
             });
-            
+
             // Geocodificar laPrimavera
             geocoder.geocode({ address: "San Agustín 266, Culiacán, Sinaloa" }, function(results, status) {
                 if (status === 'OK' && results[0]) {
