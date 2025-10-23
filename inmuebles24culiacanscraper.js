@@ -168,6 +168,8 @@ const CONFIG = {
     crm_vendedores_file: 'crm-vendedores.json' // CRM de vendedores
 };
 
+geocoder.setGoogleMapsKey(CONFIG.googleMaps.key);
+
 // ============================================
 // FUNCIONES AUXILIARES
 // ============================================
@@ -603,7 +605,9 @@ function generateMapWithCustomMarker(config) {
         whatsapp = '526681234567',
         city = 'culiacan',
         cityName = cityCoords.name || 'Culiacán',
-        stateName = 'Sinaloa'
+        stateName = 'Sinaloa',
+        lat = null, // ✅ Coordenadas de Geocoder V1.5
+        lng = null  // ✅ Coordenadas de Geocoder V1.5
     } = config;
 
     const resolvedMapLocation = (mapLocation && mapLocation.trim()) ||
@@ -683,7 +687,9 @@ ${mazatlanPropertiesBlock}
             title: "${sanitizedTitle}",
             precision: "${precision.level}",
             latOffset: ${latOffset},
-            lngOffset: ${lngOffset}
+            lngOffset: ${lngOffset},
+            lat: ${lat !== null ? lat : 'null'}, // ✅ Coordenadas de Geocoder V1.5
+            lng: ${lng !== null ? lng : 'null'}  // ✅ Coordenadas de Geocoder V1.5
         };
 
         // Datos completos de la propiedad actual (para el InfoWindow con carrusel)
@@ -958,11 +964,98 @@ ${mazatlanPropertiesBlock}
             return CustomMarker;
         }
 
+        // Helper: Inicializar mapa con coordenadas
+        function initializeMapWithPosition(position) {
+            // Detectar si es propiedad de Mazatlán
+            const isMazatlan = CURRENT_CITY === 'mazatlan' || window.location.href.includes('/mazatlan/');
+            const currentSlug = window.location.pathname.split('/').filter(p => p).pop();
+
+            // Crear mapa con zoom ajustado para Mazatlán
+            map = new google.maps.Map(document.getElementById('map-container'), {
+                center: position,
+                zoom: isMazatlan ? 13 : (MARKER_CONFIG.precision === 'exact' ? 17 :
+                      MARKER_CONFIG.precision === 'street' ? 16 : 15),
+                mapTypeId: 'roadmap',
+                styles: [
+                    {
+                        featureType: 'poi',
+                        elementType: 'labels',
+                        stylers: [{ visibility: 'off' }]
+                    }
+                ],
+                disableDefaultUI: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                streetViewControl: true,
+                fullscreenControl: true
+            });
+
+            let currentPropertySource = CURRENT_PROPERTY_DATA;
+            if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
+                const matched = ALL_MAZATLAN_PROPERTIES.find(p =>
+                    currentSlug && (currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
+                );
+                if (matched) {
+                    currentPropertySource = { ...matched };
+                }
+            }
+
+            const enrichedCurrent = enrichProperty(currentPropertySource);
+            const CustomMarkerClass = createPropertyMarker(enrichedCurrent, map, true);
+            marker = new CustomMarkerClass(position, map, enrichedCurrent, true);
+
+            if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
+                const referenceSlug = enrichedCurrent.slug || currentSlug;
+
+                ALL_MAZATLAN_PROPERTIES.forEach(property => {
+                    const enriched = enrichProperty(property);
+                    const propertySlug = enriched.slug || property.slug;
+
+                    if (referenceSlug && propertySlug && propertySlug === referenceSlug) {
+                        return;
+                    }
+
+                    const baseLocation = enriched.location || property.location || CITY_NAME;
+                    const geocodeAddress = baseLocation.toLowerCase().includes(CITY_NAME.toLowerCase())
+                        ? baseLocation
+                        : \`\${baseLocation}, \${CITY_NAME}, \${STATE_NAME}\`;
+
+                    geocoder.geocode({ address: geocodeAddress }, function(results, status) {
+                        if (status === 'OK' && results[0]) {
+                            const otherPosition = {
+                                lat: results[0].geometry.location.lat(),
+                                lng: results[0].geometry.location.lng()
+                            };
+
+                            const OtherMarkerClass = createPropertyMarker(enriched, map, false);
+                            new OtherMarkerClass(otherPosition, map, enriched, false);
+                        }
+                    });
+                });
+            }
+        }
+
         // Inicializar mapa
         function initMap() {
+            // Inicializar geocoder (necesario para Mazatlán properties)
             geocoder = new google.maps.Geocoder();
 
-            // Geocodificar la dirección
+            // ✅ PRIORIDAD 1: Usar coordenadas de Geocoder V1.5 si están disponibles
+            if (MARKER_CONFIG.lat !== null && MARKER_CONFIG.lng !== null) {
+                console.log('📍 Usando coordenadas de Geocoder V1.5:', MARKER_CONFIG.lat, MARKER_CONFIG.lng);
+                const position = {
+                    lat: MARKER_CONFIG.lat + MARKER_CONFIG.latOffset,
+                    lng: MARKER_CONFIG.lng + MARKER_CONFIG.lngOffset
+                };
+
+                initializeMapWithPosition(position);
+                return;
+            }
+
+            // ✅ FALLBACK: Usar Google Maps Geocoder si no hay coordenadas de V1.5
+            console.log('⚠️ Coordenadas V1.5 no disponibles, usando Google Maps API como fallback');
+
+            // Geocodificar la dirección con Google Maps API
             geocoder.geocode({ address: MARKER_CONFIG.location }, function(results, status) {
                 if (status === 'OK' && results[0]) {
                     const position = {
@@ -970,72 +1063,7 @@ ${mazatlanPropertiesBlock}
                         lng: results[0].geometry.location.lng() + MARKER_CONFIG.lngOffset
                     };
 
-                    // Detectar si es propiedad de Mazatlán
-                    const isMazatlan = CURRENT_CITY === 'mazatlan' || window.location.href.includes('/mazatlan/');
-                    const currentSlug = window.location.pathname.split('/').filter(p => p).pop();
-
-                    // Crear mapa con zoom ajustado para Mazatlán
-                    map = new google.maps.Map(document.getElementById('map-container'), {
-                        center: position,
-                        zoom: isMazatlan ? 13 : (MARKER_CONFIG.precision === 'exact' ? 17 :
-                              MARKER_CONFIG.precision === 'street' ? 16 : 15),
-                        mapTypeId: 'roadmap',
-                        styles: [
-                            {
-                                featureType: 'poi',
-                                elementType: 'labels',
-                                stylers: [{ visibility: 'off' }]
-                            }
-                        ],
-                        disableDefaultUI: false,
-                        zoomControl: true,
-                        mapTypeControl: false,
-                        streetViewControl: true,
-                        fullscreenControl: true
-                    });
-
-                    let currentPropertySource = CURRENT_PROPERTY_DATA;
-                    if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
-                        const matched = ALL_MAZATLAN_PROPERTIES.find(p =>
-                            currentSlug && (currentSlug.includes(p.slug) || p.slug.includes(currentSlug))
-                        );
-                        if (matched) {
-                            currentPropertySource = { ...matched };
-                        }
-                    }
-
-                    const enrichedCurrent = enrichProperty(currentPropertySource);
-                    const CustomMarkerClass = createPropertyMarker(enrichedCurrent, map, true);
-                    marker = new CustomMarkerClass(position, map, enrichedCurrent, true);
-
-                    if (isMazatlan && typeof ALL_MAZATLAN_PROPERTIES !== 'undefined') {
-                        const referenceSlug = enrichedCurrent.slug || currentSlug;
-
-                        ALL_MAZATLAN_PROPERTIES.forEach(property => {
-                            const enriched = enrichProperty(property);
-                            const propertySlug = enriched.slug || property.slug;
-
-                            if (referenceSlug && propertySlug && propertySlug === referenceSlug) {
-                                return;
-                            }
-
-                            const baseLocation = enriched.location || property.location || CITY_NAME;
-                            const geocodeAddress = baseLocation.toLowerCase().includes(CITY_NAME.toLowerCase())
-                                ? baseLocation
-                                : \`\${baseLocation}, \${CITY_NAME}, \${STATE_NAME}\`;
-
-                            geocoder.geocode({ address: geocodeAddress }, function(results, status) {
-                                if (status === 'OK' && results[0]) {
-                                    const otherPosition = {
-                                        lat: results[0].geometry.location.lat(),
-                                        lng: results[0].geometry.location.lng()
-                                    };
-                                    const OtherMarkerClass = createPropertyMarker(enriched, map, false);
-                                    new OtherMarkerClass(otherPosition, map, enriched, false);
-                                }
-                            });
-                        });
-                    }
+                    initializeMapWithPosition(position);
 
                 } else {
                     console.error('Geocode error:', status);
@@ -1634,6 +1662,121 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             console.log(`   🎯 ${source} address found: ${cleaned} (score: ${score})`);
         }
 
+        function escapeRegExp(value) {
+            return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function isCityOrState(part) {
+            if (!part) return false;
+            const lower = part.toLowerCase();
+            const knownCities = ['culiacán', 'mazatlán', 'monterrey'];
+            const knownStates = ['sinaloa', 'nuevo león', 'nuevo leon'];
+            const cityMatch = meta?.cityName ? lower.includes(meta.cityName.toLowerCase()) : false;
+            const stateMatch = meta?.stateName ? lower.includes(meta.stateName.toLowerCase()) : false;
+            return cityMatch || stateMatch ||
+                knownCities.some(city => lower.includes(city)) ||
+                knownStates.some(state => lower.includes(state));
+        }
+
+        function isStreetCandidate(address) {
+            if (!address) return false;
+            const lower = address.toLowerCase();
+            const hasStreetKeyword = /(calle|avenida|av\.|blvd|boulevard|privada|priv\.|paseo|prol\.|prolongación|camino|carretera|andador|calz\.|calzada)/i.test(lower);
+            const hasNumber = /\d+/.test(address);
+            return hasStreetKeyword && hasNumber;
+        }
+
+        function isNeighborhoodCandidate(address) {
+            if (!address) return false;
+            const lower = address.toLowerCase();
+            const hasNeighborhoodKeyword = /(fracc\.|fraccionamiento|colonia|col\.|residencial|privada|priv\.|barrio|sector|zona|parque)/i.test(lower);
+            if (isStreetCandidate(address)) return false;
+
+            const parts = address.split(',').map(part => part.trim()).filter(Boolean);
+            if (!parts.length) return false;
+            const firstPart = parts[0];
+            const looksLikeNeighborhood = firstPart.length >= 4 && !/\d/.test(firstPart) && !isCityOrState(firstPart);
+            const hasCityState = parts.some(part => isCityOrState(part));
+
+            return (hasNeighborhoodKeyword || (looksLikeNeighborhood && hasCityState));
+        }
+
+        function getPrimaryNonCityPart(parts) {
+            return parts.find(part => part && !isCityOrState(part)) || parts[0] || '';
+        }
+
+        function hasRomanNumeralSuffix(text) {
+            if (!text) return false;
+            return /\b(i|ii|iii|iv|v|vi|vii|viii|ix|x)\b$/i.test(text.trim());
+        }
+
+        function decomposeNeighborhood(text) {
+            if (!text) {
+                return { prefix: '', core: '', base: '' };
+            }
+            const match = text.match(/^(Fracc\.|Fraccionamiento|Col\.|Colonia|Residencial)\s+/i);
+            const prefix = match ? match[0].trim() : '';
+            const core = match ? text.slice(match[0].length).trim() : text.trim();
+            const base = core.replace(/\b(i|ii|iii|iv|v|vi|vii|viii|ix|x)\b$/i, '').trim();
+            return { prefix, core, base };
+        }
+
+        function normalizeNeighborhoodBase(text) {
+            if (!text) return '';
+            const { base } = decomposeNeighborhood(text);
+            return base.toLowerCase();
+        }
+
+        function findRomanVariant(baseName, prefix, text) {
+            if (!baseName || !text) return null;
+            const escapedBase = escapeRegExp(baseName);
+            const romanPattern = new RegExp(`\\b(${escapedBase})\\s+(i|ii|iii|iv|v|vi|vii|viii|ix|x)\\b`, 'i');
+            const match = text.match(romanPattern);
+            if (match) {
+                const nameCore = `${match[1]} ${match[2].toUpperCase()}`.replace(/\s+/g, ' ').trim();
+                return prefix ? `${prefix} ${nameCore}` : nameCore;
+            }
+            return null;
+        }
+
+        function createRomanEnhancedAddress(originalAddress) {
+            if (!originalAddress) return null;
+            const parts = originalAddress.split(',').map(part => part.trim()).filter(Boolean);
+            if (!parts.length) return null;
+
+            const primaryIndex = parts.findIndex(part => part && !isCityOrState(part));
+            const primaryPart = primaryIndex >= 0 ? parts[primaryIndex] : parts[0];
+            if (!primaryPart) return null;
+
+            const { prefix, core, base } = decomposeNeighborhood(primaryPart);
+            if (!base || hasRomanNumeralSuffix(core)) {
+                return null;
+            }
+
+            const pageTitle = document.title || '';
+            const romanVariant =
+                findRomanVariant(base, prefix, result.title || '') ||
+                findRomanVariant(base, prefix, pageTitle) ||
+                findRomanVariant(base, prefix, bodyText) ||
+                findRomanVariant(base, prefix, originalAddress);
+
+            if (!romanVariant || romanVariant.toLowerCase() === primaryPart.toLowerCase()) {
+                return null;
+            }
+
+            const enhancedParts = [...parts];
+            if (primaryIndex >= 0) {
+                enhancedParts[primaryIndex] = romanVariant;
+            } else {
+                enhancedParts.unshift(romanVariant);
+            }
+
+            appendCityState(enhancedParts);
+
+            const enhancedAddress = enhancedParts.join(', ');
+            return usableAddress(enhancedAddress) ? enhancedAddress : null;
+        }
+
         function extractJsonLdAddress(node) {
             if (!node || typeof node !== 'object') return;
 
@@ -1721,6 +1864,56 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         );
 
         googleMapIframes.forEach(iframe => {
+            const src = iframe.src || '';
+
+            if (src && (!result.latitude || !result.longitude)) {
+                // Patrón estándar !2dLON!3dLAT
+                const embedMatch = src.match(/!2d(-?\d+\.?\d*)!3d(-?\d+\.?\d*)/);
+                if (embedMatch) {
+                    const lng = parseFloat(embedMatch[1]);
+                    const lat = parseFloat(embedMatch[2]);
+                    if (!Number.isNaN(lat) && !Number.isNaN(lng)) {
+                        result.latitude = lat;
+                        result.longitude = lng;
+                        console.log(`   📍 Coordenadas detectadas en iframe: ${lat}, ${lng}`);
+                    }
+                }
+            }
+
+            if (src && (!result.latitude || !result.longitude)) {
+                // Segundo intento: coordenadas en @lat,lng (modo mapa estático)
+                const atMatch = src.match(/@(-?\d+\.?\d*),(-?\d+\.?\d*)/);
+                if (atMatch) {
+                    const lat = parseFloat(atMatch[1]);
+                    const lng = parseFloat(atMatch[2]);
+                    if (!Number.isNaN(lat) && !Number.isNaN(lng)) {
+                        result.latitude = lat;
+                        result.longitude = lng;
+                        console.log(`   📍 Coordenadas detectadas en iframe (@): ${lat}, ${lng}`);
+                    }
+                }
+            }
+
+            if (src && (!result.latitude || !result.longitude)) {
+                // Último intento: parámetro q=lat,lng
+                try {
+                    const url = new URL(src, window.location.href);
+                    const qParam = url.searchParams.get('q');
+                    if (qParam && qParam.includes(',')) {
+                        const [latStr, lngStr] = qParam.split(',').map(part => part.trim());
+                        const lat = parseFloat(latStr);
+                        const lng = parseFloat(lngStr);
+                        if (!Number.isNaN(lat) && !Number.isNaN(lng)) {
+                            result.latitude = lat;
+                            result.longitude = lng;
+                            console.log(`   📍 Coordenadas detectadas en iframe (q=): ${lat}, ${lng}`);
+                        }
+                    }
+                } catch (err) {
+                    // Ignorar URLs inválidas
+                }
+            }
+
             // Estrategia 1: Buscar hermano anterior directo
             let previousSibling = iframe.previousElementSibling;
             if (previousSibling) {
@@ -1854,6 +2047,112 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             }
         });
 
+        // Inject neighborhood variants that include Roman numerals (e.g., "Perisur II")
+        const romanVariants = [];
+
+        uniqueCandidates.forEach(candidate => {
+            if (!isNeighborhoodCandidate(candidate.address)) return;
+            const enhancedAddress = createRomanEnhancedAddress(candidate.address);
+            if (!enhancedAddress) return;
+
+            const normalized = enhancedAddress.toLowerCase().replace(/\s+/g, '');
+            if (seenAddresses.has(normalized)) return;
+
+            const enhancedScore = Math.max(scoreAddress(enhancedAddress) + 1, candidate.score + 1);
+            romanVariants.push({
+                address: enhancedAddress,
+                score: enhancedScore,
+                source: `${candidate.source}+roman`
+            });
+            seenAddresses.add(normalized);
+        });
+
+        if (romanVariants.length > 0) {
+            romanVariants.forEach(variant => {
+                uniqueCandidates.push(variant);
+                console.log(`   🆙 Variante con numeral romano: ${variant.address} (score: ${variant.score})`);
+            });
+        }
+
+        const streetCandidates = uniqueCandidates
+            .filter(c => isStreetCandidate(c.address))
+            .sort((a, b) => b.score - a.score);
+        const streetCandidate = streetCandidates[0] || null;
+
+        const neighborhoodCandidates = uniqueCandidates
+            .filter(c => isNeighborhoodCandidate(c.address) &&
+                (!streetCandidate || c.address !== streetCandidate.address))
+            .sort((a, b) => b.score - a.score);
+        let neighborhoodCandidate = neighborhoodCandidates[0] || null;
+
+        if (neighborhoodCandidate) {
+            const primaryParts = neighborhoodCandidate.address.split(',').map(part => part.trim()).filter(Boolean);
+            const currentPrimary = getPrimaryNonCityPart(primaryParts);
+            const baseName = normalizeNeighborhoodBase(currentPrimary);
+
+            if (!hasRomanNumeralSuffix(currentPrimary)) {
+                const romanEnhancedCandidate = neighborhoodCandidates.find(candidate => {
+                    const parts = candidate.address.split(',').map(part => part.trim()).filter(Boolean);
+                    const candidatePrimary = getPrimaryNonCityPart(parts);
+                    return candidatePrimary &&
+                        hasRomanNumeralSuffix(candidatePrimary) &&
+                        normalizeNeighborhoodBase(candidatePrimary) === baseName;
+                });
+
+                if (romanEnhancedCandidate) {
+                    neighborhoodCandidate = romanEnhancedCandidate;
+                }
+            }
+        }
+
+        if (streetCandidate && neighborhoodCandidate) {
+            const streetParts = streetCandidate.address.split(',').map(part => part.trim()).filter(Boolean);
+            const neighborhoodParts = neighborhoodCandidate.address.split(',').map(part => part.trim()).filter(Boolean);
+
+            const streetPrimary = getPrimaryNonCityPart(streetParts);
+            let neighborhoodPrimary = getPrimaryNonCityPart(neighborhoodParts);
+            const { prefix, core, base } = decomposeNeighborhood(neighborhoodPrimary);
+
+            if (!hasRomanNumeralSuffix(core)) {
+                const romanVariant =
+                    findRomanVariant(base, prefix, result.title || '') ||
+                    findRomanVariant(base, prefix, document.title || '') ||
+                    findRomanVariant(base, prefix, bodyText) ||
+                    findRomanVariant(base, prefix, neighborhoodCandidate.address);
+                if (romanVariant) {
+                    neighborhoodPrimary = romanVariant;
+                }
+            }
+
+            const combinedParts = [];
+            if (streetPrimary) combinedParts.push(streetPrimary);
+            if (neighborhoodPrimary &&
+                !combinedParts.some(part => part.toLowerCase() === neighborhoodPrimary.toLowerCase()) &&
+                !/\d/.test(neighborhoodPrimary)) {
+                combinedParts.push(neighborhoodPrimary);
+            }
+
+            appendCityState(combinedParts);
+
+            const combinedAddress = combinedParts.join(', ');
+            const combinedNormalized = combinedAddress.toLowerCase().replace(/\s+/g, '');
+
+            if (usableAddress(combinedAddress) && !seenAddresses.has(combinedNormalized)) {
+                const combinedScore = Math.max(
+                    scoreAddress(combinedAddress) + 2,
+                    streetCandidate.score,
+                    neighborhoodCandidate.score + 1
+                );
+                uniqueCandidates.push({
+                    address: combinedAddress,
+                    score: combinedScore,
+                    source: 'street+neighborhood'
+                });
+                seenAddresses.add(combinedNormalized);
+                console.log(`   🔗 Combinando calle + colonia: ${combinedAddress} (score: ${combinedScore})`);
+            }
+        }
+
         // Ordenar por puntuación (mayor a menor)
         uniqueCandidates.sort((a, b) => b.score - a.score);
 
@@ -1878,6 +2177,34 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             // Validación final: asegurar que la dirección es utilizable
             if (usableAddress(selectedAddress)) {
                 result.location = selectedAddress;
+
+                // ============================================
+                // ENRIQUECIMIENTO CON NÚMERO ROMANO DEL TÍTULO
+                // ============================================
+                // Extraer número romano del título (ej: "Perisur II")
+                const titleRomanMatch = result.title.match(/\b(i|ii|iii|iv|v|vi|vii|viii|ix|x)\b/i);
+                const titleRomanSuffix = titleRomanMatch ? titleRomanMatch[0].toUpperCase() : null;
+
+                if (titleRomanSuffix && !result.location.toUpperCase().includes(titleRomanSuffix)) {
+                    // La dirección NO contiene el número romano pero el título SÍ
+                    console.log(`   🔍 Título contiene número romano "${titleRomanSuffix}" pero la ubicación no`);
+
+                    // Buscar y enriquecer la colonia/fraccionamiento en la dirección
+                    result.location = result.location.replace(
+                        /(Fracc\.|Fraccionamiento|Col\.|Colonia|Residencial|Privada|Priv\.)\s+([A-Za-zÁÉÍÓÚÑáéíóúñ ]+?)(?=,|$)/,
+                        (match, prefix, name) => {
+                            // Si el nombre ya tiene el número romano, no cambiar nada
+                            if (name.toUpperCase().includes(titleRomanSuffix)) {
+                                return match;
+                            }
+                            // Agregar el número romano al final del nombre
+                            const enriched = `${prefix} ${name.trim()} ${titleRomanSuffix}`;
+                            console.log(`   🆙 Enriqueciendo dirección: "${match}" → "${enriched}"`);
+                            return enriched;
+                        }
+                    );
+                }
+
                 console.log(`   ✅ Dirección seleccionada: ${result.location} (${uniqueCandidates[0].source})`);
                 result.addressSource = uniqueCandidates[0].source;
             } else {
@@ -2078,7 +2405,22 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
     console.log('\n🌍 Geocodificando ubicación...');
     let geoResult = null;
     try {
-        geoResult = await geocoder.geocode(data.location);
+        const hasEmbeddedCoords = typeof data.latitude === 'number' && typeof data.longitude === 'number' &&
+            !Number.isNaN(data.latitude) && !Number.isNaN(data.longitude);
+        const fallbackCoordinates = hasEmbeddedCoords
+            ? { lat: data.latitude, lng: data.longitude }
+            : null;
+
+        if (fallbackCoordinates) {
+            console.log(`   🔍 Coordenadas embebidas detectadas: ${fallbackCoordinates.lat}, ${fallbackCoordinates.lng}`);
+        } else {
+            console.log('   ℹ️  No se detectaron coordenadas embebidas');
+        }
+
+        geoResult = await geocoder.geocode(data.location, {
+            fallbackCoordinates,
+            googleMapsKey: CONFIG.googleMaps.key
+        });
 
         // Agregar datos geocodificados al objeto data
         data.address_clean = geoResult.address.cleaned;
@@ -2403,7 +2745,9 @@ function generateHTML(data, slug, photoCount, cityConfig) {
         cityCoords: cityConfig.coords, // Coordenadas de la ciudad para fallback
         city: cityConfig.city,
         cityName: cityConfig.name,
-        stateName: cityConfig.state
+        stateName: cityConfig.state,
+        lat: data.lat, // ✅ Coordenadas de Geocoder V1.5
+        lng: data.lng  // ✅ Coordenadas de Geocoder V1.5
     });
 
     // Reemplazar toda la sección del mapa (div + script completo + API script)

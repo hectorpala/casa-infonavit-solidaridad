@@ -14,6 +14,7 @@
  */
 
 const fs = require('fs');
+const https = require('https');
 const { gazetteer, CULIACAN_COORDS, CULIACAN_BOUNDS } = require('./geo-gazetteer-culiacan');
 const { normalizer } = require('./geo-address-normalizer');
 
@@ -34,6 +35,7 @@ class CuliacanGeocoder {
         this.gazetteer = gazetteer;
         this.normalizer = normalizer;
         this.centroides = COLONIAS_CENTROIDES;
+        this.googleMapsKey = process.env.GOOGLE_MAPS_KEY || process.env.GOOGLE_API_KEY || null;
 
         // Cargar gazetteer al inicializar
         if (!this.gazetteer.loaded) {
@@ -46,7 +48,12 @@ class CuliacanGeocoder {
      * @param {string} rawAddress - Dirección cruda
      * @returns {Promise<object>} Resultado con coordenadas, precisión y metadatos
      */
-    async geocode(rawAddress) {
+    async geocode(rawAddress, options = {}) {
+        const mergedOptions = { ...options };
+        if (!mergedOptions.googleMapsKey && this.googleMapsKey) {
+            mergedOptions.googleMapsKey = this.googleMapsKey;
+        }
+
         console.log(`\n🌍 === GEOCODIFICACIÓN INICIADA ===`);
         console.log(`   Dirección original: "${rawAddress}"`);
 
@@ -57,7 +64,7 @@ class CuliacanGeocoder {
         const coloniaMatch = this.matchColonia(normalized);
 
         // Paso 3: Geocodificar con degradación controlada
-        const geoResult = await this._geocodeWithFallback(normalized, coloniaMatch);
+        const geoResult = await this._geocodeWithFallback(normalized, coloniaMatch, mergedOptions);
 
         // Paso 4: Validaciones espaciales
         const validated = this._validateLocation(geoResult, coloniaMatch);
@@ -149,8 +156,15 @@ class CuliacanGeocoder {
     /**
      * Geocodifica con fallback en cadena
      */
-    async _geocodeWithFallback(normalized, coloniaMatch) {
+    async _geocodeWithFallback(normalized, coloniaMatch, options = {}) {
         const { variations } = normalized;
+        const fallbackCoords = options.fallbackCoordinates &&
+            typeof options.fallbackCoordinates.lat === 'number' &&
+            typeof options.fallbackCoordinates.lng === 'number'
+            ? options.fallbackCoordinates
+            : null;
+        const apiKey = options.googleMapsKey || this.googleMapsKey || null;
+        const attemptedGoogleAddresses = new Set();
 
         console.log(`\n📍 Probando ${variations.length} variaciones de dirección...`);
 
@@ -158,6 +172,20 @@ class CuliacanGeocoder {
         for (let i = 0; i < variations.length; i++) {
             const variation = variations[i];
             console.log(`\n   ${i + 1}. [${variation.type}] "${variation.address}"`);
+
+            if (fallbackCoords && (variation.type === 'street' || variation.type === 'street_no_number')) {
+                const precision = variation.type === 'street' ? 'street' : 'street';
+                const confidence = variation.type === 'street' ? 0.85 : 0.75;
+                console.log(`      💡 Usando coordenadas embebidas de la página (street-level)`);
+                return {
+                    lat: fallbackCoords.lat,
+                    lng: fallbackCoords.lng,
+                    precision,
+                    confidence,
+                    formatted: variation.address,
+                    source: 'page-embedded-coords'
+                };
+            }
 
             // Si es city-level y tenemos colonia del gazetteer, usar centroide
             if (variation.type === 'neighborhood' && coloniaMatch) {
@@ -181,6 +209,24 @@ class CuliacanGeocoder {
                         source: 'gazetteer-centroid-real'
                     };
                 } else {
+                    if (fallbackCoords) {
+                        console.log(`      💡 Sin centroide, usando coordenadas embebidas de la página`);
+                        return {
+                            lat: fallbackCoords.lat,
+                            lng: fallbackCoords.lng,
+                            precision: 'neighborhood',
+                            confidence: 0.7,
+                            formatted: `${coloniaMatch.nombre}, Culiacán, Sinaloa`,
+                            source: 'page-embedded-coords'
+                        };
+                    }
+                    if (apiKey && !attemptedGoogleAddresses.has(variation.address)) {
+                        attemptedGoogleAddresses.add(variation.address);
+                        const googleNeighborhood = await this._geocodeWithGoogle(variation.address, apiKey);
+                        if (googleNeighborhood) {
+                            return googleNeighborhood;
+                        }
+                    }
                     console.log(`      💡 Usando centroide de CIUDAD (colonia sin centroide)`);
                     return {
                         lat: CULIACAN_COORDS.lat,
@@ -195,6 +241,24 @@ class CuliacanGeocoder {
 
             // Si es city-level, usar coordenadas de ciudad
             if (variation.type === 'city') {
+                if (fallbackCoords) {
+                    console.log(`      💡 Variación city, reforzando con coordenadas embebidas`);
+                    return {
+                        lat: fallbackCoords.lat,
+                        lng: fallbackCoords.lng,
+                        precision: 'neighborhood',
+                        confidence: 0.6,
+                        formatted: variation.address,
+                        source: 'page-embedded-coords'
+                    };
+                }
+                if (apiKey && !attemptedGoogleAddresses.has(variation.address)) {
+                    attemptedGoogleAddresses.add(variation.address);
+                    const googleCity = await this._geocodeWithGoogle(variation.address, apiKey);
+                    if (googleCity) {
+                        return googleCity;
+                    }
+                }
                 console.log(`      💡 Usando coordenadas de centro de ciudad`);
                 return {
                     lat: CULIACAN_COORDS.lat,
@@ -206,9 +270,16 @@ class CuliacanGeocoder {
                 };
             }
 
-            // TODO: Geocodificación con Google Maps API
-            // Por ahora, devolvemos coordenadas de ciudad
-            console.log(`      ⚠️  Geocodificación con API pendiente - usando ciudad`);
+            if (apiKey && !attemptedGoogleAddresses.has(variation.address)) {
+                attemptedGoogleAddresses.add(variation.address);
+                const googleResult = await this._geocodeWithGoogle(variation.address, apiKey);
+                if (googleResult) {
+                    return googleResult;
+                }
+            }
+
+            // Sin solución específica: continuar al siguiente fallback
+            console.log(`      ⚠️  Geocodificación interna no disponible para esta variación`);
         }
 
         // Fallback final: centro de ciudad
@@ -285,14 +356,14 @@ class CuliacanGeocoder {
     /**
      * Batch geocoding (para QA)
      */
-    async geocodeBatch(addresses) {
+    async geocodeBatch(addresses, options = {}) {
         const results = [];
 
         console.log(`\n📦 Geocodificando ${addresses.length} direcciones en batch...\n`);
 
         for (let i = 0; i < addresses.length; i++) {
             console.log(`[${i + 1}/${addresses.length}]`);
-            const result = await this.geocode(addresses[i]);
+            const result = await this.geocode(addresses[i], options);
             results.push(result);
 
             // Delay para evitar rate limit (si usáramos API)
@@ -351,6 +422,105 @@ class CuliacanGeocoder {
         console.log(`Con advertencias: ${stats.withWarnings} (${(stats.withWarnings / stats.total * 100).toFixed(1)}%)`);
 
         return stats;
+    }
+
+    /**
+     * Configura la API key de Google Maps para geocodificación externa
+     * @param {string} key
+     */
+    setGoogleMapsKey(key) {
+        if (typeof key === 'string' && key.trim()) {
+            this.googleMapsKey = key.trim();
+        }
+    }
+
+    /**
+     * Llama a Google Maps Geocoding API para obtener coordenadas precisas
+     * @param {string} address
+     * @param {string} apiKey
+     * @returns {Promise<object|null>}
+     */
+    async _geocodeWithGoogle(address, apiKey) {
+        if (!apiKey) return null;
+        try {
+            const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}&language=es&region=mx`;
+            console.log(`      🌐 Consultando Google Geocoding API...`);
+            const response = await this._fetchJson(url);
+
+            if (!response || response.status !== 'OK' || !Array.isArray(response.results) || response.results.length === 0) {
+                console.log(`      ⚠️  Google Geocoding sin resultados (status: ${response?.status || 'desconocido'})`);
+                return null;
+            }
+
+            const best = response.results[0];
+            if (!best.geometry || !best.geometry.location) {
+                console.log('      ⚠️  Google Geocoding sin geometry.location');
+                return null;
+            }
+
+            const { lat, lng } = best.geometry.location;
+            if (typeof lat !== 'number' || typeof lng !== 'number') {
+                console.log('      ⚠️  Coordenadas inválidas desde Google Geocoding');
+                return null;
+            }
+
+            const types = best.types || [];
+            let precision = 'city';
+            let confidence = 0.6;
+
+            if (types.includes('street_address') || types.includes('premise') || types.includes('subpremise')) {
+                precision = 'street';
+                confidence = 0.9;
+            } else if (types.includes('route')) {
+                precision = 'street';
+                confidence = 0.85;
+            } else if (types.includes('neighborhood') || types.includes('sublocality') || types.includes('postal_code')) {
+                precision = 'neighborhood';
+                confidence = 0.75;
+            } else if (types.includes('administrative_area_level_2') || types.includes('locality')) {
+                precision = 'city';
+                confidence = 0.6;
+            }
+
+            console.log(`      ✅ Google Geocoding OK: ${lat}, ${lng} (${precision})`);
+
+            return {
+                lat,
+                lng,
+                precision,
+                confidence,
+                formatted: best.formatted_address || address,
+                source: 'google-maps-geocoding'
+            };
+        } catch (error) {
+            console.warn(`      ⚠️  Error en Google Geocoding API: ${error.message}`);
+            return null;
+        }
+    }
+
+    /**
+     * Helper para realizar peticiones HTTPS y devolver JSON
+     * @param {string} url
+     * @returns {Promise<any>}
+     */
+    _fetchJson(url) {
+        return new Promise((resolve, reject) => {
+            https.get(url, res => {
+                let rawData = '';
+
+                res.on('data', chunk => {
+                    rawData += chunk;
+                });
+
+                res.on('end', () => {
+                    try {
+                        resolve(JSON.parse(rawData));
+                    } catch (error) {
+                        reject(error);
+                    }
+                });
+            }).on('error', reject);
+        });
     }
 }
 

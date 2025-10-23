@@ -69,6 +69,10 @@ const ABBREVIATIONS = {
     'prol': 'Prol.'
 };
 
+function escapeRegex(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 /**
  * Clase AddressNormalizer
  */
@@ -182,10 +186,21 @@ class AddressNormalizer {
     _normalizeAbbreviations(text) {
         let normalized = text;
 
-        Object.keys(ABBREVIATIONS).forEach(key => {
-            const regex = new RegExp(`\\b${key}\\b`, 'gi');
-            normalized = normalized.replace(regex, ABBREVIATIONS[key]);
+        const entries = Object.entries(ABBREVIATIONS)
+            .sort((a, b) => b[0].length - a[0].length);
+
+        entries.forEach(([key, replacement]) => {
+            const escapedKey = escapeRegex(key);
+            const needsDotGuard = !key.includes('.');
+            const pattern = needsDotGuard
+                ? new RegExp(`\\b${escapedKey}\\b(?!\\.)`, 'gi')
+                : new RegExp(`\\b${escapedKey}\\b`, 'gi');
+
+            normalized = normalized.replace(pattern, () => replacement);
         });
+
+        // Colapsar puntos repetidos generados por abreviaciones
+        normalized = normalized.replace(/\.{2,}/g, '.');
 
         return normalized;
     }
