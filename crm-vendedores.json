@@ -4158,6 +4158,20 @@
           "colonia": "Nuevo Culiacán",
           "ciudad": "culiacan",
           "fotoPrincipal": "culiacan/casa-en-venta-ubicada-en-nuevo-culiacan/images/foto-1.jpg"
+        },
+        {
+          "id": "147711585",
+          "titulo": "Se Vende Casa en Perisur II Culiacán",
+          "precio": "MN 2,300,002",
+          "ubicacion": "Calle Ahuejote 591, Culiacán, Sinaloa, Mexico, Fraccionamiento Perisur",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=15",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 27 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Nuevo Culiacan, Culiacán, Sinaloa, Mexico, Nuevo Culiacán",
@@ -4209,9 +4223,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-22T19:37:44.794Z",
+    "ultimaActualizacion": "2025-10-23T17:36:42.580Z",
     "totalVendedores": 22,
-    "totalPropiedades": 232,
+    "totalPropiedades": 233,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
