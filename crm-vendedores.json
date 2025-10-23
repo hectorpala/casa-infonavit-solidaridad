@@ -4382,12 +4382,48 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-23T19:48:15.063Z"
+    },
+    {
+      "id": "v026",
+      "nombre": "PROPIEDADES MAZATLAN INMOBILIARIA",
+      "telefono": "558447781",
+      "telefonoFormateado": "558447781",
+      "whatsapp": "https://wa.me/52558447781",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147519985",
+          "titulo": "Casa en Venta Residencial con Alberca en Real del Valle Mazatlan",
+          "precio": "MN 3,350,000",
+          "ubicacion": "San Sebastián 4107, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-con-alberca-en-real-del-valle-147519985.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 48 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de San Sebastián 4107, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
+      "tags": [
+        "inmuebles24",
+        "san-sebastián-4107",
+        "mazatlán",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-real-del-valle",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-23T19:53:19.979Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T19:48:15.063Z",
-    "totalVendedores": 25,
-    "totalPropiedades": 240,
+    "ultimaActualizacion": "2025-10-23T19:53:19.979Z",
+    "totalVendedores": 26,
+    "totalPropiedades": 241,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
