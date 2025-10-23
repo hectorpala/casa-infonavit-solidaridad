@@ -22866,17 +22866,7 @@ const losPinosProperty = {
     ]
 };
 
-// Geocodificar solidaridad
-            geocoder.geocode({ address: "Blvrd Elbert 2609, Culiacán, Sinaloa" }, function(results, status) {
-                if (status === 'OK' && results[0]) {
-                    const position = results[0].geometry.location;
-                    const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, window.mapCuliacan);
-                    const marker = new CustomMarkerClass(position, window.mapCuliacan, solidaridadProperty);
-                    window.allCuliacanMarkers.push(marker);
-                }
-            });
-
-            // Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial - Coordenadas finales (geocoder)
+// Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial - Coordenadas finales (geocoder)
             const casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resPosition = new google.maps.LatLng(24.8090649, -107.3940117);
             const casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resMarkerClass = createZillowPropertyMarker(casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resProperty, window.mapCuliacan);
             const casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resMarker = new casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resMarkerClass(casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resPosition, window.mapCuliacan, casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resProperty);
