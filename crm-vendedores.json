@@ -4277,6 +4277,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "147838590",
+          "titulo": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas",
+          "precio": "MN 3,500,000",
+          "ubicacion": "Rincón de los Girasoles, Mazatlán, Sinaloa, Mexico, Fraccionamiento Rincón de Las Plazas, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-venta-en-rincon-de-los-girasoles-en-fracc-147838590.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 15 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4294,9 +4308,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T19:22:51.770Z",
+    "ultimaActualizacion": "2025-10-23T19:27:52.649Z",
     "totalVendedores": 24,
-    "totalPropiedades": 235,
+    "totalPropiedades": 236,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
