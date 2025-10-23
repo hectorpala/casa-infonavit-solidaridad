@@ -4305,6 +4305,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "147616056",
+          "titulo": "Casa en Venta en Veredas, Mazatlan, Sin.",
+          "precio": "MN 3,350,000",
+          "ubicacion": "Veredas del Mar 82129, Mazatlán, Sinaloa, Mexico, Mazatlan",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-en-veredas-mazatlan-sin.-147616056.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 37 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4322,9 +4336,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T19:32:58.702Z",
+    "ultimaActualizacion": "2025-10-23T19:38:05.429Z",
     "totalVendedores": 24,
-    "totalPropiedades": 237,
+    "totalPropiedades": 238,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
