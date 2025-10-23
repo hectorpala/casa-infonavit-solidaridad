@@ -4291,6 +4291,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 15 días",
           "vistas": 0
+        },
+        {
+          "id": "143824116",
+          "titulo": "Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.",
+          "precio": "MN 2,600,000",
+          "ubicacion": "Hacienda del Seminario, Mazatlán, Sinaloa, Mexico, Fraccionamiento Hacienda del Seminario",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-143824116.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4308,9 +4322,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T19:27:52.649Z",
+    "ultimaActualizacion": "2025-10-23T19:32:58.702Z",
     "totalVendedores": 24,
-    "totalPropiedades": 236,
+    "totalPropiedades": 237,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
