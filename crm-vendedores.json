@@ -4361,6 +4361,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 206 días",
           "vistas": 0
+        },
+        {
+          "id": "58104789",
+          "titulo": "Casa en Venta Mazatlan, Residencial Palmilla Super Precio!",
+          "precio": "MN 3,700,000",
+          "ubicacion": "Avenida Sábalo Cerritos, Mazatlán, Sinaloa, Mexico, Fraccionamiento Cerritos Resort",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-mazatlan-residencial-palmilla-super-58104789.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4485,9 +4499,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T20:08:32.072Z",
+    "ultimaActualizacion": "2025-10-23T20:13:37.978Z",
     "totalVendedores": 27,
-    "totalPropiedades": 244,
+    "totalPropiedades": 245,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
