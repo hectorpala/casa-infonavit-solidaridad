@@ -4432,12 +4432,48 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-23T19:53:19.979Z"
+    },
+    {
+      "id": "v027",
+      "nombre": "Arlene Rojas Bel",
+      "telefono": "6679014876",
+      "telefonoFormateado": "667-901-4876",
+      "whatsapp": "https://wa.me/526679014876",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147794301",
+          "titulo": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial",
+          "precio": "MN 3,200,000",
+          "ubicacion": "Isla Residencial, Mazatlán, Sinaloa, Mexico, Fraccionamiento Isla Residencial, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-113-m-sup2--con-3-recamaras-en-venta-147794301.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace 18 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Isla Residencial, Mazatlán, Sinaloa, Mexico, Fraccionamiento Isla Residencial, Culiacán",
+      "tags": [
+        "inmuebles24",
+        "isla-residencial",
+        "mazatlán",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-isla-residencial",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-23T20:03:27.221Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T19:58:22.657Z",
-    "totalVendedores": 26,
-    "totalPropiedades": 242,
+    "ultimaActualizacion": "2025-10-23T20:03:27.221Z",
+    "totalVendedores": 27,
+    "totalPropiedades": 243,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
