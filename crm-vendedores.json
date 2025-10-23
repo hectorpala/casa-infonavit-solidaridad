@@ -4417,6 +4417,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 136 días",
           "vistas": 0
+        },
+        {
+          "id": "61697769",
+          "titulo": "Casa en Venta en Mazatlán en Coto Privado Camila Hills Modelo Nova",
+          "precio": "MN 2,708,000",
+          "ubicacion": "Camila Hills, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-61697769.html",
+          "fechaScrapeo": "2025-10-23",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4541,9 +4555,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T20:28:50.811Z",
+    "ultimaActualizacion": "2025-10-23T20:33:58.145Z",
     "totalVendedores": 27,
-    "totalPropiedades": 248,
+    "totalPropiedades": 249,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
