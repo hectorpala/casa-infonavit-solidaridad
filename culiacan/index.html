@@ -22872,7 +22872,10 @@ const losPinosProperty = {
                     const position = results[0].geometry.location;
                     const CustomMarkerClass = createZillowPropertyMarker(solidaridadProperty, window.mapCuliacan);
                     const marker = new CustomMarkerClass(position, window.mapCuliacan, solidaridadProperty);
-                    window.allCuliacanMarkers.push(
+                    window.allCuliacanMarkers.push(marker);
+                }
+            });
+
             // Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial - Coordenadas finales (geocoder)
             const casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resPosition = new google.maps.LatLng(24.8090649, -107.3940117);
             const casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resMarkerClass = createZillowPropertyMarker(casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resProperty, window.mapCuliacan);
