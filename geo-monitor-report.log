@@ -1,0 +1,29 @@
+📚 Gazetteer cargado: 631 entradas
+   Colonias: 224
+   Fraccionamientos: 407
+   Índice por slug: 627 entradas
+   Índice por nombre: 609 entradas
+   Índice por CP: 98 códigos postales
+
+🔍 GEO-MONITOR - Sistema de Monitoreo de Geocodificación
+
+✅ Cargadas 46 propiedades
+
+
+📊 Analizando 46 propiedades...
+
+   Procesadas: 10/46   Procesadas: 20/46   Procesadas: 30/46   Procesadas: 40/46   Procesadas: 46/46
+
+╔════════════════════════════════════════════════════════════╗
+║                  🚨 ALERTAS DETECTADAS                     ║
+╚════════════════════════════════════════════════════════════╝
+
+❌ [ERROR] City-level precision muy alto: 100.0% (umbral: 60%)
+   💡 Recomendación: Revisar normalizador de direcciones y gazetteer
+
+⚠️ [WARNING] Propiedades que requieren revisión: 100.0% (umbral: 60%)
+   💡 Recomendación: Revisar manualmente propiedades con baja confianza
+
+⚠️ [WARNING] Confianza promedio baja: 20.0%
+   💡 Recomendación: Mejorar sistema de matching de colonias
+

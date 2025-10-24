@@ -1,0 +1,206 @@
+📚 Gazetteer cargado: 631 entradas
+   Colonias: 224
+   Fraccionamientos: 407
+   Índice por slug: 627 entradas
+   Índice por nombre: 609 entradas
+   Índice por CP: 98 códigos postales
+🏠 Tipo detectado: VENTA
+
+╔═══════════════════════════════════════════════╗
+║  🌆 CONFIRMACIÓN DE CIUDAD (IMPORTANTE)      ║
+╚═══════════════════════════════════════════════╝
+
+📍 Ciudad detectada automáticamente: Culiacán, Sinaloa
+
+¿Es correcta esta ciudad?
+
+  1️⃣  Culiacán, Sinaloa
+  2️⃣  Monterrey, Nuevo León
+  3️⃣  Mazatlán, Sinaloa
+
+👉 Selecciona el número (1/2/3) o presiona Enter para confirmar: 
+✅ Ciudad confirmada: Culiacán, Sinaloa
+
+🚀 Iniciando scraper para: VENTA en Culiacán, Sinaloa
+
+🚀 Iniciando scraper de Inmuebles24...
+
+📍 URL: https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html
+
+🌐 Navegando a la página...
+📸 Buscando botón "Ver todas las fotos"...
+   ✅ Clic en botón de galería
+👤 Capturando datos del vendedor...
+   👤 Vendedor: InmoFácil
+   📞 Teléfono: 6671010683
+   ✅ Datos capturados del HTML (sin enviar información personal)
+📊 Extrayendo datos...
+
+🌍 Geocodificando ubicación...
+   ℹ️  No se detectaron coordenadas embebidas
+
+🌍 === GEOCODIFICACIÓN INICIADA ===
+   Dirección original: "Calle Ahuejote 591, Culiacán, Sinaloa, Mexico, Fraccionamiento Perisur II"
+
+🔧 Normalizando: "Calle Ahuejote 591, Culiacán, Sinaloa, Mexico, Fraccionamiento Perisur II"
+   ✅ Dirección limpia: "Calle Ahuejote 591, Culiacán, Sinaloa, Mexico, Fracc. Perisur II"
+   📍 Colonia detectada: "Perisur II"
+   🏠 Calle: "Calle Ahuejote 591"
+   🔢 Número: "591"
+
+🔍 Buscando colonia: "Perisur II"
+   ✅ Match exacto (slug): Perisur II
+
+📍 Probando 4 variaciones de dirección...
+
+   1. [street] "Calle Ahuejote 591, Perisur II, Culiacán, Sinaloa, México"
+      ⚠️  Geocodificación con API pendiente - usando ciudad
+
+   2. [street_no_number] "Calle Ahuejote 591, Perisur II, Culiacán, Sinaloa, México"
+      ⚠️  Geocodificación con API pendiente - usando ciudad
+
+   3. [neighborhood] "Perisur II, Culiacán, Sinaloa, México"
+      💡 Usando centroide de CIUDAD (colonia sin centroide)
+
+
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.8091, -107.394
+   🎯 Precisión: neighborhood
+   💯 Confianza: 70%
+   🏘️  Colonia: Perisur II (Fraccionamiento)
+      CP: 80197
+      Match: exact-slug (100%)
+   ✔️  Dentro de Culiacán: Sí
+   📊 Fuente: gazetteer-centroid-fallback
+
+
+   ✅ Geocodificación: neighborhood (70%)
+   🏘️  Colonia: Perisur II (CP: 80197)
+   📍 Coordenadas: 24.8091, -107.394
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Se Vende Casa en Perisur II Culiacán
+   💰 Precio: MN 2,300,002
+   📍 Ubicación: Calle Ahuejote 591, Culiacán, Sinaloa, Mexico, Fraccionamiento Perisur II
+   🛏️  3 recámaras
+   🛁 1 baños
+   📐 85m² construcción
+   🏞️  85m² terreno
+   📸 27 imágenes encontradas
+   👤 Vendedor: InmoFácil
+   📞 Tel: 6671010683
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 147711585
+   📅 Fecha: Publicado hace 27 días
+   👁️  Vistas: 36
+
+🔗 Slug generado: se-vende-casa-en-perisur-ii-culiacan
+
+📥 Descargando 27 fotos...
+
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+   ✅ foto-6.jpg
+   ✅ foto-7.jpg
+   ✅ foto-8.jpg
+   ✅ foto-9.jpg
+   ✅ foto-10.jpg
+   ✅ foto-11.jpg
+   ✅ foto-12.jpg
+   ✅ foto-13.jpg
+   ✅ foto-14.jpg
+   ✅ foto-15.jpg
+   ✅ foto-16.jpg
+   ✅ foto-17.jpg
+   ✅ foto-18.jpg
+   ✅ foto-19.jpg
+   ✅ foto-20.jpg
+   ✅ foto-21.jpg
+   ✅ foto-22.jpg
+   ✅ foto-23.jpg
+   ✅ foto-24.jpg
+   ✅ foto-25.jpg
+   ✅ foto-26.jpg
+   ✅ foto-27.jpg
+
+✅ 27/27 fotos descargadas
+
+📄 Generando HTML desde template La Primavera para Culiacán...
+
+   ✅ API key actualizada a nueva key
+   ✅ styles.css copiado
+   ✅ HTML generado con template La Primavera para Culiacán
+✅ HTML generado: culiacan/se-vende-casa-en-perisur-ii-culiacan/index.html
+
+📝 Agregando tarjeta a culiacan/index.html...
+
+   ✅ Tarjeta agregada AL INICIO de culiacan/index.html (más reciente)
+
+🗺️  Agregando propiedad al mapa modal de Culiacán...
+
+   ⚠️  No se encontraron coordenadas en JSON-LD
+   ℹ️  La propiedad NO se agregará al mapa modal automáticamente
+   ℹ️  Puedes agregarla manualmente después con coordenadas aproximadas
+
+🚀 Publicando a GitHub...
+
+[main 895e9cd] Add: Se Vende Casa en Perisur II Culiacán (Inmuebles24 - Culiacán)
+ Committer: HectorPC <hectorpc@192.168.101.16>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 88 insertions(+)
+To https://github.com/hectorpala/casa-infonavit-solidaridad.git
+   72f5a60..895e9cd  main -> main
+   ✅ Propiedad guardada en registro (ID: 147711585)
+
+   📝 Vendedor encontrado en CRM: InmoFácil
+   ℹ️  Esta propiedad ya está vinculada a InmoFácil
+   ✅ CRM actualizado: 22 vendedores, 233 propiedades
+
+📤 Publicando cambios del CRM a GitHub...
+
+   ✅ CRM publicado exitosamente a GitHub
+
+
+============================================================
+✅ ¡COMPLETADO!
+============================================================
+
+📊 RESUMEN FINAL:
+   🏠 Se Vende Casa en Perisur II Culiacán
+   💰 MN 2,300,002
+   🛏️  3 recámaras • 🛁 1 baños
+   📐 85m² construcción • 🏞️  85m² terreno
+   📸 27 fotos descargadas
+
+👤 VENDEDOR:
+   Nombre: InmoFácil
+   📞 Tel: 6671010683
+
+📅 PUBLICACIÓN:
+   Fecha: Publicado hace 27 días
+   👁️  Vistas: 36
+
+🌐 URLs:
+   Local: culiacan/se-vende-casa-en-perisur-ii-culiacan/index.html
+   Producción: https://casasenventa.info/culiacan/se-vende-casa-en-perisur-ii-culiacan/
+
+⏳ Esperando 30 segundos para que GitHub Pages actualice...
+   (Esto evita problemas de cache y deployments cancelados)
+
+✅ Deployment completado. La página ya debe estar visible.
+

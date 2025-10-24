@@ -152,6 +152,24 @@ const readline = require('readline');
 const { geocoder } = require('./geo-geocoder-culiacan');
 
 // ============================================
+// HELPER FUNCTIONS
+// ============================================
+
+/**
+ * Normaliza texto removiendo acentos para comparaciones insensibles a Unicode
+ * Ejemplo: "Culiacán" → "culiacan", "Mazatlán" → "mazatlan"
+ * @param {string} str - Texto a normalizar
+ * @returns {string} Texto sin acentos en minúsculas
+ */
+function normalizeText(str) {
+    return str
+        .normalize('NFD')  // Descompone caracteres acentuados
+        .replace(/[\u0300-\u036f]/g, '')  // Elimina marcas diacríticas
+        .toLowerCase()
+        .trim();
+}
+
+// ============================================
 // CONFIGURACIÓN
 // ============================================
 
@@ -1578,6 +1596,17 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         const bodyText = document.body.innerText;
         const lines = bodyText.split('\n');
 
+        function normalizeTextLocal(str) {
+            return (str || '')
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase()
+                .trim();
+        }
+
+        const CITY_TOKENS = ['culiacan', 'monterrey', 'mazatlan'];
+        const STATE_TOKENS = ['sinaloa', 'nuevo leon'];
+
         // Función para validar si una dirección es utilizable
         function usableAddress(addr) {
             return !!addr && addr.length > 10 && !/inmuebles24/i.test(addr) && !/^\s*casa\s*$/i.test(addr);
@@ -1595,7 +1624,7 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         // Función para calcular puntuación de completitud de dirección
         function scoreAddress(address) {
             let score = 0;
-            const lower = address.toLowerCase();
+            const normalized = normalizeTextLocal(address);
 
             // +5 puntos: Tiene número de calle (ej: "2609", "#123")
             if (/\d+/.test(address)) score += 5;
@@ -1611,16 +1640,23 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             score += Math.min(commaCount * 2, 6); // Máximo 6 puntos por comas
 
             // +1 punto: Incluye municipio/ciudad
-            if (/(culiacán|monterrey|mazatlán)/i.test(address)) score += 1;
+            if (CITY_TOKENS.some(city => normalized.includes(city))) score += 1;
 
             // +1 punto: Incluye estado
-            if (/(sinaloa|nuevo león)/i.test(address)) score += 1;
+            if (STATE_TOKENS.some(state => normalized.includes(state))) score += 1;
 
             // Penalización -3: Dirección muy corta (probablemente incompleta)
             if (address.length < 30) score -= 3;
 
             // Penalización -5: Solo tiene ciudad y estado (ej: "Culiacán, Sinaloa")
-            if (address.match(/^(culiacán|monterrey|mazatlán),?\s*(sinaloa|nuevo león)?$/i)) score -= 5;
+            const isOnlyCityOrState = CITY_TOKENS.some(city => {
+                if (normalized === city) return true;
+                if (normalized === `${city},`) return true;
+                return STATE_TOKENS.some(state => normalized === `${city}, ${state}` || normalized === `${city} ${state}`);
+            });
+            if (isOnlyCityOrState) {
+                score -= 5;
+            }
 
             return score;
         }
@@ -1668,14 +1704,15 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
 
         function isCityOrState(part) {
             if (!part) return false;
-            const lower = part.toLowerCase();
-            const knownCities = ['culiacán', 'mazatlán', 'monterrey'];
-            const knownStates = ['sinaloa', 'nuevo león', 'nuevo leon'];
-            const cityMatch = meta?.cityName ? lower.includes(meta.cityName.toLowerCase()) : false;
-            const stateMatch = meta?.stateName ? lower.includes(meta.stateName.toLowerCase()) : false;
+            const normalized = normalizeTextLocal(part);
+            // Normalizadas para comparación insensible a acentos
+            const knownCities = ['culiacan', 'mazatlan', 'monterrey'];
+            const knownStates = ['sinaloa', 'nuevo leon'];
+            const cityMatch = meta?.cityName ? normalized.includes(normalizeTextLocal(meta.cityName)) : false;
+            const stateMatch = meta?.stateName ? normalized.includes(normalizeTextLocal(meta.stateName)) : false;
             return cityMatch || stateMatch ||
-                knownCities.some(city => lower.includes(city)) ||
-                knownStates.some(state => lower.includes(state));
+                knownCities.some(city => normalized.includes(city)) ||
+                knownStates.some(state => normalized.includes(state));
         }
 
         function isStreetCandidate(address) {
@@ -1994,9 +2031,11 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         // FUENTE 1: Líneas del body text con patrón de dirección
         lines.forEach(line => {
             const trimmed = line.trim();
+            const normalizedLine = normalizeTextLocal(trimmed);
             // Buscar líneas que contengan ciudad/estado y tengan longitud razonable
             if (trimmed.length > 15 && trimmed.length < 200 &&
-                /(culiacán|monterrey|mazatlán|sinaloa|nuevo león)/i.test(trimmed)) {
+                (CITY_TOKENS.some(city => normalizedLine.includes(city)) ||
+                 STATE_TOKENS.some(state => normalizedLine.includes(state)))) {
 
                 // Filtrar líneas que parecen direcciones (tienen comas o palabras clave)
                 if (trimmed.match(/,/) ||
@@ -2010,10 +2049,10 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
 
         // FUENTE 2: Breadcrumbs y elementos de navegación
         const breadcrumbs = Array.from(document.querySelectorAll('a, span, div[class*="location"], div[class*="address"]')).filter(el => {
-            const text = el.textContent.toLowerCase();
-            return (text.includes('culiacán') || text.includes('monterrey') || text.includes('mazatlán') ||
-                    text.includes('sinaloa') || text.includes('nuevo león')) &&
-                   text.length > 15 && text.length < 200;
+            const normalized = normalizeTextLocal(el.textContent);
+            return (CITY_TOKENS.some(city => normalized.includes(city)) ||
+                    STATE_TOKENS.some(state => normalized.includes(state))) &&
+                   normalized.length > 15 && normalized.length < 200;
         });
 
         breadcrumbs.forEach(el => {
@@ -2535,6 +2574,49 @@ function generateHTML(data, slug, photoCount, cityConfig) {
 
     const description = data.description || `${data.title}. ${bedrooms !== 'N/A' ? bedrooms + ' recámaras, ' : ''}${bathrooms !== 'N/A' ? bathrooms + ' baños ' : ''}en ${neighborhood}.`;
 
+    const normalizedCityToken = normalizeText(cityConfig.name);
+    const normalizedStateToken = normalizeText(cityConfig.state);
+    const addressSource = data.address_clean || mapLocation || '';
+    const addressParts = addressSource.split(',').map(part => part.trim()).filter(Boolean);
+
+    const cityTokens = [normalizedCityToken, 'culiacan', 'mazatlan', 'monterrey'];
+    const stateTokens = [normalizedStateToken, 'sinaloa', 'nuevo leon'];
+
+    const isCityOrStatePart = (part) => {
+        if (!part) return false;
+        const normalized = normalizeText(part);
+        return cityTokens.some(city => normalized.includes(city)) ||
+               stateTokens.some(state => normalized.includes(state));
+    };
+
+    const streetPart = addressParts.find(part => /\d+/.test(part)) ||
+        addressParts.find(part => !isCityOrStatePart(part)) ||
+        (mapLocation.split(',')[0] || '').trim();
+    const colonyPart = data.colonia ||
+        addressParts.find(part => part !== streetPart && !isCityOrStatePart(part)) ||
+        neighborhood;
+
+    const streetAddress = [streetPart, colonyPart]
+        .filter((part, index, arr) => part && arr.indexOf(part) === index)
+        .join(', ');
+    const addressLocality = cityConfig.name;
+    const addressRegion = cityConfig.state;
+    const postalCode = data.codigoPostal || '80000';
+
+    const sanitizedStreetAddress = streetAddress.replace(/"/g, '\\"');
+    const sanitizedLocality = addressLocality.replace(/"/g, '\\"');
+    const sanitizedRegion = addressRegion.replace(/"/g, '\\"');
+    const sanitizedPostal = postalCode.replace(/"/g, '\\"');
+
+    const geoBlock = (typeof data.lat === 'number' && typeof data.lng === 'number')
+        ? `,
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": ${data.lat},
+        "longitude": ${data.lng}
+      }`
+        : '';
+
     // REEMPLAZOS EN METADATA Y HEAD
     html = html.replace(/<title>.*?<\/title>/s,
         `<title>Casa en Venta ${priceFormatted} - ${neighborhood}, ${cityConfig.name} | Hector es Bienes Raíces</title>`);
@@ -2577,12 +2659,12 @@ function generateHTML(data, slug, photoCount, cityConfig) {
       ],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "${neighborhood}",
-        "addressLocality": "${locationDisplay}",
-        "addressRegion": "${cityConfig.state}",
-        "postalCode": "80000",
+        "streetAddress": "${sanitizedStreetAddress}",
+        "addressLocality": "${sanitizedLocality}",
+        "addressRegion": "${sanitizedRegion}",
+        "postalCode": "${sanitizedPostal}",
         "addressCountry": "MX"
-      }${construction ? `,
+      }${geoBlock}${construction ? `,
       "floorSize": {
         "@type": "QuantitativeValue",
         "value": ${construction},

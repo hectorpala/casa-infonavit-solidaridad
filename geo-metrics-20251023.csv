@@ -1,0 +1,55 @@
+id,title,location,ciudad,precision,confidence,colonia,needs_review,source
+147501147,"Se Vende Casa en Isla del Oeste en La Primavera","",Culiacán,city,0.20,,true,no-location
+147500481,"Casa en Venta en Privada La Cantera","",Culiacán,city,0.20,,true,no-location
+147643837,"Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada","",Culiacán,city,0.20,,true,no-location
+147908740,"Casa en Cumbres Equipada a Estrenar","",Culiacán,city,0.20,,true,no-location
+146747635,"Casa en Venta en Urbivilla Colonial, Monterrey. Nuevo Leon","",Culiacán,city,0.20,,true,no-location
+145373833,"Venta en Cumbres 3 Niveles Frente a Parque","",Culiacán,city,0.20,,true,no-location
+147215910,"Casa en Venta en Cumbres Monterrey","",Culiacán,city,0.20,,true,no-location
+147799701,"Casa en Venta Zona Cumbres","",Culiacán,city,0.20,,true,no-location
+146870552,"Cumbres de 3 Niveles, Incluye Cocina Integral y 6 Paneles Solares","",Culiacán,city,0.20,,true,no-location
+147682613,"Casa en Renta 3 Habitaciones 2 Plantas, Vitia Granada","",Culiacán,city,0.20,,true,no-location
+147928773,"Casa en Renta en Portalegre Valley Totalmente Equipada","",Culiacán,city,0.20,,true,no-location
+147701128,"Casa en Renta Circuito Tabachines Culiacan Sinaloa","",Culiacán,city,0.20,,true,no-location
+147564220,"Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa","",Culiacán,city,0.20,,true,no-location
+147300315,"Renta Casa en La Isla Privada Pontevedra","",Culiacán,city,0.20,,true,no-location
+146839974,"Renta de Casa en Privada Bosques del Rio","",Culiacán,city,0.20,,true,no-location
+147513900,"Casa en Renta en Privada Kentia Valle Alto","",Culiacán,city,0.20,,true,no-location
+147904217,"Casa con Vista Espectacular en Colinas de San Miguel (Privada)","",Culiacán,city,0.20,,true,no-location
+146266554,"Vendo Casa en Colonia Guadalupe Culiacán","",Culiacán,city,0.20,,true,no-location
+144439344,"Casa en Venta en Stanza Toscana","",Culiacán,city,0.20,,true,no-location
+142723254,"Casa en Fraccionamiento Las Quintas","",Culiacán,city,0.20,,true,no-location
+144439344,"Casa en Venta en Stanza Toscana","",Culiacán,city,0.20,,true,no-location
+146847493,"Casa en Guadalupe","",Culiacán,city,0.20,,true,no-location
+147309710,"Casa en Venta Ubicada en Nuevo Culiacán","",Culiacán,city,0.20,,true,no-location
+147055011,"Casa en Venta Col Chapultepec Culiacán","",Culiacán,city,0.20,,true,no-location
+144422903,"Venta de Casa en La Col. 5 de Mayo, Culiacan Sinaloa","",Culiacán,city,0.20,,true,no-location
+91269633,"Casa en Venta en Culiacán, Sinaloa.","",Culiacán,city,0.20,,true,no-location
+147903309,"Casa en Venta en Sector Tres Rios Culiacán","",Culiacán,city,0.20,,true,no-location
+147814499,"Casa en Venta Colonia Guadalupe Culiacán","",Culiacán,city,0.20,,true,no-location
+147711585,"Se Vende Casa en Perisur II Culiacán","",Culiacán,city,0.20,,true,no-location
+146849328,"Casa en Cnop","",Culiacán,city,0.20,,true,no-location
+143884424,"Casa en Venta Real del Valle","",Mazatlán,city,0.20,,true,no-location
+147838590,"Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas","",Mazatlán,city,0.20,,true,no-location
+143824116,"Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.","",Mazatlán,city,0.20,,true,no-location
+147616056,"Casa en Venta en Veredas, Mazatlan, Sin.","",Mazatlán,city,0.20,,true,no-location
+147794673,"Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido","",Mazatlán,city,0.20,,true,no-location
+147303199,"Casa en Venta de Real del Valle Coto 14","",Mazatlán,city,0.20,,true,no-location
+147519985,"Casa en Venta Residencial con Alberca en Real del Valle Mazatlan","",Mazatlán,city,0.20,,true,no-location
+62920289,"Casa en Venta en El Fracc Porto Molino Mazatlan Sinaloa","",Mazatlán,city,0.20,,true,no-location
+147794301,"Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial","",Mazatlán,city,0.20,,true,no-location
+146081948,"Casa en Venta en Mazatlan, Fraccionamiento Real Pacifico","",Mazatlán,city,0.20,,true,no-location
+58104789,"Casa en Venta Mazatlan, Residencial Palmilla Super Precio!","",Mazatlán,city,0.20,,true,no-location
+146776771,"Casa en Venta en Privada con Alberca en Mazatlán","",Mazatlán,city,0.20,,true,no-location
+147651291,"Casa en Venta en Mazatlan, Sinaloa (Villa Galaxia)","",Mazatlán,city,0.20,,true,no-location
+146668066,"Casa en Venta en Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)","",Mazatlán,city,0.20,,true,no-location
+61697769,"Casa en Venta en Mazatlán en Coto Privado Camila Hills Modelo Nova","",Mazatlán,city,0.20,,true,no-location
+147081595,"Casa en Venta en Mazatlán.","",Mazatlán,city,0.20,,true,no-location
+
+# RESUMEN
+# Total,46
+# Street,0,0.0%
+# Neighborhood,0,0.0%
+# City,46,100.0%
+# Needs Review,46,100.0%
+# Avg Confidence,20.0%
