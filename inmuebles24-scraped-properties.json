@@ -72,15 +72,6 @@
     "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-en-portalegre-valley-totalmente-equipada-147928773.html"
   },
   {
-    "propertyId": "147701128",
-    "title": "Casa en Renta Circuito Tabachines Culiacan Sinaloa",
-    "slug": "casa-en-renta-circuito-tabachines-culiacan-sinaloa",
-    "price": "MN 19,000",
-    "publishedDate": "Publicado hace 23 días",
-    "scrapedAt": "2025-10-18T04:40:06.258Z",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-circuito-tabachines-culiacan-sinaloa-147701128.html"
-  },
-  {
     "propertyId": "147564220",
     "title": "Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa",
     "slug": "casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa",
@@ -448,5 +439,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-24T19:08:48.552Z"
+  },
+  {
+    "propertyId": "147701128",
+    "title": "Casa en Renta Circuito Tabachines Culiacan Sinaloa",
+    "slug": "casa-en-renta-circuito-tabachines-culiacan-sinaloa",
+    "price": "MN 19,000",
+    "publishedDate": "Publicado hace 28 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-circuito-tabachines-culiacan-sinaloa-147701128.html",
+    "lat": 24.7928852,
+    "lng": -107.4253803,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Recursos Hidráulicos",
+    "codigoPostal": "80105",
+    "scrapedAt": "2025-10-24T19:11:49.564Z"
   }
 ]
