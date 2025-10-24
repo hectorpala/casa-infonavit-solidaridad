@@ -72,15 +72,6 @@
     "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-en-portalegre-valley-totalmente-equipada-147928773.html"
   },
   {
-    "propertyId": "147564220",
-    "title": "Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa",
-    "slug": "casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa",
-    "price": "MN 10,000",
-    "publishedDate": "Publicado hace 22 días",
-    "scrapedAt": "2025-10-18T19:33:48.529Z",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-colonia-lomas-del-pedregal-culiacan-147564220.html"
-  },
-  {
     "propertyId": "147300315",
     "title": "Renta Casa en La Isla Privada Pontevedra",
     "slug": "renta-casa-en-la-isla-privada-pontevedra",
@@ -484,5 +475,20 @@
     "colonia": "Rincón Colonial",
     "codigoPostal": "80058",
     "scrapedAt": "2025-10-24T19:20:53.292Z"
+  },
+  {
+    "propertyId": "147564220",
+    "title": "Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa",
+    "slug": "casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa",
+    "price": "MN 10,000",
+    "publishedDate": "Publicado hace 29 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-colonia-lomas-del-pedregal-culiacan-147564220.html",
+    "lat": 24.8397821,
+    "lng": -107.3857725,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Lomas Del Magisterio",
+    "codigoPostal": "80015",
+    "scrapedAt": "2025-10-24T19:29:56.755Z"
   }
 ]
