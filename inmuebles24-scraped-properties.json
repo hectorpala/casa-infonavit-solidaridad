@@ -565,5 +565,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-24T23:48:26.178Z"
+  },
+  {
+    "propertyId": "75304061",
+    "title": "Se Vende Casa",
+    "slug": "se-vende-casa",
+    "price": "MN 1,450,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75304061.html",
+    "lat": 24.7898164,
+    "lng": -107.3593129,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Emiliano Zapata",
+    "codigoPostal": "80260",
+    "scrapedAt": "2025-10-24T23:49:17.732Z"
   }
 ]

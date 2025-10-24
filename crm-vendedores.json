@@ -4585,6 +4585,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "75304061",
+          "titulo": "Se Vende Casa",
+          "precio": "MN 1,450,000",
+          "ubicacion": "CALLE PLAN DE TUXTEPEC 3110, Culiacán, Sinaloa, Mexico, Emiliano Zapata",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75304061.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4744,9 +4758,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:48:26.181Z",
+    "ultimaActualizacion": "2025-10-24T23:49:17.735Z",
     "totalVendedores": 28,
-    "totalPropiedades": 261,
+    "totalPropiedades": 262,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
