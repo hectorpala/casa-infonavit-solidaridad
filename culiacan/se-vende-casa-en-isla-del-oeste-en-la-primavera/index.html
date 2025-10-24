@@ -62,8 +62,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 24.8091,
-        "longitude": -107.394
+        "latitude": 24.7388997,
+        "longitude": -107.3952321
       },
       "floorSize": {
         "@type": "QuantitativeValue",
@@ -1252,7 +1252,7 @@
     <section class="location-map scroll-animate" id="location">
         <div class="container">
             <h2 class="section-title">Ubicación</h2>
-            <p class="location-subtitle">Isla del Oeste, Culiacán</p>
+            <p class="location-subtitle">La Primavera, Culiacán</p>
             
     <!-- Mapa con Marcador Personalizado -->
     
@@ -1280,14 +1280,14 @@
 
         // Configuración del marcador personalizado
         const MARKER_CONFIG = {
-            location: "Isla del Oeste, Culiacán, Sinaloa",
+            location: "La Primavera, Culiacán, Sinaloa",
             priceShort: "30.1M",
             title: "Se Vende Casa en Isla del Oeste en La Primavera",
             precision: "neighborhood",
             latOffset: 0,
             lngOffset: 0,
-            lat: 24.8091, // ✅ Coordenadas de Geocoder V1.5
-            lng: -107.394  // ✅ Coordenadas de Geocoder V1.5
+            lat: 24.7388997, // ✅ Coordenadas correctas de La Primavera (Google Geocoding API)
+            lng: -107.3952321  // ✅ Coordenadas correctas de La Primavera (Google Geocoding API)
         };
 
         // Datos completos de la propiedad actual (para el InfoWindow con carrusel)
@@ -1295,7 +1295,7 @@
             priceShort: FALLBACK_PRICE_SHORT,
             priceFull: FALLBACK_PRICE_FULL,
             title: "Se Vende Casa en Isla del Oeste en La Primavera",
-            location: "Isla del Oeste, Culiacán",
+            location: "La Primavera, Culiacán",
             bedrooms: FALLBACK_BEDROOMS,
             bathrooms: FALLBACK_BATHROOMS,
             area: FALLBACK_AREA,
