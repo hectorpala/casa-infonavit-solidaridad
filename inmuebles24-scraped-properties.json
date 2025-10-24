@@ -505,5 +505,20 @@
     "colonia": "La Conquista",
     "codigoPostal": "80058",
     "scrapedAt": "2025-10-24T19:40:01.212Z"
+  },
+  {
+    "propertyId": "147711585",
+    "title": "Se Vende Casa en Perisur II Culiacán",
+    "slug": "se-vende-casa-en-perisur-ii-culiacan",
+    "price": "MN 2,300,002",
+    "publishedDate": "Publicado hace 28 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html",
+    "lat": 24.75101,
+    "lng": -107.4010395,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Perisur II",
+    "codigoPostal": "80197",
+    "scrapedAt": "2025-10-24T20:57:48.144Z"
   }
 ]
