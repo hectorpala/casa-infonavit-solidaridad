@@ -655,5 +655,20 @@
     "colonia": "Valle Alto",
     "codigoPostal": "80050",
     "scrapedAt": "2025-10-24T23:53:35.025Z"
+  },
+  {
+    "propertyId": "146342696",
+    "title": "Casa en Venta en Stanza Corcega A2",
+    "slug": "casa-en-venta-en-stanza-corcega-a2",
+    "price": "MN 1,290,000",
+    "publishedDate": "Publicado hace 175 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-stanza-corcega-a2-146342696.html",
+    "lat": 24.7498304,
+    "lng": -107.3878399,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Villa Bonita",
+    "codigoPostal": "80199",
+    "scrapedAt": "2025-10-24T23:54:25.714Z"
   }
 ]
