@@ -469,5 +469,20 @@
     "colonia": "Miguel Hidalgo",
     "codigoPostal": "80090",
     "scrapedAt": "2025-10-24T19:15:52.125Z"
+  },
+  {
+    "propertyId": "146348330",
+    "title": "Casa en Fraccionamiento Rincón Colonial",
+    "slug": "casa-en-fraccionamiento-rincon-colonial",
+    "price": "MN 3,000,000",
+    "publishedDate": "Publicado hace 174 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-rincon-colonial-146348330.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+    "lat": 24.8316482,
+    "lng": -107.3887891,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Rincón Colonial",
+    "codigoPostal": "80058",
+    "scrapedAt": "2025-10-24T19:20:53.292Z"
   }
 ]

@@ -4529,6 +4529,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace 90 días",
           "vistas": 0
+        },
+        {
+          "id": "146348330",
+          "titulo": "Casa en Fraccionamiento Rincón Colonial",
+          "precio": "MN 3,000,000",
+          "ubicacion": "Avenida DEL Cardenal al 4800, Culiacán, Sinaloa, Mexico, Fraccionamiento Rincón Colonial",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-rincon-colonial-146348330.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=14",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 174 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4653,9 +4667,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T19:15:52.130Z",
+    "ultimaActualizacion": "2025-10-24T19:20:53.299Z",
     "totalVendedores": 27,
-    "totalPropiedades": 256,
+    "totalPropiedades": 257,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
