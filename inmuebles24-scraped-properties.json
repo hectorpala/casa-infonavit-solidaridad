@@ -1,14 +1,5 @@
 [
   {
-    "propertyId": "147500481",
-    "title": "Casa en Venta en Privada La Cantera",
-    "slug": "casa-en-venta-en-privada-la-cantera",
-    "price": "MN 21,496,000",
-    "publishedDate": "Publicado hace 41 días",
-    "scrapedAt": "2025-10-15T00:18:00.803Z",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html"
-  },
-  {
     "propertyId": "147643837",
     "title": "Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada",
     "slug": "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada",
@@ -436,5 +427,20 @@
     "colonia": "La Primavera",
     "codigoPostal": "80199",
     "scrapedAt": "2025-10-24T18:45:15.076Z"
+  },
+  {
+    "propertyId": "147500481",
+    "title": "Casa en Venta en Privada La Cantera",
+    "slug": "casa-en-venta-en-privada-la-cantera",
+    "price": "MN 21,496,000",
+    "publishedDate": "Publicado hace 50 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html",
+    "lat": 24.8000572,
+    "lng": -107.4349268,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "La Cantera",
+    "codigoPostal": "80106",
+    "scrapedAt": "2025-10-24T19:06:23.650Z"
   }
 ]
