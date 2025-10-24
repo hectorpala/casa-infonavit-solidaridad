@@ -640,5 +640,20 @@
     "colonia": "Los Pinos",
     "codigoPostal": "80063",
     "scrapedAt": "2025-10-24T23:52:41.765Z"
+  },
+  {
+    "propertyId": "147449962",
+    "title": "Hermosa Casa en Valle Alto, Culiacán",
+    "slug": "hermosa-casa-en-valle-alto-culiacan",
+    "price": "MN 1,485,000",
+    "publishedDate": "Publicado hace 56 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-hermosa-casa-en-valle-alto-culiacan-147449962.html",
+    "lat": 24.8052781,
+    "lng": -107.4625676,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Valle Alto",
+    "codigoPostal": "80050",
+    "scrapedAt": "2025-10-24T23:53:35.025Z"
   }
 ]

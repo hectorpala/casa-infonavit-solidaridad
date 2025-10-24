@@ -4811,12 +4811,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-24T23:48:26.180Z"
+    },
+    {
+      "id": "v029",
+      "nombre": "Ricardo F",
+      "telefono": "556699074",
+      "telefonoFormateado": "556699074",
+      "whatsapp": "https://wa.me/52556699074",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147449962",
+          "titulo": "Hermosa Casa en Valle Alto, Culiacán",
+          "precio": "MN 1,485,000",
+          "ubicacion": "Valle de Hidalgo, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-hermosa-casa-en-valle-alto-culiacan-147449962.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 56 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Valle de Hidalgo, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+      "tags": [
+        "inmuebles24",
+        "valle-de-hidalgo",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-valle-alto",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-24T23:53:35.028Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:52:41.768Z",
-    "totalVendedores": 28,
-    "totalPropiedades": 266,
+    "ultimaActualizacion": "2025-10-24T23:53:35.028Z",
+    "totalVendedores": 29,
+    "totalPropiedades": 267,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
