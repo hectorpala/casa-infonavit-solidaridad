@@ -461,6 +461,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "146463037",
+          "titulo": "Casa en Valle Alto Zona Norte",
+          "precio": "MN 1,300,000",
+          "ubicacion": "Privada Valle Alto Verde, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-valle-alto-zona-norte-146463037.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 160 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -4961,9 +4975,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:58:43.067Z",
+    "ultimaActualizacion": "2025-10-24T23:59:34.607Z",
     "totalVendedores": 31,
-    "totalPropiedades": 272,
+    "totalPropiedades": 273,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

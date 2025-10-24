@@ -745,5 +745,20 @@
     "colonia": "Hacienda Arboledas",
     "codigoPostal": "80019",
     "scrapedAt": "2025-10-24T23:58:43.064Z"
+  },
+  {
+    "propertyId": "146463037",
+    "title": "Casa en Valle Alto Zona Norte",
+    "slug": "casa-en-valle-alto-zona-norte",
+    "price": "MN 1,300,000",
+    "publishedDate": "Publicado hace 160 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-valle-alto-zona-norte-146463037.html",
+    "lat": 24.7998483,
+    "lng": -107.4810826,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Valle Alto",
+    "codigoPostal": "80050",
+    "scrapedAt": "2025-10-24T23:59:34.601Z"
   }
 ]
