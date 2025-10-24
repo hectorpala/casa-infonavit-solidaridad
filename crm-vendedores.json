@@ -4613,6 +4613,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "71155299",
+          "titulo": "Se Vende Casa Col. Lazaro Cardenas",
+          "precio": "MN 1,500,000",
+          "ubicacion": "Casa en Calle Presidente Carlos Chávez Esq. 15 de Septiembre, PRESIDENTE CARLOS CHAVEZ, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-col.-lazaro-cardenas-71155299.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4772,9 +4786,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:50:08.588Z",
+    "ultimaActualizacion": "2025-10-24T23:50:58.562Z",
     "totalVendedores": 28,
-    "totalPropiedades": 263,
+    "totalPropiedades": 264,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

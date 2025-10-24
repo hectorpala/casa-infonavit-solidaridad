@@ -595,5 +595,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-24T23:50:08.582Z"
+  },
+  {
+    "propertyId": "71155299",
+    "title": "Se Vende Casa Col. Lazaro Cardenas",
+    "slug": "se-vende-casa-col-lazaro-cardenas",
+    "price": "MN 1,500,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-col.-lazaro-cardenas-71155299.html",
+    "lat": 24.7776392,
+    "lng": -107.3755532,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-24T23:50:58.559Z"
   }
 ]
