@@ -252,15 +252,6 @@
     "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-guadalupe-culiacan-147814499.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=14"
   },
   {
-    "propertyId": "147711585",
-    "title": "Se Vende Casa en Perisur II Culiacán",
-    "slug": "se-vende-casa-en-perisur-ii-culiacan",
-    "price": "MN 2,300,002",
-    "publishedDate": "Publicado hace 27 días",
-    "scrapedAt": "2025-10-23T18:49:11.072Z",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html"
-  },
-  {
     "propertyId": "146849328",
     "title": "Casa en Cnop",
     "slug": "casa-en-cnop",
@@ -421,5 +412,14 @@
     "publishedDate": "Publicado hace 259 días",
     "scrapedAt": "2025-10-23T23:54:38.430Z",
     "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-estrena-casa-con-acabados-de-lujo-145649453.html?n_src=Listado&n_pg=1&n_pos=28"
+  },
+  {
+    "propertyId": "144301953",
+    "title": "Casa en Pueblo Imala",
+    "slug": "casa-en-pueblo-imala",
+    "price": "MN 2,500,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "scrapedAt": "2025-10-24T17:07:10.773Z",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-pueblo-imala-144301953.html?n_src=Listado&n_pg=2&n_pos=1"
   }
 ]

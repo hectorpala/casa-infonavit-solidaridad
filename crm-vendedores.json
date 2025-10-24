@@ -4459,6 +4459,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 92 días",
           "vistas": 0
+        },
+        {
+          "id": "144301953",
+          "titulo": "Casa en Pueblo Imala",
+          "precio": "MN 2,500,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Imala, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-pueblo-imala-144301953.html?n_src=Listado&n_pg=2&n_pos=1",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4583,9 +4597,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-23T23:54:38.437Z",
+    "ultimaActualizacion": "2025-10-24T17:07:10.781Z",
     "totalVendedores": 27,
-    "totalPropiedades": 251,
+    "totalPropiedades": 252,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
