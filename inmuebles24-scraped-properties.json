@@ -550,5 +550,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-24T23:47:36.107Z"
+  },
+  {
+    "propertyId": "146184063",
+    "title": "Se Vende Casa Stanza Albaterra",
+    "slug": "se-vende-casa-stanza-albaterra",
+    "price": "MN 1,260,000",
+    "publishedDate": "Publicado hace 196 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-stanza-albaterra-146184063.html",
+    "lat": 24.8470852,
+    "lng": -107.3587957,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-24T23:48:26.178Z"
   }
 ]

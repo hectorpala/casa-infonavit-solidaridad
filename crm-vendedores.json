@@ -4706,12 +4706,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-23T20:03:27.221Z"
+    },
+    {
+      "id": "v028",
+      "nombre": "ROSY PEREZ",
+      "telefono": "6679964598",
+      "telefonoFormateado": "667-996-4598",
+      "whatsapp": "https://wa.me/526679964598",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "146184063",
+          "titulo": "Se Vende Casa Stanza Albaterra",
+          "precio": "MN 1,260,000",
+          "ubicacion": "San José 3720, Culiacán, Sinaloa, Mexico, Fraccionamiento Stanza Floresta",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-stanza-albaterra-146184063.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 196 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de San José 3720, Culiacán, Sinaloa, Mexico, Fraccionamiento Stanza Floresta",
+      "tags": [
+        "inmuebles24",
+        "san-josé-3720",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-stanza-floresta",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-24T23:48:26.180Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:47:36.109Z",
-    "totalVendedores": 27,
-    "totalPropiedades": 260,
+    "ultimaActualizacion": "2025-10-24T23:48:26.181Z",
+    "totalVendedores": 28,
+    "totalPropiedades": 261,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
