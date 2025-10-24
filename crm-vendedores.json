@@ -4683,6 +4683,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace 138 días",
           "vistas": 0
+        },
+        {
+          "id": "147213537",
+          "titulo": "Casa - Fraccionamiento Hacienda Arboledas",
+          "precio": "MN 1,250,000",
+          "ubicacion": "Av Sendero Hacienda Arboledas, Culiacán, Sinaloa, Mexico, Fraccionamiento Hacienda Arboledas",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-hacienda-arboledas-147213537.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 79 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4947,9 +4961,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:57:51.750Z",
+    "ultimaActualizacion": "2025-10-24T23:58:43.067Z",
     "totalVendedores": 31,
-    "totalPropiedades": 271,
+    "totalPropiedades": 272,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

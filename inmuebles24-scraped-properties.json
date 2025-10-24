@@ -730,5 +730,20 @@
     "colonia": "Los Sauces",
     "codigoPostal": "80028",
     "scrapedAt": "2025-10-24T23:57:51.747Z"
+  },
+  {
+    "propertyId": "147213537",
+    "title": "Casa - Fraccionamiento Hacienda Arboledas",
+    "slug": "casa-fraccionamiento-hacienda-arboledas",
+    "price": "MN 1,250,000",
+    "publishedDate": "Publicado hace 79 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-hacienda-arboledas-147213537.html",
+    "lat": 24.8206008,
+    "lng": -107.4337829,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Hacienda Arboledas",
+    "codigoPostal": "80019",
+    "scrapedAt": "2025-10-24T23:58:43.064Z"
   }
 ]
