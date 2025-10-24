@@ -715,5 +715,20 @@
     "colonia": "Capistrano Residencial",
     "codigoPostal": "80194",
     "scrapedAt": "2025-10-24T23:57:01.366Z"
+  },
+  {
+    "propertyId": "147834860",
+    "title": "Casa en Los Ángeles Culiacán Fracc. Las Glorias (Sauces)",
+    "slug": "casa-en-los-angeles-culiacan-fracc-las-glorias-sauces",
+    "price": "MN 1,300,000",
+    "publishedDate": "Publicado hace 16 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-los-angeles-culiacan-fracc.-las-glorias-147834860.html",
+    "lat": 24.8297034,
+    "lng": -107.419258,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Los Sauces",
+    "codigoPostal": "80028",
+    "scrapedAt": "2025-10-24T23:57:51.747Z"
   }
 ]
