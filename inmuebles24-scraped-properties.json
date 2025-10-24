@@ -1,14 +1,5 @@
 [
   {
-    "propertyId": "147501147",
-    "title": "Se Vende Casa en Isla del Oeste en La Primavera",
-    "slug": "se-vende-casa-en-isla-del-oeste-en-la-primavera",
-    "price": "MN 30,135,000",
-    "publishedDate": "Publicado hace 41 días",
-    "scrapedAt": "2025-10-14T23:46:51.633Z",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-isla-del-oeste-en-la-primavera-147501147.html"
-  },
-  {
     "propertyId": "147500481",
     "title": "Casa en Venta en Privada La Cantera",
     "slug": "casa-en-venta-en-privada-la-cantera",
@@ -430,5 +421,14 @@
     "publishedDate": "Publicado hace 15 días",
     "scrapedAt": "2025-10-24T18:09:36.904Z",
     "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-stanza-toscana-culiacan-sinaloa-147850955.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=3"
+  },
+  {
+    "propertyId": "147501147",
+    "title": "Se Vende Casa en Isla del Oeste en La Primavera",
+    "slug": "se-vende-casa-en-isla-del-oeste-en-la-primavera",
+    "price": "MN 30,135,000",
+    "publishedDate": "Publicado hace 50 días",
+    "scrapedAt": "2025-10-24T18:31:18.753Z",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-isla-del-oeste-en-la-primavera-147501147.html"
   }
 ]
