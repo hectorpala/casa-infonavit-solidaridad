@@ -670,5 +670,20 @@
     "colonia": "Villa Bonita",
     "codigoPostal": "80199",
     "scrapedAt": "2025-10-24T23:54:25.714Z"
+  },
+  {
+    "propertyId": "142682511",
+    "title": "Casa en Fraccionamiento Hacienda Los Huertos",
+    "slug": "casa-en-fraccionamiento-hacienda-los-huertos",
+    "price": "MN 1,250,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-hacienda-los-huertos-142682511.html",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-24T23:55:18.247Z"
   }
 ]

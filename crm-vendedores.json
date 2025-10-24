@@ -238,6 +238,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 259 días",
           "vistas": 0
+        },
+        {
+          "id": "142682511",
+          "titulo": "Casa en Fraccionamiento Hacienda Los Huertos",
+          "precio": "MN 1,250,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-hacienda-los-huertos-142682511.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -4849,9 +4863,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:54:25.720Z",
+    "ultimaActualizacion": "2025-10-24T23:55:18.253Z",
     "totalVendedores": 29,
-    "totalPropiedades": 267,
+    "totalPropiedades": 268,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
