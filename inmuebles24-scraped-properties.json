@@ -610,5 +610,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-24T23:50:58.559Z"
+  },
+  {
+    "propertyId": "75298612",
+    "title": "Se Vende Casa con Terreno",
+    "slug": "se-vende-casa-con-terreno",
+    "price": "MN 1,200,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-con-terreno-75298612.html",
+    "lat": 24.780941,
+    "lng": -107.5148323,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Aguaruto Centro",
+    "codigoPostal": "80308",
+    "scrapedAt": "2025-10-24T23:51:50.707Z"
   }
 ]
