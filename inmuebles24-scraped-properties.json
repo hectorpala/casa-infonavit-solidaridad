@@ -625,5 +625,20 @@
     "colonia": "Aguaruto Centro",
     "codigoPostal": "80308",
     "scrapedAt": "2025-10-24T23:51:50.707Z"
+  },
+  {
+    "propertyId": "75320881",
+    "title": "Se Vende Casa",
+    "slug": "se-vende-casa",
+    "price": "MN 1,450,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75320881.html",
+    "lat": 24.7870837,
+    "lng": -107.4115642,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Los Pinos",
+    "codigoPostal": "80063",
+    "scrapedAt": "2025-10-24T23:52:41.765Z"
   }
 ]
