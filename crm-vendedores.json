@@ -4473,6 +4473,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "143950514",
+          "titulo": "Casa en Fraccionamiento Canaco",
+          "precio": "MN 3,200,000",
+          "ubicacion": "Canaco, Calle Vesta al 3800, Culiacán, Sinaloa, Mexico, Fraccionamiento CANACO",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-canaco-143950514.html?n_src=Listado&n_pills=Terraza&n_pg=2&n_pos=2",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4597,9 +4611,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T17:07:10.781Z",
+    "ultimaActualizacion": "2025-10-24T17:10:02.781Z",
     "totalVendedores": 27,
-    "totalPropiedades": 252,
+    "totalPropiedades": 253,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
