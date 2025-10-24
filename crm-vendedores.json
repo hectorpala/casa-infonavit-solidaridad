@@ -4515,6 +4515,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace 34 días",
           "vistas": 0
+        },
+        {
+          "id": "147111286",
+          "titulo": "Se Vende Casa Miguel Hidalgo",
+          "precio": "MN 2,950,000",
+          "ubicacion": "1624 FRANCISCO GOMEZ FLORES, Culiacán, Sinaloa, Mexico, Miguel Hidalgo",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-miguel-hidalgo-147111286.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=9",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 90 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4639,9 +4653,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T19:11:49.571Z",
+    "ultimaActualizacion": "2025-10-24T19:15:52.130Z",
     "totalVendedores": 27,
-    "totalPropiedades": 255,
+    "totalPropiedades": 256,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

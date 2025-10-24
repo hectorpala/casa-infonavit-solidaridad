@@ -454,5 +454,20 @@
     "colonia": "Recursos Hidráulicos",
     "codigoPostal": "80105",
     "scrapedAt": "2025-10-24T19:11:49.564Z"
+  },
+  {
+    "propertyId": "147111286",
+    "title": "Se Vende Casa Miguel Hidalgo",
+    "slug": "se-vende-casa-miguel-hidalgo",
+    "price": "MN 2,950,000",
+    "publishedDate": "Publicado hace 90 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-miguel-hidalgo-147111286.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=9",
+    "lat": 24.8011737,
+    "lng": -107.3738102,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Miguel Hidalgo",
+    "codigoPostal": "80090",
+    "scrapedAt": "2025-10-24T19:15:52.125Z"
   }
 ]
