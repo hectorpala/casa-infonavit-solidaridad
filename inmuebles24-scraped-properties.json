@@ -520,5 +520,20 @@
     "colonia": "Perisur II",
     "codigoPostal": "80197",
     "scrapedAt": "2025-10-24T20:57:48.144Z"
+  },
+  {
+    "propertyId": "58396222",
+    "title": "Se Vende Casa",
+    "slug": "se-vende-casa",
+    "price": "MN 1,300,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-58396222.html",
+    "lat": 24.7900222,
+    "lng": -107.3614482,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-24T23:46:46.952Z"
   }
 ]
