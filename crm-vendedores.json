@@ -4874,12 +4874,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-24T23:53:35.028Z"
+    },
+    {
+      "id": "v030",
+      "nombre": "A Gomez Bienes Raíces",
+      "telefono": "6671070702",
+      "telefonoFormateado": "667-107-0702",
+      "whatsapp": "https://wa.me/526671070702",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147529251",
+          "titulo": "Casa en Venta en Fracc Capistrano, Sector Sur de Culiacán.",
+          "precio": "MN 1,500,000",
+          "ubicacion": "Calle Misión San Bernardino 2809, Culiacán, Sinaloa, Mexico, Fraccionamiento Capistrano Residencial",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc-capistrano-sector-sur-de-147529251.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 48 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Calle Misión San Bernardino 2809, Culiacán, Sinaloa, Mexico, Fraccionamiento Capistrano Residencial",
+      "tags": [
+        "inmuebles24",
+        "calle-misión-san-bernardino-2809",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-capistrano-residencial",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-24T23:57:01.372Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:56:09.988Z",
-    "totalVendedores": 29,
-    "totalPropiedades": 269,
+    "ultimaActualizacion": "2025-10-24T23:57:01.372Z",
+    "totalVendedores": 30,
+    "totalPropiedades": 270,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

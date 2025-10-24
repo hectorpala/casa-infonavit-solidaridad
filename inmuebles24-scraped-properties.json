@@ -700,5 +700,20 @@
     "colonia": "Santa Elena",
     "codigoPostal": "80028",
     "scrapedAt": "2025-10-24T23:56:09.986Z"
+  },
+  {
+    "propertyId": "147529251",
+    "title": "Casa en Venta en Fracc Capistrano, Sector Sur de Culiacán.",
+    "slug": "casa-en-venta-en-fracc-capistrano-sector-sur-de-culiacan",
+    "price": "MN 1,500,000",
+    "publishedDate": "Publicado hace 48 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc-capistrano-sector-sur-de-147529251.html",
+    "lat": 24.7457076,
+    "lng": -107.4177646,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Capistrano Residencial",
+    "codigoPostal": "80194",
+    "scrapedAt": "2025-10-24T23:57:01.366Z"
   }
 ]
