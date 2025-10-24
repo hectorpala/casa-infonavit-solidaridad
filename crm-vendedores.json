@@ -4669,6 +4669,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "146661574",
+          "titulo": "Casa - Fraccionamiento Santa Elena",
+          "precio": "MN 1,300,000",
+          "ubicacion": "Casa en Venta Col. Santa Elena a 3 min de Plaza Sendero 0, Culiacán, Sinaloa, Mexico, Fraccionamiento Santa Elena",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-santa-elena-146661574.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 138 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4863,9 +4877,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:55:18.253Z",
+    "ultimaActualizacion": "2025-10-24T23:56:09.988Z",
     "totalVendedores": 29,
-    "totalPropiedades": 268,
+    "totalPropiedades": 269,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

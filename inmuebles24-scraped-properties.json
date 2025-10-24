@@ -685,5 +685,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-24T23:55:18.247Z"
+  },
+  {
+    "propertyId": "146661574",
+    "title": "Casa - Fraccionamiento Santa Elena",
+    "slug": "casa-fraccionamiento-santa-elena",
+    "price": "MN 1,300,000",
+    "publishedDate": "Publicado hace 138 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-santa-elena-146661574.html",
+    "lat": 24.8257996,
+    "lng": -107.4265684,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Santa Elena",
+    "codigoPostal": "80028",
+    "scrapedAt": "2025-10-24T23:56:09.986Z"
   }
 ]
