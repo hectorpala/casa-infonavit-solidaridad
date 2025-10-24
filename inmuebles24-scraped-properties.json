@@ -1,14 +1,5 @@
 [
   {
-    "propertyId": "147643837",
-    "title": "Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada",
-    "slug": "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada",
-    "price": "MN 2,550,000",
-    "publishedDate": "Publicado hace 26 días",
-    "scrapedAt": "2025-10-16T19:40:51.638Z",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-real-cumbres-monterrey-1-nivel-147643837.html"
-  },
-  {
     "propertyId": "147908740",
     "title": "Casa en Cumbres Equipada a Estrenar",
     "slug": "casa-en-cumbres-equipada-a-estrenar",
@@ -442,5 +433,20 @@
     "colonia": "La Cantera",
     "codigoPostal": "80106",
     "scrapedAt": "2025-10-24T19:06:23.650Z"
+  },
+  {
+    "propertyId": "147643837",
+    "title": "Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada",
+    "slug": "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada",
+    "price": "MN 2,550,000",
+    "publishedDate": "Publicado hace 34 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-real-cumbres-monterrey-1-nivel-147643837.html",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-24T19:08:48.552Z"
   }
 ]

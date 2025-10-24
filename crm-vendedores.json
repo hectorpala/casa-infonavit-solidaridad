@@ -4501,6 +4501,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace 15 días",
           "vistas": 0
+        },
+        {
+          "id": "147643837",
+          "titulo": "Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada",
+          "precio": "MN 2,550,000",
+          "ubicacion": "Real Cumbres, Monterrey, Nuevo León, Mexico, Real de Cumbres 1er Sector",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-real-cumbres-monterrey-1-nivel-147643837.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 34 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4625,9 +4639,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T19:06:23.656Z",
+    "ultimaActualizacion": "2025-10-24T19:08:48.555Z",
     "totalVendedores": 27,
-    "totalPropiedades": 254,
+    "totalPropiedades": 255,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
