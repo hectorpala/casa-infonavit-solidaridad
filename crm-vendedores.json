@@ -4487,6 +4487,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "147850955",
+          "titulo": "Stanza Toscana Culiacan Sinaloa",
+          "precio": "MN 2,975,000",
+          "ubicacion": "Boulevard Paseo Toscana, Culiacán, Sinaloa, Mexico, Stanza Toscana",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-stanza-toscana-culiacan-sinaloa-147850955.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=3",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 15 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4611,9 +4625,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T17:10:02.781Z",
+    "ultimaActualizacion": "2025-10-24T18:09:36.908Z",
     "totalVendedores": 27,
-    "totalPropiedades": 253,
+    "totalPropiedades": 254,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
