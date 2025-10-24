@@ -1121,13 +1121,8 @@ function saveScrapedProperty(propertyData) {
     try {
         const properties = loadScrapedProperties();
         properties.push({
-            propertyId: propertyData.propertyId,
-            title: propertyData.title,
-            slug: propertyData.slug,
-            price: propertyData.price,
-            publishedDate: propertyData.publishedDate,
-            scrapedAt: new Date().toISOString(),
-            url: propertyData.url
+            ...propertyData,  // Guardar TODOS los campos recibidos
+            scrapedAt: new Date().toISOString()  // Siempre actualizar fecha de scraping
         });
         fs.writeFileSync(CONFIG.scraped_properties_file, JSON.stringify(properties, null, 2), 'utf8');
         console.log(`   ✅ Propiedad guardada en registro (ID: ${propertyData.propertyId})\n`);
@@ -2467,6 +2462,7 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         data.lng = geoResult.coordinates.lng;
         data.locationPrecision = geoResult.precision;  // street|neighborhood|city
         data.locationConfidence = geoResult.confidence; // 0.0-1.0
+        data.locationSource = geoResult.source || 'geocoder';  // geocoder|embedded|manual
         data.colonia = geoResult.colonia?.nombre || null;
         data.codigoPostal = geoResult.colonia?.codigoPostal || null;
         data.mapLink = `https://www.google.com/maps/search/?api=1&query=${data.lat},${data.lng}`;
@@ -2486,6 +2482,7 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         data.lng = -107.3940;
         data.locationPrecision = 'city';
         data.locationConfidence = 0.3;
+        data.locationSource = 'fallback';
         data.colonia = null;
         data.codigoPostal = null;
         data.mapLink = `https://www.google.com/maps/search/?api=1&query=${data.lat},${data.lng}`;
@@ -3278,7 +3275,14 @@ Co-Authored-By: Claude <noreply@anthropic.com>"`, { stdio: 'inherit' });
             slug: slug,
             price: data.price,
             publishedDate: data.publishedDate,
-            url: url
+            url: url,
+            // Geolocalización V1.5
+            lat: data.lat,
+            lng: data.lng,
+            locationPrecision: data.locationPrecision,
+            locationSource: data.locationSource,
+            colonia: data.colonia,
+            codigoPostal: data.codigoPostal
         });
 
         // 9. Actualizar CRM de vendedores
