@@ -4571,6 +4571,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "75300757",
+          "titulo": "Se Vende Casa",
+          "precio": "MN 1,500,000",
+          "ubicacion": "Golfo de California 732, Culiacán, Sinaloa, Mexico, Nuevo Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75300757.html",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -4695,9 +4709,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:46:46.955Z",
+    "ultimaActualizacion": "2025-10-24T23:47:36.109Z",
     "totalVendedores": 27,
-    "totalPropiedades": 259,
+    "totalPropiedades": 260,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
