@@ -21277,13 +21277,15 @@
             // Inicializar array global de marcadores para el filtro
             window.allCuliacanMarkers = [];
 
-            // Propiedad: Casa en Venta Colonia Guadalupe (GEOCODING DINÁMICO - igual que página individual)
+            // Propiedad: Casa en Venta Colonia Guadalupe (COORDENADAS EXACTAS V1.5)
             const guadalupeV15Property = {
-                address: "Rio Quelite Colonia Guadalupe, Culiacán, Sinaloa", // Google Maps API convierte esto a coordenadas en tiempo real
+                address: "Rio Quelite, Colonia Guadalupe, Culiacán, Sinaloa",
+                lat: 24.824,
+                lng: -107.399,
                 priceShort: "$4.3M",
                 priceFull: "$4,300,000",
                 title: "Casa en Venta Colonia Guadalupe Culiacán",
-                location: "Guadalupe, Culiacán",
+                location: "Rio Quelite, Guadalupe, Culiacán",
                 bedrooms: 3,
                 bathrooms: 3,
                 area: "261m²",
@@ -23043,74 +23045,6 @@
                 ]
             };
 
-            // VENTA: Se Vende Casa en Isla del Oeste en La Primavera
-            const se_vende_casa_en_isla_del_oeste_en_la_primaveraProperty = {
-                address: "Isla del Oeste, Culiacán, Sinaloa",
-                priceShort: "$30.14M",
-                priceFull: "$30,135,000",
-                title: "Se Vende Casa en Isla del Oeste en La Primavera",
-                location: "Isla del Oeste, Culiacán",
-                bedrooms: 4,
-                bathrooms: 4,
-                area: "736m²",
-                type: "venta",
-                url: "https://casasenventa.info/culiacan/se-vende-casa-en-isla-del-oeste-en-la-primavera/",
-                whatsapp: "526672317963",
-                photos: [
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-1.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-2.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-3.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-4.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-5.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-6.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-7.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-8.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-9.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-10.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-11.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-12.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-13.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-14.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-15.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-16.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-17.jpg"
-                ]
-            };
-
-            // VENTA: Se Vende Casa en Isla del Oeste en La Primavera
-            const se_vende_casa_en_isla_del_oeste_en_la_primaveraProperty = {
-                address: "Isla del Oeste, Culiacán, Sinaloa",
-                priceShort: "$30.14M",
-                priceFull: "$30,135,000",
-                title: "Se Vende Casa en Isla del Oeste en La Primavera",
-                location: "Isla del Oeste, Culiacán",
-                bedrooms: 4,
-                bathrooms: 4,
-                area: "736m²",
-                type: "venta",
-                url: "https://casasenventa.info/culiacan/se-vende-casa-en-isla-del-oeste-en-la-primavera/",
-                whatsapp: "526672317963",
-                photos: [
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-1.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-2.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-3.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-4.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-5.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-6.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-7.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-8.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-9.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-10.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-11.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-12.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-13.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-14.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-15.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-16.jpg",
-                    "se-vende-casa-en-isla-del-oeste-en-la-primavera/images/foto-17.jpg"
-                ]
-            };
-
             // VENTA: Stanza Toscana Culiacan Sinaloa
             const stanza_toscana_culiacan_sinaloaProperty = {
                 address: "Boulevard Paseo Toscana, Culiacán, Sinaloa",
@@ -24325,7 +24259,8 @@ const losPinosProperty = {
             const casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resPosition = new google.maps.LatLng(24.8090649, -107.3940117);
             const casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resMarkerClass = createZillowPropertyMarker(casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resProperty, window.mapCuliacan);
             const casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resMarker = new casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resMarkerClass(casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resPosition, window.mapCuliacan, casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resProperty);
-            window.allCuliacanMarkers.push(
+            window.allCuliacanMarkers.push(casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resMarker);
+
             // Casa en Venta Bosque Abundancia Bosques del Rey Culiacan Sinaloa - Coordenadas finales (geocoder)
             const casa_en_venta_bosque_abundancia_bosques_del_rey_culiacan_sinPosition = new google.maps.LatLng(24.8207681, -107.439959);
             const casa_en_venta_bosque_abundancia_bosques_del_rey_culiacan_sinMarkerClass = createZillowPropertyMarker(casa_en_venta_bosque_abundancia_bosques_del_rey_culiacan_sinProperty, window.mapCuliacan);
@@ -24367,7 +24302,7 @@ const losPinosProperty = {
             const casa_en_venta_en_privada_la_canteraMarker = new casa_en_venta_en_privada_la_canteraMarkerClass(casa_en_venta_en_privada_la_canteraPosition, window.mapCuliacan, casa_en_venta_en_privada_la_canteraProperty);
             window.allCuliacanMarkers.push(casa_en_venta_en_privada_la_canteraMarker);
             console.log('Marcador Casa en Venta en Privada La Cantera (VENTA) creado en:', casa_en_venta_en_privada_la_canteraPosition.lat(), casa_en_venta_en_privada_la_canteraPosition.lng());
-casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resMarker);
+
             console.log('Marcador Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial (VENTA) creado en:', casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resPosition.lat(), casa_113_m_con_3_recamaras_en_venta_fraccionamiento_isla_resPosition.lng());
 
             // Se Vende Casa en Isla del Oeste en La Primavera - Coordenadas correctas La Primavera (Google Geocoding API V1.5)
