@@ -375,6 +375,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "147030584",
+          "titulo": "Casa en Venta Bosque Abundancia Bosques del Rey Culiacan Sinaloa",
+          "precio": "MN 2,520,000",
+          "ubicacion": "Bosque Abundancia, Culiacán, Sinaloa, Mexico, Fraccionamiento La Conquista",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-bosque-abundancia-bosques-del-rey-147030584.html?n_src=Listado&n_pg=1&n_pos=16",
+          "fechaScrapeo": "2025-10-24",
+          "fechaPublicacion": "Publicado hace 100 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -4667,9 +4681,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T19:29:56.759Z",
+    "ultimaActualizacion": "2025-10-24T19:40:01.215Z",
     "totalVendedores": 27,
-    "totalPropiedades": 257,
+    "totalPropiedades": 258,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

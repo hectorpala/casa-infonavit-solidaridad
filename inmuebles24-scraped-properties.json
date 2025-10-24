@@ -490,5 +490,20 @@
     "colonia": "Lomas Del Magisterio",
     "codigoPostal": "80015",
     "scrapedAt": "2025-10-24T19:29:56.755Z"
+  },
+  {
+    "propertyId": "147030584",
+    "title": "Casa en Venta Bosque Abundancia Bosques del Rey Culiacan Sinaloa",
+    "slug": "casa-en-venta-bosque-abundancia-bosques-del-rey-culiacan-sin",
+    "price": "MN 2,520,000",
+    "publishedDate": "Publicado hace 100 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-bosque-abundancia-bosques-del-rey-147030584.html?n_src=Listado&n_pg=1&n_pos=16",
+    "lat": 24.8207681,
+    "lng": -107.439959,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "La Conquista",
+    "codigoPostal": "80058",
+    "scrapedAt": "2025-10-24T19:40:01.212Z"
   }
 ]
