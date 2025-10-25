@@ -4725,6 +4725,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace 79 días",
           "vistas": 0
+        },
+        {
+          "id": "146731014",
+          "titulo": "Casa en Rancho o Rancheria La Guasima",
+          "precio": "MN 1,455,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Vibranta Sueño, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-rancho-o-rancheria-la-guasima-146731014.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 115 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5024,9 +5038,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T00:01:19.946Z",
+    "ultimaActualizacion": "2025-10-25T00:02:10.160Z",
     "totalVendedores": 32,
-    "totalPropiedades": 275,
+    "totalPropiedades": 276,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

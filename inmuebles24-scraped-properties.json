@@ -790,5 +790,20 @@
     "colonia": "Villas Del Rio Elite",
     "codigoPostal": "80050",
     "scrapedAt": "2025-10-25T00:01:19.943Z"
+  },
+  {
+    "propertyId": "146731014",
+    "title": "Casa en Rancho o Rancheria La Guasima",
+    "slug": "casa-en-rancho-o-rancheria-la-guasima",
+    "price": "MN 1,455,000",
+    "publishedDate": "Publicado hace 115 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-rancho-o-rancheria-la-guasima-146731014.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-25T00:02:10.157Z"
   }
 ]
