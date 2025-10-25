@@ -321,6 +321,152 @@
             height: 20px;
             border-radius: 4px;
         }
+
+        /* URL Input Section */
+        .url-input-section {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 25px 30px;
+            margin: 25px auto;
+            max-width: 1200px;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
+
+        .url-input-section h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .url-input-section .subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-wrapper label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        .url-input-section input,
+        .url-input-section textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.25);
+            color: white;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .url-input-section textarea {
+            min-height: 80px;
+            resize: vertical;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+        }
+
+        .url-input-section input::placeholder,
+        .url-input-section textarea::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .url-input-section input:focus,
+        .url-input-section textarea:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.35);
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.1);
+        }
+
+        .days-input-wrapper {
+            width: 180px;
+        }
+
+        .days-input-wrapper input[type="number"] {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .command-output {
+            background: rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 16px 20px;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #fff;
+            word-break: break-all;
+            position: relative;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .command-output .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+        }
+
+        .command-output .copy-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .command-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+
+            .days-input-wrapper {
+                width: 100%;
+            }
+
+            .command-output {
+                font-size: 0.8rem;
+                padding: 14px 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -345,6 +491,40 @@
         <div class="stat-card">
             <span class="number">167</span>
             <span class="label">Total Publicadas</span>
+        </div>
+    </div>
+
+    <!-- URL Input Section -->
+    <div class="url-input-section">
+        <h2>🔗 Generador de Comando - Extracción de URLs</h2>
+        <p class="subtitle">Pega tu URL de Inmuebles24 y configura los días para generar el comando automáticamente</p>
+
+        <div class="input-group">
+            <div class="input-wrapper">
+                <label for="inmuebles-url">📋 URL del Listado de Inmuebles24</label>
+                <textarea
+                    id="inmuebles-url"
+                    placeholder="Ejemplo: https://www.inmuebles24.com/venta/sinaloa/culiacan/"
+                    oninput="updateCommand()"
+                ></textarea>
+            </div>
+            <div class="input-wrapper days-input-wrapper">
+                <label for="max-days">📅 Antigüedad (días)</label>
+                <input
+                    type="number"
+                    id="max-days"
+                    value="35"
+                    min="1"
+                    max="365"
+                    oninput="updateCommand()"
+                >
+            </div>
+        </div>
+
+        <div class="command-label">⚡ Comando Generado:</div>
+        <div class="command-output">
+            <span id="generated-command">node extraer-urls-recientes-culiacan.js "<span style="color: #ffd700;">PEGA_TU_URL_AQUÍ</span>" --max-days 35</span>
+            <button class="copy-btn" onclick="copyGeneratedCommand()">📋 Copiar</button>
         </div>
     </div>
 
@@ -661,6 +841,52 @@
     </div>
 
     <script>
+        // Actualizar comando generado dinámicamente
+        function updateCommand() {
+            const urlInput = document.getElementById('inmuebles-url');
+            const daysInput = document.getElementById('max-days');
+            const commandDisplay = document.getElementById('generated-command');
+
+            const url = urlInput.value.trim();
+            const days = daysInput.value || '35';
+
+            if (url) {
+                commandDisplay.innerHTML = `node extraer-urls-recientes-culiacan.js "<span style="color: #4ade80;">${url}</span>" --max-days ${days}`;
+            } else {
+                commandDisplay.innerHTML = `node extraer-urls-recientes-culiacan.js "<span style="color: #ffd700;">PEGA_TU_URL_AQUÍ</span>" --max-days ${days}`;
+            }
+        }
+
+        // Copiar comando generado al portapapeles
+        function copyGeneratedCommand() {
+            const urlInput = document.getElementById('inmuebles-url');
+            const daysInput = document.getElementById('max-days');
+
+            const url = urlInput.value.trim();
+            const days = daysInput.value || '35';
+
+            if (!url) {
+                alert('⚠️ Por favor, pega primero la URL de Inmuebles24');
+                return;
+            }
+
+            const command = `node extraer-urls-recientes-culiacan.js "${url}" --max-days ${days}`;
+
+            navigator.clipboard.writeText(command).then(() => {
+                const button = document.querySelector('.copy-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '✅ ¡Copiado!';
+                button.style.background = 'rgba(76, 175, 80, 0.3)';
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = 'rgba(255,255,255,0.2)';
+                }, 2000);
+            }).catch(err => {
+                alert('Comando: ' + command);
+            });
+        }
+
         function copyCommand(event, command) {
             event.preventDefault();
 
