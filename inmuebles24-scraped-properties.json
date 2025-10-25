@@ -880,5 +880,20 @@
     "colonia": "Lomas de San Isidro",
     "codigoPostal": "80197",
     "scrapedAt": "2025-10-25T00:58:12.817Z"
+  },
+  {
+    "propertyId": "147575993",
+    "title": "Casa en Venta",
+    "slug": "casa-en-venta",
+    "price": "MN 1,500,000",
+    "publishedDate": "Publicado hace 43 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-147575993.html",
+    "lat": 24.7471129,
+    "lng": -107.4166704,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Capistrano Residencial",
+    "codigoPostal": "80194",
+    "scrapedAt": "2025-10-25T00:59:09.551Z"
   }
 ]

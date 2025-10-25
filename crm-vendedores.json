@@ -4326,6 +4326,20 @@
           "fechaScrapeo": "2025-10-23",
           "fechaPublicacion": "Publicado hace 118 días",
           "vistas": 0
+        },
+        {
+          "id": "147575993",
+          "titulo": "Casa en Venta",
+          "precio": "MN 1,500,000",
+          "ubicacion": "Mision San Bernardino Fracc. Capistrano Residencial, Culiacán, Sinaloa, Mexico, Fraccionamiento Capistrano Residencial",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-147575993.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 43 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Avenida 15 de Septiembre Cnop, Culiacán, Sinaloa, Mexico, Cnop",
@@ -5108,9 +5122,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T00:58:12.818Z",
+    "ultimaActualizacion": "2025-10-25T00:59:09.553Z",
     "totalVendedores": 32,
-    "totalPropiedades": 281,
+    "totalPropiedades": 282,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
