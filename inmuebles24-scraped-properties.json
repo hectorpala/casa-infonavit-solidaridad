@@ -940,5 +940,20 @@
     "colonia": "San Javier",
     "codigoPostal": "80135",
     "scrapedAt": "2025-10-25T01:09:40.368Z"
+  },
+  {
+    "propertyId": "147649101",
+    "title": "Casa en Fraccionamiento Terranova",
+    "slug": "casa-en-fraccionamiento-terranova",
+    "price": "MN 1,350,000",
+    "publishedDate": "Publicado hace 35 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-terranova-147649101.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Terranova",
+    "codigoPostal": "80143",
+    "scrapedAt": "2025-10-25T01:10:34.991Z"
   }
 ]

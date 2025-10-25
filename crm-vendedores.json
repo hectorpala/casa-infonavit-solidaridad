@@ -4851,6 +4851,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace 76 días",
           "vistas": 0
+        },
+        {
+          "id": "147649101",
+          "titulo": "Casa en Fraccionamiento Terranova",
+          "precio": "MN 1,350,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Terranova, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-terranova-147649101.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 35 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5185,9 +5199,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T01:09:40.371Z",
+    "ultimaActualizacion": "2025-10-25T01:10:34.995Z",
     "totalVendedores": 33,
-    "totalPropiedades": 285,
+    "totalPropiedades": 286,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
