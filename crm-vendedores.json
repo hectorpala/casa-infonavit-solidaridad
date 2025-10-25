@@ -5119,12 +5119,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-25T00:00:29.304Z"
+    },
+    {
+      "id": "v033",
+      "nombre": "Aidee González Bienes Raíces",
+      "telefono": "550510524",
+      "telefonoFormateado": "550510524",
+      "whatsapp": "https://wa.me/52550510524",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147199192",
+          "titulo": "Casa - Fraccionamiento Valle Alto",
+          "precio": "MN 1,300,000",
+          "ubicacion": "Casa en Valle Alto Verde al 80000, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-valle-alto-147199192.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 80 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Casa en Valle Alto Verde al 80000, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+      "tags": [
+        "inmuebles24",
+        "casa-en-valle-alto-verde-al-80000",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-valle-alto",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-25T01:01:47.824Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T00:59:09.553Z",
-    "totalVendedores": 32,
-    "totalPropiedades": 282,
+    "ultimaActualizacion": "2025-10-25T01:01:47.824Z",
+    "totalVendedores": 33,
+    "totalPropiedades": 283,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

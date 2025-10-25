@@ -895,5 +895,20 @@
     "colonia": "Capistrano Residencial",
     "codigoPostal": "80194",
     "scrapedAt": "2025-10-25T00:59:09.551Z"
+  },
+  {
+    "propertyId": "147199192",
+    "title": "Casa - Fraccionamiento Valle Alto",
+    "slug": "casa-fraccionamiento-valle-alto",
+    "price": "MN 1,300,000",
+    "publishedDate": "Publicado hace 80 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-valle-alto-147199192.html",
+    "lat": 24.7998483,
+    "lng": -107.4810826,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Valle Alto",
+    "codigoPostal": "80050",
+    "scrapedAt": "2025-10-25T01:01:47.819Z"
   }
 ]
