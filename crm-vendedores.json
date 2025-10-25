@@ -4753,6 +4753,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "143635683",
+          "titulo": "Casa en Adolfo Lopez Mateos",
+          "precio": "MN 1,450,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Vendo Casa Nueva Col, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-adolfo-lopez-mateos-143635683.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5052,9 +5066,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T00:03:01.840Z",
+    "ultimaActualizacion": "2025-10-25T00:03:53.038Z",
     "totalVendedores": 32,
-    "totalPropiedades": 277,
+    "totalPropiedades": 278,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

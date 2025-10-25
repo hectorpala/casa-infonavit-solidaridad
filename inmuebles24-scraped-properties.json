@@ -820,5 +820,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-25T00:03:01.837Z"
+  },
+  {
+    "propertyId": "143635683",
+    "title": "Casa en Adolfo Lopez Mateos",
+    "slug": "casa-en-adolfo-lopez-mateos",
+    "price": "MN 1,450,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-adolfo-lopez-mateos-143635683.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-25T00:03:53.035Z"
   }
 ]
