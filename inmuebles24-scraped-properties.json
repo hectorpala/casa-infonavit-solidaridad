@@ -850,5 +850,20 @@
     "colonia": "Adolfo López Mateos",
     "codigoPostal": "80190",
     "scrapedAt": "2025-10-25T00:04:43.716Z"
+  },
+  {
+    "propertyId": "144370308",
+    "title": "Casa en Rosales",
+    "slug": "casa-en-rosales",
+    "price": "MN 1,499,990",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-rosales-144370308.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-25T00:51:59.886Z"
   }
 ]

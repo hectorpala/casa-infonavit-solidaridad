@@ -4781,6 +4781,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace 37 días",
           "vistas": 0
+        },
+        {
+          "id": "144370308",
+          "titulo": "Casa en Rosales",
+          "precio": "MN 1,499,990",
+          "ubicacion": "Prol. Álvaro Obregón 768, Col. Rosales, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-rosales-144370308.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5080,9 +5094,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T00:04:43.720Z",
+    "ultimaActualizacion": "2025-10-25T00:51:59.892Z",
     "totalVendedores": 32,
-    "totalPropiedades": 279,
+    "totalPropiedades": 280,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
