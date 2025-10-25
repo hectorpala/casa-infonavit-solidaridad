@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline Inmuebles24 Culiacán - Tablero Kanban</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .kanban-board {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 0;
+            min-height: calc(100vh - 250px);
+        }
+
+        .kanban-column {
+            flex: 0 0 340px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .column-header {
+            padding: 20px;
+            border-bottom: 3px solid;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .column-header .icon {
+            font-size: 1.5rem;
+        }
+
+        .column-header .count {
+            margin-left: auto;
+            background: rgba(0,0,0,0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Colores por etapa */
+        .stage-1 .column-header { background: #e3f2fd; border-color: #2196F3; color: #1976D2; }
+        .stage-2 .column-header { background: #f3e5f5; border-color: #9C27B0; color: #7B1FA2; }
+        .stage-3 .column-header { background: #fff3e0; border-color: #FF9800; color: #F57C00; }
+        .stage-4 .column-header { background: #e8f5e9; border-color: #4CAF50; color: #388E3C; }
+        .stage-5 .column-header { background: #fce4ec; border-color: #E91E63; color: #C2185B; }
+        .stage-6 .column-header { background: #f1f8e9; border-color: #8BC34A; color: #689F38; }
+        .stage-7 .column-header { background: #e0f2f1; border-color: #009688; color: #00796B; }
+
+        .column-body {
+            padding: 15px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            cursor: move;
+            transition: all 0.3s ease;
+            border-left: 4px solid;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .stage-1 .card { border-left-color: #2196F3; }
+        .stage-2 .card { border-left-color: #9C27B0; }
+        .stage-3 .card { border-left-color: #FF9800; }
+        .stage-4 .card { border-left-color: #4CAF50; }
+        .stage-5 .card { border-left-color: #E91E63; }
+        .stage-6 .card { border-left-color: #8BC34A; }
+        .stage-7 .card { border-left-color: #009688; }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .card-command {
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 10px;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #d32f2f;
+            margin: 8px 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .card-commands-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .card-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .card-notes {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed #e0e0e0;
+        }
+
+        .card-notes-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .card-notes textarea {
+            width: 100%;
+            min-height: 60px;
+            padding: 8px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .card-notes textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #666;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+
+        .badge.success { background: #e8f5e9; color: #4CAF50; }
+        .badge.warning { background: #fff3e0; color: #FF9800; }
+        .badge.info { background: #e3f2fd; color: #2196F3; }
+
+        /* Scrollbar personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.5);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(102, 126, 234, 0.7);
+        }
+
+        @media (max-width: 1400px) {
+            .kanban-board {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .stats {
+                flex-wrap: wrap;
+            }
+
+            .kanban-column {
+                flex: 0 0 300px;
+            }
+        }
+
+        .legend {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            color: white;
+        }
+
+        .legend h3 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Pipeline Inmuebles24 Culiacán</h1>
+        <p>Sistema automatizado de extracción, procesamiento y publicación de propiedades inmobiliarias</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <span class="number">7</span>
+            <span class="label">Etapas</span>
+        </div>
+        <div class="stat-card">
+            <span class="number">~30</span>
+            <span class="label">Props/Día</span>
+        </div>
+        <div class="stat-card">
+            <span class="number">95%</span>
+            <span class="label">Éxito Geocoding</span>
+        </div>
+        <div class="stat-card">
+            <span class="number">167</span>
+            <span class="label">Total Publicadas</span>
+        </div>
+    </div>
+
+    <div class="kanban-board">
+        <!-- ETAPA 1: Extracción de URLs -->
+        <div class="kanban-column stage-1">
+            <div class="column-header">
+                <span class="icon">📋</span>
+                <span>Extracción de URLs</span>
+                <span class="count">1</span>
+            </div>
+            <div class="column-body">
+                <div class="card">
+                    <div class="card-title">Extraer URLs Recientes</div>
+                    <div class="card-description">
+                        Extrae URLs de propiedades con antigüedad configurable (default 35 días) desde cualquier listado de Inmuebles24. Soporta URLs filtradas por precio.
+                    </div>
+                    <span class="badge info">Puppeteer</span>
+                    <span class="badge success">URL personalizada</span>
+                    <span class="badge warning">35 días default</span>
+
+                    <div class="card-commands-label">Comandos Disponibles:</div>
+                    <div class="card-command"># URL básica (35 días)</div>
+                    <div class="card-command">node extraer-urls-recientes-culiacan.js "https://www.inmuebles24.com/venta/sinaloa/culiacan/"</div>
+                    <div class="card-command"># Filtrado por precio (35 días)</div>
+                    <div class="card-command">node extraer-urls-recientes-culiacan.js "https://www.inmuebles24.com/casas-en-venta-en-culiacan-de-1000000-a-3000000-pesos.html"</div>
+                    <div class="card-command"># Con antigüedad personalizada (50 días)</div>
+                    <div class="card-command">node extraer-urls-recientes-culiacan.js "URL" --max-days 50</div>
+
+                    <div class="card-description" style="margin-top: 12px; font-size: 0.85rem;">
+                        <strong>Argumentos:</strong><br>
+                        • &lt;url-base&gt;: URL de Inmuebles24 (requerido)<br>
+                        • --max-days N: Antigüedad máxima (default: 35)<br><br>
+                        <strong>Outputs:</strong><br>
+                        • urls-propiedades-recientes-culiacan.txt<br>
+                        • propiedades-recientes-culiacan.json
+                    </div>
+
+                    <a href="#" class="card-button" onclick="alert('Copia uno de los comandos de arriba y reemplaza la URL/días según necesites')">
+                        🚀 Ver ejemplos
+                    </a>
+
+                    <div class="card-notes">
+                        <div class="card-notes-label">📝 Notas:</div>
+                        <textarea placeholder="URL usada, días configurados, resultados..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 2: Verificación Rápida -->
+        <div class="kanban-column stage-2">
+            <div class="column-header">
+                <span class="icon">🔍</span>
+                <span>Verificación Rápida</span>
+                <span class="count">1</span>
+            </div>
+            <div class="column-body">
+                <div class="card">
+                    <div class="card-title">Check de Duplicados</div>
+                    <div class="card-description">
+                        Verifica qué propiedades son nuevas sin realizar scraping completo. Detecta duplicados por Property ID con 100% de precisión.
+                    </div>
+                    <span class="badge warning">Detección duplicados</span>
+                    <span class="badge info">Sin scraping</span>
+
+                    <div class="card-commands-label">Comando Principal:</div>
+                    <div class="card-command">node scrapear-batch-urls.js --check-only</div>
+
+                    <div class="card-description" style="margin-top: 12px; font-size: 0.85rem;">
+                        <strong>Verifica contra:</strong><br>
+                        • inmuebles24-scraped-properties.json<br>
+                        • property-history.json
+                    </div>
+
+                    <a href="#" class="card-button" onclick="copyCommand(event, 'node scrapear-batch-urls.js --check-only')">
+                        🚀 Ejecutar verificación
+                    </a>
+
+                    <div class="card-notes">
+                        <div class="card-notes-label">📝 Notas:</div>
+                        <textarea placeholder="Registra cuántas propiedades son nuevas..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 3: Batch Scraping -->
+        <div class="kanban-column stage-3">
+            <div class="column-header">
+                <span class="icon">🔧</span>
+                <span>Batch Scraping</span>
+                <span class="count">1</span>
+            </div>
+            <div class="column-body">
+                <div class="card">
+                    <div class="card-title">Procesamiento en Paralelo</div>
+                    <div class="card-description">
+                        Procesa múltiples propiedades simultáneamente usando workers concurrentes. Lee el archivo de URLs y orquesta el scraping.
+                    </div>
+                    <span class="badge warning">Concurrencia: 3</span>
+                    <span class="badge info">Batch processing</span>
+
+                    <div class="card-commands-label">Comandos Disponibles:</div>
+                    <div class="card-command">node scrapear-batch-urls.js --concurrency 3 --test 30</div>
+                    <div class="card-command">node scrapear-batch-urls.js --concurrency 5</div>
+
+                    <div class="card-description" style="margin-top: 12px; font-size: 0.85rem;">
+                        <strong>Flags útiles:</strong><br>
+                        • --concurrency N: Workers paralelos<br>
+                        • --test N: Limitar a N URLs<br>
+                        • Logs: /tmp/batch-test-N.log
+                    </div>
+
+                    <a href="#" class="card-button" onclick="copyCommand(event, 'node scrapear-batch-urls.js --concurrency 3 --test 30')">
+                        🚀 Procesar batch
+                    </a>
+
+                    <div class="card-notes">
+                        <div class="card-notes-label">📝 Notas:</div>
+                        <textarea placeholder="Tiempo estimado, errores encontrados..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 4: Scraper Individual -->
+        <div class="kanban-column stage-4">
+            <div class="column-header">
+                <span class="icon">🏠</span>
+                <span>Scraper Individual</span>
+                <span class="count">1</span>
+            </div>
+            <div class="column-body">
+                <div class="card">
+                    <div class="card-title">Scraping Completo</div>
+                    <div class="card-description">
+                        Scraper principal que extrae datos, descarga fotos, geocodifica, genera HTML y registra en bases de datos JSON.
+                    </div>
+                    <span class="badge success">Geocoding</span>
+                    <span class="badge success">Generación HTML</span>
+                    <span class="badge info">5 niveles fallback</span>
+
+                    <div class="card-commands-label">Comando Principal:</div>
+                    <div class="card-command">node inmuebles24culiacanscraper.js "URL"</div>
+
+                    <div class="card-description" style="margin-top: 12px; font-size: 0.85rem;">
+                        <strong>Proceso interno:</strong><br>
+                        1. Extrae Property ID<br>
+                        2. Verifica duplicados<br>
+                        3. Scrapea datos + fotos<br>
+                        4. Geocodifica dirección<br>
+                        5. Genera HTML<br>
+                        6. Integra a culiacan/index.html<br>
+                        7. Registra en JSONs
+                    </div>
+
+                    <a href="#" class="card-button" onclick="alert('Usa el comando con una URL específica de Inmuebles24')">
+                        🚀 Scraper directo
+                    </a>
+
+                    <div class="card-notes">
+                        <div class="card-notes-label">📝 Notas:</div>
+                        <textarea placeholder="Propiedades problemáticas, errores de geocoding..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 5: Revisión Local -->
+        <div class="kanban-column stage-5">
+            <div class="column-header">
+                <span class="icon">👀</span>
+                <span>Revisión Local</span>
+                <span class="count">1</span>
+            </div>
+            <div class="column-body">
+                <div class="card">
+                    <div class="card-title">Verificación Manual</div>
+                    <div class="card-description">
+                        Abre las páginas generadas localmente para verificar que todo se vea correctamente antes de publicar.
+                    </div>
+                    <span class="badge info">Control de calidad</span>
+                    <span class="badge warning">Manual</span>
+
+                    <div class="card-commands-label">Comando:</div>
+                    <div class="card-command">open culiacan/[slug]/index.html</div>
+
+                    <div class="card-description" style="margin-top: 12px; font-size: 0.85rem;">
+                        <strong>Checklist de verificación:</strong><br>
+                        ✓ Fotos cargan correctamente<br>
+                        ✓ Información completa y precisa<br>
+                        ✓ Mapa con coordenadas correctas<br>
+                        ✓ Calculadora hipotecaria funciona<br>
+                        ✓ Botones WhatsApp/Compartir OK
+                    </div>
+
+                    <a href="#" class="card-button" onclick="alert('Abre el archivo HTML en tu navegador para revisar')">
+                        👁️ Revisar página
+                    </a>
+
+                    <div class="card-notes">
+                        <div class="card-notes-label">📝 Notas:</div>
+                        <textarea placeholder="Problemas encontrados en la revisión..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 6: Publicación -->
+        <div class="kanban-column stage-6">
+            <div class="column-header">
+                <span class="icon">🚀</span>
+                <span>Publicación</span>
+                <span class="count">1</span>
+            </div>
+            <div class="column-body">
+                <div class="card">
+                    <div class="card-title">Deploy a GitHub Pages</div>
+                    <div class="card-description">
+                        Publica los cambios a GitHub Pages usando el agente gitops-publicador. Automático con commit descriptivo.
+                    </div>
+                    <span class="badge success">Automático</span>
+                    <span class="badge info">GitHub Pages</span>
+
+                    <div class="card-commands-label">Comando Usuario:</div>
+                    <div class="card-command">"publica ya"</div>
+
+                    <div class="card-description" style="margin-top: 12px; font-size: 0.85rem;">
+                        <strong>Proceso automático:</strong><br>
+                        1. git add culiacan/[slug]/<br>
+                        2. git commit -m "Add: Casa..."<br>
+                        3. git push origin main<br>
+                        4. GitHub Pages deploy (1-2 min)
+                    </div>
+
+                    <a href="#" class="card-button" onclick="copyCommand(event, 'git add . && git commit -m \"Daily scraping\" && git push')">
+                        🚀 Publicar ahora
+                    </a>
+
+                    <div class="card-notes">
+                        <div class="card-notes-label">📝 Notas:</div>
+                        <textarea placeholder="Hora de publicación, número de propiedades..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETAPA 7: Verificación Producción -->
+        <div class="kanban-column stage-7">
+            <div class="column-header">
+                <span class="icon">✅</span>
+                <span>Verificación Producción</span>
+                <span class="count">1</span>
+            </div>
+            <div class="column-body">
+                <div class="card">
+                    <div class="card-title">Validación en Vivo</div>
+                    <div class="card-description">
+                        Verifica que las propiedades estén accesibles públicamente en casasenventa.info y funcionando correctamente.
+                    </div>
+                    <span class="badge success">Producción</span>
+                    <span class="badge info">Live check</span>
+
+                    <div class="card-commands-label">URL Base:</div>
+                    <div class="card-command">https://casasenventa.info/culiacan/[slug]/</div>
+
+                    <div class="card-description" style="margin-top: 12px; font-size: 0.85rem;">
+                        <strong>Checklist de producción:</strong><br>
+                        ✓ Página accesible públicamente<br>
+                        ✓ Fotos se muestran correctamente<br>
+                        ✓ Mapa funciona con coordenadas<br>
+                        ✓ Aparece en culiacan/index.html<br>
+                        ✓ Aparece en mapa modal
+                    </div>
+
+                    <a href="https://casasenventa.info/culiacan/" target="_blank" class="card-button">
+                        🌐 Abrir sitio producción
+                    </a>
+
+                    <div class="card-notes">
+                        <div class="card-notes-label">📝 Notas:</div>
+                        <textarea placeholder="Errores en producción, tiempo de deploy..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <h3>📚 Documentación y Recursos</h3>
+        <div class="legend-items">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #2196F3;"></div>
+                <span>README-PIPELINE-INMUEBLES24-CULIACAN.md</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #9C27B0;"></div>
+                <span>DUPLICATE-DETECTION-README.md</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #FF9800;"></div>
+                <span>GEOCODER-FIXES-SUMMARY.md</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4CAF50;"></div>
+                <span>OXYLABS-SETUP.md</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #E91E63;"></div>
+                <span>CLAUDE.md</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyCommand(event, command) {
+            event.preventDefault();
+
+            // Copiar al portapapeles
+            navigator.clipboard.writeText(command).then(() => {
+                // Cambiar texto del botón temporalmente
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = '✅ ¡Copiado!';
+                button.style.background = 'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                }, 2000);
+            }).catch(err => {
+                alert('Comando: ' + command);
+            });
+        }
+
+        // Guardar notas en localStorage
+        document.querySelectorAll('.card-notes textarea').forEach((textarea, index) => {
+            const key = `kanban-note-${index}`;
+
+            // Cargar nota guardada
+            const savedNote = localStorage.getItem(key);
+            if (savedNote) {
+                textarea.value = savedNote;
+            }
+
+            // Guardar al escribir
+            textarea.addEventListener('input', () => {
+                localStorage.setItem(key, textarea.value);
+            });
+        });
+
+        // Efecto de drag visual (sin funcionalidad completa)
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('dragstart', (e) => {
+                card.style.opacity = '0.5';
+            });
+
+            card.addEventListener('dragend', (e) => {
+                card.style.opacity = '1';
+            });
+        });
+
+        // Estadísticas en tiempo real (ejemplo)
+        function updateStats() {
+            // Aquí podrías conectar con APIs reales
+            console.log('Stats actualizadas');
+        }
+
+        // Actualizar stats cada 5 minutos
+        setInterval(updateStats, 300000);
+    </script>
+</body>
+</html>
