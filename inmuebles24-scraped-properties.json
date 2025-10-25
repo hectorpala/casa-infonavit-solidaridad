@@ -925,5 +925,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-25T01:02:44.558Z"
+  },
+  {
+    "propertyId": "147367750",
+    "title": "Casa Nueva en San Javier",
+    "slug": "casa-nueva-en-san-javier",
+    "price": "MN 1,360,000",
+    "publishedDate": "Publicado hace 64 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-nueva-en-san-javier-147367750.html",
+    "lat": 24.7706684,
+    "lng": -107.4878629,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "San Javier",
+    "codigoPostal": "80135",
+    "scrapedAt": "2025-10-25T01:09:40.368Z"
   }
 ]

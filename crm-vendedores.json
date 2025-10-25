@@ -186,6 +186,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "147367750",
+          "titulo": "Casa Nueva en San Javier",
+          "precio": "MN 1,360,000",
+          "ubicacion": "Monte del Quelite al 9900, Culiacán, Sinaloa, Mexico, San Javier",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-nueva-en-san-javier-147367750.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 64 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -5171,9 +5185,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T01:02:44.561Z",
+    "ultimaActualizacion": "2025-10-25T01:09:40.371Z",
     "totalVendedores": 33,
-    "totalPropiedades": 284,
+    "totalPropiedades": 285,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
