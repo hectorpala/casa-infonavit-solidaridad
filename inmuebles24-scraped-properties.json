@@ -835,5 +835,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-25T00:03:53.035Z"
+  },
+  {
+    "propertyId": "147622518",
+    "title": "Casa en Adolfo Lopez Mateos Remodelada",
+    "slug": "casa-en-adolfo-lopez-mateos-remodelada",
+    "price": "MN 1,450,000",
+    "publishedDate": "Publicado hace 37 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-adolfo-lopez-mateos-remodelada-147622518.html",
+    "lat": 24.8091,
+    "lng": -107.394,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Adolfo López Mateos",
+    "codigoPostal": "80190",
+    "scrapedAt": "2025-10-25T00:04:43.716Z"
   }
 ]

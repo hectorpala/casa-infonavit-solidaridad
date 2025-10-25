@@ -4767,6 +4767,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "147622518",
+          "titulo": "Casa en Adolfo Lopez Mateos Remodelada",
+          "precio": "MN 1,450,000",
+          "ubicacion": "Fortunato Alvares Castro al 1500, Culiacán, Sinaloa, Mexico, Adolfo Lopez Mateos",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-adolfo-lopez-mateos-remodelada-147622518.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 37 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5066,9 +5080,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T00:03:53.038Z",
+    "ultimaActualizacion": "2025-10-25T00:04:43.720Z",
     "totalVendedores": 32,
-    "totalPropiedades": 278,
+    "totalPropiedades": 279,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
