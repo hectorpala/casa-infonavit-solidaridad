@@ -910,5 +910,20 @@
     "colonia": "Valle Alto",
     "codigoPostal": "80050",
     "scrapedAt": "2025-10-25T01:01:47.819Z"
+  },
+  {
+    "propertyId": "147252069",
+    "title": "Casa - Fraccionamiento Zona Dorada",
+    "slug": "casa-fraccionamiento-zona-dorada",
+    "price": "MN 1,295,000",
+    "publishedDate": "Publicado hace 76 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-zona-dorada-147252069.html",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-25T01:02:44.558Z"
   }
 ]

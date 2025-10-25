@@ -4823,6 +4823,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "147252069",
+          "titulo": "Casa - Fraccionamiento Zona Dorada",
+          "precio": "MN 1,295,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-zona-dorada-147252069.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 76 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5157,9 +5171,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T01:01:47.824Z",
+    "ultimaActualizacion": "2025-10-25T01:02:44.561Z",
     "totalVendedores": 33,
-    "totalPropiedades": 283,
+    "totalPropiedades": 284,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
