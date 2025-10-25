@@ -64,21 +64,22 @@
         }
 
         .kanban-board {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 20px;
-            overflow-x: auto;
             padding: 10px 0;
-            min-height: calc(100vh - 250px);
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .kanban-column {
-            flex: 0 0 340px;
             background: rgba(255,255,255,0.95);
             border-radius: 12px;
             padding: 0;
             box-shadow: 0 8px 32px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
+            min-height: 500px;
         }
 
         .column-header {
@@ -270,7 +271,9 @@
 
         @media (max-width: 1400px) {
             .kanban-board {
-                justify-content: flex-start;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                max-width: 100%;
+                padding: 10px 15px;
             }
         }
 
@@ -281,10 +284,22 @@
 
             .stats {
                 flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .stat-card {
+                flex: 1 1 calc(50% - 10px);
+                min-width: 150px;
+            }
+
+            .kanban-board {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 10px;
             }
 
             .kanban-column {
-                flex: 0 0 300px;
+                min-height: auto;
             }
         }
 
@@ -322,150 +337,118 @@
             border-radius: 4px;
         }
 
-        /* URL Input Section */
-        .url-input-section {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 25px 30px;
-            margin: 25px auto;
-            max-width: 1200px;
-            color: white;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        /* URL Input Card inside Kanban */
+        .stage-0 .column-header { background: #fff9c4; border-color: #FBC02D; color: #F57F17; }
+        .stage-0 .card { border-left-color: #FBC02D; }
+
+        .url-input-card {
+            background: white;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 0;
         }
 
-        .url-input-section h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 8px;
+        .url-input-card .input-group {
             display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .url-input-section .subtitle {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .input-group {
-            display: grid;
-            grid-template-columns: 1fr auto;
+            flex-direction: column;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .input-wrapper {
+        .url-input-card .input-wrapper {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
 
-        .input-wrapper label {
-            font-size: 0.9rem;
+        .url-input-card label {
+            font-size: 0.85rem;
             font-weight: 600;
-            opacity: 0.95;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .url-input-section input,
-        .url-input-section textarea {
+        .url-input-card textarea,
+        .url-input-card input[type="number"] {
             width: 100%;
-            padding: 12px 16px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 10px;
-            background: rgba(255,255,255,0.25);
-            color: white;
-            font-size: 0.95rem;
-            font-family: inherit;
+            padding: 10px 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f9f9f9;
+            color: #333;
+            font-size: 0.9rem;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
             transition: all 0.3s ease;
         }
 
-        .url-input-section textarea {
-            min-height: 80px;
+        .url-input-card textarea {
+            min-height: 90px;
             resize: vertical;
-            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
         }
 
-        .url-input-section input::placeholder,
-        .url-input-section textarea::placeholder {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .url-input-section input:focus,
-        .url-input-section textarea:focus {
-            outline: none;
-            border-color: rgba(255,255,255,0.8);
-            background: rgba(255,255,255,0.35);
-            box-shadow: 0 0 0 4px rgba(255,255,255,0.1);
-        }
-
-        .days-input-wrapper {
-            width: 180px;
-        }
-
-        .days-input-wrapper input[type="number"] {
+        .url-input-card input[type="number"] {
             text-align: center;
             font-weight: 600;
         }
 
-        .command-output {
-            background: rgba(0,0,0,0.3);
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: 10px;
-            padding: 16px 20px;
+        .url-input-card textarea::placeholder,
+        .url-input-card input::placeholder {
+            color: #999;
+        }
+
+        .url-input-card textarea:focus,
+        .url-input-card input:focus {
+            outline: none;
+            border-color: #FBC02D;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(251, 192, 45, 0.1);
+        }
+
+        .url-input-card .command-output {
+            background: #f5f5f5;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px 14px;
             font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: #fff;
+            font-size: 0.85rem;
+            color: #d32f2f;
             word-break: break-all;
             position: relative;
             min-height: 60px;
             display: flex;
             align-items: center;
+            margin-top: 10px;
         }
 
-        .command-output .copy-btn {
+        .url-input-card .copy-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
+            top: 8px;
+            right: 8px;
+            background: #FBC02D;
+            border: none;
             color: white;
             padding: 6px 12px;
             border-radius: 6px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             cursor: pointer;
             transition: all 0.2s ease;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            font-weight: 600;
         }
 
-        .command-output .copy-btn:hover {
-            background: rgba(255,255,255,0.3);
+        .url-input-card .copy-btn:hover {
+            background: #F9A825;
             transform: scale(1.05);
         }
 
-        .command-label {
-            font-size: 0.85rem;
+        .url-input-card .command-label {
+            font-size: 0.75rem;
             font-weight: 600;
-            opacity: 0.9;
+            color: #666;
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 768px) {
-            .input-group {
-                grid-template-columns: 1fr;
-            }
-
-            .days-input-wrapper {
-                width: 100%;
-            }
-
-            .command-output {
-                font-size: 0.8rem;
-                padding: 14px 16px;
-            }
         }
     </style>
 </head>
@@ -494,41 +477,45 @@
         </div>
     </div>
 
-    <!-- URL Input Section -->
-    <div class="url-input-section">
-        <h2>🔗 Generador de Comando - Extracción de URLs</h2>
-        <p class="subtitle">Pega tu URL de Inmuebles24 y configura los días para generar el comando automáticamente</p>
-
-        <div class="input-group">
-            <div class="input-wrapper">
-                <label for="inmuebles-url">📋 URL del Listado de Inmuebles24</label>
-                <textarea
-                    id="inmuebles-url"
-                    placeholder="Ejemplo: https://www.inmuebles24.com/venta/sinaloa/culiacan/"
-                    oninput="updateCommand()"
-                ></textarea>
-            </div>
-            <div class="input-wrapper days-input-wrapper">
-                <label for="max-days">📅 Antigüedad (días)</label>
-                <input
-                    type="number"
-                    id="max-days"
-                    value="35"
-                    min="1"
-                    max="365"
-                    oninput="updateCommand()"
-                >
-            </div>
-        </div>
-
-        <div class="command-label">⚡ Comando Generado:</div>
-        <div class="command-output">
-            <span id="generated-command">node extraer-urls-recientes-culiacan.js "<span style="color: #ffd700;">PEGA_TU_URL_AQUÍ</span>" --max-days 35</span>
-            <button class="copy-btn" onclick="copyGeneratedCommand()">📋 Copiar</button>
-        </div>
-    </div>
-
     <div class="kanban-board">
+        <!-- ETAPA 0: Generador de Comando -->
+        <div class="kanban-column stage-0">
+            <div class="column-header">
+                <span class="icon">🔗</span>
+                <span>Generador de Comando</span>
+            </div>
+            <div class="column-body">
+                <div class="url-input-card">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <label for="inmuebles-url">📋 URL del Listado de Inmuebles24</label>
+                            <textarea
+                                id="inmuebles-url"
+                                placeholder="https://www.inmuebles24.com/venta/sinaloa/culiacan/"
+                                oninput="updateCommand()"
+                            ></textarea>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="max-days">📅 Antigüedad Máxima (días)</label>
+                            <input
+                                type="number"
+                                id="max-days"
+                                value="35"
+                                min="1"
+                                max="365"
+                                oninput="updateCommand()"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="command-label">⚡ Comando Generado:</div>
+                    <div class="command-output">
+                        <span id="generated-command">node extraer-urls-recientes-culiacan.js "<span style="color: #ffd700;">PEGA_TU_URL_AQUÍ</span>" --max-days 35</span>
+                        <button class="copy-btn" onclick="copyGeneratedCommand()">📋 Copiar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- ETAPA 1: Extracción de URLs -->
         <div class="kanban-column stage-1">
             <div class="column-header">
