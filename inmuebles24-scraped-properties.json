@@ -865,5 +865,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-25T00:51:59.886Z"
+  },
+  {
+    "propertyId": "147903025",
+    "title": "Casa en Venta en Lomas de San Isidro con Cochera Techada Zona Sur",
+    "slug": "casa-en-venta-en-lomas-de-san-isidro-con-cochera-techada-zon",
+    "price": "MN 1,350,000",
+    "publishedDate": "Publicado hace 9 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lomas-de-san-isidro-con-cochera-147903025.html",
+    "lat": 24.7634462,
+    "lng": -107.3970801,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Lomas de San Isidro",
+    "codigoPostal": "80197",
+    "scrapedAt": "2025-10-25T00:58:12.817Z"
   }
 ]

@@ -489,6 +489,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace 160 días",
           "vistas": 0
+        },
+        {
+          "id": "147903025",
+          "titulo": "Casa en Venta en Lomas de San Isidro con Cochera Techada Zona Sur",
+          "precio": "MN 1,350,000",
+          "ubicacion": "Calle Aguamarina #4576, Culiacán, Sinaloa, Mexico, Fraccionamiento Lomas de San Isidro",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lomas-de-san-isidro-con-cochera-147903025.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 9 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -5094,9 +5108,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T00:51:59.892Z",
+    "ultimaActualizacion": "2025-10-25T00:58:12.818Z",
     "totalVendedores": 32,
-    "totalPropiedades": 280,
+    "totalPropiedades": 281,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
