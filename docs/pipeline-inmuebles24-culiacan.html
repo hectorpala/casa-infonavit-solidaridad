@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pipeline Inmuebles24 Culiacán - Tablero Kanban</title>
     <style>
+        :root {
+            /* Light mode colors */
+            --bg-gradient-start: #667eea;
+            --bg-gradient-end: #764ba2;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --card-bg: rgba(255,255,255,0.95);
+            --card-shadow: rgba(0,0,0,0.15);
+            --border-color: #e0e0e0;
+            --input-bg: #f5f5f5;
+            --header-text: white;
+            --stat-bg: rgba(255,255,255,0.15);
+
+            /* Transition speeds */
+            --transition-fast: 0.2s;
+            --transition-medium: 0.3s;
+            --transition-slow: 0.5s;
+        }
+
+        [data-theme="dark"] {
+            /* Dark mode colors */
+            --bg-gradient-start: #1a1a2e;
+            --bg-gradient-end: #16213e;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --card-bg: rgba(30,30,46,0.95);
+            --card-shadow: rgba(0,0,0,0.4);
+            --border-color: #404040;
+            --input-bg: #2a2a3e;
+            --header-text: #e0e0e0;
+            --stat-bg: rgba(255,255,255,0.1);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,27 +46,84 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px 20px;
+            transition: background var(--transition-medium) ease;
         }
 
         .header {
             text-align: center;
-            color: white;
-            margin-bottom: 30px;
+            color: var(--header-text);
+            margin-bottom: 15px;
+            padding: 15px 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin: 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         .header p {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             opacity: 0.95;
+            margin: 0;
+        }
+
+        .header-actions {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: var(--header-text);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition-fast) ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .manual-link {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: var(--header-text);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition-fast) ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .manual-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
         }
 
         .stats {
@@ -44,22 +134,34 @@
         }
 
         .stat-card {
-            background: rgba(255,255,255,0.15);
+            background: var(--stat-bg);
             backdrop-filter: blur(10px);
-            padding: 15px 30px;
+            padding: 12px 24px;
             border-radius: 12px;
-            color: white;
+            color: var(--header-text);
             text-align: center;
+            transition: all var(--transition-medium) ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: rgba(255,255,255,0.25);
         }
 
         .stat-card .number {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             display: block;
+            transition: all var(--transition-fast) ease;
+        }
+
+        .stat-card:hover .number {
+            transform: scale(1.1);
         }
 
         .stat-card .label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.9;
         }
 
@@ -73,24 +175,71 @@
         }
 
         .kanban-column {
-            background: rgba(255,255,255,0.95);
+            background: var(--card-bg);
             border-radius: 12px;
             padding: 0;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 32px var(--card-shadow);
             display: flex;
             flex-direction: column;
             min-height: 500px;
+            transition: all var(--transition-medium) ease;
+            animation: fadeInUp 0.5s ease backwards;
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .kanban-column:nth-child(1) { animation-delay: 0.1s; }
+        .kanban-column:nth-child(2) { animation-delay: 0.2s; }
+        .kanban-column:nth-child(3) { animation-delay: 0.3s; }
+        .kanban-column:nth-child(4) { animation-delay: 0.4s; }
+        .kanban-column:nth-child(5) { animation-delay: 0.5s; }
+        .kanban-column:nth-child(6) { animation-delay: 0.6s; }
+        .kanban-column:nth-child(7) { animation-delay: 0.7s; }
+        .kanban-column:nth-child(8) { animation-delay: 0.8s; }
+
         .column-header {
-            padding: 20px;
+            padding: 15px 20px;
             border-bottom: 3px solid;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 10px;
             border-radius: 12px 12px 0 0;
+            cursor: pointer;
+            user-select: none;
+            transition: all var(--transition-fast) ease;
+        }
+
+        .column-header:hover {
+            opacity: 0.9;
+        }
+
+        .column-header .collapse-icon {
+            margin-left: auto;
+            font-size: 0.8rem;
+            transition: transform var(--transition-fast) ease;
+        }
+
+        .kanban-column.collapsed .collapse-icon {
+            transform: rotate(-90deg);
+        }
+
+        .kanban-column.collapsed .column-body {
+            display: none;
+        }
+
+        .kanban-column.collapsed {
+            min-height: auto;
         }
 
         .column-header .icon {
@@ -121,19 +270,19 @@
         }
 
         .card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 10px;
             padding: 18px;
             margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px var(--card-shadow);
             cursor: move;
-            transition: all 0.3s ease;
+            transition: all var(--transition-medium) ease;
             border-left: 4px solid;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px var(--card-shadow);
         }
 
         .stage-1 .card { border-left-color: #2196F3; }
@@ -148,14 +297,84 @@
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 8px;
-            color: #333;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-title .info-icon {
+            cursor: pointer;
+            font-size: 0.75rem;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast) ease;
+        }
+
+        .card-title .info-icon:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: scale(1.1);
         }
 
         .card-description {
             font-size: 0.9rem;
-            color: #666;
+            color: var(--text-secondary);
             line-height: 1.5;
             margin-bottom: 12px;
+        }
+
+        /* Checklist */
+        .checklist {
+            margin-top: 12px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast) ease;
+        }
+
+        .checklist-item:hover {
+            padding-left: 4px;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .checklist-item.checked {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        .checklist-add {
+            margin-top: 8px;
+            padding: 6px 12px;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px dashed var(--border-color);
+            border-radius: 6px;
+            color: #667eea;
+            font-size: 0.8rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all var(--transition-fast) ease;
+        }
+
+        .checklist-add:hover {
+            background: rgba(102, 126, 234, 0.2);
         }
 
         .card-command {
@@ -186,21 +405,29 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 10px 18px;
-            border-radius: 6px;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
             margin-top: 10px;
-            transition: all 0.3s ease;
+            transition: all var(--transition-medium) ease;
             border: none;
             cursor: pointer;
             width: 100%;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .card-button:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .card-button:active {
+            transform: translateY(0) scale(0.98);
         }
 
         .card-notes {
@@ -233,6 +460,201 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
+        /* Notes Sidebar */
+        .notes-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            transition: all var(--transition-medium) ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notes-toggle:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .notes-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: var(--card-bg);
+            box-shadow: -4px 0 20px var(--card-shadow);
+            transition: right var(--transition-slow) ease;
+            z-index: 999;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .notes-sidebar.open {
+            right: 0;
+        }
+
+        .notes-sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .notes-sidebar-header h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .notes-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: all var(--transition-fast) ease;
+        }
+
+        .notes-close:hover {
+            color: var(--text-primary);
+            transform: rotate(90deg);
+        }
+
+        .notes-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .notes-section {
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 3px solid #667eea;
+        }
+
+        .notes-section h4 {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .notes-section textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: inherit;
+            resize: vertical;
+            background: var(--card-bg);
+            color: var(--text-primary);
+        }
+
+        /* Info Modal */
+        .info-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .info-modal.open {
+            display: flex;
+        }
+
+        .info-modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px var(--card-shadow);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .info-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .info-modal-header h3 {
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .info-modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: all var(--transition-fast) ease;
+        }
+
+        .info-modal-close:hover {
+            color: var(--text-primary);
+            transform: rotate(90deg);
+        }
+
+        .info-modal-body {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .info-modal-body h4 {
+            color: var(--text-primary);
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        .info-modal-body code {
+            background: var(--input-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', monospace;
+            font-size: 0.85rem;
+        }
+
         .badge {
             display: inline-block;
             background: #f0f0f0;
@@ -248,6 +670,134 @@
         .badge.success { background: #e8f5e9; color: #4CAF50; }
         .badge.warning { background: #fff3e0; color: #FF9800; }
         .badge.info { background: #e3f2fd; color: #2196F3; }
+
+        /* Logs Panel */
+        .logs-panel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: var(--card-bg);
+            box-shadow: 0 -4px 20px var(--card-shadow);
+            transition: height var(--transition-slow) ease;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .logs-panel.open {
+            height: 400px;
+        }
+
+        .logs-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 2px solid var(--border-color);
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            color: white;
+        }
+
+        .logs-panel-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .logs-panel-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .logs-panel-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all var(--transition-fast) ease;
+        }
+
+        .logs-panel-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .logs-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.85rem;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+
+        .log-line {
+            padding: 4px 0;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .log-line.stdout {
+            color: #d4d4d4;
+        }
+
+        .log-line.stderr {
+            color: #f48771;
+        }
+
+        .log-line.complete {
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .log-line.error {
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .logs-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);
+            color: white;
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255, 152, 0, 0.4);
+            transition: all var(--transition-medium) ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logs-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(255, 152, 0, 0.6);
+        }
+
+        .logs-toggle.has-logs {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(255, 152, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 6px 30px rgba(255, 152, 0, 0.8);
+            }
+        }
 
         /* Scrollbar personalizado */
         ::-webkit-scrollbar {
@@ -456,6 +1006,15 @@
     <div class="header">
         <h1>📊 Pipeline Inmuebles24 Culiacán</h1>
         <p>Sistema automatizado de extracción, procesamiento y publicación de propiedades inmobiliarias</p>
+        <div class="header-actions">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="theme-icon">🌙</span>
+                <span id="theme-text">Oscuro</span>
+            </button>
+            <a href="../README-PIPELINE-INMUEBLES24-CULIACAN.md" class="manual-link" target="_blank">
+                📚 Ver Manual
+            </a>
+        </div>
     </div>
 
     <div class="stats">
@@ -480,9 +1039,10 @@
     <div class="kanban-board">
         <!-- ETAPA 0: Generador de Comando -->
         <div class="kanban-column stage-0">
-            <div class="column-header">
+            <div class="column-header" onclick="toggleColumn(this)">
                 <span class="icon">🔗</span>
                 <span>Generador de Comando</span>
+                <span class="collapse-icon">▼</span>
             </div>
             <div class="column-body">
                 <div class="url-input-card">
@@ -508,7 +1068,12 @@
                         </div>
                     </div>
 
-                    <div class="command-label">⚡ Comando Generado:</div>
+                    <div class="command-label">⚡ Ejecutar Extracción:</div>
+                    <button class="card-button" onclick="callExtractUrls(event)" style="margin-top: 0;">
+                        🚀 Extraer URLs Ahora
+                    </button>
+
+                    <div class="command-label" style="margin-top: 15px;">💻 Comando alternativo (manual):</div>
                     <div class="command-output">
                         <span id="generated-command">node extraer-urls-recientes-culiacan.js "<span style="color: #ffd700;">PEGA_TU_URL_AQUÍ</span>" --max-days 35</span>
                         <button class="copy-btn" onclick="copyGeneratedCommand()">📋 Copiar</button>
@@ -518,10 +1083,10 @@
         </div>
         <!-- ETAPA 1: Extracción de URLs -->
         <div class="kanban-column stage-1">
-            <div class="column-header">
+            <div class="column-header" onclick="toggleColumn(this)">
                 <span class="icon">📋</span>
                 <span>Extracción de URLs</span>
-                <span class="count">1</span>
+                <span class="collapse-icon">▼</span><span class="count">1</span>
             </div>
             <div class="column-body">
                 <div class="card">
@@ -564,10 +1129,10 @@
 
         <!-- ETAPA 2: Verificación Rápida -->
         <div class="kanban-column stage-2">
-            <div class="column-header">
+            <div class="column-header" onclick="toggleColumn(this)">
                 <span class="icon">🔍</span>
                 <span>Verificación Rápida</span>
-                <span class="count">1</span>
+                <span class="collapse-icon">▼</span><span class="count">1</span>
             </div>
             <div class="column-body">
                 <div class="card">
@@ -587,9 +1152,30 @@
                         • property-history.json
                     </div>
 
-                    <a href="#" class="card-button" onclick="copyCommand(event, 'node scrapear-batch-urls.js --check-only')">
-                        🚀 Ejecutar verificación
-                    </a>
+                    <button class="card-button" onclick="callScrapeBatch(3, null, true)">
+                        🚀 Ejecutar verificación (API)
+                    </button>
+
+                    <!-- URLs Válidas Section -->
+                    <div id="valid-urls-section" style="display: none; margin-top: 20px; padding: 15px; background: rgba(156, 39, 176, 0.05); border-radius: 8px; border-left: 3px solid #9C27B0;">
+                        <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 10px;">
+                            ✅ URLs Válidas Encontradas
+                        </div>
+                        <div id="valid-urls-list" style="margin-bottom: 15px; font-size: 0.85rem; color: var(--text-secondary); max-height: 200px; overflow-y: auto;">
+                            <!-- URLs will be inserted here dynamically -->
+                        </div>
+                        <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 15px; text-align: center;">
+                            ¿Quieres empezar a procesar estas <span id="valid-count">0</span> URL encontradas?
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="card-button" onclick="callIndividualScraper()" style="flex: 1; background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">
+                                🏠 Scraper Individual
+                            </button>
+                            <button class="card-button" onclick="callBatchScraper()" style="flex: 1; background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);">
+                                ⚡ Batch Scraper
+                            </button>
+                        </div>
+                    </div>
 
                     <div class="card-notes">
                         <div class="card-notes-label">📝 Notas:</div>
@@ -601,10 +1187,10 @@
 
         <!-- ETAPA 3: Batch Scraping -->
         <div class="kanban-column stage-3">
-            <div class="column-header">
+            <div class="column-header" onclick="toggleColumn(this)">
                 <span class="icon">🔧</span>
                 <span>Batch Scraping</span>
-                <span class="count">1</span>
+                <span class="collapse-icon">▼</span><span class="count">1</span>
             </div>
             <div class="column-body">
                 <div class="card">
@@ -626,9 +1212,12 @@
                         • Logs: /tmp/batch-test-N.log
                     </div>
 
-                    <a href="#" class="card-button" onclick="copyCommand(event, 'node scrapear-batch-urls.js --concurrency 3 --test 30')">
-                        🚀 Procesar batch
-                    </a>
+                    <button class="card-button" onclick="callScrapeBatch(3, 30, false)">
+                        🚀 Procesar batch (API - 30 URLs)
+                    </button>
+                    <button class="card-button" onclick="callScrapeBatch(5, null, false)" style="margin-top: 10px; background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);">
+                        ⚡ Procesar todas las URLs (5 workers)
+                    </button>
 
                     <div class="card-notes">
                         <div class="card-notes-label">📝 Notas:</div>
@@ -640,10 +1229,10 @@
 
         <!-- ETAPA 4: Scraper Individual -->
         <div class="kanban-column stage-4">
-            <div class="column-header">
+            <div class="column-header" onclick="toggleColumn(this)">
                 <span class="icon">🏠</span>
                 <span>Scraper Individual</span>
-                <span class="count">1</span>
+                <span class="collapse-icon">▼</span><span class="count">1</span>
             </div>
             <div class="column-body">
                 <div class="card">
@@ -683,10 +1272,10 @@
 
         <!-- ETAPA 5: Revisión Local -->
         <div class="kanban-column stage-5">
-            <div class="column-header">
+            <div class="column-header" onclick="toggleColumn(this)">
                 <span class="icon">👀</span>
                 <span>Revisión Local</span>
-                <span class="count">1</span>
+                <span class="collapse-icon">▼</span><span class="count">1</span>
             </div>
             <div class="column-body">
                 <div class="card">
@@ -723,10 +1312,10 @@
 
         <!-- ETAPA 6: Publicación -->
         <div class="kanban-column stage-6">
-            <div class="column-header">
+            <div class="column-header" onclick="toggleColumn(this)">
                 <span class="icon">🚀</span>
                 <span>Publicación</span>
-                <span class="count">1</span>
+                <span class="collapse-icon">▼</span><span class="count">1</span>
             </div>
             <div class="column-body">
                 <div class="card">
@@ -762,10 +1351,10 @@
 
         <!-- ETAPA 7: Verificación Producción -->
         <div class="kanban-column stage-7">
-            <div class="column-header">
+            <div class="column-header" onclick="toggleColumn(this)">
                 <span class="icon">✅</span>
                 <span>Verificación Producción</span>
-                <span class="count">1</span>
+                <span class="collapse-icon">▼</span><span class="count">1</span>
             </div>
             <div class="column-body">
                 <div class="card">
@@ -929,6 +1518,468 @@
 
         // Actualizar stats cada 5 minutos
         setInterval(updateStats, 300000);
+
+        // Theme toggle
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            body.setAttribute('data-theme', newTheme);
+
+            // Update button text and icon
+            const icon = document.getElementById('theme-icon');
+            const text = document.getElementById('theme-text');
+
+            if (newTheme === 'dark') {
+                icon.textContent = '☀️';
+                text.textContent = 'Claro';
+            } else {
+                icon.textContent = '🌙';
+                text.textContent = 'Oscuro';
+            }
+
+            // Save preference
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load theme preference
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                document.getElementById('theme-icon').textContent = '☀️';
+                document.getElementById('theme-text').textContent = 'Claro';
+            }
+        });
+
+        // Column collapse toggle
+        function toggleColumn(header) {
+            const column = header.parentElement;
+            column.classList.toggle('collapsed');
+
+            // Save state
+            const columnIndex = Array.from(column.parentElement.children).indexOf(column);
+            const collapsed = column.classList.contains('collapsed');
+            localStorage.setItem(`column-${columnIndex}-collapsed`, collapsed);
+        }
+
+        // Load column collapse states
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.kanban-column').forEach((column, index) => {
+                const collapsed = localStorage.getItem(`column-${index}-collapsed`) === 'true';
+                if (collapsed) {
+                    column.classList.add('collapsed');
+                }
+            });
+        });
+
+        // Notes sidebar
+        function toggleNotes() {
+            const sidebar = document.getElementById('notes-sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Info modal
+        function showInfo(stage, title, content) {
+            const modal = document.getElementById('info-modal');
+            const modalTitle = document.getElementById('info-modal-title');
+            const modalBody = document.getElementById('info-modal-body');
+
+            modalTitle.textContent = title;
+            modalBody.innerHTML = content;
+            modal.classList.add('open');
+        }
+
+        function closeInfoModal() {
+            document.getElementById('info-modal').classList.remove('open');
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('info-modal');
+            if (e.target === modal) {
+                closeInfoModal();
+            }
+        });
+
+        // Checklist functionality
+        function toggleChecklistItem(checkbox) {
+            const item = checkbox.parentElement;
+            item.classList.toggle('checked', checkbox.checked);
+
+            // Save state
+            const itemIndex = Array.from(item.parentElement.children).indexOf(item);
+            const cardIndex = Array.from(document.querySelectorAll('.card')).indexOf(item.closest('.card'));
+            localStorage.setItem(`checklist-${cardIndex}-${itemIndex}`, checkbox.checked);
+        }
+
+        // Load checklist states
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.checklist-item').forEach((item) => {
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                if (checkbox) {
+                    const itemIndex = Array.from(item.parentElement.children).indexOf(item);
+                    const cardIndex = Array.from(document.querySelectorAll('.card')).indexOf(item.closest('.card'));
+                    const checked = localStorage.getItem(`checklist-${cardIndex}-${itemIndex}`) === 'true';
+                    checkbox.checked = checked;
+                    item.classList.toggle('checked', checked);
+                }
+            });
+        });
+    </script>
+
+    <!-- Logs Panel -->
+    <button class="logs-toggle" id="logs-toggle" onclick="toggleLogs()">📜</button>
+    <div class="logs-panel" id="logs-panel">
+        <div class="logs-panel-header">
+            <h3>📜 Logs de Ejecución</h3>
+            <div class="logs-panel-actions">
+                <button class="logs-panel-btn" onclick="clearLogs()">🗑️ Limpiar</button>
+                <button class="logs-panel-btn" onclick="toggleLogs()">✕ Cerrar</button>
+            </div>
+        </div>
+        <div class="logs-content" id="logs-content">
+            <div class="log-line">Esperando ejecución de comandos...</div>
+        </div>
+    </div>
+
+    <!-- Notes Sidebar -->
+    <button class="notes-toggle" onclick="toggleNotes()">📝</button>
+    <div class="notes-sidebar" id="notes-sidebar">
+        <div class="notes-sidebar-header">
+            <h3>📝 Notas del Pipeline</h3>
+            <button class="notes-close" onclick="toggleNotes()">×</button>
+        </div>
+        <div class="notes-content">
+            <div class="notes-section">
+                <h4>📋 Extracción de URLs</h4>
+                <textarea placeholder="URL usada, días configurados, resultados..." data-note="stage-1"></textarea>
+            </div>
+            <div class="notes-section">
+                <h4>🔍 Verificación Rápida</h4>
+                <textarea placeholder="Registra cuántas propiedades son nuevas..." data-note="stage-2"></textarea>
+            </div>
+            <div class="notes-section">
+                <h4>🔧 Batch Scraping</h4>
+                <textarea placeholder="Tiempo estimado, errores encontrados..." data-note="stage-3"></textarea>
+            </div>
+            <div class="notes-section">
+                <h4>🏠 Scraper Individual</h4>
+                <textarea placeholder="Propiedades problemáticas, errores de geocoding..." data-note="stage-4"></textarea>
+            </div>
+            <div class="notes-section">
+                <h4>👀 Revisión Local</h4>
+                <textarea placeholder="Problemas encontrados en la revisión..." data-note="stage-5"></textarea>
+            </div>
+            <div class="notes-section">
+                <h4>🚀 Publicación</h4>
+                <textarea placeholder="Hora de publicación, número de propiedades..." data-note="stage-6"></textarea>
+            </div>
+            <div class="notes-section">
+                <h4>✅ Verificación Producción</h4>
+                <textarea placeholder="Errores en producción, tiempo de deploy..." data-note="stage-7"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal -->
+    <div class="info-modal" id="info-modal">
+        <div class="info-modal-content">
+            <div class="info-modal-header">
+                <h3 id="info-modal-title">Información</h3>
+                <button class="info-modal-close" onclick="closeInfoModal()">×</button>
+            </div>
+            <div class="info-modal-body" id="info-modal-body">
+                <!-- Content will be injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Save and load notes from sidebar
+        document.querySelectorAll('.notes-section textarea').forEach(textarea => {
+            const noteKey = textarea.getAttribute('data-note');
+
+            // Load saved note
+            const savedNote = localStorage.getItem(`note-${noteKey}`);
+            if (savedNote) {
+                textarea.value = savedNote;
+            }
+
+            // Save on input
+            textarea.addEventListener('input', () => {
+                localStorage.setItem(`note-${noteKey}`, textarea.value);
+            });
+        });
+
+        // ==================== API INTEGRATION ====================
+
+        const API_BASE_URL = 'http://localhost:3001';
+        const API_KEY = 'pipeline-secret-key-2025';
+
+        let currentEventSource = null;
+
+        // Toggle logs panel
+        function toggleLogs() {
+            const panel = document.getElementById('logs-panel');
+            const toggle = document.getElementById('logs-toggle');
+            panel.classList.toggle('open');
+        }
+
+        // Clear logs
+        function clearLogs() {
+            const logsContent = document.getElementById('logs-content');
+            logsContent.innerHTML = '<div class="log-line">Logs limpiados. Esperando nueva ejecución...</div>';
+            document.getElementById('logs-toggle').classList.remove('has-logs');
+        }
+
+        // Add log line to display
+        function addLog(message, type = 'stdout') {
+            const logsContent = document.getElementById('logs-content');
+            const logLine = document.createElement('div');
+            logLine.className = `log-line ${type}`;
+            logLine.textContent = message;
+            logsContent.appendChild(logLine);
+            logsContent.scrollTop = logsContent.scrollHeight;
+
+            // Mark toggle as having logs
+            document.getElementById('logs-toggle').classList.add('has-logs');
+        }
+
+        // Connect to SSE for log streaming
+        function connectToLogs(jobId) {
+            if (currentEventSource) {
+                currentEventSource.close();
+            }
+
+            const url = `${API_BASE_URL}/api/logs/${jobId}?apiKey=${API_KEY}`;
+            currentEventSource = new EventSource(url);
+
+            currentEventSource.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+
+                    if (data.type === 'stdout') {
+                        addLog(data.message, 'stdout');
+                    } else if (data.type === 'stderr') {
+                        addLog(data.message, 'stderr');
+                    } else if (data.type === 'complete') {
+                        addLog(`\\n✅ Proceso completado con código de salida: ${data.exitCode}`, 'complete');
+                        currentEventSource.close();
+                    } else if (data.type === 'error') {
+                        addLog(`\\n❌ Error: ${data.message}`, 'error');
+                        currentEventSource.close();
+                    }
+                } catch (e) {
+                    console.error('Error parsing SSE data:', e);
+                }
+            };
+
+            currentEventSource.onerror = (error) => {
+                console.error('SSE Error:', error);
+                addLog('\\n❌ Error en la conexión de logs', 'error');
+                currentEventSource.close();
+            };
+        }
+
+        // Call extract-urls API endpoint
+        async function callExtractUrls(event) {
+            if (event) event.preventDefault();
+
+            const urlInput = document.getElementById('inmuebles-url');
+            const daysInput = document.getElementById('max-days');
+
+            const url = urlInput.value.trim();
+            const maxDays = parseInt(daysInput.value) || 35;
+
+            if (!url) {
+                alert('⚠️ Por favor, pega primero la URL de Inmuebles24');
+                return;
+            }
+
+            // Open logs panel
+            document.getElementById('logs-panel').classList.add('open');
+            clearLogs();
+            addLog('🚀 Iniciando extracción de URLs...', 'stdout');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/extract-urls`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({ maxDays })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog(`✅ Job iniciado: ${data.jobId}`, 'stdout');
+                    addLog(`📡 Conectando a logs en tiempo real...\\n`, 'stdout');
+
+                    // Connect to SSE for log streaming
+                    connectToLogs(data.jobId);
+                } else {
+                    addLog(`❌ Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+
+        // Call scrape-batch API endpoint
+        async function callScrapeBatch(concurrency = 3, test = null, checkOnly = false) {
+            // Open logs panel
+            document.getElementById('logs-panel').classList.add('open');
+            clearLogs();
+
+            const action = checkOnly ? 'verificación' : 'scraping batch';
+            addLog(`🚀 Iniciando ${action}...`, 'stdout');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/scrape-batch`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({ concurrency, test, checkOnly })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog(`✅ Job iniciado: ${data.jobId}`, 'stdout');
+                    addLog(`📡 Conectando a logs en tiempo real...\\n`, 'stdout');
+
+                    // Connect to SSE for log streaming
+                    connectToLogs(data.jobId);
+                } else {
+                    addLog(`❌ Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+
+        // Load and display valid URLs from verification
+        async function loadValidUrls() {
+            try {
+                // Try to read urls-validas-30-dias.txt
+                const response = await fetch('/urls-validas-30-dias.txt');
+                if (response.ok) {
+                    const text = await response.text();
+                    const urls = text.split('\n').filter(u => u.trim().length > 0);
+
+                    if (urls.length > 0) {
+                        displayValidUrls(urls);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading valid URLs:', error);
+            }
+        }
+
+        // Display valid URLs in stage 2 card
+        function displayValidUrls(urls) {
+            const section = document.getElementById('valid-urls-section');
+            const list = document.getElementById('valid-urls-list');
+            const count = document.getElementById('valid-count');
+
+            // Clear previous content
+            list.innerHTML = '';
+
+            // Add URLs to list
+            urls.forEach((url, index) => {
+                const urlDiv = document.createElement('div');
+                urlDiv.style.cssText = 'padding: 8px; margin-bottom: 5px; background: white; border-radius: 6px; word-break: break-all;';
+                urlDiv.innerHTML = `<strong>${index + 1}.</strong> <a href="${url}" target="_blank" style="color: #9C27B0;">${url}</a>`;
+                list.appendChild(urlDiv);
+            });
+
+            // Update count
+            count.textContent = urls.length;
+
+            // Show section
+            section.style.display = 'block';
+        }
+
+        // Call individual scraper for valid URLs
+        async function callIndividualScraper() {
+            // Open logs panel
+            document.getElementById('logs-panel').classList.add('open');
+            clearLogs();
+            addLog('🏠 Iniciando scraper individual para URLs válidas...', 'stdout');
+            addLog('📋 Leyendo urls-validas-30-dias.txt...', 'stdout');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/scrape-individual`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({
+                        urlsFile: 'urls-validas-30-dias.txt'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog(`✅ Job iniciado: ${data.jobId}`, 'stdout');
+                    addLog(`📡 Conectando a logs en tiempo real...\n`, 'stdout');
+                    connectToLogs(data.jobId);
+                } else {
+                    addLog(`❌ Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+
+        // Call batch scraper for valid URLs
+        async function callBatchScraper() {
+            // Open logs panel
+            document.getElementById('logs-panel').classList.add('open');
+            clearLogs();
+            addLog('⚡ Iniciando batch scraper para URLs válidas...', 'stdout');
+            addLog('📋 Leyendo urls-validas-30-dias.txt...', 'stdout');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/scrape-batch`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({
+                        urlsFile: 'urls-validas-30-dias.txt',
+                        concurrency: 3,
+                        checkOnly: false
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog(`✅ Job iniciado: ${data.jobId}`, 'stdout');
+                    addLog(`📡 Conectando a logs en tiempo real...\n`, 'stdout');
+                    connectToLogs(data.jobId);
+                } else {
+                    addLog(`❌ Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-load valid URLs if the file exists on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadValidUrls();
+        });
     </script>
 </body>
 </html>
