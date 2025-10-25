@@ -760,5 +760,20 @@
     "colonia": "Valle Alto",
     "codigoPostal": "80050",
     "scrapedAt": "2025-10-24T23:59:34.601Z"
+  },
+  {
+    "propertyId": "147117023",
+    "title": "Casa de 2 Pisos en Infonavit Barrancos, Culiacán",
+    "slug": "casa-de-2-pisos-en-infonavit-barrancos-culiacan",
+    "price": "MN 1,500,000",
+    "publishedDate": "Publicado hace 89 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-de-2-pisos-en-infonavit-barrancos-culiacan-147117023.html",
+    "lat": 24.7553976,
+    "lng": -107.4314566,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "INFONAVIT Barrancos",
+    "codigoPostal": "80189",
+    "scrapedAt": "2025-10-25T00:00:29.301Z"
   }
 ]

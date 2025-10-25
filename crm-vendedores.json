@@ -4972,12 +4972,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-24T23:57:51.750Z"
+    },
+    {
+      "id": "v032",
+      "nombre": "Cesar Campos",
+      "telefono": "6682748298",
+      "telefonoFormateado": "668-274-8298",
+      "whatsapp": "https://wa.me/526682748298",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147117023",
+          "titulo": "Casa de 2 Pisos en Infonavit Barrancos, Culiacán",
+          "precio": "MN 1,500,000",
+          "ubicacion": "Articulo 83 A, Culiacán, Sinaloa, Mexico, Fraccionamiento INFONAVIT Barrancos",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-de-2-pisos-en-infonavit-barrancos-culiacan-147117023.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 89 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Articulo 83 A, Culiacán, Sinaloa, Mexico, Fraccionamiento INFONAVIT Barrancos",
+      "tags": [
+        "inmuebles24",
+        "articulo-83-a",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-infonavit-barrancos",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-25T00:00:29.304Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-24T23:59:34.607Z",
-    "totalVendedores": 31,
-    "totalPropiedades": 273,
+    "ultimaActualizacion": "2025-10-25T00:00:29.304Z",
+    "totalVendedores": 32,
+    "totalPropiedades": 274,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
