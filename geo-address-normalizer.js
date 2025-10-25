@@ -267,9 +267,11 @@ class AddressNormalizer {
 
             // Detectar colonia
             if (neighborhoodKeywords.test(part) || (!components.neighborhood && i > 0)) {
-                // Limpiar prefijos
+                // Limpiar prefijos comunes (MEJORADO)
                 let neighborhood = part
-                    .replace(/^(Fracc\.|Col\.|Fraccionamiento|Colonia)\s+/i, '')
+                    .replace(/^(Fracc\.|Col\.|Fraccionamiento|Colonia|Residencial)\s+/i, '')
+                    .replace(/^(Casa|Departamento|Depa|Local|Terreno)\s+(en|de)\s+/i, '')
+                    .replace(/^(en|de)\s+/i, '')
                     .trim();
 
                 if (neighborhood) {
@@ -283,8 +285,16 @@ class AddressNormalizer {
             // Usar la primera parte que no sea calle
             for (let i = 0; i < parts.length; i++) {
                 if (i !== streetPart && !/(culiac[áa]n|sinaloa|m[ée]xico)/i.test(parts[i])) {
-                    components.neighborhood = parts[i].replace(/^(Fracc\.|Col\.)\s+/i, '').trim();
-                    break;
+                    let cleaned = parts[i]
+                        .replace(/^(Fracc\.|Col\.|Fraccionamiento|Colonia|Residencial)\s+/i, '')
+                        .replace(/^(Casa|Departamento|Depa|Local|Terreno)\s+(en|de)\s+/i, '')
+                        .replace(/^(en|de)\s+/i, '')
+                        .trim();
+
+                    if (cleaned) {
+                        components.neighborhood = cleaned;
+                        break;
+                    }
                 }
             }
         }

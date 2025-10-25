@@ -108,7 +108,7 @@ class CuliacanGeocoder {
     }
 
     /**
-     * Busca colonia en gazetteer (exacto + fuzzy)
+     * Busca colonia en gazetteer (exacto + fuzzy + parcial)
      */
     matchColonia(normalized) {
         if (!normalized.components.neighborhood) {
@@ -141,7 +141,19 @@ class CuliacanGeocoder {
             };
         }
 
-        // Intento 3: Fuzzy matching
+        // Intento 3: Matching parcial (nuevo)
+        // Busca si el input es parte de una colonia, o viceversa
+        const partialMatch = this._findPartialMatch(neighborhood);
+        if (partialMatch) {
+            console.log(`   ✅ Match parcial: "${neighborhood}" → "${partialMatch.nombre}"`);
+            return {
+                ...partialMatch,
+                matchScore: 0.85,
+                matchType: 'partial'
+            };
+        }
+
+        // Intento 4: Fuzzy matching
         matches = this.gazetteer.findFuzzy(neighborhood, 0.7);
         if (matches.length > 0) {
             const best = matches[0];
@@ -150,6 +162,44 @@ class CuliacanGeocoder {
         }
 
         console.log(`   ❌ No se encontró match para "${neighborhood}"`);
+        return null;
+    }
+
+    /**
+     * Busca matching parcial entre el input y las colonias
+     * Ejemplo: "Rosales" matchea con "Antonio Rosales"
+     */
+    _findPartialMatch(searchTerm) {
+        const searchLower = searchTerm.toLowerCase();
+        const searchSlug = searchTerm
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/\s+/g, '-');
+
+        // Obtener todas las colonias
+        const colonias = this.gazetteer.data.colonias;
+
+        // Buscar colonias donde el nombre contiene el término de búsqueda
+        for (const colonia of colonias) {
+            const coloniaLower = colonia.nombre.toLowerCase();
+            const coloniaSlug = colonia.nombre
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/\s+/g, '-');
+
+            // Si el término de búsqueda está contenido en el nombre de la colonia
+            if (coloniaLower.includes(searchLower) || coloniaSlug.includes(searchSlug)) {
+                return colonia;
+            }
+
+            // Si el nombre de la colonia está contenido en el término de búsqueda
+            if (searchLower.includes(coloniaLower) || searchSlug.includes(coloniaSlug)) {
+                return colonia;
+            }
+        }
+
         return null;
     }
 
