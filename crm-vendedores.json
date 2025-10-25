@@ -4739,6 +4739,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace 115 días",
           "vistas": 0
+        },
+        {
+          "id": "142326850",
+          "titulo": "Casa en Fraccionamiento Hacienda Los Huertos",
+          "precio": "MN 1,250,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-hacienda-los-huertos-142326850.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5038,9 +5052,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T00:02:10.160Z",
+    "ultimaActualizacion": "2025-10-25T00:03:01.840Z",
     "totalVendedores": 32,
-    "totalPropiedades": 276,
+    "totalPropiedades": 277,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

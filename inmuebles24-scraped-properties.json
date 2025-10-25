@@ -805,5 +805,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-25T00:02:10.157Z"
+  },
+  {
+    "propertyId": "142326850",
+    "title": "Casa en Fraccionamiento Hacienda Los Huertos",
+    "slug": "casa-en-fraccionamiento-hacienda-los-huertos",
+    "price": "MN 1,250,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-hacienda-los-huertos-142326850.html",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-25T00:03:01.837Z"
   }
 ]
