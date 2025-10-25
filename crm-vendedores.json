@@ -417,9 +417,9 @@
     {
       "id": "v009",
       "nombre": "KW Centro Qro",
-      "telefono": "",
-      "telefonoFormateado": "",
-      "whatsapp": "https://wa.me/52",
+      "telefono": "552192995",
+      "telefonoFormateado": "552192995",
+      "whatsapp": "https://wa.me/52552192995",
       "fuente": "Inmuebles24",
       "propiedades": [
         {
@@ -432,6 +432,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "147176784",
+          "titulo": "Casa en Venta en Villas del Rio Elite",
+          "precio": "MN 1,450,000",
+          "ubicacion": "Cto. Villa San Sebastián, Culiacán, Sinaloa, Mexico, Fraccionamiento Villas Del Rio Elite",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villas-del-rio-elite-147176784.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 83 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -5010,9 +5024,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T00:00:29.304Z",
+    "ultimaActualizacion": "2025-10-25T00:01:19.946Z",
     "totalVendedores": 32,
-    "totalPropiedades": 274,
+    "totalPropiedades": 275,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

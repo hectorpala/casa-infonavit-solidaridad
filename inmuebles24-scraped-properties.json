@@ -775,5 +775,20 @@
     "colonia": "INFONAVIT Barrancos",
     "codigoPostal": "80189",
     "scrapedAt": "2025-10-25T00:00:29.301Z"
+  },
+  {
+    "propertyId": "147176784",
+    "title": "Casa en Venta en Villas del Rio Elite",
+    "slug": "casa-en-venta-en-villas-del-rio-elite",
+    "price": "MN 1,450,000",
+    "publishedDate": "Publicado hace 83 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villas-del-rio-elite-147176784.html",
+    "lat": 24.807644,
+    "lng": -107.4506798,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Villas Del Rio Elite",
+    "codigoPostal": "80050",
+    "scrapedAt": "2025-10-25T00:01:19.943Z"
   }
 ]
