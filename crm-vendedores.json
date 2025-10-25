@@ -4865,6 +4865,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace 35 días",
           "vistas": 0
+        },
+        {
+          "id": "147969684",
+          "titulo": "Casa en Venta en Lomas de San Isidro",
+          "precio": "MN 1,350,000",
+          "ubicacion": "Casa EN Venta EN Lomas DE SAN Isidro, Sinaloa, Mexico, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lomas-de-san-isidro-147969684.html",
+          "fechaScrapeo": "2025-10-25",
+          "fechaPublicacion": "Publicado hace 2 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5199,9 +5213,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T01:10:34.995Z",
+    "ultimaActualizacion": "2025-10-25T01:11:30.600Z",
     "totalVendedores": 33,
-    "totalPropiedades": 286,
+    "totalPropiedades": 287,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

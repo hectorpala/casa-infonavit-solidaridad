@@ -955,5 +955,20 @@
     "colonia": "Terranova",
     "codigoPostal": "80143",
     "scrapedAt": "2025-10-25T01:10:34.991Z"
+  },
+  {
+    "propertyId": "147969684",
+    "title": "Casa en Venta en Lomas de San Isidro",
+    "slug": "casa-en-venta-en-lomas-de-san-isidro",
+    "price": "MN 1,350,000",
+    "publishedDate": "Publicado hace 2 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lomas-de-san-isidro-147969684.html",
+    "lat": 24.7634462,
+    "lng": -107.3970801,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Lomas de San Isidro",
+    "codigoPostal": "80197",
+    "scrapedAt": "2025-10-25T01:11:30.597Z"
   }
 ]
