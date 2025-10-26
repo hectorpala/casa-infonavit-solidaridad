@@ -3149,5 +3149,20 @@
     "colonia": "Interlomas",
     "codigoPostal": "80016",
     "scrapedAt": "2025-10-26T18:30:48.581Z"
+  },
+  {
+    "propertyId": "66208634",
+    "title": "Se Vende Casa en Boulevard Doctor Mora en Las Quintas",
+    "slug": "se-vende-casa-en-boulevard-doctor-mora-en-las-quintas",
+    "price": "MN 3,800,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-boulevard-doctor-mora-en-las-quintas-66208634.html",
+    "lat": 24.8148213,
+    "lng": -107.3718024,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Las Quintas",
+    "codigoPostal": "80060",
+    "scrapedAt": "2025-10-26T18:31:43.313Z"
   }
 ]

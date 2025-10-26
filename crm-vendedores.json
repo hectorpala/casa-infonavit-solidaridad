@@ -4963,6 +4963,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace 10 días",
           "vistas": 0
+        },
+        {
+          "id": "66208634",
+          "titulo": "Se Vende Casa en Boulevard Doctor Mora en Las Quintas",
+          "precio": "MN 3,800,000",
+          "ubicacion": "BLVD DR MORA, Culiacán, Sinaloa, Mexico, Fraccionamiento Las Quintas",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-boulevard-doctor-mora-en-las-quintas-66208634.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5332,9 +5346,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T18:30:48.584Z",
+    "ultimaActualizacion": "2025-10-26T18:31:43.316Z",
     "totalVendedores": 34,
-    "totalPropiedades": 294,
+    "totalPropiedades": 295,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
