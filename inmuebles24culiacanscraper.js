@@ -2034,16 +2034,34 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             }
         });
 
-        // Registrar las direcciones encontradas cerca del mapa con máxima prioridad
+        // ⭐ PRIORIDAD ABSOLUTA: Si hay dirección arriba del mapa, usar SOLO esa
         if (mapCandidates.length > 0) {
             console.log(`   🗺️  Encontradas ${mapCandidates.length} dirección(es) cerca del mapa de Google`);
+            console.log(`   ✅ USANDO DIRECCIÓN EXACTA ARRIBA DEL MAPA (sin análisis de otras fuentes)`);
+
             // Eliminar duplicados
             const uniqueCandidates = [...new Set(mapCandidates)];
-            uniqueCandidates.forEach(addr => {
-                const parts = appendCityState([addr]);
-                registerAddressCandidate(parts.join(', '), 10, 'mapGoogleAbove');
-            });
-        }
+
+            // Tomar la primera (la más cercana al mapa)
+            let selectedAddress = uniqueCandidates[0];
+
+            // Agregar ciudad/estado si no están presentes
+            const parts = [selectedAddress];
+            if (meta?.cityName && !selectedAddress.toLowerCase().includes(meta.cityName.toLowerCase())) {
+                parts.push(meta.cityName);
+            }
+            if (meta?.stateName && !selectedAddress.toLowerCase().includes(meta.stateName.toLowerCase())) {
+                parts.push(meta.stateName);
+            }
+
+            result.location = parts.join(', ');
+            console.log(`   ✅ Dirección seleccionada: "${result.location}"`);
+
+            // ⚠️ SALTAR TODO EL ANÁLISIS DE OTRAS FUENTES
+            // Ir directo a geocodificación
+        } else {
+            // ⚠️ SOLO si NO hay dirección arriba del mapa, usar sistema inteligente
+            console.log(`   ⚠️  No se encontró dirección arriba del mapa, usando sistema inteligente...`);
 
         // FUENTE PRIORITARIA 2: data-testid="address-text"
         const addressTestId = document.querySelector('[data-testid="address-text"]');
@@ -2297,6 +2315,8 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             result.location = meta?.fallbackLocation || 'Culiacán, Sinaloa';
             console.log('   ⚠️  No se encontró dirección específica, usando fallback');
         }
+
+        } // Fin del else - sistema inteligente (solo si NO hay dirección arriba del mapa)
 
         // Descripción - buscar en varios posibles contenedores
         const descSelectors = ['[class*="description"]', 'p[class*="detail"]', 'section p'];
