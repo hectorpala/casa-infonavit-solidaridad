@@ -3209,5 +3209,20 @@
     "colonia": "Nuevo Culiacán",
     "codigoPostal": "80170",
     "scrapedAt": "2025-10-26T19:30:08.361Z"
+  },
+  {
+    "propertyId": "144268894",
+    "title": "Casa en Venta 6 Recamaras, Culiacán",
+    "slug": "casa-en-venta-6-recamaras-culiacan",
+    "price": "MN 3,700,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-6-recamaras-culiacan-144268894.html",
+    "lat": 24.8170924,
+    "lng": -107.3658729,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "La Campiña",
+    "codigoPostal": "80060",
+    "scrapedAt": "2025-10-26T19:31:04.058Z"
   }
 ]
