@@ -40,3 +40,6 @@ wiggot-cookies.json
 audit-*.json
 audit-*.txt
 audit-history.csv
+
+# Backups de lotes
+backups-lotes/
