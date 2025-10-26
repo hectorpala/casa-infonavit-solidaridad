@@ -1,8 +1,20 @@
 {
   "generadoEn": "2025-10-26T18:08:58.008Z",
   "auditoriaOrigen": "inmuebles24-scraped-properties.json",
-  "totalUrlsNuevas": 10,
+  "totalUrlsNuevas": 12,
   "urls_nuevas": [
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-infonavit-barrancos-145323361.html",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-infonavit-barrancos-145323361.html",
+      "propertyId": "145323361",
+      "claveCanonica": "id:145323361"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-tierra-blanca-culiacan-147791849.html",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-tierra-blanca-culiacan-147791849.html",
+      "propertyId": "147791849",
+      "claveCanonica": "id:147791849"
+    },
     {
       "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-los-pinos-142636213.html",
       "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-los-pinos-142636213.html",
