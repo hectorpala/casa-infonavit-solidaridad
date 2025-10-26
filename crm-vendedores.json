@@ -5645,12 +5645,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-26T19:18:20.054Z"
+    },
+    {
+      "id": "v036",
+      "nombre": "ANA AYALA",
+      "telefono": "6671003931",
+      "telefonoFormateado": "667-100-3931",
+      "whatsapp": "https://wa.me/526671003931",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147805533",
+          "titulo": "Casa en Venta Culiacan, Nueva Tres Rios 4 Recamaras",
+          "precio": "MN 12,700,000",
+          "ubicacion": "Frida Khalo 2440, Culiacán, Sinaloa, Mexico, Zona comercial Desarrollo Urbano 3 Ríos",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacan-nueva-tres-rios-4-recamaras-147805533.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=4",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 18 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Frida Khalo 2440, Culiacán, Sinaloa, Mexico, Zona comercial Desarrollo Urbano 3 Ríos",
+      "tags": [
+        "inmuebles24",
+        "frida-khalo-2440",
+        "sinaloa",
+        "mexico",
+        "zona-comercial-desarrollo-urbano-3-ríos",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-26T23:26:11.406Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T23:07:35.661Z",
-    "totalVendedores": 35,
-    "totalPropiedades": 315,
+    "ultimaActualizacion": "2025-10-26T23:26:11.406Z",
+    "totalVendedores": 36,
+    "totalPropiedades": 316,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

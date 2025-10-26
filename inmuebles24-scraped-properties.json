@@ -3449,5 +3449,20 @@
     "colonia": "Interlomas",
     "codigoPostal": "80016",
     "scrapedAt": "2025-10-26T23:07:35.659Z"
+  },
+  {
+    "propertyId": "147805533",
+    "title": "Casa en Venta Culiacan, Nueva Tres Rios 4 Recamaras",
+    "slug": "casa-en-venta-culiacan-nueva-tres-rios-4-recamaras",
+    "price": "MN 12,700,000",
+    "publishedDate": "Publicado hace 18 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacan-nueva-tres-rios-4-recamaras-147805533.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=4",
+    "lat": 24.832711,
+    "lng": -107.4013174,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Tres Ríos",
+    "codigoPostal": "80020",
+    "scrapedAt": "2025-10-26T23:26:11.402Z"
   }
 ]
