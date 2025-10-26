@@ -4991,6 +4991,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "147082316",
+          "titulo": "Casa en Venta Interlomas Culiacán",
+          "precio": "MN 3,600,000",
+          "ubicacion": "3686 Circuito de los flamingos, Culiacán, Sinaloa, Mexico, Interlomas",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-interlomas-culiacan-147082316.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 95 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5360,9 +5374,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T18:39:45.141Z",
+    "ultimaActualizacion": "2025-10-26T18:40:36.451Z",
     "totalVendedores": 34,
-    "totalPropiedades": 296,
+    "totalPropiedades": 297,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

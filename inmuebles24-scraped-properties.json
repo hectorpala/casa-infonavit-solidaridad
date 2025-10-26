@@ -3179,5 +3179,20 @@
     "colonia": "Guadalupe",
     "codigoPostal": "80220",
     "scrapedAt": "2025-10-26T18:39:45.138Z"
+  },
+  {
+    "propertyId": "147082316",
+    "title": "Casa en Venta Interlomas Culiacán",
+    "slug": "casa-en-venta-interlomas-culiacan",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace 95 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-interlomas-culiacan-147082316.html",
+    "lat": 24.8419343,
+    "lng": -107.3839938,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Interlomas",
+    "codigoPostal": "80016",
+    "scrapedAt": "2025-10-26T18:40:36.449Z"
   }
 ]
