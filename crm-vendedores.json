@@ -573,6 +573,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace 169 días",
           "vistas": 0
+        },
+        {
+          "id": "146566867",
+          "titulo": "Casa en Venta en Colonia Las Quintas",
+          "precio": "MN 3,800,000",
+          "ubicacion": "Estado de Yucatán, Culiacán, Sinaloa, Mexico, Fraccionamiento Las Quintas",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-las-quintas-146566867.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 151 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -5494,9 +5508,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T19:57:58.973Z",
+    "ultimaActualizacion": "2025-10-26T19:58:50.992Z",
     "totalVendedores": 35,
-    "totalPropiedades": 304,
+    "totalPropiedades": 305,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

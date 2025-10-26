@@ -3269,5 +3269,20 @@
     "colonia": "La Conquista",
     "codigoPostal": "80058",
     "scrapedAt": "2025-10-26T19:57:58.970Z"
+  },
+  {
+    "propertyId": "146566867",
+    "title": "Casa en Venta en Colonia Las Quintas",
+    "slug": "casa-en-venta-en-colonia-las-quintas",
+    "price": "MN 3,800,000",
+    "publishedDate": "Publicado hace 151 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-las-quintas-146566867.html",
+    "lat": 24.793,
+    "lng": -107.413,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Las Quintas",
+    "codigoPostal": "80060",
+    "scrapedAt": "2025-10-26T19:58:50.988Z"
   }
 ]
