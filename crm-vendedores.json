@@ -266,6 +266,20 @@
           "fechaScrapeo": "2025-10-24",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "147578036",
+          "titulo": "Casa en Fraccionamiento La Conquista",
+          "precio": "MN 3,700,000",
+          "ubicacion": "Carretera Culiacancito al 3900, Culiacán, Sinaloa, Mexico, Fraccionamiento La Conquista",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-la-conquista-147578036.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 45 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -5480,9 +5494,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T19:57:04.639Z",
+    "ultimaActualizacion": "2025-10-26T19:57:58.973Z",
     "totalVendedores": 35,
-    "totalPropiedades": 303,
+    "totalPropiedades": 304,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

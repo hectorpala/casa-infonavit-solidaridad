@@ -3254,5 +3254,20 @@
     "colonia": "Valle Alto",
     "codigoPostal": "80050",
     "scrapedAt": "2025-10-26T19:57:04.633Z"
+  },
+  {
+    "propertyId": "147578036",
+    "title": "Casa en Fraccionamiento La Conquista",
+    "slug": "casa-en-fraccionamiento-la-conquista",
+    "price": "MN 3,700,000",
+    "publishedDate": "Publicado hace 45 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-la-conquista-147578036.html",
+    "lat": 24.8207681,
+    "lng": -107.439959,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "La Conquista",
+    "codigoPostal": "80058",
+    "scrapedAt": "2025-10-26T19:57:58.970Z"
   }
 ]
