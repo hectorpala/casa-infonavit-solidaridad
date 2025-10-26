@@ -3464,5 +3464,20 @@
     "colonia": "Tres Ríos",
     "codigoPostal": "80020",
     "scrapedAt": "2025-10-26T23:26:11.402Z"
+  },
+  {
+    "propertyId": "147325627",
+    "title": "Casa en Venta Colonia Morelos Culiacan Sinaloa",
+    "slug": "casa-en-venta-colonia-morelos-culiacan-sinaloa",
+    "price": "MN 4,000,000",
+    "publishedDate": "Publicado hace 69 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-morelos-culiacan-sinaloa-147325627.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=5",
+    "lat": 24.7870957,
+    "lng": -107.4093825,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Morelos",
+    "codigoPostal": "80170",
+    "scrapedAt": "2025-10-26T23:27:18.255Z"
   }
 ]

@@ -1004,6 +1004,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "147325627",
+          "titulo": "Casa en Venta Colonia Morelos Culiacan Sinaloa",
+          "precio": "MN 4,000,000",
+          "ubicacion": "Río Tehuantepec 1522, Culiacán, Sinaloa, Mexico, Morelos",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-morelos-culiacan-sinaloa-147325627.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=5",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 69 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Avenida Federalismo 10, Recursos HidrAulicos, Culiacán",
@@ -5683,9 +5697,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T23:26:11.406Z",
+    "ultimaActualizacion": "2025-10-26T23:27:18.258Z",
     "totalVendedores": 36,
-    "totalPropiedades": 316,
+    "totalPropiedades": 317,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
