@@ -1668,10 +1668,26 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             const normalized = normalizeTextLocal(address);
 
             // +5 puntos: Tiene número de calle (ej: "2609", "#123")
-            if (/\d+/.test(address)) score += 5;
+            const hasNumber = /\d+/.test(address);
+            if (hasNumber) score += 5;
 
-            // +4 puntos: Tiene nombre de calle (ej: "Blvd", "Av", "Calle", "Privada", "Internacional")
-            if (/(blvd|boulevard|avenida|av\.|calle|c\.|privada|priv\.|paseo|prol\.|prolongación|internacional)/i.test(address)) score += 4;
+            // +4 puntos: Tiene nombre de calle tradicional (ej: "Blvd", "Av", "Calle", "Privada")
+            const hasTraditionalStreetKeyword = /(blvd|boulevard|avenida|av\.|calle|c\.|privada|priv\.|paseo|prol\.|prolongación|internacional)/i.test(address);
+            if (hasTraditionalStreetKeyword) score += 4;
+
+            // 🆕 +6 puntos: Patrón "texto + número" sin prefijo tradicional (ej: "Estado de Yucatán 2609")
+            // Detecta palabras comunes en nombres de calles mexicanas seguidas de número
+            const hasCommonStreetPattern = /(estado|doctor|dr\.|general|gen\.|ingeniero|ing\.|profesor|prof\.|boulevard|rio|río|cerro|norte|sur|este|oeste)\s+[a-záéíóúñ\s]+\s+\d{2,5}/i.test(address);
+            if (hasCommonStreetPattern && !hasTraditionalStreetKeyword) {
+                score += 6;
+                console.log(`   🎯 Detected fallback street pattern: "${address.substring(0, 50)}..." (score bonus: +6)`);
+            }
+
+            // 🆕 +4 puntos extra: Si tiene "Estado de..." con número (muy común en Culiacán)
+            if (/estado\s+de\s+[a-záéíóúñ\s]+\s+\d{2,5}/i.test(address)) {
+                score += 4;
+                console.log(`   ⭐ Detected "Estado de..." pattern with number (score bonus: +4)`);
+            }
 
             // +3 puntos: Tiene colonia/fraccionamiento específico (ej: "Fracc. Las Quintas")
             if (/(fracc\.|fraccionamiento|colonia|col\.|residencial|priv\.|privada)/i.test(address)) score += 3;
@@ -1686,8 +1702,13 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             // +1 punto: Incluye estado
             if (STATE_TOKENS.some(state => normalized.includes(state))) score += 1;
 
-            // Penalización -3: Dirección muy corta (probablemente incompleta)
-            if (address.length < 30) score -= 3;
+            // 🔧 Penalización reducida para direcciones con patrón válido
+            // Antes: -3 para cualquier dirección < 30 chars
+            // Ahora: Solo -1 si tiene patrón válido (número + 2+ palabras capitalizadas)
+            if (address.length < 30) {
+                const hasValidPattern = hasNumber && /[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+/.test(address);
+                score -= hasValidPattern ? 1 : 3;
+            }
 
             // Penalización -5: Solo tiene ciudad y estado (ej: "Culiacán, Sinaloa")
             const isOnlyCityOrState = CITY_TOKENS.some(city => {
@@ -1759,9 +1780,37 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         function isStreetCandidate(address) {
             if (!address) return false;
             const lower = address.toLowerCase();
-            const hasStreetKeyword = /(calle|avenida|av\.|blvd|boulevard|privada|priv\.|paseo|prol\.|prolongación|camino|carretera|andador|calz\.|calzada)/i.test(lower);
+
+            // Opción 1: Tiene keyword tradicional + número
+            const hasTraditionalStreetKeyword = /(calle|avenida|av\.|blvd|boulevard|privada|priv\.|paseo|prol\.|prolongación|camino|carretera|andador|calz\.|calzada)/i.test(lower);
             const hasNumber = /\d+/.test(address);
-            return hasStreetKeyword && hasNumber;
+
+            if (hasTraditionalStreetKeyword && hasNumber) {
+                return true;
+            }
+
+            // 🆕 Opción 2: Patrón "palabra + espacio + número" sin keyword tradicional
+            // Ej: "Estado de Yucatán 2609", "Doctor Coss 123", "General Mariano 456"
+            const hasCommonStreetPattern = /(estado|doctor|dr\.|general|gen\.|ingeniero|ing\.|profesor|prof\.|rio|río|cerro|norte|sur|este|oeste)\s+[a-záéíóúñ\s]+\s+\d{2,5}/i.test(address);
+
+            if (hasCommonStreetPattern) {
+                console.log(`   ✅ Recognized as street (fallback pattern): "${address.substring(0, 60)}..."`);
+                return true;
+            }
+
+            // 🆕 Opción 3: Texto con 2+ palabras capitalizadas + número (fallback genérico)
+            // Ej: "Las Flores 123", "Villa del Mar 456"
+            const hasCapitalizedWords = /([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+\s+){2,}/.test(address);
+            if (hasCapitalizedWords && hasNumber && address.length < 100) {
+                // Verificar que no sea solo colonia (sin calle)
+                const hasColoniaKeyword = /(fracc\.|fraccionamiento|colonia|col\.|residencial)/i.test(lower);
+                if (!hasColoniaKeyword) {
+                    console.log(`   ✅ Recognized as street (generic pattern): "${address.substring(0, 60)}..."`);
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         function isNeighborhoodCandidate(address) {
@@ -2157,17 +2206,29 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
         lines.forEach(line => {
             const trimmed = line.trim();
             const normalizedLine = normalizeTextLocal(trimmed);
+
             // Buscar líneas que contengan ciudad/estado y tengan longitud razonable
             if (trimmed.length > 15 && trimmed.length < 200 &&
                 (CITY_TOKENS.some(city => normalizedLine.includes(city)) ||
                  STATE_TOKENS.some(state => normalizedLine.includes(state)))) {
 
                 // Filtrar líneas que parecen direcciones (tienen comas o palabras clave)
-                if (trimmed.match(/,/) ||
-                    /(fracc|colonia|blvd|avenida|calle|privada)/i.test(trimmed)) {
+                const hasComma = trimmed.match(/,/);
+                const hasTraditionalKeyword = /(fracc|colonia|blvd|avenida|calle|privada)/i.test(trimmed);
 
+                // 🆕 Detectar patrones sin keywords tradicionales (ej: "Estado de Yucatán 2609, Las Quintas")
+                const hasFallbackStreetPattern = /(estado|doctor|dr\.|general|gen\.|ingeniero|ing\.|profesor|prof\.|rio|río|cerro)\s+[a-záéíóúñ\s]+\s+\d{2,5}/i.test(trimmed);
+
+                if (hasComma || hasTraditionalKeyword || hasFallbackStreetPattern) {
                     const cleaned = trimmed.replace(/\s+,/g, ',').replace(/,\s+/g, ', ');
-                    registerAddressCandidate(cleaned, 0, 'bodyText');
+
+                    if (hasFallbackStreetPattern && !hasTraditionalKeyword) {
+                        // Dar puntos extra a patrones sin prefijo tradicional
+                        registerAddressCandidate(cleaned, 6, 'bodyText-fallback-pattern');
+                        console.log(`   🔍 Found fallback street in body: "${cleaned.substring(0, 60)}..."`);
+                    } else {
+                        registerAddressCandidate(cleaned, 0, 'bodyText');
+                    }
                 }
             }
         });
@@ -2196,6 +2257,58 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             const address = metaLocation.getAttribute('content');
             if (address && address.length > 15) {
                 registerAddressCandidate(address, 1, 'metaTags');
+            }
+        }
+
+        // 🆕 FUENTE 4: Detección agresiva de patrones "texto + número" en toda la página
+        // Solo se ejecuta si no encontramos suficientes candidatos con las fuentes anteriores
+        if (addressCandidates.length < 3) {
+            console.log(`   🔍 Running aggressive pattern detection (current candidates: ${addressCandidates.length})`);
+
+            // Regex para capturar patrones tipo "Estado de Yucatán 2609"
+            const fallbackStreetRegex = /([A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+(?:de|del|la|las|los|el)\s+)?[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s+[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)?)\s+(\d{2,5})/g;
+
+            const pageText = bodyText;
+            let match;
+            const aggressiveMatches = [];
+
+            while ((match = fallbackStreetRegex.exec(pageText)) !== null && aggressiveMatches.length < 10) {
+                const streetName = match[1].trim();
+                const streetNumber = match[2];
+                const fullMatch = `${streetName} ${streetNumber}`;
+
+                // Filtrar si es parte de una fecha, precio, o texto irrelevante
+                const isLikelyIrrelevant = /precio|fecha|año|publicado|vistas|habitacion|m²|construcc/i.test(match[0]);
+                if (isLikelyIrrelevant) continue;
+
+                // Verificar si tiene un contexto de dirección (colonia, ciudad)
+                const contextBefore = pageText.substring(Math.max(0, match.index - 50), match.index);
+                const contextAfter = pageText.substring(match.index + match[0].length, Math.min(pageText.length, match.index + match[0].length + 100));
+                const fullContext = contextBefore + match[0] + contextAfter;
+
+                const hasLocationContext = /(fracc|fraccionamiento|colonia|col\.|culiacán|monterrey|mazatlán|sinaloa)/i.test(fullContext);
+
+                if (hasLocationContext) {
+                    // Intentar construir dirección completa con contexto
+                    const parts = [fullMatch];
+
+                    // Buscar colonia en el contexto
+                    const coloniaMatch = fullContext.match(/(fracc\.|fraccionamiento|col\.|colonia)\s+([a-záéíóúñ\s]+?)(?:,|culiacán|monterrey|mazatlán|\.)/i);
+                    if (coloniaMatch) {
+                        parts.push(coloniaMatch[0].replace(/[,\.]/g, '').trim());
+                    }
+
+                    appendCityState(parts);
+                    const candidateAddress = parts.join(', ');
+
+                    registerAddressCandidate(candidateAddress, 8, 'aggressive-pattern');
+                    aggressiveMatches.push(candidateAddress);
+                    console.log(`   🎯 Aggressive pattern match: "${candidateAddress}"`);
+                }
+            }
+
+            if (aggressiveMatches.length > 0) {
+                console.log(`   ✅ Found ${aggressiveMatches.length} candidates via aggressive detection`);
             }
         }
 
