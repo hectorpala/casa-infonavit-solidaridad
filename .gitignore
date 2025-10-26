@@ -43,3 +43,9 @@ audit-history.csv
 
 # Backups de lotes
 backups-lotes/
+
+# Reportes del orquestador
+reports/
+
+# Variables de entorno
+.env
