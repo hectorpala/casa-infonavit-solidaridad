@@ -3164,5 +3164,20 @@
     "colonia": "Las Quintas",
     "codigoPostal": "80060",
     "scrapedAt": "2025-10-26T18:31:43.313Z"
+  },
+  {
+    "propertyId": "53895764",
+    "title": "Se Vende Casa",
+    "slug": "se-vende-casa",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-53895764.html",
+    "lat": 24.7910578,
+    "lng": -107.4005137,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Guadalupe",
+    "codigoPostal": "80220",
+    "scrapedAt": "2025-10-26T18:39:45.138Z"
   }
 ]

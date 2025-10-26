@@ -4977,6 +4977,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "53895764",
+          "titulo": "Se Vende Casa",
+          "precio": "MN 3,600,000",
+          "ubicacion": "Calle Nicolas Bravo No. 1375 Sur, Col. Guadalupe, Culiacán, Sinaloa, Mexico, Guadalupe",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-53895764.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5346,9 +5360,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T18:31:43.316Z",
+    "ultimaActualizacion": "2025-10-26T18:39:45.141Z",
     "totalVendedores": 34,
-    "totalPropiedades": 295,
+    "totalPropiedades": 296,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
