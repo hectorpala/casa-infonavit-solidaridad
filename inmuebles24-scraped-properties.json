@@ -3434,5 +3434,20 @@
     "colonia": "Villa Universidad",
     "codigoPostal": "80010",
     "scrapedAt": "2025-10-26T22:53:01.297Z"
+  },
+  {
+    "propertyId": "143646358",
+    "title": "Casa en Interlomas",
+    "slug": "casa-en-interlomas",
+    "price": "MN 3,800,000",
+    "publishedDate": "Publicado hace 361 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-interlomas-143646358.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Interlomas",
+    "codigoPostal": "80016",
+    "scrapedAt": "2025-10-26T23:07:35.659Z"
   }
 ]
