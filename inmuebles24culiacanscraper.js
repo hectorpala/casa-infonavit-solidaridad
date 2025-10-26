@@ -2056,9 +2056,9 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
 
             result.location = parts.join(', ');
             console.log(`   ✅ Dirección seleccionada: "${result.location}"`);
+            console.log(`   🔄 Esta dirección será procesada por geo-address-normalizer más adelante`);
 
-            // ⚠️ SALTAR TODO EL ANÁLISIS DE OTRAS FUENTES
-            // Ir directo a geocodificación
+            // Saltar análisis de otras fuentes (ya tenemos la dirección correcta del mapa)
         } else {
             // ⚠️ SOLO si NO hay dirección arriba del mapa, usar sistema inteligente
             console.log(`   ⚠️  No se encontró dirección arriba del mapa, usando sistema inteligente...`);
