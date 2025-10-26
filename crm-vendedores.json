@@ -350,6 +350,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "146594564",
+          "titulo": "Casa en Bosques del Rey Br56",
+          "precio": "MN 3,600,000",
+          "ubicacion": "Casa en Venta en Bosques del Rey Br56, Culiacán, Sinaloa, Mexico, Fraccionamiento Acueducto",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-bosques-del-rey-br56-146594564.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 148 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -5452,9 +5466,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T19:41:12.717Z",
+    "ultimaActualizacion": "2025-10-26T19:56:11.489Z",
     "totalVendedores": 35,
-    "totalPropiedades": 301,
+    "totalPropiedades": 302,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

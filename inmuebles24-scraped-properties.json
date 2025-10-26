@@ -3224,5 +3224,20 @@
     "colonia": "Interlomas",
     "codigoPostal": "80016",
     "scrapedAt": "2025-10-26T19:41:12.714Z"
+  },
+  {
+    "propertyId": "146594564",
+    "title": "Casa en Bosques del Rey Br56",
+    "slug": "casa-en-bosques-del-rey-br56",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace 148 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-bosques-del-rey-br56-146594564.html",
+    "lat": 24.8161574,
+    "lng": -107.4455042,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Acueducto",
+    "codigoPostal": "80058",
+    "scrapedAt": "2025-10-26T19:56:11.485Z"
   }
 ]
