@@ -3419,5 +3419,20 @@
     "colonia": "Los Almendros",
     "codigoPostal": "80027",
     "scrapedAt": "2025-10-26T22:47:12.302Z"
+  },
+  {
+    "propertyId": "141597952",
+    "title": "Casa en Fraccionamiento Villa Universidad",
+    "slug": "casa-en-fraccionamiento-villa-universidad",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-villa-universidad-141597952.html",
+    "lat": 24.8340803,
+    "lng": -107.3856223,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Villa Universidad",
+    "codigoPostal": "80010",
+    "scrapedAt": "2025-10-26T22:53:01.297Z"
   }
 ]
