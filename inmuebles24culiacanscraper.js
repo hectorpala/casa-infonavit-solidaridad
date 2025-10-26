@@ -1508,6 +1508,31 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
     // Esperar a que cargue el contenido
     await new Promise(resolve => setTimeout(resolve, 3000));
 
+    // ============================================
+    // VERIFICAR SI LA PROPIEDAD FUE REMOVIDA (redirección al home)
+    // ============================================
+    const currentUrl = page.url();
+    const pageTitle = await page.title();
+
+    // Si redirigió al home o el título es el dominio = propiedad removida
+    if (currentUrl.endsWith('inmuebles24.com/') ||
+        currentUrl === 'https://www.inmuebles24.com/' ||
+        pageTitle === 'www.inmuebles24.com' ||
+        pageTitle.toLowerCase().includes('inmuebles24.com')) {
+
+        console.log('\n⚠️  ============================================');
+        console.log('⚠️  PROPIEDAD REMOVIDA O NO DISPONIBLE');
+        console.log('⚠️  ============================================');
+        console.log(`   🔗 URL solicitada: ${url}`);
+        console.log(`   🔗 URL actual: ${currentUrl}`);
+        console.log(`   📝 Título: ${pageTitle}`);
+        console.log('\n   ❌ La propiedad fue removida de Inmuebles24 o no existe.');
+        console.log('   💡 Inmuebles24 redirigió al home, esta URL está obsoleta.\n');
+
+        await browser.close();
+        process.exit(0); // Exit sin error para no romper iteradores
+    }
+
     // Hacer clic en "Ver todas las fotos" para cargar la galería completa
     console.log('📸 Buscando botón "Ver todas las fotos"...');
     try {
@@ -3291,8 +3316,23 @@ async function main() {
         const photoCount = await downloadPhotos(data.images, imagesDir);
 
         if (photoCount === 0) {
-            console.error('❌ ERROR: No se descargaron fotos\n');
-            process.exit(1);
+            console.log('\n⚠️  ============================================');
+            console.log('⚠️  PROPIEDAD REMOVIDA O NO DISPONIBLE');
+            console.log('⚠️  ============================================');
+            console.log(`   🔗 URL: ${url}`);
+            console.log(`   📝 Título detectado: ${data.title || 'NO ENCONTRADO'}`);
+            console.log(`   💰 Precio detectado: ${data.price || 'NO ENCONTRADO'}`);
+            console.log(`   📸 Fotos encontradas: 0`);
+            console.log('\n   ❌ La propiedad fue removida de Inmuebles24 o está bloqueada.');
+            console.log('   💡 Inmuebles24 redirigió al home o Cloudflare bloqueó el acceso.\n');
+            console.log('   ℹ️  Esta URL está obsoleta y será omitida.\n');
+
+            // Limpiar directorio creado
+            if (fs.existsSync(propertyDir)) {
+                fs.rmSync(propertyDir, { recursive: true, force: true });
+            }
+
+            process.exit(0); // Exit sin error para no romper iteradores
         }
 
         // 6. Generar HTML con ciudad dinámica
