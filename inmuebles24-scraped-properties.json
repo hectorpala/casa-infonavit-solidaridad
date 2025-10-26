@@ -3311,8 +3311,8 @@
     "lng": -107.3949408,
     "locationPrecision": "street",
     "locationSource": "geocoder",
-    "colonia": null,
-    "codigoPostal": null,
+    "colonia": "Perisur",
+    "codigoPostal": "80197",
     "scrapedAt": "2025-10-26T20:29:31.032Z"
   }
 ]

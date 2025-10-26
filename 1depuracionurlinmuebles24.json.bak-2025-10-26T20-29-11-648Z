@@ -1,8 +1,20 @@
 {
   "generadoEn": "2025-10-26T18:08:58.008Z",
   "auditoriaOrigen": "inmuebles24-scraped-properties.json",
-  "totalUrlsNuevas": 13,
+  "totalUrlsNuevas": 15,
   "urls_nuevas": [
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-priv.-valle-alto-147987556.html",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-priv.-valle-alto-147987556.html",
+      "propertyId": "147987556",
+      "claveCanonica": "id:147987556"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-perisur-142987188.html",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-perisur-142987188.html",
+      "propertyId": "142987188",
+      "claveCanonica": "id:142987188"
+    },
     {
       "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villa-universidad-culiacan-147933153.html",
       "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villa-universidad-culiacan-147933153.html",
