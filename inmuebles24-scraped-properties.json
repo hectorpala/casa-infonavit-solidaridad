@@ -3089,5 +3089,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-26T18:01:40.529Z"
+  },
+  {
+    "propertyId": "143462198",
+    "title": "Casa en Residencial Los Olivos",
+    "slug": "casa-en-residencial-los-olivos",
+    "price": "MN 3,500,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-residencial-los-olivos-143462198.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Campestre",
+    "codigoPostal": "80015",
+    "scrapedAt": "2025-10-26T18:02:28.192Z"
   }
 ]

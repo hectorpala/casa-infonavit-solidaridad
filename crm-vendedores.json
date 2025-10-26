@@ -4907,6 +4907,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace 105 días",
           "vistas": 0
+        },
+        {
+          "id": "143462198",
+          "titulo": "Casa en Residencial Los Olivos",
+          "precio": "MN 3,500,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Residencial San Francisco CON Alberca Campestre, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-residencial-los-olivos-143462198.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5276,9 +5290,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T18:01:40.535Z",
+    "ultimaActualizacion": "2025-10-26T18:02:28.195Z",
     "totalVendedores": 34,
-    "totalPropiedades": 290,
+    "totalPropiedades": 291,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
