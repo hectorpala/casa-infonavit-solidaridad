@@ -4949,6 +4949,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace 200 días",
           "vistas": 0
+        },
+        {
+          "id": "147916704",
+          "titulo": "Casa en Venta en Fraccionamiento Interlomas",
+          "precio": "MN 3,600,000",
+          "ubicacion": "Fracc. Interlomas, Culiacán, Sinaloa, Mexico, Interlomas",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 10 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5318,9 +5332,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T18:04:05.825Z",
+    "ultimaActualizacion": "2025-10-26T18:30:48.584Z",
     "totalVendedores": 34,
-    "totalPropiedades": 293,
+    "totalPropiedades": 294,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

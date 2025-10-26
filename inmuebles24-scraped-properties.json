@@ -3134,5 +3134,20 @@
     "colonia": "Popular",
     "codigoPostal": "80120",
     "scrapedAt": "2025-10-26T18:04:05.823Z"
+  },
+  {
+    "propertyId": "147916704",
+    "title": "Casa en Venta en Fraccionamiento Interlomas",
+    "slug": "casa-en-venta-en-fraccionamiento-interlomas",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace 10 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html",
+    "lat": 24.8392706,
+    "lng": -107.3819576,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Interlomas",
+    "codigoPostal": "80016",
+    "scrapedAt": "2025-10-26T18:30:48.581Z"
   }
 ]
