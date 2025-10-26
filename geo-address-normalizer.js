@@ -257,11 +257,15 @@ class AddressNormalizer {
             // Saltar si es la parte de calle
             if (i === streetPart) continue;
 
-            // Saltar si es claramente ciudad/estado/país
-            if (/culiac[áa]n|sinaloa|m[ée]xico/i.test(part)) {
-                if (/culiac[áa]n/i.test(part)) components.city = 'Culiacán';
-                if (/sinaloa/i.test(part)) components.state = 'Sinaloa';
-                if (/m[ée]xico/i.test(part)) components.country = 'México';
+            // Saltar si es EXACTAMENTE ciudad/estado/país (no nombres compuestos)
+            const isCityOnly = /^culiac[áa]n$/i.test(part.trim());
+            const isStateOnly = /^sinaloa$/i.test(part.trim());
+            const isCountryOnly = /^m[ée]xico$/i.test(part.trim());
+
+            if (isCityOnly || isStateOnly || isCountryOnly) {
+                if (isCityOnly) components.city = 'Culiacán';
+                if (isStateOnly) components.state = 'Sinaloa';
+                if (isCountryOnly) components.country = 'México';
                 continue;
             }
 
@@ -282,19 +286,30 @@ class AddressNormalizer {
 
         // Si no se detectó colonia, intentar con todo el texto
         if (!components.neighborhood && parts.length > 0) {
-            // Usar la primera parte que no sea calle
+            // Usar la primera parte que no sea calle NI ciudad/estado/país exactos
             for (let i = 0; i < parts.length; i++) {
-                if (i !== streetPart && !/(culiac[áa]n|sinaloa|m[ée]xico)/i.test(parts[i])) {
-                    let cleaned = parts[i]
-                        .replace(/^(Fracc\.|Col\.|Fraccionamiento|Colonia|Residencial)\s+/i, '')
-                        .replace(/^(Casa|Departamento|Depa|Local|Terreno)\s+(en|de)\s+/i, '')
-                        .replace(/^(en|de)\s+/i, '')
-                        .trim();
+                const part = parts[i].trim();
 
-                    if (cleaned) {
-                        components.neighborhood = cleaned;
-                        break;
-                    }
+                // Saltar si es la calle
+                if (i === streetPart) continue;
+
+                // Saltar SOLO si es EXACTAMENTE ciudad/estado/país (no nombres compuestos como "Nuevo Culiacán")
+                const isExactlyCity = /^culiac[áa]n$/i.test(part);
+                const isExactlyState = /^sinaloa$/i.test(part);
+                const isExactlyCountry = /^m[ée]xico$/i.test(part);
+
+                if (isExactlyCity || isExactlyState || isExactlyCountry) continue;
+
+                // Limpiar y usar como colonia
+                let cleaned = part
+                    .replace(/^(Fracc\.|Col\.|Fraccionamiento|Colonia|Residencial)\s+/i, '')
+                    .replace(/^(Casa|Departamento|Depa|Local|Terreno)\s+(en|de)\s+/i, '')
+                    .replace(/^(en|de)\s+/i, '')
+                    .trim();
+
+                if (cleaned) {
+                    components.neighborhood = cleaned;
+                    break;
                 }
             }
         }
