@@ -3344,5 +3344,20 @@
     "colonia": "INFONAVIT Barrancos",
     "codigoPostal": "80189",
     "scrapedAt": "2025-10-26T20:52:36.908Z"
+  },
+  {
+    "propertyId": "147791849",
+    "title": "Casa en Venta Colonia Tierra Blanca Culiacán",
+    "slug": "casa-en-venta-colonia-tierra-blanca-culiacan",
+    "price": "MN 3,700,000",
+    "publishedDate": "Publicado hace 22 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-tierra-blanca-culiacan-147791849.html",
+    "lat": 24.8301398,
+    "lng": -107.3925899,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Tierra Blanca",
+    "codigoPostal": "80030",
+    "scrapedAt": "2025-10-26T20:53:32.464Z"
   }
 ]

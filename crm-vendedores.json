@@ -1106,6 +1106,20 @@
           "fechaScrapeo": "2025-10-22",
           "fechaPublicacion": "Publicado hace 15 días",
           "vistas": 0
+        },
+        {
+          "id": "147791849",
+          "titulo": "Casa en Venta Colonia Tierra Blanca Culiacán",
+          "precio": "MN 3,700,000",
+          "ubicacion": "Calle Sociologos y Matías Lazcano, Culiacán, Sinaloa, Mexico, Tierra Blanca",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-tierra-blanca-culiacan-147791849.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 22 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Casa Rio Culiacán y Paliza, Culiacán, Sinaloa, Mexico, Guadalupe",
@@ -5564,9 +5578,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T20:52:36.910Z",
+    "ultimaActualizacion": "2025-10-26T20:53:32.467Z",
     "totalVendedores": 35,
-    "totalPropiedades": 309,
+    "totalPropiedades": 310,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
