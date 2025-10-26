@@ -3374,5 +3374,20 @@
     "colonia": "Los Pinos",
     "codigoPostal": "80063",
     "scrapedAt": "2025-10-26T20:56:30.496Z"
+  },
+  {
+    "propertyId": "145981165",
+    "title": "Casa en Interlomas",
+    "slug": "casa-en-interlomas",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace 222 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-interlomas-145981165.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Interlomas",
+    "codigoPostal": "80016",
+    "scrapedAt": "2025-10-26T20:57:25.799Z"
   }
 ]
