@@ -5371,12 +5371,48 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-26T18:00:02.865Z"
+    },
+    {
+      "id": "v035",
+      "nombre": "Marlenne Felix Profesional Inmobiliario",
+      "telefono": "6671439678",
+      "telefonoFormateado": "667-143-9678",
+      "whatsapp": "https://wa.me/526671439678",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "144268894",
+          "titulo": "Casa en Venta 6 Recamaras, Culiacán",
+          "precio": "MN 3,700,000",
+          "ubicacion": "Residencial la Campiña, Calle del Guamuchil, Culiacán, Sinaloa, Mexico, Fraccionamiento La Campiña",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-6-recamaras-culiacan-144268894.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Residencial la Campiña, Calle del Guamuchil, Culiacán, Sinaloa, Mexico, Fraccionamiento La Campiña",
+      "tags": [
+        "inmuebles24",
+        "residencial-la-campiña",
+        "calle-del-guamuchil",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-la-campiña",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-26T19:18:20.054Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T18:40:36.451Z",
-    "totalVendedores": 34,
-    "totalPropiedades": 297,
+    "ultimaActualizacion": "2025-10-26T19:18:20.054Z",
+    "totalVendedores": 35,
+    "totalPropiedades": 298,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
