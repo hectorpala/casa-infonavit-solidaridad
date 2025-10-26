@@ -3361,21 +3361,6 @@
     "scrapedAt": "2025-10-26T20:53:32.464Z"
   },
   {
-    "propertyId": "142636213",
-    "title": "Casa en Los Pinos",
-    "slug": "casa-en-los-pinos",
-    "price": "MN 3,777,000",
-    "publishedDate": "Publicado hace más de 1 año",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-los-pinos-142636213.html",
-    "lat": 24.8116349,
-    "lng": -107.3949408,
-    "locationPrecision": "street",
-    "locationSource": "geocoder",
-    "colonia": "Los Pinos",
-    "codigoPostal": "80063",
-    "scrapedAt": "2025-10-26T20:56:30.496Z"
-  },
-  {
     "propertyId": "145981165",
     "title": "Casa en Interlomas",
     "slug": "casa-en-interlomas",
@@ -3389,5 +3374,20 @@
     "colonia": "Interlomas",
     "codigoPostal": "80016",
     "scrapedAt": "2025-10-26T20:57:25.799Z"
+  },
+  {
+    "propertyId": "142636213",
+    "title": "Casa en Los Pinos",
+    "slug": "casa-en-los-pinos",
+    "price": "MN 3,777,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-los-pinos-142636213.html",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-26T21:27:46.576Z"
   }
 ]
