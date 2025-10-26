@@ -47,7 +47,7 @@ async function extractURLs(searchUrl, maxPages = CONFIG.maxPages) {
     console.log('');
 
     const browser = await puppeteer.launch({
-        headless: 'new', // Modo headless (invisible)
+        headless: false, // Modo con interfaz visible (para debugging)
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
