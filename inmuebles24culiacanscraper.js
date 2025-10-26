@@ -1932,9 +1932,67 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             console.log('   ⚠️  Error reading JSON-LD scripts:', e.message);
         }
 
+        // 🎯 FUNCIÓN DE SCORING PARA DIRECCIONES ARRIBA DEL MAPA
+        // Prioriza elementos de ENCABEZADO sobre texto en descripciones
+        function scoreAddressCandidate(text, element, iframe, isDirectSibling) {
+            let score = 0;
+
+            // ⭐ MÁXIMA PRIORIDAD: Hermano directo del iframe
+            if (isDirectSibling) {
+                score += 20;
+            }
+
+            // 📍 PRIORIDAD ALTA: Elementos de encabezado
+            const tagName = element.tagName.toLowerCase();
+            if (tagName === 'h1') score += 15;
+            else if (tagName === 'h2') score += 12;
+            else if (tagName === 'h3') score += 10;
+            else if (tagName === 'h4') score += 8;
+            else if (tagName === 'h5') score += 6;
+            else if (tagName === 'p' && text.length < 100) score += 8; // Párrafo corto
+            else if (tagName === 'span' && text.length < 80) score += 5; // Span corto
+
+            // 🏘️ BONUS: Tiene fraccionamiento o colonia
+            if (/(fracc|fraccionamiento)/i.test(text)) score += 8;
+            if (/(colonia|col\.)/i.test(text)) score += 6;
+            if (/residencial/i.test(text)) score += 5;
+
+            // 🗺️ BONUS: Múltiples componentes de dirección (comas)
+            const commaCount = (text.match(/,/g) || []).length;
+            score += commaCount * 3;
+
+            // ⚠️ PENALIZACIÓN: Tiene número + nombre de calle (puede ser dirección de oficina)
+            const hasStreetNumber = /\b\d+\b/.test(text);
+            const hasStreetName = /(calle|avenida|av\.|blvd|boulevard|privada|prol\.|prolongación)/i.test(text);
+            if (hasStreetNumber && hasStreetName) {
+                score -= 8; // PENALIZAR direcciones completas (probablemente de oficina)
+            }
+
+            // ⚠️ PENALIZACIÓN FUERTE: Texto muy largo (probablemente descripción)
+            if (text.length > 150) score -= 15;
+            if (text.length > 200) score -= 25;
+
+            // ⚠️ PENALIZACIÓN: Está dentro de un contenedor de descripción grande
+            let parentElement = element.parentElement;
+            let depth = 0;
+            while (parentElement && depth < 5) {
+                const parentText = parentElement.textContent || '';
+                if (parentText.length > 500) {
+                    score -= 10; // Probablemente está en un bloque de descripción
+                    break;
+                }
+                parentElement = parentElement.parentElement;
+                depth++;
+            }
+
+            // ✅ BONUS: Texto conciso y limpio
+            if (text.length >= 20 && text.length <= 80) score += 5;
+
+            return score;
+        }
+
         // FUENTE PRIORITARIA 0: Texto arriba del mapa de Google (MÁXIMA PRIORIDAD)
         // Buscar texto completo cerca de iframes de Google Maps
-        const mapCandidates = [];
 
         // Buscar iframes de Google Maps
         const googleMapIframes = Array.from(document.querySelectorAll('iframe')).filter(iframe =>
@@ -1992,13 +2050,18 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
                 }
             }
 
-            // Estrategia 1: Buscar hermano anterior directo
+            // 🎯 SISTEMA INTELIGENTE DE SCORING PARA DIRECCIONES
+            // Prioriza encabezados/títulos sobre texto en descripciones
+            const addressCandidates = [];
+
+            // Estrategia 1: Buscar hermano anterior directo (MÁXIMA PRIORIDAD)
             let previousSibling = iframe.previousElementSibling;
             if (previousSibling) {
                 const text = previousSibling.textContent.trim();
                 if (text.length > 15 && text.length < 300) {
-                    console.log(`   🔍 Hermano anterior del mapa: "${text}"`);
-                    mapCandidates.push(text);
+                    const score = scoreAddressCandidate(text, previousSibling, iframe, true);
+                    console.log(`   🔍 Hermano anterior del mapa: "${text}" (score: ${score})`);
+                    addressCandidates.push({ text, score, source: 'hermano-directo' });
                 }
             }
 
@@ -2013,37 +2076,37 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
                     if (el.compareDocumentPosition(iframe) & Node.DOCUMENT_POSITION_FOLLOWING) {
                         const text = el.textContent.trim();
 
-                        // Dirección con número + nombre de calle = ALTA PRIORIDAD
-                        const hasStreetNumber = /\d+/.test(text);
-                        const hasStreetName = /(calle|avenida|av\.|blvd|boulevard|privada|internacional|paseo)/i.test(text);
+                        // Filtros básicos
+                        if (text.length < 15 || text.length > 300) return;
+
                         const hasNeighborhood = /(fracc|fraccionamiento|colonia|col\.|residencial)/i.test(text);
                         const hasTwoCommas = text.match(/,.*,/);
 
-                        // Capturar si tiene número + nombre de calle (sin importar longitud)
-                        // O si cumple con requisitos originales
-                        if (text.length > 15 && text.length < 300 &&
-                            ((hasStreetNumber && hasStreetName) || // NUEVA CONDICIÓN PRIORITARIA
-                             hasTwoCommas ||
-                             hasNeighborhood)) {
-                            console.log(`   🔍 Texto encontrado antes del mapa: "${text}"`);
-                            mapCandidates.push(text);
+                        // Solo capturar si tiene indicios de dirección
+                        if (hasNeighborhood || hasTwoCommas) {
+                            const score = scoreAddressCandidate(text, el, iframe, false);
+                            console.log(`   🔍 Texto encontrado antes del mapa: "${text}" (score: ${score})`);
+                            addressCandidates.push({ text, score, source: el.tagName.toLowerCase() });
                         }
                     }
                 });
                 current = current.parentElement;
             }
-        });
 
-        // ⭐ PRIORIDAD ABSOLUTA: Si hay dirección arriba del mapa, usar SOLO esa
-        if (mapCandidates.length > 0) {
-            console.log(`   🗺️  Encontradas ${mapCandidates.length} dirección(es) cerca del mapa de Google`);
-            console.log(`   ✅ USANDO DIRECCIÓN EXACTA ARRIBA DEL MAPA (sin análisis de otras fuentes)`);
+            // Ordenar por score descendente y tomar la mejor
+            addressCandidates.sort((a, b) => b.score - a.score);
 
-            // Eliminar duplicados
-            const uniqueCandidates = [...new Set(mapCandidates)];
+            if (addressCandidates.length > 0) {
+                console.log(`   🗺️  Encontradas ${addressCandidates.length} dirección(es) cerca del mapa de Google`);
+                console.log(`   📊 Ranking de candidatas:`);
+                addressCandidates.slice(0, 5).forEach((candidate, idx) => {
+                    console.log(`      ${idx + 1}. [${candidate.score} pts] ${candidate.text.substring(0, 80)}${candidate.text.length > 80 ? '...' : ''}`);
+                });
 
-            // Tomar la primera (la más cercana al mapa)
-            let selectedAddress = uniqueCandidates[0];
+                // Tomar la dirección con MAYOR SCORE
+                const selectedCandidate = addressCandidates[0];
+                let selectedAddress = selectedCandidate.text;
+                console.log(`   🏆 GANADORA: [${selectedCandidate.score} pts] ${selectedCandidate.source.toUpperCase()}`);
 
             // Agregar ciudad/estado si no están presentes
             const parts = [selectedAddress];
@@ -2055,7 +2118,7 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             }
 
             result.location = parts.join(', ');
-            console.log(`   ✅ Dirección seleccionada: "${result.location}"`);
+            console.log(`   ✅ Dirección final seleccionada: "${result.location}"`);
             console.log(`   🔄 Esta dirección será procesada por geo-address-normalizer más adelante`);
 
             // Saltar análisis de otras fuentes (ya tenemos la dirección correcta del mapa)
