@@ -4893,6 +4893,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace 2 días",
           "vistas": 0
+        },
+        {
+          "id": "146987778",
+          "titulo": "Propiedad Para Inversion con Vista Panoramica a La Ciudad",
+          "precio": "MN 3,500,000",
+          "ubicacion": "1504 pte calle Bahia de Altamira, Culiacán, Sinaloa, Mexico, Nuevo Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-propiedad-para-inversion-con-vista-panoramica-a-la-146987778.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 105 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5262,9 +5276,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T18:00:52.038Z",
+    "ultimaActualizacion": "2025-10-26T18:01:40.535Z",
     "totalVendedores": 34,
-    "totalPropiedades": 289,
+    "totalPropiedades": 290,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
