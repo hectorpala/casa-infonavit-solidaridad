@@ -4921,6 +4921,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "90948538",
+          "titulo": "Casa en Fraccionamiento Prados de La Conquista",
+          "precio": "MN 3,500,000",
+          "ubicacion": "Privada Bosque Roble (bosques del Rey), Av. Virtud al 2500, Culiacán, Sinaloa, Mexico, Fraccionamiento Prados de La Conquista",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-prados-de-la-conquista-90948538.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5290,9 +5304,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T18:02:28.195Z",
+    "ultimaActualizacion": "2025-10-26T18:03:16.240Z",
     "totalVendedores": 34,
-    "totalPropiedades": 291,
+    "totalPropiedades": 292,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

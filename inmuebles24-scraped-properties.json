@@ -3104,5 +3104,20 @@
     "colonia": "Campestre",
     "codigoPostal": "80015",
     "scrapedAt": "2025-10-26T18:02:28.192Z"
+  },
+  {
+    "propertyId": "90948538",
+    "title": "Casa en Fraccionamiento Prados de La Conquista",
+    "slug": "casa-en-fraccionamiento-prados-de-la-conquista",
+    "price": "MN 3,500,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-prados-de-la-conquista-90948538.html",
+    "lat": 24.8132779,
+    "lng": -107.4416849,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Prados de La Conquista",
+    "codigoPostal": "80058",
+    "scrapedAt": "2025-10-26T18:03:16.237Z"
   }
 ]
