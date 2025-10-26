@@ -3239,5 +3239,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-26T19:40:17.351Z"
+  },
+  {
+    "propertyId": "146390741",
+    "title": "Casa en Venta en Interlomas Culiacán",
+    "slug": "casa-en-venta-en-interlomas-culiacan",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace 169 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-interlomas-culiacan-146390741.html",
+    "lat": 24.8420134,
+    "lng": -107.3840127,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Interlomas",
+    "codigoPostal": "80016",
+    "scrapedAt": "2025-10-26T19:41:12.714Z"
   }
 ]

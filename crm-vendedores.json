@@ -531,6 +531,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace 9 días",
           "vistas": 0
+        },
+        {
+          "id": "146390741",
+          "titulo": "Casa en Venta en Interlomas Culiacán",
+          "precio": "MN 3,600,000",
+          "ubicacion": "Cto de los Flamingos 3694, Culiacán, Sinaloa, Mexico, Interlomas",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-interlomas-culiacan-146390741.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 169 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sinaloa",
@@ -5438,9 +5452,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T19:40:17.355Z",
+    "ultimaActualizacion": "2025-10-26T19:41:12.717Z",
     "totalVendedores": 35,
-    "totalPropiedades": 300,
+    "totalPropiedades": 301,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
