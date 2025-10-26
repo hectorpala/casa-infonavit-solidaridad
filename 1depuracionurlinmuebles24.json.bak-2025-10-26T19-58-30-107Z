@@ -1,8 +1,20 @@
 {
   "generadoEn": "2025-10-26T18:08:58.008Z",
   "auditoriaOrigen": "inmuebles24-scraped-properties.json",
-  "totalUrlsNuevas": 15,
+  "totalUrlsNuevas": 17,
   "urls_nuevas": [
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-la-conquista-147578036.html",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-la-conquista-147578036.html",
+      "propertyId": "147578036",
+      "claveCanonica": "id:147578036"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-las-quintas-146566867.html",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-las-quintas-146566867.html",
+      "propertyId": "146566867",
+      "claveCanonica": "id:146566867"
+    },
     {
       "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-priv.-valle-alto-147987556.html",
       "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-priv.-valle-alto-147987556.html",
