@@ -4935,6 +4935,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "145849248",
+          "titulo": "Casa en Popular",
+          "precio": "MN 3,500,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Col. Popular, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-popular-145849248.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 200 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5304,9 +5318,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T18:03:16.240Z",
+    "ultimaActualizacion": "2025-10-26T18:04:05.825Z",
     "totalVendedores": 34,
-    "totalPropiedades": 292,
+    "totalPropiedades": 293,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

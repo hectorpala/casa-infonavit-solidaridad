@@ -3119,5 +3119,20 @@
     "colonia": "Prados de La Conquista",
     "codigoPostal": "80058",
     "scrapedAt": "2025-10-26T18:03:16.237Z"
+  },
+  {
+    "propertyId": "145849248",
+    "title": "Casa en Popular",
+    "slug": "casa-en-popular",
+    "price": "MN 3,500,000",
+    "publishedDate": "Publicado hace 200 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-popular-145849248.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Popular",
+    "codigoPostal": "80120",
+    "scrapedAt": "2025-10-26T18:04:05.823Z"
   }
 ]
