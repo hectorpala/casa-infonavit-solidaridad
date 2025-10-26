@@ -3404,5 +3404,20 @@
     "colonia": "Interlomas",
     "codigoPostal": "80016",
     "scrapedAt": "2025-10-26T22:45:40.746Z"
+  },
+  {
+    "propertyId": "146832042",
+    "title": "Casa en Venta en El Fracc, Los Almendros, Culiacán, Sinaloa",
+    "slug": "casa-en-venta-en-el-fracc-los-almendros-culiacan-sinaloa",
+    "price": "MN 3,590,000",
+    "publishedDate": "Publicado hace 123 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc-los-almendros-culiacan-146832042.html",
+    "lat": 24.8290037,
+    "lng": -107.4187242,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Los Almendros",
+    "codigoPostal": "80027",
+    "scrapedAt": "2025-10-26T22:47:12.302Z"
   }
 ]

@@ -5554,6 +5554,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace 124 días",
           "vistas": 0
+        },
+        {
+          "id": "146832042",
+          "titulo": "Casa en Venta en El Fracc, Los Almendros, Culiacán, Sinaloa",
+          "precio": "MN 3,590,000",
+          "ubicacion": "Fracc, Los Almendros al 5513, Culiacán, Sinaloa, Mexico, Fraccionamiento Los Almendros",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc-los-almendros-culiacan-146832042.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 123 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Villas del rio, Culiacán, Sinaloa, Mexico, Fraccionamiento Villas Del Rio Elite",
@@ -5606,9 +5620,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T22:45:40.749Z",
+    "ultimaActualizacion": "2025-10-26T22:47:12.306Z",
     "totalVendedores": 35,
-    "totalPropiedades": 312,
+    "totalPropiedades": 313,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
