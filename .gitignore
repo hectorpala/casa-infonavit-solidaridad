@@ -35,3 +35,8 @@ data/items/*.json
 
 # Wiggot cookies
 wiggot-cookies.json
+
+# Archivos de auditoría
+audit-*.json
+audit-*.txt
+audit-history.csv
