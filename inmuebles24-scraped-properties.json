@@ -3209,5 +3209,20 @@
     "colonia": "La Campiña",
     "codigoPostal": "80060",
     "scrapedAt": "2025-10-26T19:18:20.051Z"
+  },
+  {
+    "propertyId": "144156191",
+    "title": "Casa en Nuevo Culiacán",
+    "slug": "casa-en-nuevo-culiacan",
+    "price": "MN 3,750,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-nuevo-culiacan-144156191.html",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-26T19:19:16.438Z"
   }
 ]

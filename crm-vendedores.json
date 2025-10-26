@@ -5005,6 +5005,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace 95 días",
           "vistas": 0
+        },
+        {
+          "id": "144156191",
+          "titulo": "Casa en Nuevo Culiacán",
+          "precio": "MN 3,750,000",
+          "ubicacion": "Nuevo Culiacán, Calle Bahía de Altamira, Culiacán, Sinaloa, Mexico, Nuevo Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-nuevo-culiacan-144156191.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5410,9 +5424,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T19:18:20.054Z",
+    "ultimaActualizacion": "2025-10-26T19:19:16.442Z",
     "totalVendedores": 35,
-    "totalPropiedades": 298,
+    "totalPropiedades": 299,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
