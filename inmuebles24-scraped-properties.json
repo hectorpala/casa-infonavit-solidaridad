@@ -3224,5 +3224,20 @@
     "colonia": "La Campiña",
     "codigoPostal": "80060",
     "scrapedAt": "2025-10-26T19:31:04.058Z"
+  },
+  {
+    "propertyId": "144548960",
+    "title": "Casa en La Costera",
+    "slug": "casa-en-la-costera",
+    "price": "MN 3,692,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-la-costera-144548960.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-26T19:40:17.351Z"
   }
 ]

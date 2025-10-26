@@ -5019,6 +5019,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "144548960",
+          "titulo": "Casa en La Costera",
+          "precio": "MN 3,692,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Punto Sur, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-la-costera-144548960.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5424,9 +5438,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T19:31:04.060Z",
+    "ultimaActualizacion": "2025-10-26T19:40:17.355Z",
     "totalVendedores": 35,
-    "totalPropiedades": 299,
+    "totalPropiedades": 300,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
