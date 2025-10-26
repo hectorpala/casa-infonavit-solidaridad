@@ -3239,5 +3239,20 @@
     "colonia": "Acueducto",
     "codigoPostal": "80058",
     "scrapedAt": "2025-10-26T19:56:11.485Z"
+  },
+  {
+    "propertyId": "147990723",
+    "title": "Casa en Venta en Priv. Valle Alto",
+    "slug": "casa-en-venta-en-priv-valle-alto",
+    "price": "MN 3,700,000",
+    "publishedDate": "Publicado hace 2 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-priv.-valle-alto-147990723.html",
+    "lat": 24.8052781,
+    "lng": -107.4625676,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Valle Alto",
+    "codigoPostal": "80050",
+    "scrapedAt": "2025-10-26T19:57:04.633Z"
   }
 ]

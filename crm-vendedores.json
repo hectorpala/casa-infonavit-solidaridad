@@ -5061,6 +5061,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "147990723",
+          "titulo": "Casa en Venta en Priv. Valle Alto",
+          "precio": "MN 3,700,000",
+          "ubicacion": "Casa EN Venta EN Priv. Valle Alto, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-priv.-valle-alto-147990723.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 2 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5466,9 +5480,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T19:56:11.489Z",
+    "ultimaActualizacion": "2025-10-26T19:57:04.639Z",
     "totalVendedores": 35,
-    "totalPropiedades": 302,
+    "totalPropiedades": 303,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
