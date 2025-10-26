@@ -3299,5 +3299,20 @@
     "colonia": "Valle Alto",
     "codigoPostal": "80050",
     "scrapedAt": "2025-10-26T20:28:40.537Z"
+  },
+  {
+    "propertyId": "142987188",
+    "title": "Casa en Fraccionamiento Perisur",
+    "slug": "casa-en-fraccionamiento-perisur",
+    "price": "MN 3,761,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-perisur-142987188.html",
+    "lat": 24.8116349,
+    "lng": -107.3949408,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-26T20:29:31.032Z"
   }
 ]
