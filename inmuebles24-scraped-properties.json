@@ -3376,18 +3376,18 @@
     "scrapedAt": "2025-10-26T20:57:25.799Z"
   },
   {
-    "propertyId": "142636213",
-    "title": "Casa en Los Pinos",
-    "slug": "casa-en-los-pinos",
-    "price": "MN 3,777,000",
-    "publishedDate": "Publicado hace más de 1 año",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-los-pinos-142636213.html",
-    "lat": 24.8090649,
-    "lng": -107.3940117,
+    "propertyId": "147916704",
+    "title": "Casa en Venta en Fraccionamiento Interlomas",
+    "slug": "casa-en-venta-en-fraccionamiento-interlomas",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace 10 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html",
+    "lat": 24.8392706,
+    "lng": -107.3819576,
     "locationPrecision": "city",
     "locationSource": "geocoder",
-    "colonia": null,
-    "codigoPostal": null,
-    "scrapedAt": "2025-10-26T21:55:45.211Z"
+    "colonia": "Interlomas",
+    "codigoPostal": "80016",
+    "scrapedAt": "2025-10-26T22:16:10.644Z"
   }
 ]
