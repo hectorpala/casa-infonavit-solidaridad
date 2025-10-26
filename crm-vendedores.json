@@ -5173,6 +5173,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace 312 días",
           "vistas": 0
+        },
+        {
+          "id": "142636213",
+          "titulo": "Casa en Los Pinos",
+          "precio": "MN 3,777,000",
+          "ubicacion": "Prol. Álvaro Obregón 768, Col Los Pinos, Culiacán, Sinaloa",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-los-pinos-142636213.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace más de 1 año",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5578,9 +5592,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T20:53:32.467Z",
+    "ultimaActualizacion": "2025-10-26T20:56:30.498Z",
     "totalVendedores": 35,
-    "totalPropiedades": 310,
+    "totalPropiedades": 311,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
