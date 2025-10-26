@@ -3044,5 +3044,20 @@
     "scrapedAt": "2025-10-07T19:25:59.586Z",
     "city": "culiacan",
     "published": true
+  },
+  {
+    "propertyId": "146818616",
+    "title": "Casa en Venta en El Fracc. Villas del Río, Culiacán, Sinaloa.",
+    "slug": "casa-en-venta-en-el-fracc-villas-del-rio-culiacan-sinaloa",
+    "price": "MN 3,500,000",
+    "publishedDate": "Publicado hace 124 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc.-villas-del-rio-culiacan-146818616.html",
+    "lat": 24.807644,
+    "lng": -107.4506798,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Villas Del Rio Elite",
+    "codigoPostal": "80050",
+    "scrapedAt": "2025-10-26T18:00:02.860Z"
   }
 ]

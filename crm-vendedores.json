@@ -5210,12 +5210,47 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-25T01:01:47.824Z"
+    },
+    {
+      "id": "v034",
+      "nombre": "gaston zazueta",
+      "telefono": "6672089142",
+      "telefonoFormateado": "667-208-9142",
+      "whatsapp": "https://wa.me/526672089142",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "146818616",
+          "titulo": "Casa en Venta en El Fracc. Villas del Río, Culiacán, Sinaloa.",
+          "precio": "MN 3,500,000",
+          "ubicacion": "Villas del rio, Culiacán, Sinaloa, Mexico, Fraccionamiento Villas Del Rio Elite",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc.-villas-del-rio-culiacan-146818616.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 124 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de Villas del rio, Culiacán, Sinaloa, Mexico, Fraccionamiento Villas Del Rio Elite",
+      "tags": [
+        "inmuebles24",
+        "villas-del-rio",
+        "sinaloa",
+        "mexico",
+        "fraccionamiento-villas-del-rio-elite",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-26T18:00:02.865Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-25T01:11:30.600Z",
-    "totalVendedores": 33,
-    "totalPropiedades": 287,
+    "ultimaActualizacion": "2025-10-26T18:00:02.865Z",
+    "totalVendedores": 34,
+    "totalPropiedades": 288,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
