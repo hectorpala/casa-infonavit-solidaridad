@@ -1,0 +1,91 @@
+{
+  "timestamp": "2025-10-26T16:40:03.446Z",
+  "baseDatos": {
+    "archivo": "inmuebles24-scraped-properties.json",
+    "totalPropiedades": 204,
+    "propertyIdsUnicos": 81,
+    "urlsNormalizadas": 81,
+    "clavesCanonicalUnicas": 203
+  },
+  "loteAnalizado": {
+    "totalUrls": 12,
+    "urlsExistentes": 0,
+    "urlsNuevas": 12
+  },
+  "urls_existentes": [],
+  "urls_nuevas": [
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=1",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html",
+      "propertyId": "147916704",
+      "claveCanonica": "id:147916704"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-53895764.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=2",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-53895764.html",
+      "propertyId": "53895764",
+      "claveCanonica": "id:53895764"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-interlomas-145981165.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=3",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-interlomas-145981165.html",
+      "propertyId": "145981165",
+      "claveCanonica": "id:145981165"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-interlomas-culiacan-146390741.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=4",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-interlomas-culiacan-146390741.html",
+      "propertyId": "146390741",
+      "claveCanonica": "id:146390741"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc-los-almendros-culiacan-146832042.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=5",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc-los-almendros-culiacan-146832042.html",
+      "propertyId": "146832042",
+      "claveCanonica": "id:146832042"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-villa-universidad-141597952.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=6",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-villa-universidad-141597952.html",
+      "propertyId": "141597952",
+      "claveCanonica": "id:141597952"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villa-universidad-culiacan-147933153.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=7",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villa-universidad-culiacan-147933153.html",
+      "propertyId": "147933153",
+      "claveCanonica": "id:147933153"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-hidalgo-culiacan-sinaloa-146997267.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-hidalgo-culiacan-sinaloa-146997267.html",
+      "propertyId": "146997267",
+      "claveCanonica": "id:146997267"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-residencial-san-jose-146902926.html?n_src=Listado&n_pg=1&n_pos=9",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-residencial-san-jose-146902926.html",
+      "propertyId": "146902926",
+      "claveCanonica": "id:146902926"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-interlomas-culiacan-147082316.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=10",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-interlomas-culiacan-147082316.html",
+      "propertyId": "147082316",
+      "claveCanonica": "id:147082316"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain--tu-hogar-ideal:-casa-en-venta-moderna-en-privada-146987188.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=11",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain--tu-hogar-ideal:-casa-en-venta-moderna-en-privada-146987188.html",
+      "propertyId": "146987188",
+      "claveCanonica": "id:146987188"
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-bosques-del-rey-br56-146594564.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=12",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-bosques-del-rey-br56-146594564.html",
+      "propertyId": "146594564",
+      "claveCanonica": "id:146594564"
+    }
+  ],
+  "observaciones": []
+}

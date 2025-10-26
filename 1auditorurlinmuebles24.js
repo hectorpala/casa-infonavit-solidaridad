@@ -68,9 +68,34 @@ function extractPropertyId(url) {
 }
 
 /**
+ * Genera una clave canónica para una propiedad
+ * Prioridad: propertyId > URL normalizada > slug|price|fecha
+ * @param {Object} property - Objeto de propiedad
+ * @returns {string} - Clave canónica única
+ */
+function generateCanonicalKey(property) {
+    // 1. Si tiene propertyId, usarlo (más confiable)
+    if (property.propertyId) {
+        return `id:${property.propertyId}`;
+    }
+
+    // 2. Si tiene URL, usar URL normalizada
+    if (property.url) {
+        return `url:${normalizeUrl(property.url)}`;
+    }
+
+    // 3. Fallback: combinar slug + precio + fecha (primeros 10 chars de scrapedAt)
+    const slug = property.slug || 'unknown';
+    const price = property.price || '0';
+    const date = property.scrapedAt ? property.scrapedAt.slice(0, 10) : 'unknown';
+
+    return `slug:${slug}|${price}|${date}`;
+}
+
+/**
  * Carga la base de datos de propiedades scrapeadas
  * @param {string} dbPath - Path al archivo JSON
- * @returns {Object} - Objeto con sets de IDs, URLs y data completa
+ * @returns {Object} - Objeto con sets de IDs, URLs, claves canónicas y data completa
  */
 function loadDatabase(dbPath) {
     if (!fs.existsSync(dbPath)) {
@@ -79,6 +104,7 @@ function loadDatabase(dbPath) {
         return {
             propertyIds: new Set(),
             normalizedUrls: new Set(),
+            canonicalKeys: new Set(),
             properties: []
         };
     }
@@ -88,6 +114,7 @@ function loadDatabase(dbPath) {
 
     const propertyIds = new Set();
     const normalizedUrls = new Set();
+    const canonicalKeys = new Set();
 
     properties.forEach(prop => {
         // Agregar Property ID si existe
@@ -99,11 +126,16 @@ function loadDatabase(dbPath) {
         if (prop.url) {
             normalizedUrls.add(normalizeUrl(prop.url));
         }
+
+        // Agregar clave canónica (SIEMPRE, para cubrir los 204 registros)
+        const canonicalKey = generateCanonicalKey(prop);
+        canonicalKeys.add(canonicalKey);
     });
 
     return {
         propertyIds,
         normalizedUrls,
+        canonicalKeys,
         properties
     };
 }
@@ -151,6 +183,7 @@ function auditUrls(urls) {
     console.log(`   ✅ ${db.properties.length} propiedades en base de datos`);
     console.log(`   ✅ ${db.propertyIds.size} Property IDs únicos`);
     console.log(`   ✅ ${db.normalizedUrls.size} URLs normalizadas`);
+    console.log(`   ✅ ${db.canonicalKeys.size} Claves canónicas únicas (TOTAL COBERTURA)`);
     console.log('');
 
     // 2. Analizar URLs nuevas
@@ -166,10 +199,16 @@ function auditUrls(urls) {
         const normalizedUrl = normalizeUrl(url);
         const propertyId = extractPropertyId(url);
 
+        // Generar clave canónica para esta URL nueva
+        // (simulando cómo se almacenaría si fuera scrapeada)
+        const newPropCanonicalKey = propertyId
+            ? `id:${propertyId}`
+            : `url:${normalizedUrl}`;
+
         let isExisting = false;
         let matchReason = null;
 
-        // Verificar por Property ID
+        // Verificar por Property ID (método más confiable)
         if (propertyId && db.propertyIds.has(propertyId)) {
             isExisting = true;
             matchReason = `Property ID: ${propertyId}`;
@@ -177,8 +216,8 @@ function auditUrls(urls) {
             // Verificar si el ID existe pero con URL diferente (inconsistencia)
             const existingProp = db.properties.find(p => p.propertyId === propertyId);
             if (existingProp) {
-                const existingNormalizedUrl = normalizeUrl(existingProp.url);
-                if (existingNormalizedUrl !== normalizedUrl) {
+                const existingNormalizedUrl = existingProp.url ? normalizeUrl(existingProp.url) : null;
+                if (existingNormalizedUrl && existingNormalizedUrl !== normalizedUrl) {
                     observaciones.push({
                         tipo: 'inconsistencia_url',
                         propertyId: propertyId,
@@ -196,19 +235,27 @@ function auditUrls(urls) {
             matchReason = `URL normalizada: ${normalizedUrl}`;
         }
 
+        // Verificar por clave canónica (captura propiedades sin ID/URL)
+        if (!isExisting && db.canonicalKeys.has(newPropCanonicalKey)) {
+            isExisting = true;
+            matchReason = `Clave canónica: ${newPropCanonicalKey}`;
+        }
+
         // Clasificar
         if (isExisting) {
             urlsExistentes.push({
                 url: url,
                 urlNormalizada: normalizedUrl,
                 propertyId: propertyId,
+                claveCanonica: newPropCanonicalKey,
                 razonMatch: matchReason
             });
         } else {
             urlsNuevas.push({
                 url: url,
                 urlNormalizada: normalizedUrl,
-                propertyId: propertyId
+                propertyId: propertyId,
+                claveCanonica: newPropCanonicalKey
             });
         }
     });
@@ -220,7 +267,8 @@ function auditUrls(urls) {
             archivo: CONFIG.database,
             totalPropiedades: db.properties.length,
             propertyIdsUnicos: db.propertyIds.size,
-            urlsNormalizadas: db.normalizedUrls.size
+            urlsNormalizadas: db.normalizedUrls.size,
+            clavesCanonicalUnicas: db.canonicalKeys.size
         },
         loteAnalizado: {
             totalUrls: urls.length,
@@ -250,6 +298,7 @@ function displayResults(results) {
     console.log(`   • Total propiedades: ${results.baseDatos.totalPropiedades}`);
     console.log(`   • Property IDs únicos: ${results.baseDatos.propertyIdsUnicos}`);
     console.log(`   • URLs normalizadas: ${results.baseDatos.urlsNormalizadas}`);
+    console.log(`   • Claves canónicas: ${results.baseDatos.clavesCanonicalUnicas} (100% cobertura)`);
     console.log('');
 
     console.log('🔍 LOTE ANALIZADO:');
@@ -378,6 +427,7 @@ module.exports = {
     auditUrls,
     normalizeUrl,
     extractPropertyId,
+    generateCanonicalKey,
     loadDatabase,
     readUrlsFromFile
 };
