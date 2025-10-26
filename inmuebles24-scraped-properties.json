@@ -3284,5 +3284,20 @@
     "colonia": "Las Quintas",
     "codigoPostal": "80060",
     "scrapedAt": "2025-10-26T19:58:50.988Z"
+  },
+  {
+    "propertyId": "147987556",
+    "title": "Casa en Venta en Priv. Valle Alto",
+    "slug": "casa-en-venta-en-priv-valle-alto",
+    "price": "MN 3,700,000",
+    "publishedDate": "Publicado hace 3 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-priv.-valle-alto-147987556.html",
+    "lat": 24.8052781,
+    "lng": -107.4625676,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Valle Alto",
+    "codigoPostal": "80050",
+    "scrapedAt": "2025-10-26T20:28:40.537Z"
   }
 ]
