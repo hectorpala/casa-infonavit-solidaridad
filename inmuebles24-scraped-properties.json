@@ -3479,5 +3479,20 @@
     "colonia": "Morelos",
     "codigoPostal": "80170",
     "scrapedAt": "2025-10-26T23:27:18.255Z"
+  },
+  {
+    "propertyId": "143508352",
+    "title": "Venta de Casa por Calle Mariano Escobedo Centro de La Ciudad",
+    "slug": "venta-de-casa-por-calle-mariano-escobedo-centro-de-la-ciudad",
+    "price": "MN 4,000,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-por-calle-mariano-escobedo-centro-de-la-143508352.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=6",
+    "lat": 24.805,
+    "lng": -107.394,
+    "locationPrecision": "neighborhood",
+    "locationSource": "geocoder",
+    "colonia": "Centro",
+    "codigoPostal": "80000",
+    "scrapedAt": "2025-10-26T23:28:24.959Z"
   }
 ]
