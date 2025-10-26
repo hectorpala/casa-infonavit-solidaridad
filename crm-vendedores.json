@@ -5131,6 +5131,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace más de 1 año",
           "vistas": 0
+        },
+        {
+          "id": "147933153",
+          "titulo": "Casa en Venta en Villa Universidad, Culiacán",
+          "precio": "MN 3,600,000",
+          "ubicacion": "708 Platon, Culiacán, Sinaloa, Mexico, Fraccionamiento Villa Universidad",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villa-universidad-culiacan-147933153.html",
+          "fechaScrapeo": "2025-10-26",
+          "fechaPublicacion": "Publicado hace 9 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5536,9 +5550,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T20:29:31.036Z",
+    "ultimaActualizacion": "2025-10-26T20:50:15.045Z",
     "totalVendedores": 35,
-    "totalPropiedades": 307,
+    "totalPropiedades": 308,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

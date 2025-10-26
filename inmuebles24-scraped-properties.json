@@ -3314,5 +3314,20 @@
     "colonia": "Perisur",
     "codigoPostal": "80197",
     "scrapedAt": "2025-10-26T20:29:31.032Z"
+  },
+  {
+    "propertyId": "147933153",
+    "title": "Casa en Venta en Villa Universidad, Culiacán",
+    "slug": "casa-en-venta-en-villa-universidad-culiacan",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace 9 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villa-universidad-culiacan-147933153.html",
+    "lat": 24.834804,
+    "lng": -107.3854893,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Villa Universidad",
+    "codigoPostal": "80010",
+    "scrapedAt": "2025-10-26T20:50:15.043Z"
   }
 ]
