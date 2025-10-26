@@ -1,0 +1,108 @@
+📚 Gazetteer cargado: 631 entradas
+   Colonias: 224
+   Fraccionamientos: 407
+   Índice por slug: 627 entradas
+   Índice por nombre: 609 entradas
+   Índice por CP: 98 códigos postales
+🏠 Tipo detectado: VENTA
+
+╔═══════════════════════════════════════════════╗
+║  🌆 CONFIRMACIÓN DE CIUDAD (IMPORTANTE)      ║
+╚═══════════════════════════════════════════════╝
+
+📍 Ciudad detectada automáticamente: Culiacán, Sinaloa
+
+¿Es correcta esta ciudad?
+
+  1️⃣  Culiacán, Sinaloa
+  2️⃣  Monterrey, Nuevo León
+  3️⃣  Mazatlán, Sinaloa
+
+👉 Selecciona el número (1/2/3) o presiona Enter para confirmar: 
+✅ Ciudad confirmada: Culiacán, Sinaloa
+
+🚀 Iniciando scraper para: VENTA en Culiacán, Sinaloa
+
+🚀 Iniciando scraper de Inmuebles24...
+
+📍 URL: https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-guadalupe-culiacan-147814499.html
+
+🌐 Navegando a la página...
+📸 Buscando botón "Ver todas las fotos"...
+   ✅ Clic en botón de galería
+👤 Capturando datos del vendedor...
+   👤 Vendedor: Grupo Inmobiliario del Noroeste
+   📞 Teléfono: 6677752228
+   ✅ Datos capturados del HTML (sin enviar información personal)
+📊 Extrayendo datos...
+
+🌍 Geocodificando ubicación...
+   ℹ️  No se detectaron coordenadas embebidas
+
+🌍 === GEOCODIFICACIÓN INICIADA ===
+   Dirección original: "Rio Quelite Colonia Guadalupe, Culiacán, Sinaloa, Mexico, Guadalupe"
+
+🔧 Normalizando: "Rio Quelite Colonia Guadalupe, Culiacán, Sinaloa, Mexico, Guadalupe"
+   ✅ Dirección limpia: "Rio Quelite Col. Guadalupe, Culiacán, Sinaloa, Mexico, Guadalupe"
+   📍 Colonia detectada: "Guadalupe"
+   🏠 Calle: "(ninguna)"
+   🔢 Número: "(ninguno)"
+
+🔍 Buscando colonia: "Guadalupe"
+   ✅ Match exacto (slug): Guadalupe
+
+📍 Probando 2 variaciones de dirección...
+
+   1. [neighborhood] "Guadalupe, Culiacán, Sinaloa, México"
+      💡 Usando centroide REAL de colonia: Guadalupe
+
+
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.824, -107.399
+   🎯 Precisión: neighborhood
+   💯 Confianza: 70%
+   🏘️  Colonia: Guadalupe (Colonia)
+      CP: 80220
+      Match: exact-slug (100%)
+   ✔️  Dentro de Culiacán: Sí
+   📊 Fuente: gazetteer-centroid-real
+
+
+   ✅ Geocodificación: neighborhood (70%)
+   🏘️  Colonia: Guadalupe (CP: 80220)
+   📍 Coordenadas: 24.824, -107.399
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Casa en Venta Colonia Guadalupe Culiacán
+   💰 Precio: MN 4,300,000
+   📍 Ubicación: Rio Quelite Colonia Guadalupe, Culiacán, Sinaloa, Mexico, Guadalupe
+   🛏️  3 recámaras
+   🛁 3 baños
+   📐 261m² construcción
+   🏞️  191m² terreno
+   📸 39 imágenes encontradas
+   👤 Vendedor: Grupo Inmobiliario del Noroeste
+   📞 Tel: 6677752228
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 147814499
+   📅 Fecha: Publicado hace 17 días
+   👁️  Vistas: 53
+
+
+⚠️  ============================================
+⚠️  PROPIEDAD DUPLICADA DETECTADA
+⚠️  ============================================
+   🆔 ID: 147814499
+   📝 Título: Casa en Venta Colonia Guadalupe Culiacán
+   💰 Precio: MN 4,300,000
+   📅 Publicada: Publicado hace 15 días
+   🕐 Scrapeada: 2025-10-22T19:37:44.791Z
+   🔗 Slug: casa-en-venta-colonia-guadalupe-culiacan
+
+   ❌ Esta propiedad ya fue scrapeada anteriormente.
+   💡 Si quieres re-scrapear, elimina la entrada del archivo:
+      inmuebles24-scraped-properties.json
+
+   🛑 Scraper detenido para evitar duplicados.
+

@@ -1383,6 +1383,52 @@ function mostrarVendedorCRM(vendedor) {
 }
 
 // ============================================
+// FILTRO DE TÉRMINOS PROHIBIDOS
+// ============================================
+
+/**
+ * Detecta términos prohibidos en la información de la propiedad.
+ * Filtra propiedades relacionadas con remates, juicios, invasiones, etc.
+ *
+ * @param {Object} data - Datos scrapeados de la propiedad
+ * @returns {string|null} - Término prohibido detectado o null si no hay ninguno
+ */
+function detectForbiddenTerm(data) {
+    const FORBIDDEN_TERMS = [
+        'remate',
+        'remates',
+        'juicio',
+        'juicio bancario',
+        'casa invadida',
+        'invadida',
+        'invadido',
+        'embargo',
+        'embargada',
+        'adjudicada',
+        'adjudicación'
+    ];
+
+    // Construir string con toda la información relevante
+    const searchableText = [
+        data.title || '',
+        data.description || '',
+        data.location || '',
+        data.address_clean || '',
+        ...(data.features || []),
+        ...(data.tags || [])
+    ].join(' ').toLowerCase();
+
+    // Buscar cada término prohibido
+    for (const term of FORBIDDEN_TERMS) {
+        if (searchableText.includes(term.toLowerCase())) {
+            return term;
+        }
+    }
+
+    return null;
+}
+
+// ============================================
 // SCRAPER DE INMUEBLES24
 // ============================================
 
@@ -3206,7 +3252,16 @@ async function main() {
             stateName: cityConfig.state
         });
 
-        // 2.1 Verificar duplicados por ID
+        // 2.1 Verificar términos prohibidos (remates, juicios, invasiones)
+        const forbiddenTerm = detectForbiddenTerm(data);
+        if (forbiddenTerm) {
+            console.log('');
+            console.log(`🛑 Propiedad descartada: se detectó la palabra "${forbiddenTerm}" en la información.`);
+            console.log('   → No se generará contenido ni se harán commits.\n');
+            process.exit(0);
+        }
+
+        // 2.2 Verificar duplicados por ID
         if (data.propertyId) {
             const existing = checkIfPropertyExists(data.propertyId);
             if (existing) {

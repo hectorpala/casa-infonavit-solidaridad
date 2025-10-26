@@ -3136,6 +3136,21 @@
     "scrapedAt": "2025-10-26T18:04:05.823Z"
   },
   {
+    "propertyId": "147916704",
+    "title": "Casa en Venta en Fraccionamiento Interlomas",
+    "slug": "casa-en-venta-en-fraccionamiento-interlomas",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace 10 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html",
+    "lat": 24.8392706,
+    "lng": -107.3819576,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Interlomas",
+    "codigoPostal": "80016",
+    "scrapedAt": "2025-10-26T18:30:48.581Z"
+  },
+  {
     "propertyId": "66208634",
     "title": "Se Vende Casa en Boulevard Doctor Mora en Las Quintas",
     "slug": "se-vende-casa-en-boulevard-doctor-mora-en-las-quintas",
@@ -3166,19 +3181,19 @@
     "scrapedAt": "2025-10-26T18:39:45.138Z"
   },
   {
-    "propertyId": "144156191",
-    "title": "Casa en Nuevo Culiacán",
-    "slug": "casa-en-nuevo-culiacan",
-    "price": "MN 3,750,000",
-    "publishedDate": "Publicado hace más de 1 año",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-nuevo-culiacan-144156191.html",
-    "lat": 24.7841029,
-    "lng": -107.4099129,
+    "propertyId": "147082316",
+    "title": "Casa en Venta Interlomas Culiacán",
+    "slug": "casa-en-venta-interlomas-culiacan",
+    "price": "MN 3,600,000",
+    "publishedDate": "Publicado hace 95 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-interlomas-culiacan-147082316.html",
+    "lat": 24.8419343,
+    "lng": -107.3839938,
     "locationPrecision": "street",
     "locationSource": "geocoder",
-    "colonia": "Nuevo Culiacán",
-    "codigoPostal": "80170",
-    "scrapedAt": "2025-10-26T19:30:08.361Z"
+    "colonia": "Interlomas",
+    "codigoPostal": "80016",
+    "scrapedAt": "2025-10-26T18:40:36.449Z"
   },
   {
     "propertyId": "144268894",
@@ -3193,36 +3208,21 @@
     "locationSource": "geocoder",
     "colonia": "La Campiña",
     "codigoPostal": "80060",
-    "scrapedAt": "2025-10-26T19:31:04.058Z"
+    "scrapedAt": "2025-10-26T19:18:20.051Z"
   },
   {
-    "propertyId": "144548960",
-    "title": "Casa en La Costera",
-    "slug": "casa-en-la-costera",
-    "price": "MN 3,692,000",
+    "propertyId": "144156191",
+    "title": "Casa en Nuevo Culiacán",
+    "slug": "casa-en-nuevo-culiacan",
+    "price": "MN 3,750,000",
     "publishedDate": "Publicado hace más de 1 año",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-la-costera-144548960.html",
-    "lat": 24.8116349,
-    "lng": -107.3949408,
-    "locationPrecision": "street",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-nuevo-culiacan-144156191.html",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "locationPrecision": "city",
     "locationSource": "geocoder",
     "colonia": null,
     "codigoPostal": null,
-    "scrapedAt": "2025-10-26T19:40:17.351Z"
-  },
-  {
-    "propertyId": "146390741",
-    "title": "Casa en Venta en Interlomas Culiacán",
-    "slug": "casa-en-venta-en-interlomas-culiacan",
-    "price": "MN 3,600,000",
-    "publishedDate": "Publicado hace 169 días",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-interlomas-culiacan-146390741.html",
-    "lat": 24.8420134,
-    "lng": -107.3840127,
-    "locationPrecision": "street",
-    "locationSource": "geocoder",
-    "colonia": "Interlomas",
-    "codigoPostal": "80016",
-    "scrapedAt": "2025-10-26T19:41:12.714Z"
+    "scrapedAt": "2025-10-26T19:19:16.438Z"
   }
 ]

@@ -1,0 +1,111 @@
+📚 Gazetteer cargado: 631 entradas
+   Colonias: 224
+   Fraccionamientos: 407
+   Índice por slug: 627 entradas
+   Índice por nombre: 609 entradas
+   Índice por CP: 98 códigos postales
+🏠 Tipo detectado: VENTA
+
+╔═══════════════════════════════════════════════╗
+║  🌆 CONFIRMACIÓN DE CIUDAD (IMPORTANTE)      ║
+╚═══════════════════════════════════════════════╝
+
+📍 Ciudad detectada automáticamente: Culiacán, Sinaloa
+
+¿Es correcta esta ciudad?
+
+  1️⃣  Culiacán, Sinaloa
+  2️⃣  Monterrey, Nuevo León
+  3️⃣  Mazatlán, Sinaloa
+
+👉 Selecciona el número (1/2/3) o presiona Enter para confirmar: 
+✅ Ciudad confirmada: Culiacán, Sinaloa
+
+🚀 Iniciando scraper para: VENTA en Culiacán, Sinaloa
+
+🚀 Iniciando scraper de Inmuebles24...
+
+📍 URL: https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-isla-del-oeste-en-la-primavera-147501147.html
+
+🌐 Navegando a la página...
+📸 Buscando botón "Ver todas las fotos"...
+   ✅ Clic en botón de galería
+👤 Capturando datos del vendedor...
+   👤 Vendedor: VIEDAS Fianzas & Bienes Raíces
+   📞 Teléfono: 6671530298
+   ✅ Datos capturados del HTML (sin enviar información personal)
+📊 Extrayendo datos...
+
+🌍 Geocodificando ubicación...
+   ℹ️  No se detectaron coordenadas embebidas
+
+🌍 === GEOCODIFICACIÓN INICIADA ===
+   Dirección original: "Isla del Oeste, Culiacán, Sinaloa, Mexico, La Primavera"
+
+🔧 Normalizando: "Isla del Oeste, Culiacán, Sinaloa, Mexico, La Primavera"
+   ✅ Dirección limpia: "Isla del Oeste, Culiacán, Sinaloa, Mexico, La Primavera"
+   📍 Colonia detectada: "La Primavera"
+   🏠 Calle: "(ninguna)"
+   🔢 Número: "(ninguno)"
+
+🔍 Buscando colonia: "La Primavera"
+   ✅ Match exacto (slug): La Primavera
+
+📍 Probando 2 variaciones de dirección...
+
+   1. [neighborhood] "La Primavera, Culiacán, Sinaloa, México"
+      🌐 Consultando Google Geocoding API...
+      ✅ Google Geocoding OK: 24.5005521, -107.4555407 (city)
+
+
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.8091, -107.394
+   🎯 Precisión: city
+   💯 Confianza: 20%
+   🏘️  Colonia: La Primavera (Fraccionamiento)
+      CP: 80199
+      Match: exact-slug (100%)
+   ✔️  Dentro de Culiacán: No
+   📊 Fuente: bounds-validation-failed
+   ⚠️  Advertencias:
+      - Coordenadas fuera de Culiacán - usando centroide de ciudad
+
+
+   ✅ Geocodificación: city (20%)
+   🏘️  Colonia: La Primavera (CP: 80199)
+   📍 Coordenadas: 24.8091, -107.394
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Se Vende Casa en Isla del Oeste en La Primavera
+   💰 Precio: MN 30,135,000
+   📍 Ubicación: Isla del Oeste, Culiacán, Sinaloa, Mexico, La Primavera
+   🛏️  4 recámaras
+   🛁 4 baños
+   📐 736m² construcción
+   🏞️  818m² terreno
+   📸 17 imágenes encontradas
+   👤 Vendedor: VIEDAS Fianzas & Bienes Raíces
+   📞 Tel: 6671530298
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 147501147
+   📅 Fecha: Publicado hace 50 días
+   👁️  Vistas: 184
+
+
+⚠️  ============================================
+⚠️  PROPIEDAD DUPLICADA DETECTADA
+⚠️  ============================================
+   🆔 ID: 147501147
+   📝 Título: Se Vende Casa en Isla del Oeste en La Primavera
+   💰 Precio: MN 30,135,000
+   📅 Publicada: Publicado hace 41 días
+   🕐 Scrapeada: 2025-10-14T23:46:51.633Z
+   🔗 Slug: se-vende-casa-en-isla-del-oeste-en-la-primavera
+
+   ❌ Esta propiedad ya fue scrapeada anteriormente.
+   💡 Si quieres re-scrapear, elimina la entrada del archivo:
+      inmuebles24-scraped-properties.json
+
+   🛑 Scraper detenido para evitar duplicados.
+

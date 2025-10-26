@@ -1,0 +1,193 @@
+📚 Gazetteer cargado: 631 entradas
+   Colonias: 224
+   Fraccionamientos: 407
+   Índice por slug: 627 entradas
+   Índice por nombre: 609 entradas
+   Índice por CP: 98 códigos postales
+🏘️ Tipo detectado: RENTA
+
+╔═══════════════════════════════════════════════╗
+║  🌆 CONFIRMACIÓN DE CIUDAD (IMPORTANTE)      ║
+╚═══════════════════════════════════════════════╝
+
+📍 Ciudad detectada automáticamente: Culiacán, Sinaloa
+
+¿Es correcta esta ciudad?
+
+  1️⃣  Culiacán, Sinaloa
+  2️⃣  Monterrey, Nuevo León
+  3️⃣  Mazatlán, Sinaloa
+
+👉 Selecciona el número (1/2/3) o presiona Enter para confirmar: 
+✅ Ciudad confirmada: Culiacán, Sinaloa
+
+🚀 Iniciando scraper para: RENTA en Culiacán, Sinaloa
+
+🚀 Iniciando scraper de Inmuebles24...
+
+📍 URL: https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-circuito-tabachines-culiacan-sinaloa-147701128.html
+
+🌐 Navegando a la página...
+📸 Buscando botón "Ver todas las fotos"...
+   ✅ Clic en botón de galería
+👤 Capturando datos del vendedor...
+   👤 Vendedor: Maryna Montes Real Estate
+   📞 Teléfono: 6675742052
+   ✅ Datos capturados del HTML (sin enviar información personal)
+📊 Extrayendo datos...
+
+🌍 Geocodificando ubicación...
+   ℹ️  No se detectaron coordenadas embebidas
+
+🌍 === GEOCODIFICACIÓN INICIADA ===
+   Dirección original: "Avenida Federalismo 10, Culiacán, Sinaloa, Mexico, Recursos HidrAulicos"
+
+🔧 Normalizando: "Avenida Federalismo 10, Culiacán, Sinaloa, Mexico, Recursos HidrAulicos"
+   ✅ Dirección limpia: "Av. Federalismo 10, Culiacán, Sinaloa, Mexico, Recursos HidrAulicos"
+   📍 Colonia detectada: "Recursos HidrAulicos"
+   🏠 Calle: "Av. Federalismo 10"
+   🔢 Número: "10"
+
+🔍 Buscando colonia: "Recursos HidrAulicos"
+   ✅ Match exacto (slug): Recursos Hidráulicos
+
+📍 Probando 4 variaciones de dirección...
+
+   1. [street] "Av. Federalismo 10, Recursos HidrAulicos, Culiacán, Sinaloa, México"
+      🌐 Consultando Google Geocoding API...
+      ✅ Google Geocoding OK: 24.7928852, -107.4253803 (street)
+
+
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.7928852, -107.4253803
+   🎯 Precisión: street
+   💯 Confianza: 90%
+   🏘️  Colonia: Recursos Hidráulicos (Colonia)
+      CP: 80105
+      Match: exact-slug (100%)
+   ✔️  Dentro de Culiacán: Sí
+   📊 Fuente: google-maps-geocoding
+
+
+   ✅ Geocodificación: street (90%)
+   🏘️  Colonia: Recursos Hidráulicos (CP: 80105)
+   📍 Coordenadas: 24.7928852, -107.4253803
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Casa en Renta Circuito Tabachines Culiacan Sinaloa
+   💰 Precio: MN 19,000
+   📍 Ubicación: Avenida Federalismo 10, Culiacán, Sinaloa, Mexico, Recursos HidrAulicos
+   🛏️  3 recámaras
+   🛁 3 baños
+   📐 160m² construcción
+   🏞️  80m² terreno
+   📸 17 imágenes encontradas
+   👤 Vendedor: Maryna Montes Real Estate
+   📞 Tel: 6675742052
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 147701128
+   📅 Fecha: Publicado hace 28 días
+   👁️  Vistas: 42
+
+🔗 Slug generado: casa-en-renta-circuito-tabachines-culiacan-sinaloa
+
+📥 Descargando 17 fotos...
+
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+   ✅ foto-6.jpg
+   ✅ foto-7.jpg
+   ✅ foto-8.jpg
+   ✅ foto-9.jpg
+   ✅ foto-10.jpg
+   ✅ foto-11.jpg
+   ✅ foto-12.jpg
+   ✅ foto-13.jpg
+   ✅ foto-14.jpg
+   ✅ foto-15.jpg
+   ✅ foto-16.jpg
+   ✅ foto-17.jpg
+
+✅ 17/17 fotos descargadas
+
+📄 Generando HTML desde template La Primavera para Culiacán...
+
+   ✅ API key actualizada a nueva key
+   ✅ styles.css copiado
+   ✅ HTML generado con template La Primavera para Culiacán
+✅ HTML generado: culiacan/casa-en-renta-circuito-tabachines-culiacan-sinaloa/index.html
+
+📝 Agregando tarjeta a culiacan/index.html...
+
+   ✅ Tarjeta agregada AL INICIO de culiacan/index.html (más reciente)
+
+🗺️  Agregando propiedad al mapa modal de Culiacán...
+
+   ✅ Coordenadas (geocoder): 24.7928852, -107.4253803
+   ✅ Punto de inserción encontrado (definición)
+   ✅ Definición de propiedad agregada al mapa
+   ✅ Punto de inserción encontrado (marcador)
+   ✅ Marcador con coordenadas exactas agregado al mapa de Culiacán
+
+🚀 Publicando a GitHub...
+
+[main 77a69e7] Add: Casa en Renta Circuito Tabachines Culiacan Sinaloa (Inmuebles24 - Culiacán)
+ Committer: HectorPC <hectorpc@192.168.101.16>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 3 files changed, 304 insertions(+), 109 deletions(-)
+To https://github.com/hectorpala/casa-infonavit-solidaridad.git
+   b161280..77a69e7  main -> main
+   ✅ Propiedad guardada en registro (ID: 147701128)
+
+   📝 Vendedor encontrado en CRM: Maryna Montes Real Estate
+   ℹ️  Esta propiedad ya está vinculada a Maryna Montes Real Estate
+   ✅ CRM actualizado: 27 vendedores, 255 propiedades
+
+📤 Publicando cambios del CRM a GitHub...
+
+   ✅ CRM publicado exitosamente a GitHub
+
+
+============================================================
+✅ ¡COMPLETADO!
+============================================================
+
+📊 RESUMEN FINAL:
+   🏠 Casa en Renta Circuito Tabachines Culiacan Sinaloa
+   💰 MN 19,000
+   🛏️  3 recámaras • 🛁 3 baños
+   📐 160m² construcción • 🏞️  80m² terreno
+   📸 17 fotos descargadas
+
+👤 VENDEDOR:
+   Nombre: Maryna Montes Real Estate
+   📞 Tel: 6675742052
+
+📅 PUBLICACIÓN:
+   Fecha: Publicado hace 28 días
+   👁️  Vistas: 42
+
+🌐 URLs:
+   Local: culiacan/casa-en-renta-circuito-tabachines-culiacan-sinaloa/index.html
+   Producción: https://casasenventa.info/culiacan/casa-en-renta-circuito-tabachines-culiacan-sinaloa/
+
+⏳ Esperando 30 segundos para que GitHub Pages actualice...
+   (Esto evita problemas de cache y deployments cancelados)
+
+✅ Deployment completado. La página ya debe estar visible.
+

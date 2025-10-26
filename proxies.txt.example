@@ -1,0 +1,25 @@
+# Archivo de Proxies - Un proxy por línea
+# Formato: http://host:port o http://user:pass@host:port
+
+# Ejemplos de proxies HTTP
+http://proxy1.example.com:8080
+http://proxy2.example.com:3128
+http://104.223.123.45:8080
+
+# Proxies con autenticación
+http://username:password@proxy3.example.com:8080
+http://user123:pass456@proxy4.example.com:3128
+
+# Proxies SOCKS5
+socks5://proxy5.example.com:1080
+socks5://user:pass@proxy6.example.com:1080
+
+# Puedes obtener proxies gratuitos de:
+# - https://www.proxy-list.download/HTTP
+# - https://free-proxy-list.net/
+# - https://www.sslproxies.org/
+
+# O comprar proxies residenciales premium de:
+# - Oxylabs: https://oxylabs.io (RECOMENDADO)
+# - BrightData: https://brightdata.com
+# - ScraperAPI: https://scraperapi.com (MÁS SIMPLE)

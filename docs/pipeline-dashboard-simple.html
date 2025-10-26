@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline Inmuebles24 - Dashboard Automatizado</title>
+    <style>
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5568d3;
+            --secondary: #764ba2;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --info: #3b82f6;
+            --bg-light: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .main-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px var(--shadow);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .input-section {
+            margin-bottom: 40px;
+        }
+
+        .input-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .url-input {
+            flex: 1;
+            padding: 16px 20px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+
+        .url-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .days-input {
+            width: 120px;
+            padding: 16px 20px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .days-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Progress Steps */
+        .progress-section {
+            display: none;
+            margin-bottom: 40px;
+        }
+
+        .progress-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            background: var(--bg-light);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .step.active {
+            border-color: var(--primary);
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .step.completed {
+            border-color: var(--success);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .step.error {
+            border-color: var(--error);
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--border);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-right: 16px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-number {
+            background: var(--primary);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .step.completed .step-number {
+            background: var(--success);
+            color: white;
+        }
+
+        .step.error .step-number {
+            background: var(--error);
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+            }
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .step-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .summary-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .summary-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .summary-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 1rem;
+        }
+
+        .summary-icon {
+            width: 28px;
+            height: 28px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .summary-text {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .summary-number {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .action-question {
+            background: rgba(102, 126, 234, 0.05);
+            border: 2px dashed var(--primary);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .action-question p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-details {
+            background: transparent;
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 10px;
+        }
+
+        .btn-details:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Logs Panel */
+        .logs-panel {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: #d4d4d4;
+        }
+
+        .logs-panel.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .log-line {
+            padding: 4px 0;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .log-line.success {
+            color: #4ade80;
+        }
+
+        .log-line.error {
+            color: #f87171;
+        }
+
+        .log-line.warning {
+            color: #fbbf24;
+        }
+
+        /* URLs List */
+        .urls-list {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .urls-list.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .url-item {
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .url-item a {
+            color: var(--primary);
+            text-decoration: none;
+            word-break: break-all;
+            font-size: 0.9rem;
+        }
+
+        .url-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.5);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(102, 126, 234, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .main-card {
+                padding: 24px;
+            }
+
+            .input-wrapper {
+                flex-direction: column;
+            }
+
+            .days-input {
+                width: 100%;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn-success,
+            .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Pipeline Inmuebles24</h1>
+            <p>Sistema automatizado de scraping inteligente</p>
+        </div>
+
+        <div class="main-card">
+            <!-- Input Section -->
+            <div class="input-section">
+                <label class="input-label">📋 URL del Listado de Inmuebles24</label>
+                <div class="input-wrapper">
+                    <input
+                        type="text"
+                        id="url-input"
+                        class="url-input"
+                        placeholder="https://www.inmuebles24.com/casas-en-venta-en-culiacan-..."
+                    >
+                    <input
+                        type="number"
+                        id="days-input"
+                        class="days-input"
+                        value="30"
+                        min="1"
+                        max="365"
+                        title="Días máximos"
+                    >
+                </div>
+                <button id="btn-start" class="btn-primary" onclick="startPipeline()">
+                    🚀 Scrapear
+                </button>
+            </div>
+
+            <!-- Progress Steps -->
+            <div id="progress-section" class="progress-section">
+                <div id="step-1" class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Extrayendo URLs</div>
+                        <div class="step-description">Navegando por las páginas del listado...</div>
+
+                        <!-- Real-time Progress -->
+                        <div id="realtime-progress" style="display: none; margin-top: 12px;">
+                            <div style="background: #f3f4f6; border-radius: 8px; padding: 12px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.875rem;">
+                                    <span id="current-property" style="color: #667eea; font-weight: 500;">Propiedad #0</span>
+                                    <span id="progress-percentage" style="color: #10b981; font-weight: 600;">0%</span>
+                                </div>
+                                <div style="background: #e5e7eb; border-radius: 4px; height: 8px; overflow: hidden;">
+                                    <div id="progress-bar" style="background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; width: 0%; transition: width 0.3s;"></div>
+                                </div>
+                                <div style="display: flex; gap: 16px; margin-top: 12px; font-size: 0.75rem; color: #6b7280;">
+                                    <span>✅ Válidas: <strong id="valid-count" style="color: #10b981;">0</strong></span>
+                                    <span>⏰ Antiguas: <strong id="old-count" style="color: #f59e0b;">0</strong></span>
+                                    <span>❓ Sin fecha: <strong id="nodate-count" style="color: #6b7280;">0</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-icon">⏳</div>
+                </div>
+
+                <div id="step-2" class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Verificando Duplicados</div>
+                        <div class="step-description">Comprobando fechas y propiedades existentes...</div>
+                    </div>
+                    <div class="step-icon">⏳</div>
+                </div>
+
+                <div id="step-3" class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Scrapeando Nuevas</div>
+                        <div class="step-description">Extrayendo datos de propiedades nuevas...</div>
+                    </div>
+                    <div class="step-icon">⏳</div>
+                </div>
+            </div>
+
+            <!-- Summary Section -->
+            <div id="summary-section" class="summary-section">
+                <div class="summary-card">
+                    <div class="summary-title">📊 Resumen del Proceso</div>
+
+                    <div class="summary-item">
+                        <span class="summary-icon">📋</span>
+                        <span class="summary-text">
+                            Total analizadas: <span class="summary-number" id="total-analyzed">0</span> propiedades
+                        </span>
+                    </div>
+
+                    <div class="summary-item">
+                        <span class="summary-icon">✅</span>
+                        <span class="summary-text">
+                            Válidas (≤<span id="max-days-display">30</span> días): <span class="summary-number" id="total-found">0</span> propiedades
+                        </span>
+                    </div>
+
+                    <div class="summary-item" id="old-properties-row" style="display: none;">
+                        <span class="summary-icon">⏰</span>
+                        <span class="summary-text">
+                            Descartadas por antigüedad (><span id="max-days-display-2">30</span> días): <span class="summary-number" id="total-old">0</span> propiedades
+                        </span>
+                    </div>
+
+                    <div class="summary-item" id="no-date-row" style="display: none;">
+                        <span class="summary-icon">❓</span>
+                        <span class="summary-text">
+                            Sin fecha detectada: <span class="summary-number" id="total-no-date">0</span> propiedades
+                        </span>
+                    </div>
+
+                    <div class="summary-item" id="duplicates-row" style="display: none;">
+                        <span class="summary-icon">⚠️</span>
+                        <span class="summary-text">
+                            Ya en el sistema (duplicadas): <span class="summary-number" id="total-duplicates">0</span> propiedades
+                        </span>
+                    </div>
+
+                    <div class="summary-item" id="new-properties-row" style="display: none;">
+                        <span class="summary-icon">⭐</span>
+                        <span class="summary-text">
+                            Nuevas y listas para publicar: <span class="summary-number" id="total-new">0</span> propiedades
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Action Question (only if new properties found) -->
+                <div id="action-question" class="action-question" style="display: none;">
+                    <p>Tenemos <span id="action-count">0</span> URLs listas para scrapear, ¿quieres comenzar?</p>
+                    <div class="action-buttons">
+                        <button class="btn-success" onclick="startScraping()">
+                            ✨ Sí, comenzar
+                        </button>
+                        <button class="btn-secondary" onclick="dismissAction()">
+                            📋 No, revisar después
+                        </button>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="btn-details" onclick="toggleDetails()">
+                        👁️ Ver detalles
+                    </button>
+                </div>
+            </div>
+
+            <!-- URLs List -->
+            <div id="urls-list" class="urls-list"></div>
+
+            <!-- Logs Panel -->
+            <div id="logs-panel" class="logs-panel"></div>
+        </div>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_BASE_URL = 'http://localhost:3001';
+        const API_KEY = 'pipeline-secret-key-2025';
+
+        let currentEventSource = null;
+        let pipelineData = {
+            totalFound: 0,
+            totalDuplicates: 0,
+            totalNew: 0,
+            validUrls: []
+        };
+
+        // Start Pipeline
+        async function startPipeline() {
+            const urlInput = document.getElementById('url-input');
+            const daysInput = document.getElementById('days-input');
+            const btnStart = document.getElementById('btn-start');
+
+            const url = urlInput.value.trim();
+            const maxDays = parseInt(daysInput.value) || 30;
+
+            if (!url) {
+                alert('⚠️ Por favor, pega la URL de Inmuebles24');
+                return;
+            }
+
+            // Update max days display
+            document.getElementById('max-days-display').textContent = maxDays;
+
+            // Disable button and show progress
+            btnStart.disabled = true;
+            btnStart.innerHTML = '<div class="spinner"></div> Procesando...';
+
+            document.getElementById('progress-section').classList.add('active');
+            document.getElementById('summary-section').classList.remove('active');
+
+            // Reset steps
+            resetSteps();
+
+            // Step 1: Extract URLs
+            await executeStep1(url, maxDays);
+        }
+
+        // Step 1: Extract URLs
+        async function executeStep1(url, maxDays) {
+            updateStep(1, 'active', 'Extrayendo URLs del listado...', '🔄');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/extract-urls`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({ searchUrl: url, maxDays })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog('✅ Extracción iniciada', 'success');
+                    connectToLogs(data.jobId, async () => {
+                        updateStep(1, 'completed', `URLs extraídas exitosamente`, '✅');
+                        await executeStep2();
+                    });
+                } else {
+                    updateStep(1, 'error', `Error: ${data.error}`, '❌');
+                    addLog(`❌ Error: ${data.error}`, 'error');
+                    resetButton();
+                }
+            } catch (error) {
+                updateStep(1, 'error', `Error de conexión: ${error.message}`, '❌');
+                addLog(`❌ Error: ${error.message}`, 'error');
+                resetButton();
+            }
+        }
+
+        // Step 2: Verify Duplicates
+        async function executeStep2() {
+            updateStep(2, 'active', 'Verificando fechas y duplicados...', '🔄');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/verify-dates`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    }
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog('✅ Verificación iniciada', 'success');
+                    connectToLogs(data.jobId, async () => {
+                        updateStep(2, 'completed', 'Verificación completada', '✅');
+                        await loadResults();
+                        showSummary();
+                    });
+                } else {
+                    updateStep(2, 'error', `Error: ${data.error}`, '❌');
+                    addLog(`❌ Error: ${data.error}`, 'error');
+                    resetButton();
+                }
+            } catch (error) {
+                updateStep(2, 'error', `Error: ${error.message}`, '❌');
+                addLog(`❌ Error: ${error.message}`, 'error');
+                resetButton();
+            }
+        }
+
+        // Load Results
+        async function loadResults() {
+            try {
+                const response = await fetch('/urls-validas-30-dias.txt');
+                if (response.ok) {
+                    const text = await response.text();
+                    pipelineData.validUrls = text.split('\n').filter(u => u.trim().length > 0);
+                    pipelineData.totalNew = pipelineData.validUrls.length;
+                }
+
+                // Try to load detailed results
+                const detailResponse = await fetch('/verificacion-fechas-detallada.json');
+                if (detailResponse.ok) {
+                    const details = await detailResponse.json();
+
+                    // Calculate all statistics
+                    pipelineData.totalAnalyzed = details.length;
+                    pipelineData.totalFound = details.filter(d => d.valid).length;
+                    pipelineData.totalOld = details.filter(d => !d.valid && d.days !== null && d.days > 30).length;
+                    pipelineData.totalNoDate = details.filter(d => d.days === null).length;
+                    pipelineData.totalDuplicates = 0; // Will be calculated from duplicate check step
+                    pipelineData.totalNew = pipelineData.totalFound - pipelineData.totalDuplicates;
+                }
+            } catch (error) {
+                console.error('Error loading results:', error);
+            }
+        }
+
+        // Show Summary
+        function showSummary() {
+            document.getElementById('summary-section').classList.add('active');
+
+            // Update all statistics
+            document.getElementById('total-analyzed').textContent = pipelineData.totalAnalyzed || 0;
+            document.getElementById('total-found').textContent = pipelineData.totalFound || 0;
+            document.getElementById('total-old').textContent = pipelineData.totalOld || 0;
+            document.getElementById('total-no-date').textContent = pipelineData.totalNoDate || 0;
+            document.getElementById('total-duplicates').textContent = pipelineData.totalDuplicates || 0;
+            document.getElementById('total-new').textContent = pipelineData.totalNew || 0;
+
+            // Show/hide conditional rows based on counts
+            if (pipelineData.totalOld > 0) {
+                document.getElementById('old-properties-row').style.display = 'flex';
+            }
+            if (pipelineData.totalNoDate > 0) {
+                document.getElementById('no-date-row').style.display = 'flex';
+            }
+            if (pipelineData.totalDuplicates > 0) {
+                document.getElementById('duplicates-row').style.display = 'flex';
+            }
+            if (pipelineData.totalNew > 0) {
+                document.getElementById('new-properties-row').style.display = 'flex';
+            }
+
+            const actionQuestion = document.getElementById('action-question');
+            const actionCount = document.getElementById('action-count');
+
+            if (pipelineData.totalNew > 0) {
+                actionQuestion.style.display = 'block';
+                actionCount.textContent = pipelineData.totalNew;
+            } else {
+                actionQuestion.style.display = 'none';
+            }
+
+            resetButton();
+        }
+
+        // Start Scraping (Step 3)
+        async function startScraping() {
+            document.getElementById('action-question').style.display = 'none';
+            updateStep(3, 'active', 'Scrapeando propiedades nuevas...', '🔄');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/scrape-batch`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({
+                        urlsFile: 'urls-validas-30-dias.txt',
+                        concurrency: 3,
+                        checkOnly: false
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog('✅ Scraping iniciado', 'success');
+                    connectToLogs(data.jobId, () => {
+                        updateStep(3, 'completed', `${pipelineData.totalNew} propiedades scrapeadas`, '✅');
+                        addLog('🎉 Proceso completado exitosamente', 'success');
+                    });
+                } else {
+                    updateStep(3, 'error', `Error: ${data.error}`, '❌');
+                    addLog(`❌ Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                updateStep(3, 'error', `Error: ${error.message}`, '❌');
+                addLog(`❌ Error: ${error.message}`, 'error');
+            }
+        }
+
+        // Dismiss Action
+        function dismissAction() {
+            document.getElementById('action-question').style.display = 'none';
+            addLog('📋 Revisión pospuesta', 'warning');
+        }
+
+        // Toggle Details
+        function toggleDetails() {
+            const logsPanel = document.getElementById('logs-panel');
+            const urlsList = document.getElementById('urls-list');
+
+            if (logsPanel.classList.contains('active')) {
+                logsPanel.classList.remove('active');
+                urlsList.classList.remove('active');
+            } else {
+                logsPanel.classList.add('active');
+
+                // Show URLs list if available
+                if (pipelineData.validUrls.length > 0) {
+                    urlsList.classList.add('active');
+                    urlsList.innerHTML = '<h3 style="margin-bottom: 12px; color: var(--text-primary);">URLs Válidas:</h3>';
+                    pipelineData.validUrls.forEach((url, i) => {
+                        const item = document.createElement('div');
+                        item.className = 'url-item';
+                        item.innerHTML = `<strong>${i + 1}.</strong> <a href="${url}" target="_blank">${url}</a>`;
+                        urlsList.appendChild(item);
+                    });
+                }
+            }
+        }
+
+        // Connect to SSE Logs
+        function connectToLogs(jobId, onComplete) {
+            if (currentEventSource) {
+                currentEventSource.close();
+            }
+
+            const url = `${API_BASE_URL}/api/logs/${jobId}?apiKey=${API_KEY}`;
+            currentEventSource = new EventSource(url);
+
+            // Progress tracking variables
+            let totalProperties = 0;
+            let currentProperty = 0;
+            let validCount = 0;
+            let oldCount = 0;
+            let nodateCount = 0;
+
+            currentEventSource.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+
+                    if (data.type === 'stdout') {
+                        addLog(data.message, 'log');
+
+                        // Parse log messages to extract progress info
+                        const msg = data.message;
+
+                        // Detect total count
+                        const totalMatch = msg.match(/Total URLs a verificar:\s*(\d+)/i);
+                        if (totalMatch) {
+                            totalProperties = parseInt(totalMatch[1]);
+                        }
+
+                        // Detect current property being processed
+                        const propMatch = msg.match(/(\d+)\/(\d+)\s*\|/);
+                        if (propMatch) {
+                            currentProperty = parseInt(propMatch[1]);
+                            totalProperties = parseInt(propMatch[2]);
+                            updateRealtimeProgress(currentProperty, totalProperties, validCount, oldCount, nodateCount);
+                        }
+
+                        // Count valid/old/no-date properties
+                        if (msg.includes('✅') && msg.match(/≤\s*\d+/)) {
+                            validCount++;
+                            updateRealtimeProgress(currentProperty, totalProperties, validCount, oldCount, nodateCount);
+                        } else if (msg.includes('❌') && msg.match(/>\s*\d+/)) {
+                            oldCount++;
+                            updateRealtimeProgress(currentProperty, totalProperties, validCount, oldCount, nodateCount);
+                        } else if (msg.includes('⚠️') && msg.includes('Sin fecha')) {
+                            nodateCount++;
+                            updateRealtimeProgress(currentProperty, totalProperties, validCount, oldCount, nodateCount);
+                        }
+
+                    } else if (data.type === 'stderr') {
+                        addLog(data.message, 'error');
+                    } else if (data.type === 'complete') {
+                        addLog(`✅ Completado (código: ${data.exitCode})`, 'success');
+                        hideRealtimeProgress();
+                        currentEventSource.close();
+                        if (onComplete) onComplete();
+                    } else if (data.type === 'error') {
+                        addLog(`❌ Error: ${data.message}`, 'error');
+                        hideRealtimeProgress();
+                        currentEventSource.close();
+                    }
+                } catch (e) {
+                    console.error('Error parsing SSE:', e);
+                }
+            };
+
+            currentEventSource.onerror = (error) => {
+                console.error('SSE Error:', error);
+                hideRealtimeProgress();
+                currentEventSource.close();
+            };
+        }
+
+        // Update real-time progress indicator
+        function updateRealtimeProgress(current, total, valid, old, nodate) {
+            const progressDiv = document.getElementById('realtime-progress');
+            if (!progressDiv) return;
+
+            // Show progress indicator
+            progressDiv.style.display = 'block';
+
+            // Update current property text
+            document.getElementById('current-property').textContent = `Propiedad #${current} de ${total}`;
+
+            // Calculate and update percentage
+            const percentage = total > 0 ? Math.round((current / total) * 100) : 0;
+            document.getElementById('progress-percentage').textContent = `${percentage}%`;
+
+            // Update progress bar width
+            document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+            // Update running counts
+            document.getElementById('valid-count').textContent = valid;
+            document.getElementById('old-count').textContent = old;
+            document.getElementById('nodate-count').textContent = nodate;
+        }
+
+        // Hide real-time progress indicator
+        function hideRealtimeProgress() {
+            const progressDiv = document.getElementById('realtime-progress');
+            if (progressDiv) {
+                progressDiv.style.display = 'none';
+            }
+        }
+
+        // Helper Functions
+        function updateStep(stepNumber, state, description, icon) {
+            const step = document.getElementById(`step-${stepNumber}`);
+            step.className = 'step';
+            if (state) step.classList.add(state);
+
+            const descEl = step.querySelector('.step-description');
+            if (descEl) descEl.textContent = description;
+
+            const iconEl = step.querySelector('.step-icon');
+            if (iconEl) iconEl.textContent = icon;
+        }
+
+        function resetSteps() {
+            for (let i = 1; i <= 3; i++) {
+                const step = document.getElementById(`step-${i}`);
+                step.className = 'step';
+            }
+            updateStep(1, '', 'Navegando por las páginas del listado...', '⏳');
+            updateStep(2, '', 'Comprobando fechas y propiedades existentes...', '⏳');
+            updateStep(3, '', 'Extrayendo datos de propiedades nuevas...', '⏳');
+        }
+
+        function resetButton() {
+            const btnStart = document.getElementById('btn-start');
+            btnStart.disabled = false;
+            btnStart.innerHTML = '🚀 Scrapear';
+        }
+
+        function addLog(message, type = 'log') {
+            const logsPanel = document.getElementById('logs-panel');
+            const logLine = document.createElement('div');
+            logLine.className = `log-line ${type}`;
+            logLine.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logsPanel.appendChild(logLine);
+            logsPanel.scrollTop = logsPanel.scrollHeight;
+        }
+
+        // Auto-load results on page load if available
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await loadResults();
+                if (pipelineData.totalNew > 0) {
+                    showSummary();
+                    document.getElementById('progress-section').classList.add('active');
+                    updateStep(1, 'completed', 'URLs extraídas', '✅');
+                    updateStep(2, 'completed', 'Verificación completada', '✅');
+                }
+            } catch (e) {
+                console.log('No previous results found');
+            }
+        });
+    </script>
+</body>
+</html>

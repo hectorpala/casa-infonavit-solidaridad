@@ -1,0 +1,130 @@
+[2025-10-25T18:18:46.369Z] SUCCESS | 12.8s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75300757.html
+[2025-10-25T18:18:46.371Z] SUCCESS | 12.8s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75304061.html
+[2025-10-25T18:18:46.375Z] SUCCESS | 12.8s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-stanza-albaterra-146184063.html
+[2025-10-25T18:18:46.629Z] SUCCESS | 13.0s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-58396222.html
+[2025-10-25T18:18:46.762Z] SUCCESS | 13.2s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-71024901.html
+[2025-10-25T18:19:03.705Z] SUCCESS | 12.3s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-75320881.html
+[2025-10-25T18:19:03.856Z] SUCCESS | 12.5s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-con-terreno-75298612.html
+[2025-10-25T18:19:03.861Z] SUCCESS | 12.5s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-col.-lazaro-cardenas-71155299.html
+[2025-10-25T18:19:04.026Z] SUCCESS | 12.3s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-stanza-corcega-a2-146342696.html
+[2025-10-25T18:19:04.489Z] SUCCESS | 12.9s | https://www.inmuebles24.com/propiedades/clasificado/veclcapa-hermosa-casa-en-valle-alto-culiacan-147449962.html
+[2025-10-25T18:20:09.417Z] ERROR | 60.7s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-hacienda-los-huertos-142682511.html | Command failed: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-hacienda-los-huertos-142682511.html"
+
+❌ ERROR: Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:73:60)
+    at CdpFrame.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:149:29)
+    at CdpFrame.<anonymous> (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:572:43)
+    at scrapeInmuebles24 (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:1455:16)
+    at async main (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:3200:22)
+
+[2025-10-25T18:20:09.462Z] ERROR | 60.6s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc-capistrano-sector-sur-de-147529251.html | Command failed: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc-capistrano-sector-sur-de-147529251.html"
+
+❌ ERROR: Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:73:60)
+    at CdpFrame.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:149:29)
+    at CdpFrame.<anonymous> (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:572:43)
+    at scrapeInmuebles24 (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:1455:16)
+    at async main (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:3200:22)
+
+[2025-10-25T18:20:09.467Z] ERROR | 60.6s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-santa-elena-146661574.html | Command failed: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-santa-elena-146661574.html"
+
+❌ ERROR: Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:73:60)
+    at CdpFrame.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:149:29)
+    at CdpFrame.<anonymous> (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:572:43)
+    at scrapeInmuebles24 (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:1455:16)
+    at async main (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:3200:22)
+
+[2025-10-25T18:20:09.924Z] ERROR | 60.9s | https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-los-angeles-culiacan-fracc.-las-glorias-147834860.html | Command failed: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-los-angeles-culiacan-fracc.-las-glorias-147834860.html"
+
+❌ ERROR: Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:73:60)
+    at CdpFrame.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:149:29)
+    at CdpFrame.<anonymous> (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:572:43)
+    at scrapeInmuebles24 (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:1455:16)
+    at async main (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:3200:22)
+
+[2025-10-25T18:20:10.156Z] ERROR | 60.7s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-hacienda-arboledas-147213537.html | Command failed: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-hacienda-arboledas-147213537.html"
+
+❌ ERROR: Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:73:60)
+    at CdpFrame.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:149:29)
+    at CdpFrame.<anonymous> (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:572:43)
+    at scrapeInmuebles24 (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:1455:16)
+    at async main (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:3200:22)
+
+[2025-10-25T18:20:33.009Z] ERROR | 18.0s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-rancho-o-rancheria-la-guasima-146731014.html | Command failed: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-rancho-o-rancheria-la-guasima-146731014.html"
+
+❌ ERROR: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-rancho-o-rancheria-la-guasima-146731014.html
+Error: net::ERR_CONNECTION_REFUSED at https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-rancho-o-rancheria-la-guasima-146731014.html
+    at navigate (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:184:27)
+    at async Deferred.race (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:150:25)
+    at async CdpPage.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:572:20)
+    at async scrapeInmuebles24 (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:1455:5)
+    at async main (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:3200:22)
+
+[2025-10-25T18:20:38.503Z] ERROR | 24.0s | https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-de-2-pisos-en-infonavit-barrancos-culiacan-147117023.html | Command failed: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-de-2-pisos-en-infonavit-barrancos-culiacan-147117023.html"
+
+❌ ERROR: net::ERR_CONNECTION_TIMED_OUT at https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-de-2-pisos-en-infonavit-barrancos-culiacan-147117023.html
+Error: net::ERR_CONNECTION_TIMED_OUT at https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-de-2-pisos-en-infonavit-barrancos-culiacan-147117023.html
+    at navigate (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:184:27)
+    at async Deferred.race (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:150:25)
+    at async CdpPage.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:572:20)
+    at async scrapeInmuebles24 (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:1455:5)
+    at async main (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:3200:22)
+
+[2025-10-25T18:20:38.503Z] ERROR | 24.1s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-valle-alto-zona-norte-146463037.html | Command failed: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-valle-alto-zona-norte-146463037.html"
+
+❌ ERROR: net::ERR_CONNECTION_TIMED_OUT at https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-valle-alto-zona-norte-146463037.html
+Error: net::ERR_CONNECTION_TIMED_OUT at https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-valle-alto-zona-norte-146463037.html
+    at navigate (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:184:27)
+    at async Deferred.race (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:150:25)
+    at async CdpPage.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:572:20)
+    at async scrapeInmuebles24 (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:1455:5)
+    at async main (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:3200:22)
+
+[2025-10-25T18:20:38.503Z] ERROR | 24.0s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villas-del-rio-elite-147176784.html | Command failed: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villas-del-rio-elite-147176784.html"
+
+❌ ERROR: net::ERR_CONNECTION_TIMED_OUT at https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villas-del-rio-elite-147176784.html
+Error: net::ERR_CONNECTION_TIMED_OUT at https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-villas-del-rio-elite-147176784.html
+    at navigate (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:184:27)
+    at async Deferred.race (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:36:20)
+    at async CdpFrame.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:150:25)
+    at async CdpPage.goto (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:572:20)
+    at async scrapeInmuebles24 (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:1455:5)
+    at async main (/Users/hectorpc/Documents/Hector Palazuelos/Google My Business/landing casa solidaridad/inmuebles24culiacanscraper.js:3200:22)
+
+[2025-10-25T18:20:50.569Z] SUCCESS | 35.4s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-hacienda-los-huertos-142326850.html
+[2025-10-25T18:20:56.842Z] SUCCESS | 13.3s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lomas-de-san-isidro-con-cochera-147903025.html
+[2025-10-25T18:20:56.945Z] SUCCESS | 13.4s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-adolfo-lopez-mateos-remodelada-147622518.html
+[2025-10-25T18:20:57.235Z] SUCCESS | 19.2s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-adolfo-lopez-mateos-143635683.html
+[2025-10-25T18:21:01.617Z] SUCCESS | 18.1s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-rosales-144370308.html
+[2025-10-25T18:21:07.843Z] SUCCESS | 12.3s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-147575993.html
+[2025-10-25T18:21:15.545Z] SUCCESS | 13.3s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-nueva-en-san-javier-147367750.html
+[2025-10-25T18:21:15.555Z] SUCCESS | 13.6s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-zona-dorada-147252069.html
+[2025-10-25T18:21:15.649Z] SUCCESS | 13.8s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-valle-alto-147199192.html
+[2025-10-25T18:21:17.160Z] SUCCESS | 10.5s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-terranova-147649101.html
+[2025-10-25T18:21:22.929Z] SUCCESS | 10.1s | https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-lomas-de-san-isidro-147969684.html

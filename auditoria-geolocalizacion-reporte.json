@@ -1,0 +1,1420 @@
+{
+  "timestamp": "2025-10-24T18:28:07.215Z",
+  "stats": {
+    "total": 64,
+    "conNuevoPipeline": 0,
+    "sinNuevoPipeline": 64,
+    "sinHTML": 0,
+    "erroresHTML": 0
+  },
+  "propiedadesPorActualizar": [
+    {
+      "database": "Culiacán",
+      "propertyId": "147501147",
+      "title": "Se Vende Casa en Isla del Oeste en La Primavera",
+      "slug": "se-vende-casa-en-isla-del-oeste-en-la-primavera",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-isla-del-oeste-en-la-primavera-147501147.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147500481",
+      "title": "Casa en Venta en Privada La Cantera",
+      "slug": "casa-en-venta-en-privada-la-cantera",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147643837",
+      "title": "Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada",
+      "slug": "casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-real-cumbres-monterrey-1-nivel-147643837.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147908740",
+      "title": "Casa en Cumbres Equipada a Estrenar",
+      "slug": "casa-en-cumbres-equipada-a-estrenar",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-cumbres-equipada-a-estrenar-147908740.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "146747635",
+      "title": "Casa en Venta en Urbivilla Colonial, Monterrey. Nuevo Leon",
+      "slug": "casa-en-venta-en-urbivilla-colonial-monterrey-nuevo-leon",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-urbivilla-colonial-monterrey.-nuevo-146747635.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "145373833",
+      "title": "Venta en Cumbres 3 Niveles Frente a Parque",
+      "slug": "venta-en-cumbres-3-niveles-frente-a-parque",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-en-cumbres-3-niveles-frente-a-parque-145373833.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147215910",
+      "title": "Casa en Venta en Cumbres Monterrey",
+      "slug": "casa-en-venta-en-cumbres-monterrey",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-cumbres-monterrey-147215910.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147799701",
+      "title": "Casa en Venta Zona Cumbres",
+      "slug": "casa-en-venta-zona-cumbres",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-zona-cumbres-147799701.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "146870552",
+      "title": "Cumbres de 3 Niveles, Incluye Cocina Integral y 6 Paneles Solares",
+      "slug": "cumbres-de-3-niveles-incluye-cocina-integral-y-6-paneles-sol",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-cumbres-de-3-niveles-incluye-cocina-integral-y-6-146870552.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147682613",
+      "title": "Casa en Renta 3 Habitaciones 2 Plantas, Vitia Granada",
+      "slug": "casa-en-renta-3-habitaciones-2-plantas-vitia-granada",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-3-habitaciones-2-plantas-vitia-granada-147682613.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147928773",
+      "title": "Casa en Renta en Portalegre Valley Totalmente Equipada",
+      "slug": "casa-en-renta-en-portalegre-valley-totalmente-equipada",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-en-portalegre-valley-totalmente-equipada-147928773.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147701128",
+      "title": "Casa en Renta Circuito Tabachines Culiacan Sinaloa",
+      "slug": "casa-en-renta-circuito-tabachines-culiacan-sinaloa",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-circuito-tabachines-culiacan-sinaloa-147701128.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147564220",
+      "title": "Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa",
+      "slug": "casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-colonia-lomas-del-pedregal-culiacan-147564220.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147300315",
+      "title": "Renta Casa en La Isla Privada Pontevedra",
+      "slug": "renta-casa-en-la-isla-privada-pontevedra",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-renta-casa-en-la-isla-privada-pontevedra-147300315.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "146839974",
+      "title": "Renta de Casa en Privada Bosques del Rio",
+      "slug": "renta-de-casa-en-privada-bosques-del-rio",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-renta-de-casa-en-privada-bosques-del-rio-146839974.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147513900",
+      "title": "Casa en Renta en Privada Kentia Valle Alto",
+      "slug": "casa-en-renta-en-privada-kentia-valle-alto",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-en-privada-kentia-valle-alto-147513900.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147904217",
+      "title": "Casa con Vista Espectacular en Colinas de San Miguel (Privada)",
+      "slug": "casa-con-vista-espectacular-en-colinas-de-san-miguel-privada",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-vista-espectacular-en-colinas-de-san-miguel-147904217.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=1",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "146266554",
+      "title": "Vendo Casa en Colonia Guadalupe Culiacán",
+      "slug": "vendo-casa-en-colonia-guadalupe-culiacan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-vendo-casa-en-colonia-guadalupe-culiacan-146266554.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=24",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "144439344",
+      "title": "Casa en Venta en Stanza Toscana",
+      "slug": "casa-en-venta-en-stanza-toscana",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-stanza-toscana-144439344.html?n_src=Listado&n_pills=Terraza&n_pg=3&n_pos=26",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "142723254",
+      "title": "Casa en Fraccionamiento Las Quintas",
+      "slug": "casa-en-fraccionamiento-las-quintas",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-las-quintas-142723254.html?n_src=Listado&n_pills=Terraza&n_pg=3&n_pos=28",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "144439344",
+      "title": "Casa en Venta en Stanza Toscana",
+      "slug": "casa-en-venta-en-stanza-toscana",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-stanza-toscana-144439344.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "146847493",
+      "title": "Casa en Guadalupe",
+      "slug": "casa-en-guadalupe",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-guadalupe-146847493.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=5&n_pos=13",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147309710",
+      "title": "Casa en Venta Ubicada en Nuevo Culiacán",
+      "slug": "casa-en-venta-ubicada-en-nuevo-culiacan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-ubicada-en-nuevo-culiacan-147309710.html?n_src=Listado&n_pills=Terraza&n_pg=2&n_pos=8",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147055011",
+      "title": "Casa en Venta Col Chapultepec Culiacán",
+      "slug": "casa-en-venta-col-chapultepec-culiacan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-col-chapultepec-culiacan-147055011.html?n_src=Listado&n_pills=Patio&n_pg=2&n_pos=13",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "144422903",
+      "title": "Venta de Casa en La Col. 5 de Mayo, Culiacan Sinaloa",
+      "slug": "venta-de-casa-en-la-col-5-de-mayo-culiacan-sinaloa",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-en-la-col.-5-de-mayo-culiacan-sinaloa-144422903.html?n_src=Listado&n_pills=Terraza&n_pg=2&n_pos=19",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "91269633",
+      "title": "Casa en Venta en Culiacán, Sinaloa.",
+      "slug": "casa-en-venta-en-culiacan-sinaloa",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-sinaloa.-91269633.html?n_src=Listado&n_pg=2&n_pos=2",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147903309",
+      "title": "Casa en Venta en Sector Tres Rios Culiacán",
+      "slug": "casa-en-venta-en-sector-tres-rios-culiacan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-sector-tres-rios-culiacan-147903309.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=2",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147814499",
+      "title": "Casa en Venta Colonia Guadalupe Culiacán",
+      "slug": "casa-en-venta-colonia-guadalupe-culiacan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-guadalupe-culiacan-147814499.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=14",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "146849328",
+      "title": "Casa en Cnop",
+      "slug": "casa-en-cnop",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-cnop-146849328.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=27",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "143884424",
+      "title": "Casa en Venta Real del Valle",
+      "slug": "casa-en-venta-real-del-valle",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-real-del-valle-143884424.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147838590",
+      "title": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas",
+      "slug": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-venta-en-rincon-de-los-girasoles-en-fracc-147838590.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "143824116",
+      "title": "Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.",
+      "slug": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-143824116.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147616056",
+      "title": "Casa en Venta en Veredas, Mazatlan, Sin.",
+      "slug": "casa-en-venta-en-veredas-mazatlan-sin",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-en-veredas-mazatlan-sin.-147616056.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147794673",
+      "title": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido",
+      "slug": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-3-recamaras-y-160-m-sup2--en-venta-valle-del-147794673.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147303199",
+      "title": "Casa en Venta de Real del Valle Coto 14",
+      "slug": "casa-en-venta-de-real-del-valle-coto-14",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-real-del-valle-coto-14-147303199.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147519985",
+      "title": "Casa en Venta Residencial con Alberca en Real del Valle Mazatlan",
+      "slug": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-con-alberca-en-real-del-valle-147519985.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "62920289",
+      "title": "Casa en Venta en El Fracc Porto Molino Mazatlan Sinaloa",
+      "slug": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc-porto-molino-mazatlan-62920289.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147794301",
+      "title": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial",
+      "slug": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-113-m-sup2--con-3-recamaras-en-venta-147794301.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "146081948",
+      "title": "Casa en Venta en Mazatlan, Fraccionamiento Real Pacifico",
+      "slug": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-fraccionamiento-real-146081948.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "58104789",
+      "title": "Casa en Venta Mazatlan, Residencial Palmilla Super Precio!",
+      "slug": "casa-en-venta-mazatlan-residencial-palmilla-super-precio",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-mazatlan-residencial-palmilla-super-58104789.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "146776771",
+      "title": "Casa en Venta en Privada con Alberca en Mazatlán",
+      "slug": "casa-en-venta-en-privada-con-alberca-en-mazatlan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-con-alberca-en-mazatlan-146776771.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147651291",
+      "title": "Casa en Venta en Mazatlan, Sinaloa (Villa Galaxia)",
+      "slug": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-sinaloa-villa-galaxia-147651291.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "146668066",
+      "title": "Casa en Venta en Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)",
+      "slug": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-sinaloa-hacienda-del-146668066.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "61697769",
+      "title": "Casa en Venta en Mazatlán en Coto Privado Camila Hills Modelo Nova",
+      "slug": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-61697769.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147081595",
+      "title": "Casa en Venta en Mazatlán.",
+      "slug": "casa-en-venta-en-mazatlan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan.-147081595.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": true,
+          "markerConfig": true,
+          "coordenadasMarker": true,
+          "jsonLd": true,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "145649453",
+      "title": "Estrena Casa con Acabados de Lujo",
+      "slug": "estrena-casa-con-acabados-de-lujo",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-estrena-casa-con-acabados-de-lujo-145649453.html?n_src=Listado&n_pg=1&n_pos=28",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "143950514",
+      "title": "Casa en Fraccionamiento Canaco",
+      "slug": "casa-en-fraccionamiento-canaco",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-canaco-143950514.html?n_src=Listado&n_pills=Terraza&n_pg=2&n_pos=2",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": false
+        }
+      }
+    },
+    {
+      "database": "Culiacán",
+      "propertyId": "147850955",
+      "title": "Stanza Toscana Culiacan Sinaloa",
+      "slug": "stanza-toscana-culiacan-sinaloa",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-stanza-toscana-culiacan-sinaloa-147850955.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=3",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": false
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "143884424",
+      "title": "Casa en Venta Real del Valle",
+      "slug": "casa-en-venta-real-del-valle",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-real-del-valle-143884424.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "147838590",
+      "title": "Casa de Venta en Rincon de Los Girasoles en Fracc Rincon de Las Plazas",
+      "slug": "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-venta-en-rincon-de-los-girasoles-en-fracc-147838590.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "143824116",
+      "title": "Casa en Venta en Mazatlán Cercana a Marina Mazatlán y Playas.",
+      "slug": "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-143824116.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "147616056",
+      "title": "Casa en Venta en Veredas, Mazatlan, Sin.",
+      "slug": "casa-en-venta-en-veredas-mazatlan-sin",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-en-veredas-mazatlan-sin.-147616056.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "147794673",
+      "title": "Casa de 3 Recámaras y 160 m² en Venta, Valle del Ejido",
+      "slug": "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-de-3-recamaras-y-160-m-sup2--en-venta-valle-del-147794673.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "147303199",
+      "title": "Casa en Venta de Real del Valle Coto 14",
+      "slug": "casa-en-venta-de-real-del-valle-coto-14",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-de-real-del-valle-coto-14-147303199.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "147519985",
+      "title": "Casa en Venta Residencial con Alberca en Real del Valle Mazatlan",
+      "slug": "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-con-alberca-en-real-del-valle-147519985.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "62920289",
+      "title": "Casa en Venta en El Fracc Porto Molino Mazatlan Sinaloa",
+      "slug": "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-el-fracc-porto-molino-mazatlan-62920289.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "147794301",
+      "title": "Casa 113 m² con 3 Recámaras en Venta, Fraccionamiento Isla Residencial",
+      "slug": "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-113-m-sup2--con-3-recamaras-en-venta-147794301.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "146081948",
+      "title": "Casa en Venta en Mazatlan, Fraccionamiento Real Pacifico",
+      "slug": "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-fraccionamiento-real-146081948.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "58104789",
+      "title": "Casa en Venta Mazatlan, Residencial Palmilla Super Precio!",
+      "slug": "casa-en-venta-mazatlan-residencial-palmilla-super-precio",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-mazatlan-residencial-palmilla-super-58104789.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "146776771",
+      "title": "Casa en Venta en Privada con Alberca en Mazatlán",
+      "slug": "casa-en-venta-en-privada-con-alberca-en-mazatlan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-con-alberca-en-mazatlan-146776771.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "147651291",
+      "title": "Casa en Venta en Mazatlan, Sinaloa (Villa Galaxia)",
+      "slug": "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-sinaloa-villa-galaxia-147651291.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "146668066",
+      "title": "Casa en Venta en Mazatlan, Sinaloa, Hacienda del Seminario (Fuera de Coto)",
+      "slug": "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-sinaloa-hacienda-del-146668066.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "61697769",
+      "title": "Casa en Venta en Mazatlán en Coto Privado Camila Hills Modelo Nova",
+      "slug": "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-61697769.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    },
+    {
+      "database": "Mazatlán",
+      "propertyId": "147081595",
+      "title": "Casa en Venta en Mazatlán.",
+      "slug": "casa-en-venta-en-mazatlan",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-mazatlan.-147081595.html",
+      "faltantes": {
+        "json": {
+          "latLng": true,
+          "coordenadasValidas": true,
+          "precision": true,
+          "fuente": true
+        },
+        "html": {
+          "archivoExiste": false,
+          "markerConfig": false,
+          "coordenadasMarker": true,
+          "jsonLd": false,
+          "geoJsonLd": true
+        }
+      }
+    }
+  ]
+}

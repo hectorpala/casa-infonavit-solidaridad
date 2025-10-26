@@ -1,0 +1,200 @@
+📚 Gazetteer cargado: 631 entradas
+   Colonias: 224
+   Fraccionamientos: 407
+   Índice por slug: 627 entradas
+   Índice por nombre: 609 entradas
+   Índice por CP: 98 códigos postales
+🏘️ Tipo detectado: RENTA
+
+╔═══════════════════════════════════════════════╗
+║  🌆 CONFIRMACIÓN DE CIUDAD (IMPORTANTE)      ║
+╚═══════════════════════════════════════════════╝
+
+📍 Ciudad detectada automáticamente: Culiacán, Sinaloa
+
+¿Es correcta esta ciudad?
+
+  1️⃣  Culiacán, Sinaloa
+  2️⃣  Monterrey, Nuevo León
+  3️⃣  Mazatlán, Sinaloa
+
+👉 Selecciona el número (1/2/3) o presiona Enter para confirmar: 
+✅ Ciudad confirmada: Culiacán, Sinaloa
+
+🚀 Iniciando scraper para: RENTA en Culiacán, Sinaloa
+
+🚀 Iniciando scraper de Inmuebles24...
+
+📍 URL: https://www.inmuebles24.com/propiedades/clasificado/alclcain-casa-en-renta-colonia-lomas-del-pedregal-culiacan-147564220.html
+
+🌐 Navegando a la página...
+📸 Buscando botón "Ver todas las fotos"...
+   ✅ Clic en botón de galería
+👤 Capturando datos del vendedor...
+   👤 Vendedor: Maryna Montes Real Estate
+   📞 Teléfono: 6675742052
+   ✅ Datos capturados del HTML (sin enviar información personal)
+📊 Extrayendo datos...
+
+🌍 Geocodificando ubicación...
+   ℹ️  No se detectaron coordenadas embebidas
+
+🌍 === GEOCODIFICACIÓN INICIADA ===
+   Dirección original: "Avenida De Las Lomas, Culiacán, Sinaloa, Mexico, Lomas Del Magisterio"
+
+🔧 Normalizando: "Avenida De Las Lomas, Culiacán, Sinaloa, Mexico, Lomas Del Magisterio"
+   ✅ Dirección limpia: "Av. De Las Lomas, Culiacán, Sinaloa, Mexico, Lomas Del Magisterio"
+   📍 Colonia detectada: "Lomas Del Magisterio"
+   🏠 Calle: "Av. De Las Lomas"
+   🔢 Número: "(ninguno)"
+
+🔍 Buscando colonia: "Lomas Del Magisterio"
+   ✅ Match exacto (slug): Lomas Del Magisterio
+
+📍 Probando 3 variaciones de dirección...
+
+   1. [street_no_number] "Av. De Las Lomas, Lomas Del Magisterio, Culiacán, Sinaloa, México"
+      🌐 Consultando Google Geocoding API...
+      ✅ Google Geocoding OK: 24.8397821, -107.3857725 (street)
+
+
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.8397821, -107.3857725
+   🎯 Precisión: street
+   💯 Confianza: 85%
+   🏘️  Colonia: Lomas Del Magisterio (Colonia)
+      CP: 80015
+      Match: exact-slug (100%)
+   ✔️  Dentro de Culiacán: Sí
+   📊 Fuente: google-maps-geocoding
+
+
+   ✅ Geocodificación: street (85%)
+   🏘️  Colonia: Lomas Del Magisterio (CP: 80015)
+   📍 Coordenadas: 24.8397821, -107.3857725
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa
+   💰 Precio: MN 10,000
+   📍 Ubicación: Avenida De Las Lomas, Culiacán, Sinaloa, Mexico, Lomas Del Magisterio
+   🛏️  3 recámaras
+   🛁 3 baños
+   📐 100m² construcción
+   🏞️  160m² terreno
+   📸 11 imágenes encontradas
+   👤 Vendedor: Maryna Montes Real Estate
+   📞 Tel: 6675742052
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 147564220
+   📅 Fecha: Publicado hace 29 días
+   👁️  Vistas: 85
+
+🔗 Slug generado: casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa
+
+📥 Descargando 11 fotos...
+
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+   ✅ foto-6.jpg
+   ✅ foto-7.jpg
+   ✅ foto-8.jpg
+   ✅ foto-9.jpg
+   ✅ foto-10.jpg
+   ✅ foto-11.jpg
+
+✅ 11/11 fotos descargadas
+
+📄 Generando HTML desde template La Primavera para Culiacán...
+
+   ✅ API key actualizada a nueva key
+   ✅ styles.css copiado
+   ✅ HTML generado con template La Primavera para Culiacán
+✅ HTML generado: culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/index.html
+
+📝 Agregando tarjeta a culiacan/index.html...
+
+   ✅ Tarjeta agregada AL INICIO de culiacan/index.html (más reciente)
+
+🗺️  Agregando propiedad al mapa modal de Culiacán...
+
+   ✅ Coordenadas (geocoder): 24.8397821, -107.3857725
+   ✅ Punto de inserción encontrado (definición)
+   ✅ Definición de propiedad agregada al mapa
+   ✅ Punto de inserción encontrado (marcador)
+   ✅ Marcador con coordenadas exactas agregado al mapa de Culiacán
+
+🚀 Publicando a GitHub...
+
+[main 68f955f] Add: Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa (Inmuebles24 - Culiacán)
+ Committer: HectorPC <hectorpc@192.168.101.16>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 14 files changed, 6451 insertions(+), 1 deletion(-)
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-1.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-10.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-11.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-2.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-3.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-4.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-5.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-6.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-7.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-8.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/images/foto-9.jpg
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/index.html
+ create mode 100644 culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/styles.css
+To https://github.com/hectorpala/casa-infonavit-solidaridad.git
+   8ce6fe0..68f955f  main -> main
+   ✅ Propiedad guardada en registro (ID: 147564220)
+
+   📝 Vendedor encontrado en CRM: Maryna Montes Real Estate
+   ℹ️  Esta propiedad ya está vinculada a Maryna Montes Real Estate
+   ✅ CRM actualizado: 27 vendedores, 257 propiedades
+
+📤 Publicando cambios del CRM a GitHub...
+
+   ✅ CRM publicado exitosamente a GitHub
+
+
+============================================================
+✅ ¡COMPLETADO!
+============================================================
+
+📊 RESUMEN FINAL:
+   🏠 Casa en Renta Colonia Lomas del Pedregal Culiacan Sinaloa
+   💰 MN 10,000
+   🛏️  3 recámaras • 🛁 3 baños
+   📐 100m² construcción • 🏞️  160m² terreno
+   📸 11 fotos descargadas
+
+👤 VENDEDOR:
+   Nombre: Maryna Montes Real Estate
+   📞 Tel: 6675742052
+
+📅 PUBLICACIÓN:
+   Fecha: Publicado hace 29 días
+   👁️  Vistas: 85
+
+🌐 URLs:
+   Local: culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/index.html
+   Producción: https://casasenventa.info/culiacan/casa-en-renta-colonia-lomas-del-pedregal-culiacan-sinaloa/
+
+⏳ Esperando 30 segundos para que GitHub Pages actualice...
+   (Esto evita problemas de cache y deployments cancelados)
+
+✅ Deployment completado. La página ya debe estar visible.
+

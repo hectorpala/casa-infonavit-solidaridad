@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline Inmuebles24 - Dashboard</title>
+    <style>
+        :root {
+            --bg-gradient-start: #667eea;
+            --bg-gradient-end: #764ba2;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --card-bg: rgba(255,255,255,0.95);
+            --card-shadow: rgba(0,0,0,0.15);
+            --border-color: #e0e0e0;
+            --input-bg: #f5f5f5;
+            --header-text: white;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+            --info-color: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: var(--header-text);
+            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px var(--card-shadow);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .extraction-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .input-group input {
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background: var(--input-bg);
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--info-color);
+        }
+
+        .button {
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, var(--info-color), #2563eb);
+            color: white;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .button-success {
+            background: linear-gradient(135deg, var(--success-color), #059669);
+            color: white;
+        }
+
+        .button-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+
+        .button-warning {
+            background: linear-gradient(135deg, var(--warning-color), #d97706);
+            color: white;
+        }
+
+        .button-danger {
+            background: linear-gradient(135deg, var(--error-color), #dc2626);
+            color: white;
+        }
+
+        .button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            display: none;
+        }
+
+        .summary-box.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .summary-box h4 {
+            font-size: 1.1rem;
+            color: var(--info-color);
+            margin-bottom: 8px;
+        }
+
+        .summary-box p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .status-card {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-value.large {
+            font-size: 2rem;
+            color: var(--info-color);
+        }
+
+        .pending-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .pending-item {
+            background: linear-gradient(135deg, #fefce8, #fef9c3);
+            border: 2px solid #eab308;
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pending-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 12px;
+        }
+
+        .pending-item-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .pending-item-badge {
+            background: #eab308;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .pending-item-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .button-small {
+            padding: 8px 16px;
+            font-size: 0.85rem;
+        }
+
+        .logs-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--info-color), #2563eb);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            transition: all 0.2s;
+            z-index: 999;
+        }
+
+        .logs-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .logs-toggle.pulse {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .logs-panel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: var(--card-bg);
+            box-shadow: 0 -4px 20px var(--card-shadow);
+            transition: height 0.3s ease;
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .logs-panel.open {
+            height: 400px;
+        }
+
+        .logs-header {
+            padding: 16px 20px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logs-header h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+        }
+
+        .logs-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .logs-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            font-family: 'Monaco', 'Menlo', 'Courier New', monospace;
+            font-size: 0.85rem;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+
+        .log-line {
+            margin: 4px 0;
+            line-height: 1.4;
+        }
+
+        .log-stdout { color: #d4d4d4; }
+        .log-stderr { color: #f59e0b; }
+        .log-complete { color: var(--success-color); font-weight: 600; }
+        .log-error { color: var(--error-color); font-weight: 600; }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .status-card {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Pipeline Inmuebles24</h1>
+        <p>Dashboard Simplificado - Culiacán</p>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Main Content (Left) -->
+        <div class="main-content">
+            <!-- Extraction Card -->
+            <div class="card">
+                <h2 class="card-title">
+                    <span>📥</span>
+                    Extraer URLs
+                </h2>
+                <div class="extraction-section">
+                    <div class="input-group">
+                        <label for="search-url">URL de búsqueda Inmuebles24</label>
+                        <input type="text" id="search-url"
+                               placeholder="https://www.inmuebles24.com/venta/sinaloa/culiacan/"
+                               value="https://www.inmuebles24.com/venta/sinaloa/culiacan/">
+                    </div>
+                    <div class="input-group">
+                        <label for="max-days">Días de antigüedad (default: 35)</label>
+                        <input type="number" id="max-days" value="35" min="1" max="365">
+                    </div>
+                    <button class="button button-primary" id="extract-btn" onclick="startExtraction()">
+                        <span>🚀</span>
+                        Extraer URLs Ahora
+                    </button>
+
+                    <!-- Summary Box -->
+                    <div class="summary-box" id="extraction-summary">
+                        <h4>Resumen de Extracción</h4>
+                        <p id="summary-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending URLs Card -->
+            <div class="card">
+                <h2 class="card-title">
+                    <span>📋</span>
+                    URLs Pendientes
+                    <span id="pending-count" style="font-size: 1rem; color: var(--text-secondary);"></span>
+                </h2>
+                <div class="pending-list" id="pending-list">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <p>No hay URLs pendientes. Ejecuta una extracción primero.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Card (Right) -->
+        <div class="status-card card">
+            <h2 class="card-title">
+                <span>📊</span>
+                Estado Actual
+            </h2>
+            <div class="stat-item">
+                <span class="stat-label">Total en BD</span>
+                <span class="stat-value large" id="stat-total">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">URLs Extraídas</span>
+                <span class="stat-value" id="stat-extracted">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Nuevas Detectadas</span>
+                <span class="stat-value" id="stat-new">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Ya Publicadas</span>
+                <span class="stat-value" id="stat-existing">-</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Última Extracción</span>
+                <span class="stat-value" style="font-size: 0.85rem;" id="stat-last-extraction">-</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logs Panel -->
+    <div class="logs-panel" id="logs-panel">
+        <div class="logs-header">
+            <h3>Logs en Tiempo Real</h3>
+            <div class="logs-actions">
+                <button class="button button-small button-warning" onclick="clearLogs()">
+                    🗑 Limpiar
+                </button>
+                <button class="button button-small button-danger" onclick="toggleLogs()">
+                    ✕ Cerrar
+                </button>
+            </div>
+        </div>
+        <div class="logs-content" id="logs-content">
+            <div class="log-line log-stdout">Esperando operaciones...</div>
+        </div>
+    </div>
+
+    <!-- Logs Toggle Button -->
+    <button class="logs-toggle" id="logs-toggle" onclick="toggleLogs()">
+        📜
+    </button>
+
+    <script>
+        // API Configuration
+        const API_BASE_URL = 'http://localhost:3001';
+        const API_KEY = 'pipeline-secret-key-2025';
+        let currentEventSource = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStats();
+            loadPendingURLs();
+        });
+
+        // Load database stats
+        async function loadStats() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/stats`, {
+                    headers: { 'X-API-Key': API_KEY }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('stat-total').textContent = data.totalInDB || 0;
+                    document.getElementById('stat-extracted').textContent = data.extractedUrls || 0;
+                    document.getElementById('stat-new').textContent = data.pendingNew || 0;
+                    document.getElementById('stat-existing').textContent = data.pendingExisting || 0;
+
+                    if (data.lastExtraction) {
+                        const date = new Date(data.lastExtraction);
+                        document.getElementById('stat-last-extraction').textContent =
+                            date.toLocaleString('es-MX', { dateStyle: 'short', timeStyle: 'short' });
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Load pending URLs
+        async function loadPendingURLs() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/pending-urls`, {
+                    headers: { 'X-API-Key': API_KEY }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const pendingList = document.getElementById('pending-list');
+                    const pendingCount = document.getElementById('pending-count');
+
+                    const totalPending = (data.newProperties?.length || 0) + (data.existingProperties?.length || 0);
+
+                    if (totalPending === 0) {
+                        pendingList.innerHTML = `
+                            <div class="empty-state">
+                                <div class="empty-state-icon">📭</div>
+                                <p>No hay URLs pendientes. Ejecuta una extracción primero.</p>
+                            </div>
+                        `;
+                        pendingCount.textContent = '';
+                    } else {
+                        pendingCount.textContent = `(${totalPending})`;
+                        pendingList.innerHTML = '';
+
+                        // Render new properties
+                        if (data.newProperties && data.newProperties.length > 0) {
+                            data.newProperties.forEach((prop, index) => {
+                                pendingList.innerHTML += createPendingItem(prop, 'NUEVA', index);
+                            });
+                        }
+
+                        // Render existing properties
+                        if (data.existingProperties && data.existingProperties.length > 0) {
+                            data.existingProperties.forEach((prop, index) => {
+                                pendingList.innerHTML += createPendingItem(prop, 'EXISTENTE', index + (data.newProperties?.length || 0));
+                            });
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading pending URLs:', error);
+            }
+        }
+
+        // Create pending item HTML
+        function createPendingItem(prop, type, index) {
+            const badgeColor = type === 'NUEVA' ? '#10b981' : '#f59e0b';
+            const displayUrl = prop.url || prop.full_url || 'URL no disponible';
+            const shortUrl = displayUrl.length > 60 ? displayUrl.substring(0, 60) + '...' : displayUrl;
+
+            return `
+                <div class="pending-item">
+                    <div class="pending-item-header">
+                        <div class="pending-item-title">${shortUrl}</div>
+                        <div class="pending-item-badge" style="background: ${badgeColor};">${type}</div>
+                    </div>
+                    <div class="pending-item-actions">
+                        <button class="button button-small button-success" onclick="scrapeSingle('${displayUrl}', ${index})">
+                            🚀 Scrapear Ahora
+                        </button>
+                        <button class="button button-small button-danger" onclick="discardURL(${index})">
+                            ✕ Descartar
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Start extraction
+        async function startExtraction() {
+            const searchUrl = document.getElementById('search-url').value.trim();
+            const maxDays = parseInt(document.getElementById('max-days').value) || 35;
+            const extractBtn = document.getElementById('extract-btn');
+            const summaryBox = document.getElementById('extraction-summary');
+
+            extractBtn.disabled = true;
+            extractBtn.innerHTML = '<span>⏳</span> Extrayendo...';
+            summaryBox.classList.remove('show');
+
+            openLogs();
+            clearLogs();
+            addLog('🚀 Iniciando extracción de URLs...', 'stdout');
+            addLog(`📍 URL: ${searchUrl}`, 'stdout');
+            addLog(`📅 Días de antigüedad: ${maxDays}`, 'stdout');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/extract-urls`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({ searchUrl, maxDays })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog(`✅ Job iniciado: ${data.jobId}`, 'stdout');
+                    addLog('📡 Conectando a logs en tiempo real...', 'stdout');
+                    connectToLogs(data.jobId, 'extraction');
+                } else {
+                    addLog(`❌ Error: ${data.error}`, 'error');
+                    extractBtn.disabled = false;
+                    extractBtn.innerHTML = '<span>🚀</span> Extraer URLs Ahora';
+                }
+            } catch (error) {
+                addLog(`❌ Error de conexión: ${error.message}`, 'error');
+                extractBtn.disabled = false;
+                extractBtn.innerHTML = '<span>🚀</span> Extraer URLs Ahora';
+            }
+        }
+
+        // Connect to SSE logs
+        function connectToLogs(jobId, jobType) {
+            if (currentEventSource) {
+                currentEventSource.close();
+            }
+
+            const url = `${API_BASE_URL}/api/logs/${jobId}?apiKey=${API_KEY}`;
+            currentEventSource = new EventSource(url);
+
+            currentEventSource.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+
+                if (data.type === 'stdout') {
+                    addLog(data.message, 'stdout');
+                } else if (data.type === 'stderr') {
+                    addLog(data.message, 'stderr');
+                } else if (data.type === 'complete') {
+                    addLog(`\n✅ Proceso completado con código de salida: ${data.exitCode}`, 'complete');
+                    currentEventSource.close();
+
+                    // Handle post-extraction actions
+                    if (jobType === 'extraction') {
+                        handleExtractionComplete();
+                    } else if (jobType === 'check-only') {
+                        handleCheckOnlyComplete();
+                    }
+                } else if (data.type === 'error') {
+                    addLog(`❌ Error: ${data.message}`, 'error');
+                    currentEventSource.close();
+                    resetExtractionButton();
+                }
+            };
+
+            currentEventSource.onerror = (error) => {
+                console.error('SSE Error:', error);
+                currentEventSource.close();
+                addLog('❌ Conexión perdida con el servidor', 'error');
+            };
+        }
+
+        // Handle extraction complete
+        async function handleExtractionComplete() {
+            const extractBtn = document.getElementById('extract-btn');
+            extractBtn.disabled = false;
+            extractBtn.innerHTML = '<span>🚀</span> Extraer URLs Ahora';
+
+            // Reload stats
+            await loadStats();
+
+            // Show summary
+            const statsResponse = await fetch(`${API_BASE_URL}/api/stats`, {
+                headers: { 'X-API-Key': API_KEY }
+            });
+
+            if (statsResponse.ok) {
+                const stats = await statsResponse.json();
+                document.getElementById('summary-text').innerHTML = `
+                    <strong>${stats.extractedUrls || 0}</strong> URLs extraídas.
+                    <strong>${stats.pendingNew || 0}</strong> nuevas detectadas.
+                    Archivo actualizado: <code>urls-propiedades-recientes-culiacan.txt</code>
+                `;
+                document.getElementById('extraction-summary').classList.add('show');
+
+                // Auto-trigger check-only
+                addLog('\n🔍 Iniciando verificación automática de duplicados...', 'stdout');
+                setTimeout(() => startCheckOnly(), 2000);
+            }
+        }
+
+        // Start check-only (auto-triggered)
+        async function startCheckOnly() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/scrape-batch`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({
+                        concurrency: 3,
+                        test: null,
+                        checkOnly: true
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog(`✅ Verificación iniciada: ${data.jobId}`, 'stdout');
+                    connectToLogs(data.jobId, 'check-only');
+                } else {
+                    addLog(`❌ Error al verificar: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+
+        // Handle check-only complete
+        async function handleCheckOnlyComplete() {
+            // Reload stats and pending URLs
+            await loadStats();
+            await loadPendingURLs();
+
+            addLog('✅ Verificación completa. Lista de pendientes actualizada.', 'complete');
+        }
+
+        // Scrape single URL
+        async function scrapeSingle(url, index) {
+            if (!confirm(`¿Deseas scrapear esta URL ahora?\n\n${url}`)) {
+                return;
+            }
+
+            openLogs();
+            addLog(`\n🚀 Iniciando scraping de URL individual...`, 'stdout');
+            addLog(`📌 URL: ${url}`, 'stdout');
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/scrape-single`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': API_KEY
+                    },
+                    body: JSON.stringify({ url })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    addLog(`✅ Scraping iniciado: ${data.jobId}`, 'stdout');
+                    connectToLogs(data.jobId, 'scrape-single');
+
+                    // Remove item from pending list after successful start
+                    setTimeout(() => loadPendingURLs(), 1000);
+                } else {
+                    addLog(`❌ Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Error de conexión: ${error.message}`, 'error');
+            }
+        }
+
+        // Discard URL (placeholder - requires backend endpoint)
+        function discardURL(index) {
+            if (confirm('¿Deseas descartar esta URL de la lista de pendientes?')) {
+                // TODO: Implement discard endpoint
+                alert('Funcionalidad de descarte pendiente de implementar en el backend.');
+            }
+        }
+
+        // Reset extraction button
+        function resetExtractionButton() {
+            const extractBtn = document.getElementById('extract-btn');
+            extractBtn.disabled = false;
+            extractBtn.innerHTML = '<span>🚀</span> Extraer URLs Ahora';
+        }
+
+        // Logs Panel Functions
+        function toggleLogs() {
+            const panel = document.getElementById('logs-panel');
+            const toggle = document.getElementById('logs-toggle');
+            panel.classList.toggle('open');
+            toggle.classList.remove('pulse');
+        }
+
+        function openLogs() {
+            document.getElementById('logs-panel').classList.add('open');
+            document.getElementById('logs-toggle').classList.add('pulse');
+        }
+
+        function clearLogs() {
+            document.getElementById('logs-content').innerHTML =
+                '<div class="log-line log-stdout">Logs limpiados...</div>';
+        }
+
+        function addLog(message, type = 'stdout') {
+            const logsContent = document.getElementById('logs-content');
+            const logLine = document.createElement('div');
+            logLine.className = `log-line log-${type}`;
+            logLine.textContent = message;
+            logsContent.appendChild(logLine);
+            logsContent.scrollTop = logsContent.scrollHeight;
+
+            // Pulse the logs button
+            if (!document.getElementById('logs-panel').classList.contains('open')) {
+                document.getElementById('logs-toggle').classList.add('pulse');
+            }
+        }
+    </script>
+</body>
+</html>

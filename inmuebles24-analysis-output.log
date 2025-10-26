@@ -1,0 +1,132 @@
+🔍 ANÁLISIS PROFUNDO: Inmuebles24 - Sistema de Ubicaciones
+
+════════════════════════════════════════════════════════════════════════════════
+
+📄 Cargando página de Inmuebles24...
+   URL: https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html
+
+✅ Página cargada
+
+════════════════════════════════════════════════════════════════════════════════
+
+📍 1️⃣  ANÁLISIS DE DIRECCIONES EN HTML
+
+🔹 Breadcrumbs encontrados: 7
+   1. Inmuebles24
+   2. Casa
+   3. Venta
+   4. Sinaloa
+   5. Culiacán
+
+🔹 Meta tags de ubicación: 0
+
+🔹 Headings con ubicación: 4
+   1. Casa · 85m² · 3 recámaras · 2 estacionamientos
+   2. Se Vende Casa en Perisur II Culiacán
+   3. Conoce más sobre este inmueble
+
+🔹 Spans con clases de ubicación: 0
+
+🔹 Patrones de dirección en body text: 5
+   1. Calle Ahuejote 591,  Fraccionamiento Perisur, Culiacán
+   2. privada con acceso controlado las 24 horas, en Perisur II, disfrutarás de tranqu
+   3. Fraccionamiento Perisur, Culiacán
+
+════════════════════════════════════════════════════════════════════════════════
+
+📋 2️⃣  ANÁLISIS DE JSON-LD STRUCTURED DATA
+
+🔹 Scripts JSON-LD encontrados: 3
+
+   Script 1:
+   - @type: WebSite
+   - Tiene address: ❌
+   - Tiene geo: ❌
+
+   Script 2:
+   - @type: Organization
+   - Tiene address: ❌
+   - Tiene geo: ❌
+
+   Script 3:
+   - @type: House
+   - Tiene address: ✅
+   - streetAddress: "Calle Ahuejote 591"
+   - addressLocality: "Culiacán, Sinaloa, Mexico, "
+   - addressRegion: "Fraccionamiento Perisur"
+   - postalCode: "N/A"
+   - Tiene geo: ❌
+
+════════════════════════════════════════════════════════════════════════════════
+
+🗺️  3️⃣  ANÁLISIS DE MAPAS (IFRAME/EMBED)
+
+🔹 Iframes de mapas encontrados: 3
+
+   Iframe 1:
+   - Tiene coordenadas: ❌
+   - Tiene place: ❌
+   - Src: https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-9662259255776388&output=html&adk=4268392394&adf=855488675&lmt=1761326841&plaf=1%3A2%2C2%3...
+
+   Iframe 2:
+   - Tiene coordenadas: ❌
+   - Tiene place: ❌
+   - Src: https://www.google.com/recaptcha/api2/aframe...
+
+   Iframe 3:
+   - Tiene coordenadas: ❌
+   - Tiene place: ❌
+   - Src: https://googleads.g.doubleclick.net/pagead/html/r20251022/r20190131/zrt_lookup_fy2021.html...
+
+════════════════════════════════════════════════════════════════════════════════
+
+💻 4️⃣  ANÁLISIS DE SCRIPTS JAVASCRIPT
+
+🔹 Google Maps API cargado: ❌
+🔹 Scripts inline con coordenadas: 0
+
+🔹 Variables de ubicación encontradas: 1
+
+   1. let locationName = ""
+
+════════════════════════════════════════════════════════════════════════════════
+
+🌐 5️⃣  PETICIONES DE RED (MAPS/GEOCODING)
+
+🔹 Peticiones interceptadas relacionadas con ubicación: 1
+
+   1. https://img10.naventcdn.com/ficha/RPFICv5.373.0-RC1/images/no-location-map.png
+
+════════════════════════════════════════════════════════════════════════════════
+
+🪟 6️⃣  VARIABLES GLOBALES (window)
+
+🔹 Google Maps disponible en window: ❌
+🔹 __NEXT_DATA__ encontrado: ❌
+
+🔹 Variables globales de ubicación: 1
+
+   1. window.location = {"ancestorOrigins":{},"href":"https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-
+
+════════════════════════════════════════════════════════════════════════════════
+
+🎯 7️⃣  COORDENADAS FINALES DETECTADAS
+
+🔹 Fuentes de coordenadas:
+
+   JSON-LD geo: ❌
+   Iframe maps: ❌
+   Meta tags: ❌
+
+❌ No se encontraron coordenadas
+
+════════════════════════════════════════════════════════════════════════════════
+
+📊 REPORTE COMPLETO
+
+✅ Análisis guardado en: inmuebles24-location-analysis.json
+
+⏸️  Navegador abierto para inspección manual (30 segundos)...
+
+✅ Análisis completado.
+

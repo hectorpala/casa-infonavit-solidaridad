@@ -1,0 +1,122 @@
+{
+  "timestamp": "2025-10-24T17:27:25.952Z",
+  "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html",
+  "addressData": {
+    "breadcrumbs": [
+      "Inmuebles24",
+      "Casa",
+      "Venta",
+      "Sinaloa",
+      "Culiacán",
+      "Fraccionamiento Perisur",
+      "Se Vende Casa en Perisur II Culiacán"
+    ],
+    "metaTags": [],
+    "headings": [
+      "Casa · 85m² · 3 recámaras · 2 estacionamientos",
+      "Se Vende Casa en Perisur II Culiacán",
+      "Conoce más sobre este inmueble",
+      "InmoFácil"
+    ],
+    "bodyText": [
+      "Calle Ahuejote 591,  Fraccionamiento Perisur, Culiacán",
+      "privada con acceso controlado las 24 horas, en Perisur II, disfrutarás de tranquilidad, confort y fácil acceso a servicios esenciales.",
+      "privada con acceso controlado las 24 horas, en Perisur II, disfrutarás de tranquilidad, confort y fácil acceso a servicios esenciales.",
+      "Fraccionamiento Perisur, Culiacán",
+      "Fraccionamiento Perisur, Culiacán"
+    ],
+    "spans": [],
+    "divs": [
+      {
+        "class": "section-location-property section-location-property-classified",
+        "text": "Calle Ahuejote 591,  Fraccionamiento Perisur, Culiacán"
+      }
+    ]
+  },
+  "jsonLdData": [
+    {
+      "index": 0,
+      "type": "WebSite",
+      "hasAddress": false,
+      "hasGeo": false,
+      "name": "Inmuebles24",
+      "raw": "\n\t{\n\t\t\"@context\": \"https://schema.org\",\n\t\t\"@type\": \"WebSite\",\n\t\t\"name\": \"Inmuebles24\",\n\t\t\"url\": \"https://www.inmuebles24.com\"\n\t}\n"
+    },
+    {
+      "index": 1,
+      "type": "Organization",
+      "hasAddress": false,
+      "hasGeo": false,
+      "name": "Inmuebles24",
+      "raw": "\n  {\n    \"@context\" : \"https://schema.org\",\n    \"@type\" : \"Organization\",\n    \"name\" : \"Inmuebles24\",\n    \"url\" : \"https://www.inmuebles24.com\",\n    \"logo\" : \"https://img10.naventcdn.com/ficha/RPFICv5.373.0-RC1/images/favicon.png\"\n  }\n"
+    },
+    {
+      "index": 2,
+      "type": "House",
+      "hasAddress": true,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Culiacán, Sinaloa, Mexico, ",
+        "addressRegion": "Fraccionamiento Perisur",
+        "streetAddress": "Calle Ahuejote 591"
+      },
+      "hasGeo": false,
+      "name": "Se Vende Casa en Perisur II Culiacán, Provincia de Sinaloa - Inmuebles24",
+      "raw": "\n  {\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"House\",\n    \"name\": \"Se Vende Casa en Perisur II Culiacán, Provincia de Sinaloa - Inmuebles24\",\n    \"description\": \"Esta casa en venta es ideal para quienes buscan seguridad, ubicación estratégica y un entorno familiar. Ubicada dentro de una privada con a...Fraccionamiento Perisur\",\n    \"image\": \"https://img10.naventcdn.com/avisos/18/01/47/71/15/85/720x532/1562624616.jpg?isFirstImage=true\",\n    \"numberOfRooms\": 3,\n    \"floorSize\": {\n      "
+    }
+  ],
+  "mapData": [
+    {
+      "index": 2,
+      "src": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-9662259255776388&output=html&adk=4268392394&adf=855488675&lmt=1761326841&plaf=1%3A2%2C2%3A2%2C7%3A2&plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41",
+      "hasCoordinates": false,
+      "coordinates": null,
+      "hasPlace": false,
+      "place": null
+    },
+    {
+      "index": 11,
+      "src": "https://www.google.com/recaptcha/api2/aframe",
+      "hasCoordinates": false,
+      "coordinates": null,
+      "hasPlace": false,
+      "place": null
+    },
+    {
+      "index": 13,
+      "src": "https://googleads.g.doubleclick.net/pagead/html/r20251022/r20190131/zrt_lookup_fy2021.html",
+      "hasCoordinates": false,
+      "coordinates": null,
+      "hasPlace": false,
+      "place": null
+    }
+  ],
+  "scriptData": {
+    "googleMapsAPI": false,
+    "inlineScriptsWithCoords": [],
+    "variablesWithLocation": [
+      "let locationName = \"\""
+    ]
+  },
+  "networkRequests": [
+    {
+      "url": "https://img10.naventcdn.com/ficha/RPFICv5.373.0-RC1/images/no-location-map.png",
+      "method": "GET",
+      "type": "image"
+    }
+  ],
+  "windowVars": {
+    "hasGoogleMaps": false,
+    "locationVars": [
+      {
+        "key": "location",
+        "value": "{\"ancestorOrigins\":{},\"href\":\"https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-"
+      }
+    ]
+  },
+  "finalCoords": {
+    "jsonLd": null,
+    "iframe": null,
+    "meta": null
+  }
+}

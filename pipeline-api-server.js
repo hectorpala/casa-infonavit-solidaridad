@@ -15,6 +15,7 @@
  *
  * Endpoints:
  * - POST /api/extract-urls - Extrae URLs recientes
+ * - POST /api/verify-dates - Verifica fechas con Puppeteer (100% accuracy)
  * - POST /api/scrape-batch - Ejecuta scraping batch
  * - GET /api/status/:jobId - Consulta estado de un job
  * - GET /api/logs/:jobId - Streaming de logs (SSE)
@@ -245,6 +246,50 @@ app.post('/api/scrape-batch', authenticate, (req, res) => {
         success: true,
         jobId,
         message: 'Batch scraping started',
+        logsUrl: `/api/logs/${jobId}`
+    });
+});
+
+/**
+ * POST /api/verify-dates
+ * Verifica fechas de publicación abriendo cada página individual con Puppeteer
+ * Usa verificar-fechas-individuales.js (100% accuracy)
+ */
+app.post('/api/verify-dates', authenticate, (req, res) => {
+    if (currentJobId) {
+        return res.status(409).json({
+            error: 'Another job is running',
+            currentJobId
+        });
+    }
+
+    const jobId = generateJobId();
+
+    jobs.set(jobId, {
+        id: jobId,
+        type: 'verify-dates',
+        status: 'pending',
+        params: {},
+        logs: [],
+        sseClients: []
+    });
+
+    currentJobId = jobId;
+
+    // Ejecutar verificar-fechas-individuales.js (abre páginas con Puppeteer)
+    setImmediate(() => {
+        executeCommand(
+            jobId,
+            'node',
+            ['verificar-fechas-individuales.js'],
+            { timeout: 3600000 } // 1 hora
+        );
+    });
+
+    res.json({
+        success: true,
+        jobId,
+        message: 'Date verification started (opening pages with Puppeteer)',
         logsUrl: `/api/logs/${jobId}`
     });
 });
@@ -559,6 +604,7 @@ app.listen(PORT, () => {
     console.log('');
     console.log('📡 Endpoints:');
     console.log(`   POST   /api/extract-urls     - Extract URLs from Inmuebles24`);
+    console.log(`   POST   /api/verify-dates     - Verify dates with Puppeteer`);
     console.log(`   POST   /api/scrape-batch     - Run batch scraping`);
     console.log(`   POST   /api/run-command      - Run custom command`);
     console.log(`   GET    /api/status/:jobId    - Get job status`);

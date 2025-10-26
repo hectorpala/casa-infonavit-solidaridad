@@ -1,0 +1,206 @@
+📚 Gazetteer cargado: 631 entradas
+   Colonias: 224
+   Fraccionamientos: 407
+   Índice por slug: 627 entradas
+   Índice por nombre: 609 entradas
+   Índice por CP: 98 códigos postales
+🏠 Tipo detectado: VENTA
+
+╔═══════════════════════════════════════════════╗
+║  🌆 CONFIRMACIÓN DE CIUDAD (IMPORTANTE)      ║
+╚═══════════════════════════════════════════════╝
+
+📍 Ciudad detectada automáticamente: Monterrey, Nuevo León
+
+¿Es correcta esta ciudad?
+
+  1️⃣  Culiacán, Sinaloa
+  2️⃣  Monterrey, Nuevo León
+  3️⃣  Mazatlán, Sinaloa
+
+👉 Selecciona el número (1/2/3) o presiona Enter para confirmar: 
+✅ Ciudad confirmada: Monterrey, Nuevo León
+
+🚀 Iniciando scraper para: VENTA en Monterrey, Nuevo León
+
+🚀 Iniciando scraper de Inmuebles24...
+
+📍 URL: https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-real-cumbres-monterrey-1-nivel-147643837.html
+
+🌐 Navegando a la página...
+📸 Buscando botón "Ver todas las fotos"...
+   ✅ Clic en botón de galería
+👤 Capturando datos del vendedor...
+   👤 Vendedor: León y Asociados Grupo Inmobiliario
+   📞 Teléfono: 815028902
+   ✅ Datos capturados del HTML (sin enviar información personal)
+📊 Extrayendo datos...
+
+🌍 Geocodificando ubicación...
+   ℹ️  No se detectaron coordenadas embebidas
+
+🌍 === GEOCODIFICACIÓN INICIADA ===
+   Dirección original: "Real Cumbres, Monterrey, Nuevo León, Mexico, Real de Cumbres 1er Sector"
+
+🔧 Normalizando: "Real Cumbres, Monterrey, Nuevo León, Mexico, Real de Cumbres 1er Sector"
+   ✅ Dirección limpia: "Real Cumbres, Monterrey, Nuevo León, Mexico, Real de Cumbres 1er Sector"
+   📍 Colonia detectada: "Monterrey"
+   🏠 Calle: "(ninguna)"
+   🔢 Número: "(ninguno)"
+
+🔍 Buscando colonia: "Monterrey"
+   ❌ No se encontró match para "Monterrey"
+
+📍 Probando 2 variaciones de dirección...
+
+   1. [neighborhood] "Monterrey, Culiacán, Sinaloa, México"
+      🌐 Consultando Google Geocoding API...
+      ✅ Google Geocoding OK: 24.8090649, -107.3940117 (city)
+
+
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.8090649, -107.3940117
+   🎯 Precisión: city
+   💯 Confianza: 60%
+   ✔️  Dentro de Culiacán: Sí
+   📊 Fuente: google-maps-geocoding
+
+
+   ✅ Geocodificación: city (60%)
+   📍 Coordenadas: 24.8090649, -107.3940117
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada
+   💰 Precio: MN 2,550,000
+   📍 Ubicación: Real Cumbres, Monterrey, Nuevo León, Mexico, Real de Cumbres 1er Sector
+   🛏️  3 recámaras
+   🛁 1 baños
+   📐 72m² construcción
+   🏞️  146m² terreno
+   📸 32 imágenes encontradas
+   👤 Vendedor: León y Asociados Grupo Inmobiliario
+   📞 Tel: 815028902
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 147643837
+   📅 Fecha: Publicado hace 34 días
+   👁️  Vistas: 532
+
+🔗 Slug generado: casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada
+
+📥 Descargando 32 fotos...
+
+   ✅ foto-1.jpg
+   ✅ foto-2.jpg
+   ✅ foto-3.jpg
+   ✅ foto-4.jpg
+   ✅ foto-5.jpg
+   ✅ foto-6.jpg
+   ✅ foto-7.jpg
+   ✅ foto-8.jpg
+   ✅ foto-9.jpg
+   ✅ foto-10.jpg
+   ✅ foto-11.jpg
+   ✅ foto-12.jpg
+   ✅ foto-13.jpg
+   ✅ foto-14.jpg
+   ✅ foto-15.jpg
+   ✅ foto-16.jpg
+   ✅ foto-17.jpg
+   ✅ foto-18.jpg
+   ✅ foto-19.jpg
+   ✅ foto-20.jpg
+   ✅ foto-21.jpg
+   ✅ foto-22.jpg
+   ✅ foto-23.jpg
+   ✅ foto-24.jpg
+   ✅ foto-25.jpg
+   ✅ foto-26.jpg
+   ✅ foto-27.jpg
+   ✅ foto-28.jpg
+   ✅ foto-29.jpg
+   ✅ foto-30.jpg
+   ✅ foto-31.jpg
+   ✅ foto-32.jpg
+
+✅ 32/32 fotos descargadas
+
+📄 Generando HTML desde template La Primavera para Monterrey...
+
+   ✅ API key actualizada a nueva key
+   ✅ styles.css copiado
+   ✅ HTML generado con template La Primavera para Monterrey
+✅ HTML generado: monterrey/casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/index.html
+
+📝 Agregando tarjeta a monterrey/index.html...
+
+   ✅ Tarjeta agregada AL INICIO de monterrey/index.html (más reciente)
+
+🗺️  Agregando propiedad al mapa modal de Monterrey...
+
+   ✅ Coordenadas (geocoder): 24.8090649, -107.3940117
+   ✅ Punto de inserción encontrado (definición)
+   ✅ Definición de propiedad agregada al mapa
+   ✅ Punto de inserción encontrado (marcador)
+   ✅ Marcador con coordenadas exactas agregado al mapa de Monterrey
+
+🚀 Publicando a GitHub...
+
+[main fad8854] Add: Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada (Inmuebles24 - Monterrey)
+ Committer: HectorPC <hectorpc@192.168.101.16>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 4 files changed, 491 insertions(+), 71 deletions(-)
+To https://github.com/hectorpala/casa-infonavit-solidaridad.git
+   1835beb..fad8854  main -> main
+   ✅ Propiedad guardada en registro (ID: 147643837)
+
+   📝 Vendedor encontrado en CRM: Realtor Rodolfo
+   ✅ Propiedad vinculada: "Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada"
+   📅 Publicada en Inmuebles24: Publicado hace 34 días
+   📊 Total propiedades de Realtor Rodolfo: 17
+   ✅ CRM actualizado: 27 vendedores, 255 propiedades
+
+📤 Publicando cambios del CRM a GitHub...
+
+   ✅ CRM publicado exitosamente a GitHub
+
+
+============================================================
+✅ ¡COMPLETADO!
+============================================================
+
+📊 RESUMEN FINAL:
+   🏠 Casa en Venta en Real Cumbres Monterrey 1 Nivel Equipada
+   💰 MN 2,550,000
+   🛏️  3 recámaras • 🛁 1 baños
+   📐 72m² construcción • 🏞️  146m² terreno
+   📸 32 fotos descargadas
+
+👤 VENDEDOR:
+   Nombre: León y Asociados Grupo Inmobiliario
+   📞 Tel: 815028902
+
+📅 PUBLICACIÓN:
+   Fecha: Publicado hace 34 días
+   👁️  Vistas: 532
+
+🌐 URLs:
+   Local: monterrey/casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/index.html
+   Producción: https://casasenventa.info/monterrey/casa-en-venta-en-real-cumbres-monterrey-1-nivel-equipada/
+
+⏳ Esperando 30 segundos para que GitHub Pages actualice...
+   (Esto evita problemas de cache y deployments cancelados)
+
+✅ Deployment completado. La página ya debe estar visible.
+

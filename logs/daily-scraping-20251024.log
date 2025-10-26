@@ -1,0 +1,431 @@
+[0;34m[2025-10-24 16:13:51] ℹ️  Modo AUTO detectado (Proxies configurados)[0m
+[0;34m[2025-10-24 16:13:51] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:13:51] ℹ️  PASO 1: Extrayendo URLs de propiedades[0m
+[0;34m[2025-10-24 16:13:51] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:13:51] ℹ️  Ejecutando extractor automático...[0m
+════════════════════════════════════════════════════════════════════════════════
+🔥 EXTRACTOR ULTRA - STEALTH MODE ACTIVADO
+📅 Criterio: Propiedades con ≤20 días
+📄 Páginas a scrapear: hasta 5
+════════════════════════════════════════════════════════════════════════════════
+
+🚀 Lanzando navegador con máxima evasión...
+
+
+────────────────────────────────────────────────────────────────────────────────
+📄 PÁGINA 1: https://www.inmuebles24.com/venta/sinaloa/culiacan/
+────────────────────────────────────────────────────────────────────────────────
+🌐 Navegando (stealth mode activo)...
+⏳ Esperando 20 segundos (comportamiento humano)...
+🖱️  Simulando actividad humana...
+📜 Scroll gradual (MUY humano)...
+📸 Screenshot guardado: debug-page-1.png
+🔍 Extrayendo URLs (búsqueda exhaustiva)...
+   ✅ Propiedades extraídas: 0
+
+⚠️  No se encontraron propiedades. Deteniendo.
+
+════════════════════════════════════════════════════════════════════════════════
+📊 RESUMEN FINAL
+════════════════════════════════════════════════════════════════════════════════
+   📄 Páginas scrapeadas: 0
+   ✅ URLs válidas (≤20 días): 0
+════════════════════════════════════════════════════════════════════════════════
+
+⚠️  No se encontraron propiedades válidas.
+[0;32m[2025-10-24 16:14:56] ✅ Extractor completado[0m
+[0;34m[2025-10-24 16:14:56] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:14:56] ℹ️  PASO 2: Limpiando histórico antiguo[0m
+[0;34m[2025-10-24 16:14:56] ℹ️  ==========================================[0m
+📚 Histórico nuevo (archivo no existe)
+Propiedades antiguas eliminadas: 0
+[0;32m[2025-10-24 16:14:56] ✅ Histórico limpio[0m
+[0;34m[2025-10-24 16:14:56] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:14:56] ℹ️  PASO 3: Procesando URLs con batch processor[0m
+[0;34m[2025-10-24 16:14:56] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:14:56] ℹ️  Concurrencia: 3 workers (modo AUTO)[0m
+════════════════════════════════════════════════════════════════════════════════
+🚀 BATCH PROCESSOR - INMUEBLES24 CULIACÁN
+════════════════════════════════════════════════════════════════════════════════
+
+📊 URLs encontradas: 2
+
+⚙️  Configuración:
+   • Scraper: node inmuebles24culiacanscraper.js
+   • Delay entre propiedades: 5s
+   • Log file: batch-scraping-log.txt
+
+🔄 Iniciando procesamiento...
+
+
+════════════════════════════════════════════════════════════════════════════════
+🏠 PROPIEDAD 1/2
+🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html
+════════════════════════════════════════════════════════════════════════════════
+⚙️  Ejecutando: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html"
+
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.75101, -107.4010395
+   🎯 Precisión: city
+   💯 Confianza: 60%
+   🏘️  Colonia: Perisur II (Fraccionamiento)
+      CP: 80197
+      Match: exact-slug (100%)
+   ✔️  Dentro de Culiacán: Sí
+   📊 Fuente: google-maps-geocoding
+
+
+   ✅ Geocodificación: city (60%)
+   🏘️  Colonia: Perisur II (CP: 80197)
+   📍 Coordenadas: 24.75101, -107.4010395
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Se Vende Casa en Perisur II Culiacán
+   💰 Precio: MN 2,300,002
+   📍 Ubicación: Calle Ahuejote 591, Culiacán, Sinaloa, Mexico, Fraccionamiento Perisur II
+   🛏️  3 recámaras
+   🛁 1 baños
+   📐 85m² construcción
+   🏞️  85m² terreno
+   📸 27 imágenes encontradas
+   👤 Vendedor: InmoFácil
+   📞 Tel: 6671010683
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 147711585
+   📅 Fecha: Publicado hace 28 días
+   👁️  Vistas: 57
+
+
+⚠️  ============================================
+⚠️  PROPIEDAD DUPLICADA DETECTADA
+⚠️  ============================================
+   🆔 ID: 147711585
+   📝 Título: Se Vende Casa en Perisur II Culiacán
+   💰 Precio: MN 2,300,002
+   📅 Publicada: Publicado hace 28 días
+   🕐 Scrapeada: 2025-10-24T20:57:48.144Z
+   🔗 Slug: se-vende-casa-en-perisur-ii-culiacan
+
+   ❌ Esta propiedad ya fue scrapeada anteriormente.
+   💡 Si quieres re-scrapear, elimina la entrada del archivo:
+      inmuebles24-scraped-properties.json
+
+   🛑 Scraper detenido para evitar duplicados.
+
+
+
+✅ Completada en 10.2s
+
+⏳ Esperando 5 segundos antes de la siguiente propiedad...
+
+════════════════════════════════════════════════════════════════════════════════
+🏠 PROPIEDAD 2/2
+🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-guadalupe-146847493.html
+════════════════════════════════════════════════════════════════════════════════
+⚙️  Ejecutando: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-guadalupe-146847493.html"
+
+      🌐 Consultando Google Geocoding API...
+      ✅ Google Geocoding OK: 24.8090649, -107.3940117 (city)
+
+
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.8090649, -107.3940117
+   🎯 Precisión: city
+   💯 Confianza: 60%
+   ✔️  Dentro de Culiacán: Sí
+   📊 Fuente: google-maps-geocoding
+
+
+   ✅ Geocodificación: city (60%)
+   📍 Coordenadas: 24.8090649, -107.3940117
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Casa en Guadalupe
+   💰 Precio: MN 2,102,000
+   📍 Ubicación: Prol. Álvaro Obregón 768, Culiacán, Sinaloa
+   🛏️  2 recámaras
+   🛁 2 baños
+   📐 80m² construcción
+   🏞️  118m² terreno
+   📸 37 imágenes encontradas
+   👤 Vendedor: DAVID GONZALEZ
+   📞 Tel: 815028902
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 146847493
+   📅 Fecha: Publicado hace 119 días
+   👁️  Vistas: 0
+
+
+⚠️  ============================================
+⚠️  PROPIEDAD DUPLICADA DETECTADA
+⚠️  ============================================
+   🆔 ID: 146847493
+   📝 Título: Casa en Guadalupe
+   💰 Precio: MN 2,102,000
+   📅 Publicada: Publicado hace 117 días
+   🕐 Scrapeada: 2025-10-22T05:01:53.251Z
+   🔗 Slug: casa-en-guadalupe
+
+   ❌ Esta propiedad ya fue scrapeada anteriormente.
+   💡 Si quieres re-scrapear, elimina la entrada del archivo:
+      inmuebles24-scraped-properties.json
+
+   🛑 Scraper detenido para evitar duplicados.
+
+
+
+✅ Completada en 10.3s
+
+════════════════════════════════════════════════════════════════════════════════
+✅ PROCESAMIENTO COMPLETADO
+════════════════════════════════════════════════════════════════════════════════
+
+📊 RESUMEN:
+   • Total URLs: 2
+   • Exitosas: 2
+   • Errores: 0
+   • Tiempo total: 0.4 minutos
+   • Promedio: 12.0s por propiedad
+
+📁 Log completo guardado en: batch-scraping-log.txt
+════════════════════════════════════════════════════════════════════════════════
+[0;32m[2025-10-24 16:15:21] ✅ Batch processing completado[0m
+[0;34m[2025-10-24 16:15:21] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:15:21] ℹ️  PASO 4: Generando estadísticas[0m
+[0;34m[2025-10-24 16:15:21] ℹ️  ==========================================[0m
+📚 Histórico nuevo (archivo no existe)
+📊 ESTADÍSTICAS FINALES
+══════════════════════════════════════════════════
+Total propiedades: 0
+Recientes (≤20 días): 0
+Recientes (≤15 días): 0
+Cambios de precio: 0
+Scrapeadas: 0
+Pendientes: 0
+══════════════════════════════════════════════════
+[0;34m[2025-10-24 16:15:21] ℹ️  Resultados del batch:[0m
+[0;32m[2025-10-24 16:15:21] ✅   Exitosas: 2[0m
+[0;32m[2025-10-24 16:15:21] ✅   Errores: 0[0m
+[0;34m[2025-10-24 16:15:21] ℹ️  ==========================================[0m
+[0;32m[2025-10-24 16:15:21] ✅ SCRAPING DIARIO COMPLETADO[0m
+[0;34m[2025-10-24 16:15:21] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:15:21] ℹ️  Log completo: logs/daily-scraping-20251024.log[0m
+[0;34m[2025-10-24 16:15:21] ℹ️  Próxima ejecución: Configurar en crontab[0m
+[0;34m[2025-10-24 16:33:42] ℹ️  Modo AUTO detectado (Proxies configurados)[0m
+[0;34m[2025-10-24 16:33:42] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:33:42] ℹ️  PASO 1: Extrayendo URLs de propiedades[0m
+[0;34m[2025-10-24 16:33:42] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:33:42] ℹ️  Ejecutando extractor automático...[0m
+════════════════════════════════════════════════════════════════════════════════
+🔥 EXTRACTOR ULTRA - STEALTH MODE ACTIVADO
+📅 Criterio: Propiedades con ≤20 días
+📄 Páginas a scrapear: hasta 5
+════════════════════════════════════════════════════════════════════════════════
+
+🚀 Lanzando navegador con máxima evasión...
+
+
+────────────────────────────────────────────────────────────────────────────────
+📄 PÁGINA 1: https://www.inmuebles24.com/venta/sinaloa/culiacan/
+────────────────────────────────────────────────────────────────────────────────
+🌐 Navegando (stealth mode activo)...
+⏳ Esperando 20 segundos (comportamiento humano)...
+🖱️  Simulando actividad humana...
+📜 Scroll gradual (MUY humano)...
+📸 Screenshot guardado: debug-page-1.png
+🔍 Extrayendo URLs (búsqueda exhaustiva)...
+   ✅ Propiedades extraídas: 0
+
+⚠️  No se encontraron propiedades. Deteniendo.
+
+════════════════════════════════════════════════════════════════════════════════
+📊 RESUMEN FINAL
+════════════════════════════════════════════════════════════════════════════════
+   📄 Páginas scrapeadas: 0
+   ✅ URLs válidas (≤20 días): 0
+════════════════════════════════════════════════════════════════════════════════
+
+⚠️  No se encontraron propiedades válidas.
+[0;32m[2025-10-24 16:34:46] ✅ Extractor completado[0m
+[0;34m[2025-10-24 16:34:46] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:34:46] ℹ️  PASO 2: Limpiando histórico antiguo[0m
+[0;34m[2025-10-24 16:34:46] ℹ️  ==========================================[0m
+📚 Histórico nuevo (archivo no existe)
+Propiedades antiguas eliminadas: 0
+[0;32m[2025-10-24 16:34:46] ✅ Histórico limpio[0m
+[0;34m[2025-10-24 16:34:46] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:34:46] ℹ️  PASO 3: Procesando URLs con batch processor[0m
+[0;34m[2025-10-24 16:34:46] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:34:46] ℹ️  Concurrencia: 3 workers (modo AUTO)[0m
+════════════════════════════════════════════════════════════════════════════════
+🚀 BATCH PROCESSOR - INMUEBLES24 CULIACÁN
+════════════════════════════════════════════════════════════════════════════════
+
+📊 URLs encontradas: 2
+
+⚙️  Configuración:
+   • Scraper: node inmuebles24culiacanscraper.js
+   • Concurrencia: 3 workers
+   • Delay entre propiedades: 5s
+   • Log file: batch-scraping-log.txt
+
+🔄 Iniciando procesamiento...
+
+[Worker 1] Procesando URL 1/2
+
+════════════════════════════════════════════════════════════════════════════════
+🏠 PROPIEDAD 1/2
+🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html
+════════════════════════════════════════════════════════════════════════════════
+⚙️  Ejecutando: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-perisur-ii-culiacan-147711585.html"
+
+[Worker 2] Procesando URL 2/2
+
+════════════════════════════════════════════════════════════════════════════════
+🏠 PROPIEDAD 2/2
+🔗 https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-guadalupe-146847493.html
+════════════════════════════════════════════════════════════════════════════════
+⚙️  Ejecutando: echo "" | node inmuebles24culiacanscraper.js "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-guadalupe-146847493.html"
+
+      🌐 Consultando Google Geocoding API...
+      ✅ Google Geocoding OK: 24.8090649, -107.3940117 (city)
+
+
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.8090649, -107.3940117
+   🎯 Precisión: city
+   💯 Confianza: 60%
+   ✔️  Dentro de Culiacán: Sí
+   📊 Fuente: google-maps-geocoding
+
+
+   ✅ Geocodificación: city (60%)
+   📍 Coordenadas: 24.8090649, -107.3940117
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Casa en Guadalupe
+   💰 Precio: MN 2,102,000
+   📍 Ubicación: Prol. Álvaro Obregón 768, Culiacán, Sinaloa
+   🛏️  2 recámaras
+   🛁 2 baños
+   📐 80m² construcción
+   🏞️  118m² terreno
+   📸 37 imágenes encontradas
+   👤 Vendedor: DAVID GONZALEZ
+   📞 Tel: 815028902
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 146847493
+   📅 Fecha: Publicado hace 119 días
+   👁️  Vistas: 0
+
+
+⚠️  ============================================
+⚠️  PROPIEDAD DUPLICADA DETECTADA
+⚠️  ============================================
+   🆔 ID: 146847493
+   📝 Título: Casa en Guadalupe
+   💰 Precio: MN 2,102,000
+   📅 Publicada: Publicado hace 117 días
+   🕐 Scrapeada: 2025-10-22T05:01:53.251Z
+   🔗 Slug: casa-en-guadalupe
+
+   ❌ Esta propiedad ya fue scrapeada anteriormente.
+   💡 Si quieres re-scrapear, elimina la entrada del archivo:
+      inmuebles24-scraped-properties.json
+
+   🛑 Scraper detenido para evitar duplicados.
+
+
+
+✅ Completada en 10.3s
+✅ === GEOCODIFICACIÓN COMPLETADA ===
+   📍 Coordenadas: 24.75101, -107.4010395
+   🎯 Precisión: city
+   💯 Confianza: 60%
+   🏘️  Colonia: Perisur II (Fraccionamiento)
+      CP: 80197
+      Match: exact-slug (100%)
+   ✔️  Dentro de Culiacán: Sí
+   📊 Fuente: google-maps-geocoding
+
+
+   ✅ Geocodificación: city (60%)
+   🏘️  Colonia: Perisur II (CP: 80197)
+   📍 Coordenadas: 24.75101, -107.4010395
+
+✅ Datos extraídos exitosamente:
+   📝 Título: Se Vende Casa en Perisur II Culiacán
+   💰 Precio: MN 2,300,002
+   📍 Ubicación: Calle Ahuejote 591, Culiacán, Sinaloa, Mexico, Fraccionamiento Perisur II
+   🛏️  3 recámaras
+   🛁 1 baños
+   📐 85m² construcción
+   🏞️  85m² terreno
+   📸 27 imágenes encontradas
+   👤 Vendedor: InmoFácil
+   📞 Tel: 6671010683
+
+   🔍 METADATOS (para detección de duplicados):
+   🆔 ID Propiedad: 147711585
+   📅 Fecha: Publicado hace 28 días
+   👁️  Vistas: 57
+
+
+⚠️  ============================================
+⚠️  PROPIEDAD DUPLICADA DETECTADA
+⚠️  ============================================
+   🆔 ID: 147711585
+   📝 Título: Se Vende Casa en Perisur II Culiacán
+   💰 Precio: MN 2,300,002
+   📅 Publicada: Publicado hace 28 días
+   🕐 Scrapeada: 2025-10-24T20:57:48.144Z
+   🔗 Slug: se-vende-casa-en-perisur-ii-culiacan
+
+   ❌ Esta propiedad ya fue scrapeada anteriormente.
+   💡 Si quieres re-scrapear, elimina la entrada del archivo:
+      inmuebles24-scraped-properties.json
+
+   🛑 Scraper detenido para evitar duplicados.
+
+
+
+✅ Completada en 10.5s
+
+════════════════════════════════════════════════════════════════════════════════
+✅ PROCESAMIENTO COMPLETADO
+════════════════════════════════════════════════════════════════════════════════
+
+📊 RESUMEN:
+   • Total URLs: 2
+   • Exitosas: 2
+   • Errores: 0
+   • Tiempo total: 0.2 minutos
+   • Promedio: 6.0s por propiedad
+
+📁 Log completo guardado en: batch-scraping-log.txt
+════════════════════════════════════════════════════════════════════════════════
+[0;32m[2025-10-24 16:34:57] ✅ Batch processing completado[0m
+[0;34m[2025-10-24 16:34:57] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:34:57] ℹ️  PASO 4: Generando estadísticas[0m
+[0;34m[2025-10-24 16:34:57] ℹ️  ==========================================[0m
+📚 Histórico nuevo (archivo no existe)
+📊 ESTADÍSTICAS FINALES
+══════════════════════════════════════════════════
+Total propiedades: 0
+Recientes (≤20 días): 0
+Recientes (≤15 días): 0
+Cambios de precio: 0
+Scrapeadas: 0
+Pendientes: 0
+══════════════════════════════════════════════════
+[0;34m[2025-10-24 16:34:57] ℹ️  Resultados del batch:[0m
+[0;32m[2025-10-24 16:34:57] ✅   Exitosas: 2[0m
+[0;32m[2025-10-24 16:34:57] ✅   Errores: 0[0m
+[0;34m[2025-10-24 16:34:57] ℹ️  ==========================================[0m
+[0;32m[2025-10-24 16:34:57] ✅ SCRAPING DIARIO COMPLETADO[0m
+[0;34m[2025-10-24 16:34:57] ℹ️  ==========================================[0m
+[0;34m[2025-10-24 16:34:57] ℹ️  Log completo: logs/daily-scraping-20251024.log[0m
+[0;34m[2025-10-24 16:34:57] ℹ️  Próxima ejecución: Configurar en crontab[0m
