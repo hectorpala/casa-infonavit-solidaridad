@@ -3059,5 +3059,20 @@
     "colonia": "Villas Del Rio Elite",
     "codigoPostal": "80050",
     "scrapedAt": "2025-10-26T18:00:02.860Z"
+  },
+  {
+    "propertyId": "91223665",
+    "title": "Se Vende Casa en Privada Sector Stanza Toscana",
+    "slug": "se-vende-casa-en-privada-sector-stanza-toscana",
+    "price": "MN 3,550,000",
+    "publishedDate": "Publicado hace más de 1 año",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-privada-sector-stanza-toscana-91223665.html",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-26T18:00:52.034Z"
   }
 ]
