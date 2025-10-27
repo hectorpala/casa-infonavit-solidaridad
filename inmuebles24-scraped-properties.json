@@ -3496,18 +3496,18 @@
     "scrapedAt": "2025-10-26T23:28:24.959Z"
   },
   {
-    "propertyId": "147708671",
-    "title": "Casa en Venta en La Primavera San Juan",
-    "slug": "casa-en-venta-en-la-primavera-san-juan",
-    "price": "MN 13,300,000",
-    "publishedDate": "Publicado hace 28 días",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=7",
-    "lat": 24.8091,
-    "lng": -107.394,
-    "locationPrecision": "city",
+    "propertyId": "147077499",
+    "title": "Casa en Venta en Colonia Chapultepec Culiacán",
+    "slug": "casa-en-venta-en-colonia-chapultepec-culiacan",
+    "price": "MN 6,500,000",
+    "publishedDate": "Publicado hace 95 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+    "lat": 24.787,
+    "lng": -107.393,
+    "locationPrecision": "neighborhood",
     "locationSource": "geocoder",
-    "colonia": "La Primavera",
-    "codigoPostal": "80199",
-    "scrapedAt": "2025-10-27T02:19:10.543Z"
+    "colonia": "Chapultepec",
+    "codigoPostal": "80040",
+    "scrapedAt": "2025-10-27T02:34:45.794Z"
   }
 ]

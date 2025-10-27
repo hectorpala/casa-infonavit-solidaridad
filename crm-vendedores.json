@@ -1148,6 +1148,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace 22 días",
           "vistas": 0
+        },
+        {
+          "id": "147077499",
+          "titulo": "Casa en Venta en Colonia Chapultepec Culiacán",
+          "precio": "MN 6,500,000",
+          "ubicacion": "Colonia Chapultepec, Culiacán, Sinaloa, Mexico, Chapultepec",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+          "fechaScrapeo": "2025-10-27",
+          "fechaPublicacion": "Publicado hace 95 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Casa Rio Culiacán y Paliza, Culiacán, Sinaloa, Mexico, Guadalupe",
@@ -5725,9 +5739,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-27T02:19:10.546Z",
+    "ultimaActualizacion": "2025-10-27T02:34:45.797Z",
     "totalVendedores": 36,
-    "totalPropiedades": 319,
+    "totalPropiedades": 320,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
