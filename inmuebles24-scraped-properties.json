@@ -3554,5 +3554,20 @@
     "colonia": "República Mexicana",
     "codigoPostal": "80279",
     "scrapedAt": "2025-10-27T02:43:54.856Z"
+  },
+  {
+    "propertyId": "147774254",
+    "title": "Casa en Venta Residencial Amorada",
+    "slug": "casa-en-venta-residencial-amorada",
+    "price": "MN 4,350,000",
+    "publishedDate": "Publicado hace 24 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-amorada-147774254.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=5",
+    "lat": 24.835067,
+    "lng": -107.3686679,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": null,
+    "codigoPostal": null,
+    "scrapedAt": "2025-10-27T02:52:08.011Z"
   }
 ]

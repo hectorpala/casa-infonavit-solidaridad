@@ -5299,6 +5299,20 @@
           "fechaScrapeo": "2025-10-27",
           "fechaPublicacion": "Publicado hace 32 días",
           "vistas": 0
+        },
+        {
+          "id": "147774254",
+          "titulo": "Casa en Venta Residencial Amorada",
+          "precio": "MN 4,350,000",
+          "ubicacion": "2599 Laurentina, Culiacán, Sinaloa, Mexico, Buenavista",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-amorada-147774254.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=5",
+          "fechaScrapeo": "2025-10-27",
+          "fechaPublicacion": "Publicado hace 24 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5801,9 +5815,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-27T02:43:54.859Z",
+    "ultimaActualizacion": "2025-10-27T02:52:08.014Z",
     "totalVendedores": 37,
-    "totalPropiedades": 323,
+    "totalPropiedades": 324,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
