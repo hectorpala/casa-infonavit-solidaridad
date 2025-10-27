@@ -5243,6 +5243,20 @@
           "fechaScrapeo": "2025-10-26",
           "fechaPublicacion": "Publicado hace 361 días",
           "vistas": 0
+        },
+        {
+          "id": "147696056",
+          "titulo": "Casa en Venta Culiacancito Culiacan Sinaloa",
+          "precio": "MN 2,100,000",
+          "ubicacion": "Granados 13, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=1",
+          "fechaScrapeo": "2025-10-27",
+          "fechaPublicacion": "Publicado hace 32 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5697,9 +5711,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-26T23:28:24.961Z",
+    "ultimaActualizacion": "2025-10-27T02:12:25.164Z",
     "totalVendedores": 36,
-    "totalPropiedades": 317,
+    "totalPropiedades": 318,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
