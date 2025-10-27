@@ -3524,5 +3524,20 @@
     "colonia": "Espacios Barcelona",
     "codigoPostal": "80059",
     "scrapedAt": "2025-10-27T02:40:07.623Z"
+  },
+  {
+    "propertyId": "147889145",
+    "title": "Se Vende o Se Renta Casa en Fraccionamiento Guadalupe Victoria",
+    "slug": "se-vende-o-se-renta-casa-en-fraccionamiento-guadalupe-victor",
+    "price": "MN 4,300,000",
+    "publishedDate": "Publicado hace 12 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-o-se-renta-casa-en-fraccionamiento-guadalupe-147889145.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=2",
+    "lat": 24.7894786,
+    "lng": -107.3960109,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Juan de Dios Bátiz",
+    "codigoPostal": "80016",
+    "scrapedAt": "2025-10-27T02:42:54.358Z"
   }
 ]

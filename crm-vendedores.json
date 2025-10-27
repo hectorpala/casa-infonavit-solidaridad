@@ -930,6 +930,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "147889145",
+          "titulo": "Se Vende o Se Renta Casa en Fraccionamiento Guadalupe Victoria",
+          "precio": "MN 4,300,000",
+          "ubicacion": "Juan de Dios Batiz, Sinaloa, Mexico, Culiacán",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-o-se-renta-casa-en-fraccionamiento-guadalupe-147889145.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=2",
+          "fechaScrapeo": "2025-10-27",
+          "fechaPublicacion": "Publicado hace 12 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Boulevard Rotarismo, Fraccionamiento 3 Ríos, Culiacán",
@@ -5753,9 +5767,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-27T02:40:07.630Z",
+    "ultimaActualizacion": "2025-10-27T02:42:54.365Z",
     "totalVendedores": 36,
-    "totalPropiedades": 321,
+    "totalPropiedades": 322,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
