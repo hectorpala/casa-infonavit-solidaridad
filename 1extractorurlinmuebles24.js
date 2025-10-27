@@ -22,8 +22,8 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
-const axios = require('axios');
 
+const axios = require('axios');
 // ============================================
 // CONFIGURACIÓN
 // ============================================
@@ -48,7 +48,7 @@ async function extractURLs(searchUrl, maxPages = CONFIG.maxPages) {
     console.log('');
 
     const browser = await puppeteer.launch({
-        headless: false, // Modo con interfaz visible (para debugging)
+        headless: 'new', // Modo headless (invisible)
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
@@ -130,14 +130,44 @@ async function extractURLs(searchUrl, maxPages = CONFIG.maxPages) {
             console.log(`⏳ Esperando ${CONFIG.delay}ms para carga completa del DOM...`);
             await new Promise(res => setTimeout(res, CONFIG.delay));
 
+            // Esperar a que los componentes <app-search-card> se rendericen
+            console.log('   🔍 Esperando componentes <app-search-card>...');
+            try {
+                // Primero esperar que exista al menos un app-search-card
+                await page.waitForSelector('app-search-card', { timeout: 15000 });
+                console.log('   ✅ Contenedores <app-search-card> detectados');
+
+                // Luego esperar a que tengan contenido (usando waitForFunction)
+                await page.waitForFunction(
+                    () => document.querySelectorAll('app-search-card').length > 0,
+                    { timeout: 15000 }
+                );
+                console.log('   ✅ Contenido de cards cargado');
+
+                // Esperar un poco más para que los enlaces se rendericen
+                await new Promise(r => setTimeout(r, 2000));
+            } catch (e) {
+                console.log(`   ⚠️  Timeout esperando componentes: ${e.message}`);
+                console.log('   🔄 Continuando con extracción de todas formas...');
+            }
+
             // Extraer URLs en un único page.evaluate
             console.log('🔍 Extrayendo URLs de propiedades...');
             const urls = await page.evaluate(() => {
-                // Obtener todos los links
-                const links = Array.from(document.querySelectorAll('a'));
+                // MÉTODO 1: Buscar directamente en app-search-card
+                const cardLinks = Array.from(document.querySelectorAll('app-search-card a'))
+                    .map(a => a.href)
+                    .filter(href => href && href.includes('inmuebles24.com/propiedades'));
 
-                // Extraer href, normalizar y filtrar
-                const propertyUrls = links
+                if (cardLinks.length > 0) {
+                    console.log(`   ✅ Método 1 (app-search-card a): ${cardLinks.length} URLs`);
+                    return [...new Set(cardLinks)];
+                }
+
+                // MÉTODO 2: Fallback - buscar todos los links que apunten a propiedades
+                console.log('   ⚠️  Método 1 falló, probando método 2 (todos los links)...');
+                const allLinks = Array.from(document.querySelectorAll('a'));
+                const propertyUrls = allLinks
                     .map(link => {
                         const href = link.getAttribute('href');
                         if (!href) return null;
@@ -154,6 +184,7 @@ async function extractURLs(searchUrl, maxPages = CONFIG.maxPages) {
                         return url && url.includes('inmuebles24.com/propiedades');
                     });
 
+                console.log(`   ✅ Método 2 (todos los links): ${propertyUrls.length} URLs`);
                 // Eliminar duplicados usando Set y convertir a array
                 return [...new Set(propertyUrls)];
             });
@@ -217,17 +248,9 @@ async function extractURLs(searchUrl, maxPages = CONFIG.maxPages) {
     console.log(`   • Páginas procesadas: ${currentPage}`);
     console.log('');
 
-    return finalUrls;
+    return { urls: finalUrls, pagesProcessed: currentPage };
 }
 
-// ============================================
-// VERIFICACIÓN HTTP RÁPIDA
-// ============================================
-
-/**
- * Verifica el estado HTTP de las URLs en paralelo usando HEAD requests
- * Marca URLs removidas/caídas antes de guardarlas
- */
 async function verifyUrls(urls) {
     console.log('╔═══════════════════════════════════════════════════════════════╗');
     console.log('║  🔍 VERIFICACIÓN HTTP DE URLs                                ║');
@@ -526,7 +549,6 @@ if (require.main === module) {
 
     if (args.length === 0) {
         console.log('');
-        console.log('❌ Error: Debes proporcionar una URL de búsqueda');
         console.log('');
         console.log('USO:');
         console.log('  node extraccion-urls-inmuebles24.js "URL_BUSQUEDA"');
@@ -552,11 +574,12 @@ if (require.main === module) {
     let pagesProcessed;
 
     extractURLs(searchUrl, maxPages)
-        .then(urls => {
-            extractedUrls = urls;
-            pagesProcessed = Math.min(maxPages, urls.length > 0 ? maxPages : 1);
+        .then(result => {
+            // extractURLs ahora retorna { urls, pagesProcessed }
+            extractedUrls = result.urls;
+            pagesProcessed = result.pagesProcessed;
             // Verificar URLs
-            return verifyUrls(urls);
+            return verifyUrls(result.urls);
         })
         .then(verificationResults => {
             // Guardar resultados con verificación
