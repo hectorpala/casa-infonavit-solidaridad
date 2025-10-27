@@ -1,0 +1,39 @@
+# PLANTILLA DE COMMIT - PUBLICACIÓN DE PROPIEDADES
+# ================================================
+#
+# Tipo de commit: [feat|fix|docs|style|refactor|perf|test|chore]
+#
+# feat:     Nueva propiedad o característica
+# fix:      Corrección de bug o error
+# docs:     Cambios en documentación
+# style:    Cambios de formato (no afectan código)
+# refactor: Refactorización de código
+# perf:     Mejoras de rendimiento
+# test:     Agregar o modificar tests
+# chore:    Tareas de mantenimiento
+#
+# ================================================
+# EJEMPLOS DE MENSAJES:
+# ================================================
+#
+# feat: Nueva propiedad en Culiacán - Casa en Venta Perisur II
+# feat: Propiedades semana 2025-10-27 - 3 casas Culiacán
+# fix: Corregir coordenadas de mapa - Casa Tres Ríos
+# docs: Actualizar README con nuevo pipeline
+# perf: Optimizar imágenes de propiedades (WebP)
+#
+# ================================================
+# ESTRUCTURA RECOMENDADA:
+# ================================================
+#
+# <tipo>: <descripción corta> (máx 50 caracteres)
+#
+# <cuerpo del mensaje (opcional)>
+# - Detalle 1
+# - Detalle 2
+# - Detalle 3
+#
+# <footer (opcional)>
+# Co-authored-by: Nombre <email@ejemplo.com>
+#
+# ================================================

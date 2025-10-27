@@ -1,0 +1,44 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# ============================================================================
+# PRE-COMMIT HOOK - VERIFICACIÓN DE GEOLOCALIZACIÓN
+# ============================================================================
+#
+# Este hook se ejecuta ANTES de cada commit para verificar que las secciones
+# de geolocalización no hayan sido modificadas accidentalmente.
+#
+# Si detecta modificaciones:
+# 1. Muestra una advertencia
+# 2. Bloquea el commit
+# 3. Ofrece opciones para corregir
+#
+# Para bypass (NO RECOMENDADO):
+#   git commit --no-verify
+#
+
+echo ""
+echo "🔍 Verificando integridad de geolocalización..."
+echo ""
+
+# Ejecutar verificador
+node verify-geolocation.js
+
+# Capturar exit code
+EXIT_CODE=$?
+
+if [ $EXIT_CODE -ne 0 ]; then
+    echo ""
+    echo "❌ Commit bloqueado: Se detectaron modificaciones en geolocalización"
+    echo ""
+    echo "Opciones:"
+    echo "  1. Revertir cambios: git checkout -- <archivo>"
+    echo "  2. Auto-restaurar: node verify-geolocation.js --fix && git add ."
+    echo "  3. Si son cambios intencionales: node verify-geolocation.js --update"
+    echo "  4. Bypass (NO recomendado): git commit --no-verify"
+    echo ""
+    exit 1
+fi
+
+echo "✅ Geolocalización verificada - Commit permitido"
+echo ""

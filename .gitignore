@@ -50,3 +50,9 @@ orchestrator-skipped.log
 
 # Variables de entorno
 .env
+
+# Backups de geolocalización (mantener en git)
+# .geolocation-backups/
+
+# Hashes de geolocalización (incluir en git)
+# .geolocation-hashes.json

@@ -1,0 +1,4065 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>🔧 STAGING - Mazatlán Map Explorer | Hector es Bienes Raíces</title>
+
+    <!-- Google Fonts: Open Sans (Zillow primary) + Poppins (fallback) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+/* ===============================
+   DESIGN TOKENS - HECTOR COLORS
+================================= */
+:root{
+  /* Brand & accents - Hector Orange */
+  --primary: #FF6A00;
+  --primary-dark: #D35500;
+  --hector: #FF6A00;
+  --hector-dark: #D35500;
+  --green: #22C55E;
+  --green-600:#059669;
+  --amber:#F59E0B;
+  --blue:#3B82F6;
+  --teal: #0EA5A6;
+
+  /* Tokens para móvil (dinámicos - JS los actualiza) */
+  --top-stack: 56px;
+  --sheet-min: 320px;
+  --sheet-fixed: 38dvh;   /* altura fija compacta del sheet (1 card completa) */
+  --map-min-dvh: 58dvh;   /* objetivo: mapa ≥58% del viewport */
+  --sheet-max-dvh: 42dvh; /* el sheet ocupa el resto (1 card completa) */
+
+  /* Neutrals */
+  --ink:#0F172A;
+  --ink-2:#334155;
+  --ink-3:#64748B;
+  --bg:#F8FAFC;
+  --bg-alt:#121A2D;
+  --panel:#F9FAFB;
+  --line:#E5E7EB;
+  --line-2:#E2E8F0;
+  --white:#FFFFFF;
+  --text-muted: #94A3B8;
+
+  /* Elevation */
+  --shadow-s: 0 1px 2px rgba(15,23,42,.06), 0 1px 1px rgba(15,23,42,.04);
+  --shadow-m: 0 6px 16px rgba(15,23,42,.08), 0 2px 6px rgba(15,23,42,.06);
+  --shadow-l: 0 12px 32px rgba(15,23,42,.12), 0 6px 12px rgba(15,23,42,.06);
+  --shadow-focus: 0 0 0 3px rgba(14,165,166,.28);
+
+  /* Radius & spacing */
+  --r-6: 6px;
+  --r-8: 8px;
+  --r-10: 10px;
+  --r-12: 12px;
+  --r-16: 16px;
+
+  /* Sizing */
+  --list-width: 480px;
+
+  /* Transitions */
+  --t-fast: 140ms;
+  --t-med: 220ms;
+  --t-slow: 360ms;
+
+  /* Gradients - Hector Orange */
+  --g-primary: linear-gradient(135deg, #FF6A00 0%, #D35500 100%);
+  --g-green: linear-gradient(135deg, #22C55E 0%, #059669 100%);
+  --g-ink: linear-gradient(180deg, rgba(15,23,42,.0), rgba(15,23,42,.35));
+
+  /* Marker tiers (rango de precio) */
+  --mk-low: #22C55E;   /* < $3.0M - Verde */
+  --mk-mid: #0EA5A6;   /* $3.0M–$5.0M - Teal */
+  --mk-high: #3B82F6;  /* > $5.0M - Azul */
+}
+
+/* Reset mínimo para consistencia visual */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body{
+  background: var(--bg);
+  color: var(--ink);
+  /* ZILLOW: Open Sans como fuente principal */
+  font-family: 'Open Sans', 'Adjusted Arial', Tahoma, Geneva, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+  line-height: 1.5; /* ZILLOW: line-height 1.5 (24px / 16px) */
+}
+
+/* ===============================
+   HEADER TIPO ZILLOW (Logo + Buscador integrado)
+================================= */
+.zillow-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px; /* ZILLOW: padding 8px vertical */
+  background: var(--white);
+  border-bottom: 1px solid var(--line-2);
+  box-shadow: var(--shadow-s);
+  height: 64px; /* ZILLOW: altura suficiente para logo + buscador */
+  gap: 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header-logo {
+  height: 32px; /* ZILLOW: logo más pequeño para dar espacio al buscador */
+  width: auto;
+  transition: transform 0.2s;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+/* ZILLOW: Contenedor del buscador en el header */
+.header-search-container {
+  flex: 1;
+  max-width: 600px; /* ZILLOW: ancho máximo del buscador */
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Botón Open App (estilo Zillow) */
+.open-app-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid var(--primary);
+  background: white;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.open-app-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-m);
+}
+
+.open-app-btn i {
+  font-size: 16px;
+}
+
+/* ===============================
+   SEARCH CONTAINER (dentro del header)
+================================= */
+.search-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: 8px; /* ZILLOW: 8px */
+  padding: 0 16px;
+  height: 48px; /* ZILLOW: altura 48px */
+  transition: all 0.15s linear; /* ZILLOW: 0.15s linear */
+}
+
+.search-container:hover {
+  border-color: var(--primary); /* HECTOR: naranja #FF6A00 */
+  box-shadow: var(--shadow-m);
+}
+
+.search-container:focus-within {
+  border-color: var(--primary); /* HECTOR: naranja #FF6A00 */
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.1); /* HECTOR: sombra naranja */
+}
+
+.search-icon {
+  color: var(--ink-3);
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.search-input::placeholder {
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+.search-stats {
+  padding: 6px 12px;
+  background: rgba(14, 165, 166, 0.1);
+  border-radius: 4px; /* ZILLOW: 4px (antes 6px) */
+  color: var(--teal);
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+  line-height: 1; /* ZILLOW: line-height compacto para badges */
+}
+
+/* ===============================
+   FILTER BAR ZILLOW (chips horizontales)
+================================= */
+.filter-bar-zillow {
+  position: fixed;
+  top: 64px; /* ZILLOW: Solo debajo del header (64px) */
+  left: 0;
+  right: 0;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  padding: 12px 24px; /* ZILLOW: padding 12px vertical, 24px horizontal */
+  height: 56px; /* ZILLOW: altura fija 56px para filters */
+  border-bottom: 1px solid var(--line-2);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.filter-bar-zillow::-webkit-scrollbar {
+  display: none;
+}
+
+/* ZILLOW: Action Bar (Save search) */
+.search-page-action-bar {
+  position: fixed;
+  top: 120px; /* Header (64px) + Filtros (56px) */
+  left: 0;
+  right: 0;
+  z-index: 997;
+  background: var(--white);
+  padding: 8px 24px;
+  border-bottom: 1px solid var(--line-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.action-bar-left-content {
+  flex: 1;
+}
+
+.action-bar-right-content {
+  flex: 0;
+}
+
+/* HECTOR: Save search button - NARANJA */
+.save-search-button {
+  background: var(--primary); /* HECTOR: naranja #FF6A00 */
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  color: white;
+  height: 37px;
+  outline: none;
+  padding: 0 16px;
+  width: auto;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-search-button:hover {
+  background: var(--primary-dark); /* HECTOR: naranja oscuro */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 106, 0, 0.3);
+}
+
+.save-search-button:focus {
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.2);
+}
+
+.save-search-button:active {
+  transform: translateY(0);
+}
+
+/* ZILLOW: Filter buttons (chips) - ESTILO EXACTO */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 16px; /* ZILLOW: padding-top: 5px, padding-bottom: 5px, padding-left/right: 16px */
+  border-radius: 4px; /* ZILLOW: border-radius 4px (antes 8px) */
+  background: #FFFFFF;
+  border: 1px solid #A7A6AB; /* ZILLOW: border 1px solid #A7A6AB */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px; /* ZILLOW: font-size 14px */
+  font-weight: 700; /* ZILLOW: font-weight 700 (bold) */
+  line-height: 24px; /* ZILLOW: line-height 24px */
+  color: #2A2A33; /* ZILLOW: color #2A2A33 */
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+  user-select: none;
+  height: auto;
+  box-sizing: border-box;
+}
+
+/* ZILLOW: Hover state */
+.filter-chip:hover {
+  background-color: #F1F1F4; /* ZILLOW: hover background #F1F1F4 */
+  border-color: #A7A6AB;
+  color: #2A2A33;
+}
+
+/* HECTOR: Active state (pressed/selected) - NARANJA */
+.filter-chip.active {
+  background-color: #FFF4ED; /* HECTOR: naranja muy claro */
+  border-color: var(--primary); /* HECTOR: naranja #FF6A00 */
+  border-width: 2px; /* ZILLOW: borde más grueso cuando activo */
+  color: #2A2A33;
+  padding: 4px 15px; /* ZILLOW: ajustar padding por borde de 2px */
+}
+
+/* HECTOR: Active hover - NARANJA */
+.filter-chip.active:hover {
+  background-color: #FFE8D9; /* HECTOR: naranja claro hover */
+}
+
+.filter-chip.active .chip-icon {
+  color: #2A2A33; /* ZILLOW: iconos mantienen color oscuro */
+}
+
+/* Iconos dentro de chips */
+.chip-icon {
+  font-size: 11px;
+  color: var(--ink-3);
+  transition: transform 0.2s;
+}
+.filter-chip.active .chip-icon.fa-chevron-down {
+  display: none; /* Ocultar chevron cuando está activo */
+}
+
+/* Chip "Más" o "Limpiar" */
+.chip-more {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #DC2626;
+}
+.chip-more:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: #DC2626;
+}
+
+/* Badge contador en chip */
+.chip-badge {
+  background: #EF4444;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Barra de resultados - REMOVIDA */
+.results-bar {
+  display: none !important;
+}
+
+/* ===============================
+   DESKTOP OVERRIDES (pantallas grandes)
+================================= */
+@media (min-width: 769px) {
+  /* Bottom sheets en desktop: modal centrado en vez de sheet desde abajo */
+  .bottom-sheet {
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    max-width: 480px;
+    width: 90%;
+    max-height: 600px;
+    border-radius: 16px;
+    opacity: 0;
+  }
+
+  .bottom-sheet.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  /* Chips un poco más grandes en desktop - MEDIDAS ZILLOW */
+  .filter-chip {
+    padding: 12px 20px; /* ZILLOW: padding 12px 20px en desktop */
+    font-size: 14px; /* ZILLOW: font-size 14px consistente */
+  }
+
+  .chip-icon {
+    font-size: 11px;
+  }
+
+  /* Filter bar con más espacio en desktop */
+  .filter-bar-zillow {
+    padding: 12px 20px;
+    gap: 10px;
+  }
+
+  /* Results bar */
+  .results-bar {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* ===============================
+   BOTTOM SHEETS (estilo Zillow)
+================================= */
+.bottom-sheet-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bottom-sheet-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bottom-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 70vh;
+  background: white;
+  border-radius: 16px 16px 0 0; /* ZILLOW: 16px (antes 20px) */
+  box-shadow: 0 -10px 40px rgba(15, 23, 42, 0.2);
+  z-index: 1101;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* ZILLOW: 0.3s (antes 0.35s) */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.bottom-sheet.active {
+  transform: translateY(0);
+}
+
+/* Header del bottom sheet */
+.sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line-2);
+  flex-shrink: 0;
+}
+.sheet-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.sheet-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg);
+  color: var(--ink-3);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sheet-close:hover {
+  background: var(--line);
+  color: var(--ink);
+}
+.sheet-apply {
+  padding: 8px 20px;
+  border-radius: 8px; /* ZILLOW: 8px (antes 999px pill) */
+  border: none;
+  background: var(--g-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sheet-apply:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+}
+.sheet-apply:active {
+  transform: scale(0.98);
+}
+
+/* Contenido del bottom sheet */
+.sheet-content {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* ZILLOW: Botones de opciones dentro de filtros */
+.button-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 12px;
+}
+.option-btn {
+  padding: 5px 16px; /* ZILLOW: mismo padding que filter chips */
+  border-radius: 4px; /* ZILLOW: 4px */
+  border: 1px solid #A7A6AB; /* ZILLOW: border gris claro */
+  background: #FFFFFF;
+  color: #2A2A33;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  text-align: center;
+}
+.option-btn:hover {
+  background-color: #F1F1F4; /* ZILLOW: hover gris claro */
+  border-color: #A7A6AB;
+}
+.option-btn.selected {
+  background-color: #FFF4ED; /* HECTOR: naranja claro cuando seleccionado */
+  border-color: var(--primary); /* HECTOR: borde naranja */
+  border-width: 2px;
+  color: #2A2A33;
+  padding: 4px 15px; /* ZILLOW: ajuste por borde de 2px */
+}
+
+/* ZILLOW: Botones de precio */
+.price-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.price-btn {
+  padding: 5px 16px; /* ZILLOW: mismo padding consistente */
+  border-radius: 4px; /* ZILLOW: 4px */
+  border: 1px solid #A7A6AB;
+  background: #FFFFFF;
+  color: #2A2A33;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  text-align: left;
+}
+.price-btn:hover {
+  background-color: #F1F1F4;
+  border-color: #A7A6AB;
+}
+.price-btn.selected {
+  background-color: #FFF4ED; /* HECTOR: naranja claro */
+  border-color: var(--primary); /* HECTOR: borde naranja */
+  border-width: 2px;
+  color: #2A2A33;
+  padding: 4px 15px;
+}
+
+/* ===============================
+   LAYOUT (map + list)
+================================= */
+.main-container{
+  display:flex;
+  position: fixed;
+  top: 173px; /* ZILLOW: Header (64px) + Filters (56px) + Action bar (53px) = 173px */
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.map-section{
+  flex: 1 1 auto;
+  height: 100%;
+}
+#map-container{
+  width:100%;
+  height:100%;
+  border-right:1px solid var(--line-2);
+}
+
+/* ===============================
+   LIGHTBOX GALLERY (Abanico de fotos)
+================================= */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #2A2A33;
+  transition: all 0.2s;
+}
+
+.lightbox-close:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #2A2A33;
+  transition: all 0.2s;
+}
+
+.lightbox-arrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 10001;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Panel que contiene listings + paginación */
+.listings-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: var(--list-width);
+  flex: 0 0 var(--list-width);
+  background: var(--panel);
+}
+
+.listings-section{
+  flex: 1 1 auto; /* Toma el espacio disponible, deja espacio para paginación */
+  width: 100%;
+  background: var(--panel);
+  border-left:1px solid var(--line);
+  padding: 10px;
+  overflow-y: scroll !important; /* Scroll vertical FORZADO */
+  overflow-x: hidden; /* Sin scroll horizontal */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(2,6,23,.25) transparent;
+  min-height: 0; /* CRÍTICO: permite que flex shrink funcione */
+}
+.listings-section::-webkit-scrollbar{
+  width:10px;
+}
+.listings-section::-webkit-scrollbar-thumb{
+  background: rgba(2,6,23,.18);
+  border-radius:999px;
+}
+
+/* ===============================
+   LISTING CARD
+================================= */
+.listing-card{
+  background: var(--white);
+  border: none; /* ZILLOW: sin bordes */
+  border-radius: var(--r-12);
+  overflow:hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* ZILLOW: shadow suave */
+  transition: box-shadow var(--t-med);
+  margin-bottom: 16px; /* ZILLOW: margin 16px entre tarjetas */
+  cursor: pointer;
+  position: relative;
+}
+/* ZILLOW: Hover sutil (solo shadow más pronunciada) */
+.listing-card:hover{
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+.listing-card.highlighted{
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(255,106,0,.28), 0 2px 12px rgba(255,106,0,.18), 0 0 0 4px var(--primary);
+  animation: heartbeat 6s ease-in-out;
+  z-index: 100;
+}
+
+/* Animación de latidos de corazón */
+@keyframes heartbeat {
+  0%, 100% { transform: translateY(-8px) scale(1.05); }
+  10% { transform: translateY(-8px) scale(1.07); }
+  20% { transform: translateY(-8px) scale(1.05); }
+  30% { transform: translateY(-8px) scale(1.07); }
+  40%, 60% { transform: translateY(-8px) scale(1.05); }
+}
+
+/* Carrusel de fotos en tarjetas */
+.card-carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+/* Base segura para móvil y desktop */
+.carousel-wrapper {
+  position: relative;
+  height: auto;
+  aspect-ratio: 4/3;
+  touch-action: pan-y; /* Permite scroll vertical natural y swipe horizontal controlado */
+}
+@media (min-width: 641px) {
+  .carousel-wrapper {
+    aspect-ratio: 16/9;
+  }
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  will-change: opacity;
+}
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  pointer-events: auto;
+  transition: opacity 300ms ease-in-out, visibility 0s linear 0s;
+}
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* UNIVERSAL: Fotos completas sin recortar (móvil Y desktop) */
+  display: block;
+  background: #f8f8f8; /* Fondo gris para letterbox */
+  -webkit-transform: translateZ(0); /* fuerza composición en iOS */
+}
+
+/* Controles siempre por encima y tocables */
+.carousel-arrow-card,
+.carousel-dot {
+  position: absolute;
+  z-index: 50;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+/* ZILLOW: Flechas carrusel en tarjetas - Áreas táctiles razonables */
+.carousel-arrow-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  display: none; /* Ocultas por default */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.carousel-arrow-card.prev {
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+}
+
+.carousel-arrow-card.next {
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+}
+
+.carousel-arrow-card i {
+  font-size: 14px;
+  color: #2A2A33;
+}
+
+/* ZILLOW: Flechas visibles solo en hover de la tarjeta */
+.listing-card:hover .carousel-arrow-card {
+  display: flex !important;
+}
+
+/* ZILLOW: Hover en las flechas */
+.carousel-arrow-card:hover {
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 15;
+}
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none; /* Remover borde default de button */
+}
+.carousel-dot.active {
+  background: white;
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* Bloqueo de scroll durante swipe horizontal */
+body.carousel-swipe-lock {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+/* ===============================
+   ESTILOS DESKTOP: Igual a Culiacán
+================================= */
+@media (min-width: 641px){
+  .listing-card{
+    width: 100% !important; /* Culiacán: 100% sin restricción */
+    max-width: 100% !important;
+    margin: 0 0 16px 0 !important;
+  }
+
+  /* Fotos: 240px altura igual que Culiacán */
+  .carousel-image{
+    height: 240px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .card-carousel-container,
+  .carousel-wrapper{
+    height: 240px !important;
+    aspect-ratio: unset !important;
+  }
+}
+
+/* Modo seguro móvil: display none/block en vez de opacity */
+@media (max-width: 640px){
+  /* ZILLOW: Ocultar price badge de desktop en móvil */
+  .price-badge-desktop{
+    display: none !important;
+  }
+
+  /* ZILLOW: Ancho 100% en móvil (sin padding en grid) */
+  .listings-grid{
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  .listing-card{
+    width: 100% !important; /* Culiacán: 100% sin restricción */
+    max-width: 100% !important;
+    margin: 0 0 16px 0 !important;
+    border-radius: 0 !important; /* ZILLOW: sin border-radius en móvil */
+  }
+
+  .card-carousel-container{
+    aspect-ratio: unset !important;
+    width: 100% !important;
+  }
+
+  .carousel-wrapper{
+    width: 100% !important;
+    aspect-ratio: unset !important;
+  }
+
+  .carousel-image{
+    width: 100% !important;
+  }
+
+  /* Alto estable - MEDIDA ZILLOW: 177px */
+  .card-carousel-container .carousel-wrapper{
+    position: relative;
+    height: 177px;
+    touch-action: pan-y;
+  }
+
+  /* Modo seguro: solo la slide activa es visible */
+  .card-carousel-container .carousel-slide{
+    position: relative !important; /* Necesario para ::before */
+    display: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .card-carousel-container .carousel-slide.active{
+    display: block !important;
+    pointer-events: auto;
+  }
+
+  /* Fondo blur inteligente detrás de la imagen - OPCIÓN 2: Blur + Desaturate (Natural) */
+  .card-carousel-container .carousel-slide::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg-img); /* Usa la misma imagen */
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px) saturate(0.3) brightness(0.95); /* Blur suave + desaturate (casi gris) + brillo natural */
+    transform: scale(1.1); /* Evita bordes del blur */
+    z-index: 0;
+    opacity: 0.9; /* Ligeramente transparente para más sutileza */
+  }
+
+  /* Fotos móvil: 240px igual que Culiacán */
+  .card-carousel-container .carousel-slide .carousel-image,
+  .card-carousel-container .carousel-image,
+  .listing-card .card-carousel-container .carousel-image,
+  .listing-card .carousel-image,
+  .carousel-slide img.carousel-image,
+  img.carousel-image,
+  .carousel-image{
+    width: 100% !important;
+    height: 240px !important; /* Culiacán: 240px */
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+    pointer-events: auto !important;
+    max-width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  .card-carousel-container,
+  .carousel-wrapper{
+    height: 240px !important;
+  }
+  .card-carousel-container .carousel-arrow-card,
+  .card-carousel-container .carousel-dot{
+    position: absolute;
+    z-index: 50;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+
+  /* ZILLOW: Padding exacto del data wrapper */
+  .listing-card .listing-body{
+    padding: 8px; /* ZILLOW: 8px exacto */
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* ZILLOW: sin gap, usar margins específicos */
+  }
+
+  /* ZILLOW: PRECIO DENTRO DEL BODY (no sobre foto) - Override ALL previous styles */
+  .listing-card .listing-body .price-badge,
+  .listing-card .listing-body .listing-price{
+    display: block !important; /* MOBILE: Visible */
+    position: static !important; /* NO absoluto */
+    margin: 0 0 4px 0 !important; /* ZILLOW: margin-bottom 4px */
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    font-size: 20px !important;
+    line-height: 24px !important;
+    font-weight: 700 !important;
+    color: #2A2A33 !important; /* ZILLOW: color primario - NEGRO no verde */
+    left: auto !important;
+    bottom: auto !important;
+    gap: 0 !important;
+    align-items: normal !important;
+    letter-spacing: normal !important;
+  }
+
+  /* ZILLOW: Tipografía para detalles (recámaras, baños, m²) */
+  .listing-card .listing-specs{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #2A2A33;
+    margin: 0 0 2px 0; /* ZILLOW: margin-bottom 2px */
+  }
+
+  /* ZILLOW: Tipografía para ubicación (texto secundario) */
+  .listing-card .listing-location{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #54545A; /* ZILLOW: color secundario */
+    margin: 0; /* ZILLOW: sin margin */
+  }
+
+  /* ZILLOW: Tipografía pequeña para badges */
+  .listing-card .badge-text{
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 700;
+  }
+
+  /* ZILLOW: Font family exacta */
+  .listing-card{
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+  }
+}
+
+/* Imagen con aspecto consistente - MEDIDA ZILLOW */
+.listing-card .listing-image{
+  display:block;
+  width:100%;
+  height: 256px; /* ZILLOW: altura fija de imagen de tarjeta */
+  object-fit: contain; /* UNIVERSAL: Foto completa sin recortar */
+  background: #f8f8f8; /* Fondo gris para letterbox */
+  transform: translateZ(0);
+  transition: filter var(--t-med) ease;
+}
+.listing-card:hover .listing-image{
+  filter: saturate(1.04) contrast(1.02);
+}
+
+/* Overlay suave para legibilidad sobre fotos claras */
+.listing-card .media-overlay{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: var(--g-ink);
+}
+
+/* Price badge (glass + gradiente) */
+.price-badge{
+  position:absolute;
+  left:12px;
+  bottom:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius: 8px; /* ZILLOW: 8px (antes 10px) */
+  color:#fff;
+  font-weight:700; /* ZILLOW: 700 (antes 800) */
+  letter-spacing:.2px;
+  background: var(--g-green);
+  box-shadow: 0 6px 18px rgba(16,185,129,.45);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter: saturate(1.2) blur(8px);
+  line-height:1; /* ZILLOW: compacto */
+}
+.price-badge small{
+  font-weight:700;
+  opacity:.9;
+}
+
+/* ZILLOW: Photo badges/tags (NEW, PENDING, etc) */
+.photo-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 4px; /* ZILLOW: border-radius 4px */
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+.photo-badge.new {
+  background: #22C55E; /* Verde - propiedad nueva */
+}
+.photo-badge.pending {
+  background: #F59E0B; /* Amber - pendiente */
+}
+.photo-badge.reduced {
+  background: #EF4444; /* Rojo - precio reducido */
+}
+.photo-badge.featured {
+  background: #3B82F6; /* Azul - destacada */
+}
+
+/* Action corner (opcional: favorito / compartir) */
+.card-actions{
+  position:absolute;
+  right:10px;
+  top:10px;
+  display:flex;
+  gap:8px;
+  z-index: 10;
+}
+.icon-btn{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background: rgba(255,255,255,.85);
+  border:1px solid rgba(14,165,166,.25);
+  box-shadow: var(--shadow-s);
+  transition: transform var(--t-fast), background var(--t-fast);
+  cursor: pointer;
+  color: var(--ink-3);
+}
+.icon-btn:hover{
+  transform: translateY(-1px);
+  background:#fff;
+  color: var(--primary);
+}
+
+/* Body - MEDIDA ZILLOW (Desktop default) */
+.listing-card .listing-body{
+  padding: 12px 16px; /* ZILLOW Desktop: padding 12px vertical, 16px horizontal */
+}
+
+.listing-card .listing-price{
+  display: none; /* DESKTOP: Oculto, solo badge naranja sobre foto */
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: #2A2A33;
+  margin: 0 0 4px 0;
+}
+
+.listing-card .listing-specs{
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #6E6E78;
+  margin: 0 0 4px 0;
+}
+
+.listing-card .listing-location{
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #2A2A33;
+  margin: 0;
+}
+
+/* Legacy styles para compatibilidad */
+.listing-card .content{
+  padding: 20px; /* ZILLOW: padding uniforme de 20px en content */
+}
+.listing-card h3{
+  margin: 0 0 8px; /* ZILLOW: margin 8px entre elementos */
+  font-weight: 700; /* ZILLOW: font-weight 700 para títulos */
+  font-size: 20px; /* ZILLOW: font-size 20px para título/precio */
+  color: var(--ink);
+}
+.listing-card p{
+  margin: 0 0 8px 0; /* ZILLOW: margin 8px bottom */
+  color: var(--ink-2);
+  font-size: 14px; /* ZILLOW: font-size 14px para body text */
+}
+.listing-meta{
+  display:flex;
+  align-items:center;
+  gap: 12px; /* ZILLOW: gap 12px entre elementos meta */
+  margin-top: 8px; /* ZILLOW: margin 8px top */
+  color: var(--ink-2);
+  font-weight: 600;
+  font-size: 12px; /* ZILLOW: font-size 12px para detalles (beds, baths) */
+}
+.listing-meta .dot{
+  width:4px;
+  height:4px;
+  border-radius:999px;
+  background: var(--line-2);
+}
+
+/* Badges informativas */
+.badges{
+  margin-top:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border-radius:12px; /* ZILLOW: 12px (antes 999px pill) */
+  background:#EEF2FF;
+  color:#3730A3;
+  border:1px solid #C7D2FE;
+  font-weight:700;
+  font-size:12px; /* ZILLOW: 12px para badges */
+  line-height:1; /* ZILLOW: compacto */
+}
+.badge.teal{
+  background:#ECFEFF;
+  color:#0F766E;
+  border-color:#A5F3FC;
+}
+.badge.green{
+  background:#ECFDF5;
+  color:#065F46;
+  border-color:#A7F3D0;
+}
+.badge.amber{
+  background:#FFF4ED;
+  color:#D35500;
+  border-color:#FFCBA4;
+}
+.badge.blue{
+  background:#EFF6FF;
+  color:#1E40AF;
+  border-color:#BFDBFE;
+}
+
+/* ===============================
+   NO RESULTS
+================================= */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+}
+.no-results p {
+  color: var(--ink-3);
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.no-results button {
+  padding: 10px 24px;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background var(--t-fast);
+}
+.no-results button:hover {
+  background: var(--green-600);
+}
+
+/* ===============================
+   PAGINACIÓN ESTILO ZILLOW
+================================= */
+.pagination-container {
+  display: block;
+  width: 100%;
+  padding: 24px 16px 32px;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+}
+.pagination-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.pagination-item {
+  display: block;
+}
+/* Botones de número de página */
+.pagination-btn {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination-btn:hover {
+  background: var(--bg);
+  border-color: var(--ink-3);
+}
+.pagination-btn.active {
+  background: var(--hector);
+  color: var(--white);
+  border-color: var(--hector);
+}
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* Flechas Previous/Next */
+.pagination-arrow {
+  min-width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: all var(--t-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagination-arrow:hover:not(:disabled) {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+.pagination-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* Ellipsis */
+.pagination-ellipsis {
+  color: var(--ink-3);
+  padding: 0 4px;
+  user-select: none;
+}
+
+/* ===============================
+   ACCESSIBILITY & MOTION
+================================= */
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; }
+}
+
+/* ===============================
+   ANTI-JITTER SYSTEM
+================================= */
+/* Bloqueo temporal de animaciones del sheet durante animación del mapa */
+body.map-animating .listings-section {
+  transition: none !important;
+}
+body.map-animating .listing-card .listing-image {
+  transition: none !important;
+}
+
+/* ===============================
+   DESKTOP: Ocultar toggle buttons, mostrar layout dual
+================================= */
+@media (min-width: 769px) {
+  .view-toggle-buttons {
+    display: none !important;
+  }
+
+  .main-container {
+    display: flex !important;
+  }
+
+  .map-view,
+  .list-view,
+  .map-sticker,
+  .list-sticker {
+    display: none !important;
+  }
+}
+
+/* ===============================
+   RESPONSIVE MÓVIL
+================================= */
+/* ===== Stack superior flotante (móvil) ===== */
+@media (max-width: 768px) {
+  body { overflow: hidden; }
+
+  /* OCULTAR estructura vieja (bottom sheet) */
+  .main-container {
+    display: none !important;
+  }
+
+  .map-section,
+  .listings-panel {
+    display: none !important;
+  }
+
+  /* Header Zillow móvil */
+  .zillow-header {
+    padding: 10px 16px;
+    height: 56px;
+  }
+
+  .header-logo {
+    height: 32px;
+  }
+
+  .open-app-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .open-app-btn span {
+    display: none; /* Solo ícono en móvil */
+  }
+
+  /* MÓVIL: Ocultar botón Open App, mostrar Map/List toggle */
+  .open-app-btn {
+    display: none !important;
+  }
+
+  /* MÓVIL: Botones Map/List toggle */
+  .view-toggle-buttons {
+    display: flex !important;
+    gap: 4px;
+  }
+
+  .view-toggle-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--line);
+    background: white;
+    color: var(--ink-2);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .view-toggle-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+
+  .view-toggle-btn i {
+    margin-right: 4px;
+  }
+
+  /* MÓVIL: Vistas separadas */
+  .map-view {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .map-view.active {
+    display: block;
+  }
+
+  .list-view {
+    display: none;
+    position: fixed;
+    top: calc(var(--top-stack) + 50px); /* Bajo filtros */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--panel);
+    overflow-y: auto;
+    z-index: 1;
+    padding: 12px;
+  }
+
+  .list-view.active {
+    display: block;
+  }
+
+  /* ZILLOW: Ocultar action bar en móvil */
+  .search-page-action-bar {
+    display: none;
+  }
+
+  /* Search bar móvil */
+  .zillow-search-bar {
+    top: 56px;
+    padding: 10px 16px;
+  }
+
+  .search-input {
+    font-size: 14px;
+    padding: 12px 0;
+  }
+
+  .search-stats {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  /* Filtros tipo Zillow - flotantes sobre el mapa */
+  .filter-bar-zillow {
+    position: fixed;
+    top: calc(var(--top-stack) + 6px);
+    left: 8px;
+    right: 8px;
+    z-index: 999;
+    height: auto;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(2, 6, 23, 0.12);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Chips más compactos en móvil */
+  .filter-chip {
+    padding: 6px 12px;
+    font-size: 13px;
+    gap: 5px;
+  }
+
+  .chip-icon {
+    font-size: 10px;
+  }
+
+  /* Results bar - sticky bajo filtros */
+  .results-bar {
+    position: fixed;
+    top: calc(var(--top-stack) + 50px);
+    left: 0;
+    right: 0;
+    z-index: 998;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  /* Mapa PANTALLA COMPLETA en móvil (bajo header/filtros) */
+  .map-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100dvh !important;
+    width: 100vw !important;
+    z-index: 1;
+    background: #e5f2ff;
+  }
+
+  #map-container {
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  /* ===== BOTTOM SHEET ESTILO ZILLOW ===== */
+  .listings-panel {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    height: 40vh; /* Altura inicial del sheet */
+    max-height: 85vh; /* Máximo cuando se arrastra hacia arriba */
+    transition: height 0.3s ease;
+  }
+
+  /* Handle para arrastrar (como Zillow) */
+  .listings-panel::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 4px;
+    border-radius: 999px;
+    background: #CBD5E1;
+    margin: 12px auto 8px;
+    flex-shrink: 0;
+  }
+
+  /* Listings section dentro del sheet */
+  .listings-section {
+    flex: 1 1 auto;
+    width: 100%;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    padding: 0 16px 16px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Tarjetas en columna única en móvil */
+  .listing-card {
+    margin-bottom: 16px;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  .listing-card:last-child {
+    margin-bottom: 80px; /* Espacio para la paginación */
+  }
+
+  /* Paginación visible en móvil */
+  .pagination-container {
+    display: block !important;
+    position: sticky;
+    bottom: 0;
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    padding: 12px 16px;
+    z-index: 10;
+  }
+
+  /* La card no se eleva ni cambia tamaño al tocar */
+  .listing-card {
+    transition: none !important;
+    margin-bottom: 4px !important;
+    border: none !important; /* Eliminar border para ganar espacio */
+  }
+  .listing-card:hover,
+  .listing-card:active {
+    transform: none !important;
+    box-shadow: var(--shadow-s, 0 1px 2px rgba(0,0,0,.06)) !important;
+  }
+
+  /* Primera tarjeta es la única visible - sin margen extra en última */
+  .listing-card:last-child {
+    margin-bottom: 4px !important;
+  }
+
+  /* Asegurar que content sea visible */
+  .listing-card .content {
+    display: block !important;
+    padding: 5px 5px 5px !important; /* Padding ultra-mínimo - 5px en vez de 6px */
+  }
+
+  /* Tarjeta compacta: foto + título (1 línea) + meta (1 línea) */
+  .listing-card .description,
+  .listing-card .headline,
+  .listing-card .badges,
+  .listing-card .cta-row,
+  .listing-card .sheet-cutoff-anchor {
+    display: none !important;
+  }
+
+  /* Imagen con altura ajustada +1.5cm (~57px) - Reducida 1cm */
+  .listing-card .listing-image {
+    aspect-ratio: 2/1 !important; /* Más panorámica/chata */
+    object-fit: contain !important; /* UNIVERSAL: Foto completa sin recortar */
+    height: auto !important;
+    max-height: 177px !important; /* Reducido de 215px a 177px (-38px ≈ -1cm) */
+    background: #f8f8f8 !important; /* Fondo gris para letterbox */
+  }
+
+  /* Título: 1 línea - MÁS GRANDE y legible */
+  .listing-card h3 {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13.5px !important; /* Aumentado de 11.5px a 13.5px */
+    line-height: 1.15 !important; /* Menos comprimido */
+    font-weight: 700 !important; /* Más bold para legibilidad */
+    margin: 2px 0 3px !important; /* Más respiro */
+    letter-spacing: -0.2px !important; /* Menos compresión */
+    word-spacing: -0.5px !important; /* Menos compresión */
+  }
+
+  /* Fila de iconos (deja solo una línea) - MÁS GRANDE */
+  .listing-meta {
+    display: flex !important;
+    align-items: center;
+    gap: 10px !important; /* Aumentado de 8px a 10px */
+    margin: 0 !important;
+    font-size: 13px !important; /* Aumentado de 11.5px a 13px */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Dots separadores normales */
+  .listing-meta .dot {
+    width: 3px !important;
+    height: 3px !important;
+  }
+
+  /* Mapa grande: respeta map-first */
+  .map-section {
+    height: max(
+      var(--map-min-dvh, 60dvh),
+      calc(100dvh - var(--top-stack, 56px) - var(--sheet-fixed, 36dvh) - env(safe-area-inset-bottom))
+    );
+  }
+
+  .listing-card .headline {
+    margin: 8px 0 6px;
+    color: #334155;
+    font-weight: 600;
+    line-height: 1.35;
+    font-size: 14px;
+  }
+
+  .sheet-cutoff-anchor {
+    width: 100%;
+    height: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  .listing-card .description {
+    color: #475569;
+    margin-top: 6px;
+    font-size: 14px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* ===============================
+   ZILLOW: Info Window Custom Styles
+================================= */
+/* ZILLOW: Eliminar bordes y fondo de info window */
+.gm-style .gm-style-iw-c {
+  padding: 0 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18) !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* ZILLOW: Eliminar padding del contenedor interno */
+.gm-style .gm-style-iw-d {
+  overflow: visible !important;
+  padding: 0 !important;
+}
+
+/* ZILLOW: Ocultar la "punta" de la info window */
+.gm-style .gm-style-iw-tc::after {
+  display: none !important;
+}
+
+/* ZILLOW: Botón de cerrar personalizado */
+.gm-style .gm-ui-hover-effect {
+  top: 4px !important;
+  right: 4px !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: white !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  z-index: 1000 !important;
+}
+
+.gm-style .gm-ui-hover-effect img {
+  width: 16px !important;
+  height: 16px !important;
+  margin: 8px !important;
+  opacity: 0.7 !important;
+}
+
+/* ZILLOW: Hover en botón cerrar */
+.gm-style .gm-ui-hover-effect:hover {
+  background: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.gm-style .gm-ui-hover-effect:hover img {
+  opacity: 1 !important;
+}
+    </style>
+</head>
+<body>
+
+    <!-- ZILLOW HEADER: Logo + Buscador integrado (como Zillow) -->
+    <div class="zillow-header">
+        <div class="header-left">
+            <img src="../images/optimized/Logo-hector-es-bienes-raices.png"
+                 alt="Hector es Bienes Raíces"
+                 class="header-logo">
+        </div>
+
+        <!-- ZILLOW: Buscador DENTRO del header -->
+        <div class="header-search-container">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text"
+                       class="search-input"
+                       placeholder="Buscar por ciudad, colonia o dirección..."
+                       value="Mazatlán, Sinaloa"
+                       readonly
+                       onclick="alert('Próximamente: búsqueda de propiedades')">
+                <div class="search-stats">
+                    <span id="visible-count">18</span> propiedades
+                </div>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- Desktop: Open App button -->
+            <button class="open-app-btn" onclick="alert('App disponible próximamente')">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Abrir App</span>
+            </button>
+
+            <!-- Móvil: Map/List toggle buttons -->
+            <div class="view-toggle-buttons">
+                <button class="view-toggle-btn" id="map-btn" onclick="switchView('map')">
+                    <i class="fas fa-map"></i>Mapa
+                </button>
+                <button class="view-toggle-btn active" id="list-btn" onclick="switchView('list')">
+                    <i class="fas fa-list"></i>Lista
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls Bar (Chips Row) - Estilo Culiacán/Monterrey -->
+    <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px; overflow-x: auto; padding-bottom: 8px; margin-bottom: -8px;">
+        <!-- Save Search Button -->
+        <button style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: #FF6A00; color: white; border-radius: 9999px; font-size: 14px; font-weight: 500; border: none; cursor: pointer; transition: background-color 0.2s; white-space: nowrap;" onmouseover="this.style.background='#D35500'" onmouseout="this.style.background='#FF6A00'" onclick="alert('Guardar búsqueda - Próximamente')">
+            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+            <span>Guardar búsqueda</span>
+        </button>
+
+        <!-- Ver en Mapa Button (Zillow Style) -->
+        <button onclick="openMapModal()" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 2px solid #FF6A00; color: #FF6A00; background: white; border-radius: 9999px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.3s; white-space: nowrap;" onmouseover="this.style.background='#FF6A00'; this.style.color='white'" onmouseout="this.style.background='white'; this.style.color='#FF6A00'">
+            <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+            <span style="font-weight: 600;">Ver en Mapa</span>
+        </button>
+    </div>
+
+    <!-- Bottom Sheets para cada filtro -->
+    <div class="bottom-sheet-overlay" id="sheet-overlay" onclick="closeBottomSheet()"></div>
+
+    <!-- ZILLOW: Bottom Sheet 1 - EN VENTA (Tipo de listado) -->
+    <div class="bottom-sheet" id="sheet-type">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Tipo de Propiedad</h3>
+            <button class="sheet-apply" onclick="applyFilter('type')">Listo</button>
+        </div>
+        <div class="sheet-content">
+            <div class="button-group">
+                <button class="option-btn selected" data-value="sale" onclick="selectOption(this, 'type', 'sale')">En Venta</button>
+                <button class="option-btn" data-value="rent" onclick="selectOption(this, 'type', 'rent')">En Renta</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZILLOW: Bottom Sheet 2 - PRECIO (actualizado) -->
+    <div class="bottom-sheet" id="sheet-price">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Precio</h3>
+            <button class="sheet-apply" onclick="applyFilter('price')">Listo</button>
+        </div>
+        <div class="sheet-content">
+            <div class="price-options">
+                <button class="price-btn" data-value="" onclick="selectPrice(this, '')">Sin Límite</button>
+                <button class="price-btn" data-value="0-2500000" onclick="selectPrice(this, '0-2500000')">$0 - $2.5M</button>
+                <button class="price-btn" data-value="2500000-3000000" onclick="selectPrice(this, '2500000-3000000')">$2.5M - $3.0M</button>
+                <button class="price-btn" data-value="3000000-3500000" onclick="selectPrice(this, '3000000-3500000')">$3.0M - $3.5M</button>
+                <button class="price-btn" data-value="3500000-999999999" onclick="selectPrice(this, '3500000-999999999')">$3.5M+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZILLOW: Bottom Sheet 3 - RECÁMARAS Y BAÑOS (combinado) -->
+    <div class="bottom-sheet" id="sheet-beds-baths">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Recámaras y Baños</h3>
+            <button class="sheet-apply" onclick="applyFilter('beds-baths')">Listo</button>
+        </div>
+        <div class="sheet-content">
+            <!-- Sección: Recámaras -->
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Recámaras</h4>
+            <div class="button-group" style="margin-bottom: 24px;">
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bedrooms', '')">Cualquiera</button>
+                <button class="option-btn" data-value="1" onclick="selectOption(this, 'bedrooms', '1')">1+</button>
+                <button class="option-btn" data-value="2" onclick="selectOption(this, 'bedrooms', '2')">2+</button>
+                <button class="option-btn" data-value="3" onclick="selectOption(this, 'bedrooms', '3')">3+</button>
+                <button class="option-btn" data-value="4" onclick="selectOption(this, 'bedrooms', '4')">4+</button>
+                <button class="option-btn" data-value="5" onclick="selectOption(this, 'bedrooms', '5')">5+</button>
+            </div>
+
+            <!-- Sección: Baños -->
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Baños</h4>
+            <div class="button-group">
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'bathrooms', '')">Cualquiera</button>
+                <button class="option-btn" data-value="1" onclick="selectOption(this, 'bathrooms', '1')">1+</button>
+                <button class="option-btn" data-value="2" onclick="selectOption(this, 'bathrooms', '2')">2+</button>
+                <button class="option-btn" data-value="3" onclick="selectOption(this, 'bathrooms', '3')">3+</button>
+                <button class="option-btn" data-value="4" onclick="selectOption(this, 'bathrooms', '4')">4+</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZILLOW: Bottom Sheet 4 - MÁS (Zona + Limpiar Todo) -->
+    <div class="bottom-sheet" id="sheet-more">
+        <div class="sheet-header">
+            <button class="sheet-close" onclick="closeBottomSheet()"><i class="fas fa-times"></i></button>
+            <h3>Más Filtros</h3>
+            <button class="sheet-apply" onclick="applyFilter('more')">Listo</button>
+        </div>
+        <div class="sheet-content">
+            <!-- Sección: Zona -->
+            <h4 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #2A2A33;">Zona</h4>
+            <div class="button-group" style="margin-bottom: 24px;">
+                <button class="option-btn" data-value="" onclick="selectOption(this, 'zone', '')">Cualquiera</button>
+                <button class="option-btn" data-value="real-del-valle" onclick="selectOption(this, 'zone', 'real-del-valle')">Real del Valle</button>
+                <button class="option-btn" data-value="marina" onclick="selectOption(this, 'zone', 'marina')">Marina</button>
+                <button class="option-btn" data-value="centro" onclick="selectOption(this, 'zone', 'centro')">Centro</button>
+            </div>
+
+            <!-- Botón Limpiar Todos los Filtros -->
+            <button onclick="resetFilters()" style="width: 100%; padding: 12px 16px; border-radius: 4px; background: #fff; border: 1px solid #A7A6AB; color: #2A2A33; font-size: 14px; font-weight: 700; cursor: pointer; transition: background-color 0.2s ease;">
+                Limpiar Todos los Filtros
+            </button>
+        </div>
+    </div>
+
+    <!-- MÓVIL: Vista de Mapa (con sticker para cambiar a List) -->
+    <div class="map-view" id="map-view">
+        <div id="map-container-mobile" style="width: 100%; height: 100%;"></div>
+
+        <!-- Sticker flotante para cambiar a vista List -->
+        <button class="map-sticker" onclick="switchView('list')" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: white; border: 1px solid var(--line); border-radius: 999px; padding: 12px 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 14px; font-weight: 700; cursor: pointer; z-index: 1001; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-list"></i>
+            Ver Lista
+        </button>
+    </div>
+
+    <!-- MÓVIL: Vista de Lista (default, aparece primero) -->
+    <div class="list-view active" id="list-view">
+        <div id="listings-container-mobile">
+            <!-- Las propiedades se copian aquí desde JavaScript -->
+        </div>
+
+        <!-- Paginación móvil -->
+        <nav class="pagination-container" id="pagination-nav-mobile" aria-label="Pagination" style="margin-top: 16px;">
+            <ul class="pagination-list" id="pagination-list-mobile">
+                <!-- Se genera dinámicamente con JavaScript -->
+            </ul>
+        </nav>
+
+        <!-- Sticker flotante para cambiar a vista Map -->
+        <button class="list-sticker" onclick="switchView('map')" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; border: none; border-radius: 999px; padding: 12px 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.25); font-size: 14px; font-weight: 700; cursor: pointer; z-index: 1001; display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-map"></i>
+            Ver Mapa
+        </button>
+    </div>
+
+    <!-- DESKTOP: Layout dual (mapa + lista) -->
+    <div class="main-container">
+        <div class="map-section">
+            <div id="map-container"></div>
+        </div>
+
+        <div class="listings-panel">
+            <div class="listings-section" id="listings-container">
+            </div>
+
+            <!-- ZILLOW: Paginación -->
+            <nav class="pagination-container" id="pagination-nav" aria-label="Pagination">
+                <ul class="pagination-list" id="pagination-list">
+                    <!-- Se genera dinámicamente con JavaScript -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk&libraries=places"></script>
+
+    <!-- MarkerClusterer para agrupar marcadores cercanos -->
+    <script src="https://unpkg.com/@googlemaps/markerclusterer@2.5.3/dist/index.min.js"></script>
+
+    <script>
+        const ALL_PROPERTIES = [
+            { slug: "casa-en-venta-real-del-valle", priceShort: "$3.5M", price: 3500000, title: "Casa en Venta Real del Valle", location: "Real del Valle", bedrooms: 3, bathrooms: 2, sqft: 200, zone: "real-del-valle", image: "../mazatlan/casa-en-venta-real-del-valle/images/foto-1.jpg", lat: 23.2342, lng: -106.4321 },
+            { slug: "casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-", priceShort: "$3.5M", price: 3500000, title: "Casa Rincon Girasoles", location: "Rincon de Las Plazas", bedrooms: 3, bathrooms: 2, sqft: 180, zone: "otro", image: "../mazatlan/casa-de-venta-en-rincon-de-los-girasoles-en-fracc-rincon-de-/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas", priceShort: "$2.6M", price: 2600000, title: "Casa Cercana a Marina", location: "Marina Mazatlán", bedrooms: 3, bathrooms: 2, sqft: 150, zone: "marina", image: "../mazatlan/casa-en-venta-en-mazatlan-cercana-a-marina-mazatlan-y-playas/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-veredas-mazatlan-sin", priceShort: "$3.3M", price: 3300000, title: "Casa en Veredas", location: "Veredas", bedrooms: 3, bathrooms: 2, sqft: 190, zone: "otro", image: "../mazatlan/casa-en-venta-en-veredas-mazatlan-sin/images/foto-1.jpg" },
+            { slug: "casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido", priceShort: "$2.3M", price: 2300000, title: "Casa Valle del Ejido", location: "Valle del Ejido", bedrooms: 3, bathrooms: 2, sqft: 160, zone: "otro", image: "../mazatlan/casa-de-3-recamaras-y-160-m-en-venta-valle-del-ejido/images/foto-1.jpg" },
+            { slug: "casa-en-venta-de-real-del-valle-coto-14", priceShort: "$3.0M", price: 3000000, title: "Casa Real del Valle Coto 14", location: "Real del Valle Coto 14", bedrooms: 3, bathrooms: 2, sqft: 175, zone: "real-del-valle", image: "../mazatlan/casa-en-venta-de-real-del-valle-coto-14/images/foto-1.jpg", lat: 23.2355, lng: -106.4335 },
+            { slug: "casa-en-venta-residencial-con-alberca-en-real-del-valle-maza", priceShort: "$3.4M", price: 3400000, title: "Casa con Alberca Real del Valle", location: "Real del Valle con Alberca", bedrooms: 4, bathrooms: 3, sqft: 220, zone: "real-del-valle", image: "../mazatlan/casa-en-venta-residencial-con-alberca-en-real-del-valle-maza/images/foto-1.jpg", lat: 23.2348, lng: -106.4310 },
+            { slug: "casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa", priceShort: "$2.6M", price: 2600000, title: "Casa Porto Molino", location: "Porto Molino", bedrooms: 3, bathrooms: 2, sqft: 155, zone: "otro", image: "../mazatlan/casa-en-venta-en-el-fracc-porto-molino-mazatlan-sinaloa/images/foto-1.jpg" },
+            { slug: "casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res", priceShort: "$3.2M", price: 3200000, title: "Casa Isla Residencial", location: "Isla Residencial", bedrooms: 3, bathrooms: 2, sqft: 113, zone: "otro", image: "../mazatlan/casa-113-m-con-3-recamaras-en-venta-fraccionamiento-isla-res/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico", priceShort: "$2.1M", price: 2100000, title: "Casa Real Pacifico", location: "Real Pacifico", bedrooms: 3, bathrooms: 2, sqft: 140, zone: "otro", image: "../mazatlan/casa-en-venta-en-mazatlan-fraccionamiento-real-pacifico/images/foto-1.jpg" },
+            { slug: "casa-en-venta-mazatlan-residencial-palmilla-super-precio", priceShort: "$3.7M", price: 3700000, title: "Casa Residencial Palmilla", location: "Residencial Palmilla", bedrooms: 3, bathrooms: 2, sqft: 200, zone: "otro", image: "../mazatlan/casa-en-venta-mazatlan-residencial-palmilla-super-precio/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-privada-con-alberca-en-mazatlan", priceShort: "$3.3M", price: 3300000, title: "Casa Privada con Alberca", location: "Privada Mazatlán", bedrooms: 3, bathrooms: 2, sqft: 185, zone: "otro", image: "../mazatlan/casa-en-venta-en-privada-con-alberca-en-mazatlan/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-sinaloa-villa-galaxia", priceShort: "$2.0M", price: 2000000, title: "Casa Villa Galaxia", location: "Villa Galaxia", bedrooms: 3, bathrooms: 2, sqft: 130, zone: "otro", image: "../mazatlan/casa-en-venta-en-mazatlan-sinaloa-villa-galaxia/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue", priceShort: "$2.4M", price: 2400000, title: "Casa Hacienda del Seminario", location: "Hacienda del Seminario", bedrooms: 3, bathrooms: 2, sqft: 145, zone: "otro", image: "../mazatlan/casa-en-venta-en-mazatlan-sinaloa-hacienda-del-seminario-fue/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model", priceShort: "$2.7M", price: 2700000, title: "Casa Camila Hills", location: "Av Paseo del Pacífico", bedrooms: 3, bathrooms: 2, sqft: 165, zone: "otro", image: "../mazatlan/casa-en-venta-en-mazatlan-en-coto-privado-camila-hills-model/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-mazatlan", priceShort: "$2.7M", price: 2700000, title: "Casa Mazatlán Centro", location: "Centro Mazatlán", bedrooms: 3, bathrooms: 2, sqft: 160, zone: "centro", image: "../mazatlan/casa-en-venta-en-mazatlan/images/foto-1.jpg" },
+            { slug: "casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z", priceShort: "$2.4M", price: 2400000, title: "Casa De Los Peces", location: "De Los Peces", bedrooms: 3, bathrooms: 2, sqft: 151, zone: "otro", image: "../mazatlan/casa-en-venta-151-m-con-terraza-recamara-en-planta-baja-en-z/images/foto-1.jpg" },
+            { slug: "casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01", priceShort: "$6.3M", price: 6300000, title: "Casa Barrio San Francisco", location: "Barrio San Francisco", bedrooms: 2, bathrooms: 1, sqft: 146, zone: "centro", image: "../mazatlan/casa-en-venta-en-la-primavera-barrio-san-francisco-sur-01/images/foto-1.jpg" }
+        ];
+
+        let map, markers = {}, infoWindows = {}, clusterer = null;
+        let filteredProperties = [...ALL_PROPERTIES];
+
+        // PAGINACIÓN: Variables globales
+        let currentPage = 1;
+        const ITEMS_PER_PAGE = 20; // ZILLOW: 20 propiedades por página
+
+        // Función para determinar color de marcador - TODOS NARANJA HECTOR
+        function getMarkerGradient(price) {
+            return 'linear-gradient(135deg, #FF6A00 0%, #D35500 100%)';
+        }
+
+        function initMap() {
+            // ZILLOW: Configuración de mapa con zoom inteligente
+            map = new google.maps.Map(document.getElementById('map-container'), {
+                center: { lat: 23.2494, lng: -106.4110 }, // Centro de Mazatlán
+                zoom: 12, // ZILLOW: zoom inicial 12 (vista general ciudad)
+                minZoom: 10, // ZILLOW: límite zoom out (evitar demasiado lejos)
+                maxZoom: 18, // ZILLOW: límite zoom in (evitar demasiado cerca)
+                mapTypeControl: false,
+                fullscreenControl: false,
+                streetViewControl: false,
+                zoomControl: true, // ZILLOW: permitir zoom controls
+                zoomControlOptions: {
+                    position: google.maps.ControlPosition.RIGHT_CENTER // ZILLOW: posición derecha
+                },
+                gestureHandling: 'greedy', // ZILLOW: scroll directo sin Ctrl (mejor UX)
+                styles: [
+                    {
+                        featureType: "poi",
+                        elementType: "labels",
+                        stylers: [{ visibility: "off" }] // Ocultar POIs para limpieza
+                    }
+                ]
+            });
+
+            renderMarkers(filteredProperties);
+            renderListings(filteredProperties);
+
+            // ZILLOW: Auto-fit bounds para mostrar todas las propiedades
+            fitMapToMarkers();
+        }
+
+        // ZILLOW: Ajustar zoom automáticamente para mostrar todas las propiedades
+        function fitMapToMarkers() {
+            if (Object.keys(markers).length === 0) return;
+
+            const bounds = new google.maps.LatLngBounds();
+            Object.values(markers).forEach(marker => {
+                bounds.extend(marker.getPosition());
+            });
+
+            // ZILLOW: Fit con padding para que los marcadores no queden en el borde
+            map.fitBounds(bounds, {
+                top: 50,
+                right: 50,
+                bottom: 50,
+                left: 50
+            });
+
+            // ZILLOW: Si solo hay 1-2 propiedades, evitar zoom demasiado cercano
+            google.maps.event.addListenerOnce(map, 'bounds_changed', () => {
+                const currentZoom = map.getZoom();
+                if (currentZoom > 15) {
+                    map.setZoom(15); // ZILLOW: máximo zoom 15 cuando auto-fit
+                }
+            });
+        }
+
+        function renderMarkers(properties) {
+            Object.values(markers).forEach(m => m.setMap(null));
+            markers = {};
+            infoWindows = {};
+
+            const geocoder = new google.maps.Geocoder();
+
+            properties.forEach(property => {
+                // Usar coordenadas hardcodeadas si existen, sino geocoding
+                if (property.lat && property.lng) {
+                    const position = { lat: property.lat, lng: property.lng };
+                    createMarker(property, position);
+                } else {
+                    geocoder.geocode({ address: property.location + ', Mazatlán, Sinaloa' }, function(results, status) {
+                        if (status === 'OK' && results[0]) {
+                            const position = results[0].geometry.location;
+                            createMarker(property, position);
+                        }
+                    });
+                }
+            });
+
+            // Crear/actualizar clusterer después de que todos los marcadores estén listos
+            setTimeout(() => {
+                const markerArray = Object.values(markers);
+                if (clusterer) {
+                    clusterer.clearMarkers();
+                }
+
+                // Usar MarkerClusterer del objeto global
+                if (typeof markerClusterer !== 'undefined' && markerClusterer.MarkerClusterer) {
+                    clusterer = new markerClusterer.MarkerClusterer({
+                        map,
+                        markers: markerArray,
+                        // CONFIGURACIÓN CLAVE: Algoritmo de agrupación
+                        algorithm: new markerClusterer.GridAlgorithm({
+                            maxDistance: 40000, // Distancia MUY grande en píxeles para agrupar cuando está alejado
+                            gridSize: 60 // Tamaño de cuadrícula para agrupación
+                        }),
+                        // Separación progresiva según zoom
+                        onClusterClick: (event, cluster, map) => {
+                            map.setZoom(map.getZoom() + 3); // Zoom más agresivo al clickear cluster
+                            map.panTo(cluster.position);
+                        },
+                        renderer: {
+                            render: ({ count, position }) => {
+                                // Cluster personalizado - TODOS NARANJA HECTOR
+                                const color = '#FF6A00';
+                                return new google.maps.Marker({
+                                    position,
+                                    icon: {
+                                        url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                                            <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="25" cy="25" r="22" fill="${color}" stroke="white" stroke-width="3"/>
+                                                <text x="25" y="32" font-family="Poppins" font-size="16" font-weight="800" fill="white" text-anchor="middle">${count}</text>
+                                            </svg>
+                                        `)}`,
+                                        scaledSize: new google.maps.Size(50, 50),
+                                        anchor: new google.maps.Point(25, 25)
+                                    },
+                                    label: {
+                                        text: count.toString(),
+                                        color: 'transparent',
+                                        fontSize: '0px'
+                                    },
+                                    zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count
+                                });
+                            }
+                        }
+                    });
+                }
+
+                // ZILLOW: Auto-fit bounds después de crear marcadores y clusterer
+                fitMapToMarkers();
+            }, 1500); // Esperar a que geocoding termine
+        }
+
+        function createMarker(property, position) {
+            // ZILLOW: Marcador compacto con precio
+            const marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: property.title,
+                icon: {
+                    url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                        <svg width="70" height="32" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="70" height="32" rx="16" fill="#FF6A00" stroke="white" stroke-width="2"/>
+                            <text x="35" y="21" font-family="'Open Sans', Arial, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">${property.priceShort}</text>
+                        </svg>
+                    `)}`,
+                    scaledSize: new google.maps.Size(70, 32),
+                    anchor: new google.maps.Point(35, 32)
+                },
+                zIndex: 1
+            });
+
+            // ZILLOW: Info window estilo Zillow (sin bordes)
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="width:280px;font-family:'Open Sans',sans-serif;border-radius:8px;overflow:hidden;background:white;box-shadow:0 2px 16px rgba(0,0,0,0.18);">
+                        <a href="../mazatlan/${property.slug}/index.html" target="_blank" style="text-decoration:none;display:block;">
+                            <img src="${property.image}" style="width:100%;height:180px;object-fit:cover;display:block;">
+                            <div style="padding:12px;">
+                                <div style="font-size:18px;font-weight:700;color:#2A2A33;margin-bottom:2px;">${property.priceShort}</div>
+                                <div style="font-size:13px;color:#6E6E78;margin-bottom:6px;">${property.bedrooms} rec • ${property.bathrooms} baños • ${property.sqft}m²</div>
+                                <div style="font-size:13px;color:#2A2A33;line-height:1.3;">${property.location}, Mazatlán</div>
+                            </div>
+                        </a>
+                    </div>
+                `,
+                pixelOffset: new google.maps.Size(0, -15),
+                disableAutoPan: false
+            });
+
+            marker.addListener('click', () => {
+                Object.values(infoWindows).forEach(iw => iw.close());
+                infoWindow.open(map, marker);
+                focusPropertyCard(property.slug);
+            });
+
+            marker.addListener('mouseover', () => highlightCard(property.slug));
+            marker.addListener('mouseout', () => unhighlightCard(property.slug));
+
+            markers[property.slug] = marker;
+            infoWindows[property.slug] = infoWindow;
+        }
+
+        function renderListings(properties) {
+            const container = document.getElementById('listings-container');
+
+            if (properties.length === 0) {
+                container.innerHTML = '<div class="no-results"><p>😕 No se encontraron propiedades</p><button onclick="resetFilters()">Ver todas</button></div>';
+                document.getElementById('pagination-nav').style.display = 'none';
+                return;
+            }
+
+            // PAGINACIÓN: Calcular inicio y fin de la página actual
+            const totalPages = Math.ceil(properties.length / ITEMS_PER_PAGE);
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, properties.length);
+            const pageProperties = properties.slice(startIndex, endIndex);
+
+            container.innerHTML = pageProperties.map((p, index) => {
+                // Determinar badges según características
+                const badges = [];
+                if (p.price < 2500000) badges.push('<span class="badge green"><i class="fa-solid fa-tag"></i>Precio Bajo</span>');
+                if (p.bedrooms >= 4) badges.push('<span class="badge blue"><i class="fa-solid fa-bed"></i>4+ Recámaras</span>');
+                if (p.sqft >= 200) badges.push('<span class="badge teal"><i class="fa-solid fa-expand"></i>Amplia</span>');
+                if (p.zone === 'real-del-valle') badges.push('<span class="badge amber"><i class="fa-solid fa-location-dot"></i>Real del Valle</span>');
+
+                // Generar array de imágenes (máximo 20 fotos por propiedad)
+                const numPhotos = 20; // Zillow muestra todas las fotos disponibles
+                const photos = Array.from({length: numPhotos}, (_, i) =>
+                    `../mazatlan/${p.slug}/images/foto-${i+1}.jpg`
+                );
+
+                // Generar slides individuales (sistema Casa Solidaridad)
+                const slidesHtml = photos.map((photo, i) =>
+                    '<div class="carousel-slide ' + (i === 0 ? 'active' : '') + '" data-slide="' + i + '" style="--bg-img: url(\'' + photo + '\');">' +
+                        '<img src="' + photo + '" class="carousel-image" alt="' + p.title + '" onerror="this.style.display=\'none\'">' +
+                    '</div>'
+                ).join('');
+
+                const dotsHtml = photos.map((_, i) =>
+                    '<button class="carousel-dot ' + (i === 0 ? 'active' : '') + '" data-slug="' + p.slug + '" data-index="' + i + '" aria-label="Foto ' + (i+1) + '"></button>'
+                ).join('');
+
+                return '<div class="listing-card" id="card-' + p.slug + '" data-carousel-id="' + p.slug + '" data-property-url="../mazatlan/' + p.slug + '/index.html" onmouseenter="highlightMarker(\'' + p.slug + '\')" style="cursor: pointer;">' +
+                    '<!-- ZILLOW: Card Image Container -->' +
+                    '<div class="card-carousel-container" style="position:relative;">' +
+                        '<div class="carousel-wrapper" id="carousel-' + p.slug + '">' +
+                            slidesHtml +
+                        '</div>' +
+                        '<!-- ZILLOW: Price Badge (naranja, superior derecha) SOLO DESKTOP -->' +
+                        '<div class="price-badge-desktop" style="position: absolute; top: 12px; right: 12px; background: #FF6A00; color: white; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 700; z-index: 10;">' +
+                            p.priceShort +
+                        '</div>' +
+                        '<!-- ZILLOW: Botones Save/Share (superior izquierda) -->' +
+                        '<div style="position: absolute; top: 12px; left: 12px; display: flex; gap: 8px; z-index: 10;">' +
+                            '<button class="icon-btn" aria-label="Guardar" onclick="event.stopPropagation(); alert(\'Guardado en favoritos\')" style="background: rgba(255,255,255,0.95); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;">' +
+                                '<i class="fa-regular fa-heart" style="color: #2A2A33; font-size: 16px;"></i>' +
+                            '</button>' +
+                        '</div>' +
+                        '<!-- ZILLOW: Flechas carrusel (solo visible en hover) -->' +
+                        '<button class="carousel-arrow-card prev" data-slug="' + p.slug + '" data-direction="-1" aria-label="Anterior">' +
+                            '<i class="fa-solid fa-chevron-left"></i>' +
+                        '</button>' +
+                        '<button class="carousel-arrow-card next" data-slug="' + p.slug + '" data-direction="1" aria-label="Siguiente">' +
+                            '<i class="fa-solid fa-chevron-right"></i>' +
+                        '</button>' +
+                        '<!-- ZILLOW: Dots indicadores (inferior centro) -->' +
+                        '<div class="carousel-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 4px; z-index: 10;">' +
+                            dotsHtml +
+                        '</div>' +
+                    '</div>' +
+                    '<!-- ZILLOW: Card Content (listing-body para CSS responsive) -->' +
+                    '<div class="listing-body">' +
+                        '<!-- ZILLOW: Precio (class price-badge para CSS mobile) -->' +
+                        '<div class="price-badge listing-price">' +
+                            p.priceShort +
+                        '</div>' +
+                        '<!-- ZILLOW: Detalles compactos (beds | baths | sqft) -->' +
+                        '<div class="listing-specs">' +
+                            p.bedrooms + ' rec • ' + p.bathrooms + ' baños • ' + p.sqft + ' m²' +
+                        '</div>' +
+                        '<!-- ZILLOW: Ubicación -->' +
+                        '<div class="listing-location">' +
+                            p.location + ', Mazatlán, Sin.' +
+                        '</div>' +
+                        '<!-- ZILLOW: Broker info (si existe) -->' +
+                        '<div class="badge-text" style="color: #6E6E78; margin-top: 8px;">' +
+                            'Hector es Bienes Raíces' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+
+            updateCounters(properties.length);
+
+            // PAGINACIÓN: Renderizar controles
+            renderPagination(totalPages);
+
+            // ZILLOW: Event delegation para carruseles (flechas y dots)
+            attachCarouselListeners();
+
+            // Detectar fotos verticales y agregar clase para zoom 20%
+            detectVerticalPhotos();
+
+            // Inicializar sistema de click en tarjetas (Culiacán)
+            initPropertyCardClicks();
+
+            // Móvil: Inicializar controles táctiles + tap-to-open en nuevas cards
+            if (window.initMobileControlsOnly) {
+                window.initMobileControlsOnly();
+            }
+            if (window.initMobileTapToOpen) {
+                window.initMobileTapToOpen();
+            }
+
+            // Recalcular mediciones después de renderizar (móvil)
+            if (window.innerWidth <= 768 && window.mapInstance) {
+                setTimeout(() => {
+                    applyCompactSheetAndReveal(window.mapInstance);
+                }, 300); // Aumentado para que carguen las imágenes
+            }
+        }
+
+        // ==== DETECTAR ORIENTACIÓN Y APLICAR ZOOM DIFERENCIADO ====
+        function detectVerticalPhotos() {
+            const images = document.querySelectorAll('.carousel-image');
+            images.forEach(img => {
+                // Esperar a que la imagen cargue para obtener dimensiones reales
+                if (img.complete) {
+                    checkIfVertical(img);
+                } else {
+                    img.addEventListener('load', () => checkIfVertical(img), { once: true });
+                }
+            });
+        }
+
+        function checkIfVertical(img) {
+            const width = img.naturalWidth;
+            const height = img.naturalHeight;
+
+            // Si alto > ancho, es vertical (portrait) - scale 1.4
+            if (height > width) {
+                img.classList.add('vertical-photo');
+                img.classList.remove('horizontal-photo');
+            } else {
+                // Si ancho >= alto, es horizontal (landscape) - sin scale
+                img.classList.add('horizontal-photo');
+                img.classList.remove('vertical-photo');
+            }
+        }
+
+        // ==== LISTENER DELEGADO (ya no necesario, el interceptor global lo maneja) ====
+        // El failsafe interceptor en document nivel con capture=true maneja todo
+        function attachCarouselListeners() {
+            // No-op: el interceptor global ya maneja todos los clicks
+            // Esta función se mantiene para compatibilidad con llamadas existentes
+        }
+
+        function highlightMarker(slug) {
+            const marker = markers[slug];
+            if (marker) {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(() => marker.setAnimation(null), 700);
+            }
+        }
+
+        function highlightCard(slug) {
+            document.querySelectorAll('.listing-card').forEach(c => c.classList.remove('highlighted'));
+            const card = document.getElementById('card-' + slug);
+
+            if (!card) return;
+
+            card.classList.add('highlighted');
+
+            // Reset carousel to first photo - usando el nuevo sistema
+            goToCardPhoto(slug, 0);
+
+            // ZILLOW: Scroll automático MEJORADO - más timeout para garantizar que funcione
+            if (window.innerWidth > 768) {
+                const listingsContainer = document.getElementById('listings-container');
+                if (listingsContainer) {
+                    // Aumentado a 200ms para dar tiempo al DOM a actualizarse
+                    setTimeout(function() {
+                        // Forzar recálculo del layout antes de medir
+                        card.offsetHeight;
+
+                        const containerRect = listingsContainer.getBoundingClientRect();
+                        const cardRect = card.getBoundingClientRect();
+                        const currentScroll = listingsContainer.scrollTop;
+                        const cardRelativeTop = cardRect.top - containerRect.top;
+                        const targetScroll = currentScroll + cardRelativeTop - (containerRect.height / 2) + (cardRect.height / 2);
+
+                        listingsContainer.scrollTo({
+                            top: targetScroll,
+                            behavior: 'smooth'
+                        });
+                    }, 200);
+                }
+            } else {
+                // Móvil: usar scrollIntoView con timeout también
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 200);
+            }
+        }
+
+        function focusPropertyCard(slug) {
+            if (!Array.isArray(filteredProperties) || filteredProperties.length === 0) {
+                highlightCard(slug);
+                return;
+            }
+
+            const propertyIndex = filteredProperties.findIndex(property => property.slug === slug);
+            if (propertyIndex === -1) {
+                highlightCard(slug);
+                return;
+            }
+
+            const targetPage = Math.floor(propertyIndex / ITEMS_PER_PAGE) + 1;
+            if (currentPage !== targetPage) {
+                goToPage(targetPage);
+                setTimeout(() => highlightCard(slug), 150);
+            } else {
+                highlightCard(slug);
+            }
+
+            if (typeof syncMobileListings === 'function') {
+                setTimeout(() => syncMobileListings(), 200);
+            }
+        }
+
+        function unhighlightCard(slug) {
+            const card = document.getElementById(`card-${slug}`);
+            if (card) card.classList.remove('highlighted');
+        }
+
+        // ========== SISTEMA DE PAGINACIÓN ZILLOW ==========
+
+        function renderPagination(totalPages) {
+            console.log('renderPagination called with totalPages:', totalPages, 'currentPage:', currentPage);
+            const paginationNav = document.getElementById('pagination-nav');
+            const paginationList = document.getElementById('pagination-list');
+
+            if (!paginationNav || !paginationList) {
+                console.error('Pagination elements not found!');
+                return;
+            }
+
+            // Ocultar si solo hay 1 página
+            if (totalPages <= 1) {
+                console.log('Only 1 page, hiding pagination');
+                paginationNav.style.display = 'none';
+                return;
+            }
+
+            console.log('Showing pagination with', totalPages, 'pages');
+            paginationNav.style.display = 'block';
+
+            let html = '';
+
+            // Botón Previous
+            html += `
+                <li class="pagination-item">
+                    <button class="pagination-arrow" ${currentPage === 1 ? 'disabled' : ''}
+                            onclick="goToPage(${currentPage - 1})" aria-label="Previous page">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </li>
+            `;
+
+            // ZILLOW: Mostrar máximo 7 botones
+            const maxButtons = 7;
+            let startPage = Math.max(1, currentPage - 3);
+            let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+
+            // Ajustar startPage si estamos cerca del final
+            if (endPage - startPage < maxButtons - 1) {
+                startPage = Math.max(1, endPage - maxButtons + 1);
+            }
+
+            // Primer página + ellipsis si es necesario
+            if (startPage > 1) {
+                html += `
+                    <li class="pagination-item">
+                        <button class="pagination-btn" onclick="goToPage(1)">1</button>
+                    </li>
+                `;
+                if (startPage > 2) {
+                    html += `<li class="pagination-item"><span class="pagination-ellipsis">...</span></li>`;
+                }
+            }
+
+            // Botones de números de página
+            for (let i = startPage; i <= endPage; i++) {
+                html += `
+                    <li class="pagination-item">
+                        <button class="pagination-btn ${i === currentPage ? 'active' : ''}"
+                                onclick="goToPage(${i})">${i}</button>
+                    </li>
+                `;
+            }
+
+            // Ellipsis + última página si es necesario
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    html += `<li class="pagination-item"><span class="pagination-ellipsis">...</span></li>`;
+                }
+                html += `
+                    <li class="pagination-item">
+                        <button class="pagination-btn" onclick="goToPage(${totalPages})">${totalPages}</button>
+                    </li>
+                `;
+            }
+
+            // Botón Next
+            html += `
+                <li class="pagination-item">
+                    <button class="pagination-arrow" ${currentPage === totalPages ? 'disabled' : ''}
+                            onclick="goToPage(${currentPage + 1})" aria-label="Next page">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </li>
+            `;
+
+            paginationList.innerHTML = html;
+        }
+
+        function goToPage(pageNumber) {
+            currentPage = pageNumber;
+
+            // Scroll al tope del panel de listings
+            const listingsSection = document.getElementById('listings-container');
+            listingsSection.scrollTop = 0;
+
+            // Re-renderizar con la nueva página
+            renderListings(filteredProperties);
+        }
+
+        // ========== NUEVO SISTEMA DE FILTROS ZILLOW ==========
+
+        // Estado de filtros activos
+        // ZILLOW: Active filters con nuevo filtro "type"
+        const activeFilters = {
+            type: 'sale',  // Default: For Sale
+            price: '',
+            bedrooms: '',
+            bathrooms: '',
+            zone: ''
+        };
+
+        // Abrir bottom sheet
+        function openBottomSheet(filterType) {
+            const overlay = document.getElementById('sheet-overlay');
+            const sheet = document.getElementById(`sheet-${filterType}`);
+
+            overlay.classList.add('active');
+            sheet.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        }
+
+        // Cerrar bottom sheet
+        function closeBottomSheet() {
+            const overlay = document.getElementById('sheet-overlay');
+            const sheets = document.querySelectorAll('.bottom-sheet');
+
+            overlay.classList.remove('active');
+            sheets.forEach(sheet => sheet.classList.remove('active'));
+            document.body.style.overflow = ''; // Restore scroll
+        }
+
+        // Seleccionar opción en bottom sheet (bedrooms, bathrooms, zone)
+        function selectOption(button, filterType, value) {
+            // Remover selected de todos los botones del grupo
+            const group = button.parentElement;
+            group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('selected'));
+
+            // Marcar como selected
+            button.classList.add('selected');
+
+            // Guardar en estado temporal (se aplicará al hacer clic en "Aplicar")
+            activeFilters[filterType] = value;
+        }
+
+        // Seleccionar precio (funciona diferente)
+        function selectPrice(button, value) {
+            const group = button.parentElement;
+            group.querySelectorAll('.price-btn').forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            activeFilters.price = value;
+        }
+
+        // Aplicar filtro y cerrar sheet
+        function applyFilter(filterType) {
+            // ZILLOW: Para "beds-baths", actualizar ambos chips
+            if (filterType === 'beds-baths') {
+                updateChipState('bedrooms');
+                updateChipState('bathrooms');
+            } else if (filterType === 'more') {
+                // ZILLOW: Para "more", actualizar zone
+                updateChipState('zone');
+            } else {
+                updateChipState(filterType);
+            }
+            closeBottomSheet();
+            applyFilters();
+        }
+
+        // Actualizar estado visual del chip
+        function updateChipState(filterType) {
+            // ZILLOW: Para "beds-baths" y "more" necesitamos mapear a los chips reales
+            let chipId = filterType;
+
+            // ZILLOW: Mapear bedrooms/bathrooms/zone a sus nuevos chips
+            if (filterType === 'bedrooms' || filterType === 'bathrooms') {
+                chipId = 'beds-baths';
+            } else if (filterType === 'zone') {
+                chipId = 'more';
+            }
+
+            const chip = document.getElementById(`chip-${chipId}`);
+            const value = activeFilters[filterType];
+
+            if (value) {
+                chip.classList.add('active');
+
+                // Actualizar texto del chip con valor seleccionado
+                let displayText = '';
+                if (filterType === 'type') {
+                    displayText = value === 'sale' ? 'En Venta' : 'En Renta';
+                } else if (filterType === 'price') {
+                    const ranges = {
+                        '0-2500000': '$0-$2.5M',
+                        '2500000-3000000': '$2.5M-$3.0M',
+                        '3000000-3500000': '$3.0M-$3.5M',
+                        '3500000-999999999': '$3.5M+'
+                    };
+                    displayText = ranges[value] || 'Precio';
+                } else if (filterType === 'bedrooms') {
+                    displayText = value + '+ rec';
+                } else if (filterType === 'bathrooms') {
+                    displayText = value + '+ baños';
+                } else if (filterType === 'zone') {
+                    const zones = {
+                        'real-del-valle': 'Real del Valle',
+                        'marina': 'Marina',
+                        'centro': 'Centro'
+                    };
+                    displayText = zones[value] || 'Zona';
+                }
+
+                // ZILLOW: Para beds-baths, mostrar ambos si están activos
+                if (chipId === 'beds-baths') {
+                    const bedValue = activeFilters.bedrooms;
+                    const bathValue = activeFilters.bathrooms;
+                    if (bedValue && bathValue) {
+                        displayText = `${bedValue}+ rec, ${bathValue}+ baños`;
+                    } else if (bedValue) {
+                        displayText = `${bedValue}+ rec`;
+                    } else if (bathValue) {
+                        displayText = `${bathValue}+ baños`;
+                    }
+                }
+
+                chip.innerHTML = `
+                    <span class="chip-label">${displayText}</span>
+                    <i class="fas fa-times chip-icon"></i>
+                `;
+
+                // Al hacer clic en chip activo, remover filtro
+                chip.onclick = () => removeFilter(filterType);
+            } else {
+                // ZILLOW: Si es beds-baths, verificar si el otro está activo
+                if (chipId === 'beds-baths') {
+                    const bedValue = activeFilters.bedrooms;
+                    const bathValue = activeFilters.bathrooms;
+                    if (!bedValue && !bathValue) {
+                        chip.classList.remove('active');
+                        resetChipAppearance(chipId);
+                    }
+                } else if (chipId === 'more') {
+                    // ZILLOW: Para "more", verificar si zone está activo
+                    if (!activeFilters.zone) {
+                        chip.classList.remove('active');
+                        resetChipAppearance(chipId);
+                    }
+                } else {
+                    chip.classList.remove('active');
+                    resetChipAppearance(filterType);
+                }
+            }
+        }
+
+        // Remover filtro individual
+        function removeFilter(filterType) {
+            activeFilters[filterType] = '';
+            resetChipAppearance(filterType);
+
+            // Remover selected de opciones en el sheet
+            const sheet = document.getElementById(`sheet-${filterType}`);
+            sheet.querySelectorAll('.option-btn, .price-btn').forEach(btn => btn.classList.remove('selected'));
+
+            applyFilters();
+        }
+
+        // Reset apariencia de chip a estado inicial
+        function resetChipAppearance(filterType) {
+            const chip = document.getElementById(`chip-${filterType}`);
+            chip.classList.remove('active');
+
+            // ZILLOW: Labels actualizados a español
+            const labels = {
+                type: 'En Venta',
+                price: 'Precio',
+                'beds-baths': 'Recámaras y Baños',
+                more: 'Más',
+                bedrooms: 'Recámaras y Baños',
+                bathrooms: 'Recámaras y Baños',
+                zone: 'Más'
+            };
+
+            chip.innerHTML = `
+                <span class="chip-label">${labels[filterType]}</span>
+                <i class="fas fa-chevron-down chip-icon"></i>
+            `;
+
+            chip.onclick = () => openBottomSheet(filterType);
+        }
+
+        // Aplicar todos los filtros activos
+        function applyFilters() {
+            filteredProperties = ALL_PROPERTIES.filter(p => {
+                // Filtro de precio
+                if (activeFilters.price) {
+                    const [min, max] = activeFilters.price.split('-').map(Number);
+                    if (p.price < min || p.price > max) return false;
+                }
+
+                // Filtro de recámaras (>=)
+                if (activeFilters.bedrooms) {
+                    if (p.bedrooms < parseInt(activeFilters.bedrooms)) return false;
+                }
+
+                // Filtro de baños (>=)
+                if (activeFilters.bathrooms) {
+                    if (p.bathrooms < parseInt(activeFilters.bathrooms)) return false;
+                }
+
+                // Filtro de zona
+                if (activeFilters.zone) {
+                    if (p.zone !== activeFilters.zone) return false;
+                }
+
+                return true;
+            });
+
+            // PAGINACIÓN: Reset a página 1 cuando se aplican filtros
+            currentPage = 1;
+
+            renderMarkers(filteredProperties);
+            renderListings(filteredProperties);
+        }
+
+        // Limpiar TODOS los filtros
+        // ZILLOW: Limpiar TODOS los filtros (llamado desde botón "Clear All Filters" en "More")
+        function resetFilters() {
+            activeFilters.type = 'sale';  // Reset to default "For Sale"
+            activeFilters.price = '';
+            activeFilters.bedrooms = '';
+            activeFilters.bathrooms = '';
+            activeFilters.zone = '';
+
+            // PAGINACIÓN: Reset a página 1
+            currentPage = 1;
+
+            // Reset visual de todos los chips (usando los nuevos IDs)
+            ['type', 'price', 'beds-baths', 'more'].forEach(chipId => {
+                resetChipAppearance(chipId);
+            });
+
+            // Reset selección en todos los sheets
+            ['sheet-type', 'sheet-price', 'sheet-beds-baths', 'sheet-more'].forEach(sheetId => {
+                const sheet = document.getElementById(sheetId);
+                if (sheet) {
+                    sheet.querySelectorAll('.option-btn, .price-btn').forEach(btn => {
+                        btn.classList.remove('selected');
+                    });
+                    // Reseleccionar "For Sale" por defecto en sheet-type
+                    if (sheetId === 'sheet-type') {
+                        const forSaleBtn = sheet.querySelector('[data-value="sale"]');
+                        if (forSaleBtn) forSaleBtn.classList.add('selected');
+                    }
+                }
+            });
+
+            closeBottomSheet();
+            applyFilters();
+        }
+
+        function updateCounters(count) {
+            const text = count === ALL_PROPERTIES.length
+                ? `${count} propiedades en Mazatlán`
+                : `${count} de ${ALL_PROPERTIES.length} propiedades`;
+            document.getElementById('results-text').textContent = text;
+
+            // Actualizar contador en header (si existe)
+            const visibleCount = document.getElementById('visible-count');
+            if (visibleCount) {
+                visibleCount.textContent = count;
+            }
+        }
+
+        // ===== Inicialización carruseles: fuerza un único activo =====
+        (function initCarouselsOnce(){
+            if (window.__carInitDone) return;
+            window.__carInitDone = true;
+
+            function initOne(root) {
+                const slides = root.querySelectorAll('.carousel-slide');
+                if (!slides.length) return;
+                // Fuerza un único activo
+                slides.forEach(function(s, i){ s.classList.toggle('active', i === 0); });
+                // Resetea dots
+                const dots = root.querySelectorAll('.carousel-dot');
+                dots.forEach(function(d, i){ d.classList.toggle('active', i === 0); });
+                // Guarda índice interno para el modo por contexto
+                root.__idx = 0;
+            }
+
+            // Inicializar al cargar
+            document.querySelectorAll('.card-carousel-container').forEach(initOne);
+
+            // Exponer para re-renders manuales
+            window.initCarousel = initOne;
+        })();
+
+        // ===== Sistema carrusel WeakMap (sin dependencia de slug) =====
+        (function installCarouselSystem(){
+            if (window.__carouselSystemInstalled) return;
+            window.__carouselSystemInstalled = true;
+
+            // Estado por carrusel usando WeakMap (no depende de slug)
+            const carouselStateByEl = new WeakMap();
+
+            function getRootFrom(el) {
+                return el?.closest('.card-carousel-container');
+            }
+            function getSlidesFrom(root) {
+                if (!root) return [];
+                const wrapper = root.querySelector('.carousel-wrapper');
+                return wrapper ? Array.from(wrapper.querySelectorAll('.carousel-slide')) : [];
+            }
+            function getDotsFrom(root) {
+                return root ? Array.from(root.querySelectorAll('.carousel-dot')) : [];
+            }
+            function getIndex(root) {
+                return carouselStateByEl.has(root) ? carouselStateByEl.get(root) : 0;
+            }
+            function setIndex(root, n) {
+                carouselStateByEl.set(root, n);
+            }
+
+            function showSlideIn(root, index) {
+                const slides = getSlidesFrom(root);
+                if (!slides.length) return;
+                const dots = getDotsFrom(root);
+                const n = ((index % slides.length) + slides.length) % slides.length;
+                setIndex(root, n);
+                slides.forEach(function(s, i) { s.classList.toggle('active', i === n); });
+                dots.forEach(function(d, i) { d.classList.toggle('active', i === n); });
+            }
+            function changePhotoIn(root, delta) {
+                const slides = getSlidesFrom(root);
+                if (!slides.length) return;
+                const cur = getIndex(root);
+                const step = parseInt(delta, 10) || 0;
+                showSlideIn(root, cur + step);
+            }
+            function goToPhotoIn(root, idx) {
+                showSlideIn(root, parseInt(idx, 10) || 0);
+            }
+
+            // Funciones globales (fallback por slug si otros módulos las llaman)
+            window.showSlide = function(slug, index) {
+                const el = document.querySelector('#carousel-' + slug)?.closest('.card-carousel-container');
+                if (el) showSlideIn(el, index);
+            };
+            window.changeCardPhoto = function(slug, delta) {
+                const el = document.querySelector('#carousel-' + slug)?.closest('.card-carousel-container');
+                if (el) changePhotoIn(el, delta);
+            };
+            window.goToCardPhoto = function(slug, idx) {
+                const el = document.querySelector('#carousel-' + slug)?.closest('.card-carousel-container');
+                if (el) goToPhotoIn(el, idx);
+            };
+
+            // Listener delegado usando contexto DOM
+            const container = document.getElementById('listings-container');
+            if (!container) return;
+
+            if (container._carouselListener) {
+                container.removeEventListener('click', container._carouselListener, false);
+            }
+
+            const listener = function(e) {
+                const arrow = e.target.closest('.carousel-arrow-card');
+                if (arrow) {
+                    e.preventDefault();
+                    const root = getRootFrom(arrow);
+                    changePhotoIn(root, arrow.dataset.direction);
+                    return;
+                }
+                const dot = e.target.closest('.carousel-dot');
+                if (dot) {
+                    e.preventDefault();
+                    const root = getRootFrom(dot);
+                    goToPhotoIn(root, dot.dataset.index);
+                    return;
+                }
+                // Apertura de propiedad manejada por listener simple de Culiacán
+            };
+
+            container._carouselListener = listener;
+            container.addEventListener('click', listener, false);
+
+            // Exponer helpers para swipe system
+            window.getRootFrom = getRootFrom;
+            window.changePhotoIn = changePhotoIn;
+        })();
+
+        // ===== Swipe horizontal para móvil en el grid =====
+        (function installCarouselSwipe(){
+            if (window.__carouselSwipeInstalled) return;
+            window.__carouselSwipeInstalled = true;
+
+            const SCROLL_LOCK_CLASS = 'carousel-swipe-lock';
+            const THRESHOLD_START = 8;    // px para considerar gesto horizontal
+            const THRESHOLD_ACT = 30;     // px para cambiar de foto
+            const MAX_ANGLE = 30;         // grados: ignora si se acerca a vertical
+
+            const container = document.getElementById('listings-container');
+            if (!container) return;
+
+            // Fallbacks si no tienes los helpers por contexto
+            const _getRootFrom = window.getRootFrom || function(el){ return el?.closest?.('.card-carousel-container') || null; };
+            const _changePhotoIn = window.changePhotoIn || function(root, delta) {
+                if (!root) return;
+                const wrapper = root.querySelector('.carousel-wrapper');
+                const slides = wrapper ? Array.from(wrapper.querySelectorAll('.carousel-slide')) : [];
+                if (!slides.length) return;
+                const dots = Array.from(root.querySelectorAll('.carousel-dot'));
+                const cur = root.__idx ?? 0;
+                const n = ((cur + (parseInt(delta,10)||0)) % slides.length + slides.length) % slides.length;
+                root.__idx = n;
+                slides.forEach(function(s,i){ s.classList.toggle('active', i===n); });
+                dots.forEach(function(d,i){ d.classList.toggle('active', i===n); });
+            };
+
+            let tracking = null;
+
+            function onPointerDown(e){
+                const target = e.target;
+                const root = _getRootFrom(target);
+                if (!root) return;
+
+                // Solo inicia si tocó sobre el carrusel o sus hijos
+                const wrapper = root.querySelector('.carousel-wrapper');
+                if (!wrapper || !wrapper.contains(target)) return;
+
+                tracking = {
+                    root: root,
+                    startX: e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0,
+                    startY: e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? 0,
+                    moved: false,
+                    swiping: false
+                };
+            }
+
+            function onPointerMove(e){
+                if (!tracking) return;
+                const x = e.clientX ?? (e.touches && e.touches[0]?.clientX) ?? 0;
+                const y = e.clientY ?? (e.touches && e.touches[0]?.clientY) ?? 0;
+
+                const dx = x - tracking.startX;
+                const dy = y - tracking.startY;
+                tracking.moved = tracking.moved || Math.hypot(dx, dy) > THRESHOLD_START;
+
+                // Decide si es swipe horizontal
+                if (!tracking.swiping && tracking.moved) {
+                    const angle = Math.abs(Math.atan2(Math.abs(dy), Math.abs(dx)) * 180 / Math.PI);
+                    if (Math.abs(dx) > THRESHOLD_START && angle <= MAX_ANGLE) {
+                        tracking.swiping = true;
+                    } else if (angle > MAX_ANGLE) {
+                        // Es más vertical: cancela el swipe para no bloquear scroll
+                        tracking = null;
+                        return;
+                    }
+                }
+
+                if (tracking && tracking.swiping) {
+                    // Bloquea el scroll mientras se hace swipe horizontal
+                    e.preventDefault();
+                    document.body.classList.add(SCROLL_LOCK_CLASS);
+                }
+            }
+
+            function onPointerUp(e){
+                if (!tracking) return;
+                const x = e.clientX ?? (e.changedTouches && e.changedTouches[0]?.clientX) ?? tracking.startX;
+                const dx = x - tracking.startX;
+                const wasSwiping = tracking.swiping;
+                const root = tracking.root;
+                tracking = null;
+                document.body.classList.remove(SCROLL_LOCK_CLASS);
+
+                if (!wasSwiping) return;
+
+                // Umbral de acción
+                if (Math.abs(dx) >= THRESHOLD_ACT) {
+                    // dx < 0: swipe a la izquierda -> siguiente foto
+                    // dx > 0: swipe a la derecha -> foto anterior
+                    _changePhotoIn(root, dx < 0 ? 1 : -1);
+                    // Evita que un click fantasma dispare apertura de la card
+                    if (e.preventDefault) e.preventDefault();
+                    if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+                }
+            }
+
+            // Pointer Events si existen; fallback a touch
+            const supportsPointer = 'PointerEvent' in window;
+            if (supportsPointer) {
+                container.addEventListener('pointerdown', onPointerDown, {capture:true});
+                container.addEventListener('pointermove', onPointerMove, {capture:true, passive:false});
+                container.addEventListener('pointerup', onPointerUp, {capture:true});
+                container.addEventListener('pointercancel', onPointerUp, {capture:true});
+            } else {
+                container.addEventListener('touchstart', onPointerDown, {capture:true, passive:true});
+                container.addEventListener('touchmove', onPointerMove, {capture:true, passive:false});
+                container.addEventListener('touchend', onPointerUp, {capture:true});
+                container.addEventListener('touchcancel', onPointerUp, {capture:true});
+            }
+        })();
+
+        // ===== Controles móvil: estado independiente y táctil directo =====
+        (function MobileControlsOnly(){
+            const isMobile = window.matchMedia('(max-width: 640px)').matches
+                          || window.matchMedia('(pointer: coarse)').matches;
+            if (!isMobile) return;
+            if (window.__mobileControlsInit) return; window.__mobileControlsInit = true;
+
+            function getRootFrom(el){ return el?.closest?.('.card-carousel-container') || null; }
+            function slidesOf(root){ const w = root?.querySelector('.carousel-wrapper'); return w ? Array.from(w.querySelectorAll('.carousel-slide')) : []; }
+            function dotsOf(root){ return root ? Array.from(root.querySelectorAll('.carousel-dot')) : []; }
+
+            function setIndex(root, idx){
+                const slides = slidesOf(root); if (!slides.length) return;
+                const n = ((idx % slides.length)+slides.length)%slides.length;
+                root.__mobIdx = n;
+                slides.forEach(function(s,i){ s.classList.toggle('active', i===n); });
+                dotsOf(root).forEach(function(d,i){ d.classList.toggle('active', i===n); });
+            }
+            function next(root, delta){
+                const cur = Number.isInteger(root.__mobIdx) ? root.__mobIdx : 0;
+                setIndex(root, cur + (parseInt(delta,10)||0));
+            }
+            function goTo(root, idx){ setIndex(root, parseInt(idx,10)||0); }
+
+            function wireCard(card){
+                if (card.__mobControlsReady) return;
+                card.__mobControlsReady = true;
+                const root = card.querySelector('.card-carousel-container');
+                if (!root) return;
+
+                // Estado inicial seguro en móvil
+                setIndex(root, 0);
+
+                // Controles por touch: ejecutar de inmediato y evitar que abra la URL
+                root.addEventListener('touchstart', function(e){
+                    const arrow = e.target.closest('.carousel-arrow-card');
+                    const dot = e.target.closest('.carousel-dot');
+                    if (arrow || dot) {
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        if (arrow) next(root, arrow.dataset.direction || 1);
+                        if (dot) goTo(root, dot.dataset.index || 0);
+                    }
+                }, {capture:true, passive:false});
+            }
+
+            document.querySelectorAll('.listing-card').forEach(wireCard);
+
+            // Llama esto tras cada renderListings() cuando estés en móvil:
+            window.initMobileControlsOnly = function(){
+                if (!window.matchMedia('(max-width: 640px)').matches
+                 && !window.matchMedia('(pointer: coarse)').matches) return;
+                document.querySelectorAll('.listing-card').forEach(wireCard);
+            };
+        })();
+
+        // ===== Sistema click Culiacán: EXACTO =====
+        function initPropertyCardClicks() {
+            const propertyCards = document.querySelectorAll('.listing-card[data-property-url]');
+            console.log('🔍 Found cards:', propertyCards.length);
+
+            propertyCards.forEach(card => {
+                // Remover listener anterior si existe
+                if (card.__clickListener) {
+                    card.removeEventListener('click', card.__clickListener, {capture: true});
+                }
+
+                const clickListener = function(e) {
+                    console.log('🖱️ Card clicked!', e.target);
+
+                    // Don't navigate if clicking on controls or dots
+                    if (e.target.closest('.carousel-arrow-card') ||
+                        e.target.closest('.carousel-dot')) {
+                        console.log('⛔ Control clicked, ignoring');
+                        return;
+                    }
+
+                    // SOLO navegar si click en .listing-body (texto) o en área vacía
+                    const clickedBody = e.target.closest('.listing-body');
+                    const clickedCarousel = e.target.closest('.card-carousel-container');
+
+                    if (!clickedBody && clickedCarousel) {
+                        console.log('📷 Carousel area clicked, allow swipe');
+                        return;
+                    }
+
+                    const url = this.getAttribute('data-property-url');
+                    console.log('🔗 URL:', url);
+                    if (url) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.location.href = url;
+                    }
+                };
+
+                card.__clickListener = clickListener;
+                // CRÍTICO: capture phase para ejecutar ANTES que swipe system
+                card.addEventListener('click', clickListener, {capture: true});
+            });
+        }
+
+        // Llamar al cargar la página inicial
+        window.addEventListener('load', function() {
+            console.log('✅ Page loaded, initializing card clicks');
+            initPropertyCardClicks();
+        });
+
+        // Inicializar mapa al cargar
+        window.addEventListener('load', initMap);
+
+        /* ===== Dinámica móvil: medir stack superior, sheet y padding del mapa ===== */
+
+        function measureTopStack() {
+            const header = document.querySelector('.zillow-header');
+            const searchBar = document.querySelector('.zillow-search-bar');
+            const h1 = header ? header.getBoundingClientRect().height : 60; /* ZILLOW: 60px */
+            const h2 = searchBar ? searchBar.getBoundingClientRect().height : 60; /* ZILLOW: 60px */
+            return Math.round(h1 + h2); /* ZILLOW: 120px total */
+        }
+
+        function measureOneCardHeight() {
+            const first = document.querySelector('.listings-section .listing-card');
+            if (!first) return 320;
+            const h = first.getBoundingClientRect().height;
+            return Math.max(280, Math.round(h));
+        }
+
+        function applyMobileLayoutMeasurements(map) {
+            if (window.innerWidth > 768) return;
+
+            const topStack = measureTopStack();
+            const sheetMin = measureOneCardHeight();
+
+            document.documentElement.style.setProperty('--top-stack', `${topStack}px`);
+            document.documentElement.style.setProperty('--sheet-min', `${sheetMin}px`);
+
+            const topPadding = topStack + 8;
+            const bottomPadding = sheetMin + 16;
+
+            try {
+                map?.setOptions({
+                    padding: { top: topPadding, bottom: bottomPadding },
+                    zoomControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP },
+                    fullscreenControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP },
+                    streetViewControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP }
+                });
+            } catch (e) { /* noop */ }
+        }
+
+        function enableResponsiveObservers(map) {
+            if (window.innerWidth > 768) return;
+
+            const ro = new ResizeObserver(() => applyMobileLayoutMeasurements(map));
+            const header = document.querySelector('.zillow-header');
+            const searchBar = document.querySelector('.zillow-search-bar');
+            const filterBar = document.querySelector('.filter-bar-zillow');
+            const sheet = document.querySelector('.listings-panel');
+            const firstCard = document.querySelector('.listings-section .listing-card');
+
+            [header, searchBar, filterBar, sheet, firstCard].forEach(el => { if (el) ro.observe(el); });
+
+            window.addEventListener('resize', () => applyMobileLayoutMeasurements(map));
+            window.addEventListener('orientationchange', () => {
+                setTimeout(() => applyMobileLayoutMeasurements(map), 250);
+            });
+        }
+
+        /* ===== MAP-FIRST LOGIC ===== */
+
+        // Desactiva el corte exacto por "construcción" (puedes reactivarlo luego)
+        window.__CUT_TO_CONSTRUCCION__ = false;
+
+        // Mide la primera tarjeta pero LIMITA el sheet a 40dvh para privilegiar el mapa
+        function measureSheetMinMapFirst() {
+            const sheet = document.querySelector('.listings-section');
+            const card = sheet?.querySelector('.listing-card');
+            const anchor = window.__CUT_TO_CONSTRUCCION__
+                ? sheet?.querySelector('.sheet-cutoff-anchor')
+                : null;
+
+            let neededPx;
+            if (window.__CUT_TO_CONSTRUCCION__ && anchor && card) {
+                const cardBox = card.getBoundingClientRect();
+                const targetBox = anchor.getBoundingClientRect();
+                const HANDLE = 26, PADDING = 16;
+                neededPx = Math.max(240, Math.round(targetBox.bottom - cardBox.top) + HANDLE + PADDING);
+            } else {
+                // Estimación segura: 1 tarjeta completa común
+                neededPx = 320; // puedes ajustar a tu card real
+            }
+
+            // Limita el sheet a 40dvh para que el mapa quede grande
+            const sheetMax = Math.round(window.innerHeight * 0.40);
+            const sheetMin = Math.min(neededPx, sheetMax);
+
+            document.documentElement.style.setProperty('--sheet-min', sheetMin + 'px');
+        }
+
+        function applyMapFirstPadding(map) {
+            const sheet = document.querySelector('.listings-section');
+            if (!map || !sheet) return;
+            const sheetH = sheet.getBoundingClientRect().height;
+            const topStack = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--top-stack')) || 56;
+            const topPadding = topStack + 8;
+            const bottomPadding = Math.round(sheetH) + 16;
+
+            map.setOptions({
+                padding: { top: topPadding, bottom: bottomPadding },
+                zoomControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP },
+                fullscreenControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP },
+                streetViewControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP }
+            });
+        }
+
+        function initMapFirst(map) {
+            if (window.innerWidth > 768) return;
+            // 1) Mide y fija límites
+            measureSheetMinMapFirst();
+            // 2) Aplica padding adecuado al mapa
+            applyMapFirstPadding(map);
+
+            // Recalcular en eventos típicos
+            const reapply = () => { measureSheetMinMapFirst(); applyMapFirstPadding(map); };
+            window.addEventListener('resize', reapply);
+            window.addEventListener('orientationchange', () => setTimeout(reapply, 250));
+            map.addListener('idle', reapply);
+
+            // Si usas clusterer, al terminar clustering re-aplica
+            if (window.clustererInstance) {
+                try {
+                    window.clustererInstance.addListener('clusteringend', reapply);
+                } catch (e) { /* noop */ }
+            }
+
+            // Reaplica cuando carguen imágenes de la primera tarjeta
+            const firstCard = document.querySelector('.listings-section .listing-card');
+            if (firstCard) {
+                firstCard.querySelectorAll('img').forEach(img => {
+                    if (!img.complete) {
+                        img.addEventListener('load', reapply, { once: true });
+                        img.addEventListener('error', reapply, { once: true });
+                    }
+                });
+            }
+        }
+
+        // ===== TARJETA COMPACTA FIJA (sin expansión) =====
+
+        /* Calcula altura del sheet para: UNA tarjeta COMPLETA visible sin espacio extra */
+        function computeCompactSheetHeight() {
+            const sheet = document.querySelector('.listings-section');
+            const card = sheet?.querySelector('.listing-card');
+            if (!sheet || !card) return Math.round(window.innerHeight * 0.36); // fallback
+
+            // Medir la altura TOTAL de la primera tarjeta (completa)
+            const cardBox = card.getBoundingClientRect();
+            const cardFullHeight = cardBox.height;
+
+            // Solo agregar el padding TOP del sheet (el card ya tiene margin-bottom incluido)
+            const SHEET_PADDING_TOP = 8;
+            const BREATHING_ROOM = 4; // mínimo espacio para que no se vea cortado
+
+            let total = SHEET_PADDING_TOP + cardFullHeight + BREATHING_ROOM;
+
+            // Limitar a un rango razonable
+            const minPx = 260; // mínimo
+            const maxPx = Math.round(window.innerHeight * 0.40); // máx 40dvh
+            total = Math.max(minPx, Math.min(total, maxPx));
+
+            return Math.round(total);
+        }
+
+        /* Aplica altura fija compacta y asegura que el primer card se vea */
+        function applyCompactSheetAndReveal(map) {
+            if (window.innerWidth > 768) return;
+            const sheet = document.querySelector('.listings-section');
+            if (!sheet) return;
+
+            // 1) fija altura compacta
+            const fixed = computeCompactSheetHeight();
+            document.documentElement.style.setProperty('--sheet-fixed', fixed + 'px');
+
+            // 2) resetea scroll al tope para que el primer card quede visible
+            sheet.scrollTop = 0;
+
+            // 3) padding del mapa para que controles/atribuciones no queden tapados
+            try {
+                const topStack = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--top-stack')) || 56;
+                map?.setOptions({
+                    padding: {
+                        top: topStack + 8,
+                        bottom: fixed + 12
+                    },
+                    zoomControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP },
+                    fullscreenControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP },
+                    streetViewControlOptions: { position: google.maps.ControlPosition.RIGHT_TOP }
+                });
+            } catch (e) { /* noop */ }
+        }
+
+        /** Bloquea cualquier lógica previa que expandía el sheet en taps. */
+        function disableSheetExpansion() {
+            // Si tenías un toggle por handle, lo eliminamos
+            const sheet = document.querySelector('.listings-section');
+            if (!sheet) return;
+            // Borra listeners anteriores del handle (si existían)
+            sheet.onclick = null;
+
+            // Si definiste funciones tipo setSheetState/enableSheetHandleToggle, las anulamos
+            window.setSheetState = function () { /* noop: no expandir */ };
+            window.enableSheetHandleToggle = function () { /* noop */ };
+        }
+
+        /* Reaplicar en eventos típicos */
+        function enableCompactReapply(map) {
+            if (window.innerWidth > 768) return;
+            const reapply = () => applyCompactSheetAndReveal(map);
+
+            window.addEventListener('resize', reapply);
+            window.addEventListener('orientationchange', () => setTimeout(reapply, 250));
+            map?.addListener('idle', reapply);
+
+            // cuando carguen las imágenes del primer card
+            const first = document.querySelector('.listings-section .listing-card');
+            if (first) {
+                first.querySelectorAll('img').forEach(img => {
+                    if (!img.complete) {
+                        img.addEventListener('load', reapply, { once: true });
+                        img.addEventListener('error', reapply, { once: true });
+                    }
+                });
+            }
+        }
+
+        // ===== ANTI-JITTER SYSTEM =====
+        // Utilidades
+        function debounce(fn, ms=120){
+            let t;
+            return (...a)=>{
+                clearTimeout(t);
+                t=setTimeout(()=>fn(...a), ms);
+            };
+        }
+
+        function rafThrottle(fn){
+            let busy=false;
+            return (...a)=>{
+                if(busy) return;
+                busy=true;
+                requestAnimationFrame(()=>{
+                    fn(...a);
+                    busy=false;
+                });
+            };
+        }
+
+        // Congela/Descongela transiciones del sheet mientras anima el mapa
+        function lockSheetDuringMapAnim(lock=true){
+            document.body.classList.toggle('map-animating', !!lock);
+        }
+
+        // Ajusta la altura del contenedor del mapa a píxel entero (evita subpíxel que genera "grieta")
+        function snapMapHeightToDevicePixel(){
+            const mapSection = document.querySelector('.map-section');
+            if(!mapSection) return;
+            const r = mapSection.getBoundingClientRect();
+            const snapped = Math.floor(r.height);
+            if(Math.abs(r.height - snapped) >= 0.5){
+                mapSection.style.height = snapped + 'px';
+            }
+        }
+
+        // Reaplica todas las mediciones clave en móvil
+        const remeasureAll = debounce(() => {
+            snapMapHeightToDevicePixel();
+            applyMobileLayoutMeasurements(window.mapInstance);
+            applySheetCutAtConstruction(window.mapInstance);
+        }, 80);
+
+        // Hooks de eventos del Mapa
+        function hookMapViewport(map){
+            if(!map || window.innerWidth > 768) return;
+
+            // Antes de que empiece a cambiar el viewport
+            map.addListener('zoom_changed', () => { lockSheetDuringMapAnim(true); });
+            map.addListener('dragstart',     () => { lockSheetDuringMapAnim(true); });
+
+            // Cuando termina cualquier animación (zoom/pan/fitBounds, etc.)
+            map.addListener('idle', () => {
+                lockSheetDuringMapAnim(false);
+                remeasureAll();
+            });
+
+            // Por si cambia el tipo de mapa/proyección y varían controles
+            map.addListener('maptypeid_changed', remeasureAll);
+            map.addListener('projection_changed', remeasureAll);
+
+            // Resnap cuando cambia tamaño de viewport
+            window.addEventListener('resize', remeasureAll);
+            window.addEventListener('orientationchange', ()=> setTimeout(remeasureAll, 250));
+        }
+
+        // Mitigar cambios de altura por imágenes dentro de la primera tarjeta
+        function watchCardImages(){
+            if(window.innerWidth > 768) return;
+            const sheet = document.querySelector('.listings-section');
+            if(!sheet) return;
+            const firstCard = sheet.querySelector('.listing-card');
+            if(!firstCard) return;
+
+            // Recalcular cuando las imágenes del carrusel (o la primera foto) terminen de cargar
+            const imgs = firstCard.querySelectorAll('img');
+            imgs.forEach(img=>{
+                if(!img.complete){
+                    img.addEventListener('load',  remeasureAll, { once:true });
+                    img.addEventListener('error', remeasureAll, { once:true });
+                }
+            });
+        }
+
+        // Aplicar al cargar en móvil
+        window.addEventListener('load', () => {
+            if (window.innerWidth <= 768 && map) {
+                window.mapInstance = map;
+                setTimeout(() => {
+                    // TARJETA COMPACTA FIJA: Sistema principal (no expandible)
+                    disableSheetExpansion();
+                    applyCompactSheetAndReveal(map);
+                    enableCompactReapply(map);
+
+                    // Anti-jitter system
+                    hookMapViewport(map);
+                    snapMapHeightToDevicePixel();
+                }, 500);
+            }
+        });
+
+        /* ===================================
+           MÓVIL: Sistema de dos vistas (Map/List)
+        ==================================== */
+        function switchView(view) {
+            const mapView = document.getElementById('map-view');
+            const listView = document.getElementById('list-view');
+            const mapBtn = document.getElementById('map-btn');
+            const listBtn = document.getElementById('list-btn');
+
+            if (view === 'map') {
+                // Mostrar mapa, ocultar lista
+                mapView.classList.add('active');
+                listView.classList.remove('active');
+                mapBtn.classList.add('active');
+                listBtn.classList.remove('active');
+
+                // Inicializar mapa móvil si no existe
+                if (!mapMobile) {
+                    setTimeout(() => {
+                        initMobileMap();
+                    }, 100);
+                } else {
+                    // Re-centrar y resize si ya existe
+                    setTimeout(() => {
+                        if (window.google && window.google.maps && mapMobile) {
+                            google.maps.event.trigger(mapMobile, 'resize');
+                            mapMobile.setCenter(map.getCenter());
+                        }
+                    }, 100);
+                }
+            } else {
+                // Mostrar lista, ocultar mapa
+                listView.classList.add('active');
+                mapView.classList.remove('active');
+                listBtn.classList.add('active');
+                mapBtn.classList.remove('active');
+            }
+        }
+
+        // Copiar contenido de listings a móvil al cargar
+        function syncMobileListings() {
+            const desktopListings = document.getElementById('listings-container');
+            const mobileListings = document.getElementById('listings-container-mobile');
+            const desktopPagination = document.getElementById('pagination-list');
+            const mobilePagination = document.getElementById('pagination-list-mobile');
+
+            if (desktopListings && mobileListings) {
+                mobileListings.innerHTML = desktopListings.innerHTML;
+            }
+
+            if (desktopPagination && mobilePagination) {
+                mobilePagination.innerHTML = desktopPagination.innerHTML;
+            }
+        }
+
+        // Sincronizar mapa móvil con mapa desktop
+        let mapMobile;
+        let mobileMarkers = {};
+        function initMobileMap() {
+            if (window.innerWidth <= 768 && !mapMobile) {
+                const mapContainerMobile = document.getElementById('map-container-mobile');
+                if (mapContainerMobile && window.google && window.google.maps && map) {
+                    // ZILLOW: Crear mapa móvil con configuración idéntica a desktop
+                    mapMobile = new google.maps.Map(mapContainerMobile, {
+                        center: { lat: 23.2494, lng: -106.4110 }, // Centro de Mazatlán
+                        zoom: 12, // ZILLOW: zoom inicial 12
+                        minZoom: 10, // ZILLOW: límite zoom out
+                        maxZoom: 18, // ZILLOW: límite zoom in
+                        mapTypeControl: false,
+                        fullscreenControl: false,
+                        streetViewControl: false,
+                        zoomControl: true, // ZILLOW: controles de zoom visibles
+                        zoomControlOptions: {
+                            position: google.maps.ControlPosition.RIGHT_CENTER
+                        },
+                        gestureHandling: 'greedy', // ZILLOW: scroll directo (mejor para móvil)
+                        styles: [
+                            {
+                                featureType: "poi",
+                                elementType: "labels",
+                                stylers: [{ visibility: "off" }]
+                            }
+                        ]
+                    });
+
+                    // Copiar TODOS los marcadores del mapa desktop
+                    renderMarkersToMobile(filteredProperties);
+
+                    // ZILLOW: Auto-fit bounds después de cargar marcadores
+                    setTimeout(() => {
+                        fitMapToMarkersMobile();
+                    }, 1000); // Esperar a que se completen los marcadores con geocoding
+                }
+            }
+        }
+
+        // ZILLOW: Auto-fit bounds para mapa móvil
+        function fitMapToMarkersMobile() {
+            if (!mapMobile || Object.keys(mobileMarkers).length === 0) return;
+
+            const bounds = new google.maps.LatLngBounds();
+            Object.values(mobileMarkers).forEach(marker => {
+                bounds.extend(marker.getPosition());
+            });
+
+            mapMobile.fitBounds(bounds, {
+                top: 50,
+                right: 50,
+                bottom: 50,
+                left: 50
+            });
+
+            google.maps.event.addListenerOnce(mapMobile, 'bounds_changed', () => {
+                const currentZoom = mapMobile.getZoom();
+                if (currentZoom > 15) {
+                    mapMobile.setZoom(15);
+                }
+            });
+        }
+
+        // Renderizar marcadores en mapa móvil
+        function renderMarkersToMobile(properties) {
+            if (!mapMobile) return;
+
+            // Limpiar marcadores anteriores
+            Object.values(mobileMarkers).forEach(m => m.setMap(null));
+            mobileMarkers = {};
+
+            const geocoder = new google.maps.Geocoder();
+
+            // Crear marcadores para cada propiedad
+            properties.forEach(property => {
+                // Usar coordenadas hardcodeadas si existen, sino geocoding
+                if (property.lat && property.lng) {
+                    const position = { lat: property.lat, lng: property.lng };
+                    createMarkerMobile(property, position);
+                } else {
+                    // Geocoding para propiedades sin coordenadas
+                    geocoder.geocode({ address: property.location + ', Mazatlán, Sinaloa' }, function(results, status) {
+                        if (status === 'OK' && results[0]) {
+                            const position = results[0].geometry.location;
+                            createMarkerMobile(property, position);
+                        }
+                    });
+                }
+            });
+        }
+
+        // Crear marcador en mapa móvil (igual que desktop - estilo Zillow)
+        function createMarkerMobile(property, position) {
+            // ZILLOW: Marcador compacto con precio (igual que desktop)
+            const marker = new google.maps.Marker({
+                position: position,
+                map: mapMobile,
+                title: property.title,
+                icon: {
+                    url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+                        <svg width="70" height="32" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0" y="0" width="70" height="32" rx="16" fill="#FF6A00" stroke="white" stroke-width="2"/>
+                            <text x="35" y="21" font-family="'Open Sans', Arial, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">${property.priceShort}</text>
+                        </svg>
+                    `)}`,
+                    scaledSize: new google.maps.Size(70, 32),
+                    anchor: new google.maps.Point(35, 32)
+                },
+                zIndex: 1
+            });
+
+            // ZILLOW: Info window estilo Zillow (sin bordes, igual que desktop)
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="width:280px;font-family:'Open Sans',sans-serif;border-radius:8px;overflow:hidden;background:white;box-shadow:0 2px 16px rgba(0,0,0,0.18);">
+                        <a href="${property.slug}/index.html" style="text-decoration:none;display:block;">
+                            <img src="${property.image}" style="width:100%;height:180px;object-fit:cover;display:block;">
+                            <div style="padding:12px;">
+                                <div style="font-size:18px;font-weight:700;color:#2A2A33;margin-bottom:2px;">${property.priceShort}</div>
+                                <div style="font-size:13px;color:#6E6E78;margin-bottom:6px;">${property.bedrooms} rec • ${property.bathrooms} baños • ${property.sqft}m²</div>
+                                <div style="font-size:13px;color:#2A2A33;line-height:1.3;">${property.location}, Mazatlán</div>
+                            </div>
+                        </a>
+                    </div>
+                `,
+                pixelOffset: new google.maps.Size(0, -15),
+                disableAutoPan: false
+            });
+
+            mobileMarkers[property.slug] = marker;
+
+            // Click en marcador móvil - Abre info window
+            marker.addListener('click', () => {
+                // Cerrar todas las otras info windows
+                Object.values(mobileInfoWindows || {}).forEach(iw => iw.close());
+                infoWindow.open(mapMobile, marker);
+                focusPropertyCard(property.slug);
+            });
+
+            // Guardar info window
+            if (!window.mobileInfoWindows) window.mobileInfoWindows = {};
+            window.mobileInfoWindows[property.slug] = infoWindow;
+        }
+
+        // Ejecutar al cargar (solo sincronizar listings)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                syncMobileListings();
+                // initMobileMap() se ejecuta solo cuando el usuario cambia a vista Map
+            }, 1000);
+        });
+
+        // Observer para detectar cambios en listings
+        if (window.MutationObserver) {
+            const observer = new MutationObserver(() => {
+                syncMobileListings();
+            });
+
+            const listingsContainer = document.getElementById('listings-container');
+            if (listingsContainer) {
+                observer.observe(listingsContainer, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+        }
+    </script>
+
+    <!-- ========================================
+         MAP MODAL (Zillow Style) - MAZATLÁN
+         Activado con botón "Ver en Mapa"
+    ========================================= -->
+    <div id="mapModal" class="fixed inset-0 bg-black/70 z-[9999] hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl w-full max-w-7xl h-[90vh] flex flex-col shadow-2xl" style="animation: slideUp 0.3s ease-out;">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-4 md:p-6 border-b border-gray-200">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-gray-900" style="font-family: 'Poppins', sans-serif;">Mapa de Propiedades</h2>
+                    <p class="text-sm text-gray-600 mt-1">Mazatlán, Sinaloa</p>
+                </div>
+                <button onclick="closeMapModal()" class="p-3 hover:bg-gray-100 rounded-full transition-colors group" style="cursor: pointer; border: none; background: transparent;">
+                    <svg class="w-6 h-6 text-gray-600 group-hover:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Map Container -->
+            <div id="map-mazatlan-modal" class="flex-1 relative bg-gray-100">
+                <!-- El mapa de Google Maps se cargará aquí dinámicamente -->
+            </div>
+
+            <!-- Map Footer -->
+            <div class="p-4 border-t border-gray-200 bg-gray-50">
+                <div class="flex items-center justify-between flex-wrap gap-4">
+                    <div class="flex items-center gap-4">
+                        <label class="inline-flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked class="w-4 h-4 rounded" style="color: #FF6A00;">
+                            <span class="text-sm font-medium text-gray-700">Mostrar todas las propiedades</span>
+                        </label>
+                        <span class="text-sm text-gray-600" id="map-property-count-modal">18 propiedades</span>
+                    </div>
+                    <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20información%20sobre%20propiedades%20en%20Mazatlán"
+                       target="_blank"
+                       style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #FF6A00; color: white; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+                       onmouseover="this.style.background='#D35500'; this.style.boxShadow='0 6px 16px rgba(0,0,0,0.15)'"
+                       onmouseout="this.style.background='#FF6A00'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.1)'">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Contactar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Modal JavaScript -->
+    <style>
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        // Variables globales para el mapa modal de Mazatlán
+        let mapMazatlanModal;
+        let mazatlanModalMarkers = [];
+
+        function openMapModal() {
+            const modal = document.getElementById('mapModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            // Inicializar mapa si aún no existe
+            if (!window.mapMazatlanModalInitialized) {
+                setTimeout(() => {
+                    initializeMazatlanModalMap();
+                }, 100);
+            }
+        }
+
+        function closeMapModal() {
+            const modal = document.getElementById('mapModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        function initializeMazatlanModalMap() {
+            // Coordenadas del centro de Mazatlán
+            const mazatlanCenter = { lat: 23.2494, lng: -106.4110 };
+
+            // Crear mapa centrado en Mazatlán
+            mapMazatlanModal = new google.maps.Map(document.getElementById('map-mazatlan-modal'), {
+                center: mazatlanCenter,
+                zoom: 12,
+                mapTypeId: 'roadmap',
+                styles: [
+                    {
+                        featureType: 'poi',
+                        elementType: 'labels',
+                        stylers: [{ visibility: 'off' }]
+                    }
+                ],
+                disableDefaultUI: false,
+                zoomControl: true,
+                mapTypeControl: false,
+                streetViewControl: true,
+                fullscreenControl: true
+            });
+
+            // Usar el array ALL_PROPERTIES que ya existe en la página
+            const geocoder = new google.maps.Geocoder();
+
+            // Filtrar solo propiedades con lat/lng definidas
+            const propertiesWithCoords = ALL_PROPERTIES.filter(p => p.lat && p.lng);
+
+            if (propertiesWithCoords.length > 0) {
+                // Agregar marcadores para propiedades con coordenadas
+                propertiesWithCoords.forEach(property => {
+                    const position = { lat: property.lat, lng: property.lng };
+                    const CustomMarkerClass = createMazatlanMarker(property, mapMazatlanModal);
+                    const marker = new CustomMarkerClass(position, mapMazatlanModal, property);
+                    mazatlanModalMarkers.push(marker);
+                });
+            }
+
+            // Para propiedades sin coordenadas, geocodificar por ubicación
+            const propertiesWithoutCoords = ALL_PROPERTIES.filter(p => !p.lat || !p.lng);
+            propertiesWithoutCoords.forEach((property, index) => {
+                const address = `${property.location}, Mazatlán, Sinaloa`;
+
+                // Agregar delay para evitar límite de rate de Google Geocoding API
+                setTimeout(() => {
+                    geocoder.geocode({ address: address }, function(results, status) {
+                        if (status === 'OK' && results[0]) {
+                            const position = results[0].geometry.location;
+                            const CustomMarkerClass = createMazatlanMarker(property, mapMazatlanModal);
+                            const marker = new CustomMarkerClass(position, mapMazatlanModal, property);
+                            mazatlanModalMarkers.push(marker);
+                            console.log(`Marcador creado para ${property.title} en:`, position.lat(), position.lng());
+                        } else {
+                            console.warn(`No se pudo geocodificar: ${property.title} (${status})`);
+                        }
+                    });
+                }, index * 200); // 200ms delay entre cada geocoding
+            });
+
+            window.mapMazatlanModalInitialized = true;
+            console.log('Mapa modal de Mazatlán inicializado correctamente con', ALL_PROPERTIES.length, 'propiedades');
+        }
+
+        // Función para crear marcador estilo Zillow (naranja Hector)
+        function createMazatlanMarker(property, map) {
+            const markerHTML = `
+                <div style="
+                    background: linear-gradient(135deg, #FF6A00 0%, #D35500 100%);
+                    color: white;
+                    padding: 8px 14px;
+                    border-radius: 20px;
+                    font-weight: bold;
+                    font-size: 14px;
+                    border: 3px solid white;
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                    cursor: pointer;
+                    white-space: nowrap;
+                    transition: transform 0.2s;
+                " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    ${property.priceShort}
+                </div>
+            `;
+
+            const CustomMarker = function(position, map, property) {
+                this.position = position;
+                this.property = property;
+                this.div = null;
+                this.setMap(map);
+            };
+
+            CustomMarker.prototype = new google.maps.OverlayView();
+
+            CustomMarker.prototype.onAdd = function() {
+                const div = document.createElement('div');
+                div.style.position = 'absolute';
+                div.innerHTML = markerHTML;
+
+                // Al hacer clic, mostrar InfoWindow
+                div.addEventListener('click', () => {
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div style="padding: 10px; max-width: 280px;">
+                                <h4 style="margin: 0 0 8px 0; color: #FF6A00; font-size: 16px; font-weight: 700;">${this.property.priceShort}</h4>
+                                <h5 style="margin: 0 0 6px 0; color: #1f2937; font-size: 14px; font-weight: 600;">${this.property.title}</h5>
+                                <p style="margin: 0 0 4px 0; color: #6b7280; font-size: 13px;">${this.property.location}</p>
+                                <p style="margin: 0 0 10px 0; color: #6b7280; font-size: 12px;">
+                                    ${this.property.bedrooms} rec • ${this.property.bathrooms} baños • ${this.property.sqft}m²
+                                </p>
+                                <div style="display: flex; gap: 8px;">
+                                    <a href="../mazatlan/${this.property.slug}/index.html"
+                                       style="display: inline-block; background: #FF6A00; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; flex: 1; text-align: center;">
+                                        Ver Detalles
+                                    </a>
+                                    <a href="https://wa.me/528111652545?text=Hola,%20me%20interesa%20${encodeURIComponent(this.property.title)}"
+                                       target="_blank"
+                                       style="display: inline-block; background: #25D366; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600;">
+                                        <svg style="width: 16px; height: 16px; display: inline;" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        `
+                    });
+                    infoWindow.setPosition(this.position);
+                    infoWindow.open(map);
+                    focusPropertyCard(this.property.slug);
+                });
+
+                this.div = div;
+                const panes = this.getPanes();
+                panes.overlayMouseTarget.appendChild(div);
+            };
+
+            CustomMarker.prototype.draw = function() {
+                const overlayProjection = this.getProjection();
+                const position = overlayProjection.fromLatLngToDivPixel(this.position);
+                const div = this.div;
+                div.style.left = (position.x - 40) + 'px';
+                div.style.top = (position.y - 20) + 'px';
+            };
+
+            CustomMarker.prototype.onRemove = function() {
+                if (this.div) {
+                    this.div.parentNode.removeChild(this.div);
+                    this.div = null;
+                }
+            };
+
+            return CustomMarker;
+        }
+    </script>
+
+</body>
+</html>
