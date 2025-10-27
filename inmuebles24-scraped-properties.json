@@ -3539,5 +3539,20 @@
     "colonia": "Juan de Dios Bátiz",
     "codigoPostal": "80016",
     "scrapedAt": "2025-10-27T02:42:54.358Z"
+  },
+  {
+    "propertyId": "147564305",
+    "title": "Casa en Venta",
+    "slug": "casa-en-venta",
+    "price": "MN 4,300,000",
+    "publishedDate": "Publicado hace 46 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-147564305.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=4",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "República Mexicana",
+    "codigoPostal": "80279",
+    "scrapedAt": "2025-10-27T02:43:54.856Z"
   }
 ]

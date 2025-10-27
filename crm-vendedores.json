@@ -5764,12 +5764,46 @@
       ],
       "ultimoContacto": null,
       "agregado": "2025-10-26T23:26:11.406Z"
+    },
+    {
+      "id": "v037",
+      "nombre": "Carlos Ayala",
+      "telefono": "559566737",
+      "telefonoFormateado": "559566737",
+      "whatsapp": "https://wa.me/52559566737",
+      "fuente": "Inmuebles24",
+      "propiedades": [
+        {
+          "id": "147564305",
+          "titulo": "Casa en Venta",
+          "precio": "MN 4,300,000",
+          "ubicacion": "República Mexicana, Culiacán, Sinaloa, Mexico",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-147564305.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=4",
+          "fechaScrapeo": "2025-10-27",
+          "fechaPublicacion": "Publicado hace 46 días",
+          "vistas": 0
+        }
+      ],
+      "notas": "Vendedor de República Mexicana, Culiacán, Sinaloa, Mexico",
+      "tags": [
+        "inmuebles24",
+        "república-mexicana",
+        "sinaloa",
+        "mexico",
+        "culiacan"
+      ],
+      "ultimoContacto": null,
+      "agregado": "2025-10-27T02:43:54.859Z"
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-27T02:42:54.365Z",
-    "totalVendedores": 36,
-    "totalPropiedades": 322,
+    "ultimaActualizacion": "2025-10-27T02:43:54.859Z",
+    "totalVendedores": 37,
+    "totalPropiedades": 323,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
