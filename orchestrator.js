@@ -41,9 +41,11 @@ const CONFIG = {
     LOTE_FILE: '1depuracionurlinmuebles24.json',
     SCRAPER_SCRIPT: 'inmuebles24culiacanscraper.js',
     REPORTS_DIR: 'reports',
+    SKIPPED_LOG: 'orchestrator-skipped.log',
     MAX_RETRIES: parseInt(process.env.MAX_RETRIES) || 2,
     INITIAL_BACKOFF: parseInt(process.env.INITIAL_BACKOFF) || 5, // segundos
     SCRAPER_TIMEOUT: parseInt(process.env.SCRAPER_TIMEOUT) || 180000, // 3 minutos
+    PREFLIGHT_TIMEOUT: parseInt(process.env.PREFLIGHT_TIMEOUT) || 8000, // 8 segundos
 
     // Notificaciones
     EMAIL_ENABLED: process.env.EMAIL_ENABLED === 'true',
@@ -125,6 +127,121 @@ function getPendingUrls(lote) {
 }
 
 // ============================================================================
+// PRE-FLIGHT CHECK (VERIFICACIÓN PREVIA)
+// ============================================================================
+
+/**
+ * Realiza un fetch HTTP ligero para verificar si la URL está activa
+ * Detecta redirecciones al home (propiedad removida)
+ * Ahorra tiempo y recursos evitando scraping innecesario
+ */
+async function preflightCheck(url, propertyId) {
+    try {
+        const response = await axios.get(url, {
+            maxRedirects: 5,
+            timeout: CONFIG.PREFLIGHT_TIMEOUT,
+            validateStatus: () => true, // No throw en 4xx/5xx
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'Accept-Language': 'es-MX,es;q=0.9,en;q=0.8',
+                'DNT': '1',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1'
+            }
+        });
+
+        const finalUrl = response.request.res.responseUrl || url;
+        const statusCode = response.status;
+
+        // Detectar redirección al home (propiedad removida)
+        const isHomePage = finalUrl.includes('/inmuebles24.com') &&
+                          !finalUrl.includes('/propiedades/') &&
+                          !finalUrl.includes('clasificado');
+
+        const isSearchPage = finalUrl.includes('/venta/') ||
+                            finalUrl.includes('/alquiler/') ||
+                            finalUrl.includes('/buscar');
+
+        // Detectar 404 o página de error
+        const is404 = statusCode === 404 ||
+                     response.data.includes('Propiedad no encontrada') ||
+                     response.data.includes('La publicación que buscás no está disponible');
+
+        // Verificar si redirige al home o búsqueda (propiedad removida)
+        if (isHomePage || isSearchPage) {
+            return {
+                valid: false,
+                reason: 'redirects_to_home',
+                details: `Redirige a ${finalUrl}`,
+                statusCode
+            };
+        }
+
+        // Verificar 404 o propiedad no encontrada
+        if (is404) {
+            return {
+                valid: false,
+                reason: '404_not_found',
+                details: 'Propiedad no encontrada (404)',
+                statusCode
+            };
+        }
+
+        // Verificar 403 Cloudflare (bloqueado, pero puede ser temporal)
+        if (statusCode === 403) {
+            return {
+                valid: true, // Permitir reintento con Puppeteer
+                reason: 'cloudflare_403',
+                details: 'Bloqueado por Cloudflare (403) - se intentará con scraper',
+                statusCode
+            };
+        }
+
+        // Verificar 5xx (error del servidor, permitir reintento)
+        if (statusCode >= 500) {
+            return {
+                valid: true, // Permitir reintento
+                reason: 'server_error_5xx',
+                details: `Error del servidor (${statusCode}) - se intentará con scraper`,
+                statusCode
+            };
+        }
+
+        // URL válida
+        return {
+            valid: true,
+            reason: 'ok',
+            details: 'URL válida',
+            statusCode
+        };
+
+    } catch (error) {
+        // Error de red o timeout (permitir reintento con scraper)
+        return {
+            valid: true, // Permitir reintento con scraper más robusto
+            reason: 'network_error',
+            details: error.message,
+            statusCode: null
+        };
+    }
+}
+
+/**
+ * Registra URL saltada en el log
+ */
+async function logSkippedUrl(urlObj, reason, details) {
+    const timestamp = new Date().toISOString();
+    const logEntry = `${timestamp} | ${urlObj.propertyId} | ${reason} | ${details} | ${urlObj.url}\n`;
+
+    try {
+        await fs.appendFile(CONFIG.SKIPPED_LOG, logEntry, 'utf8');
+    } catch (error) {
+        log(`⚠️  Error escribiendo log: ${error.message}`, 'yellow');
+    }
+}
+
+// ============================================================================
 // SCRAPER EXECUTION CON REINTENTOS
 // ============================================================================
 
@@ -200,6 +317,41 @@ async function processUrlWithRetries(urlObj) {
     log(`\n${'='.repeat(70)}`, 'bright');
     log(`📍 Procesando: ${propertyId}`, 'bright');
     log(`🔗 URL: ${url.substring(0, 80)}...`, 'gray');
+
+    // ========================================================================
+    // PRE-FLIGHT CHECK: Verificar URL antes de lanzar scraper pesado
+    // ========================================================================
+    log(`🔍 Pre-flight check...`, 'cyan');
+
+    const preflightResult = await preflightCheck(url, propertyId);
+
+    if (!preflightResult.valid) {
+        const skipReason = preflightResult.reason;
+        const skipDetails = preflightResult.details;
+
+        log(`⏭️  SALTANDO: ${skipDetails}`, 'yellow');
+
+        // Registrar en log
+        await logSkippedUrl(urlObj, skipReason, skipDetails);
+
+        // Actualizar lote-manager con fallo
+        await updateLoteManager(propertyId, 'failed', `Pre-flight: ${skipDetails}`);
+
+        return {
+            propertyId,
+            url,
+            status: 'skipped',
+            attempts: 0,
+            duration: formatDuration(Date.now() - startTime),
+            durationMs: Date.now() - startTime,
+            error: skipDetails,
+            skipReason,
+            slug: null,
+            timestamp: new Date().toISOString()
+        };
+    } else {
+        log(`✅ Pre-flight OK (${preflightResult.details})`, 'green');
+    }
 
     for (let attempt = 1; attempt <= CONFIG.MAX_RETRIES + 1; attempt++) {
         try {
@@ -323,6 +475,14 @@ async function generateReport(results, loteInfo, startTime, endTime) {
     const failed = results.filter(r => r.status === 'failed').length;
     const totalRetries = results.reduce((sum, r) => sum + (r.attempts - 1), 0);
 
+    const skipped = results.filter(r => r.status === 'skipped').length;
+    const totalDurationNonSkipped = results
+        .filter(r => r.status !== 'skipped')
+        .reduce((sum, r) => sum + r.durationMs, 0);
+    const avgDurationNonSkipped = results.filter(r => r.status !== 'skipped').length > 0
+        ? totalDurationNonSkipped / results.filter(r => r.status !== 'skipped').length
+        : 0;
+
     const report = {
         metadata: {
             startTime: new Date(startTime).toISOString(),
@@ -334,7 +494,8 @@ async function generateReport(results, loteInfo, startTime, endTime) {
             configUsed: {
                 maxRetries: CONFIG.MAX_RETRIES,
                 initialBackoff: CONFIG.INITIAL_BACKOFF,
-                scraperTimeout: CONFIG.SCRAPER_TIMEOUT
+                scraperTimeout: CONFIG.SCRAPER_TIMEOUT,
+                preflightTimeout: CONFIG.PREFLIGHT_TIMEOUT
             },
             loteInfo: {
                 rangoPrecio: loteInfo.metadata.rangoPrecio,
@@ -347,11 +508,14 @@ async function generateReport(results, loteInfo, startTime, endTime) {
             totalUrls: results.length,
             successful,
             failed,
+            skipped,
             successRate: `${((successful / results.length) * 100).toFixed(2)}%`,
             totalRetries,
             avgDuration: formatDuration(
                 results.reduce((sum, r) => sum + r.durationMs, 0) / results.length
-            )
+            ),
+            avgDurationNonSkipped: formatDuration(avgDurationNonSkipped),
+            timeSaved: formatDuration(skipped * CONFIG.SCRAPER_TIMEOUT) // Tiempo ahorrado estimado
         },
         results: results.map(r => ({
             propertyId: r.propertyId,
@@ -360,6 +524,7 @@ async function generateReport(results, loteInfo, startTime, endTime) {
             attempts: r.attempts,
             duration: r.duration,
             error: r.error,
+            skipReason: r.skipReason || null,
             slug: r.slug,
             timestamp: r.timestamp
         }))
@@ -402,7 +567,7 @@ async function sendEmailNotification(report, reportFile) {
             }
         });
 
-        const { successful, failed, totalUrls } = report.summary;
+        const { successful, failed, skipped, totalUrls } = report.summary;
 
         await transporter.sendMail({
             from: CONFIG.EMAIL_FROM,
@@ -417,8 +582,10 @@ async function sendEmailNotification(report, reportFile) {
                 <ul>
                     <li>✅ Exitosas: ${successful}</li>
                     <li>❌ Fallidas: ${failed}</li>
+                    <li>⏭️  Saltadas (pre-flight): ${skipped}</li>
                     <li>🔄 Reintentos totales: ${report.summary.totalRetries}</li>
                     <li>📊 Tasa de éxito: ${report.summary.successRate}</li>
+                    <li>⏱️  Tiempo ahorrado: ${report.summary.timeSaved}</li>
                 </ul>
 
                 <h3>Lote procesado:</h3>
@@ -429,6 +596,7 @@ async function sendEmailNotification(report, reportFile) {
                 </ul>
 
                 <p>Reporte completo guardado en: <code>${reportFile}</code></p>
+                ${skipped > 0 ? `<p>Log de URLs saltadas: <code>${CONFIG.SKIPPED_LOG}</code></p>` : ''}
             `
         });
 
@@ -444,7 +612,7 @@ async function sendSlackNotification(report, reportFile) {
     }
 
     try {
-        const { successful, failed, totalUrls } = report.summary;
+        const { successful, failed, skipped, totalUrls } = report.summary;
         const emoji = failed === 0 ? ':white_check_mark:' : ':warning:';
 
         await axios.post(CONFIG.SLACK_WEBHOOK, {
@@ -471,11 +639,19 @@ async function sendSlackNotification(report, reportFile) {
                         },
                         {
                             type: 'mrkdwn',
+                            text: `*Saltadas:*\n${skipped}`
+                        },
+                        {
+                            type: 'mrkdwn',
                             text: `*Duración:*\n${report.metadata.totalDuration}`
                         },
                         {
                             type: 'mrkdwn',
                             text: `*Tasa éxito:*\n${report.summary.successRate}`
+                        },
+                        {
+                            type: 'mrkdwn',
+                            text: `*Tiempo ahorrado:*\n${report.summary.timeSaved}`
                         }
                     ]
                 },
@@ -568,11 +744,17 @@ async function main() {
 
 ✅ Exitosas: ${report.summary.successful} (${report.summary.successRate})
 ❌ Fallidas: ${report.summary.failed}
+⏭️  Saltadas (pre-flight): ${report.summary.skipped}
 🔄 Reintentos totales: ${report.summary.totalRetries}
 ⏱️  Duración promedio: ${report.summary.avgDuration}
+⏱️  Duración promedio (sin saltadas): ${report.summary.avgDurationNonSkipped}
+💾 Tiempo ahorrado (pre-flight): ${report.summary.timeSaved}
 
 📁 Reporte guardado en:
    ${reportFile}
+${report.summary.skipped > 0 ? `
+📝 Log de URLs saltadas:
+   ${CONFIG.SKIPPED_LOG}` : ''}
 `);
 
         // 5. Enviar notificaciones

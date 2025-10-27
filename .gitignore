@@ -46,6 +46,7 @@ backups-lotes/
 
 # Reportes del orquestador
 reports/
+orchestrator-skipped.log
 
 # Variables de entorno
 .env
