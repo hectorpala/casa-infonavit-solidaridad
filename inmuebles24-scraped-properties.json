@@ -3502,12 +3502,27 @@
     "price": "MN 6,500,000",
     "publishedDate": "Publicado hace 95 días",
     "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
-    "lat": 24.787,
-    "lng": -107.393,
+    "lat": 24.8171307,
+    "lng": -107.3893183,
     "locationPrecision": "neighborhood",
-    "locationSource": "geocoder",
+    "locationSource": "google-geocoding-corrected",
     "colonia": "Chapultepec",
     "codigoPostal": "80040",
     "scrapedAt": "2025-10-27T02:34:45.794Z"
+  },
+  {
+    "propertyId": "147199194",
+    "title": "Casa - Fraccionamiento Espacios Barcelona",
+    "slug": "casa-fraccionamiento-espacios-barcelona",
+    "price": "MN 4,300,000",
+    "publishedDate": "Publicado hace 82 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-espacios-barcelona-147199194.html?n_src=Listado&n_pg=1&n_pos=3",
+    "lat": 24.8328334,
+    "lng": -107.4324691,
+    "locationPrecision": "street",
+    "locationSource": "geocoder",
+    "colonia": "Espacios Barcelona",
+    "codigoPostal": "80059",
+    "scrapedAt": "2025-10-27T02:40:07.623Z"
   }
 ]

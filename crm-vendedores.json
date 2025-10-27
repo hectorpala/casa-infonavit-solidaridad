@@ -5603,6 +5603,20 @@
           "fechaScrapeo": "2025-10-25",
           "fechaPublicacion": "Publicado hace 80 días",
           "vistas": 0
+        },
+        {
+          "id": "147199194",
+          "titulo": "Casa - Fraccionamiento Espacios Barcelona",
+          "precio": "MN 4,300,000",
+          "ubicacion": "Privada Vitalia Fraccionamiento Barcelona al 80000, Culiacán, Sinaloa, Mexico, Fraccionamiento Espacios Barcelona",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-espacios-barcelona-147199194.html?n_src=Listado&n_pg=1&n_pos=3",
+          "fechaScrapeo": "2025-10-27",
+          "fechaPublicacion": "Publicado hace 82 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Casa en Valle Alto Verde al 80000, Culiacán, Sinaloa, Mexico, Fraccionamiento Valle Alto",
@@ -5739,9 +5753,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-27T02:34:45.797Z",
+    "ultimaActualizacion": "2025-10-27T02:40:07.630Z",
     "totalVendedores": 36,
-    "totalPropiedades": 320,
+    "totalPropiedades": 321,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
