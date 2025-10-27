@@ -3496,18 +3496,18 @@
     "scrapedAt": "2025-10-26T23:28:24.959Z"
   },
   {
-    "propertyId": "147661732",
-    "title": "Casa en Venta, La Cantera, Culiacan",
-    "slug": "casa-en-venta-la-cantera-culiacan",
-    "price": "MN 7,950,000",
-    "publishedDate": "Publicado hace 32 días",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=2",
-    "lat": 24.8000572,
-    "lng": -107.4349268,
+    "propertyId": "147708671",
+    "title": "Casa en Venta en La Primavera San Juan",
+    "slug": "casa-en-venta-en-la-primavera-san-juan",
+    "price": "MN 13,300,000",
+    "publishedDate": "Publicado hace 28 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=7",
+    "lat": 24.8091,
+    "lng": -107.394,
     "locationPrecision": "city",
     "locationSource": "geocoder",
-    "colonia": "La Cantera",
-    "codigoPostal": "80106",
-    "scrapedAt": "2025-10-27T02:17:13.923Z"
+    "colonia": "La Primavera",
+    "codigoPostal": "80199",
+    "scrapedAt": "2025-10-27T02:19:10.543Z"
   }
 ]

@@ -93,6 +93,20 @@
           "colonia": null,
           "ciudad": "culiacan",
           "fotoPrincipal": null
+        },
+        {
+          "id": "147708671",
+          "titulo": "Casa en Venta en La Primavera San Juan",
+          "precio": "MN 13,300,000",
+          "ubicacion": "La Primavera San Juan, Culiacán, Sinaloa, Mexico, La Primavera",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=7",
+          "fechaScrapeo": "2025-10-27",
+          "fechaPublicacion": "Publicado hace 28 días",
+          "vistas": 0
         }
       ],
       "notas": "Agencia Invictus - La Cantera",
@@ -5711,9 +5725,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-27T02:17:13.926Z",
+    "ultimaActualizacion": "2025-10-27T02:19:10.546Z",
     "totalVendedores": 36,
-    "totalPropiedades": 318,
+    "totalPropiedades": 319,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,
