@@ -5313,6 +5313,20 @@
           "fechaScrapeo": "2025-10-27",
           "fechaPublicacion": "Publicado hace 24 días",
           "vistas": 0
+        },
+        {
+          "id": "147954826",
+          "titulo": "Casa en Venta Privada Valles Españoles",
+          "precio": "MN 4,400,000",
+          "ubicacion": "Sector Bugambilias, Culiacán, Sinaloa, Mexico, Fraccionamiento Valles Españoles",
+          "recamaras": 0,
+          "banos": 0,
+          "construccion": 0,
+          "terreno": 0,
+          "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-privada-valles-espanoles-147954826.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=8",
+          "fechaScrapeo": "2025-10-27",
+          "fechaPublicacion": "Publicado hace 5 días",
+          "vistas": 0
         }
       ],
       "notas": "Vendedor de Sta. Maria #5315, Mazatlán, Sinaloa, Mexico, Fraccionamiento Real del Valle, Culiacán",
@@ -5815,9 +5829,9 @@
     }
   ],
   "estadisticas": {
-    "ultimaActualizacion": "2025-10-27T02:52:08.014Z",
+    "ultimaActualizacion": "2025-10-27T02:55:01.848Z",
     "totalVendedores": 37,
-    "totalPropiedades": 324,
+    "totalPropiedades": 325,
     "porCiudad": {
       "culiacan": 199,
       "monterrey": 4,

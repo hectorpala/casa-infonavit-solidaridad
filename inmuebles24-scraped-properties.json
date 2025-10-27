@@ -3569,5 +3569,20 @@
     "colonia": null,
     "codigoPostal": null,
     "scrapedAt": "2025-10-27T02:52:08.011Z"
+  },
+  {
+    "propertyId": "147954826",
+    "title": "Casa en Venta Privada Valles Españoles",
+    "slug": "casa-en-venta-privada-valles-espanoles",
+    "price": "MN 4,400,000",
+    "publishedDate": "Publicado hace 5 días",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-privada-valles-espanoles-147954826.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=8",
+    "lat": 24.7607794,
+    "lng": -107.451648,
+    "locationPrecision": "city",
+    "locationSource": "geocoder",
+    "colonia": "Valles Españoles",
+    "codigoPostal": "80145",
+    "scrapedAt": "2025-10-27T02:55:01.842Z"
   }
 ]
