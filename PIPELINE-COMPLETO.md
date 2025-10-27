@@ -365,6 +365,136 @@ crontab -e
 
 ---
 
+## ✅ Checklists de Ejecución
+
+### **📋 Checklist Previo a Ejecutar**
+
+Verificar ANTES de iniciar el pipeline:
+
+1. **✅ Actualizar Extractor**
+   ```bash
+   # Verificar que el extractor esté actualizado
+   git pull origin main
+
+   # Confirmar versión del script
+   head -20 1extractorurlinmuebles24.js | grep "Version"
+   ```
+
+2. **✅ Correr Auditor**
+   ```bash
+   # Ejecutar auditoría sobre el archivo de URLs extraídas
+   node auditor-urls-inmuebles24.js urls-inmuebles24-*-valid.txt
+
+   # Verificar estadísticas
+   cat audit-*.json | jq '.statistics'
+   ```
+
+3. **✅ Validar JSON del Lote**
+   ```bash
+   # Verificar que el archivo JSON de lote sea válido
+   cat 1depuracionurlinmuebles24.json | jq '.'
+
+   # Confirmar metadata completa
+   node lote-manager.js status
+
+   # Verificar número de URLs pendientes
+   jq '.progreso.pendientes' 1depuracionurlinmuebles24.json
+   ```
+
+**Resultado esperado:**
+- ✅ Extractor actualizado a última versión
+- ✅ Auditoría completada sin errores
+- ✅ JSON válido con metadata correcta
+- ✅ URLs pendientes > 0
+
+---
+
+### **📋 Checklist Post Ejecución**
+
+Verificar DESPUÉS de completar el scraping:
+
+1. **✅ Revisar Commits**
+   ```bash
+   # Ver cambios pendientes
+   git status
+
+   # Revisar archivos modificados
+   git diff --stat
+
+   # Verificar que las propiedades scrapeadas estén incluidas
+   ls -lh culiacan/casa-venta-*/index.html | tail -10
+   ```
+
+2. **✅ Limpiar Backups Viejos**
+   ```bash
+   # Listar backups (mantener últimos 5)
+   ls -lht backups-lotes/ | head -10
+
+   # Eliminar backups >30 días
+   find backups-lotes/ -name "*.json" -mtime +30 -delete
+
+   # Confirmar limpieza
+   ls -lh backups-lotes/ | wc -l
+   ```
+
+3. **✅ Publicar Reporte**
+   ```bash
+   # Ver último reporte generado
+   cat $(ls -t reports/orchestrator-*.json | head -1) | jq '.summary'
+
+   # Copiar reporte a carpeta de documentación (opcional)
+   cp $(ls -t reports/orchestrator-*.json | head -1) docs/ultimo-reporte.json
+
+   # Limpiar reportes viejos (>30 días)
+   find reports/ -name "*.json" -mtime +30 -delete
+   ```
+
+**Resultado esperado:**
+- ✅ Git status muestra propiedades nuevas
+- ✅ Backups antiguos eliminados
+- ✅ Reporte publicado y accesible
+- ✅ Tasa de éxito >80%
+
+---
+
+### **🎯 Quick Check - Comando Único**
+
+Ejecutar este comando para verificar todo de una vez:
+
+```bash
+# Quick check completo
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "📋 CHECKLIST PIPELINE INMUEBLES24"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+echo "1️⃣  Lote activo:"
+jq -r '"   Pendientes: \(.progreso.pendientes) | Procesadas: \(.progreso.procesadas)"' 1depuracionurlinmuebles24.json 2>/dev/null || echo "   ❌ No hay lote activo"
+echo ""
+echo "2️⃣  Último reporte:"
+if [ -f "$(ls -t reports/orchestrator-*.json 2>/dev/null | head -1)" ]; then
+    jq -r '"   Exitosas: \(.summary.successful)/\(.summary.totalUrls) | Tasa: \(.summary.successRate)"' $(ls -t reports/orchestrator-*.json | head -1)
+else
+    echo "   ⚠️  No hay reportes"
+fi
+echo ""
+echo "3️⃣  Backups:"
+echo "   Total: $(ls backups-lotes/*.json 2>/dev/null | wc -l | xargs)"
+echo "   Más reciente: $(ls -t backups-lotes/*.json 2>/dev/null | head -1 | xargs basename)"
+echo ""
+echo "4️⃣  Git status:"
+git status --short | head -5
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+```
+
+**Guardar como:** `check-pipeline.sh`
+```bash
+chmod +x check-pipeline.sh
+./check-pipeline.sh
+```
+
+---
+
 ## 📊 Métricas y Reportes
 
 ### **Análisis de Reportes del Orquestador**
