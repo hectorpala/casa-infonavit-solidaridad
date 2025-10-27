@@ -1,0 +1,33 @@
+╔═══════════════════════════════════════════════════════════════╗
+║  🔍 EXTRACTOR RÁPIDO DE URLs - INMUEBLES24.COM              ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📋 URL de búsqueda: https://www.inmuebles24.com/casas-en-venta-en-culiacan.html
+📄 Páginas máximas: 3
+
+
+────────────────────────────────────────────────────────────────
+📄 PÁGINA 1: https://www.inmuebles24.com/casas-en-venta-en-culiacan.html
+────────────────────────────────────────────────────────────────
+🌐 Navegando...
+⏳ Esperando 2000ms para carga completa del DOM...
+🔍 Extrayendo URLs de propiedades...
+   ✅ Encontradas 0 URLs únicas en esta página
+   📊 Total acumulado: 0 URLs únicas
+   ℹ️  No hay más páginas disponibles
+
+╔═══════════════════════════════════════════════════════════════╗
+║  ✅ EXTRACCIÓN COMPLETADA                                    ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📊 RESULTADOS:
+   • Total de URLs únicas: 0
+   • Páginas procesadas: 1
+
+💾 URLs guardadas en: urls-extraidas-inmuebles24.json
+
+💾 URLs guardadas en texto plano: urls-extraidas-inmuebles24.txt
+
+📋 PRIMERAS 10 URLs EXTRAÍDAS:
+
+✅ Proceso completado exitosamente

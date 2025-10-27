@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "timestampISO": "2025-10-27T00:50:27.501Z",
+    "timestampReadable": "26 de octubre de 2025, 05:50:27 p.m.",
+    "searchCriteria": {
+      "type": "Casas",
+      "operation": "Venta",
+      "city": "Venta",
+      "priceRange": "$4,300,000 - $4,400,000",
+      "fullUrl": "https://www.inmuebles24.com/casas-en-venta-en-culiacan-de-4300000-a-4400000-pesos.html"
+    },
+    "pagesProcessed": 1
+  },
+  "statistics": {
+    "totalExtracted": 0,
+    "validUrls": 0,
+    "blockedUrls": 0,
+    "totalUsableUrls": 0,
+    "removedUrls": 0,
+    "errorUrls": 0,
+    "usablePercentage": "0%"
+  },
+  "urls": {
+    "valid": [],
+    "blocked": [],
+    "removed": [],
+    "errors": []
+  }
+}

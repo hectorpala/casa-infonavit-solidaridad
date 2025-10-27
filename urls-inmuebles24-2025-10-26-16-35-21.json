@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "timestampISO": "2025-10-26T23:35:21.349Z",
+    "timestampReadable": "26 de octubre de 2025, 04:35:21 p.m.",
+    "searchCriteria": {
+      "type": "Casas",
+      "operation": "Venta",
+      "city": "Venta",
+      "priceRange": "N/A",
+      "fullUrl": "https://www.inmuebles24.com/casas-en-venta-en-culiacan.html"
+    },
+    "pagesProcessed": 1
+  },
+  "statistics": {
+    "totalExtracted": 30,
+    "validUrls": 0,
+    "removedUrls": 0,
+    "errorUrls": 30,
+    "validPercentage": "0.00%"
+  },
+  "urls": {
+    "valid": [],
+    "removed": [],
+    "errors": [
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc-colinas-de-san-miguel-81519985.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=7",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacan-nueva-tres-rios-4-recamaras-147805533.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=6",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-vendo-casa-en-colonia-guadalupe-culiacan-146266554.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=2",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-con-vista-espectacular-en-colinas-de-san-miguel-147904217.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=3",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-morelos-culiacan-sinaloa-147325627.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=9",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-montebello-culiacan-146604280.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=8",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-colinas-de-san-miguel-143854309.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=5",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=1",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-culiacan-con-alberca-145337185.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=10",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fracc.-villa-universidad-143337967.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=4",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147662027.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=15",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-hermosa-casa-en-venta-en-la-primavera-147708571.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=18",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-en-isla-del-oeste-en-la-primavera-147501147.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=12",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-sector-tres-rios-culiacan-147903309.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=14",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=20",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=17",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-guadalupe-culiacan-147814499.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=13",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-privada-en-fracc.-colinas-de-san-miguel-147004692.html?n_src=Listado&n_pills=Jard%C3%ADn+privado&n_pg=1&n_pos=11",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=19",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-altezza-residencial-en-culiacan-146782117.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=16",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-casa-copropiedad-50-54023129.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=30",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-generic_title-147943495.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=28",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-o-se-renta-casa-en-fraccionamiento-guadalupe-147889145.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=29",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-casa-sector-terranova-146725068.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=25",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=23",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html?n_src=Listado&n_pills=Seguridad+privada&n_pg=1&n_pos=22",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-amplia-casa-en-renta-o-venta-a-2-min.-de-plaza-sendero-144602544.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=21",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-venta-de-casa-amueblada-vitalia-la-conquista-143018721.html?n_src=Listado&n_pg=1&n_pos=27",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casas-en-venta-culiacan-los-pinos-amplio-terreno-145051303.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=24",
+        "reason": "HTTP 403",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-por-calle-mariano-escobedo-centro-de-la-143508352.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=26",
+        "reason": "HTTP 403",
+        "status": 403
+      }
+    ]
+  }
+}

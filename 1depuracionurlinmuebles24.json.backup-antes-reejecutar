@@ -1,0 +1,243 @@
+{
+  "metadata": {
+    "generadoEn": "2025-10-26T23:48:15.760Z",
+    "generadoEnReadable": "26 de octubre de 2025, 04:48:15 p.m.",
+    "archivoOrigen": "audit-2025-10-26-16-41-36-nuevas.txt",
+    "version": "2.0",
+    "rangoPrecio": "3M-4M",
+    "ciudad": "Culiacán, Sinaloa",
+    "tipo": "Casas en Venta",
+    "notas": "Lote de prueba del sistema mejorado de gestión"
+  },
+  "progreso": {
+    "totalUrls": 14,
+    "procesadas": 14,
+    "fallidas": 0,
+    "pendientes": 0,
+    "porcentajeCompletado": "100.00%"
+  },
+  "urls": [
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=1",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=1",
+      "propertyId": "147696056",
+      "claveCanonica": "id:147696056",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:36:54.662Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=2",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=2",
+      "propertyId": "147661732",
+      "claveCanonica": "id:147661732",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:37:04.270Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=7",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=7",
+      "propertyId": "147708671",
+      "claveCanonica": "id:147708671",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:37:14.612Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8",
+      "propertyId": "147077499",
+      "claveCanonica": "id:147077499",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:37:24.859Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-espacios-barcelona-147199194.html?n_src=Listado&n_pg=1&n_pos=3",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-espacios-barcelona-147199194.html?n_src=Listado&n_pg=1&n_pos=3",
+      "propertyId": "147199194",
+      "claveCanonica": "id:147199194",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:37:34.377Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-o-se-renta-casa-en-fraccionamiento-guadalupe-147889145.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=2",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-o-se-renta-casa-en-fraccionamiento-guadalupe-147889145.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=2",
+      "propertyId": "147889145",
+      "claveCanonica": "id:147889145",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:37:44.066Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-147564305.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=4",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-147564305.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=4",
+      "propertyId": "147564305",
+      "claveCanonica": "id:147564305",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:37:54.154Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-amorada-147774254.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=5",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-amorada-147774254.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=5",
+      "propertyId": "147774254",
+      "claveCanonica": "id:147774254",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:38:04.264Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-privada-valles-espanoles-147954826.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=8",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-privada-valles-espanoles-147954826.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=8",
+      "propertyId": "147954826",
+      "claveCanonica": "id:147954826",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:38:14.014Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-punta-azul-141908786.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=7",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-punta-azul-141908786.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=7",
+      "propertyId": "141908786",
+      "claveCanonica": "id:141908786",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:38:23.616Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-portalegre-143985014.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=10",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-portalegre-143985014.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=10",
+      "propertyId": "143985014",
+      "claveCanonica": "id:143985014",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:38:33.252Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-chapultepec-culiacan-sinaloa-146942370.html?n_src=Listado&n_pg=1&n_pos=9",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-chapultepec-culiacan-sinaloa-146942370.html?n_src=Listado&n_pg=1&n_pos=9",
+      "propertyId": "146942370",
+      "claveCanonica": "id:146942370",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:38:43.433Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-y-renta-en-altuzz-residencial-br1-144654006.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=6",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-y-renta-en-altuzz-residencial-br1-144654006.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=6",
+      "propertyId": "144654006",
+      "claveCanonica": "id:144654006",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:38:53.871Z",
+      "razonFallo": null
+    },
+    {
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-pradera-dorada-145992086.html?n_src=Listado&n_pg=1&n_pos=11",
+      "urlNormalizada": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-pradera-dorada-145992086.html?n_src=Listado&n_pg=1&n_pos=11",
+      "propertyId": "145992086",
+      "claveCanonica": "id:145992086",
+      "estado": "procesada",
+      "procesadaEn": "2025-10-27T01:40:09.443Z",
+      "razonFallo": null
+    }
+  ],
+  "historial": [
+    {
+      "timestamp": "2025-10-26T23:48:15.760Z",
+      "evento": "lote_creado",
+      "descripcion": "Lote inicializado con 4 URLs"
+    },
+    {
+      "timestamp": "2025-10-27T01:15:23.650Z",
+      "evento": "urls_agregadas",
+      "descripcion": "10 URLs agregadas desde audit-2025-10-27-18-12-20-nuevas.txt"
+    },
+    {
+      "timestamp": "2025-10-27T01:36:54.662Z",
+      "evento": "url_procesada",
+      "propertyId": "147696056",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=1"
+    },
+    {
+      "timestamp": "2025-10-27T01:37:04.270Z",
+      "evento": "url_procesada",
+      "propertyId": "147661732",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=2"
+    },
+    {
+      "timestamp": "2025-10-27T01:37:14.612Z",
+      "evento": "url_procesada",
+      "propertyId": "147708671",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=7"
+    },
+    {
+      "timestamp": "2025-10-27T01:37:24.859Z",
+      "evento": "url_procesada",
+      "propertyId": "147077499",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8"
+    },
+    {
+      "timestamp": "2025-10-27T01:37:34.377Z",
+      "evento": "url_procesada",
+      "propertyId": "147199194",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-espacios-barcelona-147199194.html?n_src=Listado&n_pg=1&n_pos=3"
+    },
+    {
+      "timestamp": "2025-10-27T01:37:44.066Z",
+      "evento": "url_procesada",
+      "propertyId": "147889145",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-o-se-renta-casa-en-fraccionamiento-guadalupe-147889145.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=2"
+    },
+    {
+      "timestamp": "2025-10-27T01:37:54.154Z",
+      "evento": "url_procesada",
+      "propertyId": "147564305",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-147564305.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=4"
+    },
+    {
+      "timestamp": "2025-10-27T01:38:04.264Z",
+      "evento": "url_procesada",
+      "propertyId": "147774254",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-amorada-147774254.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=5"
+    },
+    {
+      "timestamp": "2025-10-27T01:38:14.014Z",
+      "evento": "url_procesada",
+      "propertyId": "147954826",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-privada-valles-espanoles-147954826.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=8"
+    },
+    {
+      "timestamp": "2025-10-27T01:38:23.616Z",
+      "evento": "url_procesada",
+      "propertyId": "141908786",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-punta-azul-141908786.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=7"
+    },
+    {
+      "timestamp": "2025-10-27T01:38:33.252Z",
+      "evento": "url_procesada",
+      "propertyId": "143985014",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-portalegre-143985014.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=10"
+    },
+    {
+      "timestamp": "2025-10-27T01:38:43.433Z",
+      "evento": "url_procesada",
+      "propertyId": "146942370",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-chapultepec-culiacan-sinaloa-146942370.html?n_src=Listado&n_pg=1&n_pos=9"
+    },
+    {
+      "timestamp": "2025-10-27T01:38:53.871Z",
+      "evento": "url_procesada",
+      "propertyId": "144654006",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-y-renta-en-altuzz-residencial-br1-144654006.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=6"
+    },
+    {
+      "timestamp": "2025-10-27T01:40:09.443Z",
+      "evento": "url_procesada",
+      "propertyId": "145992086",
+      "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-pradera-dorada-145992086.html?n_src=Listado&n_pg=1&n_pos=11"
+    }
+  ]
+}

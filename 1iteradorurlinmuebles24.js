@@ -88,8 +88,7 @@ function executeScraper(url) {
         [SCRAPER_SCRIPT, url, '--auto-confirm'],
         {
             cwd: __dirname,
-            stdio: 'inherit',
-            shell: true
+            stdio: 'inherit'
         }
     );
 

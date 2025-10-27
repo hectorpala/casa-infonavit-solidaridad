@@ -44,7 +44,7 @@ const CONFIG = {
     SKIPPED_LOG: 'orchestrator-skipped.log',
     MAX_RETRIES: parseInt(process.env.MAX_RETRIES) || 2,
     INITIAL_BACKOFF: parseInt(process.env.INITIAL_BACKOFF) || 5, // segundos
-    SCRAPER_TIMEOUT: parseInt(process.env.SCRAPER_TIMEOUT) || 180000, // 3 minutos
+    SCRAPER_TIMEOUT: parseInt(process.env.SCRAPER_TIMEOUT) || 360000, // 6 minutos
     PREFLIGHT_TIMEOUT: parseInt(process.env.PREFLIGHT_TIMEOUT) || 8000, // 8 segundos
 
     // Notificaciones
@@ -249,40 +249,38 @@ async function runScraper(url, propertyId, attempt = 1) {
     log(`Ejecutando scraper (intento ${attempt})...`, 'cyan');
 
     return new Promise((resolve, reject) => {
-        const scraper = spawn('node', [CONFIG.SCRAPER_SCRIPT, url], {
-            stdio: 'pipe',
+        // Alinear con firma estándar del scraper: node inmuebles24culiacanscraper.js "<URL>" --auto-confirm
+        const args = [CONFIG.SCRAPER_SCRIPT, url, '--auto-confirm'];
+
+        const scraper = spawn('node', args, {
+            cwd: __dirname,
+            stdio: 'inherit', // Usar inherit para salida idéntica al uso manual
             timeout: CONFIG.SCRAPER_TIMEOUT
-        });
-
-        let stdout = '';
-        let stderr = '';
-
-        scraper.stdout.on('data', (data) => {
-            stdout += data.toString();
-        });
-
-        scraper.stderr.on('data', (data) => {
-            stderr += data.toString();
         });
 
         scraper.on('close', (code) => {
             if (code === 0) {
-                // Extraer slug del output
-                const slugMatch = stdout.match(/Slug generado: ([\w-]+)/);
-                const slug = slugMatch ? slugMatch[1] : null;
-
+                // Ejecución exitosa
+                // Nota: Con stdio='inherit' no podemos capturar stdout fácilmente,
+                // por lo tanto slug será null. El scraper ya imprime todo directamente.
                 resolve({
                     success: true,
-                    slug,
-                    output: stdout
+                    slug: null, // No disponible con stdio='inherit' (documentado)
+                    output: null
+                });
+            } else if (code === null) {
+                // Timeout del spawn
+                reject({
+                    success: false,
+                    code: null,
+                    error: `Timeout: Scraper tardó más de ${CONFIG.SCRAPER_TIMEOUT / 60000} minutos`
                 });
             } else {
+                // Error de ejecución
                 reject({
                     success: false,
                     code,
-                    stdout,
-                    stderr,
-                    error: stderr || `Scraper falló con código ${code}`
+                    error: `Scraper falló con código ${code}`
                 });
             }
         });
@@ -290,22 +288,9 @@ async function runScraper(url, propertyId, attempt = 1) {
         scraper.on('error', (error) => {
             reject({
                 success: false,
-                error: error.message,
-                stdout,
-                stderr
+                error: error.message
             });
         });
-
-        // Timeout manual
-        setTimeout(() => {
-            scraper.kill('SIGTERM');
-            reject({
-                success: false,
-                error: 'Timeout: Scraper tardó más de 3 minutos',
-                stdout,
-                stderr
-            });
-        }, CONFIG.SCRAPER_TIMEOUT);
     });
 }
 

@@ -237,9 +237,33 @@ class CuliacanGeocoder {
                 };
             }
 
-            // Si es city-level y tenemos colonia del gazetteer, usar centroide
+            // Si es neighborhood y tenemos colonia del gazetteer
             if (variation.type === 'neighborhood' && coloniaMatch) {
-                // Buscar centroide de la colonia
+                // PRIORIDAD 1: Intentar Google API primero
+                if (apiKey && !attemptedGoogleAddresses.has(variation.address)) {
+                    attemptedGoogleAddresses.add(variation.address);
+                    console.log(`      🌐 Consultando Google API para: ${variation.address}`);
+                    const googleNeighborhood = await this._geocodeWithGoogle(variation.address, apiKey);
+                    if (googleNeighborhood) {
+                        console.log(`      ✅ Google API exitoso`);
+                        return googleNeighborhood;
+                    }
+                }
+
+                // PRIORIDAD 2: Coordenadas embebidas de la página
+                if (fallbackCoords) {
+                    console.log(`      💡 Usando coordenadas embebidas de la página`);
+                    return {
+                        lat: fallbackCoords.lat,
+                        lng: fallbackCoords.lng,
+                        precision: 'neighborhood',
+                        confidence: 0.7,
+                        formatted: `${coloniaMatch.nombre}, Culiacán, Sinaloa`,
+                        source: 'page-embedded-coords'
+                    };
+                }
+
+                // PRIORIDAD 3: Centroide del gazetteer (solo como fallback)
                 const slug = coloniaMatch.nombre
                     .toLowerCase()
                     .normalize('NFD')
@@ -249,44 +273,27 @@ class CuliacanGeocoder {
                 const centroide = this.centroides[slug];
 
                 if (centroide) {
-                    console.log(`      💡 Usando centroide REAL de colonia: ${coloniaMatch.nombre}`);
+                    console.log(`      💡 Fallback: Usando centroide de gazetteer para ${coloniaMatch.nombre}`);
                     return {
                         lat: centroide.lat,
                         lng: centroide.lng,
                         precision: 'neighborhood',
-                        confidence: 0.7,
-                        formatted: `${coloniaMatch.nombre}, Culiacán, Sinaloa`,
-                        source: 'gazetteer-centroid-real'
-                    };
-                } else {
-                    if (fallbackCoords) {
-                        console.log(`      💡 Sin centroide, usando coordenadas embebidas de la página`);
-                        return {
-                            lat: fallbackCoords.lat,
-                            lng: fallbackCoords.lng,
-                            precision: 'neighborhood',
-                            confidence: 0.7,
-                            formatted: `${coloniaMatch.nombre}, Culiacán, Sinaloa`,
-                            source: 'page-embedded-coords'
-                        };
-                    }
-                    if (apiKey && !attemptedGoogleAddresses.has(variation.address)) {
-                        attemptedGoogleAddresses.add(variation.address);
-                        const googleNeighborhood = await this._geocodeWithGoogle(variation.address, apiKey);
-                        if (googleNeighborhood) {
-                            return googleNeighborhood;
-                        }
-                    }
-                    console.log(`      💡 Usando centroide de CIUDAD (colonia sin centroide)`);
-                    return {
-                        lat: CULIACAN_COORDS.lat,
-                        lng: CULIACAN_COORDS.lng,
-                        precision: 'neighborhood',
-                        confidence: 0.7,
+                        confidence: 0.5,
                         formatted: `${coloniaMatch.nombre}, Culiacán, Sinaloa`,
                         source: 'gazetteer-centroid-fallback'
                     };
                 }
+
+                // PRIORIDAD 4: Centro de ciudad (último recurso)
+                console.log(`      💡 Último recurso: Usando centroide de ciudad`);
+                return {
+                    lat: CULIACAN_COORDS.lat,
+                    lng: CULIACAN_COORDS.lng,
+                    precision: 'city',
+                    confidence: 0.2,
+                    formatted: `${coloniaMatch.nombre}, Culiacán, Sinaloa`,
+                    source: 'city-center-fallback'
+                };
             }
 
             // Si es city-level, usar coordenadas de ciudad

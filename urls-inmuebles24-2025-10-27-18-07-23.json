@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "timestampISO": "2025-10-27T01:07:23.105Z",
+    "timestampReadable": "26 de octubre de 2025, 06:07:23 p.m.",
+    "searchCriteria": {
+      "type": "Casas",
+      "operation": "Venta",
+      "city": "Venta",
+      "priceRange": "$4,300,000 - $4,400,000",
+      "fullUrl": "https://www.inmuebles24.com/casas-en-venta-en-culiacan-de-4300000-a-4400000-pesos.html"
+    },
+    "pagesProcessed": 1
+  },
+  "statistics": {
+    "totalExtracted": 11,
+    "validUrls": 0,
+    "blockedUrls": 11,
+    "totalUsableUrls": 11,
+    "removedUrls": 0,
+    "errorUrls": 0,
+    "usablePercentage": "100.00%"
+  },
+  "urls": {
+    "valid": [],
+    "blocked": [
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-se-vende-o-se-renta-casa-en-fraccionamiento-guadalupe-147889145.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=2",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-fraccionamiento-espacios-barcelona-147199194.html?n_src=Listado&n_pg=1&n_pos=3",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-guadalupe-culiacan-147814499.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=1",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-residencial-amorada-147774254.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=5",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcapa-casa-en-venta-147564305.html?n_src=Listado&n_pills=Escuelas+cercanas&n_pg=1&n_pos=4",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-y-renta-en-altuzz-residencial-br1-144654006.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=6",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-punta-azul-141908786.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=7",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-privada-valles-espanoles-147954826.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=8",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-chapultepec-culiacan-sinaloa-146942370.html?n_src=Listado&n_pg=1&n_pos=9",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-portalegre-143985014.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=10",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      },
+      {
+        "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-fraccionamiento-pradera-dorada-145992086.html?n_src=Listado&n_pg=1&n_pos=11",
+        "reason": "Bloqueado por Cloudflare (403)",
+        "status": 403
+      }
+    ],
+    "removed": [],
+    "errors": []
+  }
+}

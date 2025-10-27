@@ -1,0 +1,21 @@
+
+╔═══════════════════════════════════════════════════════════════╗
+║  🎯 ORQUESTADOR DE SCRAPING - INMUEBLES24                    ║
+╚═══════════════════════════════════════════════════════════════╝
+
+[90m[6:26:18 p.m.][0m [36m📋 Cargando lote actual...[0m
+[90m[6:26:18 p.m.][0m [1m📊 URLs pendientes: 14[0m
+[90m[6:26:18 p.m.][0m [90m🔄 Reintentos máximos: 3[0m
+[90m[6:26:18 p.m.][0m [90m⏱️  Backoff inicial: 5s[0m
+[90m[6:26:18 p.m.][0m [35m
+📦 Progreso: 1/14[0m
+[90m[6:26:18 p.m.][0m [1m
+======================================================================[0m
+[90m[6:26:18 p.m.][0m [1m📍 Procesando: 147696056[0m
+[90m[6:26:18 p.m.][0m [90m🔗 URL: https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culia...[0m
+[90m[6:26:18 p.m.][0m [36m🔍 Pre-flight check...[0m
+[90m[6:26:18 p.m.][0m [32m✅ Pre-flight OK (Bloqueado por Cloudflare (403) - se intentará con scraper)[0m
+[90m[6:26:18 p.m.][0m [36mEjecutando scraper (intento 1)...[0m
+[90m[6:32:18 p.m.][0m [31m❌ Fallo en intento 1: Timeout: Scraper tardó más de 3 minutos[0m
+[90m[6:32:18 p.m.][0m [33m⏳ Esperando 5s antes de reintentar...[0m
+[90m[6:32:23 p.m.][0m [36mEjecutando scraper (intento 2)...[0m

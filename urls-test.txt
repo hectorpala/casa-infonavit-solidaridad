@@ -1,0 +1,44 @@
+╔═══════════════════════════════════════════════════════════════╗
+║  🔍 EXTRACTOR RÁPIDO DE URLs - INMUEBLES24.COM              ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📋 URL de búsqueda: https://www.inmuebles24.com/casas-en-venta-en-culiacan.html
+📄 Páginas máximas: 1
+
+
+────────────────────────────────────────────────────────────────
+📄 PÁGINA 1: https://www.inmuebles24.com/casas-en-venta-en-culiacan.html
+────────────────────────────────────────────────────────────────
+🌐 Navegando...
+⏳ Esperando 2000ms para carga completa del DOM...
+🔍 Extrayendo URLs de propiedades...
+   ✅ Encontradas 30 URLs únicas en esta página
+   📊 Total acumulado: 30 URLs únicas
+   ℹ️  No hay más páginas disponibles
+
+╔═══════════════════════════════════════════════════════════════╗
+║  ✅ EXTRACCIÓN COMPLETADA                                    ║
+╚═══════════════════════════════════════════════════════════════╝
+
+📊 RESULTADOS:
+   • Total de URLs únicas: 30
+   • Páginas procesadas: 1
+
+💾 URLs guardadas en: urls-extraidas-inmuebles24.json
+
+💾 URLs guardadas en texto plano: urls-extraidas-inmuebles24.txt
+
+📋 PRIMERAS 10 URLs EXTRAÍDAS:
+   1. https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=1
+   2. https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=2
+   3. https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-fraccionamiento-interlomas-147916704.html?n_src=Listado&n_pills=%C3%81rea+de+lavado&n_pg=1&n_pos=3
+   4. https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacan-nueva-tres-rios-4-recamaras-147805533.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=4
+   5. https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-colonia-morelos-culiacan-sinaloa-147325627.html?n_src=Listado&n_pills=Patio&n_pg=1&n_pos=5
+   6. https://www.inmuebles24.com/propiedades/clasificado/veclcain-venta-de-casa-por-calle-mariano-escobedo-centro-de-la-143508352.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=6
+   7. https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-la-primavera-san-juan-147708671.html?n_src=Listado&n_pills=Alberca&n_pg=1&n_pos=7
+   8. https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-colonia-chapultepec-culiacan-147077499.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=8
+   9. https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-privada-la-cantera-147500481.html?n_src=Listado&n_pills=Aire+acondicionado&n_pg=1&n_pos=9
+   10. https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-en-sector-tres-rios-culiacan-147903309.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=10
+   ... y 20 más
+
+✅ Proceso completado exitosamente
