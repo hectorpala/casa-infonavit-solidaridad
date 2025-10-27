@@ -3496,18 +3496,18 @@
     "scrapedAt": "2025-10-26T23:28:24.959Z"
   },
   {
-    "propertyId": "147696056",
-    "title": "Casa en Venta Culiacancito Culiacan Sinaloa",
-    "slug": "casa-en-venta-culiacancito-culiacan-sinaloa",
-    "price": "MN 2,100,000",
+    "propertyId": "147661732",
+    "title": "Casa en Venta, La Cantera, Culiacan",
+    "slug": "casa-en-venta-la-cantera-culiacan",
+    "price": "MN 7,950,000",
     "publishedDate": "Publicado hace 32 días",
-    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-culiacancito-culiacan-sinaloa-147696056.html?n_src=Listado&n_pills=Terraza&n_pg=1&n_pos=1",
-    "lat": 24.7957618,
-    "lng": -107.385929,
-    "locationPrecision": "street",
+    "url": "https://www.inmuebles24.com/propiedades/clasificado/veclcain-casa-en-venta-la-cantera-culiacan-147661732.html?n_src=Listado&n_pills=Gimnasio&n_pg=1&n_pos=2",
+    "lat": 24.8000572,
+    "lng": -107.4349268,
+    "locationPrecision": "city",
     "locationSource": "geocoder",
-    "colonia": "Valle Alto",
-    "codigoPostal": "80050",
-    "scrapedAt": "2025-10-27T02:12:25.160Z"
+    "colonia": "La Cantera",
+    "codigoPostal": "80106",
+    "scrapedAt": "2025-10-27T02:17:13.923Z"
   }
 ]
