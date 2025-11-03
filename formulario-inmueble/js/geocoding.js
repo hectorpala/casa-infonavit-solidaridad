@@ -4,11 +4,8 @@
  */
 
 const Geocoding = {
-    // API Keys (configuradas para producción)
-    apiKeys: {
-        google: 'AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk', // Google Maps API Key
-        mapbox: ''  // MapBox API Key (opcional)
-    },
+    // API Keys removidos - ahora se usan vía Netlify Functions (proxy seguro)
+    // La API key de Google Maps está protegida en variables de entorno
 
     /**
      * Geocodificar dirección completa con múltiples servicios (fallback)
@@ -23,25 +20,14 @@ const Geocoding = {
         // Intentar servicios en orden de precisión
         let result = null;
 
-        // 1. Intentar Google Maps (mejor precisión)
-        if (this.apiKeys.google) {
-            result = await this.geocodeWithGoogle(fullAddress);
-            if (result) {
-                console.log('✅ Coordenadas obtenidas con Google Maps');
-                return result;
-            }
+        // 1. Intentar Google Maps via proxy (mejor precisión, seguro)
+        result = await this.geocodeWithGoogle(fullAddress);
+        if (result) {
+            console.log('✅ Coordenadas obtenidas con Google Maps');
+            return result;
         }
 
-        // 2. Intentar MapBox (buena precisión, generoso)
-        if (this.apiKeys.mapbox) {
-            result = await this.geocodeWithMapBox(fullAddress);
-            if (result) {
-                console.log('✅ Coordenadas obtenidas con MapBox');
-                return result;
-            }
-        }
-
-        // 3. Fallback a Nominatim (gratis, menor precisión)
+        // 2. Fallback a Nominatim (gratis, menor precisión)
         result = await this.geocodeWithNominatim(fullAddress);
         if (result) {
             console.log('✅ Coordenadas obtenidas con Nominatim (OpenStreetMap)');
@@ -77,10 +63,16 @@ const Geocoding = {
             parts.push(data.zipCode);
         }
 
-        // Ciudad (siempre Culiacán)
-        parts.push('Culiacán');
+        // Ciudad - Usar municipio seleccionado por el usuario
+        const municipalityMap = {
+            'culiacan': 'Culiacán',
+            'mazatlan': 'Mazatlán'
+        };
+        const municipality = data.municipality || 'culiacan'; // default: Culiacán
+        const cityName = municipalityMap[municipality] || 'Culiacán';
+        parts.push(cityName);
 
-        // Estado (siempre Sinaloa)
+        // Estado (siempre Sinaloa para ambos municipios)
         parts.push('Sinaloa');
 
         // País
@@ -90,23 +82,31 @@ const Geocoding = {
     },
 
     /**
-     * Geocodificar con Google Maps Geocoding API
+     * Geocodificar con Google Maps Geocoding API via Netlify Function (proxy seguro)
      */
     async geocodeWithGoogle(address) {
-        if (!this.apiKeys.google) {
-            console.warn('⚠️ Google Maps API key no configurada');
-            return null;
-        }
-
         try {
-            const encodedAddress = encodeURIComponent(address);
-            const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${this.apiKeys.google}`;
+            console.log('🔒 Usando proxy seguro de Netlify para Google Maps...');
 
-            const response = await fetch(url);
+            // Llamar a Netlify Function en lugar de Google Maps directamente
+            const response = await fetch('/.netlify/functions/geocode', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ address })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.warn('⚠️ Error en proxy de geocodificación:', errorData.error);
+                return null;
+            }
+
             const data = await response.json();
 
-            if (data.status === 'OK' && data.results.length > 0) {
-                const result = data.results[0];
+            if (data.success && data.result) {
+                const result = data.result;
                 const location = result.geometry.location;
 
                 return {
@@ -141,54 +141,6 @@ const Geocoding = {
         return accuracyMap[locationType] || 'Desconocida';
     },
 
-    /**
-     * Geocodificar con MapBox Geocoding API
-     */
-    async geocodeWithMapBox(address) {
-        if (!this.apiKeys.mapbox) {
-            console.warn('⚠️ MapBox API key no configurada');
-            return null;
-        }
-
-        try {
-            const encodedAddress = encodeURIComponent(address);
-            const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?access_token=${this.apiKeys.mapbox}&country=MX&limit=1`;
-
-            const response = await fetch(url);
-            const data = await response.json();
-
-            if (data.features && data.features.length > 0) {
-                const result = data.features[0];
-                const [longitude, latitude] = result.center;
-
-                return {
-                    latitude: latitude,
-                    longitude: longitude,
-                    formattedAddress: result.place_name,
-                    placeId: result.id,
-                    accuracy: this.getMapBoxAccuracy(result.relevance),
-                    service: 'MapBox'
-                };
-            }
-
-            console.warn('⚠️ MapBox no encontró resultados');
-            return null;
-
-        } catch (error) {
-            console.error('❌ Error en MapBox Geocoding:', error);
-            return null;
-        }
-    },
-
-    /**
-     * Determinar nivel de precisión de MapBox
-     */
-    getMapBoxAccuracy(relevance) {
-        if (relevance >= 0.99) return 'Exacta';
-        if (relevance >= 0.95) return 'Alta';
-        if (relevance >= 0.85) return 'Media';
-        return 'Baja';
-    },
 
     /**
      * Geocodificar con Nominatim (OpenStreetMap) - GRATIS
@@ -254,7 +206,8 @@ const Geocoding = {
             number: document.getElementById('exterior-number')?.value,
             interiorNumber: document.getElementById('interior-number')?.value,
             colonia: document.getElementById('colonia')?.value,
-            zipCode: document.getElementById('zip-code')?.value
+            zipCode: document.getElementById('zip-code')?.value,
+            municipality: document.getElementById('municipality')?.value // ✅ Incluir municipio seleccionado
         };
 
         // Validar que tengamos los datos mínimos
