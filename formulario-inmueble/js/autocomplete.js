@@ -25,32 +25,39 @@ const Autocomplete = {
     currentIndex: -1,
     selectedColonia: null,
     selectedCalle: null,
+    currentMunicipality: 'culiacan', // default
 
     /**
      * Inicializar módulo de autocomplete
      */
-    async init() {
-        console.log('🔍 Inicializando autocomplete...');
+    async init(municipality = 'culiacan') {
+        console.log('🔍 Inicializando autocomplete para:', municipality);
 
-        // Cargar datos de colonias y calles
+        this.currentMunicipality = municipality;
+
+        // Cargar datos de colonias y calles según municipio
         await Promise.all([
-            this.loadColonias(),
-            this.loadCalles()
+            this.loadColonias(municipality),
+            this.loadCalles(municipality)
         ]);
 
         // Setup event listeners
         this.setupEventListeners();
         this.setupStreetListeners();
+        this.setupMunicipalityListener(); // ✅ NUEVO: Listener para cambio de municipio
 
         console.log('✅ Autocomplete inicializado con', this.colonias.length, 'colonias y', this.calles.length, 'calles');
     },
 
     /**
-     * Cargar datos de colonias desde JSON
+     * Cargar datos de colonias según municipio
      */
-    async loadColonias() {
+    async loadColonias(municipality = 'culiacan') {
         try {
-            const response = await fetch('data/colonias-culiacan.json');
+            const url = `data/colonias-${municipality}.json`;
+            console.log('📥 Cargando colonias desde:', url);
+
+            const response = await fetch(url);
             const data = await response.json();
 
             // Extraer array de colonias
@@ -63,7 +70,7 @@ const Autocomplete = {
                 slug: this.generateSlug(col.nombre)
             }));
 
-            console.log('✅ Cargadas', this.colonias.length, 'colonias');
+            console.log(`✅ Cargadas ${this.colonias.length} colonias de ${municipality}`);
         } catch (error) {
             console.error('❌ Error al cargar colonias:', error);
             this.showError('No se pudieron cargar las colonias. Por favor, recarga la página.');
@@ -468,22 +475,84 @@ const Autocomplete = {
     /**
      * Cargar datos de calles desde JSON
      */
-    async loadCalles() {
+    /**
+     * Cargar datos de calles según municipio
+     */
+    async loadCalles(municipality = 'culiacan') {
         try {
-            const response = await fetch('data/calles-culiacan.json');
+            const url = `data/calles-${municipality}.json`;
+            console.log('📥 Cargando calles desde:', url);
+
+            const response = await fetch(url);
             const data = await response.json();
 
-            // Extraer array de calles
-            this.calles = data.calles.map(calle => ({
-                nombre: calle.nombre,
-                slug: this.generateSlug(calle.nombre)
-            }));
+            // Extraer array de calles (puede venir como array directo o en propiedad)
+            const callesArray = Array.isArray(data) ? data : (data.calles || []);
 
-            console.log('✅ Cargadas', this.calles.length, 'calles');
+            this.calles = callesArray.map(calle => {
+                // Manejar tanto strings como objetos
+                const nombre = typeof calle === 'string' ? calle : (calle.nombre || calle);
+                return {
+                    nombre: nombre,
+                    slug: this.generateSlug(nombre)
+                };
+            });
+
+            console.log(`✅ Cargadas ${this.calles.length} calles de ${municipality}`);
         } catch (error) {
             console.error('❌ Error al cargar calles:', error);
             this.showError('No se pudieron cargar las calles. Por favor, recarga la página.');
         }
+    },
+
+    /**
+     * Recargar datos cuando cambia el municipio
+     */
+    async reloadData(municipality) {
+        console.log('🔄 Recargando datos para:', municipality);
+
+        this.currentMunicipality = municipality;
+
+        // Limpiar inputs y selecciones
+        const coloniaInput = document.getElementById('colonia');
+        const addressInput = document.getElementById('address');
+        const zipCodeInput = document.getElementById('zip-code');
+
+        if (coloniaInput) {
+            coloniaInput.value = '';
+            this.selectedColonia = null;
+        }
+        if (addressInput) addressInput.value = '';
+        if (zipCodeInput) zipCodeInput.value = '';
+
+        // Recargar datos
+        await Promise.all([
+            this.loadColonias(municipality),
+            this.loadCalles(municipality)
+        ]);
+
+        console.log('✅ Datos recargados:', this.colonias.length, 'colonias,', this.calles.length, 'calles');
+    },
+
+    /**
+     * Setup listener para cambio de municipio
+     */
+    setupMunicipalityListener() {
+        const municipalitySelect = document.getElementById('municipality');
+
+        if (!municipalitySelect) {
+            console.warn('⚠️ Select de municipio no encontrado');
+            return;
+        }
+
+        municipalitySelect.addEventListener('change', async (e) => {
+            const newMunicipality = e.target.value;
+            console.log('🏙️ Municipio cambiado a:', newMunicipality);
+
+            await this.reloadData(newMunicipality);
+        });
+
+        console.log('✅ Listener de municipio configurado');
     },
 
     /**

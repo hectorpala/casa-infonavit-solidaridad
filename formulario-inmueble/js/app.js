@@ -59,9 +59,11 @@ function initializeModules() {
         Geolocation.init();
     }
 
-    // Inicializar autocomplete de colonias
+    // Inicializar autocomplete de colonias con municipio seleccionado
     if (typeof Autocomplete !== 'undefined') {
-        Autocomplete.init();
+        const municipalitySelect = document.getElementById('municipality');
+        const initialMunicipality = municipalitySelect ? municipalitySelect.value : 'culiacan';
+        Autocomplete.init(initialMunicipality);
     }
 }
 

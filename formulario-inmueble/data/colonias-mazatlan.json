@@ -1,0 +1,2993 @@
+{
+  "metadata": {
+    "origen": "INEGI - Marco Geoestadístico Nacional",
+    "url": "https://gaia.inegi.org.mx/wscatgeo/v2/asentamientos/25/012",
+    "fechaConsulta": "2025-11-03T23:41:56.054Z",
+    "municipio": "Mazatlán",
+    "estado": "Sinaloa",
+    "claveGeo": "25012",
+    "totalEntradas": 425,
+    "tipos": {
+      "colonias": 190,
+      "fraccionamientos": 228,
+      "otros": 7
+    }
+  },
+  "colonias": [
+    {
+      "tipo": "Colonia",
+      "nombre": "12 DE MAYO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "13 DE SEPTIEMBRE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "20 DE NOVIEMBRE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Conjunto Habitacional",
+      "nombre": "23 DE NOVIEMBRE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "7 DE ABRIL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "AGUSTINA RAMÍREZ",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "AL MAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ALAMEDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ALBORADA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ALFONSO CORDERO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ALFONSO G. CALDERÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Parque Industrial",
+      "nombre": "ALFREDO V. BONFIL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "AMPLIACIÓN 7 DE ABRIL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "AMPLIACIÓN ESPERANZA",
+      "codigoPostal": "82190",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "AMPLIACIÓN JARIPILLO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "AMPLIACIÓN JESÚS OSUNA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "AMPLIACIÓN LICO VELARDE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "AMPLIACIÓN LOMAS DEL ÉBANO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "AMPLIACIÓN VALLE DEL EJIDO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "AMPLIACIÓN VILLA VERDE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ANA PAULA (ASENTAMIENTO IRREGULAR)",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ANABELLA DE GAVICA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ANÁHUAC",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ÁNGELA PERALTA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Ampliación",
+      "nombre": "ÁNGELA PERALTA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ANTIGUO AEROPUERTO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ANTONIO TOLEDO CORRO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ANTONIO TOLEDO CORRO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ARBOLEDAS I",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ARBOLEDAS II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ARBOLEDAS III",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ARBOLEDAS INVIES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ARIETA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ARRECIFES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ARROYOS DE LA MARINA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ATLANTICO COTO RESIDENCIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "AZTECA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "AZUL MARINO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "AZUL PACIFIC",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BAHÍA",
+      "codigoPostal": "82103",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BAHÍAS",
+      "codigoPostal": "82103",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "BAHÍAS DE MAZATLÁN",
+      "codigoPostal": "82103",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "BALCONES DE LOMA LINDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BENITO JUÁREZ",
+      "codigoPostal": "82020",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BENITO JUÁREZ",
+      "codigoPostal": "82020",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BIENESTAR SOCIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "BOSQUES DEL ARROYO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "BOSQUES DEL RÍO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "BRISAS DEL MAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "BRISAS DEL VALLE II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BUENAVISTA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BUENOS AIRES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BUGAMBILIAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BUGAMBILIAS LA ESPERANZA",
+      "codigoPostal": "82190",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "BURÓCRATAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CAMPO BELLO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "CANACO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CASA BLANCA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "CASA REDONDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "CASAS ECONÓMICAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CASTILLA DE LEÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "CENTRO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CERRITOS RESORT",
+      "codigoPostal": "82100",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CERRO DEL VIGÍA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CHULAVISTA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CLUB REAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CLUB RESIDENCIAL PALMEIRAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "COLINAS DEL REAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "COLINAS DEL VALLE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "COLOSIO SÍ",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "COMUNIDAD ISLA DE LA PIEDRA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "CONCHI II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "CONSTITUCIÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "CORREDOR DE ABASTOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "COSTA AZUL LOS SAUCES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "COSTA BRAVA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "COSTA BRAVA II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "COSTA DORADA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "COTO PLATINO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "COTO PLATINO NORTE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "CUARTA AMPLIACIÓN RICARDO FLORES MAGÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "DELFINES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "DEMETRIO VALLEJO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "DOÑA CHONITAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "DORADOS DE VILLA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ECOLÓGICA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EJIDAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EJIDAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EJIDAL FRANCISCO VILLA",
+      "codigoPostal": "82070",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EL CAMPESTRE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EL CID",
+      "codigoPostal": "82110",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EL CIELO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EL CONCHI",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Residencial",
+      "nombre": "EL DELFIN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EL DORADO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EL ENCANTO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EL PALMAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EL PALMITO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EL PARAÍSO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EL PESCADOR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EL SECRETO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EL TOREO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EL TORO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EL TRONCONAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EMILIANO ZAPATA",
+      "codigoPostal": "82060",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "EMILIO GOICOECHEA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ESMERALDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ESPERANZA",
+      "codigoPostal": "82190",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ESTADIO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ESTERO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EX-HACIENDA DEL CONCHI",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "EX-LAGUNA LAS GAVIOTAS",
+      "codigoPostal": "82110",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FELICIDAD",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FELIPE ÁNGELES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FERROCARRILERA",
+      "codigoPostal": "82130",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FIDEL VELÁZQUEZ",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "FINCA LOS MOLINOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "FLAMINGOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FLOR DE MAYO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FOVISSSTE ESPERANZA",
+      "codigoPostal": "82190",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Conjunto Habitacional",
+      "nombre": "FOVISSSTE JABALÍES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FOVISSSTE MAZATLÁN PLAYA AZUL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "FRACCIONAMIENTO DEL BOSQUE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "FRACCIONAMIENTO DEL VALLE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FRANCISCO I. MADERO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FRANCISCO LABASTIDA OCHOA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FRANCISCO SOLÍS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "FRANCISCO VILLA",
+      "codigoPostal": "82070",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "FUENTES DEL VALLE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "GABRIEL LEYVA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "GENARO ESTRADA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "GILBERTO LÓPEZ",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "GIRASOLES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "GUADALUPE VICTORIA",
+      "codigoPostal": "82050",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "GUSTAVO DÍAZ ORDAZ",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "HACIENDA DE URÍAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA DEL MAR",
+      "codigoPostal": "82103",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA DEL SEMINARIO I",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA DEL SEMINARIO I",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA DEL SEMINARIO II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA DEL SEMINARIO III",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA DEL SEMINARIO IV",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA DEL SEMINARIO V",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA DEL SEMINARIO VI",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA DEL VALLE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "HACIENDA DON FEDERICO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA LAS CRUCES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA LOS MANGOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HACIENDA VICTORIA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "HIGUERAS RESIDENCIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "HOGAR DEL PESCADOR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "HUERTA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "HUERTA GRANDE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "HUERTOS FAMILIARES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INDEPENDENCIA",
+      "codigoPostal": "82040",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INFONAVIT EL CONCHI",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Ampliación",
+      "nombre": "INFONAVIT FRANCISCO ALARCÓN (VENADILLO II)",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INFONAVIT FRANCISCO ALARCÓN F.",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INFONAVIT JABALÍES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INFONAVIT JABALINES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INFONAVIT OLIMPO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INFONAVIT PLAYAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "INSURGENTES",
+      "codigoPostal": "82030",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ISLA MAZATLÁN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ISLA RESIDENCIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ISSSTEESIN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "JACARANDAS",
+      "codigoPostal": "82127",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "JARDINES DE LA ALAMEDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "JARDINES DE LA RIVERA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JARDINES DEL ARROYO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "JARDINES DEL BOSQUE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "JARDINES DEL TOREO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JARDINES DEL VALLE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "JARDINES RESIDENCIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JARIPILLO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JESÚS GARCÍA C.",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JESÚS KUMATE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JESÚS OSUNA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JOSÉ LÓPEZ PORTILLO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JOSEFA ORTIZ DE DOMÍNGUEZ",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JUAN CARRASCO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "JULIO ARROYO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "KLEIN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LA CAMPIÑA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LA CANTERA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LA FORESTA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LA JOYA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LA RIVIERA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LA SIRENA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LADRILLERA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LADRILLERA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LAS AVENIDAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS BRISAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS FLORES",
+      "codigoPostal": "82149",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS GAVIOTAS",
+      "codigoPostal": "82110",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS HABAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS MAÑANITAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS MISIONES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS MISIONES 2000",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS OLAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS PALMAS",
+      "codigoPostal": "82100",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS TORRES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LAS VARAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LÁZARO CÁRDENAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LIBERTAD",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LIBERTAD DE EXPRESIÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LICO VELARDE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LÍDERES EN ACCIÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LIENZO CHARRO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOMA ATRAVESADA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOMA BONITA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOMA LINDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOMAS DE CRISTO REY",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOMAS DE DON JORGE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOMAS DE JUÁREZ",
+      "codigoPostal": "82020",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOMAS DE MAZATLÁN",
+      "codigoPostal": "82110",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOMAS DE SAN JORGE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOMAS DE VILLA UNIÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOMAS DEL BOSQUE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOMAS DEL ÉBANO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOMAS DEL MAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOMAS DEL PORVENIR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOMAS DEL VALLE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LÓPEZ MATEOS",
+      "codigoPostal": "82180",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS ACANTOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS ÁNGELES (SANTA FÉ)",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS CARACOLES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS LAURELES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS MAGUEYES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS MANGOS I",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS OLIVOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOS PINOS",
+      "codigoPostal": "82149",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS PORTALES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOS ROBLES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LOS SAUCES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS TABACHINES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "LOS VENADOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "LUIS ECHEVERRÍA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MANGOS II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MANUEL J. CLOUTHIER",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MANUEL SOLER",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MAR ALTO RESIDENCIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MAR DE CORTEZ",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MARENGO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MARGARITA MAZA DE JUÁREZ",
+      "codigoPostal": "82020",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MARÍA ANTONIETA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MARÍA DEL MAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MARÍA ELENA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MARÍA FERNANDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MARINA EL CID",
+      "codigoPostal": "82110",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MARINA GARDEN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MARINA KELLY",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MARINA MAZATLÁN",
+      "codigoPostal": "82103",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MARINA REAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MAZATLÁN I",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MAZATLÁN II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MAZATLÁN III",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MEDITERRÁNEO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MELINA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MIGUEL HIDALGO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MIRAMAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MONTE CALVARIO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "MONTE VERDE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MONTEBELLO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MONTUOSA",
+      "codigoPostal": "82194",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MORELOS",
+      "codigoPostal": "82090",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "MUNDIALISTA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "NEOVITA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "NIÑOS HÉROES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "NUEVO CAJEME",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "NUEVO MILENIO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "OBRERA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "OBRERA INDUSTRIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "OCTAVA AMPLIACIÓN RICARDO FLORES MAGÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "OLÍMPICA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ONCE RÍOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "OPORTO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PACÍFICO HILLS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PALMARES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PALMAS DEL SOL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PALMILLA RESIDENCIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "PALOS PRIETOS",
+      "codigoPostal": "82010",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PARAÍSO MARINA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PASEO ALAMEDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PASEO ALAMEDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PASEO DE LAS TORRES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PASEO DE LOS OLIVOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "PERIODISTA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PETRÓLEOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "PETROLEROS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "PINO SUÁREZ",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PLAYA BRUJAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Privada",
+      "nombre": "PLAYA LINDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PLAYA SUR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PLAYAS DEL SOL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PLAZA REFORMA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "POBLADO EL VENADILLO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PORTAL DE LOS OLIVOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PORTOVERA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRADERA DORADA I",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRADERA DORADA II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRADERA DORADA III",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRADERA DORADA IV",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRADERA DORADA V",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRADERA DORADA VI",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRADERA DORADA VII",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRADO BONITO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRADOS DEL SOL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "PRESAS DEL VALLE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "PRIMAVERA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRIVADA RINCÓN COLONIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PRIVANZA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "PUEBLO NUEVO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PUERTA AL MAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PUERTA DEL SOL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PUERTA DORADA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PUESTA DEL SOL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PUNTA ARENA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "PUNTA DIAMANTE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "QUINTA CHAPALITA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "QUINTA GAVIOTAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "QUINTA REAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "QUINTAS DEL MAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "RAFAEL BUELNA",
+      "codigoPostal": "82148",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RAICES RESIDENCIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "RAMÓN F. ITURBE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "RAUL OSUNA BURGUEÑO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "REAL DEL MAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "REAL DEL VALLE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "REAL PACÍFICO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "REFORMA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "RENATO VEGA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "RENATO VEGA AMADOR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL ALTABRISA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL AZALEA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL FLAMINGOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL LA CIMA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL LA PEDRERA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL PORTOMOLINO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL REGINA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL RINCONADA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL SANTA RITA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RESIDENCIAL ZAFIRO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "RICARDO FLORES MAGÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "RINCÓN DE LAS PALMAS",
+      "codigoPostal": "82100",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RINCÓN DE LAS PLAZAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RINCÓN DE MAZATLÁN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RINCÓN DE MAZATLÁN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "RINCÓN DE URÍAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "RINCONADA DEL VALLE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ROMANITA DE LA PEÑA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "ROYAL COUNTRY",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "RUBÉN JARAMILLO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SÁBALO COUNTRY",
+      "codigoPostal": "82100",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SALVADOR ALLENDE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SAN ÁNGEL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SAN ANTONIO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SAN ANTONIO HILL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SAN CARLOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SAN FERNANDO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SAN FRANCISCO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SAN JOAQUÍN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SAN MARCOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SAN NICOLÁS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SAN RAFAEL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SÁNCHEZ CELIS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SÁNCHEZ TABOADA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SANTA CECILIA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SANTA ELENA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SANTA FE LOS ÁNGELES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SANTA LAURA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SANTA RITA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SANTA ROSA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SANTA SOFÍA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SANTA TERESA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SANTA VIRGINIA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SEGUNDA AMPLIACIÓN VALLE DE URÍAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SEMBRADORES DE LA AMISTAD",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SEXTA AMPLIACIÓN RICARDO FLORES MAGÓN",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SIMÓN JIMÉNEZ CÁRDENAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SINALOA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "SIXTO OSUNA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SOLES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "SONTERRA RESIDENCIAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "STANZA MAGNOLIA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "TELLERÍA",
+      "codigoPostal": "82017",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "TERRANOVA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "TERRANOVA PLUS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "TIERRA Y LIBERTAD",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "TORREMOLINOS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "TORREMOLINOS COSTA AZUL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "TORTUGAS I",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "UNIVERSIDAD 94",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "UNIVERSO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "URÍAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VALLE BONITO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "VALLE DE URÍAS",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "VALLE DEL EJIDO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VALLE DORADO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VALLE DORADO II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VALLES DEL SOL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "VENUSTIANO CARRANZA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "VICENTE GUERRERO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA BONITA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA CAREY",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "VILLA DE GUADALUPE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "VILLA DE LAS FLORES",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA FLORIDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA GALAXIA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA JARACO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA MARINA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA SATÉLITE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA TUTULI I",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA TUTULI II",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLA VERDE",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLAS DE RUEDA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "VILLAS DEL ESTERO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLAS DEL MAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLAS DEL REAL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLAS DEL REY",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "VILLAS DEL SOL",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VILLAS TRANQUILA",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VISTA DEL MAR",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "VIVA PROGRESO",
+      "codigoPostal": "82000",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "ZONA DORADA",
+      "codigoPostal": "82110",
+      "ciudad": "Mazatlán",
+      "zona": "Urbano"
+    }
+  ]
+}
