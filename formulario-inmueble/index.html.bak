@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vende tu inmueble rápido y fácil. Completa nuestro formulario y recibe una oferta inmediata.">
+    <title>Vende tu Inmueble - Formulario de Valuación</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (para iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Tu Logo Aquí</h1>
+            </div>
+            <div class="header-info">
+                <span class="step-indicator">Paso <span id="current-step">1</span> de 4</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Progreso -->
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar" style="width: 0%;">
+            <span class="progress-percentage" id="progress-percentage">0%</span>
+        </div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <main class="main-container">
+        <div class="form-wrapper">
+
+            <!-- PASO 1: UBICACIÓN -->
+            <section class="form-step active" id="step-1" data-step="1">
+                <div class="step-header">
+                    <h2 class="step-title">Ubicación de tu inmueble</h2>
+                    <p class="step-description">Necesitamos saber dónde se encuentra tu propiedad</p>
+                </div>
+
+                <!-- Substep 1.1: Estado (FIJO: Sinaloa) -->
+                <div class="substep active" id="substep-1-1" data-substep="1">
+                    <div class="form-group">
+                        <label for="state" class="form-label">
+                            Estado
+                        </label>
+                        <input
+                            type="text"
+                            id="state"
+                            name="state"
+                            class="form-control form-control-readonly"
+                            value="Sinaloa"
+                            readonly
+                        >
+                        <span class="form-hint">Actualmente solo operamos en Sinaloa</span>
+                    </div>
+                </div>
+
+                <!-- Substep 1.2: Municipio (FIJO: Culiacán) -->
+                <div class="substep active" id="substep-1-2" data-substep="2">
+                    <div class="form-group">
+                        <label for="municipality" class="form-label">
+                            Municipio
+                        </label>
+                        <input
+                            type="text"
+                            id="municipality"
+                            name="municipality"
+                            class="form-control form-control-readonly"
+                            value="Culiacán"
+                            readonly
+                        >
+                        <span class="form-hint">Actualmente solo operamos en Culiacán</span>
+                    </div>
+                </div>
+
+                <!-- Substep 1.3: Colonia -->
+                <div class="substep" id="substep-1-3-colonia" data-substep="3">
+                    <div class="form-group autocomplete-wrapper">
+                        <label for="colonia" class="form-label">
+                            Colonia <span class="required">*</span>
+                        </label>
+                        <input type="text"
+                               id="colonia"
+                               name="colonia"
+                               class="form-control"
+                               placeholder="Escribe para buscar..."
+                               autocomplete="off"
+                               required>
+                        <div id="colonia-suggestions" class="autocomplete-suggestions"></div>
+                        <input type="hidden" id="colonia-value" name="colonia-value">
+                            <option value="20-de-noviembre">20 de Noviembre</option>
+                            <option value="21-de-marzo">21 de Marzo</option>
+                            <option value="22-de-diciembre">22 de Diciembre</option>
+                            <option value="4-de-marzo">4 de Marzo</option>
+                            <option value="5-de-febrero">5 de Febrero</option>
+                            <option value="5-de-mayo">5 de Mayo</option>
+                            <option value="6-de-enero">6 de Enero</option>
+                            <option value="7-gotas">7 Gotas</option>
+                            <option value="8-de-febrero">8 de Febrero</option>
+                            <option value="9-de-marzo">9 de Marzo</option>
+                            <option value="acanto">Acanto</option>
+                            <option value="acueducto">Acueducto</option>
+                            <option value="acueducto-iii">Acueducto III</option>
+                            <option value="adolfo-lopez-mateos">Adolfo López Mateos</option>
+                            <option value="adolfo-ruiz-cortinez">Adolfo Ruiz Cortinez</option>
+                            <option value="aeropuerto">Aeropuerto</option>
+                            <option value="agrarista-mexicana">Agrarista Mexicana</option>
+                            <option value="aguaruto-centro">Aguaruto Centro</option>
+                            <option value="aguaruto-viejo">Aguaruto Viejo</option>
+                            <option value="agustina-ramirez">Agustina Ramírez</option>
+                            <option value="alameda">Alameda</option>
+                            <option value="albaterra">Albaterra</option>
+                            <option value="alcala-del-rey">Alcalá del Rey</option>
+                            <option value="alegranza">Alegranza</option>
+                            <option value="altamira">Altamira</option>
+                            <option value="altamira-seccion-altana">Altamira Sección Altana</option>
+                            <option value="altamira-seccion-barcelo">Altamira Sección Barceló</option>
+                            <option value="altaria">Altaria</option>
+                            <option value="altezza">Altezza</option>
+                            <option value="alto-de-quila-san-francisco">Alto de Quilá (San Francisco)</option>
+                            <option value="alto-de-la-victoria">Alto de la Victoria</option>
+                            <option value="altos-bacurimi">Altos Bacurimi</option>
+                            <option value="altos-de-bachigualato">Altos de Bachigualato</option>
+                            <option value="alturas-del-sur">Alturas del Sur</option>
+                            <option value="amado-nervo">Amado Nervo</option>
+                            <option value="amapas">Amapas</option>
+                            <option value="amorada">Amorada</option>
+                            <option value="ampliacion-el-barrio">Ampliación El Barrio</option>
+                            <option value="ampliacion-union-nueva">Ampliación Unión (Nueva)</option>
+                            <option value="ampliacion-los-angeles">Ampliación los Ángeles</option>
+                            <option value="antonio-nakayama">Antonio Nakayama</option>
+                            <option value="antonio-rosales">Antonio Rosales</option>
+                            <option value="antonio-toledo-corro">Antonio Toledo Corro</option>
+                            <option value="aquiles-serdan">Aquiles Serdán</option>
+                            <option value="arboledas">Arboledas</option>
+                            <option value="arcadia-residencial">Arcadia Residencial</option>
+                            <option value="arroyo-del-toro">Arroyo del Toro</option>
+                            <option value="aurora">Aurora</option>
+                            <option value="avellaneda">Avellaneda</option>
+                            <option value="aviacion">Aviación</option>
+                            <option value="azaleas-residencial">Azaleas Residencial</option>
+                            <option value="azucena">Azucena</option>
+                            <option value="bachigualato">Bachigualato</option>
+                            <option value="balcones-del-humaya">Balcones Del Humaya</option>
+                            <option value="balcones-del-valle">Balcones Del Valle</option>
+                            <option value="balcones-de-san-miguel">Balcones de San Miguel</option>
+                            <option value="banjercito">Banjercito</option>
+                            <option value="banus-360-coruna">Banús 360 Coruña</option>
+                            <option value="banus-360-salduero">Banús 360 Salduero</option>
+                            <option value="banus-360-tenerife">Banús 360 Tenerife</option>
+                            <option value="barcelona-seccion-villa-barcelona">Barcelona Sección Villa Barcelona</option>
+                            <option value="barcelona-seccion-villa-barcelona-etapa-ii">Barcelona Sección Villa Barcelona Etapa II</option>
+                            <option value="barcelona-seccion-villa-barcelona-etapa-iii">Barcelona Sección Villa Barcelona Etapa III</option>
+                            <option value="barrio-estacion">Barrio Estación</option>
+                            <option value="barrio-san-agustin">Barrio San Agustín</option>
+                            <option value="barrio-san-alberto">Barrio San Alberto</option>
+                            <option value="barrio-san-eugenio">Barrio San Eugenio</option>
+                            <option value="barrio-san-francisco">Barrio San Francisco</option>
+                            <option value="barrio-san-jose">Barrio San José</option>
+                            <option value="barrio-san-juan">Barrio San Juan</option>
+                            <option value="barrio-san-miguel">Barrio San Miguel</option>
+                            <option value="barrio-san-pablo">Barrio San Pablo</option>
+                            <option value="barrio-de-san-anselmo">Barrio de San Anselmo</option>
+                            <option value="barrio-de-san-luis">Barrio de San Luis</option>
+                            <option value="belcantto">Belcantto</option>
+                            <option value="bellavista">Bellavista</option>
+                            <option value="benevento-residencial">Benevento Residencial</option>
+                            <option value="benito-juarez">Benito Juárez</option>
+                            <option value="benito-juarez-norte">Benito Juárez Norte</option>
+                            <option value="benito-juarez-sur">Benito Juárez Sur</option>
+                            <option value="bicentenario">Bicentenario</option>
+                            <option value="bloom">Bloom</option>
+                            <option value="bonanza">Bonanza</option>
+                            <option value="bonaterra">Bonaterra</option>
+                            <option value="bosque-encinos">Bosque Encinos</option>
+                            <option value="bosques-del-alamo">Bosques Del Álamo</option>
+                            <option value="bosques-del-humaya">Bosques del Humaya</option>
+                            <option value="bosques-del-rey">Bosques del Rey</option>
+                            <option value="bosques-del-rio">Bosques del Río</option>
+                            <option value="brisas-de-humaya">Brisas de Humaya</option>
+                            <option value="buena-vista">Buena Vista</option>
+                            <option value="buenos-aires">Buenos Aires</option>
+                            <option value="bugambilias">Bugambilias</option>
+                            <option value="burocrata">Burócrata</option>
+                            <option value="canaco">CANACO</option>
+                            <option value="cnop">CNOP</option>
+                            <option value="camino-real">Camino Real</option>
+                            <option value="campesina-el-barrio">Campesina El Barrio</option>
+                            <option value="campestre">Campestre</option>
+                            <option value="campestre-los-laureles">Campestre Los Laureles</option>
+                            <option value="campestre-san-jorge">Campestre San Jorge</option>
+                            <option value="campestre-tres-rios">Campestre Tres Ríos</option>
+                            <option value="campestre-las-fuentes">Campestre las Fuentes</option>
+                            <option value="campo-batan">Campo Batán</option>
+                            <option value="campo-bello">Campo Bello</option>
+                            <option value="cantabria">Cantabria</option>
+                            <option value="cantaluna">Cantaluna</option>
+                            <option value="capistrano-residencial">Capistrano Residencial</option>
+                            <option value="carlos-solidario">Carlos Solidario</option>
+                            <option value="casa-blanca">Casa Blanca</option>
+                            <option value="casas-lindas">Casas Lindas</option>
+                            <option value="canadas">Cañadas</option>
+                            <option value="canitas">Cañitas</option>
+                            <option value="cedros">Cedros</option>
+                            <option value="centenario">Centenario</option>
+                            <option value="centro">Centro</option>
+                            <option value="centro-sinaloa">Centro Sinaloa</option>
+                            <option value="chapultepec">Chapultepec</option>
+                            <option value="chapultepec-del-rio">Chapultepec Del Rio</option>
+                            <option value="chulavista">Chulavista</option>
+                            <option value="cibeles">Cibeles</option>
+                            <option value="cimas-del-humaya">Cimas del Humaya</option>
+                            <option value="colina-del-rey">Colina del Rey</option>
+                            <option value="colinas-del-parque">Colinas Del Parque</option>
+                            <option value="colinas-de-la-rivera">Colinas de La Rivera</option>
+                            <option value="colinas-de-san-antonio">Colinas de San Antonio</option>
+                            <option value="colinas-de-san-miguel">Colinas de San Miguel</option>
+                            <option value="colinas-de-la-campina">Colinas de la Campiña</option>
+                            <option value="colinas-de-la-rivera-segunda-seccion">Colinas de la Rivera Segunda Sección</option>
+                            <option value="colinas-del-bosque">Colinas del Bosque</option>
+                            <option value="colinas-del-humaya">Colinas del Humaya</option>
+                            <option value="colinas-del-sol">Colinas del Sol</option>
+                            <option value="colinas-del-tamazula">Colinas del Tamazula</option>
+                            <option value="comunicadores">Comunicadores</option>
+                            <option value="condesa">Condesa</option>
+                            <option value="conquista-del-rey">Conquista del Rey</option>
+                            <option value="constitucion-croc">Constitución CROC</option>
+                            <option value="constituyentes">Constituyentes</option>
+                            <option value="costa-del-sol">Costa del Sol</option>
+                            <option value="country-courts">Country Courts</option>
+                            <option value="country-tres-rios">Country Tres Ríos</option>
+                            <option value="country-del-rio">Country del Río</option>
+                            <option value="country-alamos">Country Álamos</option>
+                            <option value="cuauhtemoc">Cuauhtémoc</option>
+                            <option value="culiacan-tres-rios">Culiacán Tres Ríos</option>
+                            <option value="cumbre-real">Cumbre Real</option>
+                            <option value="cumbres-tres-rios">Cumbres Tres Ríos</option>
+                            <option value="corcega">Córcega</option>
+                            <option value="corcega-elite">Córcega Elite</option>
+                            <option value="danubio">Danubio</option>
+                            <option value="del-camino">Del Camino</option>
+                            <option value="del-humaya">Del Humaya</option>
+                            <option value="demetrio-vallejo">Demetrio Vallejo</option>
+                            <option value="diamante">Diamante</option>
+                            <option value="diana-laura-riojas-de-colosio">Diana Laura Riojas de Colosio</option>
+                            <option value="domingo-rubi">Domingo Rubí</option>
+                            <option value="dos-puntas">Dos Puntas</option>
+                            <option value="ejidal">Ejidal</option>
+                            <option value="el-barrio">El Barrio</option>
+                            <option value="el-mirador">El Mirador</option>
+                            <option value="el-olivar">El Olivar</option>
+                            <option value="el-pipila">El Pipila</option>
+                            <option value="el-ranchito">El Ranchito</option>
+                            <option value="el-real">El Real</option>
+                            <option value="el-vallado">El Vallado</option>
+                            <option value="el-alamo-campestre">El Álamo Campestre</option>
+                            <option value="emancipacion">Emancipación</option>
+                            <option value="emiliano-zapata">Emiliano Zapata</option>
+                            <option value="enrique-felix-castro">Enrique Félix Castro</option>
+                            <option value="esmeralda-life">Esmeralda Life</option>
+                            <option value="espacios-barcelona">Espacios Barcelona</option>
+                            <option value="espacios-marsella">Espacios Marsella</option>
+                            <option value="estacion-obispo">Estación Obispo</option>
+                            <option value="esthela-ortiz-de-toledo">Esthela Ortiz de Toledo</option>
+                            <option value="estrella-nueva-galicia">Estrella Nueva Galicia</option>
+                            <option value="fovissste-abelardo-de-la-torre">FOVISSSTE Abelardo de La Torre</option>
+                            <option value="fovissste-diamante">FOVISSSTE Diamante</option>
+                            <option value="fovissste-humaya">FOVISSSTE Humaya</option>
+                            <option value="felipe-angeles">Felipe Ángeles</option>
+                            <option value="ferrocarrilera">Ferrocarrilera</option>
+                            <option value="fincas-de-las-colinas">Fincas de las Colinas</option>
+                            <option value="fincas-del-humaya">Fincas del Humaya</option>
+                            <option value="finisterra">Finisterra</option>
+                            <option value="florenza">Florenza</option>
+                            <option value="floresta">Floresta</option>
+                            <option value="floresta-tres-rios">Floresta Tres Ríos</option>
+                            <option value="florida">Florida</option>
+                            <option value="francisco-alarcon-fregoso">Francisco Alarcon Fregoso</option>
+                            <option value="francisco-i-madero">Francisco I. Madero</option>
+                            <option value="francisco-labastida-ochoa">Francisco Labastida Ochoa</option>
+                            <option value="francisco-villa">Francisco Villa</option>
+                            <option value="fresnos">Fresnos</option>
+                            <option value="fuentes-del-valle">Fuentes Del Valle</option>
+                            <option value="gabriel-leyva">Gabriel Leyva</option>
+                            <option value="genaro-estrada">Genaro Estrada</option>
+                            <option value="general-zapata">General Zapata</option>
+                            <option value="girasoles">Girasoles</option>
+                            <option value="gran-sur">Gran Sur</option>
+                            <option value="gran-via">Gran Vía</option>
+                            <option value="granada">Granada</option>
+                            <option value="grecia">Grecia</option>
+                            <option value="guadalupe">Guadalupe</option>
+                            <option value="guadalupe-victoria">Guadalupe Victoria</option>
+                            <option value="gustavo-diaz-ordaz">Gustavo Díaz Ordaz</option>
+                            <option value="hacienda-alameda">Hacienda Alameda</option>
+                            <option value="hacienda-arboledas">Hacienda Arboledas</option>
+                            <option value="hacienda-del-valle">Hacienda Del Valle</option>
+                            <option value="hacienda-los-huertos">Hacienda Los Huertos</option>
+                            <option value="hacienda-molino-de-flores">Hacienda Molino de Flores</option>
+                            <option value="hacienda-santa-clara">Hacienda Santa Clara</option>
+                            <option value="hacienda-de-la-mora">Hacienda de La Mora</option>
+                            <option value="hacienda-los-huertos-seccion-bosques-de-la-colina">Hacienda los Huertos Sección Bosques de la Colina</option>
+                            <option value="haciendas-del-rio">Haciendas del Río</option>
+                            <option value="heraclio-bernal">Heraclio Bernal</option>
+                            <option value="hermanos-flores-magon">Hermanos Flores Magón</option>
+                            <option value="horizontes">Horizontes</option>
+                            <option value="huertos-del-pedregal">Huertos del Pedregal</option>
+                            <option value="huizaches">Huizaches</option>
+                            <option value="humaya">Humaya</option>
+                            <option value="humaya-del-super">Humaya del Super</option>
+                            <option value="infonavit-88">INFONAVIT 88</option>
+                            <option value="infonavit-alondras">INFONAVIT Alondras</option>
+                            <option value="infonavit-barrancos">INFONAVIT Barrancos</option>
+                            <option value="infonavit-barrancos-ii">INFONAVIT Barrancos II</option>
+                            <option value="infonavit-barrancos-iii">INFONAVIT Barrancos III</option>
+                            <option value="infonavit-barrancos-iv">INFONAVIT Barrancos IV</option>
+                            <option value="infonavit-canadas">INFONAVIT Cañadas</option>
+                            <option value="infonavit-el-barrio">INFONAVIT El Barrio</option>
+                            <option value="infonavit-fts">INFONAVIT FTS</option>
+                            <option value="infonavit-humaya">INFONAVIT Humaya</option>
+                            <option value="infonavit-prados-del-sol">INFONAVIT Prados del Sol</option>
+                            <option value="infonavit-solidaridad">INFONAVIT Solidaridad</option>
+                            <option value="issste-insurgentes">ISSSTE Insurgentes</option>
+                            <option value="issstesin">ISSSTESIN</option>
+                            <option value="iberica">Ibérica</option>
+                            <option value="ignacio-allende">Ignacio Allende</option>
+                            <option value="ignacio-zaragoza">Ignacio Zaragoza</option>
+                            <option value="independencia">Independencia</option>
+                            <option value="industrial-bravo">Industrial Bravo</option>
+                            <option value="industrial-el-palmito">Industrial El Palmito</option>
+                            <option value="ingenio">Ingenio</option>
+                            <option value="insurgentes">Insurgentes</option>
+                            <option value="interlomas">Interlomas</option>
+                            <option value="isla-del-oeste">Isla del Oeste</option>
+                            <option value="jardines-del-pedregal">Jardines Del Pedregal</option>
+                            <option value="jardines-del-valle">Jardines Del Valle</option>
+                            <option value="jardines-tres-rios">Jardines Tres Ríos</option>
+                            <option value="jardines-de-la-sierra">Jardines de La Sierra</option>
+                            <option value="jardines-de-san-bartolome">Jardines de San Bartolome</option>
+                            <option value="jardines-de-santa-fe">Jardines de Santa Fe</option>
+                            <option value="jardines-del-rey">Jardines del Rey</option>
+                            <option value="jardin-real">Jardín Real</option>
+                            <option value="jesus-manuel-camez-valdez">Jesús Manuel Camez Valdez</option>
+                            <option value="jesus-valdez-aldana">Jesús Valdez Aldana</option>
+                            <option value="joel-ramirez">Joel Ramírez</option>
+                            <option value="jorge-almada">Jorge Almada</option>
+                            <option value="josefa-ortiz-de-dominguez">Josefa Ortiz de Domínguez</option>
+                            <option value="joyas-del-valle">Joyas del Valle</option>
+                            <option value="juan-de-dios-batiz">Juan de Dios Bátiz</option>
+                            <option value="juntas-de-humaya">Juntas de Humaya</option>
+                            <option value="la-amistad">La Amistad</option>
+                            <option value="la-campina">La Campiña</option>
+                            <option value="la-candelaria">La Candelaria</option>
+                            <option value="la-cantera">La Cantera</option>
+                            <option value="la-cascada">La Cascada</option>
+                            <option value="la-ceiba">La Ceiba</option>
+                            <option value="la-compuerta">La Compuerta</option>
+                            <option value="la-conquista">La Conquista</option>
+                            <option value="la-costera">La Costera</option>
+                            <option value="la-cuspide">La Cúspide</option>
+                            <option value="la-esperanza">La Esperanza</option>
+                            <option value="la-jolla">La Jolla</option>
+                            <option value="la-lima">La Lima</option>
+                            <option value="la-limita-de-itaje">La Limita de Itaje</option>
+                            <option value="la-paloma">La Paloma</option>
+                            <option value="la-primavera">La Primavera</option>
+                            <option value="la-primavera-seccion-parque-industrial">La Primavera Sección Parque Industrial</option>
+                            <option value="la-puerta">La Puerta</option>
+                            <option value="la-ribera-residencial">La Ribera Residencial</option>
+                            <option value="la-rioja">La Rioja</option>
+                            <option value="la-ventana">La Ventana</option>
+                            <option value="lago-tres-rios">Lago Tres Ríos</option>
+                            <option value="las-alondras">Las Alondras</option>
+                            <option value="las-amapas">Las Amapas</option>
+                            <option value="las-americas">Las Américas</option>
+                            <option value="las-canarias">Las Canarias</option>
+                            <option value="las-carpas">Las Carpas</option>
+                            <option value="las-cerezas">Las Cerezas</option>
+                            <option value="las-cerezas-ii">Las Cerezas II</option>
+                            <option value="las-coloradas">Las Coloradas</option>
+                            <option value="las-cucas">Las Cucas</option>
+                            <option value="las-dunas">Las Dunas</option>
+                            <option value="las-flores">Las Flores</option>
+                            <option value="las-glorias">Las Glorias</option>
+                            <option value="las-huertas">Las Huertas</option>
+                            <option value="las-ilusiones">Las Ilusiones</option>
+                            <option value="las-mananitas">Las Mañanitas</option>
+                            <option value="las-moras">Las Moras</option>
+                            <option value="las-palmas">Las Palmas</option>
+                            <option value="las-palomas">Las Palomas</option>
+                            <option value="las-piedritas">Las Piedritas</option>
+                            <option value="las-quintas">Las Quintas</option>
+                            <option value="las-terrazas">Las Terrazas</option>
+                            <option value="las-vegas">Las Vegas</option>
+                            <option value="las-aguilas">Las Águilas</option>
+                            <option value="latitud-norte">Latitud Norte</option>
+                            <option value="latitud-sur">Latitud Sur</option>
+                            <option value="laureles">Laureles</option>
+                            <option value="laureles-pinos">Laureles Pinos</option>
+                            <option value="libertad">Libertad</option>
+                            <option value="lirios-del-rio">Lirios del Río</option>
+                            <option value="loma-bonita">Loma Bonita</option>
+                            <option value="loma-linda">Loma Linda</option>
+                            <option value="loma-de-rodriguera">Loma de Rodriguera</option>
+                            <option value="lomas-del-humaya">Lomas Del Humaya</option>
+                            <option value="lomas-del-magisterio">Lomas Del Magisterio</option>
+                            <option value="lomas-del-pedregal">Lomas Del Pedregal</option>
+                            <option value="lomas-paraiso">Lomas Paraíso</option>
+                            <option value="lomas-verdes">Lomas Verdes</option>
+                            <option value="lomas-de-guadalupe">Lomas de Guadalupe</option>
+                            <option value="lomas-de-san-isidro">Lomas de San Isidro</option>
+                            <option value="lomas-de-san-isidro-seccion-cumbres-del-sur">Lomas de San Isidro Sección Cumbres del Sur</option>
+                            <option value="lomas-de-san-isidro-seccion-paseo-azteca">Lomas de San Isidro Sección Paseo Azteca</option>
+                            <option value="lomas-de-san-jeronimo">Lomas de San Jerónimo</option>
+                            <option value="lomas-de-tamazula">Lomas de Tamazula</option>
+                            <option value="lomas-del-bosque">Lomas del Bosque</option>
+                            <option value="lomas-del-boulevard">Lomas del Boulevard</option>
+                            <option value="lomas-del-sol">Lomas del Sol</option>
+                            <option value="lomas-del-sol-duplex">Lomas del Sol Duplex</option>
+                            <option value="los-agaves">Los Agaves</option>
+                            <option value="los-alamitos">Los Alamitos</option>
+                            <option value="los-almendros">Los Almendros</option>
+                            <option value="los-cerritos">Los Cerritos</option>
+                            <option value="los-chinitos">Los Chinitos</option>
+                            <option value="los-ciruelos">Los Ciruelos</option>
+                            <option value="los-cisnes">Los Cisnes</option>
+                            <option value="los-girasoles">Los Girasoles</option>
+                            <option value="los-helechos">Los Helechos</option>
+                            <option value="los-huertos">Los Huertos</option>
+                            <option value="los-mezcales">Los Mezcales</option>
+                            <option value="los-mezcales-residencial">Los Mezcales Residencial</option>
+                            <option value="los-olivos">Los Olivos</option>
+                            <option value="los-patios-1">Los Patios 1</option>
+                            <option value="los-patios-2">Los Patios 2</option>
+                            <option value="los-pinos">Los Pinos</option>
+                            <option value="los-portales">Los Portales</option>
+                            <option value="los-sabinos">Los Sabinos</option>
+                            <option value="los-sabinos-tres-rios">Los Sabinos Tres Ríos</option>
+                            <option value="los-sauces">Los Sauces</option>
+                            <option value="los-alamos">Los Álamos</option>
+                            <option value="los-angeles">Los Ángeles</option>
+                            <option value="luis-donaldo-colosio">Luis Donaldo Colosio</option>
+                            <option value="lazaro-cardenas">Lázaro Cárdenas</option>
+                            <option value="magisterial">Magisterial</option>
+                            <option value="magnolias-residencial">Magnolias Residencial</option>
+                            <option value="maralago">Maralago</option>
+                            <option value="margarita">Margarita</option>
+                            <option value="massara">Massara</option>
+                            <option value="melchor-ocampo">Melchor Ocampo</option>
+                            <option value="mezquitillo">Mezquitillo</option>
+                            <option value="mi-ranchito">Mi Ranchito</option>
+                            <option value="miguel-aleman">Miguel Alemán</option>
+                            <option value="miguel-hidalgo">Miguel Hidalgo</option>
+                            <option value="miguel-de-la-madrid">Miguel de La Madrid</option>
+                            <option value="miravalle">Miravalle</option>
+                            <option value="misiones">Misiones</option>
+                            <option value="mision-san-fernando">Misión San Fernando</option>
+                            <option value="mision-del-alamo">Misión del Álamo</option>
+                            <option value="mont-alto">Mont Alto</option>
+                            <option value="mont-blanc">Mont Blanc</option>
+                            <option value="montebello">Montebello</option>
+                            <option value="montebello-seccion-dali">Montebello Sección Dalí</option>
+                            <option value="montecarlo-residencial">Montecarlo Residencial</option>
+                            <option value="montereal">Montereal</option>
+                            <option value="montesierra">Montesierra</option>
+                            <option value="montserrat">Montserrat</option>
+                            <option value="morelos">Morelos</option>
+                            <option value="monaco">Mónaco</option>
+                            <option value="musala-isla-bonita">Músala Isla Bonita</option>
+                            <option value="nativa">Nativa</option>
+                            <option value="nueva">Nueva</option>
+                            <option value="nueva-galaxia">Nueva Galaxia</option>
+                            <option value="nueva-galicia">Nueva Galicia</option>
+                            <option value="nueva-vizcaya">Nueva Vizcaya</option>
+                            <option value="nuevas-canitas">Nuevas Cañitas</option>
+                            <option value="nuevo-bachigualato">Nuevo Bachigualato</option>
+                            <option value="nuevo-culiacan">Nuevo Culiacán</option>
+                            <option value="nuevo-mexico">Nuevo México</option>
+                            <option value="obrero-campesino">Obrero Campesino</option>
+                            <option value="pemex">PEMEX</option>
+                            <option value="palermo">Palermo</option>
+                            <option value="palma-dorada">Palma Dorada</option>
+                            <option value="palmanova">Palmanova</option>
+                            <option value="palmillas-residencial">Palmillas Residencial</option>
+                            <option value="palos-altos">Palos Altos</option>
+                            <option value="paraiso">Paraíso</option>
+                            <option value="parque-alameda">Parque Alameda</option>
+                            <option value="parque-andares">Parque Andares</option>
+                            <option value="parque-industrial-nueva-estacion">Parque Industrial Nueva Estación</option>
+                            <option value="paseo-alameda">Paseo Alameda</option>
+                            <option value="paseo-del-rio">Paseo Del Rio</option>
+                            <option value="paseo-de-los-arcos">Paseo de los Arcos</option>
+                            <option value="paseos-del-rey">Paseos del Rey</option>
+                            <option value="paseos-del-valle">Paseos del Valle</option>
+                            <option value="pedregal-de-san-angel">Pedregal de San Ángel</option>
+                            <option value="pedregal-del-humaya">Pedregal del Humaya</option>
+                            <option value="periodista">Periodista</option>
+                            <option value="perisur">Perisur</option>
+                            <option value="perisur-ii">Perisur II</option>
+                            <option value="piggy-back">Piggy Back</option>
+                            <option value="plutarco-elias-calles">Plutarco Elias Calles</option>
+                            <option value="pontevedra">Pontevedra</option>
+                            <option value="popular">Popular</option>
+                            <option value="portabelo">Portabelo</option>
+                            <option value="portabelo-iii">Portabelo III</option>
+                            <option value="portafe">Portafe</option>
+                            <option value="portalegre">Portalegre</option>
+                            <option value="portales-del-country">Portales Del Country</option>
+                            <option value="portales-del-rio">Portales del Río</option>
+                            <option value="portanova">Portanova</option>
+                            <option value="portareal">Portareal</option>
+                            <option value="pradera-dorada">Pradera Dorada</option>
+                            <option value="pradera-dorada-ii">Pradera Dorada II</option>
+                            <option value="praderas-del-rey">Praderas Del Rey</option>
+                            <option value="praderas-del-humaya">Praderas del Humaya</option>
+                            <option value="prados-del-sol">Prados Del Sol</option>
+                            <option value="prados-del-sur">Prados Del Sur</option>
+                            <option value="prados-residencial">Prados Residencial</option>
+                            <option value="prados-de-la-conquista">Prados de La Conquista</option>
+                            <option value="prados-de-occidente">Prados de Occidente</option>
+                            <option value="presidentes-de-mexico">Presidentes de México</option>
+                            <option value="privada-del-real">Privada Del Real</option>
+                            <option value="privada-del-rey">Privada Del Rey</option>
+                            <option value="privada-la-rinconada">Privada La Rinconada</option>
+                            <option value="privada-la-rivera">Privada La Rivera</option>
+                            <option value="privada-real-del-valle">Privada Real del Valle</option>
+                            <option value="privadas-la-estancia">Privadas la Estancia</option>
+                            <option value="privanzas">Privanzas</option>
+                            <option value="privanzas-natura">Privanzas Natura</option>
+                            <option value="progreso">Progreso</option>
+                            <option value="provenza">Provenza</option>
+                            <option value="providencia">Providencia</option>
+                            <option value="pueblo-bonito">Pueblo Bonito</option>
+                            <option value="puerta-de-hierro">Puerta de Hierro</option>
+                            <option value="punto-oriente">Punto Oriente</option>
+                            <option value="quila-centro">Quilá Centro</option>
+                            <option value="quinta-americana">Quinta Americana</option>
+                            <option value="quinta-real">Quinta Real</option>
+                            <option value="rafael-buelna">Rafael Buelna</option>
+                            <option value="rancho-contento">Rancho Contento</option>
+                            <option value="real-del-country">Real Del Country</option>
+                            <option value="real-del-parque">Real Del Parque</option>
+                            <option value="real-san-sebastian">Real San Sebastián</option>
+                            <option value="real-san-angel">Real San Ángel</option>
+                            <option value="real-de-chapultepec">Real de Chapultepec</option>
+                            <option value="real-de-minas">Real de Minas</option>
+                            <option value="real-de-santa-fe">Real de Santa Fe</option>
+                            <option value="real-del-alamo">Real del Álamo</option>
+                            <option value="recursos-hidraulicos">Recursos Hidráulicos</option>
+                            <option value="renato-vega-alvarado">Renato Vega Alvarado</option>
+                            <option value="renato-vega-amador">Renato Vega Amador</option>
+                            <option value="republica-mexicana">República Mexicana</option>
+                            <option value="residencial-hacienda">Residencial Hacienda</option>
+                            <option value="residencial-san-jose">Residencial San José</option>
+                            <option value="residencial-santa-sofia">Residencial Santa Sofía</option>
+                            <option value="revolucion">Revolución</option>
+                            <option value="riberas-de-tamazula">Riberas de Tamazula</option>
+                            <option value="riberas-del-humaya">Riberas del Humaya</option>
+                            <option value="rincon-alameda">Rincón Alameda</option>
+                            <option value="rincon-colonial">Rincón Colonial</option>
+                            <option value="rincon-del-humaya">Rincón Del Humaya</option>
+                            <option value="rincon-del-parque">Rincón Del Parque</option>
+                            <option value="rincon-feliz">Rincón Feliz</option>
+                            <option value="rincon-las-palmas">Rincón Las Palmas</option>
+                            <option value="rincon-real">Rincón Real</option>
+                            <option value="rincon-san-rafael">Rincón San Rafael</option>
+                            <option value="rincon-santa-rosa">Rincón Santa Rosa</option>
+                            <option value="rincon-del-valle">Rincón del Valle</option>
+                            <option value="roma-residencial">Roma Residencial</option>
+                            <option value="rosario-uzarraga">Rosario Uzarraga</option>
+                            <option value="rosita">Rosita</option>
+                            <option value="rotarismo">Rotarismo</option>
+                            <option value="ruben-jaramillo">Ruben Jaramillo</option>
+                            <option value="s-t-a-s-a-c">S.T.A.S.A.C.</option>
+                            <option value="stase">STASE</option>
+                            <option value="stase-ii">STASE II</option>
+                            <option value="stase-iii">STASE III</option>
+                            <option value="salvador-alvarado">Salvador Alvarado</option>
+                            <option value="san-agustin">San Agustin</option>
+                            <option value="san-benito">San Benito</option>
+                            <option value="san-carlos">San Carlos</option>
+                            <option value="san-cipriano">San Cipriano</option>
+                            <option value="san-diego">San Diego</option>
+                            <option value="san-fermin">San Fermín</option>
+                            <option value="san-florencio">San Florencio</option>
+                            <option value="san-javier">San Javier</option>
+                            <option value="san-jose">San José</option>
+                            <option value="san-juan">San Juan</option>
+                            <option value="san-luis-residencial">San Luis Residencial</option>
+                            <option value="san-luis-residencial-ii">San Luis Residencial II</option>
+                            <option value="san-marcos">San Marcos</option>
+                            <option value="san-rafael">San Rafael</option>
+                            <option value="san-sebastian">San Sebastián</option>
+                            <option value="san-valentino">San Valentino</option>
+                            <option value="san-angel">San Ángel</option>
+                            <option value="santa-aynes">Santa Aynes</option>
+                            <option value="santa-barbara">Santa Bárbara</option>
+                            <option value="santa-clara">Santa Clara</option>
+                            <option value="santa-elena">Santa Elena</option>
+                            <option value="santa-fe">Santa Fe</option>
+                            <option value="santa-fe-real">Santa Fe Real</option>
+                            <option value="santa-ines">Santa Inés</option>
+                            <option value="santa-margarita">Santa Margarita</option>
+                            <option value="santa-maria">Santa María</option>
+                            <option value="santa-rocio">Santa Rocio</option>
+                            <option value="santa-rosa">Santa Rosa</option>
+                            <option value="santa-susana">Santa Susana</option>
+                            <option value="santa-teresa">Santa Teresa</option>
+                            <option value="seccion-cumbres">Sección Cumbres</option>
+                            <option value="senderos">Senderos</option>
+                            <option value="servidor-publico-municipal">Servidor Publico Municipal</option>
+                            <option value="sfera-residencial">Sfera Residencial</option>
+                            <option value="simon-bolivar">Simón Bolívar</option>
+                            <option value="sinaloa">Sinaloa</option>
+                            <option value="solidaridad">Solidaridad</option>
+                            <option value="solidaridad-campesina">Solidaridad Campesina</option>
+                            <option value="stanza-castilla">Stanza Castilla</option>
+                            <option value="stanza-solare">Stanza Solare</option>
+                            <option value="stanza-toscana">Stanza Toscana</option>
+                            <option value="tabachines">Tabachines</option>
+                            <option value="terranova">Terranova</option>
+                            <option value="tierra-blanca">Tierra Blanca</option>
+                            <option value="torralba">Torralba</option>
+                            <option value="torre-dorada">Torre Dorada</option>
+                            <option value="torres-aeropuerto">Torres Aeropuerto</option>
+                            <option value="tres-rios">Tres Ríos</option>
+                            <option value="tulipanes">Tulipanes</option>
+                            <option value="umbrales">Umbrales</option>
+                            <option value="universidad-94">Universidad 94</option>
+                            <option value="universidad-94-ii">Universidad 94 II</option>
+                            <option value="universitaria">Universitaria</option>
+                            <option value="union">Unión</option>
+                            <option value="union-antorchista">Unión Antorchista</option>
+                            <option value="urbi-villa-del-sol">Urbi Villa del Sol</option>
+                            <option value="urbivilla-del-prado">Urbivilla del Prado</option>
+                            <option value="valencia">Valencia</option>
+                            <option value="vallado-viejo">Vallado Viejo</option>
+                            <option value="valle-alto">Valle Alto</option>
+                            <option value="valle-bonito">Valle Bonito</option>
+                            <option value="valle-del-rio">Valle Del Rio</option>
+                            <option value="valle-dorado">Valle Dorado</option>
+                            <option value="valle-real">Valle Real</option>
+                            <option value="valle-de-amapa">Valle de Amapa</option>
+                            <option value="valle-de-encino">Valle de Encino</option>
+                            <option value="valle-del-agua">Valle del Agua</option>
+                            <option value="valles-del-sol">Valles Del Sol</option>
+                            <option value="valles-espanoles">Valles Españoles</option>
+                            <option value="veracruz">Veracruz</option>
+                            <option value="verona">Verona</option>
+                            <option value="versalles">Versalles</option>
+                            <option value="vicente-guerrero">Vicente Guerrero</option>
+                            <option value="vicente-lombardo-toledano">Vicente Lombardo Toledano</option>
+                            <option value="victoria">Victoria</option>
+                            <option value="villa-andalucia">Villa Andalucía</option>
+                            <option value="villa-arredondo">Villa Arredondo</option>
+                            <option value="villa-bonita">Villa Bonita</option>
+                            <option value="villa-colonial">Villa Colonial</option>
+                            <option value="villa-contenta">Villa Contenta</option>
+                            <option value="villa-del-real">Villa Del Real</option>
+                            <option value="villa-del-sol">Villa Del Sol</option>
+                            <option value="villa-dorada">Villa Dorada</option>
+                            <option value="villa-fontana">Villa Fontana</option>
+                            <option value="villa-rica">Villa Rica</option>
+                            <option value="villa-satelite">Villa Satélite</option>
+                            <option value="villa-serena">Villa Serena</option>
+                            <option value="villa-universidad">Villa Universidad</option>
+                            <option value="villa-verde">Villa Verde</option>
+                            <option value="villa-del-cedro">Villa del Cedro</option>
+                            <option value="villa-del-pedregal">Villa del Pedregal</option>
+                            <option value="villa-del-prado">Villa del Prado</option>
+                            <option value="villa-del-roble">Villa del Roble</option>
+                            <option value="villarreal-las-coloradas">Villarreal (Las Coloradas)</option>
+                            <option value="villas-del-manantial">Villas Del Manantial</option>
+                            <option value="villas-del-rio">Villas Del Rio</option>
+                            <option value="villas-del-rio-elite">Villas Del Rio Elite</option>
+                            <option value="villas-san-antonio">Villas San Antonio</option>
+                            <option value="villas-santa-anita">Villas Santa Anita</option>
+                            <option value="villas-victoria">Villas Victoria</option>
+                            <option value="villas-de-bacurimi-seccion-acacia">Villas de Bacurimí Sección Acacia</option>
+                            <option value="villas-de-bacurimi-seccion-britania">Villas de Bacurimí Sección Britania</option>
+                            <option value="villas-de-cortes">Villas de Cortés</option>
+                            <option value="villas-de-culiacan">Villas de Culiacán</option>
+                            <option value="villas-del-humaya">Villas del Humaya</option>
+                            <option value="villegas">Villegas</option>
+                            <option value="vinoramas">Vinoramas</option>
+                            <option value="virreyes-sc">Virreyes SC</option>
+                            <option value="vista-hermosa">Vista Hermosa</option>
+                            <option value="vistanova">Vistanova</option>
+                            <option value="vistas-del-lago">Vistas del Lago</option>
+                            <option value="vistas-del-lago-la-primavera">Vistas del Lago la Primavera</option>
+                            <option value="vinedos">Viñedos</option>
+                            <option value="via-san-jose">Vía San José</option>
+                            <option value="zona-dorada">Zona Dorada</option>
+                            <option value="zona-dorada-ii">Zona Dorada II</option>
+
+                            <option value="otra">Otra (especificar en comentarios)</option>
+                        </select>
+                        <span class="error-message" id="colonia-error"></span>
+                    </div>
+                </div>
+
+                <!-- Substep 1.4: Dirección -->
+                <div class="substep" id="substep-1-4" data-substep="4">
+                    <div class="form-group">
+                        <label for="address" class="form-label">
+                            Calle o Avenida <span class="required">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <input
+                                type="text"
+                                id="address"
+                                name="address"
+                                class="form-control"
+                                placeholder="Ej: Lope de Vega, Av. Insurgentes"
+                                minlength="4"
+                                required
+                            >
+                            <button type="button" class="btn-geolocation" id="btn-geolocation" title="Usar mi ubicación actual">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="autocomplete-suggestions" id="address-suggestions"></div>
+                        <span class="error-message" id="address-error"></span>
+                    </div>
+                </div>
+
+                <!-- Substep 1.5: Número Exterior -->
+                <div class="substep" id="substep-1-5" data-substep="5">
+                    <div class="form-group">
+                        <label for="exterior-number" class="form-label">
+                            Número Exterior <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="exterior-number"
+                            name="exterior-number"
+                            class="form-control"
+                            placeholder="Ej: 123, 45A, S/N"
+                            maxlength="10"
+                            pattern="[0-9A-Za-z#/\-]+"
+                            required
+                        >
+                        <span class="form-hint">Acepta números, letras, #, / y -. Usa S/N si no tiene número.</span>
+                        <span class="error-message" id="exterior-number-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interior-number" class="form-label">
+                            Número Interior <span class="optional">(Opcional)</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="interior-number"
+                            name="interior-number"
+                            class="form-control"
+                            placeholder="Ej: 4, Depto 201, Interior B"
+                            maxlength="10"
+                        >
+                    </div>
+                </div>
+
+                <!-- Substep 1.6: Código Postal -->
+                <div class="substep" id="substep-1-6" data-substep="6">
+                    <div class="form-group">
+                        <label for="zip-code" class="form-label">
+                            Código Postal <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="zip-code"
+                            name="zip-code"
+                            class="form-control"
+                            placeholder="Ej: 03100"
+                            pattern="[0-9]{5}"
+                            maxlength="5"
+                            inputmode="numeric"
+                            required
+                        >
+                        <span class="form-hint">Debe tener 5 dígitos</span>
+                        <span class="error-message" id="zip-code-error"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 2: TIPO DE INMUEBLE -->
+            <section class="form-step" id="step-2" data-step="2">
+                <div class="step-header">
+                    <h2 class="step-title">¿Qué tipo de inmueble es?</h2>
+                    <p class="step-description">Selecciona el tipo de propiedad que deseas vender</p>
+                </div>
+
+                <div class="substep active" id="substep-2-1" data-substep="1">
+                    <div class="form-group">
+                        <div class="property-type-grid">
+                            <div class="property-type-card" data-value="casa">
+                                <div class="card-icon">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Casa</h3>
+                                <p class="card-description">Casa independiente, residencial o en fraccionamiento</p>
+                            </div>
+
+                            <div class="property-type-card" data-value="departamento">
+                                <div class="card-icon">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                        <path d="M17 11V3H7v4H3v14h8v-4h2v4h8V11h-4zM7 19H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm4 4H9v-2h2v2zm0-4H9V9h2v2zm0-4H9V5h2v2zm4 8h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm4 12h-2v-2h2v2zm0-4h-2v-2h2v2z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Departamento</h3>
+                                <p class="card-description">Departamento o condominio en edificio</p>
+                            </div>
+
+                            <div class="property-type-card" data-value="terreno">
+                                <div class="card-icon">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM4 5h7v14H4V5zm16 14h-7V5h7v14z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Terreno</h3>
+                                <p class="card-description">Terreno baldío o con construcción</p>
+                            </div>
+
+                            <div class="property-type-card" data-value="local-comercial">
+                                <div class="card-icon">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Local Comercial</h3>
+                                <p class="card-description">Local, oficina o espacio comercial</p>
+                            </div>
+                        </div>
+                        <input type="hidden" id="property-type" name="property-type" required>
+                        <span class="error-message" id="property-type-error"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 3: CARACTERÍSTICAS DEL INMUEBLE -->
+            <section class="form-step" id="step-3" data-step="3">
+                <div class="step-header">
+                    <h2 class="step-title">Características de tu propiedad</h2>
+                    <p class="step-description">Cuéntanos más detalles sobre tu inmueble</p>
+                </div>
+
+                <div class="substep active" id="substep-3-1" data-substep="1">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bedrooms" class="form-label">
+                                Recámaras <span class="required">*</span>
+                            </label>
+                            <select id="bedrooms" name="bedrooms" class="form-control" required>
+                                <option value="">Selecciona</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6+">6 o más</option>
+                            </select>
+                            <span class="error-message" id="bedrooms-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bathrooms" class="form-label">
+                                Baños <span class="required">*</span>
+                            </label>
+                            <select id="bathrooms" name="bathrooms" class="form-control" required>
+                                <option value="">Selecciona</option>
+                                <option value="1">1</option>
+                                <option value="1.5">1.5</option>
+                                <option value="2">2</option>
+                                <option value="2.5">2.5</option>
+                                <option value="3">3</option>
+                                <option value="3.5">3.5</option>
+                                <option value="4">4</option>
+                                <option value="4+">4 o más</option>
+                            </select>
+                            <span class="error-message" id="bathrooms-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parking" class="form-label">
+                                Estacionamientos <span class="required">*</span>
+                            </label>
+                            <select id="parking" name="parking" class="form-control" required>
+                                <option value="">Selecciona</option>
+                                <option value="0">Sin estacionamiento</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4+">4 o más</option>
+                            </select>
+                            <span class="error-message" id="parking-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="area" class="form-label">
+                                Metros cuadrados (m²) <span class="required">*</span>
+                            </label>
+                            <input
+                                type="number"
+                                id="area"
+                                name="area"
+                                class="form-control"
+                                placeholder="Ej: 120"
+                                min="20"
+                                max="10000"
+                                step="0.01"
+                                required
+                            >
+                            <span class="error-message" id="area-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age" class="form-label">
+                            Antigüedad <span class="required">*</span>
+                        </label>
+                        <select id="age" name="age" class="form-control" required>
+                            <option value="">Selecciona</option>
+                            <option value="0-5">0-5 años</option>
+                            <option value="6-10">6-10 años</option>
+                            <option value="11-20">11-20 años</option>
+                            <option value="21-30">21-30 años</option>
+                            <option value="31+">Más de 30 años</option>
+                        </select>
+                        <span class="error-message" id="age-error"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 4: INFORMACIÓN DE CONTACTO -->
+            <section class="form-step" id="step-4" data-step="4">
+                <div class="step-header">
+                    <h2 class="step-title">Información de contacto</h2>
+                    <p class="step-description">¿Cómo podemos contactarte para darte una oferta?</p>
+                </div>
+
+                <div class="substep active" id="substep-4-1" data-substep="1">
+                    <div class="form-group">
+                        <label for="name" class="form-label">
+                            Nombre completo <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="form-control"
+                            placeholder="Ej: Juan Pérez García"
+                            minlength="3"
+                            maxlength="100"
+                            required
+                        >
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            Correo electrónico <span class="required">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Ej: juan.perez@email.com"
+                            required
+                        >
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            Teléfono <span class="required">*</span>
+                        </label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            class="form-control"
+                            placeholder="Ej: 5512345678"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            inputmode="numeric"
+                            required
+                        >
+                        <span class="form-hint">10 dígitos sin espacios ni guiones</span>
+                        <span class="error-message" id="phone-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments" class="form-label">
+                            Comentarios adicionales <span class="optional">(Opcional)</span>
+                        </label>
+                        <textarea
+                            id="comments"
+                            name="comments"
+                            class="form-control"
+                            placeholder="¿Algo más que quieras que sepamos sobre tu propiedad?"
+                            rows="4"
+                            maxlength="500"
+                        ></textarea>
+                        <span class="char-counter"><span id="comments-count">0</span>/500</span>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">
+                                Acepto los <a href="/terminos-condiciones" target="_blank">Términos y Condiciones</a>
+                                y el <a href="/aviso-privacidad" target="_blank">Aviso de Privacidad</a>
+                            </span>
+                        </label>
+                        <span class="error-message" id="terms-error"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Botones de Navegación -->
+            <div class="form-navigation">
+                <button type="button" class="btn btn-secondary" id="btn-back" style="display: none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/>
+                    </svg>
+                    Atrás
+                </button>
+                <button type="button" class="btn btn-primary" id="btn-continue">
+                    Continuar
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button type="submit" class="btn btn-success" id="btn-submit" style="display: none;">
+                    Enviar formulario
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Loading Overlay -->
+            <div class="loading-overlay" id="loading-overlay" style="display: none;">
+                <div class="spinner"></div>
+                <p>Procesando...</p>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="success-message" style="display: none;">
+                <div class="success-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="#4CAF50"/>
+                    </svg>
+                </div>
+                <h2>¡Formulario enviado con éxito!</h2>
+                <p>Nos pondremos en contacto contigo pronto con una oferta para tu propiedad.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="/terminos-condiciones" target="_blank">Términos y Condiciones</a>
+                <span class="separator">|</span>
+                <a href="/aviso-privacidad" target="_blank">Aviso de Privacidad</a>
+            </div>
+            <p class="copyright">&copy; 2025 Tu Empresa. Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/geolocation.js"></script>
+</body>
+</html>

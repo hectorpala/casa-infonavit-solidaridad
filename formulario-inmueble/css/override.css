@@ -1,0 +1,96 @@
+/* OVERRIDE FORZADO - Fondo blanco y texto negro */
+html {
+    background-color: #FFFFFF !important;
+}
+
+body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000000 !important;
+}
+
+p, span, div, label {
+    color: #000000 !important;
+}
+
+.hero-section {
+    background: #FFFFFF !important;
+}
+
+.main-container {
+    background-color: #FFFFFF !important;
+}
+
+.form-control,
+.form-control:focus,
+.form-control-readonly,
+.form-control:disabled {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+.form-control-readonly,
+.form-control:disabled {
+    border-color: #d1d5db !important;
+}
+
+/* Autocomplete sólido - garantía máxima */
+.autocomplete-suggestions {
+    background-color: #FFFFFF !important;
+    z-index: 9999 !important;
+}
+
+.autocomplete-suggestions.active {
+    opacity: 1 !important;
+    background-color: #FFFFFF !important;
+}
+
+.autocomplete-item {
+    background-color: #FFFFFF !important;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.active {
+    background-color: #FFF5F3 !important;
+}
+
+/* Quitar sombras de texto - TODAS */
+* {
+    text-shadow: none !important;
+}
+
+.form-label,
+label,
+.form-group label,
+.autocomplete-item-title,
+.step-title,
+h1, h2, h3, h4, h5, h6,
+p, span, div, input, textarea, select, button {
+    text-shadow: none !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-weight: 400 !important; /* Peso normal, sin bold */
+}
+
+/* Asegurar que los labels específicamente no tengan bold */
+.form-label {
+    font-weight: 400 !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+/* Texto resaltado en autocomplete - SIN FONDO NI SOMBRA */
+.autocomplete-item-title strong,
+.autocomplete-item strong,
+strong {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    text-decoration: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-weight: 600 !important; /* Peso medio, no ultra-bold */
+}

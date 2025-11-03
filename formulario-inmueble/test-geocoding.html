@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Geocoding - Sistema de Geocodificación</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #2A9D8F;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2A9D8F;
+            box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.1);
+        }
+
+        button {
+            background: linear-gradient(135deg, #2A9D8F 0%, #1D7A6E 100%);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(42, 157, 143, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #F8F9FA;
+            border-radius: 12px;
+            border-left: 4px solid #2A9D8F;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result h3 {
+            color: #2A9D8F;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .result-item {
+            margin-bottom: 12px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #555;
+            margin-right: 8px;
+        }
+
+        .result-value {
+            color: #333;
+        }
+
+        .success {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .error {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2A9D8F;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗺️ Test de Geocodificación</h1>
+        <p class="subtitle">Prueba el sistema de geocodificación con Google Maps API</p>
+
+        <div class="form-group">
+            <label for="calle">Calle</label>
+            <input type="text" id="calle" value="Calle Ébano" placeholder="Ej: Calle Ébano">
+        </div>
+
+        <div class="form-group">
+            <label for="numero">Número Exterior</label>
+            <input type="text" id="numero" value="2609" placeholder="Ej: 2609">
+        </div>
+
+        <div class="form-group">
+            <label for="numeroInt">Número Interior (opcional)</label>
+            <input type="text" id="numeroInt" value="" placeholder="Ej: 5">
+        </div>
+
+        <div class="form-group">
+            <label for="colonia">Colonia/Fraccionamiento</label>
+            <input type="text" id="colonia" value="Privanzas Natura" placeholder="Ej: Privanzas Natura">
+        </div>
+
+        <div class="form-group">
+            <label for="cp">Código Postal</label>
+            <input type="text" id="cp" value="80000" placeholder="Ej: 80000">
+        </div>
+
+        <button id="btnTest" onclick="testGeocode()">
+            🔍 Probar Geocodificación
+        </button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="js/geocoding.js"></script>
+    <script>
+        async function testGeocode() {
+            const btn = document.getElementById('btnTest');
+            const result = document.getElementById('result');
+
+            // Disable button
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Geocodificando... <span class="loading"></span>';
+
+            // Get form data
+            const addressData = {
+                street: document.getElementById('calle').value,
+                number: document.getElementById('numero').value,
+                interiorNumber: document.getElementById('numeroInt').value,
+                colonia: document.getElementById('colonia').value,
+                zipCode: document.getElementById('cp').value
+            };
+
+            console.log('📍 Datos de entrada:', addressData);
+
+            try {
+                // Call geocoding
+                const geocodingResult = await Geocoding.geocodeAddress(addressData);
+
+                // Show result
+                if (geocodingResult) {
+                    result.innerHTML = `
+                        <h3 class="success">✅ Geocodificación Exitosa</h3>
+                        <div class="result-item">
+                            <span class="result-label">📍 Latitud:</span>
+                            <span class="result-value">${geocodingResult.latitude}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">📍 Longitud:</span>
+                            <span class="result-value">${geocodingResult.longitude}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">🎯 Precisión:</span>
+                            <span class="result-value">${geocodingResult.accuracy}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">🔧 Servicio:</span>
+                            <span class="result-value">${geocodingResult.service}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">📮 Dirección Formateada:</span>
+                            <span class="result-value">${geocodingResult.formattedAddress}</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-label">🔗 Google Maps:</span>
+                            <a href="https://www.google.com/maps?q=${geocodingResult.latitude},${geocodingResult.longitude}"
+                               target="_blank"
+                               style="color: #2A9D8F; text-decoration: underline;">
+                                Ver en Google Maps
+                            </a>
+                        </div>
+                    `;
+                    result.classList.add('show');
+
+                    console.log('✅ Resultado:', geocodingResult);
+                } else {
+                    result.innerHTML = `
+                        <h3 class="error">❌ Error en Geocodificación</h3>
+                        <p>No se pudieron obtener coordenadas para esta dirección. Por favor verifica los datos ingresados.</p>
+                    `;
+                    result.classList.add('show');
+                    console.error('❌ No se obtuvieron coordenadas');
+                }
+            } catch (error) {
+                result.innerHTML = `
+                    <h3 class="error">❌ Error Técnico</h3>
+                    <p>Ocurrió un error durante la geocodificación: ${error.message}</p>
+                `;
+                result.classList.add('show');
+                console.error('❌ Error:', error);
+            } finally {
+                // Re-enable button
+                btn.disabled = false;
+                btn.innerHTML = '🔍 Probar Geocodificación';
+            }
+        }
+
+        // Auto-test on load
+        console.log('🚀 Test de Geocodificación listo');
+        console.log('📍 API Key configurada:', Geocoding.apiKeys.google ? '✅ Sí' : '❌ No');
+    </script>
+</body>
+</html>

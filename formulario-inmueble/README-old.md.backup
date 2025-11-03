@@ -1,0 +1,169 @@
+# Formulario de Valuación de Inmuebles
+
+Sistema de formulario multi-paso para capturar información de propiedades inmobiliarias.
+
+## 📁 Estructura de Archivos
+
+```
+formulario-inmueble/
+├── index.html              # Página principal del formulario
+├── css/
+│   ├── main.css           # Estilos globales (próximo)
+│   ├── form.css           # Estilos del formulario (próximo)
+│   └── responsive.css     # Media queries (próximo)
+├── js/
+│   ├── app.js             # Inicialización (próximo)
+│   ├── form-handler.js    # Lógica del formulario (próximo)
+│   ├── validation.js      # Validaciones (próximo)
+│   └── geolocation.js     # Geolocalización (próximo)
+├── data/
+│   └── municipalities.json # Catálogo de municipios
+└── README.md              # Este archivo
+```
+
+## 🎯 Características
+
+### Implementadas ✅
+- [x] Estructura HTML completa con 4 pasos
+- [x] Formulario semántico y accesible
+- [x] Campos de validación con patrones
+- [x] Catálogo de municipios por estado
+- [x] Sistema de navegación entre pasos
+- [x] Barra de progreso visual
+- [x] Mensajes de error por campo
+- [x] Responsive design preparado
+
+### Por Implementar 🚧
+- [ ] Estilos CSS completos
+- [ ] JavaScript de navegación
+- [ ] Validación de formularios
+- [ ] Geolocalización
+- [ ] Integración con backend
+- [ ] Analytics
+
+## 📝 Pasos del Formulario
+
+### Paso 1: Ubicación
+- Estado: **Sinaloa** (campo fijo, readonly)
+- Municipio: **Culiacán** (campo fijo, readonly)
+- Colonia (select con 100+ colonias de Culiacán)
+- Calle o Avenida (input con autocomplete)
+- Número Exterior (input con patrón)
+- Número Interior (opcional)
+- Código Postal (5 dígitos)
+
+### Paso 2: Tipo de Inmueble
+- Casa
+- Departamento
+- Terreno
+- Local Comercial
+
+### Paso 3: Características
+- Recámaras (1-6+)
+- Baños (1-4+)
+- Estacionamientos (0-4+)
+- Metros cuadrados (m²)
+- Antigüedad (rangos)
+
+### Paso 4: Contacto
+- Nombre completo
+- Correo electrónico
+- Teléfono (10 dígitos)
+- Comentarios (opcional)
+- Aceptación de términos
+
+## 🎨 Diseño
+
+### Paleta de Colores Sugerida
+```css
+/* Inspirada en Tuhabi */
+--primary-color: #7C01FF;      /* Morado principal */
+--primary-dark: #320066;       /* Morado oscuro */
+--secondary-color: #00D4FF;    /* Azul complementario */
+--success-color: #4CAF50;      /* Verde éxito */
+--error-color: #F44336;        /* Rojo error */
+--text-color: #333333;         /* Texto principal */
+--text-light: #666666;         /* Texto secundario */
+--border-color: #E0E0E0;       /* Bordes */
+--background: #FFFFFF;         /* Fondo */
+```
+
+### Tipografía
+- **Títulos**: Montserrat (600-700)
+- **Cuerpo**: Roboto (400-500)
+
+## 🔧 Validaciones
+
+### Campos Requeridos
+Todos los campos marcados con * son obligatorios
+
+### Patrones de Validación
+- **Código Postal**: `[0-9]{5}` - Exactamente 5 dígitos
+- **Número Exterior**: `[0-9A-Za-z#/-]+` - Números, letras, #, /, -
+- **Teléfono**: `[0-9]{10}` - Exactamente 10 dígitos
+- **Email**: Validación HTML5 estándar
+- **Metros²**: 20-10000 con decimales permitidos
+
+### Longitudes
+- **Nombre**: 3-100 caracteres
+- **Dirección**: Mínimo 4 caracteres
+- **Comentarios**: Máximo 500 caracteres
+- **Número Exterior/Interior**: Máximo 10 caracteres
+
+## 📱 Responsive Breakpoints
+
+```css
+/* Mobile */
+@media (max-width: 767px) { }
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1279px) { }
+
+/* Desktop */
+@media (min-width: 1280px) { }
+```
+
+## 🚀 Próximos Pasos
+
+1. **CSS** - Implementar todos los estilos
+2. **JavaScript** - Añadir funcionalidad interactiva
+3. **Validación** - Sistema de validación completo
+4. **Geolocalización** - Integrar API de mapas
+5. **Backend** - Conectar con servidor para guardar datos
+6. **Testing** - Pruebas de usabilidad
+
+## 📄 Notas de Implementación
+
+### Estados Incluidos
+32 estados de México + CDMX
+
+### Colonias de Culiacán
+Se incluyen **631 colonias y fraccionamientos** de Culiacán, Sinaloa:
+- **224 Colonias** tradicionales
+- **407 Fraccionamientos** residenciales
+- **609 nombres únicos** en el select (sin duplicados de código postal)
+- Datos oficiales del catálogo completo
+- Ordenadas alfabéticamente
+- Incluye: Colonias populares, INFONAVIT, desarrollos residenciales
+- Opción "Otra" al final para casos especiales
+
+**Fuente**: `data/colonias-culiacan.json`
+**Origen**: `colonias-fraccionamientos-culiacan-oficial.xlsx`
+
+### Accesibilidad (a11y)
+- Labels asociados correctamente
+- Atributos ARIA donde son necesarios
+- Navegación por teclado funcional
+- Mensajes de error descriptivos
+- Alto contraste de colores
+
+## 🔗 Enlaces Importantes
+
+- `/terminos-condiciones` - Términos y Condiciones
+- `/aviso-privacidad` - Aviso de Privacidad
+
+---
+
+**Versión**: 1.0
+**Última actualización**: 29 de octubre de 2025
+**Estado**: HTML estructura completa ✅

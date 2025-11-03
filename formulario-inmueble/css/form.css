@@ -1,0 +1,615 @@
+/* ============================================
+   FORM.CSS - ESTILOS ESPECÍFICOS DEL FORMULARIO
+   ============================================ */
+
+/* ============================================
+   VALIDACIÓN VISUAL
+   ============================================ */
+.form-control.valid {
+    border-color: var(--color-success);
+}
+
+.form-control.valid:focus {
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
+}
+
+/* Icono de validación */
+.form-group.validated::after {
+    content: '✓';
+    position: absolute;
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-success);
+    font-weight: 700;
+    font-size: var(--text-lg);
+}
+
+/* ============================================
+   FLOATING LABELS (Para inputs con animación)
+   ============================================ */
+.form-group-float {
+    position: relative;
+    margin-bottom: var(--space-8);
+}
+
+.form-label-float {
+    position: absolute;
+    left: var(--space-5);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--text-base);
+    color: var(--gray-500);
+    pointer-events: none;
+    transition: all var(--transition-fast);
+    background: var(--color-white);
+    padding: 0 var(--space-2);
+}
+
+.form-group-float .form-control:focus + .form-label-float,
+.form-group-float .form-control:not(:placeholder-shown) + .form-label-float {
+    top: 0;
+    font-size: var(--text-sm);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* ============================================
+   CHIPS DE SELECCIÓN
+   ============================================ */
+.chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: var(--gray-100);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    color: var(--gray-700);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.chip:hover {
+    background: var(--gray-200);
+    border-color: var(--gray-400);
+}
+
+.chip.selected {
+    background: rgba(231, 111, 81, 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.chip-remove {
+    background: none;
+    border: none;
+    color: var(--gray-500);
+    cursor: pointer;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.chip-remove:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--gray-700);
+}
+
+/* ============================================
+   TOOLTIP / HINT CARDS
+   ============================================ */
+.hint-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    margin: var(--space-6) 0;
+    display: flex;
+    gap: var(--space-4);
+    box-shadow: var(--shadow-card);
+}
+
+.hint-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(42, 157, 143, 0.1);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-success);
+    flex-shrink: 0;
+}
+
+.hint-content {
+    flex: 1;
+}
+
+.hint-title {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-contrast);
+    margin-bottom: var(--space-2);
+}
+
+.hint-text {
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+/* ============================================
+   PROGRESS INDICATOR (Burbujas laterales)
+   ============================================ */
+.progress-sidebar {
+    position: fixed;
+    left: var(--space-8);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+}
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    position: relative;
+}
+
+.progress-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    width: 2px;
+    height: 40px;
+    background: var(--color-border);
+    transition: background var(--transition-base);
+}
+
+.progress-step.completed::after {
+    background: var(--color-success);
+}
+
+.progress-bubble {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    background: var(--color-white);
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--gray-500);
+    transition: all var(--transition-fast);
+    position: relative;
+    z-index: 1;
+}
+
+.progress-step.active .progress-bubble {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 0 0 6px rgba(231, 111, 81, 0.1);
+}
+
+.progress-step.completed .progress-bubble {
+    background: var(--color-success);
+    border-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.progress-step.completed .progress-bubble::after {
+    content: '✓';
+}
+
+.progress-label {
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.progress-step.active .progress-label {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.progress-step.completed .progress-label {
+    color: var(--color-success);
+}
+
+/* ============================================
+   ILUSTRACIONES Y PATRONES
+   ============================================ */
+.hero-block {
+    background: linear-gradient(135deg, rgba(42, 157, 143, 0.05) 0%, rgba(231, 111, 81, 0.05) 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-10);
+    margin-bottom: var(--space-10);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(42, 157, 143, 0.03) 10px,
+            rgba(42, 157, 143, 0.03) 20px
+        );
+    pointer-events: none;
+}
+
+.hero-illustration {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto var(--space-6);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: var(--text-2xl);
+    color: var(--color-contrast);
+    margin-bottom: var(--space-4);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text {
+    font-size: var(--text-base);
+    color: var(--gray-600);
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   ANIMACIONES ADICIONALES
+   ============================================ */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.pulsing {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+/* ============================================
+   ESTADOS DE CARGA EN INPUTS
+   ============================================ */
+.form-control.loading {
+    background-image: linear-gradient(
+        90deg,
+        var(--gray-100) 0%,
+        var(--gray-200) 50%,
+        var(--gray-100) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ============================================
+   ACCESIBILIDAD - FOCUS VISIBLE
+   ============================================ */
+*:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   MODO OSCURO (Opcional)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-base: #1C1917;
+        --color-contrast: #FAF7F2;
+        --color-border: #44403C;
+        --gray-100: #292524;
+        --gray-200: #44403C;
+        --gray-300: #57534E;
+        --gray-400: #78716C;
+        --gray-500: #A8A29E;
+        --gray-600: #D6D3D1;
+        --gray-700: #E7E5E4;
+        --gray-800: #F5F5F4;
+        --gray-900: #FAFAF9;
+    }
+
+    .form-control {
+        background: var(--gray-100);
+        color: var(--color-contrast);
+    }
+
+    .form-control:focus {
+        background: var(--gray-200);
+    }
+
+    .property-type-card {
+        background: var(--gray-100);
+    }
+
+    .hint-card {
+        background: var(--gray-100);
+    }
+
+    .hero-block {
+        background: var(--gray-100);
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+    .header,
+    .progress-bar-container,
+    .progress-sidebar,
+    .form-navigation,
+    .footer {
+        display: none;
+    }
+
+    .form-step {
+        display: block !important;
+    }
+
+    .substep {
+        display: block !important;
+    }
+}
+
+/* ============================================
+   AUTOCOMPLETE DE COLONIAS
+   ============================================ */
+.autocomplete-wrapper {
+    position: relative;
+}
+
+.autocomplete-suggestions {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    left: 0;
+    right: 0;
+    z-index: 9999;                       /* Incrementado para quedar encima de todo */
+
+    background: #FFFFFF;                 /* Fondo blanco sólido (sin variable) */
+    background-color: #FFFFFF;           /* Redundante para garantizar solidez */
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+
+    max-height: 320px;
+    overflow-y: auto;
+
+    /* Animación de entrada sin afectar opacidad final */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease-out,
+                visibility 0.2s ease-out,
+                transform 0.2s ease-out;
+}
+
+.autocomplete-suggestions.active {
+    opacity: 1 !important;               /* Opacidad total garantizada */
+    visibility: visible;
+    transform: translateY(0);
+    background-color: #FFFFFF !important; /* Asegura fondo sólido al activarse */
+}
+
+.autocomplete-item {
+    padding: var(--space-4);
+    cursor: pointer;
+    background-color: #FFFFFF;           /* Fondo blanco sólido por defecto */
+    transition: background-color 0.2s ease-out;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.autocomplete-item:last-child {
+    border-bottom: none;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.active {
+    background-color: #FFF5F3;           /* Color sólido al hover (naranja muy claro) */
+}
+
+.autocomplete-item-title {
+    font-size: var(--text-base);
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+}
+
+.autocomplete-item-title strong {
+    color: var(--color-primary);
+    font-weight: 600;              /* Reducido de 800 a 600 */
+    background: transparent;
+    background-color: transparent; /* Asegurar sin fondo */
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;              /* Sin sombra */
+    text-shadow: none;             /* Sin sombra de texto */
+    text-decoration: none;         /* Sin decoración */
+}
+
+.autocomplete-item-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: #000000;
+    font-weight: 600;
+}
+
+.autocomplete-badge {
+    display: inline-flex;
+    padding: var(--space-1) var(--space-2);
+    background: var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #000000;
+}
+
+.autocomplete-cp {
+    font-family: monospace;
+    color: #000000;
+    font-weight: 700;
+}
+
+.autocomplete-no-results {
+    padding: var(--space-6);
+    text-align: center;
+    color: var(--gray-500);
+    font-size: var(--text-sm);
+}
+
+/* Scrollbar personalizado */
+.autocomplete-suggestions::-webkit-scrollbar {
+    width: 8px;
+}
+
+.autocomplete-suggestions::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: var(--radius-lg);
+}
+
+.autocomplete-suggestions::-webkit-scrollbar-thumb {
+    background: var(--gray-400);
+    border-radius: var(--radius-lg);
+}
+
+.autocomplete-suggestions::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-500);
+}
+
+/* ============================================
+   NOTIFICACIONES DE GEOLOCALIZACIÓN
+   ============================================ */
+.geo-notification {
+    position: fixed;
+    top: var(--space-8);
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    z-index: 10000;
+
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+
+    padding: var(--space-4) var(--space-6);
+    background: var(--color-white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-contrast);
+
+    opacity: 0;
+    transition: all var(--transition-base);
+    pointer-events: none;
+}
+
+.geo-notification.active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Tipos de notificaciones */
+.geo-notification-error {
+    border-left: 4px solid var(--color-error);
+}
+
+.geo-notification-error i {
+    color: var(--color-error);
+    font-size: var(--text-lg);
+}
+
+.geo-notification-warning {
+    border-left: 4px solid #F59E0B; /* Amarillo warning */
+}
+
+.geo-notification-warning i {
+    color: #F59E0B;
+    font-size: var(--text-lg);
+}
+
+.geo-notification-success {
+    border-left: 4px solid var(--color-success);
+}
+
+.geo-notification-success i {
+    color: var(--color-success);
+    font-size: var(--text-lg);
+}
+
+/* Responsive móvil */
+@media (max-width: 767px) {
+    .geo-notification {
+        top: var(--space-4);
+        left: var(--space-4);
+        right: var(--space-4);
+        transform: translateY(-100px);
+        max-width: calc(100% - 2rem);
+    }
+
+    .geo-notification.active {
+        transform: translateY(0);
+    }
+}

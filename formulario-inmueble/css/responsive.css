@@ -1,0 +1,555 @@
+/* ============================================
+   RESPONSIVE.CSS - MEDIA QUERIES
+   Mobile-First Approach
+   ============================================ */
+
+/* ============================================
+   MOBILE (< 768px) - BASE
+   ============================================ */
+/* Los estilos base ya están optimizados para móvil */
+
+/* Ajustes específicos para pantallas muy pequeñas */
+@media (max-width: 374px) {
+    :root {
+        --text-3xl: 1.75rem;     /* 28px */
+        --text-2xl: 1.375rem;    /* 22px */
+        --text-xl: 1.125rem;     /* 18px */
+    }
+
+    .header {
+        padding: var(--space-4) var(--space-4);
+    }
+
+    .logo h1 {
+        font-size: var(--text-lg);
+    }
+
+    .hero-section {
+        padding: var(--space-10) var(--space-4);
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: var(--text-base);
+    }
+
+    .hero-features {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .main-container {
+        padding: var(--space-8) var(--space-4);
+    }
+
+    .form-wrapper {
+        padding: var(--space-6);
+    }
+
+    .step-title {
+        font-size: 1.75rem;
+    }
+
+    .property-type-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .property-type-card {
+        padding: var(--space-6);
+    }
+}
+
+/* ============================================
+   MOBILE LANDSCAPE & SMALL TABLETS (480px - 767px)
+   ============================================ */
+@media (min-width: 480px) and (max-width: 767px) {
+    .form-row {
+        gap: var(--space-4);
+    }
+
+    .property-type-grid {
+        gap: var(--space-4);
+    }
+}
+
+/* ============================================
+   TABLET (768px - 1023px)
+   ============================================ */
+@media (min-width: 768px) {
+    /* Header */
+    .header {
+        padding: var(--space-6) var(--space-10);
+    }
+
+    .logo h1 {
+        font-size: var(--text-3xl);
+    }
+
+    /* Main Container */
+    .main-container {
+        padding: var(--space-12) var(--space-10);
+    }
+
+    /* Form Row - 2 columnas */
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+    }
+
+    /* Property Type Grid - 2 columnas */
+    .property-type-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+    }
+
+    /* Step Header */
+    .step-title {
+        font-size: 2rem; /* 32px */
+    }
+
+    .step-description {
+        font-size: var(--text-xl);
+    }
+
+    /* Buttons */
+    .form-navigation {
+        gap: var(--space-6);
+    }
+
+    .btn {
+        padding: var(--space-5) var(--space-10);
+        font-size: var(--text-lg);
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--space-10);
+    }
+
+    /* Progress Sidebar - Mostrar */
+    .progress-sidebar {
+        display: block;
+    }
+
+    /* Ajustar contenido para dejar espacio al sidebar */
+    .main-container {
+        padding-left: calc(var(--sidebar-width) + var(--space-8));
+    }
+}
+
+/* ============================================
+   DESKTOP (1024px - 1279px)
+   ============================================ */
+@media (min-width: 1024px) {
+    /* Typography scale up */
+    :root {
+        --text-3xl: 2.25rem;     /* 36px */
+        --text-2xl: 1.75rem;     /* 28px */
+        --text-xl: 1.375rem;     /* 22px */
+    }
+
+    /* Header */
+    .header {
+        padding: var(--space-8) var(--space-12);
+    }
+
+    /* Main Container */
+    .main-container {
+        padding: var(--space-16) var(--space-12);
+        padding-left: calc(var(--sidebar-width) + var(--space-12));
+    }
+
+    .form-wrapper {
+        max-width: 700px;
+    }
+
+    /* Property Type Grid - 2 columnas más anchas */
+    .property-type-grid {
+        gap: var(--space-8);
+    }
+
+    .property-type-card {
+        padding: var(--space-12);
+    }
+
+    /* Form Groups */
+    .form-group {
+        margin-bottom: var(--space-10);
+    }
+
+    /* Inputs estilo TuHabi */
+    .form-control {
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--text-base);
+        min-height: 44px;
+    }
+
+    /* Labels */
+    .form-label {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-4);
+    }
+
+    /* Buttons estilo TuHabi */
+    .btn {
+        padding: var(--space-4) var(--space-10);
+        font-size: var(--text-lg);
+        min-height: 48px;
+    }
+
+    /* Hero Block */
+    .hero-block {
+        padding: var(--space-12);
+    }
+
+    .hero-illustration {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Progress Sidebar */
+    .progress-sidebar {
+        left: var(--space-12);
+    }
+
+    .progress-bubble {
+        width: 48px;
+        height: 48px;
+        font-size: var(--text-lg);
+    }
+
+    .progress-label {
+        font-size: var(--text-base);
+    }
+
+    /* Hint Cards */
+    .hint-card {
+        padding: var(--space-6);
+    }
+
+    .hint-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* ============================================
+   LARGE DESKTOP (1280px+)
+   ============================================ */
+@media (min-width: 1280px) {
+    /* Typography máximo */
+    :root {
+        --text-3xl: 2.5rem;      /* 40px */
+        --text-2xl: 2rem;        /* 32px */
+        --text-xl: 1.5rem;       /* 24px */
+    }
+
+    /* Header */
+    .header {
+        padding: var(--space-10) var(--space-16);
+    }
+
+    /* Main Container */
+    .main-container {
+        padding: var(--space-16);
+        padding-left: calc(var(--sidebar-width) + var(--space-16));
+        max-width: calc(var(--max-width) + var(--sidebar-width));
+    }
+
+    .form-wrapper {
+        max-width: 800px;
+    }
+
+    /* Property Type Grid - 2 columnas con más espacio */
+    .property-type-grid {
+        gap: var(--space-10);
+    }
+
+    /* Step Header */
+    .step-header {
+        margin-bottom: var(--space-12);
+    }
+
+    /* Progress Sidebar */
+    .progress-sidebar {
+        left: var(--space-16);
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--space-12) var(--space-16);
+    }
+}
+
+/* ============================================
+   EXTRA LARGE DESKTOP (1440px+)
+   ============================================ */
+@media (min-width: 1440px) {
+    .main-container {
+        max-width: 1400px;
+    }
+
+    .form-wrapper {
+        max-width: 900px;
+    }
+
+    /* Property Type Grid - 4 columnas en pantallas muy grandes */
+    .property-type-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ============================================
+   TABLET LANDSCAPE (768px - 1023px, landscape)
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+    .main-container {
+        padding-top: var(--space-8);
+        padding-bottom: var(--space-8);
+    }
+
+    .step-header {
+        margin-bottom: var(--space-8);
+    }
+
+    /* Progress Sidebar más compacto */
+    .progress-sidebar {
+        left: var(--space-4);
+    }
+
+    .progress-bubble {
+        width: 36px;
+        height: 36px;
+        font-size: var(--text-sm);
+    }
+
+    .progress-label {
+        font-size: var(--text-xs);
+    }
+
+    .progress-step:not(:last-child)::after {
+        height: 30px;
+    }
+}
+
+/* ============================================
+   MOBILE ONLY (< 768px)
+   ============================================ */
+@media (max-width: 767px) {
+    /* Ocultar Progress Sidebar en móvil */
+    .progress-sidebar {
+        display: none;
+    }
+
+    /* Form Row - 1 columna en móvil */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    /* Property Type Grid - 1 columna */
+    .property-type-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .property-type-card {
+        padding: var(--space-6);
+    }
+
+    /* Botones apilados en móvil */
+    .form-navigation {
+        flex-direction: column-reverse;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-secondary {
+        order: 2;
+    }
+
+    .btn-primary,
+    .btn-success {
+        order: 1;
+    }
+
+    /* Step Header */
+    .step-title {
+        font-size: var(--text-2xl);
+    }
+
+    .step-description {
+        font-size: var(--text-base);
+    }
+
+    /* Header compacto */
+    .header-container {
+        flex-direction: column;
+        gap: var(--space-3);
+        text-align: center;
+    }
+
+    /* Checkbox text más pequeño */
+    .checkbox-text {
+        font-size: var(--text-xs);
+    }
+
+    /* Hint cards compactas */
+    .hint-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hint-icon {
+        margin: 0 auto;
+    }
+
+    /* Hero block compacto */
+    .hero-block {
+        padding: var(--space-6);
+    }
+
+    .hero-illustration {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-title {
+        font-size: var(--text-xl);
+    }
+
+    .hero-text {
+        font-size: var(--text-sm);
+    }
+
+    /* Footer */
+    .footer-links {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .separator {
+        display: none;
+    }
+}
+
+/* ============================================
+   TOUCH DEVICES (aumentar área de toque)
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+    /* Aumentar área de toque en botones */
+    .btn {
+        min-height: 52px;
+        padding: var(--space-5) var(--space-8);
+    }
+
+    /* Aumentar área de inputs */
+    .form-control {
+        min-height: 52px;
+        font-size: 16px; /* Evitar zoom en iOS */
+    }
+
+    /* Checkbox más grande */
+    .checkbox-custom {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Property cards más grandes */
+    .property-type-card {
+        padding: var(--space-8);
+    }
+
+    /* Botón geolocalización más grande */
+    .btn-geolocation {
+        width: 44px;
+        height: 44px;
+        right: var(--space-2);
+    }
+
+    /* Remover hover effects en touch */
+    .btn:hover,
+    .property-type-card:hover,
+    .form-control:hover {
+        transform: none;
+    }
+}
+
+/* ============================================
+   REDUCIR MOVIMIENTO (Accesibilidad)
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .progress-bar {
+        transition: none;
+    }
+
+    .spinner {
+        animation: none;
+        border-top-color: var(--color-success);
+    }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE (Accesibilidad)
+   ============================================ */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: #000000;
+        --gray-400: #000000;
+    }
+
+    .form-control {
+        border-width: 2px;
+    }
+
+    .btn {
+        border-width: 2px;
+        font-weight: 700;
+    }
+
+    .property-type-card {
+        border-width: 3px;
+    }
+
+    .form-control:focus,
+    .btn:focus,
+    .property-type-card:focus {
+        outline-width: 3px;
+    }
+}
+
+/* ============================================
+   LANDSCAPE ORIENTATION
+   ============================================ */
+@media (orientation: landscape) and (max-height: 600px) {
+    .main-container {
+        padding-top: var(--space-6);
+        padding-bottom: var(--space-6);
+    }
+
+    .step-header {
+        margin-bottom: var(--space-6);
+    }
+
+    .form-group {
+        margin-bottom: var(--space-6);
+    }
+
+    .hero-block {
+        display: none; /* Ocultar ilustraciones en landscape corto */
+    }
+}

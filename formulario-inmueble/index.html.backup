@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vende tu inmueble rápido y fácil. Completa nuestro formulario y recibe una oferta inmediata.">
+    <title>Vende tu Inmueble - Formulario de Valuación</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Tu Logo Aquí</h1>
+            </div>
+            <div class="header-info">
+                <span class="step-indicator">Paso <span id="current-step">1</span> de 4</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de Progreso -->
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar" style="width: 0%;">
+            <span class="progress-percentage" id="progress-percentage">0%</span>
+        </div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <main class="main-container">
+        <div class="form-wrapper">
+
+            <!-- PASO 1: UBICACIÓN -->
+            <section class="form-step active" id="step-1" data-step="1">
+                <div class="step-header">
+                    <h2 class="step-title">Ubicación de tu inmueble</h2>
+                    <p class="step-description">Necesitamos saber dónde se encuentra tu propiedad</p>
+                </div>
+
+                <!-- Substep 1.1: Estado (FIJO: Sinaloa) -->
+                <div class="substep active" id="substep-1-1" data-substep="1">
+                    <div class="form-group">
+                        <label for="state" class="form-label">
+                            Estado
+                        </label>
+                        <input
+                            type="text"
+                            id="state"
+                            name="state"
+                            class="form-control form-control-readonly"
+                            value="Sinaloa"
+                            readonly
+                        >
+                        <span class="form-hint">Actualmente solo operamos en Sinaloa</span>
+                    </div>
+                </div>
+
+                <!-- Substep 1.2: Municipio (FIJO: Culiacán) -->
+                <div class="substep active" id="substep-1-2" data-substep="2">
+                    <div class="form-group">
+                        <label for="municipality" class="form-label">
+                            Municipio
+                        </label>
+                        <input
+                            type="text"
+                            id="municipality"
+                            name="municipality"
+                            class="form-control form-control-readonly"
+                            value="Culiacán"
+                            readonly
+                        >
+                        <span class="form-hint">Actualmente solo operamos en Culiacán</span>
+                    </div>
+                </div>
+
+                <!-- Substep 1.3: Colonia -->
+                <div class="substep" id="substep-1-3-colonia" data-substep="3">
+                    <div class="form-group">
+                        <label for="colonia" class="form-label">
+                            Colonia <span class="required">*</span>
+                        </label>
+                        <select id="colonia" name="colonia" class="form-control" required>
+                            <option value="">Selecciona una colonia</option>
+                            <option value="3-rios">3 Ríos</option>
+                            <option value="aguaruto">Aguaruto</option>
+                            <option value="alameda">Alameda</option>
+                            <option value="altos-del-humaya">Altos del Humaya</option>
+                            <option value="bachigualato">Bachigualato</option>
+                            <option value="barrancos">Barrancos</option>
+                            <option value="bellavista">Bellavista</option>
+                            <option value="bosques-del-valle">Bosques del Valle</option>
+                            <option value="buenos-aires">Buenos Aires</option>
+                            <option value="camino-real">Camino Real</option>
+                            <option value="campestre">Campestre</option>
+                            <option value="cayenna-residencial">Cayenna Residencial</option>
+                            <option value="centro">Centro</option>
+                            <option value="chapultepec">Chapultepec</option>
+                            <option value="colinas-de-san-miguel">Colinas de San Miguel</option>
+                            <option value="colinas-del-rey">Colinas del Rey</option>
+                            <option value="colonia-guadalupe">Colonia Guadalupe</option>
+                            <option value="costa-rica">Costa Rica</option>
+                            <option value="cumbres">Cumbres</option>
+                            <option value="desarrollo-urbano-tres-rios">Desarrollo Urbano Tres Ríos</option>
+                            <option value="el-barrio">El Barrio</option>
+                            <option value="el-diez">El Diez</option>
+                            <option value="el-dorado">El Dorado</option>
+                            <option value="el-potrero">El Potrero</option>
+                            <option value="emiliano-zapata">Emiliano Zapata</option>
+                            <option value="estadio">Estadio</option>
+                            <option value="ferrocarrilera">Ferrocarrilera</option>
+                            <option value="fidel-velazquez">Fidel Velázquez</option>
+                            <option value="flores-magon">Flores Magón</option>
+                            <option value="forum-culiacan">Forum Culiacán</option>
+                            <option value="fovissste">Fovissste</option>
+                            <option value="gabriel-leyva">Gabriel Leyva</option>
+                            <option value="guadalupe">Guadalupe</option>
+                            <option value="guadalupe-victoria">Guadalupe Victoria</option>
+                            <option value="hacienda-de-la-mora">Hacienda de la Mora</option>
+                            <option value="hacienda-del-bosque">Hacienda del Bosque</option>
+                            <option value="hacienda-del-rio">Hacienda del Río</option>
+                            <option value="humaya">Humaya</option>
+                            <option value="infonavit-barrancos">Infonavit Barrancos</option>
+                            <option value="infonavit-canadas">Infonavit Cañadas</option>
+                            <option value="infonavit-humaya">Infonavit Humaya</option>
+                            <option value="infonavit-oso-viejo">Infonavit Oso Viejo</option>
+                            <option value="infonavit-san-francisco">Infonavit San Francisco</option>
+                            <option value="infonavit-valle-alto">Infonavit Valle Alto</option>
+                            <option value="insurgentes">Insurgentes</option>
+                            <option value="jorge-almada">Jorge Almada</option>
+                            <option value="juan-de-la-barrera">Juan de la Barrera</option>
+                            <option value="juntas-de-humaya">Juntas de Humaya</option>
+                            <option value="la-campina">La Campiña</option>
+                            <option value="la-conquista">La Conquista</option>
+                            <option value="la-florida">La Florida</option>
+                            <option value="la-joya">La Joya</option>
+                            <option value="la-lima">La Lima</option>
+                            <option value="la-primavera">La Primavera</option>
+                            <option value="la-rioja-residencial">La Rioja Residencial</option>
+                            <option value="las-quintas">Las Quintas</option>
+                            <option value="limon-de-los-ramos">Limón de los Ramos</option>
+                            <option value="lomas-de-agua-caliente">Lomas de Agua Caliente</option>
+                            <option value="lomas-de-san-isidro">Lomas de San Isidro</option>
+                            <option value="lomas-del-boulevard">Lomas del Boulevard</option>
+                            <option value="lomas-del-pedregal">Lomas del Pedregal</option>
+                            <option value="lomas-del-sol">Lomas del Sol</option>
+                            <option value="los-angeles">Los Ángeles</option>
+                            <option value="los-arrayanes">Los Arrayanes</option>
+                            <option value="los-huertos">Los Huertos</option>
+                            <option value="los-pinos">Los Pinos</option>
+                            <option value="madero">Madero</option>
+                            <option value="miguel-aleman">Miguel Alemán</option>
+                            <option value="montebello">Montebello</option>
+                            <option value="navidad">Navidad</option>
+                            <option value="nueva-amanecer">Nueva Amanecer</option>
+                            <option value="nueva-culiacan">Nueva Culiacán</option>
+                            <option value="oso-viejo">Oso Viejo</option>
+                            <option value="palma-dorada">Palma Dorada</option>
+                            <option value="palmito">Palmito</option>
+                            <option value="pancho-villa">Pancho Villa</option>
+                            <option value="perisur">Perisur</option>
+                            <option value="portabelo">Portabelo</option>
+                            <option value="portanova-residencial">Portanova Residencial</option>
+                            <option value="portareal">Portareal</option>
+                            <option value="privadas-del-pedregal">Privadas del Pedregal</option>
+                            <option value="privadas-residencial">Privadas Residencial</option>
+                            <option value="quintas-del-bosque">Quintas del Bosque</option>
+                            <option value="recursos-hidraulicos">Recursos Hidráulicos</option>
+                            <option value="renato-vega">Renato Vega</option>
+                            <option value="revolucion">Revolución</option>
+                            <option value="rio-humaya">Río Humaya</option>
+                            <option value="rosales">Rosales</option>
+                            <option value="san-isidro">San Isidro</option>
+                            <option value="san-joachin">San Joachin</option>
+                            <option value="san-joaquin-residencial">San Joaquín Residencial</option>
+                            <option value="san-juan">San Juan</option>
+                            <option value="san-miguel">San Miguel</option>
+                            <option value="san-rafael">San Rafael</option>
+                            <option value="santa-anita">Santa Anita</option>
+                            <option value="santa-fe">Santa Fe</option>
+                            <option value="santa-maria">Santa María</option>
+                            <option value="scally">Scally</option>
+                            <option value="solidaridad">Solidaridad</option>
+                            <option value="stase">Stase</option>
+                            <option value="tabachines">Tabachines</option>
+                            <option value="terranova">Terranova</option>
+                            <option value="tierra-blanca">Tierra Blanca</option>
+                            <option value="tres-rios">Tres Ríos</option>
+                            <option value="universidad-autonoma-sinaloa">Universidad Autónoma de Sinaloa</option>
+                            <option value="valle-alto">Valle Alto</option>
+                            <option value="valle-bonito">Valle Bonito</option>
+                            <option value="valles-del-humaya">Valles del Humaya</option>
+                            <option value="villa-del-cedro">Villa del Cedro</option>
+                            <option value="villa-jacarandas">Villa Jacarandas</option>
+                            <option value="villa-residencial-bonita">Villa Residencial Bonita</option>
+                            <option value="villa-universidad">Villa Universidad</option>
+                            <option value="villas-de-san-isidro">Villas de San Isidro</option>
+                            <option value="villas-del-country">Villas del Country</option>
+                            <option value="villas-del-rio">Villas del Río</option>
+                            <option value="zona-dorada">Zona Dorada</option>
+                            <option value="otra">Otra (especificar en comentarios)</option>
+                        </select>
+                        <span class="error-message" id="colonia-error"></span>
+                    </div>
+                </div>
+
+                <!-- Substep 1.4: Dirección -->
+                <div class="substep" id="substep-1-4" data-substep="4">
+                    <div class="form-group">
+                        <label for="address" class="form-label">
+                            Calle o Avenida <span class="required">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <input
+                                type="text"
+                                id="address"
+                                name="address"
+                                class="form-control"
+                                placeholder="Ej: Lope de Vega, Av. Insurgentes"
+                                minlength="4"
+                                required
+                            >
+                            <button type="button" class="btn-geolocation" id="btn-geolocation" title="Usar mi ubicación actual">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="autocomplete-suggestions" id="address-suggestions"></div>
+                        <span class="error-message" id="address-error"></span>
+                    </div>
+                </div>
+
+                <!-- Substep 1.5: Número Exterior -->
+                <div class="substep" id="substep-1-5" data-substep="5">
+                    <div class="form-group">
+                        <label for="exterior-number" class="form-label">
+                            Número Exterior <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="exterior-number"
+                            name="exterior-number"
+                            class="form-control"
+                            placeholder="Ej: 123, 45A, S/N"
+                            maxlength="10"
+                            pattern="[0-9A-Za-z#/\-]+"
+                            required
+                        >
+                        <span class="form-hint">Acepta números, letras, #, / y -. Usa S/N si no tiene número.</span>
+                        <span class="error-message" id="exterior-number-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interior-number" class="form-label">
+                            Número Interior <span class="optional">(Opcional)</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="interior-number"
+                            name="interior-number"
+                            class="form-control"
+                            placeholder="Ej: 4, Depto 201, Interior B"
+                            maxlength="10"
+                        >
+                    </div>
+                </div>
+
+                <!-- Substep 1.6: Código Postal -->
+                <div class="substep" id="substep-1-6" data-substep="6">
+                    <div class="form-group">
+                        <label for="zip-code" class="form-label">
+                            Código Postal <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="zip-code"
+                            name="zip-code"
+                            class="form-control"
+                            placeholder="Ej: 03100"
+                            pattern="[0-9]{5}"
+                            maxlength="5"
+                            inputmode="numeric"
+                            required
+                        >
+                        <span class="form-hint">Debe tener 5 dígitos</span>
+                        <span class="error-message" id="zip-code-error"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 2: TIPO DE INMUEBLE -->
+            <section class="form-step" id="step-2" data-step="2">
+                <div class="step-header">
+                    <h2 class="step-title">¿Qué tipo de inmueble es?</h2>
+                    <p class="step-description">Selecciona el tipo de propiedad que deseas vender</p>
+                </div>
+
+                <div class="substep active" id="substep-2-1" data-substep="1">
+                    <div class="form-group">
+                        <div class="property-type-grid">
+                            <div class="property-type-card" data-value="casa">
+                                <div class="card-icon">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Casa</h3>
+                                <p class="card-description">Casa independiente, residencial o en fraccionamiento</p>
+                            </div>
+
+                            <div class="property-type-card" data-value="departamento">
+                                <div class="card-icon">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                        <path d="M17 11V3H7v4H3v14h8v-4h2v4h8V11h-4zM7 19H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm4 4H9v-2h2v2zm0-4H9V9h2v2zm0-4H9V5h2v2zm4 8h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm4 12h-2v-2h2v2zm0-4h-2v-2h2v2z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Departamento</h3>
+                                <p class="card-description">Departamento o condominio en edificio</p>
+                            </div>
+
+                            <div class="property-type-card" data-value="terreno">
+                                <div class="card-icon">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM4 5h7v14H4V5zm16 14h-7V5h7v14z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Terreno</h3>
+                                <p class="card-description">Terreno baldío o con construcción</p>
+                            </div>
+
+                            <div class="property-type-card" data-value="local-comercial">
+                                <div class="card-icon">
+                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Local Comercial</h3>
+                                <p class="card-description">Local, oficina o espacio comercial</p>
+                            </div>
+                        </div>
+                        <input type="hidden" id="property-type" name="property-type" required>
+                        <span class="error-message" id="property-type-error"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 3: CARACTERÍSTICAS DEL INMUEBLE -->
+            <section class="form-step" id="step-3" data-step="3">
+                <div class="step-header">
+                    <h2 class="step-title">Características de tu propiedad</h2>
+                    <p class="step-description">Cuéntanos más detalles sobre tu inmueble</p>
+                </div>
+
+                <div class="substep active" id="substep-3-1" data-substep="1">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bedrooms" class="form-label">
+                                Recámaras <span class="required">*</span>
+                            </label>
+                            <select id="bedrooms" name="bedrooms" class="form-control" required>
+                                <option value="">Selecciona</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6+">6 o más</option>
+                            </select>
+                            <span class="error-message" id="bedrooms-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bathrooms" class="form-label">
+                                Baños <span class="required">*</span>
+                            </label>
+                            <select id="bathrooms" name="bathrooms" class="form-control" required>
+                                <option value="">Selecciona</option>
+                                <option value="1">1</option>
+                                <option value="1.5">1.5</option>
+                                <option value="2">2</option>
+                                <option value="2.5">2.5</option>
+                                <option value="3">3</option>
+                                <option value="3.5">3.5</option>
+                                <option value="4">4</option>
+                                <option value="4+">4 o más</option>
+                            </select>
+                            <span class="error-message" id="bathrooms-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parking" class="form-label">
+                                Estacionamientos <span class="required">*</span>
+                            </label>
+                            <select id="parking" name="parking" class="form-control" required>
+                                <option value="">Selecciona</option>
+                                <option value="0">Sin estacionamiento</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4+">4 o más</option>
+                            </select>
+                            <span class="error-message" id="parking-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="area" class="form-label">
+                                Metros cuadrados (m²) <span class="required">*</span>
+                            </label>
+                            <input
+                                type="number"
+                                id="area"
+                                name="area"
+                                class="form-control"
+                                placeholder="Ej: 120"
+                                min="20"
+                                max="10000"
+                                step="0.01"
+                                required
+                            >
+                            <span class="error-message" id="area-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age" class="form-label">
+                            Antigüedad <span class="required">*</span>
+                        </label>
+                        <select id="age" name="age" class="form-control" required>
+                            <option value="">Selecciona</option>
+                            <option value="0-5">0-5 años</option>
+                            <option value="6-10">6-10 años</option>
+                            <option value="11-20">11-20 años</option>
+                            <option value="21-30">21-30 años</option>
+                            <option value="31+">Más de 30 años</option>
+                        </select>
+                        <span class="error-message" id="age-error"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PASO 4: INFORMACIÓN DE CONTACTO -->
+            <section class="form-step" id="step-4" data-step="4">
+                <div class="step-header">
+                    <h2 class="step-title">Información de contacto</h2>
+                    <p class="step-description">¿Cómo podemos contactarte para darte una oferta?</p>
+                </div>
+
+                <div class="substep active" id="substep-4-1" data-substep="1">
+                    <div class="form-group">
+                        <label for="name" class="form-label">
+                            Nombre completo <span class="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            class="form-control"
+                            placeholder="Ej: Juan Pérez García"
+                            minlength="3"
+                            maxlength="100"
+                            required
+                        >
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            Correo electrónico <span class="required">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Ej: juan.perez@email.com"
+                            required
+                        >
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            Teléfono <span class="required">*</span>
+                        </label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            class="form-control"
+                            placeholder="Ej: 5512345678"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            inputmode="numeric"
+                            required
+                        >
+                        <span class="form-hint">10 dígitos sin espacios ni guiones</span>
+                        <span class="error-message" id="phone-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comments" class="form-label">
+                            Comentarios adicionales <span class="optional">(Opcional)</span>
+                        </label>
+                        <textarea
+                            id="comments"
+                            name="comments"
+                            class="form-control"
+                            placeholder="¿Algo más que quieras que sepamos sobre tu propiedad?"
+                            rows="4"
+                            maxlength="500"
+                        ></textarea>
+                        <span class="char-counter"><span id="comments-count">0</span>/500</span>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">
+                                Acepto los <a href="/terminos-condiciones" target="_blank">Términos y Condiciones</a>
+                                y el <a href="/aviso-privacidad" target="_blank">Aviso de Privacidad</a>
+                            </span>
+                        </label>
+                        <span class="error-message" id="terms-error"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Botones de Navegación -->
+            <div class="form-navigation">
+                <button type="button" class="btn btn-secondary" id="btn-back" style="display: none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/>
+                    </svg>
+                    Atrás
+                </button>
+                <button type="button" class="btn btn-primary" id="btn-continue">
+                    Continuar
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button type="submit" class="btn btn-success" id="btn-submit" style="display: none;">
+                    Enviar formulario
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Loading Overlay -->
+            <div class="loading-overlay" id="loading-overlay" style="display: none;">
+                <div class="spinner"></div>
+                <p>Procesando...</p>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="success-message" style="display: none;">
+                <div class="success-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" fill="#4CAF50"/>
+                    </svg>
+                </div>
+                <h2>¡Formulario enviado con éxito!</h2>
+                <p>Nos pondremos en contacto contigo pronto con una oferta para tu propiedad.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="/terminos-condiciones" target="_blank">Términos y Condiciones</a>
+                <span class="separator">|</span>
+                <a href="/aviso-privacidad" target="_blank">Aviso de Privacidad</a>
+            </div>
+            <p class="copyright">&copy; 2025 Tu Empresa. Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/geolocation.js"></script>
+</body>
+</html>

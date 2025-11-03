@@ -1,0 +1,42 @@
+# Configuración de Build para Netlify
+[build]
+  # No build command necesario (es HTML estático)
+  publish = "."
+
+  # Environment variables (configurar en Netlify UI)
+  # GOOGLE_MAPS_API_KEY = "tu_api_key_aqui"
+
+# Configuración de Formularios
+[forms]
+  # Netlify detectará automáticamente el form con name="property-form"
+
+# Redirects y Headers
+[[redirects]]
+  from = "/gracias"
+  to = "/index.html"
+  status = 200
+
+# Headers de seguridad
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache de assets estáticos
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
