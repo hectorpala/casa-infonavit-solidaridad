@@ -103,17 +103,18 @@
                 <div class="substep active" id="substep-1-2" data-substep="2">
                     <div class="form-group">
                         <label for="municipality" class="form-label">
-                            Municipio
+                            Municipio <span class="required">*</span>
                         </label>
-                        <input
-                            type="text"
+                        <select
                             id="municipality"
                             name="municipality"
-                            class="form-control form-control-readonly"
-                            value="Culiacán"
-                            readonly
+                            class="form-control"
+                            required
                         >
-                        <span class="form-hint">Actualmente solo operamos en Culiacán</span>
+                            <option value="culiacan" selected>Culiacán</option>
+                            <option value="mazatlan">Mazatlán</option>
+                        </select>
+                        <span class="form-hint">Selecciona el municipio donde se encuentra el inmueble</span>
                     </div>
                 </div>
 
