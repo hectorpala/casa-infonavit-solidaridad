@@ -1439,7 +1439,7 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
     console.log(`📍 URL: ${url}\n`);
 
     const browser = await puppeteer.launch({
-        headless: 'new', // Modo headless (invisible)
+        headless: false, // Navegador VISIBLE para evitar Cloudflare
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
@@ -1448,9 +1448,11 @@ async function scrapeInmuebles24(url, cityMeta = {}) {
             '--disable-web-security',
             '--flag-switches-begin',
             '--disable-site-isolation-trials',
-            '--flag-switches-end'
+            '--flag-switches-end',
+            '--window-size=1920,1080'
         ],
-        ignoreDefaultArgs: ['--enable-automation']
+        ignoreDefaultArgs: ['--enable-automation'],
+        defaultViewport: null
     });
 
     const page = await browser.newPage();

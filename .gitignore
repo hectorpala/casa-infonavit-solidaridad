@@ -56,3 +56,6 @@ orchestrator-skipped.log
 
 # Hashes de geolocalización (incluir en git)
 # .geolocation-hashes.json
+
+# Local Netlify folder
+.netlify

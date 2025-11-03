@@ -3,6 +3,22 @@
  * Permite buscar y seleccionar colonias de Culiacán con sugerencias
  */
 
+/**
+ * Utility: Debounce function
+ * Evita ejecutar una función múltiples veces en rápida sucesión
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 const Autocomplete = {
     colonias: [],
     calles: [],

@@ -1,0 +1,284 @@
+[
+  {
+    "propertyName": "fraccionamientostanza",
+    "address": "Sinaloa, Culiacán",
+    "type": "property",
+    "lineNumber": 33593
+  },
+  {
+    "propertyName": "lasamericasbr56",
+    "address": "Las Américas, Culiacán",
+    "type": "property",
+    "lineNumber": 33606
+  },
+  {
+    "propertyName": "adolfolopezmateos",
+    "address": "Sinaloa, Culiacán",
+    "type": "property",
+    "lineNumber": 33619
+  },
+  {
+    "propertyName": "privadamonacopaseosdelrey",
+    "address": "Paseos del Rey, Sinaloa, Culiacán",
+    "type": "property",
+    "lineNumber": 33632
+  },
+  {
+    "propertyName": "recamarasenportalegreenculiacan",
+    "address": "Fraccionamiento Portalegre, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 33645
+  },
+  {
+    "propertyName": "callemarianoescobedocentrodelaciudad",
+    "address": "Culiacan",
+    "type": "property",
+    "lineNumber": 33659
+  },
+  {
+    "propertyName": "lacanteraculiacan",
+    "address": "La Cantera, Culiacán",
+    "type": "property",
+    "lineNumber": 33672
+  },
+  {
+    "propertyName": "enlaprimaverabarriosanfranciscosur01",
+    "address": "Barrio San Francisco, Culiacán",
+    "type": "property",
+    "lineNumber": 33685
+  },
+  {
+    "propertyName": "enfracccolinasdesanmiguel",
+    "address": "Cerro De La Memoria 1907, Culiacán",
+    "type": "property",
+    "lineNumber": 33698
+  },
+  {
+    "propertyName": "enprivadaconexcedente4recamarassectorlaconquista",
+    "address": "La Conquista, Culiacán",
+    "type": "property",
+    "lineNumber": 33711
+  },
+  {
+    "propertyName": "privadaconalbercaamorada",
+    "address": "Amorada, Culiacán",
+    "type": "property",
+    "lineNumber": 33732
+  },
+  {
+    "propertyName": "fracclaprimavera",
+    "address": "San Agustín 266, Culiacán",
+    "type": "property",
+    "lineNumber": 33745
+  },
+  {
+    "propertyName": "barriosanfranciscolaprimavera01",
+    "address": "San Francisco, Culiacán",
+    "type": "property",
+    "lineNumber": 33758
+  },
+  {
+    "propertyName": "privadatabachines",
+    "address": "Culiacan",
+    "type": "property",
+    "lineNumber": 33771
+  },
+  {
+    "propertyName": "barcelonacomonuevaacabadosdeprimera",
+    "address": "Gerona 3057, Culiacán",
+    "type": "property",
+    "lineNumber": 33785
+  },
+  {
+    "propertyName": "quintaamericanasectorlasquintas",
+    "address": "Las Quintas, Culiacán",
+    "type": "property",
+    "lineNumber": 33798
+  },
+  {
+    "propertyName": "islamusalaculiacan",
+    "address": "Isla Musalá, Culiacán",
+    "type": "property",
+    "lineNumber": 33811
+  },
+  {
+    "propertyName": "recursoshidraulicosprivadasantaines",
+    "address": "Recursos Hidráulicos, Culiacán",
+    "type": "property",
+    "lineNumber": 33824
+  },
+  {
+    "propertyName": "hermosabelcanttoresidenciallistaparahabitar",
+    "address": "Belcantto Residencial - Privada Aprico, Culiacán",
+    "type": "property",
+    "lineNumber": 33837
+  },
+  {
+    "propertyName": "islamusalaculiacansinaloa",
+    "address": "La Isla Musalá, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 33851
+  },
+  {
+    "propertyName": "guadalupe",
+    "address": "Guadalupe, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 33864
+  },
+  {
+    "propertyName": "privadaprivanzas",
+    "address": "Privada Privanzas, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 33877
+  },
+  {
+    "propertyName": "colinassanmiguelculiacan8450000",
+    "address": "Fraccionamiento Colinas de San Miguel, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 33890
+  },
+  {
+    "propertyName": "villafontanaenesquina",
+    "address": "Villa Fontana, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 33903
+  },
+  {
+    "propertyName": "stanzacastillaprivadaavila",
+    "address": "Stanza Castilla, Culiacán",
+    "type": "property",
+    "lineNumber": 33917
+  },
+  {
+    "propertyName": "terrenoexcedentestanzavallealto",
+    "address": "Valle Alto, Culiacán",
+    "type": "property",
+    "lineNumber": 33930
+  },
+  {
+    "propertyName": "portalegremision",
+    "address": "Portalegre Misión, Culiacán",
+    "type": "property",
+    "lineNumber": 33943
+  },
+  {
+    "propertyName": "carpatosvallealtoCuliacan",
+    "address": "Carpatos, Valle Alto, Culiacán",
+    "type": "property",
+    "lineNumber": 33956
+  },
+  {
+    "propertyName": "lariojamodeloest",
+    "address": "NOT_FOUND",
+    "type": "property_error",
+    "lineNumber": 33969
+  },
+  {
+    "propertyName": "barcelonaselect",
+    "address": "Villa Barcelona Select, Culiacán",
+    "type": "property",
+    "lineNumber": 33983
+  },
+  {
+    "propertyName": "larioja477140",
+    "address": "La Rioja, Culiacán",
+    "type": "property",
+    "lineNumber": 33996
+  },
+  {
+    "propertyName": "lasmoras421156",
+    "address": "Fraccionamiento Las Moras, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 34009
+  },
+  {
+    "propertyName": "sanagustin349077",
+    "address": "Fraccionamiento San Agustín, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 34022
+  },
+  {
+    "propertyName": "centro277608",
+    "address": "Colonia Centro, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 34035
+  },
+  {
+    "propertyName": "lomasdelsol1",
+    "address": "Lomas Del Sol, Culiacán",
+    "type": "property",
+    "lineNumber": 34050
+  },
+  {
+    "propertyName": "lomasdelsol2",
+    "address": "Lomas Del Sol, Culiacán",
+    "type": "property",
+    "lineNumber": 34063
+  },
+  {
+    "propertyName": "nuevoculiacan",
+    "address": "Fraccionamiento Nuevo Culiacán, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 34076
+  },
+  {
+    "propertyName": "pradosdelsur",
+    "address": "Calle Prados del Sur 2609, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 34089
+  },
+  {
+    "propertyName": "privadapuntaazul",
+    "address": "Privada Punta Azul, Culiacán, Sinaloa",
+    "type": "property",
+    "lineNumber": 34102
+  },
+  {
+    "propertyName": "vitia",
+    "address": "NOT_FOUND",
+    "type": "property_error",
+    "lineNumber": 34115
+  },
+  {
+    "propertyName": "3",
+    "address": "NOT_FOUND",
+    "type": "property_error",
+    "lineNumber": 34128
+  },
+  {
+    "propertyName": "Altluz",
+    "address": "NOT_FOUND",
+    "type": "property_error",
+    "lineNumber": 34141
+  },
+  {
+    "propertyName": "Avenida",
+    "address": "NOT_FOUND",
+    "type": "property_error",
+    "lineNumber": 34154
+  },
+  {
+    "propertyName": "Avenida",
+    "address": "NOT_FOUND",
+    "type": "property_error",
+    "lineNumber": 34167
+  },
+  {
+    "propertyName": "Belcantto",
+    "address": "NOT_FOUND",
+    "type": "property_error",
+    "lineNumber": 34180
+  },
+  {
+    "propertyName": "Portalegre",
+    "address": "NOT_FOUND",
+    "type": "property_error",
+    "lineNumber": 34193
+  },
+  {
+    "propertyName": "Circuito",
+    "address": "NOT_FOUND",
+    "type": "property_error",
+    "lineNumber": 34206
+  }
+]

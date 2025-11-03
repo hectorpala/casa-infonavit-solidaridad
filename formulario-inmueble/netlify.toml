@@ -1,6 +1,7 @@
 # Configuración de Build para Netlify
 [build]
   # No build command necesario (es HTML estático)
+  command = ""
   publish = "."
 
   # Environment variables (configurar en Netlify UI)

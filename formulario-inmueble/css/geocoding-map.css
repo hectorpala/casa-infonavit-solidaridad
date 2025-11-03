@@ -1,0 +1,502 @@
+/* ============================================
+   GEOCODING-MAP.CSS - Estilos con Design System TuHabi
+   Reutiliza variables y clases de main.css
+   ============================================ */
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+    background: var(--tuhabi-purple);
+    padding: 2rem 0;
+    box-shadow: 0 2px 8px rgba(124, 1, 255, 0.15);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.back-link:hover {
+    transform: translateX(-4px);
+    opacity: 0.9;
+}
+
+.header-title {
+    font-size: var(--text-3xl);
+    color: #FFFFFF;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    font-family: var(--font-display);
+}
+
+.header-subtitle {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-weight: 400;
+    font-family: var(--font-body);
+}
+
+/* ============================================
+   MAIN CONTAINER - LAYOUT
+   ============================================ */
+.geocoding-container {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    min-height: calc(100vh - 200px);
+}
+
+/* ============================================
+   PANELS
+   ============================================ */
+.geocoding-form-panel,
+.geocoding-map-panel {
+    background: var(--tuhabi-bg-white);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.panel-header {
+    background: var(--tuhabi-purple);
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #FFFFFF;
+}
+
+.panel-header i {
+    font-size: 1.5rem;
+}
+
+.panel-header h2,
+.panel-header h3 {
+    margin: 0;
+    font-size: var(--text-xl);
+    font-weight: 600;
+    font-family: var(--font-display);
+}
+
+/* ============================================
+   FORM STYLES - Reutilizando clases existentes
+   ============================================ */
+.geocoding-form {
+    padding: 1.5rem;
+}
+
+/* Reutilizar .form-group, .form-label, .form-control de main.css */
+/* No necesitamos redefinirlas, ya están disponibles */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* ============================================
+   BUTTONS - Reutilizando clases existentes
+   ============================================ */
+/* .btn, .btn-primary, .btn-secondary ya están definidos en main.css */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: var(--text-base);
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    height: 40px;
+}
+
+.btn-maps {
+    width: 100%;
+    background: #4285F4;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 1rem;
+}
+
+.btn-maps:hover {
+    background: #357AE8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.btn-copy {
+    width: 100%;
+    background: var(--tuhabi-success);
+    color: #FFFFFF;
+    border: none;
+    margin-top: 0.5rem;
+}
+
+.btn-copy:hover {
+    background: #38D9A9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3);
+}
+
+/* ============================================
+   RESULTS PANEL
+   ============================================ */
+.results-panel {
+    margin-top: 2rem;
+    background: var(--tuhabi-bg-gray-light);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--tuhabi-border-light);
+}
+
+.results-content {
+    padding: 1.5rem;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--tuhabi-border-light);
+}
+
+.result-item:last-of-type {
+    border-bottom: none;
+}
+
+.result-label {
+    font-weight: 600;
+    color: var(--tuhabi-text-primary);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    flex-shrink: 0;
+    width: 140px;
+}
+
+.result-value {
+    color: var(--tuhabi-text-secondary);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    text-align: right;
+    word-break: break-word;
+}
+
+/* ============================================
+   MAP CONTAINER
+   ============================================ */
+.map-container {
+    width: 100%;
+    height: 600px;
+    background: var(--tuhabi-bg-gray);
+    position: relative;
+}
+
+.map-legend {
+    padding: 1rem;
+    background: var(--tuhabi-bg-gray-light);
+    border-top: 1px solid var(--tuhabi-border-light);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--text-sm);
+    color: var(--tuhabi-text-secondary);
+    font-family: var(--font-body);
+}
+
+.legend-item i {
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   LOADING OVERLAY
+   ============================================ */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-spinner {
+    background: var(--tuhabi-bg-white);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.loading-spinner i {
+    font-size: 3rem;
+    color: var(--tuhabi-purple);
+    margin-bottom: 1rem;
+}
+
+.loading-spinner p {
+    margin: 0;
+    font-size: var(--text-lg);
+    color: var(--tuhabi-text-primary);
+    font-weight: 500;
+    font-family: var(--font-body);
+}
+
+/* ============================================
+   NOTIFICATIONS
+   ============================================ */
+.notification-container {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.notification {
+    background: var(--tuhabi-bg-white);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 300px;
+    max-width: 400px;
+    animation: slideInRight 0.3s ease-out;
+    border-left: 4px solid;
+}
+
+.notification.success {
+    border-left-color: var(--tuhabi-success);
+}
+
+.notification.error {
+    border-left-color: var(--tuhabi-error);
+}
+
+.notification.warning {
+    border-left-color: #F4A261;
+}
+
+.notification i {
+    font-size: 1.5rem;
+}
+
+.notification.success i {
+    color: var(--tuhabi-success);
+}
+
+.notification.error i {
+    color: var(--tuhabi-error);
+}
+
+.notification.warning i {
+    color: #F4A261;
+}
+
+.notification-message {
+    flex: 1;
+    color: var(--tuhabi-text-primary);
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .geocoding-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .map-container {
+        height: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 1rem;
+    }
+
+    .header-title {
+        font-size: var(--text-2xl);
+    }
+
+    .header-subtitle {
+        font-size: var(--text-sm);
+    }
+
+    .geocoding-container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+
+    .map-container {
+        height: 400px;
+    }
+
+    .map-legend {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .notification-container {
+        top: 1rem;
+        right: 1rem;
+        left: 1rem;
+    }
+
+    .notification {
+        min-width: auto;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0 0.75rem;
+    }
+
+    .header-title {
+        font-size: var(--text-xl);
+    }
+
+    .geocoding-form {
+        padding: 1rem;
+    }
+
+    .results-content {
+        padding: 1rem;
+    }
+
+    .result-label {
+        font-size: 0.85rem;
+        width: 120px;
+    }
+
+    .result-value {
+        font-size: 0.85rem;
+    }
+
+    .map-container {
+        height: 350px;
+    }
+}
+
+/* ============================================
+   LEAFLET MAP CUSTOM STYLES
+   ============================================ */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    padding: 0;
+}
+
+.leaflet-popup-content {
+    margin: 0;
+    padding: 1rem;
+}
+
+.custom-popup {
+    font-family: var(--font-body);
+}
+
+.custom-popup h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: var(--text-base);
+    color: var(--tuhabi-purple);
+    font-weight: 600;
+    font-family: var(--font-display);
+}
+
+.custom-popup p {
+    margin: 0.25rem 0;
+    font-size: var(--text-sm);
+    color: var(--tuhabi-text-secondary);
+}
+
+.custom-popup strong {
+    color: var(--tuhabi-text-primary);
+}
+
+/* Custom marker icon */
+.custom-marker-icon {
+    background: var(--tuhabi-purple);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+}

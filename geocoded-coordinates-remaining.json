@@ -1,0 +1,322 @@
+[
+  {
+    "propertyName": "fraccionamientostanza",
+    "address": "Sinaloa, Culiacán",
+    "lat": 25.1721091,
+    "lng": -107.4795173,
+    "status": "OK"
+  },
+  {
+    "propertyName": "lasamericasbr56",
+    "address": "Las Américas, Culiacán",
+    "lat": 24.8460553,
+    "lng": -107.3845135,
+    "status": "OK"
+  },
+  {
+    "propertyName": "adolfolopezmateos",
+    "address": "Sinaloa, Culiacán",
+    "lat": 25.1721091,
+    "lng": -107.4795173,
+    "status": "OK"
+  },
+  {
+    "propertyName": "privadamonacopaseosdelrey",
+    "address": "Paseos del Rey, Sinaloa, Culiacán",
+    "lat": 24.7655839,
+    "lng": -107.4371668,
+    "status": "OK"
+  },
+  {
+    "propertyName": "recamarasenportalegreenculiacan",
+    "address": "Fraccionamiento Portalegre, Culiacán, Sinaloa",
+    "lat": 24.8254885,
+    "lng": -107.4435453,
+    "status": "OK"
+  },
+  {
+    "propertyName": "callemarianoescobedocentrodelaciudad",
+    "address": "Culiacan",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "status": "OK"
+  },
+  {
+    "propertyName": "lacanteraculiacan",
+    "address": "La Cantera, Culiacán",
+    "lat": 24.8000572,
+    "lng": -107.4349268,
+    "status": "OK"
+  },
+  {
+    "propertyName": "enlaprimaverabarriosanfranciscosur01",
+    "address": "Barrio San Francisco, Culiacán",
+    "lat": 24.7372507,
+    "lng": -107.4000371,
+    "status": "OK"
+  },
+  {
+    "propertyName": "enfracccolinasdesanmiguel",
+    "address": "Cerro De La Memoria 1907, Culiacán",
+    "lat": 24.7820511,
+    "lng": -107.397574,
+    "status": "OK"
+  },
+  {
+    "propertyName": "enprivadaconexcedente4recamarassectorlaconquista",
+    "address": "La Conquista, Culiacán",
+    "lat": 24.8207681,
+    "lng": -107.439959,
+    "status": "OK"
+  },
+  {
+    "propertyName": "privadaconalbercaamorada",
+    "address": "Amorada, Culiacán",
+    "lat": 24.8326627,
+    "lng": -107.3688748,
+    "status": "OK"
+  },
+  {
+    "propertyName": "fracclaprimavera",
+    "address": "San Agustín 266, Culiacán",
+    "lat": 24.7405444,
+    "lng": -107.397057,
+    "status": "OK"
+  },
+  {
+    "propertyName": "barriosanfranciscolaprimavera01",
+    "address": "San Francisco, Culiacán",
+    "lat": 24.8637916,
+    "lng": -107.449201,
+    "status": "OK"
+  },
+  {
+    "propertyName": "privadatabachines",
+    "address": "Culiacan",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "status": "OK"
+  },
+  {
+    "propertyName": "barcelonacomonuevaacabadosdeprimera",
+    "address": "Gerona 3057, Culiacán",
+    "lat": 24.8325874,
+    "lng": -107.4357423,
+    "status": "OK"
+  },
+  {
+    "propertyName": "quintaamericanasectorlasquintas",
+    "address": "Las Quintas, Culiacán",
+    "lat": 24.8131513,
+    "lng": -107.3745346,
+    "status": "OK"
+  },
+  {
+    "propertyName": "islamusalaculiacan",
+    "address": "Isla Musalá, Culiacán",
+    "lat": 24.8224699,
+    "lng": -107.3686214,
+    "status": "OK"
+  },
+  {
+    "propertyName": "recursoshidraulicosprivadasantaines",
+    "address": "Recursos Hidráulicos, Culiacán",
+    "lat": 24.8069917,
+    "lng": -107.4071596,
+    "status": "OK"
+  },
+  {
+    "propertyName": "hermosabelcanttoresidenciallistaparahabitar",
+    "address": "Belcantto Residencial - Privada Aprico, Culiacán",
+    "lat": 24.7404914,
+    "lng": -107.4288212,
+    "status": "OK"
+  },
+  {
+    "propertyName": "islamusalaculiacansinaloa",
+    "address": "La Isla Musalá, Culiacán, Sinaloa",
+    "lat": 24.8224699,
+    "lng": -107.3686214,
+    "status": "OK"
+  },
+  {
+    "propertyName": "guadalupe",
+    "address": "Guadalupe, Culiacán, Sinaloa",
+    "lat": 24.7934562,
+    "lng": -107.3952321,
+    "status": "OK"
+  },
+  {
+    "propertyName": "privadaprivanzas",
+    "address": "Privada Privanzas, Culiacán, Sinaloa",
+    "lat": 24.8025481,
+    "lng": -107.4164226,
+    "status": "OK"
+  },
+  {
+    "propertyName": "colinassanmiguelculiacan8450000",
+    "address": "Fraccionamiento Colinas de San Miguel, Culiacán, Sinaloa",
+    "lat": 24.7634181,
+    "lng": -107.3970452,
+    "status": "OK"
+  },
+  {
+    "propertyName": "villafontanaenesquina",
+    "address": "Villa Fontana, Culiacán, Sinaloa",
+    "lat": 24.8357983,
+    "lng": -107.4163008,
+    "status": "OK"
+  },
+  {
+    "propertyName": "stanzacastillaprivadaavila",
+    "address": "Stanza Castilla, Culiacán",
+    "lat": 24.8267503,
+    "lng": -107.4507472,
+    "status": "OK"
+  },
+  {
+    "propertyName": "terrenoexcedentestanzavallealto",
+    "address": "Valle Alto, Culiacán",
+    "lat": 24.8052781,
+    "lng": -107.4625676,
+    "status": "OK"
+  },
+  {
+    "propertyName": "portalegremision",
+    "address": "Portalegre Misión, Culiacán",
+    "lat": 24.8310979,
+    "lng": -107.4481706,
+    "status": "OK"
+  },
+  {
+    "propertyName": "carpatosvallealtoCuliacan",
+    "address": "Carpatos, Valle Alto, Culiacán",
+    "lat": 24.8052781,
+    "lng": -107.4625676,
+    "status": "OK"
+  },
+  {
+    "propertyName": "lariojamodeloest",
+    "address": "NOT_FOUND",
+    "status": "ZERO_RESULTS",
+    "error": true
+  },
+  {
+    "propertyName": "barcelonaselect",
+    "address": "Villa Barcelona Select, Culiacán",
+    "lat": 24.8337327,
+    "lng": -107.4332134,
+    "status": "OK"
+  },
+  {
+    "propertyName": "larioja477140",
+    "address": "La Rioja, Culiacán",
+    "lat": 24.7591234,
+    "lng": -107.451947,
+    "status": "OK"
+  },
+  {
+    "propertyName": "lasmoras421156",
+    "address": "Fraccionamiento Las Moras, Culiacán, Sinaloa",
+    "lat": 24.8536475,
+    "lng": -107.3518278,
+    "status": "OK"
+  },
+  {
+    "propertyName": "sanagustin349077",
+    "address": "Fraccionamiento San Agustín, Culiacán, Sinaloa",
+    "lat": 24.7634181,
+    "lng": -107.3970452,
+    "status": "OK"
+  },
+  {
+    "propertyName": "centro277608",
+    "address": "Colonia Centro, Culiacán, Sinaloa",
+    "lat": 24.8090649,
+    "lng": -107.3940117,
+    "status": "OK"
+  },
+  {
+    "propertyName": "lomasdelsol1",
+    "address": "Lomas Del Sol, Culiacán",
+    "lat": 24.8412577,
+    "lng": -107.3856223,
+    "status": "OK"
+  },
+  {
+    "propertyName": "lomasdelsol2",
+    "address": "Lomas Del Sol, Culiacán",
+    "lat": 24.8412577,
+    "lng": -107.3856223,
+    "status": "OK"
+  },
+  {
+    "propertyName": "nuevoculiacan",
+    "address": "Fraccionamiento Nuevo Culiacán, Culiacán, Sinaloa",
+    "lat": 24.7634181,
+    "lng": -107.3970452,
+    "status": "OK"
+  },
+  {
+    "propertyName": "pradosdelsur",
+    "address": "Calle Prados del Sur 2609, Culiacán, Sinaloa",
+    "lat": 24.7513403,
+    "lng": -107.3811872,
+    "status": "OK"
+  },
+  {
+    "propertyName": "privadapuntaazul",
+    "address": "Privada Punta Azul, Culiacán, Sinaloa",
+    "lat": 24.7481825,
+    "lng": -107.4406413,
+    "status": "OK"
+  },
+  {
+    "propertyName": "vitia",
+    "address": "NOT_FOUND",
+    "status": "ZERO_RESULTS",
+    "error": true
+  },
+  {
+    "propertyName": "3",
+    "address": "NOT_FOUND",
+    "status": "ZERO_RESULTS",
+    "error": true
+  },
+  {
+    "propertyName": "Altluz",
+    "address": "NOT_FOUND",
+    "status": "ZERO_RESULTS",
+    "error": true
+  },
+  {
+    "propertyName": "Avenida",
+    "address": "NOT_FOUND",
+    "status": "ZERO_RESULTS",
+    "error": true
+  },
+  {
+    "propertyName": "Avenida",
+    "address": "NOT_FOUND",
+    "status": "ZERO_RESULTS",
+    "error": true
+  },
+  {
+    "propertyName": "Belcantto",
+    "address": "NOT_FOUND",
+    "status": "ZERO_RESULTS",
+    "error": true
+  },
+  {
+    "propertyName": "Portalegre",
+    "address": "NOT_FOUND",
+    "status": "ZERO_RESULTS",
+    "error": true
+  },
+  {
+    "propertyName": "Circuito",
+    "address": "NOT_FOUND",
+    "status": "ZERO_RESULTS",
+    "error": true
+  }
+]

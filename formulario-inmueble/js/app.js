@@ -622,6 +622,231 @@ function hideLoadingOverlay() {
 }
 
 /**
+ * Mostrar modal de mapa con geocodificación
+ */
+function mostrarMapaGeocoding(formData) {
+    console.log('🗺️ Mostrando modal de mapa con geocodificación...');
+
+    // Verificar que tengamos coordenadas
+    if (!formData.coordinates || !formData.coordinates.latitude || !formData.coordinates.longitude) {
+        console.warn('⚠️ No hay coordenadas disponibles para mostrar mapa');
+        return;
+    }
+
+    const { latitude, longitude } = formData.coordinates;
+    const { formattedAddress, accuracy, service } = formData.coordinates;
+
+    // Construir dirección completa si no está formateada
+    const fullAddress = formattedAddress || buildFullAddress(formData);
+
+    // Crear overlay del modal
+    const overlay = document.createElement('div');
+    overlay.className = 'map-modal-overlay';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.setAttribute('aria-labelledby', 'map-modal-title');
+
+    // Crear contenido del modal
+    overlay.innerHTML = `
+        <div class="map-modal">
+            <!-- Header -->
+            <div class="map-modal-header">
+                <div class="map-modal-title" id="map-modal-title">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h2>Ubicación de tu Propiedad</h2>
+                </div>
+                <button class="map-modal-close" aria-label="Cerrar modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- Content -->
+            <div class="map-modal-content">
+                <!-- Intro -->
+                <div class="map-modal-intro">
+                    <p>Hemos localizado tu propiedad en el mapa. Verifica que la ubicación sea correcta:</p>
+                    <div class="address-display">
+                        <i class="fas fa-map-marker-alt"></i>
+                        ${fullAddress}
+                    </div>
+                </div>
+
+                <!-- Mapa -->
+                <div class="map-container-modal loading" id="map-container-modal">
+                    <!-- Google Maps iframe se cargará aquí -->
+                </div>
+
+                <!-- Coordenadas -->
+                <div class="map-coordinates-info">
+                    <div class="coordinate-item">
+                        <div class="coordinate-label">
+                            <i class="fas fa-map-pin"></i>
+                            Latitud
+                        </div>
+                        <div class="coordinate-value">${latitude.toFixed(6)}</div>
+                    </div>
+                    <div class="coordinate-item">
+                        <div class="coordinate-label">
+                            <i class="fas fa-map-pin"></i>
+                            Longitud
+                        </div>
+                        <div class="coordinate-value">${longitude.toFixed(6)}</div>
+                    </div>
+                    ${formData.zipCode ? `
+                    <div class="coordinate-item">
+                        <div class="coordinate-label">
+                            <i class="fas fa-mail-bulk"></i>
+                            Código Postal
+                        </div>
+                        <div class="coordinate-value">${formData.zipCode}</div>
+                    </div>
+                    ` : ''}
+                </div>
+
+                ${accuracy ? `
+                <div style="text-align: center;">
+                    <span class="accuracy-badge ${getAccuracyClass(accuracy)}">
+                        <i class="fas fa-bullseye"></i>
+                        Precisión: ${accuracy}
+                    </span>
+                </div>
+                ` : ''}
+
+                <!-- Botones de acción -->
+                <div class="map-modal-actions">
+                    <a href="https://www.google.com/maps?q=${latitude},${longitude}"
+                       target="_blank"
+                       class="map-action-btn primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        Abrir en Google Maps
+                    </a>
+                    <button class="map-action-btn secondary" onclick="cerrarMapaModal()">
+                        <i class="fas fa-check"></i>
+                        Continuar
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Agregar al DOM
+    document.body.appendChild(overlay);
+
+    // Cargar Google Maps iframe
+    setTimeout(() => {
+        const mapContainer = document.getElementById('map-container-modal');
+        if (mapContainer) {
+            // Usar Google Maps Embed API (no requiere API key para iframes básicos)
+            // O usar iframe de OpenStreetMap
+            const useGoogleMaps = true; // Cambiar a false para usar OSM
+
+            if (useGoogleMaps) {
+                // Google Maps iframe (funciona sin API key)
+                mapContainer.innerHTML = `
+                    <iframe
+                        src="https://www.google.com/maps?q=${latitude},${longitude}&z=17&output=embed"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen
+                        aria-label="Mapa de ubicación de la propiedad"
+                    ></iframe>
+                `;
+            } else {
+                // OpenStreetMap iframe alternativo
+                mapContainer.innerHTML = `
+                    <iframe
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=${longitude - 0.005},${latitude - 0.005},${longitude + 0.005},${latitude + 0.005}&layer=mapnik&marker=${latitude},${longitude}"
+                        loading="lazy"
+                        allowfullscreen
+                        aria-label="Mapa de ubicación de la propiedad"
+                    ></iframe>
+                `;
+            }
+
+            mapContainer.classList.remove('loading');
+        }
+    }, 500);
+
+    // Mostrar modal con animación
+    setTimeout(() => {
+        overlay.classList.add('active');
+    }, 50);
+
+    // Event listeners
+    const closeBtn = overlay.querySelector('.map-modal-close');
+    closeBtn.addEventListener('click', () => cerrarMapaModal());
+
+    // Cerrar con ESC
+    const escHandler = (e) => {
+        if (e.key === 'Escape') {
+            cerrarMapaModal();
+        }
+    };
+    document.addEventListener('keydown', escHandler);
+
+    // Guardar referencia para cleanup
+    window.mapModalEscHandler = escHandler;
+
+    console.log('✅ Modal de mapa mostrado correctamente');
+}
+
+/**
+ * Cerrar modal de mapa
+ */
+function cerrarMapaModal() {
+    const overlay = document.querySelector('.map-modal-overlay');
+    if (overlay) {
+        overlay.classList.remove('active');
+        setTimeout(() => {
+            overlay.remove();
+        }, 300);
+    }
+
+    // Limpiar event listener de ESC
+    if (window.mapModalEscHandler) {
+        document.removeEventListener('keydown', window.mapModalEscHandler);
+        window.mapModalEscHandler = null;
+    }
+}
+
+/**
+ * Construir dirección completa para display
+ */
+function buildFullAddress(formData) {
+    const parts = [];
+
+    if (formData.address && formData.exteriorNumber) {
+        parts.push(`${formData.address} ${formData.exteriorNumber}`);
+    }
+
+    if (formData.colonia) {
+        parts.push(formData.colonia);
+    }
+
+    if (formData.zipCode) {
+        parts.push(`CP ${formData.zipCode}`);
+    }
+
+    parts.push('Culiacán, Sinaloa, México');
+
+    return parts.join(', ');
+}
+
+/**
+ * Obtener clase CSS según nivel de precisión
+ */
+function getAccuracyClass(accuracy) {
+    const accuracyLower = accuracy.toLowerCase();
+    if (accuracyLower.includes('exacta') || accuracyLower.includes('rooftop')) {
+        return 'high';
+    } else if (accuracyLower.includes('alta') || accuracyLower.includes('interpolada')) {
+        return 'medium';
+    } else {
+        return 'low';
+    }
+}
+
+/**
  * Mostrar mensaje de éxito
  */
 function showSuccessMessage() {
@@ -643,22 +868,25 @@ function showSuccessMessage() {
 
     if (progressBar) progressBar.style.width = '100%';
     if (progressPercentage) progressPercentage.textContent = '100%';
+
+    // Mostrar modal de mapa con geocodificación
+    // Obtener formData de AppState
+    const formData = AppState.formData;
+    if (formData && formData.coordinates) {
+        // Pequeño delay para que se vea el mensaje de éxito primero
+        setTimeout(() => {
+            mostrarMapaGeocoding(formData);
+        }, 800);
+    } else {
+        console.warn('⚠️ No hay datos de coordenadas en AppState para mostrar mapa');
+    }
 }
 
 /**
  * Utilidad: Debounce
+ * NOTA: Función debounce ahora se define en js/autocomplete.js para estar disponible globalmente
+ * en todas las páginas (index.html y geocoding-map.html)
  */
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
 
 // Exportar para uso global
 window.AppState = AppState;

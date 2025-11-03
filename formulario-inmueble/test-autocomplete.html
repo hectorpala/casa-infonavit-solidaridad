@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Autocomplete</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
+    <style>
+        body {
+            padding: 2rem;
+            font-family: 'Roboto', sans-serif;
+        }
+        .test-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .debug {
+            background: #f0f0f0;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Test Autocomplete</h1>
+
+        <div class="debug" id="debug-log">
+            Logs aparecerán aquí...
+        </div>
+
+        <div class="form-group autocomplete-wrapper">
+            <label for="colonia" class="form-label">Colonia</label>
+            <input type="text"
+                   id="colonia"
+                   class="form-control"
+                   placeholder="Escribe 'tres'">
+            <div class="autocomplete-suggestions" id="colonia-suggestions"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="zip-code" class="form-label">Código Postal</label>
+            <input type="text"
+                   id="zip-code"
+                   class="form-control"
+                   readonly>
+        </div>
+    </div>
+
+    <script src="js/autocomplete.js"></script>
+    <script>
+        const debugLog = document.getElementById('debug-log');
+
+        function log(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            debugLog.innerHTML += `<div>[${timestamp}] ${message}</div>`;
+            console.log(message);
+        }
+
+        log('✅ Página cargada');
+        log(`Autocomplete definido: ${typeof Autocomplete !== 'undefined'}`);
+        log(`debounce definido: ${typeof debounce !== 'undefined'}`);
+
+        // Inicializar autocomplete
+        if (typeof Autocomplete !== 'undefined') {
+            log('🔄 Inicializando Autocomplete...');
+            Autocomplete.init().then(() => {
+                log('✅ Autocomplete inicializado');
+                log(`Colonias cargadas: ${Autocomplete.colonias.length}`);
+                log(`Calles cargadas: ${Autocomplete.calles.length}`);
+            }).catch(error => {
+                log(`❌ Error al inicializar: ${error.message}`);
+            });
+        } else {
+            log('❌ Autocomplete NO está definido');
+        }
+
+        // Monitorear eventos en el input
+        const coloniaInput = document.getElementById('colonia');
+        coloniaInput.addEventListener('input', (e) => {
+            log(`⌨️ Input event: "${e.target.value}"`);
+        });
+
+        coloniaInput.addEventListener('focus', () => {
+            log('👆 Focus en input');
+        });
+    </script>
+</body>
+</html>
