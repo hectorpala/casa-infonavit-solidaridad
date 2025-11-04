@@ -1,0 +1,2391 @@
+{
+  "metadata": {
+    "origen": "SEPOMEX - Servicio Postal Mexicano",
+    "municipio": "Los Mochis (Ahome)",
+    "estado": "Sinaloa",
+    "fecha": "2025-11-04",
+    "totalColonias": 238,
+    "rangoCPs": "81200 - 81299",
+    "totalCPs": 80
+  },
+  "colonias": [
+    {
+      "tipo": "COLONIA",
+      "nombre": "10 de Mayo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "28 de Junio",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "75 (Heriberto Valdez Romero)",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Adolfo Lopez Mateos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alcázar del Country",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alejandro Peña",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alfonso G Calderón",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alfredo Salazar",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alma Guadalupe Estrada",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Almendras",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Americana",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación Burócrata",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación Viñedos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Andalucía",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Antonio Toledo Corro",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Anáhuac",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bachomo Infonavit",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bellavista",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Benito Juárez",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bienestar",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bosques Del Country",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bosques del Pedregal",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Buenavista",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bugambilias",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Burócrata",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Camelias",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Campanario",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Carolina Residencial",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Catarinas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cedros",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Central de Abastos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Centro Plaza Mochis",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colon",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Conquistadores",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Conrado Espinoza",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cuauhtémoc",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Daniel Biul Ruelas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Del Carmen",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Del Parque",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Del Real",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Deportivo Country Club",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Deportivo y Rincón",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Diana Laura Riojas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Dolores Castro",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Chamizal",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Dorado",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ernesto Hays Borbo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Estrella",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "FOVISSSTE 3",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "FOVISSSTE Tabachines IV",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ferrocarril",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Flor de las Arboledas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fovissste",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Francisco Labastida Ochoa",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Francisco Villa",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fuentes Del Bosque",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Gabriel Leyva",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Gastelum",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Gaviotas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Germán Arroyo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Grijalva",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda Arroyo Pioneros",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda Santa Clara",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda del Arroyo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Haciendas Country",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Haciendas del Valle",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "INFONAVIT Mochicahui",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "INFONAVIT Mochicahui II",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "ISSSTESIN",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ibarra",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Independencia",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ingeniero Heriberto Valdez Romero",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Insurgentes Obrera",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Islas Residenciales",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines Del Sol",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines Del Valle",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines de Fátima",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines de Guadalupe",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines de Morelos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines de Villa",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines de Zacatecas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines del Bosque",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines del Country",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardín",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jiquilpan",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jiquilpan 2",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jordan",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jordan Jiquilpan",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jordan Madero",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "José Ángel Ferrusquilla",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Juan Cota",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Julia Viuda de Ríos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Cuchilla",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Esmeralda",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Esperanza",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Florida",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Herradura",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Joya",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Memoria",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Primavera",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Azucenas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Cañas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Delicias",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Flores",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Fuentes",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Fuentes 2000",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Glorias",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Haciendas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Mañanitas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Misiones",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Nubes",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Palmas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Praderas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Torres",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lastras Altamirano",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Libertad",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Loma Dorada",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lopez Portillo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Girasoles",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Laureles",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Mochis Centro",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Naranjos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Olivos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Pinos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Portales",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Sabinos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Sauces",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Virreyes",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Ángeles",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Luis Donaldo Colosio",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lázaro Cárdenas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lázaro Cárdenas Del Rio",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Macapule Infonavit",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mallorca",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Margarita",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mario Avilez",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mayra H Pamplona",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mediterráneo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Menonitas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Miguel Hidalgo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Monferrat",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Monico Soto",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Monte Carlo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Montebello",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Morelos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Morelos CTM",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Morelos CTM 2",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "México",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Narciso Mendoza (Las Malvinas)",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Nueva Revolución",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Nuevo Horizonte",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Nuevo Siglo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Obrera",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ofelia Duarte",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palmera Residencial",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palos Verdes Infonavit",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Parque Industrial Ecológico",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Parque Sinaloa",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paseo de las Aves",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Popular Blanca Gastelum",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Pradera de Villa",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Prado Bonito",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Prados III",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Prados del Sur",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Prados del Valle",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Primavera",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Palladio",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Toscana",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privanzas",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Progresivo San Rafael",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Providencia",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Quinta de Cortes",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Raul Romanillo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real Aurora",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real Isabeles",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real de Santiago",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real de Villa",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real del Country",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Realito",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Ahome 2000",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Aurora",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Campestre",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Del Valle",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Diamante",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Mar de Cortés",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Palmira",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Platino",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial del Country",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Reyes Guerrero",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Roberto Perez Jacobo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rosendo G Castro",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ruben Jaramillo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "STASE Los Álamos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Fernando",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Francisco",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Isidro",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San José",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sanchez Ruiz",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Alicia",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Catalina",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Fe",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Lourdes",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Luz",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa María",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Rosa",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Scally",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sector Fátima",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Siglo XXI",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sinaloa",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Tabachines",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Tepeka",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Teresita",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Terranova",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Universidad de los Mochis",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Universitario",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valentín Gutiérrez",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle Bonito",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle Cañaveral",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle Verde",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de la Rosa",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Versalles Residencial",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Antigua Residencial",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Bonita",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Centenario",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Huites",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Owen",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa de Cortes",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa de Santiago",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas Monterrey",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas del Sol",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Vivienda Popular",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Viñedos Residencial",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zaky Muez",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Industrial",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Álamo",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Álamos",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Álamos I",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ávila Corona",
+      "codigoPostal": null,
+      "ciudad": "Los Mochis",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    }
+  ],
+  "coloniasPorCP": {
+    "81200": {
+      "colonias": [
+        "Los Mochis Centro"
+      ],
+      "count": 1
+    },
+    "81210": {
+      "colonias": [
+        "Miguel Hidalgo"
+      ],
+      "count": 1
+    },
+    "81215": {
+      "colonias": [
+        "ISSSTESIN",
+        "Las Fuentes 2000"
+      ],
+      "count": 2
+    },
+    "81216": {
+      "colonias": [
+        "Benito Juárez",
+        "Reyes Guerrero",
+        "Bugambilias",
+        "Gaviotas"
+      ],
+      "count": 4
+    },
+    "81217": {
+      "colonias": [
+        "Narciso Mendoza (Las Malvinas)"
+      ],
+      "count": 1
+    },
+    "81218": {
+      "colonias": [
+        "Conrado Espinoza"
+      ],
+      "count": 1
+    },
+    "81220": {
+      "colonias": [
+        "Sector Fátima",
+        "Jiquilpan",
+        "Jordan"
+      ],
+      "count": 3
+    },
+    "81223": {
+      "colonias": [
+        "Villa Bonita",
+        "Las Fuentes",
+        "Deportivo y Rincón"
+      ],
+      "count": 3
+    },
+    "81224": {
+      "colonias": [
+        "Juan Cota"
+      ],
+      "count": 1
+    },
+    "81225": {
+      "colonias": [
+        "Ávila Corona",
+        "Sanchez Ruiz"
+      ],
+      "count": 2
+    },
+    "81226": {
+      "colonias": [
+        "Jardines de Fátima"
+      ],
+      "count": 1
+    },
+    "81227": {
+      "colonias": [
+        "Fovissste"
+      ],
+      "count": 1
+    },
+    "81228": {
+      "colonias": [
+        "Privada Palladio",
+        "Ampliación Viñedos",
+        "Macapule Infonavit",
+        "Residencial Campestre",
+        "Bosques Del Country",
+        "Viñedos Residencial",
+        "Privada Toscana",
+        "Daniel Biul Ruelas"
+      ],
+      "count": 8
+    },
+    "81229": {
+      "colonias": [
+        "Palos Verdes Infonavit",
+        "Jiquilpan",
+        "Tepeka",
+        "Residencial Diamante",
+        "Fuentes Del Bosque"
+      ],
+      "count": 5
+    },
+    "81230": {
+      "colonias": [
+        "Jardín",
+        "Libertad",
+        "Ruben Jaramillo"
+      ],
+      "count": 3
+    },
+    "81233": {
+      "colonias": [
+        "México",
+        "Flor de las Arboledas",
+        "Luis Donaldo Colosio",
+        "Providencia",
+        "Nuevo Horizonte",
+        "Valle Cañaveral",
+        "Los Sabinos",
+        "FOVISSSTE 3",
+        "Residencial Palmira"
+      ],
+      "count": 9
+    },
+    "81234": {
+      "colonias": [
+        "El Chamizal",
+        "Del Real",
+        "75 (Heriberto Valdez Romero)",
+        "Santa Fe",
+        "Valle Bonito",
+        "Carolina Residencial",
+        "Bosques del Pedregal"
+      ],
+      "count": 7
+    },
+    "81235": {
+      "colonias": [
+        "San Francisco"
+      ],
+      "count": 1
+    },
+    "81236": {
+      "colonias": [
+        "Alfonso G Calderón",
+        "10 de Mayo"
+      ],
+      "count": 2
+    },
+    "81237": {
+      "colonias": [
+        "Estrella"
+      ],
+      "count": 1
+    },
+    "81238": {
+      "colonias": [
+        "Adolfo Lopez Mateos",
+        "28 de Junio"
+      ],
+      "count": 2
+    },
+    "81240": {
+      "colonias": [
+        "Scally",
+        "Jordan Jiquilpan",
+        "Valentín Gutiérrez",
+        "Ibarra",
+        "Julia Viuda de Ríos",
+        "Popular Blanca Gastelum",
+        "Zaky Muez",
+        "Mario Avilez",
+        "Alfredo Salazar",
+        "Alma Guadalupe Estrada",
+        "Dolores Castro",
+        "Mayra H Pamplona",
+        "Germán Arroyo",
+        "Las Torres",
+        "Ernesto Hays Borbo"
+      ],
+      "count": 15
+    },
+    "81245": {
+      "colonias": [
+        "Jardines Del Valle",
+        "Jardines Del Sol",
+        "Jordan Madero",
+        "Gastelum",
+        "Ofelia Duarte",
+        "Deportivo Country Club",
+        "Grijalva"
+      ],
+      "count": 7
+    },
+    "81247": {
+      "colonias": [
+        "Bachomo Infonavit",
+        "Los Pinos",
+        "Islas Residenciales",
+        "Los Sauces"
+      ],
+      "count": 4
+    },
+    "81248": {
+      "colonias": [
+        "Álamo",
+        "José Ángel Ferrusquilla",
+        "Diana Laura Riojas",
+        "Cuauhtémoc",
+        "Jardines del Country",
+        "Álamos",
+        "Jardines del Bosque",
+        "Los Olivos",
+        "Primavera",
+        "Monico Soto",
+        "Del Carmen",
+        "Monferrat",
+        "Residencial del Country",
+        "Real del Country",
+        "Álamos I"
+      ],
+      "count": 15
+    },
+    "81249": {
+      "colonias": [
+        "Lastras Altamirano",
+        "Las Palmas",
+        "Residencial Del Valle",
+        "Teresita",
+        "Progresivo San Rafael",
+        "Menonitas",
+        "INFONAVIT Mochicahui II",
+        "Jardines de Zacatecas",
+        "Villas del Sol"
+      ],
+      "count": 9
+    },
+    "81250": {
+      "colonias": [
+        "La Cuchilla"
+      ],
+      "count": 1
+    },
+    "81254": {
+      "colonias": [
+        "Universidad de los Mochis",
+        "Centro Plaza Mochis",
+        "Loma Dorada",
+        "La Memoria",
+        "Mallorca",
+        "Versalles Residencial",
+        "Parque Industrial Ecológico",
+        "Monte Carlo"
+      ],
+      "count": 8
+    },
+    "81255": {
+      "colonias": [
+        "Zona Industrial"
+      ],
+      "count": 1
+    },
+    "81256": {
+      "colonias": [
+        "Ingeniero Heriberto Valdez Romero",
+        "Lázaro Cárdenas",
+        "Central de Abastos",
+        "Bellavista",
+        "Villa Huites",
+        "FOVISSSTE Tabachines IV",
+        "Jiquilpan 2",
+        "INFONAVIT Mochicahui"
+      ],
+      "count": 8
+    },
+    "81257": {
+      "colonias": [
+        "Tabachines",
+        "Roberto Perez Jacobo",
+        "Villa Owen"
+      ],
+      "count": 3
+    },
+    "81259": {
+      "colonias": [
+        "Del Parque"
+      ],
+      "count": 1
+    },
+    "81260": {
+      "colonias": [
+        "Hacienda Santa Clara",
+        "Alejandro Peña",
+        "Rosendo G Castro",
+        "Realito",
+        "La Esperanza",
+        "Las Mañanitas",
+        "Valle Verde"
+      ],
+      "count": 7
+    },
+    "81263": {
+      "colonias": [
+        "Real Aurora",
+        "Las Glorias",
+        "Santa Lourdes",
+        "Prados del Valle",
+        "Santa Rosa",
+        "Residencial Aurora"
+      ],
+      "count": 6
+    },
+    "81265": {
+      "colonias": [
+        "Ferrocarril",
+        "Residencial Ahome 2000"
+      ],
+      "count": 2
+    },
+    "81270": {
+      "colonias": [
+        "Quinta de Cortes",
+        "Villa Antigua Residencial",
+        "Las Haciendas",
+        "Gabriel Leyva",
+        "Margarita",
+        "Jardines de Guadalupe",
+        "Villa de Cortes",
+        "Terranova",
+        "San Fernando",
+        "Conquistadores",
+        "Villas Monterrey",
+        "Los Naranjos",
+        "Residencial Platino",
+        "Campanario",
+        "Paseo de las Aves"
+      ],
+      "count": 15
+    },
+    "81277": {
+      "colonias": [
+        "Haciendas Country",
+        "Las Delicias",
+        "Hacienda del Arroyo",
+        "Palmera Residencial",
+        "Las Haciendas",
+        "Hacienda Arroyo Pioneros"
+      ],
+      "count": 6
+    },
+    "81278": {
+      "colonias": [
+        "Valle de la Rosa",
+        "Alcázar del Country",
+        "Haciendas del Valle",
+        "Buenavista",
+        "Francisco Villa",
+        "San José",
+        "Santa María",
+        "Santa Alicia",
+        "Cedros",
+        "Colon",
+        "El Dorado",
+        "Los Virreyes",
+        "La Esmeralda",
+        "Santa Catalina",
+        "San Isidro"
+      ],
+      "count": 15
+    },
+    "81280": {
+      "colonias": [
+        "Anáhuac",
+        "Bienestar",
+        "Insurgentes Obrera",
+        "Obrera",
+        "Independencia",
+        "Vivienda Popular",
+        "Sinaloa"
+      ],
+      "count": 7
+    },
+    "81285": {
+      "colonias": [
+        "Antonio Toledo Corro",
+        "Raul Romanillo",
+        "STASE Los Álamos",
+        "Francisco Labastida Ochoa",
+        "La Joya",
+        "La Florida",
+        "Residencial Mar de Cortés",
+        "Real Isabeles",
+        "Universitario",
+        "Prados del Sur"
+      ],
+      "count": 10
+    },
+    "81289": {
+      "colonias": [
+        "La Herradura",
+        "Parque Sinaloa",
+        "Americana"
+      ],
+      "count": 3
+    },
+    "81290": {
+      "colonias": [
+        "Burócrata",
+        "Morelos",
+        "Lopez Portillo",
+        "Ampliación Burócrata"
+      ],
+      "count": 4
+    },
+    "81293": {
+      "colonias": [
+        "Real de Santiago",
+        "Pradera de Villa",
+        "Las Misiones",
+        "Mediterráneo",
+        "Las Nubes",
+        "Real de Villa",
+        "Villa Centenario",
+        "Jardines de Villa",
+        "Villa de Santiago",
+        "Montebello",
+        "Privanzas"
+      ],
+      "count": 11
+    },
+    "81294": {
+      "colonias": [
+        "Andalucía",
+        "Prado Bonito",
+        "Los Laureles",
+        "Siglo XXI",
+        "Jardines de Morelos",
+        "Nueva Revolución",
+        "Almendras",
+        "Las Azucenas",
+        "Lázaro Cárdenas Del Rio",
+        "Catarinas",
+        "Nuevo Siglo",
+        "Las Flores",
+        "Prados III",
+        "Camelias",
+        "La Primavera"
+      ],
+      "count": 15
+    },
+    "81295": {
+      "colonias": [
+        "Los Girasoles",
+        "Las Cañas",
+        "Las Praderas",
+        "Morelos CTM",
+        "Morelos CTM 2",
+        "Santa Luz",
+        "Los Ángeles",
+        "San Francisco",
+        "Los Portales"
+      ],
+      "count": 9
+    },
+    "81296": {
+      "colonias": [
+        "Los Ángeles"
+      ],
+      "count": 1
+    }
+  }
+}
