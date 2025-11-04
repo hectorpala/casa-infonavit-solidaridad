@@ -1,0 +1,4948 @@
+{
+  "datos": [
+    {
+      "cvegeo": "2501200010006",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0006",
+      "nom_asen": "12 DE MAYO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010388",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0388",
+      "nom_asen": "13 DE SEPTIEMBRE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010007",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0007",
+      "nom_asen": "20 DE NOVIEMBRE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010322",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0322",
+      "nom_asen": "23 DE NOVIEMBRE",
+      "tipo_asen": "CONJUNTO HABITACIONAL",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010491",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0491",
+      "nom_asen": "AL MAR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010115",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0115",
+      "nom_asen": "ALAMEDA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010401",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0401",
+      "nom_asen": "ALBORADA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010454",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0454",
+      "nom_asen": "ALFONSO CORDERO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010252",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0252",
+      "nom_asen": "ALFREDO V. BONFIL",
+      "tipo_asen": "PARQUE INDUSTRIAL",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010008",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0008",
+      "nom_asen": "AMPLIACIÓN ESPERANZA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010455",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0455",
+      "nom_asen": "AMPLIACIÓN JARIPILLO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010456",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0456",
+      "nom_asen": "AMPLIACIÓN JESÚS OSUNA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010009",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0009",
+      "nom_asen": "AMPLIACIÓN LICO VELARDE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010010",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0010",
+      "nom_asen": "AMPLIACIÓN LOMAS DEL ÉBANO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010011",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0011",
+      "nom_asen": "AMPLIACIÓN VALLE DEL EJIDO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010116",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0116",
+      "nom_asen": "AMPLIACIÓN VILLA VERDE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010061",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0061",
+      "nom_asen": "ANA PAULA (ASENTAMIENTO IRREGULAR)",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010012",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0012",
+      "nom_asen": "ANABELLA DE GAVICA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010013",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0013",
+      "nom_asen": "ANÁHUAC",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010117",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0117",
+      "nom_asen": "ANTIGUO AEROPUERTO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010014",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0014",
+      "nom_asen": "ANTONIO TOLEDO CORRO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010118",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0118",
+      "nom_asen": "ARBOLEDAS I",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010119",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0119",
+      "nom_asen": "ARBOLEDAS II",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010120",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0120",
+      "nom_asen": "ARBOLEDAS III",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010002",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0002",
+      "nom_asen": "ARBOLEDAS INVIES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010492",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0492",
+      "nom_asen": "ARIETA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010175",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0175",
+      "nom_asen": "ARRECIFES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010411",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0411",
+      "nom_asen": "ARROYOS DE LA MARINA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010477",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0477",
+      "nom_asen": "ATLANTICO COTO RESIDENCIAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010015",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0015",
+      "nom_asen": "AZTECA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010457",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0457",
+      "nom_asen": "AZUL MARINO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010412",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0412",
+      "nom_asen": "AZUL PACIFIC",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010493",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0493",
+      "nom_asen": "BAHÍA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010016",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0016",
+      "nom_asen": "BAHÍAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010121",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0121",
+      "nom_asen": "BAHÍAS DE MAZATLÁN",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010122",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0122",
+      "nom_asen": "BALCONES DE LOMA LINDA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010017",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0017",
+      "nom_asen": "BENITO JUÁREZ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010302",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0302",
+      "nom_asen": "BENITO JUÁREZ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010275",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0275",
+      "nom_asen": "BOSQUE DE LA CIUDAD",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010123",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0123",
+      "nom_asen": "BOSQUES DEL ARROYO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010305",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0305",
+      "nom_asen": "BOSQUES DEL RÍO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010124",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0124",
+      "nom_asen": "BRISAS DEL MAR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010125",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0125",
+      "nom_asen": "BRISAS DEL VALLE II",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010326",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0326",
+      "nom_asen": "BUENOS AIRES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010440",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0440",
+      "nom_asen": "BUGAMBILIAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010004",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0004",
+      "nom_asen": "BUGAMBILIAS LA ESPERANZA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010018",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0018",
+      "nom_asen": "BURÓCRATAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010126",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0126",
+      "nom_asen": "CAMPO BELLO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010344",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0344",
+      "nom_asen": "CAMPO DEPORTIVO CHOLOLOS",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010458",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0458",
+      "nom_asen": "CANACO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010127",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0127",
+      "nom_asen": "CASA BLANCA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010019",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0019",
+      "nom_asen": "CASA REDONDA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010020",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0020",
+      "nom_asen": "CASAS ECONÓMICAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010389",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0389",
+      "nom_asen": "CASTILLA DE LEÓN",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010005",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0005",
+      "nom_asen": "CENTRO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010128",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0128",
+      "nom_asen": "CERRITOS RESORT",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010129",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0129",
+      "nom_asen": "CERRO DEL VIGÍA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010287",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0287",
+      "nom_asen": "CERRO EL CRESTÓN",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010130",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0130",
+      "nom_asen": "CHULAVISTA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010269",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0269",
+      "nom_asen": "CLUB CAMPESTRE",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010259",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0259",
+      "nom_asen": "CLUB DEPORTIVO POLLUELOS",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010327",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0327",
+      "nom_asen": "CLUB REAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010251",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0251",
+      "nom_asen": "CLUB RESIDENCIAL PALMEIRAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010328",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0328",
+      "nom_asen": "COLINAS DEL REAL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010459",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0459",
+      "nom_asen": "COLINAS DEL VALLE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010021",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0021",
+      "nom_asen": "COLOSIO SÍ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010108",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0108",
+      "nom_asen": "COMUNIDAD ISLA DE LA PIEDRA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010109",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0109",
+      "nom_asen": "CONCHI II",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010022",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0022",
+      "nom_asen": "CONSTITUCIÓN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010131",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0131",
+      "nom_asen": "CORREDOR DE ABASTOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010134",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0134",
+      "nom_asen": "COSTA AZUL LOS SAUCES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010135",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0135",
+      "nom_asen": "COSTA BRAVA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010132",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0132",
+      "nom_asen": "COSTA BRAVA II",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010136",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0136",
+      "nom_asen": "COSTA DORADA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010478",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0478",
+      "nom_asen": "COTO PLATINO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010494",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0494",
+      "nom_asen": "COTO PLATINO NORTE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010460",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0460",
+      "nom_asen": "CUARTA AMPLIACIÓN RICARDO FLORES MAGÓN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010139",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0139",
+      "nom_asen": "DELFINES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010262",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0262",
+      "nom_asen": "DEMETRIO VALLEJO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010318",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0318",
+      "nom_asen": "DEPORTIVO MURALLA",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010140",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0140",
+      "nom_asen": "DOÑA CHONITAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010023",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0023",
+      "nom_asen": "DORADOS DE VILLA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010105",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0105",
+      "nom_asen": "ECOLÓGICA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010024",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0024",
+      "nom_asen": "EJIDAL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010413",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0413",
+      "nom_asen": "EJIDAL FRANCISCO VILLA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010141",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0141",
+      "nom_asen": "EL CAMPESTRE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010142",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0142",
+      "nom_asen": "EL CID",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010495",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0495",
+      "nom_asen": "EL CIELO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010111",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0111",
+      "nom_asen": "EL CONCHI",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010496",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0496",
+      "nom_asen": "EL DELFIN",
+      "tipo_asen": "RESIDENCIAL",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010143",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0143",
+      "nom_asen": "EL DORADO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010329",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0329",
+      "nom_asen": "EL ENCANTO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010144",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0144",
+      "nom_asen": "EL PALMAR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010364",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0364",
+      "nom_asen": "EL PALMITO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010145",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0145",
+      "nom_asen": "EL PARAÍSO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010027",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0027",
+      "nom_asen": "EL PESCADOR",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010146",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0146",
+      "nom_asen": "EL SECRETO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010147",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0147",
+      "nom_asen": "EL TOREO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010414",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0414",
+      "nom_asen": "EL TORO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010028",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0028",
+      "nom_asen": "EMILIANO ZAPATA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010390",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0390",
+      "nom_asen": "EMILIO GOICOECHEA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010148",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0148",
+      "nom_asen": "ESMERALDA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010029",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0029",
+      "nom_asen": "ESPERANZA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010149",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0149",
+      "nom_asen": "ESTADIO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010030",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0030",
+      "nom_asen": "ESTERO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010150",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0150",
+      "nom_asen": "EX-HACIENDA DEL CONCHI",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010151",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0151",
+      "nom_asen": "EX-LAGUNA LAS GAVIOTAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010292",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0292",
+      "nom_asen": "FELICIDAD",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010368",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0368",
+      "nom_asen": "FELIPE ÁNGELES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010032",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0032",
+      "nom_asen": "FERROCARRILERA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010391",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0391",
+      "nom_asen": "FINCA LOS MOLINOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010152",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0152",
+      "nom_asen": "FLAMINGOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010112",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0112",
+      "nom_asen": "FOVISSSTE ESPERANZA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010110",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0110",
+      "nom_asen": "FOVISSSTE JABALÍES",
+      "tipo_asen": "CONJUNTO HABITACIONAL",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010113",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0113",
+      "nom_asen": "FOVISSSTE MAZATLÁN PLAYA AZUL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010137",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0137",
+      "nom_asen": "FRACCIONAMIENTO DEL BOSQUE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010138",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0138",
+      "nom_asen": "FRACCIONAMIENTO DEL VALLE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010033",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0033",
+      "nom_asen": "FRANCISCO I. MADERO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010034",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0034",
+      "nom_asen": "FRANCISCO LABASTIDA OCHOA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010035",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0035",
+      "nom_asen": "FRANCISCO SOLÍS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010036",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0036",
+      "nom_asen": "FRANCISCO VILLA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010153",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0153",
+      "nom_asen": "FUENTES DEL VALLE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010037",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0037",
+      "nom_asen": "GABRIEL LEYVA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010038",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0038",
+      "nom_asen": "GENARO ESTRADA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010235",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0235",
+      "nom_asen": "GILBERTO LÓPEZ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010154",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0154",
+      "nom_asen": "GIRASOLES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010066",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0066",
+      "nom_asen": "GUADALUPE VICTORIA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010039",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0039",
+      "nom_asen": "GUSTAVO DÍAZ ORDAZ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010040",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0040",
+      "nom_asen": "HACIENDA DE URÍAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010155",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0155",
+      "nom_asen": "HACIENDA DEL MAR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010415",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0415",
+      "nom_asen": "HACIENDA DEL SEMINARIO I",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010403",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0403",
+      "nom_asen": "HACIENDA DEL SEMINARIO I",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010461",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0461",
+      "nom_asen": "HACIENDA DEL SEMINARIO II",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010462",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0462",
+      "nom_asen": "HACIENDA DEL SEMINARIO III",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010463",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0463",
+      "nom_asen": "HACIENDA DEL SEMINARIO IV",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010479",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0479",
+      "nom_asen": "HACIENDA DEL SEMINARIO V",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010497",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0497",
+      "nom_asen": "HACIENDA DEL SEMINARIO VI",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010416",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0416",
+      "nom_asen": "HACIENDA DEL VALLE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010464",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0464",
+      "nom_asen": "HACIENDA DON FEDERICO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010156",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0156",
+      "nom_asen": "HACIENDA LAS CRUCES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010321",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0321",
+      "nom_asen": "HACIENDA LOS MANGOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010330",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0330",
+      "nom_asen": "HACIENDA VICTORIA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010480",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0480",
+      "nom_asen": "HIGUERAS RESIDENCIAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010236",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0236",
+      "nom_asen": "HOGAR DEL PESCADOR",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010385",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0385",
+      "nom_asen": "HOSPITAL MILITAR REGIONAL DE ESPECIALIDADES",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010465",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0465",
+      "nom_asen": "HUERTA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010041",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0041",
+      "nom_asen": "HUERTA GRANDE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010042",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0042",
+      "nom_asen": "HUERTOS FAMILIARES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010273",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0273",
+      "nom_asen": "III REGIÓN MILITAR",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010043",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0043",
+      "nom_asen": "INDEPENDENCIA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010237",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0237",
+      "nom_asen": "INFONAVIT EL CONCHI",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010001",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0001",
+      "nom_asen": "INFONAVIT FRANCISCO ALARCÓN (VENADILLO II)",
+      "tipo_asen": "AMPLIACIÓN",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010238",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0238",
+      "nom_asen": "INFONAVIT FRANCISCO ALARCÓN F.",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010239",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0239",
+      "nom_asen": "INFONAVIT JABALÍES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010240",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0240",
+      "nom_asen": "INFONAVIT JABALINES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010241",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0241",
+      "nom_asen": "INFONAVIT OLIMPO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010242",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0242",
+      "nom_asen": "INFONAVIT PLAYAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010435",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0435",
+      "nom_asen": "INSTITUTO CANIZALEZ DE MAZATLÁN",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010044",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0044",
+      "nom_asen": "INSURGENTES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010331",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0331",
+      "nom_asen": "ISLA MAZATLÁN",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010243",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0243",
+      "nom_asen": "ISLA RESIDENCIAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010244",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0244",
+      "nom_asen": "ISSSTEESIN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010157",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0157",
+      "nom_asen": "JACARANDAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010417",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0417",
+      "nom_asen": "JARDINES DE LA ALAMEDA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010418",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0418",
+      "nom_asen": "JARDINES DE LA RIVERA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010466",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0466",
+      "nom_asen": "JARDINES DEL ARROYO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010158",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0158",
+      "nom_asen": "JARDINES DEL BOSQUE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010159",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0159",
+      "nom_asen": "JARDINES DEL TOREO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010045",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0045",
+      "nom_asen": "JARDINES DEL VALLE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010419",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0419",
+      "nom_asen": "JARDINES RESIDENCIAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010046",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0046",
+      "nom_asen": "JARIPILLO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010047",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0047",
+      "nom_asen": "JESÚS GARCÍA C.",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010245",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0245",
+      "nom_asen": "JESÚS KUMATE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010048",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0048",
+      "nom_asen": "JESÚS OSUNA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010090",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0090",
+      "nom_asen": "JOSEFA ORTIZ DE DOMÍNGUEZ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010049",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0049",
+      "nom_asen": "JUAN CARRASCO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010050",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0050",
+      "nom_asen": "KLEIN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010160",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0160",
+      "nom_asen": "LA CAMPIÑA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010481",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0481",
+      "nom_asen": "LA CANTERA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010161",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0161",
+      "nom_asen": "LA FORESTA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010332",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0332",
+      "nom_asen": "LA JOYA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010402",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0402",
+      "nom_asen": "LA RIVIERA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010051",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0051",
+      "nom_asen": "LA SIRENA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010052",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0052",
+      "nom_asen": "LADRILLERA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010369",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0369",
+      "nom_asen": "LADRILLERA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010246",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0246",
+      "nom_asen": "LAS AVENIDAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010162",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0162",
+      "nom_asen": "LAS BRISAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010483",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0483",
+      "nom_asen": "LAS FLORES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010163",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0163",
+      "nom_asen": "LAS GAVIOTAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010498",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0498",
+      "nom_asen": "LAS HABAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010422",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0422",
+      "nom_asen": "LAS HABAS",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010164",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0164",
+      "nom_asen": "LAS MAÑANITAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010183",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0183",
+      "nom_asen": "LAS MISIONES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010165",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0165",
+      "nom_asen": "LAS MISIONES 2000",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010166",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0166",
+      "nom_asen": "LAS OLAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010167",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0167",
+      "nom_asen": "LAS PALMAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010168",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0168",
+      "nom_asen": "LAS TORRES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010333",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0333",
+      "nom_asen": "LAS VARAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010053",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0053",
+      "nom_asen": "LÁZARO CÁRDENAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010054",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0054",
+      "nom_asen": "LIBERTAD",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010055",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0055",
+      "nom_asen": "LIBERTAD DE EXPRESIÓN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010056",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0056",
+      "nom_asen": "LICO VELARDE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010392",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0392",
+      "nom_asen": "LÍDERES EN ACCIÓN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010057",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0057",
+      "nom_asen": "LOMA ATRAVESADA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010058",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0058",
+      "nom_asen": "LOMA BONITA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010059",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0059",
+      "nom_asen": "LOMA LINDA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010060",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0060",
+      "nom_asen": "LOMAS DE CRISTO REY",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010467",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0467",
+      "nom_asen": "LOMAS DE DON JORGE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010399",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0399",
+      "nom_asen": "LOMAS DE JUÁREZ",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010169",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0169",
+      "nom_asen": "LOMAS DE MAZATLÁN",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010170",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0170",
+      "nom_asen": "LOMAS DE SAN JORGE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010171",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0171",
+      "nom_asen": "LOMAS DEL BOSQUE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010062",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0062",
+      "nom_asen": "LOMAS DEL ÉBANO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010172",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0172",
+      "nom_asen": "LOMAS DEL MAR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010247",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0247",
+      "nom_asen": "LOMAS DEL PORVENIR",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010173",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0173",
+      "nom_asen": "LOMAS DEL VALLE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010063",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0063",
+      "nom_asen": "LÓPEZ MATEOS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010468",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0468",
+      "nom_asen": "LOS ACANTOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010499",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0499",
+      "nom_asen": "LOS ÁNGELES (SANTA FÉ)",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010174",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0174",
+      "nom_asen": "LOS CARACOLES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010176",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0176",
+      "nom_asen": "LOS LAURELES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010334",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0334",
+      "nom_asen": "LOS MAGUEYES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010177",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0177",
+      "nom_asen": "LOS MANGOS I",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010185",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0185",
+      "nom_asen": "LOS OLIVOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010064",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0064",
+      "nom_asen": "LOS PINOS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010178",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0178",
+      "nom_asen": "LOS PORTALES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010065",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0065",
+      "nom_asen": "LOS ROBLES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010370",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0370",
+      "nom_asen": "LOS TABACHINES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010179",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0179",
+      "nom_asen": "LOS VENADOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010067",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0067",
+      "nom_asen": "LUIS ECHEVERRÍA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010335",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0335",
+      "nom_asen": "MANGOS II",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010342",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0342",
+      "nom_asen": "MANUEL J. CLOUTHIER",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010484",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0484",
+      "nom_asen": "MAR ALTO RESIDENCIAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010180",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0180",
+      "nom_asen": "MAR DE CORTEZ",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010500",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0500",
+      "nom_asen": "MARENGO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010248",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0248",
+      "nom_asen": "MARÍA ANTONIETA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010068",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0068",
+      "nom_asen": "MARÍA DEL MAR",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010069",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0069",
+      "nom_asen": "MARÍA ELENA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010181",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0181",
+      "nom_asen": "MARÍA FERNANDA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010249",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0249",
+      "nom_asen": "MARINA EL CID",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010336",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0336",
+      "nom_asen": "MARINA GARDEN",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010337",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0337",
+      "nom_asen": "MARINA KELLY",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010250",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0250",
+      "nom_asen": "MARINA MAZATLÁN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010338",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0338",
+      "nom_asen": "MARINA REAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010070",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0070",
+      "nom_asen": "MAZATLÁN I",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010371",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0371",
+      "nom_asen": "MAZATLÁN II",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010372",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0372",
+      "nom_asen": "MAZATLÁN III",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010339",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0339",
+      "nom_asen": "MEDITERRÁNEO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010182",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0182",
+      "nom_asen": "MELINA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010340",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0340",
+      "nom_asen": "MIGUEL HIDALGO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010341",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0341",
+      "nom_asen": "MIRAMAR",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010071",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0071",
+      "nom_asen": "MONTE CALVARIO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010424",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0424",
+      "nom_asen": "MONTE VERDE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010373",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0373",
+      "nom_asen": "MONTEBELLO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010072",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0072",
+      "nom_asen": "MONTUOSA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010073",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0073",
+      "nom_asen": "MORELOS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010469",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0469",
+      "nom_asen": "MUNDIALISTA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010485",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0485",
+      "nom_asen": "NEOVITA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010271",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0271",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010272",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0272",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010277",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0277",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010279",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0279",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010280",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0280",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010282",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0282",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010283",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0283",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010438",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0438",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010288",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0288",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010289",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0289",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010291",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0291",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010437",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0437",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010295",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0295",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010296",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0296",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010297",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0297",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010299",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0299",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010300",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0300",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010301",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0301",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010284",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0284",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010450",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0450",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010501",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0501",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010448",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0448",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010447",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0447",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010446",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0446",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010444",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0444",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010443",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0443",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010442",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0442",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010441",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0441",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010439",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0439",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010261",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0261",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010263",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0263",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010265",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0265",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010267",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0267",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010303",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0303",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010310",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0310",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010314",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0314",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010317",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0317",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010320",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0320",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010476",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0476",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010408",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0408",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010407",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0407",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010406",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0406",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010404",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0404",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010451",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0451",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010398",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0398",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010381",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0381",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010367",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0367",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010365",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0365",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010363",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0363",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010074",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0074",
+      "nom_asen": "NIÑOS HÉROES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010184",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0184",
+      "nom_asen": "NUEVO CAJEME",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010075",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0075",
+      "nom_asen": "NUEVO MILENIO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010076",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0076",
+      "nom_asen": "OBRERA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010077",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0077",
+      "nom_asen": "OBRERA INDUSTRIAL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010470",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0470",
+      "nom_asen": "OCTAVA AMPLIACIÓN RICARDO FLORES MAGÓN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010078",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0078",
+      "nom_asen": "OLÍMPICA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010393",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0393",
+      "nom_asen": "OPORTO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010486",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0486",
+      "nom_asen": "PACÍFICO HILLS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010502",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0502",
+      "nom_asen": "PALMARES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010186",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0186",
+      "nom_asen": "PALMAS DEL SOL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010293",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0293",
+      "nom_asen": "PALMILLA RESIDENCIAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010079",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0079",
+      "nom_asen": "PALOS PRIETOS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010312",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0312",
+      "nom_asen": "PANTEÓN MUNICIPAL JARDÍN NÚMERO 4",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010264",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0264",
+      "nom_asen": "PANTEÓN RENACIMIENTO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010503",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0503",
+      "nom_asen": "PARAÍSO MARINA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010187",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0187",
+      "nom_asen": "PASEO ALAMEDA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010188",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0188",
+      "nom_asen": "PASEO ALAMEDA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010189",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0189",
+      "nom_asen": "PASEO DE LAS TORRES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010190",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0190",
+      "nom_asen": "PASEO DE LOS OLIVOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010268",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0268",
+      "nom_asen": "PEMEX",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010080",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0080",
+      "nom_asen": "PERIODISTA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010191",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0191",
+      "nom_asen": "PETRÓLEOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010253",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0253",
+      "nom_asen": "PETROLEROS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010081",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0081",
+      "nom_asen": "PINO SUÁREZ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010471",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0471",
+      "nom_asen": "PLAYA BRUJAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010426",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0426",
+      "nom_asen": "PLAYA LINDA",
+      "tipo_asen": "PRIVADA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010193",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0193",
+      "nom_asen": "PLAYA SUR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010192",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0192",
+      "nom_asen": "PLAYAS DEL SOL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010194",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0194",
+      "nom_asen": "PLAZA REFORMA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010254",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0254",
+      "nom_asen": "POBLADO EL VENADILLO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010453",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0453",
+      "nom_asen": "PORTAL DE LOS OLIVOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010487",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0487",
+      "nom_asen": "PORTOVERA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010343",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0343",
+      "nom_asen": "PRADERA DORADA I",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010382",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0382",
+      "nom_asen": "PRADERA DORADA II",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010383",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0383",
+      "nom_asen": "PRADERA DORADA III",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010427",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0427",
+      "nom_asen": "PRADERA DORADA IV",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010452",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0452",
+      "nom_asen": "PRADERA DORADA V",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010472",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0472",
+      "nom_asen": "PRADERA DORADA VI",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010488",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0488",
+      "nom_asen": "PRADERA DORADA VII",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010195",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0195",
+      "nom_asen": "PRADO BONITO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010196",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0196",
+      "nom_asen": "PRADOS DEL SOL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010394",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0394",
+      "nom_asen": "PRESAS DEL VALLE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010082",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0082",
+      "nom_asen": "PRIMAVERA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010197",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0197",
+      "nom_asen": "PRIVADA RINCÓN COLONIAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010345",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0345",
+      "nom_asen": "PRIVANZA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010083",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0083",
+      "nom_asen": "PUEBLO NUEVO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010346",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0346",
+      "nom_asen": "PUERTA AL MAR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010347",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0347",
+      "nom_asen": "PUERTA DEL SOL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010198",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0198",
+      "nom_asen": "PUERTA DORADA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010199",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0199",
+      "nom_asen": "PUESTA DEL SOL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010378",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0378",
+      "nom_asen": "PUNTA ARENA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010348",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0348",
+      "nom_asen": "PUNTA DIAMANTE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010349",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0349",
+      "nom_asen": "QUINTA CHAPALITA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010114",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0114",
+      "nom_asen": "QUINTA GAVIOTAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010350",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0350",
+      "nom_asen": "QUINTA REAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010200",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0200",
+      "nom_asen": "QUINTAS DEL MAR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010084",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0084",
+      "nom_asen": "RAFAEL BUELNA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010395",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0395",
+      "nom_asen": "RAICES RESIDENCIAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010085",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0085",
+      "nom_asen": "RAMÓN F. ITURBE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010255",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0255",
+      "nom_asen": "REAL DEL MAR",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010351",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0351",
+      "nom_asen": "REAL DEL VALLE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010352",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0352",
+      "nom_asen": "REAL PACÍFICO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010086",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0086",
+      "nom_asen": "REFORMA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010087",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0087",
+      "nom_asen": "RENATO VEGA AMADOR",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010473",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0473",
+      "nom_asen": "RESIDENCIAL ALTABRISA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010003",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0003",
+      "nom_asen": "RESIDENCIAL AZALEA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010201",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0201",
+      "nom_asen": "RESIDENCIAL FLAMINGOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010428",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0428",
+      "nom_asen": "RESIDENCIAL LA CIMA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010482",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0482",
+      "nom_asen": "RESIDENCIAL LA PEDRERA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010429",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0429",
+      "nom_asen": "RESIDENCIAL PORTOMOLINO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010396",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0396",
+      "nom_asen": "RESIDENCIAL REGINA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010202",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0202",
+      "nom_asen": "RESIDENCIAL RINCONADA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010430",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0430",
+      "nom_asen": "RESIDENCIAL SANTA RITA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010431",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0431",
+      "nom_asen": "RESIDENCIAL ZAFIRO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010088",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0088",
+      "nom_asen": "RICARDO FLORES MAGÓN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010256",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0256",
+      "nom_asen": "RINCÓN DE LAS PALMAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010203",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0203",
+      "nom_asen": "RINCÓN DE LAS PLAZAS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010432",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0432",
+      "nom_asen": "RINCÓN DE MAZATLÁN",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010353",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0353",
+      "nom_asen": "RINCÓN DE MAZATLÁN",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010026",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0026",
+      "nom_asen": "RINCÓN DE URÍAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010257",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0257",
+      "nom_asen": "RINCONADA DEL VALLE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010354",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0354",
+      "nom_asen": "ROMANITA DE LA PEÑA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010204",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0204",
+      "nom_asen": "ROYAL COUNTRY",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010089",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0089",
+      "nom_asen": "RUBÉN JARAMILLO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010205",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0205",
+      "nom_asen": "SÁBALO COUNTRY",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010091",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0091",
+      "nom_asen": "SALVADOR ALLENDE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010206",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0206",
+      "nom_asen": "SAN ÁNGEL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010375",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0375",
+      "nom_asen": "SAN ANTONIO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010504",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0504",
+      "nom_asen": "SAN ANTONIO HILL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010207",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0207",
+      "nom_asen": "SAN CARLOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010355",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0355",
+      "nom_asen": "SAN FERNANDO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010208",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0208",
+      "nom_asen": "SAN FRANCISCO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010209",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0209",
+      "nom_asen": "SAN JOAQUÍN",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010210",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0210",
+      "nom_asen": "SAN MARCOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010356",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0356",
+      "nom_asen": "SAN NICOLÁS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010258",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0258",
+      "nom_asen": "SAN RAFAEL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010092",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0092",
+      "nom_asen": "SÁNCHEZ CELIS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010093",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0093",
+      "nom_asen": "SÁNCHEZ TABOADA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010094",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0094",
+      "nom_asen": "SANTA CECILIA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010095",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0095",
+      "nom_asen": "SANTA ELENA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010211",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0211",
+      "nom_asen": "SANTA LAURA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010212",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0212",
+      "nom_asen": "SANTA RITA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010096",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0096",
+      "nom_asen": "SANTA ROSA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010213",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0213",
+      "nom_asen": "SANTA SOFÍA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010357",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0357",
+      "nom_asen": "SANTA TERESA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010214",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0214",
+      "nom_asen": "SANTA VIRGINIA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010308",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0308",
+      "nom_asen": "SEGUNDA AMPLIACIÓN VALLE DE URÍAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010215",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0215",
+      "nom_asen": "SEMBRADORES DE LA AMISTAD",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010475",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0475",
+      "nom_asen": "SEXTA AMPLIACIÓN RICARDO FLORES MAGÓN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010097",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0097",
+      "nom_asen": "SIMÓN JIMÉNEZ CÁRDENAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010098",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0098",
+      "nom_asen": "SINALOA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010505",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0505",
+      "nom_asen": "SOLES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010489",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0489",
+      "nom_asen": "SONTERRA RESIDENCIAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010490",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0490",
+      "nom_asen": "STANZA MAGNOLIA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010260",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0260",
+      "nom_asen": "TECNOLÓGICO DE MONTERREY",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010216",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0216",
+      "nom_asen": "TELLERÍA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010217",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0217",
+      "nom_asen": "TERRANOVA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010218",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0218",
+      "nom_asen": "TERRANOVA PLUS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010099",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0099",
+      "nom_asen": "TIERRA Y LIBERTAD",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010219",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0219",
+      "nom_asen": "TORREMOLINOS",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010133",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0133",
+      "nom_asen": "TORREMOLINOS COSTA AZUL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010220",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0220",
+      "nom_asen": "TORTUGAS I",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010436",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0436",
+      "nom_asen": "UNIDAD DEPORTIVA LICENCIADO BENITO JUÁREZ",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010274",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0274",
+      "nom_asen": "UNIDAD DEPORTIVA SOLIDARIDAD",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010221",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0221",
+      "nom_asen": "UNIVERSIDAD 94",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010100",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0100",
+      "nom_asen": "UNIVERSO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010101",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0101",
+      "nom_asen": "URÍAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010358",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0358",
+      "nom_asen": "VALLE BONITO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010102",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0102",
+      "nom_asen": "VALLE DE URÍAS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010103",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0103",
+      "nom_asen": "VALLE DEL EJIDO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010222",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0222",
+      "nom_asen": "VALLE DORADO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010223",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0223",
+      "nom_asen": "VALLE DORADO II",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010359",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0359",
+      "nom_asen": "VALLES DEL SOL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010104",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0104",
+      "nom_asen": "VENUSTIANO CARRANZA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010405",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0405",
+      "nom_asen": "VICENTE GUERRERO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010224",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0224",
+      "nom_asen": "VILLA BONITA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010225",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0225",
+      "nom_asen": "VILLA CAREY",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010313",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0313",
+      "nom_asen": "VILLA DE GUADALUPE",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010323",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0323",
+      "nom_asen": "VILLA DE LAS FLORES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010226",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0226",
+      "nom_asen": "VILLA FLORIDA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010227",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0227",
+      "nom_asen": "VILLA GALAXIA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010324",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0324",
+      "nom_asen": "VILLA JARACO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010228",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0228",
+      "nom_asen": "VILLA MARINA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010229",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0229",
+      "nom_asen": "VILLA SATÉLITE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010360",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0360",
+      "nom_asen": "VILLA TUTULI I",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010361",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0361",
+      "nom_asen": "VILLA TUTULI II",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010230",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0230",
+      "nom_asen": "VILLA VERDE",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010433",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0433",
+      "nom_asen": "VILLAS DE RUEDA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010106",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0106",
+      "nom_asen": "VILLAS DEL ESTERO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010231",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0231",
+      "nom_asen": "VILLAS DEL MAR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010376",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0376",
+      "nom_asen": "VILLAS DEL REAL",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010232",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0232",
+      "nom_asen": "VILLAS DEL REY",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010107",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0107",
+      "nom_asen": "VILLAS DEL SOL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010434",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0434",
+      "nom_asen": "VILLAS TRANQUILA",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010233",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0233",
+      "nom_asen": "VISTA DEL MAR",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010234",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0234",
+      "nom_asen": "VIVA PROGRESO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010298",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0298",
+      "nom_asen": "ZONA DORADA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501200010285",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0001",
+      "cve_asen": "0285",
+      "nom_asen": "ZONA NAVAL",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480001",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0001",
+      "nom_asen": "7 DE ABRIL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480002",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0002",
+      "nom_asen": "AGUSTINA RAMÍREZ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480003",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0003",
+      "nom_asen": "ALFONSO G. CALDERÓN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480019",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0019",
+      "nom_asen": "AMPLIACIÓN 7 DE ABRIL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480004",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0004",
+      "nom_asen": "ÁNGELA PERALTA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480029",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0029",
+      "nom_asen": "ÁNGELA PERALTA",
+      "tipo_asen": "AMPLIACIÓN",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480016",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0016",
+      "nom_asen": "ANTONIO TOLEDO CORRO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480028",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0028",
+      "nom_asen": "BIENESTAR SOCIAL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480005",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0005",
+      "nom_asen": "BUENAVISTA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480006",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0006",
+      "nom_asen": "EJIDAL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480023",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0023",
+      "nom_asen": "EL TRONCONAL",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480007",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0007",
+      "nom_asen": "FIDEL VELÁZQUEZ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480008",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0008",
+      "nom_asen": "FLOR DE MAYO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480011",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0011",
+      "nom_asen": "JOSÉ LÓPEZ PORTILLO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480013",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0013",
+      "nom_asen": "JULIO ARROYO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480009",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0009",
+      "nom_asen": "LIENZO CHARRO",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480010",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0010",
+      "nom_asen": "LOMAS DE VILLA UNIÓN",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480024",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0024",
+      "nom_asen": "LOS SAUCES",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480025",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0025",
+      "nom_asen": "MANUEL SOLER",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480017",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0017",
+      "nom_asen": "MARGARITA MAZA DE JUÁREZ",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480018",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0018",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480020",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0020",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480027",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0027",
+      "nom_asen": "NINGUNO",
+      "tipo_asen": "NINGUNO",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480012",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0012",
+      "nom_asen": "ONCE RÍOS",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480026",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0026",
+      "nom_asen": "RAUL OSUNA BURGUEÑO",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480014",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0014",
+      "nom_asen": "RENATO VEGA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501203480015",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "0348",
+      "cve_asen": "0015",
+      "nom_asen": "SIXTO OSUNA",
+      "tipo_asen": "COLONIA",
+      "periodo": "11/2024"
+    },
+    {
+      "cvegeo": "2501212570001",
+      "cve_ent": "25",
+      "cve_mun": "012",
+      "cve_loc": "1257",
+      "cve_asen": "0001",
+      "nom_asen": "SANTA FE LOS ÁNGELES",
+      "tipo_asen": "FRACCIONAMIENTO",
+      "periodo": "11/2023"
+    }
+  ],
+  "metadatos": {
+    "Fuente_informacion_estadistica": "INEGI. Censo de Población y Vivienda, 2020"
+  },
+  "numReg": 494
+}
