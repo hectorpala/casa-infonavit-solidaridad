@@ -36,8 +36,18 @@ const GeocodingMapApp = {
     initMap() {
         console.log('🗺️ Inicializando mapa...');
 
-        // Coordenadas iniciales (Culiacán centro)
-        const initialCoords = [24.8091, -107.3940];
+        // Obtener municipio seleccionado
+        const municipalitySelect = document.getElementById('municipality');
+        const municipality = municipalitySelect ? municipalitySelect.value : 'culiacan';
+        this.currentMunicipality = municipality;
+
+        // Coordenadas por municipio
+        const coordsByMunicipality = {
+            'culiacan': [24.8091, -107.3940],
+            'mazatlan': [23.2494, -106.4111]
+        };
+
+        const initialCoords = coordsByMunicipality[municipality] || coordsByMunicipality['culiacan'];
         const initialZoom = 13;
 
         // Crear mapa
@@ -55,7 +65,7 @@ const GeocodingMapApp = {
             metric: true
         }).addTo(this.map);
 
-        console.log('✅ Mapa inicializado');
+        console.log(`✅ Mapa inicializado en ${municipality}`);
     },
 
     /**
@@ -65,10 +75,10 @@ const GeocodingMapApp = {
         console.log('🔍 Inicializando autocompletes...');
 
         // El objeto Autocomplete ya está disponible globalmente desde autocomplete.js
-        // Solo necesitamos llamar su método init() que carga los datos y configura los listeners
+        // Inicializar con el municipio actual
         if (typeof Autocomplete !== 'undefined') {
-            await Autocomplete.init();
-            console.log('✅ Autocompletes inicializados (Autocomplete.init() llamado)');
+            await Autocomplete.init(this.currentMunicipality);
+            console.log(`✅ Autocompletes inicializados para ${this.currentMunicipality}`);
         } else {
             console.error('❌ Autocomplete no está disponible. Verifica que autocomplete.js esté cargado.');
         }
@@ -91,9 +101,17 @@ const GeocodingMapApp = {
 
         // Municipality change
         const municipalitySelect = document.getElementById('municipality');
-        municipalitySelect.addEventListener('change', (e) => {
-            this.currentMunicipality = e.target.value;
+        municipalitySelect.addEventListener('change', async (e) => {
+            const newMunicipality = e.target.value;
+            console.log(`🏙️ Municipio cambiado a: ${newMunicipality}`);
+
+            this.currentMunicipality = newMunicipality;
             this.updateMapCenter();
+
+            // Recargar datos del autocomplete
+            if (typeof Autocomplete !== 'undefined' && Autocomplete.reloadData) {
+                await Autocomplete.reloadData(newMunicipality);
+            }
         });
 
         // Copy coordinates button
