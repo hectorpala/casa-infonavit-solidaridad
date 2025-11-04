@@ -76,8 +76,10 @@ const GeocodingMapApp = {
 
         // El objeto Autocomplete ya está disponible globalmente desde autocomplete.js
         // Inicializar con el municipio actual
+        // Pasamos false como segundo parámetro para evitar que autocomplete.js configure su propio listener
+        // Nosotros manejamos el listener en setupEventListeners()
         if (typeof Autocomplete !== 'undefined') {
-            await Autocomplete.init(this.currentMunicipality);
+            await Autocomplete.init(this.currentMunicipality, false);
             console.log(`✅ Autocompletes inicializados para ${this.currentMunicipality}`);
         } else {
             console.error('❌ Autocomplete no está disponible. Verifica que autocomplete.js esté cargado.');
