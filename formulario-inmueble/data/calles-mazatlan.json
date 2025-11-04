@@ -1,13 +1,22 @@
 {
   "metadata": {
-    "origen": "INEGI - Catálogo de Vialidades",
-    "url": "https://gaia.inegi.org.mx/wscatgeo/v2/vialidades/25/012",
-    "fechaConsulta": "2025-11-03T23:53:39.108Z",
+    "origen": "INEGI + OpenStreetMap (Fusionado)",
     "municipio": "Mazatlán",
     "estado": "Sinaloa",
-    "claveGeo": "25012",
-    "totalOriginal": 9050,
-    "totalProcesadas": 4181,
+    "codigoGeoestadistico": "25/012",
+    "fecha": "2025-11-04",
+    "totalCalles": 4182,
+    "fuentes": {
+      "INEGI": {
+        "calles": 4181,
+        "descripcion": "Vialidades oficiales del Marco Geoestadístico Nacional"
+      },
+      "OpenStreetMap": {
+        "calles": 1,
+        "descripcion": "Vialidades adicionales mapeadas por la comunidad"
+      }
+    },
+    "nota": "Base de datos completa con vialidades oficiales (INEGI) y comunitarias (OSM)",
     "tipos": {
       "ANDADOR": 174,
       "AVENIDA": 244,
@@ -510,6 +519,7 @@
     "Calle 28 de Febrero",
     "Calle 3 de Julio",
     "Calle 3 Regalos",
+    "Calle 30",
     "Calle 31 de Enero",
     "Calle 31 de Mayo",
     "Calle 5 de Febrero",

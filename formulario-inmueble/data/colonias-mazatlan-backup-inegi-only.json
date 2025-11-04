@@ -1,31 +1,16 @@
 {
   "metadata": {
-    "origen": "INEGI + SEPOMEX (Fusionado)",
+    "origen": "INEGI - Marco Geoestadístico Nacional",
+    "url": "https://gaia.inegi.org.mx/wscatgeo/v2/asentamientos/25/012",
+    "fechaConsulta": "2025-11-03T23:41:56.054Z",
     "municipio": "Mazatlán",
     "estado": "Sinaloa",
-    "codigoGeoestadistico": "25/012",
-    "fecha": "2025-11-04",
-    "totalColonias": 657,
-    "fuentes": {
-      "INEGI": {
-        "colonias": 425,
-        "descripcion": "Marco Geoestadístico Nacional (oficial)"
-      },
-      "SEPOMEX": {
-        "colonias": 232,
-        "descripcion": "Servicio Postal Mexicano (oficial)"
-      }
-    },
-    "nota": "Base de datos completa fusionando INEGI y SEPOMEX para máxima cobertura",
+    "claveGeo": "25012",
+    "totalEntradas": 425,
     "tipos": {
-      "Colonia": 190,
-      "Conjunto Habitacional": 2,
-      "COLONIA": 232,
-      "Fraccionamiento": 228,
-      "Parque Industrial": 1,
-      "Ampliación": 2,
-      "Residencial": 1,
-      "Privada": 1
+      "colonias": 190,
+      "fraccionamientos": 228,
+      "otros": 7
     }
   },
   "colonias": [
@@ -56,30 +41,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "2a Ampliación Felipe Ángeles",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "2da. Ampliación Valle de Urias",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "5ta Chapalita",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -138,30 +99,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Almar",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Almarena Residencial",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Altabrisa Residencial",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "AMPLIACIÓN 7 DE ABRIL",
       "codigoPostal": "82000",
@@ -169,43 +106,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Ampliación el Castillo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Ampliación el Zapote",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "AMPLIACIÓN ESPERANZA",
       "codigoPostal": "82190",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Ampliación Felipe Ángeles",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Ampliación Francisco Alarcón (Venadillo II)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -341,14 +246,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Armadillo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "ARRECIFES",
       "codigoPostal": "82000",
@@ -368,14 +265,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Azalea",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -406,14 +295,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Bahía de Mazatlán FOVISSSTE",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "BAHÍAS",
       "codigoPostal": "82103",
@@ -435,14 +316,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Barrón",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "BENITO JUÁREZ",
       "codigoPostal": "82020",
@@ -462,14 +335,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Bluu Habitat Lagoons",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -528,14 +393,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Burócrata",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "BURÓCRATAS",
       "codigoPostal": "82000",
@@ -543,35 +400,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Camacho",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "CAMPO BELLO",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Campo Pueblo Nuevo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Campo Rey",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -609,27 +442,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Central Termoélectrica José Aceves Pozos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "CENTRO",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "CERESO Mazatlán",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -646,35 +463,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Charcos Prietos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Chicura de la Noria",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "CHULAVISTA",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Club Campestre Mazatlán",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -691,22 +484,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Cofradía (Cofradía de Leyva Solano)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Colima",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "COLINAS DEL REAL",
       "codigoPostal": "82000",
@@ -719,14 +496,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Colosio Si",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -757,14 +526,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Corredor de Abasto",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "CORREDOR DE ABASTOS",
       "codigoPostal": "82000",
@@ -777,14 +538,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Costa Bonita",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -829,30 +582,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "De los Niños",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Del Bosque",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Del Valle",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "DELFINES",
       "codigoPostal": "82000",
@@ -865,22 +594,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Diaz Ordaz",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Doña Chonita",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -904,14 +617,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Ejército de Salvación",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "EJIDAL",
       "codigoPostal": "82000",
@@ -933,99 +638,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Ejido Rincón de Urías",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Aguaje de Costilla",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Amole del Quelite",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Arenal",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Bajío",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Bebedero",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "EL CAMPESTRE",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Cañón de Batopilas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Castillo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Chamizal",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Chilar",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Chilillo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -1042,35 +659,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "El Cielo Parque Residencial",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "EL CONCHI",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Conchi Infonavit",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Contento",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Residencial",
@@ -1094,123 +687,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "El Espinal",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Garitón",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Guayabo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Habal",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Habalito del Tubo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Huizachal",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Llano",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Llorón",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Magistral",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Milagro",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Mirabal",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Moral",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Olvido",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "EL PALMAR",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Palmillar (El Palmillar de los Agüeros)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -1234,123 +715,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "El Pinto (El Cerro)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Placer",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Pochote",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Potrero de Carrasco",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Pozole",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Puente del Quelite",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Quelite",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Quemado",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Recodo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Recreo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Roble",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Salto",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "EL SECRETO",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Tecomate de la Noria",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Tecomate de Siqueros",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -1374,62 +743,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "El Vainillo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Venadillo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Verde",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Walamo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Zacate",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Zapotal",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "El Zapote",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "EMILIANO ZAPATA",
       "codigoPostal": "82060",
@@ -1442,22 +755,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Escamillas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Escondida de Palmillas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -1474,22 +771,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Esperanza Fovissste",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Estación Presidio",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "ESTADIO",
       "codigoPostal": "82000",
@@ -1504,22 +785,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Ex Hacienda del Conchi",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Ex Laguna Las Gaviotas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "EX-HACIENDA DEL CONCHI",
       "codigoPostal": "82000",
@@ -1532,14 +797,6 @@
       "codigoPostal": "82110",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Federico Velarde",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -1591,14 +848,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Flores Magón",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "FOVISSSTE ESPERANZA",
       "codigoPostal": "82190",
@@ -1620,14 +869,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "FOVISSSTE Playa Azul",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "FRACCIONAMIENTO DEL BOSQUE",
       "codigoPostal": "82000",
@@ -1640,22 +881,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Francisco Alarcón Infonavit",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Francisco I Madero",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -1707,22 +932,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Genaro Estrada Calderón",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Gilberto Lopez",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "GILBERTO LÓPEZ",
       "codigoPostal": "82000",
@@ -1737,14 +946,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Gral. Rafael Buelna",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "GUADALUPE VICTORIA",
       "codigoPostal": "82050",
@@ -1752,35 +953,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Guamúchil",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Guaymas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "GUSTAVO DÍAZ ORDAZ",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Hacienda de Urias",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -1795,14 +972,6 @@
       "codigoPostal": "82103",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Hacienda del Seminario",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -1903,14 +1072,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Hogar Pescador",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "HUERTA",
       "codigoPostal": "82000",
@@ -1995,14 +1156,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Isla de la Piedra",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "ISLA MAZATLÁN",
       "codigoPostal": "82000",
@@ -2022,30 +1175,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Issstesin",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Jabalíes",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Jabalines Infonavit",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -2111,14 +1240,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Jesús Garcia",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "JESÚS GARCÍA C.",
       "codigoPostal": "82000",
@@ -2140,35 +1261,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Jiménez",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "José de Nazaret",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "JOSÉ LÓPEZ PORTILLO",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "José María Pino Suárez",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -2185,14 +1282,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Juantillos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "JULIO ARROYO",
       "codigoPostal": "82000",
@@ -2205,22 +1294,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Alborada",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Amapa",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -2237,59 +1310,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "La Cantera II",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Chapalota",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Cima Residencial",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Curva del Potrero",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Embocada",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "LA FORESTA",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Guanera",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -2299,54 +1324,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "La Limonera",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Mora Escarbada",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Noria de San Antonio (La Noria)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Osa",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Palma Sola",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Presa",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "LA RIVIERA",
       "codigoPostal": "82000",
@@ -2354,51 +1331,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "La Sábila",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Semana",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "LA SIRENA",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Tuna",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Urraca Nueva",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "La Yerbabuena",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -2429,14 +1366,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Las Conchas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "LAS FLORES",
       "codigoPostal": "82149",
@@ -2451,35 +1380,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Las Guásimas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "LAS HABAS",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Las Higueras del Conchi",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Las Malvinas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -2503,14 +1408,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Las Moras de Alonso",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "LAS OLAS",
       "codigoPostal": "82000",
@@ -2523,30 +1420,6 @@
       "codigoPostal": "82100",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Las Salvias",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Las Tatemas de Arriba",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Las Tinajas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -2605,14 +1478,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Loma Alta de los Zataráin",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "LOMA ATRAVESADA",
       "codigoPostal": "82000",
@@ -2655,27 +1520,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Lomas de las Torres",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "LOMAS DE MAZATLÁN",
       "codigoPostal": "82110",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Lomas de Monterrey",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -2704,14 +1553,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Lomas del Guayabo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -2749,35 +1590,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Los Ángeles (Santa Fe)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "LOS ÁNGELES (SANTA FÉ)",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Añiles",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Arrayanes (El Saucito)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -2787,99 +1604,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Los Cardones de Arriba",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Cedros",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Cocos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Columpios",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Conchis Sección Arrecifes",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Copales",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Cuilones",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Ébanos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Gavilanes",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "LOS LAURELES",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Limones",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Llanitos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -2896,27 +1625,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Los Mangos II",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "LOS OLIVOS",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Paisas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -2931,14 +1644,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Los Pozos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -2969,14 +1674,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Los Zapotes",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "LUIS ECHEVERRÍA",
       "codigoPostal": "82000",
@@ -2984,27 +1681,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Luis Echeverría Alvarez",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "MANGOS II",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Manuel de la Vega",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -3026,14 +1707,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Mar de Cortes",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -3085,14 +1758,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Marina del Rey",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "MARINA EL CID",
       "codigoPostal": "82110",
@@ -3128,59 +1793,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Mármol de Salcido (Mármol)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Marsella",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Mazatlán (Gral. Rafael Buelna)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Mazatlán Centro",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Mazatlan I",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "MAZATLÁN I",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Mazatlan II",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -3204,27 +1821,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Mediterráneo Club Residencial",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "MELINA",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Metates",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -3239,30 +1840,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Mirasol",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Miravalles",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Misiones 2000",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -3321,14 +1898,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Nueva Creación",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "NUEVO CAJEME",
       "codigoPostal": "82000",
@@ -3364,27 +1933,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Octava Zona Naval (Puerto Mazatlán)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "OLÍMPICA",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Olimpo INFONAVIT",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -3422,35 +1975,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Palmeiras Club Residencial",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Palmilla",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "PALMILLA RESIDENCIAL",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Palmillas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -3465,14 +1994,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Parque Industrial Mazatlán",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -3503,22 +2024,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Pedro Rodríguez",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Peninsula",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "PERIODISTA",
       "codigoPostal": "82000",
@@ -3533,14 +2038,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Petrolero",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "PETROLEROS",
       "codigoPostal": "82000",
@@ -3548,35 +2045,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Pichilingue",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Piedra Blanca",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "PINO SUÁREZ",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Platino Norte",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -3607,27 +2080,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Playas del Sur",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "PLAZA REFORMA",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Plazas San Ignacio",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -3637,14 +2094,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Porras",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "PORTAL DE LOS OLIVOS",
       "codigoPostal": "82000",
@@ -3652,27 +2101,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Portomolino",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "PORTOVERA",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Potrerillos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -3759,14 +2192,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Privada Santa Rita",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "PRIVANZA",
       "codigoPostal": "82000",
@@ -3788,22 +2213,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Puerta de Canoas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Puerta de San Marcos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "PUERTA DEL SOL",
       "codigoPostal": "82000",
@@ -3823,14 +2232,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Puesta Norte",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -3882,27 +2283,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Raíces",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "RAICES RESIDENCIAL",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Ramon F Iturbide",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -4038,14 +2423,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Rincón Colonial",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "RINCÓN DE LAS PALMAS",
       "codigoPostal": "82100",
@@ -4088,14 +2465,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Roca Condominios",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "ROMANITA DE LA PEÑA",
       "codigoPostal": "82000",
@@ -4108,14 +2477,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Ruben Jaramillo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -4132,35 +2493,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Sábalo Country Club",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Salinas de Gortari",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "SALVADOR ALLENDE",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "San Angel",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -4205,51 +2542,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "San Francisquito",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "SAN JOAQUÍN",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "San José",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "San José (Chuchupiras)",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "San José del Cañón",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "San Juan",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -4266,22 +2563,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "San Pablo",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "San Pedro",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "SAN RAFAEL",
       "codigoPostal": "82000",
@@ -4289,27 +2570,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Sanchez Celis",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "SÁNCHEZ CELIS",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Sanchez Taboada",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -4331,14 +2596,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Santa Fe",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -4411,14 +2668,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Simon Jimenez Cárdenas",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "SIMÓN JIMÉNEZ CÁRDENAS",
       "codigoPostal": "82000",
@@ -4431,14 +2680,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Siqueros",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -4462,35 +2703,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Sonterra Residencial II",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "STANZA MAGNOLIA",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Telcoyonqui",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Telleria",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -4521,14 +2738,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Tiro",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "TORREMOLINOS",
       "codigoPostal": "82000",
@@ -4550,14 +2759,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Trópico de Cáncer",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "UNIVERSIDAD 94",
       "codigoPostal": "82000",
@@ -4570,14 +2771,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Urbivilla del Real",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -4594,14 +2787,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Valle de Urias",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "VALLE DE URÍAS",
       "codigoPostal": "82000",
@@ -4614,14 +2799,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Valle del Sol",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -4652,14 +2829,6 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Veranos",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Colonia",
       "nombre": "VICENTE GUERRERO",
       "codigoPostal": "82000",
@@ -4686,14 +2855,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Villa de Jacaro",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",
@@ -4731,27 +2892,11 @@
       "zona": "Urbano"
     },
     {
-      "tipo": "COLONIA",
-      "nombre": "Villa Residencial del Rey",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
-    },
-    {
       "tipo": "Fraccionamiento",
       "nombre": "VILLA SATÉLITE",
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Villa Tutuli",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -4766,14 +2911,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Villa Unión Centro",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Fraccionamiento",
@@ -4844,14 +2981,6 @@
       "codigoPostal": "82000",
       "ciudad": "Mazatlán",
       "zona": "Urbano"
-    },
-    {
-      "tipo": "COLONIA",
-      "nombre": "Zafiro",
-      "codigoPostal": "82000",
-      "ciudad": "Mazatlán",
-      "zona": "Urbano",
-      "fuente": "SEPOMEX"
     },
     {
       "tipo": "Colonia",

@@ -1,0 +1,5035 @@
+{
+  "metadata": {
+    "origen": "SEPOMEX - Servicio Postal Mexicano",
+    "municipio": "Mazatlán",
+    "estado": "Sinaloa",
+    "codigoGeoestadistico": "25/012",
+    "fecha": "2025-11-04",
+    "totalColonias": 479,
+    "rangoCPs": "82000 - 82499",
+    "totalCPsConsultados": 500,
+    "cpsConDatos": 139
+  },
+  "colonias": [
+    {
+      "tipo": "COLONIA",
+      "nombre": "12 de Mayo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "20 de Noviembre",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "23 de Noviembre",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "2a Ampliación Felipe Ángeles",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "2da. Ampliación Valle de Urias",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "5ta Chapalita",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "7 de Abril",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Agustina Ramírez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alameda",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alfonso G. Calderón",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alfredo V. Bonfil",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Almar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Almarena Residencial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Altabrisa Residencial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación Esperanza",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación Felipe Ángeles",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación Francisco Alarcón (Venadillo II)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación Lomas del Ébano",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación el Castillo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación el Zapote",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Anabella de Gavica",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Antiguo Aeropuerto",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Antonio Toledo Corro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Anáhuac",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Arboledas I",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Arboledas II",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Arboledas III",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Arboledas INVIES",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Arieta",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Armadillo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Azalea",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Azteca",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Azul Marino",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Azul Pacific",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bahía",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bahía de Mazatlán FOVISSSTE",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bahías",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Balcones de Loma Linda",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Barrón",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Benito Juárez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bluu Habitat Lagoons",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bosques del Arroyo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Brisas del Mar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Brisas del Valle II",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Buenavista",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Buenos Aires",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bugambilias",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Burócrata",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "CERESO Mazatlán",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Camacho",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Campo Bello",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Campo Pueblo Nuevo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Campo Rey",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Casa Blanca",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Casa Redonda",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Casas Económicas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Central Termoélectrica José Aceves Pozos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cerritos Resort",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cerro del Vigía",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Charcos Prietos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Chicura de la Noria",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Club Campestre Mazatlán",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Club Real",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cofradía (Cofradía de Leyva Solano)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colima",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colinas del Real",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colinas del Valle",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colosio Si",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Constitución",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Corredor de Abasto",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Costa Bonita",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Costa Brava",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Costa Dorada",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Coto Platino",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "De los Niños",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Del Bosque",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Del Valle",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Delfines",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Diaz Ordaz",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Dorados de Villa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Doña Chonita",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ecológica",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ejidal",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ejidal Francisco Villa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ejido Rincón de Urías",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ejército de Salvación",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Aguaje de Costilla",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Amole del Quelite",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Arenal",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Bajío",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Bebedero",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Campestre",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Castillo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Cañón de Batopilas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Chamizal",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Chilar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Chilillo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Cid",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Cielo Parque Residencial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Conchi Infonavit",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Contento",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Dorado",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Encanto",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Espinal",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Garitón",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Guayabo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Habal",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Habalito del Tubo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Huizachal",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Llano",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Llorón",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Magistral",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Milagro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Mirabal",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Moral",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Olvido",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Palmillar (El Palmillar de los Agüeros)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Palmito",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Paraíso",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Pescador",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Pinto (El Cerro)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Placer",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Pochote",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Potrero de Carrasco",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Pozole",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Puente del Quelite",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Quelite",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Quemado",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Recodo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Recreo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Roble",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Salto",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Secreto",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Tecomate de Siqueros",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Tecomate de la Noria",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Toreo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Toro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Tronconal",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Vainillo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Venadillo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Verde",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Walamo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Zacate",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Zapotal",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Zapote",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Emiliano Zapata",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Escamillas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Escondida de Palmillas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Esmeralda",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Esperanza",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Esperanza Fovissste",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Estación Presidio",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Estadio",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Estero",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ex Hacienda del Conchi",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ex Laguna Las Gaviotas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "FOVISSSTE Jabalíes",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "FOVISSSTE Playa Azul",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Federico Velarde",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Felipe Ángeles",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ferrocarrilera",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fidel Velázquez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Flamingos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Flor de Mayo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Flores Magón",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Francisco Alarcón Infonavit",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Francisco I Madero",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Francisco Labastida Ochoa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Francisco Solís",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Francisco Villa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fuentes del Valle",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Gabriel Leyva",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Genaro Estrada Calderón",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Gilberto Lopez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Girasoles",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Gral. Rafael Buelna",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Guamúchil",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Guaymas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda Las Cruces",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda Los Mangos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda Victoria",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda de Urias",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda del Mar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda del Seminario",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda del Valle",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Higueras Residencial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hogar Pescador",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Huerta Grande",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Huertos Familiares",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "INFONAVIT Playas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Independencia",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Insurgentes",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Isla Mazatlán",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Isla Residencial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Isla de la Piedra",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Issstesin",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jabalines Infonavit",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jabalíes",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jacarandas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines de la Alameda",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines del Bosque",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines del Toreo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jaripillo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jesús Garcia",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jesús Kumate",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jesús Osuna",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jiménez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "José López Portillo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "José María Pino Suárez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "José de Nazaret",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Juan Carrasco",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Juantillos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Julio Arroyo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Klein",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Alborada",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Amapa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Campiña",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Cantera",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Cantera II",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Chapalota",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Cima Residencial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Curva del Potrero",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Embocada",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Foresta",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Guanera",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Limonera",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Mora Escarbada",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Noria de San Antonio (La Noria)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Osa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Palma Sola",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Presa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Semana",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Sirena",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Sábila",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Tuna",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Urraca Nueva",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Yerbabuena",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ladrillera",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Brisas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Conchas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Flores",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Gaviotas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Guásimas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Higueras del Conchi",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Malvinas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Mañanitas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Misiones",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Moras de Alonso",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Olas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Salvias",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Tatemas de Arriba",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Tinajas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Torres",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Varas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Libertad",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Libertad de Expresión",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lienzo Charro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Loma Alta de los Zataráin",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Loma Atravesada",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Loma Bonita",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Loma Linda",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas Del Porvenir",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de Cristo Rey",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de Juárez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de Mazatlán",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de Monterrey",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de San Jorge",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de Villa Unión",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de las Torres",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas del Bosque",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas del Guayabo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas del Mar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas del Valle",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas del Ébano",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Acantos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Arrayanes (El Saucito)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Añiles",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Caracoles",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Cardones de Arriba",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Cedros",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Cocos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Columpios",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Conchis Sección Arrecifes",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Copales",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Cuilones",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Gavilanes",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Laureles",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Limones",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Llanitos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Magueyes",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Mangos I",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Mangos II",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Olivos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Paisas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Pinos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Portales",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Pozos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Sauces",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Tabachines",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Venados",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Zapotes",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Ángeles (Santa Fe)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Ébanos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Luis Echeverría Alvarez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lázaro Cárdenas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "López Mateos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Manuel de la Vega",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mar de Cortes",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Margarita Maza de Juárez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Marina El Cid",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Marina Mazatlán",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Marina Real",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Marina del Rey",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Marsella",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "María Antonieta",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "María Elena",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "María Fernanda",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "María del Mar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mazatlan I",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mazatlan II",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mazatlán (Gral. Rafael Buelna)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mazatlán Centro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mazatlán III",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mediterráneo Club Residencial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Melina",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Metates",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Miguel Hidalgo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Miramar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mirasol",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Miravalles",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Misiones 2000",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Monte Calvario",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Monte Verde",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Montebello",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Montuosa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Morelos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mármol de Salcido (Mármol)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Niños Héroes",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Nueva Creación",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Nuevo Milenio",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Obrera",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Obrera Industrial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Octava Zona Naval (Puerto Mazatlán)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Olimpo INFONAVIT",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Olímpica",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Once Ríos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Pacífico Hills",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palmares",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palmas del Sol",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palmeiras Club Residencial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palmilla",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palmillas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palos Prietos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Parque Industrial Mazatlán",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paseo Alameda",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paseo de Las Torres",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Pedro Rodríguez",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Peninsula",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Periodista",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Petrolero",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Petróleos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Pichilingue",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Piedra Blanca",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Platino Norte",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Playas del Sol",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Playas del Sur",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Plaza Reforma",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Plazas San Ignacio",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Porras",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Portal de los Olivos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Portomolino",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Potrerillos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Prados del Sol",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Primavera",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Santa Rita",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privanza",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Pueblo Nuevo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Puerta Dorada",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Puerta al Mar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Puerta de Canoas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Puerta de San Marcos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Puesta Norte",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Puesta del Sol",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Punta Diamante",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Quinta Gaviotas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Quinta Real",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Quintas del Mar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ramon F Iturbide",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Raul Osuna Burgueño",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Raíces",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real del Mar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Reforma",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Renato Vega",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Flamingos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Rinconada",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rinconada Del Valle",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón Colonial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón de Las Plazas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón de Mazatlán",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón de las Palmas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Roca Condominios",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Royal Country",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ruben Jaramillo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Salinas de Gortari",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Salvador Allende",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Angel",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Antonio",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Carlos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Fernando",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Francisco",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Francisquito",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Joaquín",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San José",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San José (Chuchupiras)",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San José del Cañón",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Juan",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Marcos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Nicolás",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Pablo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Pedro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Rafael",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sanchez Celis",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sanchez Taboada",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Cecilia",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Elena",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Fe",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Laura",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Rosa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Teresa",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Virginia",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sembradores de La Amistad",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Simon Jimenez Cárdenas",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Siqueros",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sixto Osuna",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Soles",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sonterra Residencial",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sonterra Residencial II",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Stanza Magnolia",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sábalo Country Club",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Telcoyonqui",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Telleria",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Terranova",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Tierra y Libertad",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Tiro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Torremolinos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Torremolinos Costa Azul",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Tortugas I",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Trópico de Cáncer",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Universidad 94",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Universo",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Urbivilla del Real",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Urías",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle Bonito",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle Dorado",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle Dorado II",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de Urias",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle del Ejido",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle del Sol",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Venustiano Carranza",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Veranos",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Vicente Guerrero",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Bonita",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Florida",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Galaxia",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Residencial del Rey",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Satélite",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Tutuli",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Tutuli II",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Unión Centro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Verde",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa de Guadalupe",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa de Jacaro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa de las Flores",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas Del Sol",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas del Estero",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Vista del Mar",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zafiro",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Dorada",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ángela Peralta",
+      "codigoPostal": null,
+      "ciudad": "Mazatlán",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    }
+  ],
+  "coloniasPorCP": {
+    "82000": {
+      "colonias": [
+        "Balcones de Loma Linda",
+        "Los Pinos",
+        "Mazatlán Centro",
+        "Loma Linda"
+      ],
+      "count": 4
+    },
+    "82010": {
+      "colonias": [
+        "Campo Bello",
+        "Estero",
+        "Independencia",
+        "Juan Carrasco",
+        "Libertad",
+        "Lomas del Mar",
+        "Palos Prietos",
+        "Palmeiras Club Residencial"
+      ],
+      "count": 8
+    },
+    "82013": {
+      "colonias": [
+        "Ferrocarrilera"
+      ],
+      "count": 1
+    },
+    "82014": {
+      "colonias": [
+        "San Angel"
+      ],
+      "count": 1
+    },
+    "82015": {
+      "colonias": [
+        "Trópico de Cáncer"
+      ],
+      "count": 1
+    },
+    "82016": {
+      "colonias": [
+        "Brisas del Mar"
+      ],
+      "count": 1
+    },
+    "82017": {
+      "colonias": [
+        "Telleria"
+      ],
+      "count": 1
+    },
+    "82018": {
+      "colonias": [
+        "Insurgentes"
+      ],
+      "count": 1
+    },
+    "82019": {
+      "colonias": [
+        "Tierra y Libertad"
+      ],
+      "count": 1
+    },
+    "82020": {
+      "colonias": [
+        "12 de Mayo",
+        "Klein",
+        "Bahías",
+        "Nueva Creación"
+      ],
+      "count": 4
+    },
+    "82028": {
+      "colonias": [
+        "Casas Económicas"
+      ],
+      "count": 1
+    },
+    "82030": {
+      "colonias": [
+        "Montuosa",
+        "Reforma"
+      ],
+      "count": 2
+    },
+    "82035": {
+      "colonias": [
+        "Sanchez Taboada"
+      ],
+      "count": 1
+    },
+    "82037": {
+      "colonias": [
+        "Francisco Solís"
+      ],
+      "count": 1
+    },
+    "82038": {
+      "colonias": [
+        "Obrera"
+      ],
+      "count": 1
+    },
+    "82040": {
+      "colonias": [
+        "Gabriel Leyva",
+        "Lázaro Cárdenas",
+        "Playas del Sur",
+        "Cerro del Vigía"
+      ],
+      "count": 4
+    },
+    "82043": {
+      "colonias": [
+        "José de Nazaret",
+        "Isla de la Piedra",
+        "Vicente Guerrero",
+        "Ecológica",
+        "Anabella de Gavica"
+      ],
+      "count": 5
+    },
+    "82047": {
+      "colonias": [
+        "Octava Zona Naval (Puerto Mazatlán)"
+      ],
+      "count": 1
+    },
+    "82050": {
+      "colonias": [
+        "Alfredo V. Bonfil",
+        "Las Malvinas"
+      ],
+      "count": 2
+    },
+    "82059": {
+      "colonias": [
+        "Casa Redonda"
+      ],
+      "count": 1
+    },
+    "82060": {
+      "colonias": [
+        "Francisco I Madero",
+        "José María Pino Suárez"
+      ],
+      "count": 2
+    },
+    "82070": {
+      "colonias": [
+        "Ejido Rincón de Urías"
+      ],
+      "count": 1
+    },
+    "82080": {
+      "colonias": [
+        "Gral. Rafael Buelna",
+        "5ta Chapalita"
+      ],
+      "count": 2
+    },
+    "82089": {
+      "colonias": [
+        "Central Termoélectrica José Aceves Pozos",
+        "La Sirena",
+        "Miramar",
+        "23 de Noviembre"
+      ],
+      "count": 4
+    },
+    "82090": {
+      "colonias": [
+        "Las Flores",
+        "Diaz Ordaz",
+        "Ampliación Felipe Ángeles",
+        "Felipe Ángeles",
+        "Hacienda de Urias",
+        "Santa Teresa",
+        "2a Ampliación Felipe Ángeles",
+        "María del Mar",
+        "Urbivilla del Real",
+        "Valle de Urias",
+        "2da. Ampliación Valle de Urias"
+      ],
+      "count": 11
+    },
+    "82099": {
+      "colonias": [
+        "Villa de Guadalupe",
+        "Urías",
+        "Ladrillera",
+        "María Elena"
+      ],
+      "count": 4
+    },
+    "82100": {
+      "colonias": [
+        "Sábalo Country Club",
+        "Las Varas"
+      ],
+      "count": 2
+    },
+    "82102": {
+      "colonias": [
+        "Marina El Cid"
+      ],
+      "count": 1
+    },
+    "82103": {
+      "colonias": [
+        "El Secreto",
+        "Palmas del Sol",
+        "Punta Diamante",
+        "Marina Real",
+        "Marina Mazatlán",
+        "Isla Mazatlán",
+        "El Encanto",
+        "Puerta al Mar",
+        "Raíces"
+      ],
+      "count": 9
+    },
+    "82110": {
+      "colonias": [
+        "El Cid",
+        "El Dorado",
+        "Las Gaviotas",
+        "Ex Laguna Las Gaviotas",
+        "Lomas de Mazatlán",
+        "Rincón Colonial",
+        "Zona Dorada",
+        "Puerta Dorada",
+        "Quinta Gaviotas"
+      ],
+      "count": 9
+    },
+    "82112": {
+      "colonias": [
+        "Azul Pacific",
+        "Almar",
+        "Marina del Rey",
+        "Azul Marino",
+        "Palmilla",
+        "Altabrisa Residencial",
+        "Almarena Residencial",
+        "Peninsula",
+        "Costa Bonita",
+        "El Cielo Parque Residencial",
+        "Soles",
+        "Cerritos Resort",
+        "Quintas del Mar",
+        "Real del Mar",
+        "Royal Country"
+      ],
+      "count": 15
+    },
+    "82113": {
+      "colonias": [
+        "Club Real",
+        "Mediterráneo Club Residencial"
+      ],
+      "count": 2
+    },
+    "82120": {
+      "colonias": [
+        "El Toreo",
+        "Periodista",
+        "Pueblo Nuevo",
+        "Sanchez Celis",
+        "El Toro",
+        "Hacienda del Mar",
+        "Jardines del Toreo",
+        "Plaza Reforma",
+        "Zafiro",
+        "Residencial Rinconada",
+        "Azalea"
+      ],
+      "count": 11
+    },
+    "82123": {
+      "colonias": [
+        "Jardines de la Alameda",
+        "Olimpo INFONAVIT",
+        "Alameda",
+        "El Paraíso"
+      ],
+      "count": 4
+    },
+    "82124": {
+      "colonias": [
+        "El Palmito",
+        "Bluu Habitat Lagoons",
+        "Marsella",
+        "Coto Platino",
+        "Colinas del Valle",
+        "Sonterra Residencial",
+        "Sonterra Residencial II",
+        "Pacífico Hills",
+        "Platino Norte",
+        "Puesta del Sol",
+        "Paseo de Las Torres",
+        "Prados del Sol",
+        "Rincón de las Palmas",
+        "Paseo Alameda",
+        "Terranova"
+      ],
+      "count": 15
+    },
+    "82125": {
+      "colonias": [
+        "Rincón de Las Plazas",
+        "Quinta Real"
+      ],
+      "count": 2
+    },
+    "82126": {
+      "colonias": [
+        "Hacienda Las Cruces"
+      ],
+      "count": 1
+    },
+    "82127": {
+      "colonias": [
+        "Francisco Villa",
+        "Dorados de Villa",
+        "Libertad de Expresión",
+        "Ejidal Francisco Villa"
+      ],
+      "count": 4
+    },
+    "82128": {
+      "colonias": [
+        "INFONAVIT Playas",
+        "San Carlos",
+        "Los Mangos I",
+        "Los Mangos II",
+        "Hacienda Los Mangos",
+        "Privanza"
+      ],
+      "count": 6
+    },
+    "82129": {
+      "colonias": [
+        "Hacienda del Seminario",
+        "El Venadillo",
+        "Monte Calvario",
+        "Huerta Grande"
+      ],
+      "count": 4
+    },
+    "82130": {
+      "colonias": [
+        "Mar de Cortes"
+      ],
+      "count": 1
+    },
+    "82132": {
+      "colonias": [
+        "Portomolino",
+        "Roca Condominios",
+        "Arboledas I",
+        "Arboledas II",
+        "Del Valle",
+        "Francisco Alarcón Infonavit",
+        "Valle Dorado",
+        "Los Caracoles",
+        "Delfines",
+        "Torremolinos",
+        "Tortugas I",
+        "Jardines del Bosque",
+        "Valle Dorado II",
+        "Ampliación Francisco Alarcón (Venadillo II)"
+      ],
+      "count": 14
+    },
+    "82133": {
+      "colonias": [
+        "Las Misiones",
+        "Las Brisas",
+        "Brisas del Valle II",
+        "Misiones 2000"
+      ],
+      "count": 4
+    },
+    "82134": {
+      "colonias": [
+        "Monte Verde",
+        "Manuel de la Vega",
+        "Arieta",
+        "Puesta Norte",
+        "Bahía",
+        "Arboledas III",
+        "Hogar Pescador",
+        "Jesús Osuna",
+        "Colosio Si",
+        "Renato Vega",
+        "Salinas de Gortari",
+        "Valle del Ejido",
+        "Nuevo Milenio",
+        "Santa Rosa",
+        "San Francisco"
+      ],
+      "count": 15
+    },
+    "82136": {
+      "colonias": [
+        "Montebello",
+        "Petróleos",
+        "Jaripillo",
+        "Santa Laura",
+        "La Campiña",
+        "Bosques del Arroyo",
+        "Colinas del Real",
+        "María Antonieta",
+        "Valle Bonito",
+        "Villa Tutuli",
+        "Buenos Aires",
+        "Torremolinos Costa Azul",
+        "Villa Tutuli II"
+      ],
+      "count": 13
+    },
+    "82137": {
+      "colonias": [
+        "Huertos Familiares"
+      ],
+      "count": 1
+    },
+    "82138": {
+      "colonias": [
+        "FOVISSSTE Playa Azul"
+      ],
+      "count": 1
+    },
+    "82139": {
+      "colonias": [
+        "La Cantera",
+        "El Conchi Infonavit",
+        "Vista del Mar",
+        "Villa de las Flores",
+        "Jesús Kumate",
+        "Villa Florida",
+        "San Joaquín",
+        "Villa Verde",
+        "Lomas de San Jorge",
+        "Bugambilias",
+        "Arboledas INVIES",
+        "Costa Dorada",
+        "Francisco Labastida Ochoa",
+        "Los Laureles",
+        "Los Conchis Sección Arrecifes"
+      ],
+      "count": 15
+    },
+    "82140": {
+      "colonias": [
+        "Estadio",
+        "Lomas del Valle",
+        "López Mateos"
+      ],
+      "count": 3
+    },
+    "82143": {
+      "colonias": [
+        "Casa Blanca"
+      ],
+      "count": 1
+    },
+    "82144": {
+      "colonias": [
+        "Girasoles"
+      ],
+      "count": 1
+    },
+    "82146": {
+      "colonias": [
+        "Sembradores de La Amistad",
+        "Antiguo Aeropuerto"
+      ],
+      "count": 2
+    },
+    "82147": {
+      "colonias": [
+        "María Fernanda"
+      ],
+      "count": 1
+    },
+    "82148": {
+      "colonias": [
+        "Playas del Sol"
+      ],
+      "count": 1
+    },
+    "82149": {
+      "colonias": [
+        "Flamingos"
+      ],
+      "count": 1
+    },
+    "82150": {
+      "colonias": [
+        "Olímpica",
+        "20 de Noviembre",
+        "Villa Galaxia",
+        "Villa Satélite",
+        "Villa de Jacaro",
+        "Los Ángeles (Santa Fe)",
+        "El Castillo"
+      ],
+      "count": 7
+    },
+    "82153": {
+      "colonias": [
+        "Antonio Toledo Corro",
+        "Jabalines Infonavit"
+      ],
+      "count": 2
+    },
+    "82154": {
+      "colonias": [
+        "Portal de los Olivos",
+        "FOVISSSTE Jabalíes",
+        "Los Venados",
+        "Los Portales",
+        "Los Olivos",
+        "Issstesin",
+        "Lomas del Bosque",
+        "Las Torres",
+        "Corredor de Abasto",
+        "Privada Santa Rita",
+        "San Nicolás"
+      ],
+      "count": 11
+    },
+    "82155": {
+      "colonias": [
+        "Ruben Jaramillo"
+      ],
+      "count": 1
+    },
+    "82156": {
+      "colonias": [
+        "Villas del Estero"
+      ],
+      "count": 1
+    },
+    "82157": {
+      "colonias": [
+        "La Cima Residencial",
+        "Jacarandas",
+        "Bahía de Mazatlán FOVISSSTE",
+        "Costa Brava",
+        "Isla Residencial",
+        "Plazas San Ignacio",
+        "Santa Virginia",
+        "Gilberto Lopez",
+        "Villa Bonita",
+        "Residencial Flamingos"
+      ],
+      "count": 10
+    },
+    "82158": {
+      "colonias": [
+        "Federico Velarde"
+      ],
+      "count": 1
+    },
+    "82159": {
+      "colonias": [
+        "Esperanza Fovissste",
+        "Universidad 94",
+        "Los Sauces"
+      ],
+      "count": 3
+    },
+    "82160": {
+      "colonias": [
+        "Luis Echeverría Alvarez"
+      ],
+      "count": 1
+    },
+    "82163": {
+      "colonias": [
+        "Burócrata",
+        "Fuentes del Valle",
+        "Las Olas"
+      ],
+      "count": 3
+    },
+    "82164": {
+      "colonias": [
+        "Salvador Allende",
+        "Villa Residencial del Rey",
+        "Esmeralda"
+      ],
+      "count": 3
+    },
+    "82165": {
+      "colonias": [
+        "Jabalíes"
+      ],
+      "count": 1
+    },
+    "82170": {
+      "colonias": [
+        "Constitución",
+        "Morelos",
+        "Ramon F Iturbide"
+      ],
+      "count": 3
+    },
+    "82180": {
+      "colonias": [
+        "Benito Juárez",
+        "Esperanza",
+        "Jesús Garcia",
+        "Lomas de Juárez",
+        "Santa Elena",
+        "Venustiano Carranza"
+      ],
+      "count": 6
+    },
+    "82183": {
+      "colonias": [
+        "Obrera Industrial"
+      ],
+      "count": 1
+    },
+    "82185": {
+      "colonias": [
+        "Loma Atravesada"
+      ],
+      "count": 1
+    },
+    "82186": {
+      "colonias": [
+        "Azteca",
+        "Santa Cecilia"
+      ],
+      "count": 2
+    },
+    "82187": {
+      "colonias": [
+        "San Rafael",
+        "Del Bosque"
+      ],
+      "count": 2
+    },
+    "82188": {
+      "colonias": [
+        "Anáhuac"
+      ],
+      "count": 1
+    },
+    "82190": {
+      "colonias": [
+        "Lomas de las Torres",
+        "Emiliano Zapata",
+        "Flores Magón",
+        "Niños Héroes",
+        "Mirasol",
+        "Petrolero",
+        "Mazatlan I",
+        "Melina",
+        "El Campestre",
+        "Ampliación Esperanza"
+      ],
+      "count": 10
+    },
+    "82195": {
+      "colonias": [
+        "Palmares",
+        "Club Campestre Mazatlán",
+        "Mazatlán III",
+        "Mazatlan II",
+        "Lomas Del Porvenir",
+        "Hacienda Victoria",
+        "Lomas de Cristo Rey",
+        "Universo",
+        "Rincón de Mazatlán",
+        "El Pescador",
+        "La Alborada"
+      ],
+      "count": 11
+    },
+    "82197": {
+      "colonias": [
+        "Primavera"
+      ],
+      "count": 1
+    },
+    "82198": {
+      "colonias": [
+        "Los Acantos",
+        "Miguel Hidalgo",
+        "Lomas del Ébano",
+        "Villas Del Sol",
+        "La Foresta",
+        "Loma Bonita",
+        "Ex Hacienda del Conchi",
+        "Rinconada Del Valle",
+        "Simon Jimenez Cárdenas",
+        "San Fernando",
+        "Doña Chonita",
+        "Valle del Sol",
+        "Ejidal",
+        "Hacienda del Valle",
+        "Ampliación Lomas del Ébano"
+      ],
+      "count": 15
+    },
+    "82199": {
+      "colonias": [
+        "Higueras Residencial",
+        "La Cantera II",
+        "Genaro Estrada Calderón",
+        "Los Magueyes",
+        "Los Tabachines"
+      ],
+      "count": 5
+    },
+    "82200": {
+      "colonias": [
+        "La Tuna",
+        "Las Mañanitas",
+        "San Francisquito",
+        "Lomas de Monterrey"
+      ],
+      "count": 4
+    },
+    "82203": {
+      "colonias": [
+        "El Vainillo"
+      ],
+      "count": 1
+    },
+    "82204": {
+      "colonias": [
+        "Parque Industrial Mazatlán",
+        "El Pozole",
+        "Los Pozos",
+        "La Urraca Nueva"
+      ],
+      "count": 4
+    },
+    "82205": {
+      "colonias": [
+        "La Amapa",
+        "La Limonera",
+        "Estación Presidio",
+        "El Aguaje de Costilla"
+      ],
+      "count": 4
+    },
+    "82206": {
+      "colonias": [
+        "El Walamo",
+        "Pedro Rodríguez"
+      ],
+      "count": 2
+    },
+    "82207": {
+      "colonias": [
+        "Campo Rey",
+        "El Garitón",
+        "El Habalito del Tubo"
+      ],
+      "count": 3
+    },
+    "82210": {
+      "colonias": [
+        "Villa Unión Centro"
+      ],
+      "count": 1
+    },
+    "82213": {
+      "colonias": [
+        "El Tronconal"
+      ],
+      "count": 1
+    },
+    "82214": {
+      "colonias": [
+        "Buenavista",
+        "Fidel Velázquez",
+        "Alfonso G. Calderón",
+        "Lomas de Villa Unión",
+        "Flor de Mayo",
+        "Agustina Ramírez",
+        "7 de Abril"
+      ],
+      "count": 7
+    },
+    "82215": {
+      "colonias": [
+        "Antonio Toledo Corro",
+        "José López Portillo",
+        "Renato Vega",
+        "Lienzo Charro",
+        "Ángela Peralta"
+      ],
+      "count": 5
+    },
+    "82216": {
+      "colonias": [
+        "Ejidal",
+        "Once Ríos",
+        "Los Sauces"
+      ],
+      "count": 3
+    },
+    "82217": {
+      "colonias": [
+        "Margarita Maza de Juárez",
+        "Sixto Osuna",
+        "Raul Osuna Burgueño",
+        "Julio Arroyo"
+      ],
+      "count": 4
+    },
+    "82230": {
+      "colonias": [
+        "Telcoyonqui"
+      ],
+      "count": 1
+    },
+    "82233": {
+      "colonias": [
+        "Veranos",
+        "Pichilingue",
+        "Las Conchas",
+        "Porras",
+        "El Llano",
+        "Tiro",
+        "El Zacate",
+        "Los Paisas",
+        "El Recodo",
+        "Loma Alta de los Zataráin"
+      ],
+      "count": 10
+    },
+    "82234": {
+      "colonias": [
+        "El Zapotal",
+        "Los Ébanos"
+      ],
+      "count": 2
+    },
+    "82235": {
+      "colonias": [
+        "El Arenal"
+      ],
+      "count": 1
+    },
+    "82236": {
+      "colonias": [
+        "Siqueros"
+      ],
+      "count": 1
+    },
+    "82238": {
+      "colonias": [
+        "El Guayabo",
+        "Charcos Prietos",
+        "El Salto",
+        "El Espinal"
+      ],
+      "count": 4
+    },
+    "82240": {
+      "colonias": [
+        "Lomas del Guayabo",
+        "Campo Pueblo Nuevo"
+      ],
+      "count": 2
+    },
+    "82243": {
+      "colonias": [
+        "Los Ébanos"
+      ],
+      "count": 1
+    },
+    "82245": {
+      "colonias": [
+        "El Roble"
+      ],
+      "count": 1
+    },
+    "82246": {
+      "colonias": [
+        "El Guayabo"
+      ],
+      "count": 1
+    },
+    "82247": {
+      "colonias": [
+        "Escamillas"
+      ],
+      "count": 1
+    },
+    "82248": {
+      "colonias": [
+        "El Bajío",
+        "El Tecomate de Siqueros"
+      ],
+      "count": 2
+    },
+    "82249": {
+      "colonias": [
+        "Cofradía (Cofradía de Leyva Solano)"
+      ],
+      "count": 1
+    },
+    "82264": {
+      "colonias": [
+        "De los Niños",
+        "Stanza Magnolia"
+      ],
+      "count": 2
+    },
+    "82266": {
+      "colonias": [
+        "Barrón"
+      ],
+      "count": 1
+    },
+    "82267": {
+      "colonias": [
+        "Ampliación el Castillo",
+        "La Guanera",
+        "Los Gavilanes",
+        "El Contento",
+        "El Zapote",
+        "Ampliación el Zapote",
+        "CERESO Mazatlán"
+      ],
+      "count": 7
+    },
+    "82269": {
+      "colonias": [
+        "Mazatlán (Gral. Rafael Buelna)"
+      ],
+      "count": 1
+    },
+    "82270": {
+      "colonias": [
+        "El Milagro",
+        "El Mirabal",
+        "El Cañón de Batopilas",
+        "El Habal"
+      ],
+      "count": 4
+    },
+    "82273": {
+      "colonias": [
+        "Armadillo",
+        "Los Cedros",
+        "El Chilillo",
+        "Puerta de Canoas"
+      ],
+      "count": 4
+    },
+    "82274": {
+      "colonias": [
+        "Escondida de Palmillas",
+        "Palmillas",
+        "La Presa",
+        "Las Higueras del Conchi",
+        "Miravalles",
+        "San Antonio"
+      ],
+      "count": 6
+    },
+    "82275": {
+      "colonias": [
+        "San Juan",
+        "Ejército de Salvación",
+        "El Pozole"
+      ],
+      "count": 3
+    },
+    "82277": {
+      "colonias": [
+        "Santa Teresa",
+        "La Yerbabuena",
+        "El Huizachal",
+        "San José (Chuchupiras)",
+        "La Curva del Potrero",
+        "San José",
+        "El Potrero de Carrasco"
+      ],
+      "count": 7
+    },
+    "82300": {
+      "colonias": [
+        "Piedra Blanca",
+        "Los Arrayanes (El Saucito)",
+        "Las Salvias",
+        "Los Copales"
+      ],
+      "count": 4
+    },
+    "82303": {
+      "colonias": [
+        "Guaymas",
+        "El Zapote",
+        "La Embocada",
+        "La Chapalota"
+      ],
+      "count": 4
+    },
+    "82304": {
+      "colonias": [
+        "Guamúchil",
+        "El Tecomate de la Noria"
+      ],
+      "count": 2
+    },
+    "82305": {
+      "colonias": [
+        "La Osa",
+        "Las Guásimas",
+        "Los Cocos"
+      ],
+      "count": 3
+    },
+    "82306": {
+      "colonias": [
+        "El Magistral",
+        "Metates",
+        "El Pinto (El Cerro)",
+        "El Palmillar (El Palmillar de los Agüeros)"
+      ],
+      "count": 4
+    },
+    "82310": {
+      "colonias": [
+        "San José del Cañón",
+        "Potrerillos"
+      ],
+      "count": 2
+    },
+    "82313": {
+      "colonias": [
+        "El Olvido",
+        "Las Tatemas de Arriba",
+        "El Bebedero",
+        "San Marcos",
+        "Juantillos",
+        "Puerta de San Marcos"
+      ],
+      "count": 6
+    },
+    "82314": {
+      "colonias": [
+        "El Placer"
+      ],
+      "count": 1
+    },
+    "82320": {
+      "colonias": [
+        "Chicura de la Noria",
+        "Los Columpios",
+        "Los Cuilones",
+        "Las Tinajas",
+        "Los Cardones de Arriba"
+      ],
+      "count": 5
+    },
+    "82329": {
+      "colonias": [
+        "La Noria de San Antonio (La Noria)"
+      ],
+      "count": 1
+    },
+    "82330": {
+      "colonias": [
+        "San Pedro",
+        "Colima",
+        "El Chilar",
+        "Los Añiles",
+        "Los Zapotes",
+        "San Pablo"
+      ],
+      "count": 6
+    },
+    "82334": {
+      "colonias": [
+        "La Palma Sola",
+        "Las Moras de Alonso",
+        "Santa Fe",
+        "El Pochote"
+      ],
+      "count": 4
+    },
+    "82335": {
+      "colonias": [
+        "Los Limones",
+        "La Semana"
+      ],
+      "count": 2
+    },
+    "82350": {
+      "colonias": [
+        "El Quelite",
+        "El Puente del Quelite"
+      ],
+      "count": 2
+    },
+    "82353": {
+      "colonias": [
+        "El Amole del Quelite"
+      ],
+      "count": 1
+    },
+    "82354": {
+      "colonias": [
+        "El Llorón"
+      ],
+      "count": 1
+    },
+    "82355": {
+      "colonias": [
+        "San José"
+      ],
+      "count": 1
+    },
+    "82360": {
+      "colonias": [
+        "El Quemado"
+      ],
+      "count": 1
+    },
+    "82363": {
+      "colonias": [
+        "El Moral"
+      ],
+      "count": 1
+    },
+    "82365": {
+      "colonias": [
+        "El Vainillo",
+        "Los Cedros",
+        "La Mora Escarbada"
+      ],
+      "count": 3
+    },
+    "82366": {
+      "colonias": [
+        "Jiménez"
+      ],
+      "count": 1
+    },
+    "82369": {
+      "colonias": [
+        "La Sábila"
+      ],
+      "count": 1
+    },
+    "82370": {
+      "colonias": [
+        "El Recreo",
+        "Camacho"
+      ],
+      "count": 2
+    },
+    "82373": {
+      "colonias": [
+        "El Verde"
+      ],
+      "count": 1
+    },
+    "82380": {
+      "colonias": [
+        "El Chamizal",
+        "Los Llanitos"
+      ],
+      "count": 2
+    },
+    "82384": {
+      "colonias": [
+        "Mármol de Salcido (Mármol)"
+      ],
+      "count": 1
+    }
+  }
+}
