@@ -66,6 +66,7 @@ const Geocoding = {
         // Ciudad - Usar municipio seleccionado por el usuario
         const municipalityMap = {
             'culiacan': 'Culiacán',
+            'los-mochis': 'Los Mochis',
             'mazatlan': 'Mazatlán'
         };
         const municipality = data.municipality || 'culiacan'; // default: Culiacán

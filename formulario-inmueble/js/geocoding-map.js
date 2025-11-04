@@ -44,6 +44,7 @@ const GeocodingMapApp = {
         // Coordenadas por municipio
         const coordsByMunicipality = {
             'culiacan': [24.8091, -107.3940],
+            'los-mochis': [25.7934, -108.9962],
             'mazatlan': [23.2494, -106.4111]
         };
 
@@ -273,6 +274,7 @@ const GeocodingMapApp = {
     updateMapCenter() {
         const centers = {
             culiacan: [24.8091, -107.3940],
+            'los-mochis': [25.7934, -108.9962],
             mazatlan: [23.2494, -106.4111]
         };
 
