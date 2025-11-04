@@ -30,7 +30,7 @@ const Autocomplete = {
     /**
      * Inicializar módulo de autocomplete
      */
-    async init(municipality = 'culiacan') {
+    async init(municipality = 'culiacan', setupMunicipalityListener = true) {
         console.log('🔍 Inicializando autocomplete para:', municipality);
 
         this.currentMunicipality = municipality;
@@ -44,7 +44,11 @@ const Autocomplete = {
         // Setup event listeners
         this.setupEventListeners();
         this.setupStreetListeners();
-        this.setupMunicipalityListener(); // ✅ NUEVO: Listener para cambio de municipio
+
+        // Solo configurar listener de municipio si se solicita (default: true)
+        if (setupMunicipalityListener) {
+            this.setupMunicipalityListener();
+        }
 
         console.log('✅ Autocomplete inicializado con', this.colonias.length, 'colonias y', this.calles.length, 'calles');
     },
