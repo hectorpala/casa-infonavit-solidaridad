@@ -567,6 +567,10 @@ const Autocomplete = {
         const stateSelect = document.getElementById('state');
         const municipalitySelect = document.getElementById('municipality');
 
+        console.log('🔧 setupStateListener() llamado');
+        console.log('   stateSelect:', stateSelect);
+        console.log('   municipalitySelect:', municipalitySelect);
+
         if (!stateSelect || !municipalitySelect) {
             console.warn('⚠️ Selects de estado/municipio no encontrados');
             return;
@@ -575,6 +579,7 @@ const Autocomplete = {
         stateSelect.addEventListener('change', (e) => {
             const selectedState = e.target.value;
             console.log('🗺️ Estado cambiado a:', selectedState);
+            console.log('   Llamando updateMunicipalityOptions con:', selectedState);
 
             // Actualizar lista de municipios
             this.updateMunicipalityOptions(selectedState);
@@ -585,6 +590,7 @@ const Autocomplete = {
 
         // Inicializar con estado default (Sinaloa)
         const initialState = stateSelect.value || 'sinaloa';
+        console.log('   Estado inicial detectado:', initialState);
         this.updateMunicipalityOptions(initialState);
 
         console.log('✅ Listener de estado configurado');
@@ -594,11 +600,17 @@ const Autocomplete = {
      * Actualizar opciones de municipio según estado
      */
     updateMunicipalityOptions(state) {
+        console.log('📋 updateMunicipalityOptions() llamado con state:', state);
+
         const municipalitySelect = document.getElementById('municipality');
-        if (!municipalitySelect) return;
+        if (!municipalitySelect) {
+            console.error('❌ municipalitySelect no encontrado');
+            return;
+        }
 
         // Obtener municipios del estado seleccionado
         const municipalities = this.getMunicipalitiesByState(state);
+        console.log('   Municipios obtenidos:', municipalities);
 
         // Limpiar options actuales
         municipalitySelect.innerHTML = '<option value="">Selecciona un municipio</option>';
@@ -616,14 +628,24 @@ const Autocomplete = {
             }
 
             municipalitySelect.appendChild(option);
+            console.log(`   ✅ Agregada opción: ${mun.label} (${mun.value})`);
         });
 
         // Habilitar select
         municipalitySelect.disabled = !state || municipalities.length === 0;
+        console.log(`   Select habilitado: ${!municipalitySelect.disabled}`);
 
         // Recargar datos del primer municipio si hay alguno
         if (municipalities.length > 0) {
+            console.log(`   🔄 Recargando datos para: ${municipalities[0].value}`);
             this.reloadData(municipalities[0].value);
+
+            // Disparar evento personalizado para que geocoding-map.js actualice el mapa
+            const event = new CustomEvent('municipalityChanged', {
+                detail: { municipality: municipalities[0].value }
+            });
+            document.dispatchEvent(event);
+            console.log(`   📡 Evento 'municipalityChanged' disparado para: ${municipalities[0].value}`);
         }
 
         console.log(`✅ Municipios actualizados para ${state}:`, municipalities.map(m => m.label).join(', '));

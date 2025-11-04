@@ -36,16 +36,18 @@ const GeocodingMapApp = {
     initMap() {
         console.log('🗺️ Inicializando mapa...');
 
-        // Obtener municipio seleccionado
+        // Obtener municipio seleccionado (default: culiacan)
         const municipalitySelect = document.getElementById('municipality');
-        const municipality = municipalitySelect ? municipalitySelect.value : 'culiacan';
+        const municipality = municipalitySelect && municipalitySelect.value ? municipalitySelect.value : 'culiacan';
         this.currentMunicipality = municipality;
+        console.log(`   Municipio inicial: ${this.currentMunicipality}`);
 
         // Coordenadas por municipio
         const coordsByMunicipality = {
             'culiacan': [24.8091, -107.3940],
             'los-mochis': [25.7934, -108.9962],
-            'mazatlan': [23.2494, -106.4111]
+            'mazatlan': [23.2494, -106.4111],
+            'garcia': [25.8105, -100.5866]
         };
 
         const initialCoords = coordsByMunicipality[municipality] || coordsByMunicipality['culiacan'];
@@ -77,10 +79,9 @@ const GeocodingMapApp = {
 
         // El objeto Autocomplete ya está disponible globalmente desde autocomplete.js
         // Inicializar con el municipio actual
-        // Pasamos false como segundo parámetro para evitar que autocomplete.js configure su propio listener
-        // Nosotros manejamos el listener en setupEventListeners()
+        // Pasamos true para que configure los listeners de estado y municipio
         if (typeof Autocomplete !== 'undefined') {
-            await Autocomplete.init(this.currentMunicipality, false);
+            await Autocomplete.init(this.currentMunicipality, true);
             console.log(`✅ Autocompletes inicializados para ${this.currentMunicipality}`);
         } else {
             console.error('❌ Autocomplete no está disponible. Verifica que autocomplete.js esté cargado.');
@@ -107,12 +108,15 @@ const GeocodingMapApp = {
         municipalitySelect.addEventListener('change', async (e) => {
             const newMunicipality = e.target.value;
             console.log(`🏙️ Municipio cambiado a: ${newMunicipality}`);
+            console.log(`   Municipio anterior: ${this.currentMunicipality}`);
 
             this.currentMunicipality = newMunicipality;
+            console.log(`   Llamando updateMapCenter()...`);
             this.updateMapCenter();
 
             // Recargar datos del autocomplete
             if (typeof Autocomplete !== 'undefined' && Autocomplete.reloadData) {
+                console.log(`   Recargando datos de autocomplete para ${newMunicipality}...`);
                 await Autocomplete.reloadData(newMunicipality);
             }
         });
@@ -120,6 +124,15 @@ const GeocodingMapApp = {
         // Copy coordinates button
         const copyBtn = document.getElementById('copy-coords');
         copyBtn.addEventListener('click', () => this.copyCoordinates());
+
+        // Escuchar cambios de municipio desde autocomplete.js
+        document.addEventListener('municipalityChanged', (e) => {
+            const newMunicipality = e.detail.municipality;
+            console.log(`📡 Evento 'municipalityChanged' recibido: ${newMunicipality}`);
+
+            this.currentMunicipality = newMunicipality;
+            this.updateMapCenter();
+        });
     },
 
     /**
@@ -179,6 +192,7 @@ const GeocodingMapApp = {
             interiorNumber: document.getElementById('interior-number').value.trim(),
             colonia: document.getElementById('colonia').value.trim(),
             zipCode: document.getElementById('zip-code').value.trim(),
+            state: document.getElementById('state')?.value || 'sinaloa',
             municipality: this.currentMunicipality
         };
     },
@@ -272,20 +286,28 @@ const GeocodingMapApp = {
      * Actualizar centro del mapa según municipio
      */
     updateMapCenter() {
+        console.log(`🗺️ updateMapCenter() llamado para: ${this.currentMunicipality}`);
+
         const centers = {
             culiacan: [24.8091, -107.3940],
             'los-mochis': [25.7934, -108.9962],
-            mazatlan: [23.2494, -106.4111]
+            mazatlan: [23.2494, -106.4111],
+            garcia: [25.8105, -100.5866]
         };
 
         const coords = centers[this.currentMunicipality] || centers.culiacan;
+        console.log(`   Coordenadas encontradas: [${coords[0]}, ${coords[1]}]`);
+        console.log(`   Objeto mapa existe: ${!!this.map}`);
 
-        this.map.setView(coords, 13, {
-            animate: true,
-            duration: 1
-        });
-
-        console.log(`📍 Mapa actualizado a: ${this.currentMunicipality}`);
+        if (this.map) {
+            this.map.setView(coords, 13, {
+                animate: true,
+                duration: 1
+            });
+            console.log(`✅ Mapa actualizado a: ${this.currentMunicipality}`);
+        } else {
+            console.error('❌ El mapa no está inicializado');
+        }
     },
 
     /**

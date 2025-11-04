@@ -53,17 +53,27 @@
             </div>
 
             <form id="geocoding-form" class="geocoding-form">
+                <!-- Estado -->
+                <div class="form-group">
+                    <label for="state" class="form-label">
+                        <i class="fas fa-flag"></i>
+                        Estado *
+                    </label>
+                    <select id="state" name="state" class="form-control" required>
+                        <option value="">Selecciona un estado</option>
+                        <option value="sinaloa" selected>Sinaloa</option>
+                        <option value="nuevo-leon">Nuevo León</option>
+                    </select>
+                </div>
+
                 <!-- Municipio -->
                 <div class="form-group">
                     <label for="municipality" class="form-label">
                         <i class="fas fa-city"></i>
-                        Municipio
+                        Municipio *
                     </label>
-                    <select id="municipality" name="municipality" class="form-control" required>
+                    <select id="municipality" name="municipality" class="form-control" required disabled>
                         <option value="">Selecciona un municipio</option>
-                        <option value="culiacan" selected>Culiacán</option>
-                        <option value="los-mochis">Los Mochis</option>
-                        <option value="mazatlan">Mazatlán</option>
                     </select>
                 </div>
 

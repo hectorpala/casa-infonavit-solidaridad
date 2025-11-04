@@ -42,6 +42,8 @@ const Geocoding = {
      * Construir dirección completa desde los datos del formulario
      */
     buildFullAddress(data) {
+        console.log('🏗️ buildFullAddress() recibió datos:', data);
+
         const parts = [];
 
         // Calle + Número + Número interior (opcional)
@@ -72,6 +74,7 @@ const Geocoding = {
         };
         const municipality = data.municipality || 'culiacan'; // default: Culiacán
         const cityName = municipalityMap[municipality] || 'Culiacán';
+        console.log(`   Municipio: ${municipality} → ${cityName}`);
         parts.push(cityName);
 
         // Estado - Mapear estado desde el selector
@@ -86,9 +89,11 @@ const Geocoding = {
         if (data.state) {
             // Si viene el estado en los datos, usarlo
             stateName = stateMap[data.state] || data.state;
+            console.log(`   Estado desde data.state: ${data.state} → ${stateName}`);
         } else if (municipality === 'garcia') {
             // Si es García, usar Nuevo León
             stateName = 'Nuevo León';
+            console.log(`   Estado inferido desde municipio García: ${stateName}`);
         }
 
         parts.push(stateName);
@@ -96,7 +101,10 @@ const Geocoding = {
         // País
         parts.push('México');
 
-        return parts.join(', ');
+        const fullAddress = parts.join(', ');
+        console.log(`✅ Dirección construida: ${fullAddress}`);
+
+        return fullAddress;
     },
 
     /**
@@ -225,6 +233,7 @@ const Geocoding = {
             interiorNumber: document.getElementById('interior-number')?.value,
             colonia: document.getElementById('colonia')?.value,
             zipCode: document.getElementById('zip-code')?.value,
+            state: document.getElementById('state')?.value, // ✅ Incluir estado seleccionado
             municipality: document.getElementById('municipality')?.value // ✅ Incluir municipio seleccionado
         };
 
