@@ -47,6 +47,7 @@ const Autocomplete = {
 
         // Solo configurar listener de municipio si se solicita (default: true)
         if (setupMunicipalityListener) {
+            this.setupStateListener();      // NEW: Listener para estado
             this.setupMunicipalityListener();
         }
 
@@ -541,6 +542,113 @@ const Autocomplete = {
     /**
      * Setup listener para cambio de municipio
      */
+    /**
+     * Configuración de municipios por estado
+     */
+    getMunicipalitiesByState(state) {
+        const municipalities = {
+            'sinaloa': [
+                { value: 'culiacan', label: 'Culiacán', stateName: 'Sinaloa' },
+                { value: 'los-mochis', label: 'Los Mochis', stateName: 'Sinaloa' },
+                { value: 'mazatlan', label: 'Mazatlán', stateName: 'Sinaloa' }
+            ],
+            'nuevo-leon': [
+                { value: 'garcia', label: 'García', stateName: 'Nuevo León' }
+            ]
+        };
+
+        return municipalities[state] || [];
+    },
+
+    /**
+     * Setup listener para estado
+     */
+    setupStateListener() {
+        const stateSelect = document.getElementById('state');
+        const municipalitySelect = document.getElementById('municipality');
+
+        if (!stateSelect || !municipalitySelect) {
+            console.warn('⚠️ Selects de estado/municipio no encontrados');
+            return;
+        }
+
+        stateSelect.addEventListener('change', (e) => {
+            const selectedState = e.target.value;
+            console.log('🗺️ Estado cambiado a:', selectedState);
+
+            // Actualizar lista de municipios
+            this.updateMunicipalityOptions(selectedState);
+
+            // Limpiar autocompletes
+            this.resetAutocompletes();
+        });
+
+        // Inicializar con estado default (Sinaloa)
+        const initialState = stateSelect.value || 'sinaloa';
+        this.updateMunicipalityOptions(initialState);
+
+        console.log('✅ Listener de estado configurado');
+    },
+
+    /**
+     * Actualizar opciones de municipio según estado
+     */
+    updateMunicipalityOptions(state) {
+        const municipalitySelect = document.getElementById('municipality');
+        if (!municipalitySelect) return;
+
+        // Obtener municipios del estado seleccionado
+        const municipalities = this.getMunicipalitiesByState(state);
+
+        // Limpiar options actuales
+        municipalitySelect.innerHTML = '<option value="">Selecciona un municipio</option>';
+
+        // Agregar nuevas opciones
+        municipalities.forEach((mun, index) => {
+            const option = document.createElement('option');
+            option.value = mun.value;
+            option.textContent = mun.label;
+            option.dataset.stateName = mun.stateName;
+
+            // Seleccionar primer municipio por default
+            if (index === 0) {
+                option.selected = true;
+            }
+
+            municipalitySelect.appendChild(option);
+        });
+
+        // Habilitar select
+        municipalitySelect.disabled = !state || municipalities.length === 0;
+
+        // Recargar datos del primer municipio si hay alguno
+        if (municipalities.length > 0) {
+            this.reloadData(municipalities[0].value);
+        }
+
+        console.log(`✅ Municipios actualizados para ${state}:`, municipalities.map(m => m.label).join(', '));
+    },
+
+    /**
+     * Resetear autocompletes
+     */
+    resetAutocompletes() {
+        // Limpiar inputs
+        const coloniaInput = document.getElementById('colonia');
+        const addressInput = document.getElementById('address');
+
+        if (coloniaInput) coloniaInput.value = '';
+        if (addressInput) addressInput.value = '';
+
+        // Resetear selecciones
+        this.selectedColonia = null;
+        this.selectedCalle = null;
+
+        // Ocultar sugerencias
+        this.hideSuggestions();
+        this.hideStreetSuggestions();
+    },
+
     setupMunicipalityListener() {
         const municipalitySelect = document.getElementById('municipality');
 

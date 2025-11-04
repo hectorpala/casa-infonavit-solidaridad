@@ -81,25 +81,27 @@
                     <p class="step-description">Necesitamos saber dónde se encuentra tu propiedad</p>
                 </div>
 
-                <!-- Substep 1.1: Estado (FIJO: Sinaloa) -->
+                <!-- Substep 1.1: Estado -->
                 <div class="substep active" id="substep-1-1" data-substep="1">
                     <div class="form-group">
                         <label for="state" class="form-label">
-                            Estado
+                            Estado <span class="required">*</span>
                         </label>
-                        <input
-                            type="text"
+                        <select
                             id="state"
                             name="state"
-                            class="form-control form-control-readonly"
-                            value="Sinaloa"
-                            readonly
+                            class="form-control"
+                            required
                         >
-                        <span class="form-hint">Actualmente solo operamos en Sinaloa</span>
+                            <option value="">Selecciona un estado</option>
+                            <option value="sinaloa" selected>Sinaloa</option>
+                            <option value="nuevo-leon">Nuevo León</option>
+                        </select>
+                        <span class="form-hint">Selecciona el estado donde se encuentra el inmueble</span>
                     </div>
                 </div>
 
-                <!-- Substep 1.2: Municipio (FIJO: Culiacán) -->
+                <!-- Substep 1.2: Municipio -->
                 <div class="substep active" id="substep-1-2" data-substep="2">
                     <div class="form-group">
                         <label for="municipality" class="form-label">
@@ -110,11 +112,9 @@
                             name="municipality"
                             class="form-control"
                             required
+                            disabled
                         >
-                            <option value="culiacan" selected>Culiacán</option>
-                            <option value="garcia">García</option>
-                            <option value="los-mochis">Los Mochis</option>
-                            <option value="mazatlan">Mazatlán</option>
+                            <option value="">Selecciona un municipio</option>
                         </select>
                         <span class="form-hint">Selecciona el municipio donde se encuentra el inmueble</span>
                     </div>

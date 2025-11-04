@@ -67,14 +67,31 @@ const Geocoding = {
         const municipalityMap = {
             'culiacan': 'Culiacán',
             'los-mochis': 'Los Mochis',
-            'mazatlan': 'Mazatlán'
+            'mazatlan': 'Mazatlán',
+            'garcia': 'García'
         };
         const municipality = data.municipality || 'culiacan'; // default: Culiacán
         const cityName = municipalityMap[municipality] || 'Culiacán';
         parts.push(cityName);
 
-        // Estado (siempre Sinaloa para ambos municipios)
-        parts.push('Sinaloa');
+        // Estado - Mapear estado desde el selector
+        const stateMap = {
+            'sinaloa': 'Sinaloa',
+            'nuevo-leon': 'Nuevo León'
+        };
+
+        // Obtener estado desde data o inferir desde municipio
+        let stateName = 'Sinaloa'; // default
+
+        if (data.state) {
+            // Si viene el estado en los datos, usarlo
+            stateName = stateMap[data.state] || data.state;
+        } else if (municipality === 'garcia') {
+            // Si es García, usar Nuevo León
+            stateName = 'Nuevo León';
+        }
+
+        parts.push(stateName);
 
         // País
         parts.push('México');
