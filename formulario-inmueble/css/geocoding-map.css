@@ -1,193 +1,293 @@
 /* ============================================
-   GEOCODING-MAP.CSS - Estilos con Design System TuHabi
-   Reutiliza variables y clases de main.css
+   GEOCODING-MAP.CSS - Rediseño Premium 2025
+   Hereda design system de main.css
+   Matching landing page identity
    ============================================ */
 
 /* ============================================
-   HEADER
+   HEADER - Matching Landing Style
    ============================================ */
 .header {
-    background: var(--tuhabi-purple);
-    padding: 2rem 0;
-    box-shadow: 0 2px 8px rgba(124, 1, 255, 0.15);
+    background: var(--color-bg-white);
+    border-bottom: 1px solid var(--color-border-light);
+    padding: var(--space-6) 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.header-content {
-    max-width: 1200px;
+.header-container {
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--space-8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.back-link {
+.logo h1 {
+    font-size: var(--text-2xl);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.logo-accent {
+    color: var(--color-primary);
+}
+
+.back-link-button {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    color: #FFFFFF;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-bg-gray-light);
+    color: var(--color-text-primary);
     text-decoration: none;
+    border-radius: var(--radius-full);
     font-size: var(--text-sm);
     font-family: var(--font-body);
-    margin-bottom: 1rem;
-    transition: all 0.2s ease;
+    font-weight: var(--font-weight-medium);
+    transition: all var(--transition-fast);
 }
 
-.back-link:hover {
+.back-link-button:hover {
+    background: var(--color-bg-gray);
     transform: translateX(-4px);
-    opacity: 0.9;
 }
 
-.header-title {
-    font-size: var(--text-3xl);
-    color: #FFFFFF;
-    margin: 0 0 0.5rem 0;
-    font-weight: 700;
-    font-family: var(--font-display);
-}
-
-.header-subtitle {
-    font-size: var(--text-base);
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0;
-    font-weight: 400;
-    font-family: var(--font-body);
+.back-link-button i {
+    font-size: 0.875rem;
 }
 
 /* ============================================
-   MAIN CONTAINER - LAYOUT
+   HERO SECTION - Matching Landing
+   ============================================ */
+.hero-section-geo {
+    background: linear-gradient(135deg, rgba(124, 1, 255, 0.03) 0%, rgba(124, 1, 255, 0.08) 100%);
+    padding: var(--space-12) 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section-geo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(124, 1, 255, 0.02) 10px,
+        rgba(124, 1, 255, 0.02) 20px
+    );
+    pointer-events: none;
+}
+
+.hero-container-geo {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-badge-geo {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: rgba(124, 1, 255, 0.1);
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-body);
+    margin-bottom: var(--space-4);
+    border: 1px solid rgba(124, 1, 255, 0.2);
+}
+
+.hero-title-geo {
+    font-size: var(--text-4xl);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-4) 0;
+    line-height: var(--line-height-tight);
+}
+
+.hero-highlight-geo {
+    color: var(--color-primary);
+}
+
+.hero-subtitle-geo {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-8) 0;
+    line-height: var(--line-height-relaxed);
+    font-family: var(--font-body);
+}
+
+.hero-features-geo {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+}
+
+.hero-feature-geo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+}
+
+.hero-feature-icon-geo {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+/* ============================================
+   LAYOUT - Grid Premium
    ============================================ */
 .geocoding-container {
     display: grid;
-    grid-template-columns: 450px 1fr;
-    gap: 2rem;
+    grid-template-columns: 480px 1fr;
+    gap: var(--space-8);
     max-width: 1400px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-    min-height: calc(100vh - 200px);
+    margin: var(--space-10) auto;
+    padding: 0 var(--space-8);
+    min-height: calc(100vh - 400px);
 }
 
 /* ============================================
-   PANELS
+   PANELS - Premium Cards
    ============================================ */
 .geocoding-form-panel,
 .geocoding-map-panel {
-    background: var(--tuhabi-bg-white);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: var(--color-bg-white);
+    border-radius: var(--radius-xl);
+    box-shadow: none;
     overflow: hidden;
+    border: 1px solid var(--color-border-light);
+    transition: box-shadow var(--transition-base);
 }
 
-.panel-header {
-    background: var(--tuhabi-purple);
-    padding: 1.25rem;
+.geocoding-form-panel:hover,
+.geocoding-map-panel:hover {
+    box-shadow: none;
+}
+
+/* ============================================
+   PANEL HEADERS - Modern & Clean
+   ============================================ */
+.panel-header-geo {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    padding: var(--space-6);
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: space-between;
     color: #FFFFFF;
+    border-bottom: 4px solid var(--color-primary-darker);
 }
 
-.panel-header i {
+.panel-header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.panel-header-content i {
     font-size: 1.5rem;
+    opacity: 0.9;
 }
 
-.panel-header h2,
-.panel-header h3 {
+.panel-header-content h2 {
     margin: 0;
     font-size: var(--text-xl);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     font-family: var(--font-display);
 }
 
+.panel-header-badge {
+    padding: var(--space-2) var(--space-4);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-body);
+    backdrop-filter: blur(8px);
+}
+
 /* ============================================
-   FORM STYLES - Reutilizando clases existentes
+   FORM - Enhanced Styling
    ============================================ */
 .geocoding-form {
-    padding: 1.5rem;
+    padding: var(--space-8);
 }
 
-/* Reutilizar .form-group, .form-label, .form-control de main.css */
-/* No necesitamos redefinirlas, ya están disponibles */
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.form-actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-/* ============================================
-   BUTTONS - Reutilizando clases existentes
-   ============================================ */
-/* .btn, .btn-primary, .btn-secondary ya están definidos en main.css */
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-size: var(--text-base);
-    font-weight: 500;
+.form-hint {
+    display: block;
+    margin-top: var(--space-2);
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
     font-family: var(--font-body);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    height: 40px;
-}
-
-.btn-maps {
-    width: 100%;
-    background: #4285F4;
-    color: #FFFFFF;
-    border: none;
-    margin-top: 1rem;
-}
-
-.btn-maps:hover {
-    background: #357AE8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
-}
-
-.btn-copy {
-    width: 100%;
-    background: var(--tuhabi-success);
-    color: #FFFFFF;
-    border: none;
-    margin-top: 0.5rem;
-}
-
-.btn-copy:hover {
-    background: #38D9A9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(81, 207, 102, 0.3);
 }
 
 /* ============================================
-   RESULTS PANEL
+   RESULTS PANEL - Premium Design
    ============================================ */
 .results-panel {
-    margin-top: 2rem;
-    background: var(--tuhabi-bg-gray-light);
-    border-radius: 12px;
+    margin-top: var(--space-8);
+    background: linear-gradient(135deg, rgba(42, 157, 143, 0.05) 0%, rgba(42, 157, 143, 0.1) 100%);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid var(--tuhabi-border-light);
+    border: 2px solid rgba(42, 157, 143, 0.2);
+    box-shadow: none;
+}
+
+.results-header {
+    background: var(--color-success);
+    padding: var(--space-5);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: #FFFFFF;
+}
+
+.results-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+}
+
+.results-icon-wrapper i {
+    font-size: 1.25rem;
+}
+
+.results-title {
+    margin: 0;
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-display);
 }
 
 .results-content {
-    padding: 1.5rem;
+    padding: var(--space-6);
 }
 
 .result-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--tuhabi-border-light);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(42, 157, 143, 0.15);
 }
 
 .result-item:last-of-type {
@@ -195,48 +295,157 @@
 }
 
 .result-label {
-    font-weight: 600;
-    color: var(--tuhabi-text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
     font-size: var(--text-sm);
     font-family: var(--font-body);
-    flex-shrink: 0;
-    width: 140px;
+    margin-bottom: var(--space-2);
+}
+
+.result-label i {
+    color: var(--color-success);
+    font-size: 0.875rem;
 }
 
 .result-value {
-    color: var(--tuhabi-text-secondary);
+    display: block;
+    color: var(--color-text-secondary);
     font-size: var(--text-sm);
     font-family: var(--font-body);
-    text-align: right;
+    font-weight: var(--font-weight-normal);
     word-break: break-word;
+    padding-left: var(--space-7);
+}
+
+/* Result Grid for Coordinates */
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(42, 157, 143, 0.15);
+}
+
+.result-item-compact {
+    background: rgba(255, 255, 255, 0.6);
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(42, 157, 143, 0.15);
+}
+
+.result-label-compact {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    font-size: var(--text-xs);
+    font-family: var(--font-body);
+    margin-bottom: var(--space-2);
+}
+
+.result-label-compact i {
+    color: var(--color-success);
+    font-size: 0.75rem;
+}
+
+.result-value-compact {
+    display: block;
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-family: 'Courier New', monospace;
+    font-weight: var(--font-weight-bold);
 }
 
 /* ============================================
-   MAP CONTAINER
+   ACTION BUTTONS - Modern CTAs
+   ============================================ */
+.result-actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+}
+
+.btn-result {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-5);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    height: 48px;
+}
+
+.btn-maps {
+    background: linear-gradient(135deg, #4285F4 0%, #357AE8 100%);
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(66, 133, 244, 0.2);
+}
+
+.btn-maps:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(66, 133, 244, 0.3);
+}
+
+.btn-maps:active {
+    transform: translateY(0);
+}
+
+.btn-copy {
+    background: linear-gradient(135deg, var(--color-success) 0%, #38D9A9 100%);
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.2);
+}
+
+.btn-copy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(42, 157, 143, 0.3);
+}
+
+.btn-copy:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   MAP CONTAINER - Premium Styling
    ============================================ */
 .map-container {
     width: 100%;
     height: 600px;
-    background: var(--tuhabi-bg-gray);
+    background: var(--color-bg-gray);
     position: relative;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }
 
 .map-legend {
-    padding: 1rem;
-    background: var(--tuhabi-bg-gray-light);
-    border-top: 1px solid var(--tuhabi-border-light);
+    padding: var(--space-5);
+    background: var(--color-bg-white);
+    border-top: 1px solid var(--color-border-light);
     display: flex;
-    gap: 2rem;
+    gap: var(--space-8);
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-2);
     font-size: var(--text-sm);
-    color: var(--tuhabi-text-secondary);
+    color: var(--color-text-secondary);
     font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
 }
 
 .legend-item i {
@@ -244,7 +453,7 @@
 }
 
 /* ============================================
-   LOADING OVERLAY
+   LOADING OVERLAY - Enhanced Animation
    ============================================ */
 .loading-overlay {
     position: fixed;
@@ -252,69 +461,85 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(4px);
-    z-index: 9999;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .loading-spinner {
-    background: var(--tuhabi-bg-white);
-    padding: 2rem 3rem;
-    border-radius: 12px;
+    background: var(--color-bg-white);
+    padding: var(--space-10) var(--space-12);
+    border-radius: var(--radius-xl);
     text-align: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
 }
 
-.loading-spinner i {
-    font-size: 3rem;
-    color: var(--tuhabi-purple);
-    margin-bottom: 1rem;
+.spinner-icon {
+    width: 64px;
+    height: 64px;
+    border: 4px solid var(--color-bg-gray-light);
+    border-top-color: var(--color-primary);
+    border-radius: var(--radius-full);
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto var(--space-5);
 }
 
-.loading-spinner p {
-    margin: 0;
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    margin: 0 0 var(--space-2) 0;
     font-size: var(--text-lg);
-    color: var(--tuhabi-text-primary);
-    font-weight: 500;
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-display);
+}
+
+.loading-subtext {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
     font-family: var(--font-body);
 }
 
 /* ============================================
-   NOTIFICATIONS
+   NOTIFICATIONS - Premium Toast
    ============================================ */
 .notification-container {
     position: fixed;
-    top: 2rem;
-    right: 2rem;
-    z-index: 10000;
+    top: var(--space-8);
+    right: var(--space-8);
+    z-index: 10001;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-4);
 }
 
 .notification {
-    background: var(--tuhabi-bg-white);
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: var(--color-bg-white);
+    padding: var(--space-5) var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
-    gap: 1rem;
-    min-width: 300px;
-    max-width: 400px;
+    gap: var(--space-4);
+    min-width: 320px;
+    max-width: 420px;
     animation: slideInRight 0.3s ease-out;
     border-left: 4px solid;
 }
 
 .notification.success {
-    border-left-color: var(--tuhabi-success);
+    border-left-color: var(--color-success);
 }
 
 .notification.error {
-    border-left-color: var(--tuhabi-error);
+    border-left-color: var(--color-error);
 }
 
 .notification.warning {
@@ -326,11 +551,11 @@
 }
 
 .notification.success i {
-    color: var(--tuhabi-success);
+    color: var(--color-success);
 }
 
 .notification.error i {
-    color: var(--tuhabi-error);
+    color: var(--color-error);
 }
 
 .notification.warning i {
@@ -339,9 +564,11 @@
 
 .notification-message {
     flex: 1;
-    color: var(--tuhabi-text-primary);
+    color: var(--color-text-primary);
     font-size: var(--text-sm);
     font-family: var(--font-body);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
 }
 
 @keyframes slideInRight {
@@ -356,12 +583,32 @@
 }
 
 /* ============================================
+   FOCUS/HOVER STATES - Enhanced Accessibility
+   ============================================ */
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(124, 1, 255, 0.1);
+}
+
+.btn:focus-visible,
+.btn-result:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.back-link-button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ============================================
    RESPONSIVE DESIGN
    ============================================ */
 @media (max-width: 1024px) {
     .geocoding-container {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: var(--space-6);
     }
 
     .map-container {
@@ -370,33 +617,57 @@
 }
 
 @media (max-width: 768px) {
-    .header-content {
-        padding: 0 1rem;
+    .header-container {
+        padding: 0 var(--space-4);
+        flex-direction: column;
+        gap: var(--space-3);
+        text-align: center;
     }
 
-    .header-title {
+    .logo h1 {
+        font-size: var(--text-xl);
+    }
+
+    .hero-section-geo {
+        padding: var(--space-8) 0;
+    }
+
+    .hero-title-geo {
         font-size: var(--text-2xl);
     }
 
-    .header-subtitle {
-        font-size: var(--text-sm);
+    .hero-subtitle-geo {
+        font-size: var(--text-base);
+    }
+
+    .hero-features-geo {
+        flex-direction: column;
+        gap: var(--space-4);
     }
 
     .geocoding-container {
-        padding: 0 1rem;
-        margin: 1rem auto;
+        padding: 0 var(--space-4);
+        margin: var(--space-6) auto;
     }
 
-    .form-row {
+    .geocoding-form {
+        padding: var(--space-6);
+    }
+
+    .panel-header-geo {
+        padding: var(--space-5);
+    }
+
+    .panel-header-content h2 {
+        font-size: var(--text-lg);
+    }
+
+    .result-grid {
         grid-template-columns: 1fr;
     }
 
-    .form-actions {
+    .result-actions {
         flex-direction: column;
-    }
-
-    .btn-primary {
-        width: 100%;
     }
 
     .map-container {
@@ -405,98 +676,99 @@
 
     .map-legend {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: var(--space-3);
     }
 
     .notification-container {
-        top: 1rem;
-        right: 1rem;
-        left: 1rem;
+        top: var(--space-4);
+        right: var(--space-4);
+        left: var(--space-4);
     }
 
     .notification {
         min-width: auto;
         max-width: none;
     }
+
+    .loading-spinner {
+        padding: var(--space-8);
+    }
 }
 
 @media (max-width: 480px) {
-    .header-content {
-        padding: 0 0.75rem;
+    .hero-badge-geo {
+        font-size: var(--text-xs);
+        padding: var(--space-1) var(--space-3);
     }
 
-    .header-title {
+    .hero-title-geo {
         font-size: var(--text-xl);
     }
 
-    .geocoding-form {
-        padding: 1rem;
+    .hero-subtitle-geo {
+        font-size: var(--text-sm);
     }
 
-    .results-content {
-        padding: 1rem;
-    }
-
-    .result-label {
-        font-size: 0.85rem;
-        width: 120px;
-    }
-
-    .result-value {
-        font-size: 0.85rem;
+    .panel-header-badge {
+        font-size: var(--text-xs);
+        padding: var(--space-1) var(--space-3);
     }
 
     .map-container {
         height: 350px;
     }
+
+    .result-label,
+    .result-value {
+        font-size: var(--text-xs);
+    }
+
+    .btn-result {
+        font-size: var(--text-xs);
+        height: 44px;
+    }
 }
 
 /* ============================================
-   LEAFLET MAP CUSTOM STYLES
+   TOUCH DEVICES - Enhanced Touch Targets
    ============================================ */
-.leaflet-popup-content-wrapper {
-    border-radius: 8px;
-    padding: 0;
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .btn-result,
+    .back-link-button {
+        min-height: 48px;
+        padding: var(--space-4) var(--space-6);
+    }
+
+    .form-control {
+        min-height: 48px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    /* Remove hover effects on touch */
+    .geocoding-form-panel:hover,
+    .geocoding-map-panel:hover,
+    .btn-maps:hover,
+    .btn-copy:hover,
+    .back-link-button:hover {
+        transform: none;
+    }
 }
 
-.leaflet-popup-content {
-    margin: 0;
-    padding: 1rem;
-}
+/* ============================================
+   REDUCE MOTION - Accessibility
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 
-.custom-popup {
-    font-family: var(--font-body);
-}
-
-.custom-popup h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: var(--text-base);
-    color: var(--tuhabi-purple);
-    font-weight: 600;
-    font-family: var(--font-display);
-}
-
-.custom-popup p {
-    margin: 0.25rem 0;
-    font-size: var(--text-sm);
-    color: var(--tuhabi-text-secondary);
-}
-
-.custom-popup strong {
-    color: var(--tuhabi-text-primary);
-}
-
-/* Custom marker icon */
-.custom-marker-icon {
-    background: var(--tuhabi-purple);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 3px solid #FFFFFF;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    font-size: 1.2rem;
+    .spinner-icon {
+        animation: none;
+        border-top-color: var(--color-success);
+    }
 }

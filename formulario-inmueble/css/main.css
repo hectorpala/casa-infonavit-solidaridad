@@ -8,65 +8,95 @@
    ============================================ */
 :root {
     /* ══════════════════════════════════════════
-       PALETA TUHABI REAL - Extraída del Sitio
+       COLORES - Sistema TuHabi Consolidado
        ══════════════════════════════════════════ */
 
-    /* Primarios - Morado (VALORES REALES) */
-    --tuhabi-purple: #7C01FF;        /* Morado principal TuHabi REAL */
-    --tuhabi-purple-dark: #6301CC;   /* Morado oscuro REAL */
-    --tuhabi-purple-light: #9634FF;  /* Morado claro REAL */
-    --tuhabi-purple-darker: #320066; /* Morado muy oscuro REAL */
+    /* PRIMARIOS - Morado TuHabi (Brand) */
+    --color-primary: #7C01FF;          /* Morado principal - botones, badges, acentos */
+    --color-primary-dark: #6301CC;     /* Morado oscuro - hover states */
+    --color-primary-light: #9634FF;    /* Morado claro - backgrounds sutiles */
+    --color-primary-darker: #320066;   /* Morado muy oscuro - active states */
 
-    /* Textos (VALORES REALES) */
-    --tuhabi-text-primary: #252129;  /* Casi negro - texto principal */
-    --tuhabi-text-secondary: #6D6970;/* Gris oscuro - texto secundario */
-    --tuhabi-text-tertiary: #78747B; /* Gris medio - texto terciario */
+    /* TEXTOS - Jerarquía Clara */
+    --color-text-primary: #252129;     /* Negro suave - títulos, labels, texto importante */
+    --color-text-secondary: #6D6970;   /* Gris oscuro - subtítulos, hints */
+    --color-text-tertiary: #78747B;    /* Gris medio - placeholders, disabled */
 
-    /* Bordes (VALORES REALES) */
-    --tuhabi-border: #949494;        /* Border estándar */
-    --tuhabi-border-light: #96939a;  /* Border claro */
+    /* BORDES */
+    --color-border: #78747B;           /* Border estándar inputs - #78747B exacto */
+    --color-border-light: #96939a;     /* Border hover/subtle */
+    --color-border-disabled: #d1d5db;  /* Border disabled states */
 
-    /* Fondos (VALORES REALES) */
-    --tuhabi-bg-white: #FFFFFF;      /* Blanco puro */
-    --tuhabi-bg-gray: #f3f3f3;       /* Gris claro */
-    --tuhabi-bg-gray-light: #f5f5f5; /* Gris muy claro */
+    /* FONDOS */
+    --color-bg-white: #FFFFFF;         /* Blanco puro - cards, inputs */
+    --color-bg-gray-light: #f5f5f5;    /* Gris muy claro - backgrounds sutiles */
+    --color-bg-gray: #f3f3f3;          /* Gris claro - hover states, disabled */
 
-    /* Estados (VALORES REALES) */
-    --tuhabi-error: #E51717;         /* Rojo error */
-    --tuhabi-focus: #3483FA;         /* Azul focus (NO morado!) */
-    --tuhabi-success: #51CF66;       /* Verde éxito */
+    /* ESTADOS */
+    --color-error: #E51717;            /* Rojo - errores, validaciones */
+    --color-success: #51CF66;          /* Verde - success states */
+    --color-focus: #3483FA;            /* Azul - focus rings (NO morado) */
 
-    /* Gradientes Característicos */
+    /* GRADIENTES */
     --gradient-hero: linear-gradient(135deg, #6C5CE7 0%, #A29BFE 100%);
     --gradient-card: linear-gradient(135deg, #F5F4FF 0%, #FFFFFF 100%);
     --gradient-success: linear-gradient(135deg, #51CF66 0%, #38D9A9 100%);
 
-    /* Aliases para compatibilidad (mantener código existente) */
-    --color-primary: var(--tuhabi-purple);
-    --color-primary-dark: var(--tuhabi-purple-dark);
-    --color-primary-light: var(--tuhabi-purple-light);
-    --color-secondary: var(--tuhabi-gray-900);
-    --color-accent: var(--tuhabi-coral);
-    --color-base: var(--tuhabi-gray-100);
-    --color-contrast: var(--tuhabi-gray-900);
-    --color-border: var(--tuhabi-gray-300);
-    --color-white: var(--tuhabi-white);
-    --color-error: var(--tuhabi-coral);
-    --color-success: var(--tuhabi-green);
-    --color-warning: var(--tuhabi-yellow);
-    --color-info: var(--tuhabi-blue);
-
-    /* Grises (aliases) */
+    /* GRISES ADICIONALES (para degradados y variaciones) */
     --gray-50: #F5F5FA;
-    --gray-100: var(--tuhabi-gray-100);
+    --gray-100: #F0F0F5;
     --gray-200: #E8E8F0;
-    --gray-300: var(--tuhabi-gray-300);
+    --gray-300: #D1D1E0;
     --gray-400: #B5B5C8;
-    --gray-500: var(--tuhabi-gray-500);
+    --gray-500: #9999B0;
     --gray-600: #6B6B89;
-    --gray-700: var(--tuhabi-gray-700);
+    --gray-700: #4E4E66;
     --gray-800: #2E2E48;
-    --gray-900: var(--tuhabi-gray-900);
+    --gray-900: #1A1A2E;
+
+    /* ══════════════════════════════════════════
+       GUÍA DE USO - COLORES
+       ══════════════════════════════════════════
+
+       PRIMARIOS (Morado):
+       - Botones principales: var(--color-primary)
+       - Hover: var(--color-primary-dark)
+       - Active: var(--color-primary-darker)
+       - Backgrounds sutiles: var(--color-primary-light)
+       - Uso: CTAs, badges, links importantes
+
+       TEXTOS:
+       - Títulos (h1-h3): var(--color-text-primary) o #000000
+       - Labels: var(--color-text-primary)
+       - Body text: var(--color-text-primary)
+       - Hints/subtítulos: var(--color-text-secondary)
+       - Placeholders: var(--color-text-tertiary)
+       - Disabled: var(--color-text-tertiary)
+
+       BORDES:
+       - Inputs estándar: var(--color-border) (#78747B exacto)
+       - Inputs hover: var(--color-border-light)
+       - Inputs focus: var(--color-focus) (azul #3483FA)
+       - Inputs disabled: var(--color-border-disabled)
+
+       FONDOS:
+       - Cards, inputs: var(--color-bg-white)
+       - Backgrounds sutiles: var(--color-bg-gray-light)
+       - Hover states: var(--color-bg-gray)
+       - Disabled: var(--color-bg-gray)
+
+       ESTADOS:
+       - Errores: var(--color-error)
+       - Success: var(--color-success)
+       - Focus: var(--color-focus)
+
+       GRISES:
+       - Usar escala gray-50 a gray-900 para variaciones
+       - Más claro (50-200): backgrounds
+       - Medio (300-600): bordes, textos secundarios
+       - Oscuro (700-900): textos, contraste alto
+
+       ══════════════════════════════════════════ */
 
     /* ══════════════════════════════════════════
        TIPOGRAFÍA - Sistema TuHabi REAL
@@ -80,26 +110,126 @@
     --font-heading: var(--font-display);
     --font-base: var(--font-body);
 
-    /* Tamaños de Fuente */
-    --text-xs: 0.75rem;      /* 12px */
-    --text-sm: 0.875rem;     /* 14px */
-    --text-base: 1rem;       /* 16px */
-    --text-lg: 1.125rem;     /* 18px */
-    --text-xl: 1.25rem;      /* 20px */
-    --text-2xl: 1.5rem;      /* 24px */
-    --text-3xl: 2rem;        /* 32px */
+    /* Pesos de Fuente - Jerarquía Clara */
+    --font-weight-normal: 400;      /* Body text, inputs, labels normales */
+    --font-weight-medium: 500;      /* Énfasis sutil, step indicators */
+    --font-weight-semibold: 600;    /* Badges, labels importantes */
+    --font-weight-bold: 700;        /* Títulos (h1-h6), botones, precios */
 
-    /* Espaciado */
-    --space-1: 0.25rem;      /* 4px */
-    --space-2: 0.5rem;       /* 8px */
-    --space-3: 0.75rem;      /* 12px */
-    --space-4: 1rem;         /* 16px */
-    --space-5: 1.25rem;      /* 20px */
-    --space-6: 1.5rem;       /* 24px */
-    --space-8: 2rem;         /* 32px */
-    --space-10: 2.5rem;      /* 40px */
-    --space-12: 3rem;        /* 48px */
-    --space-16: 4rem;        /* 64px */
+    /* Tamaños de Fuente - Escala Consistente */
+    --text-xs: 0.75rem;      /* 12px - Captions, hints */
+    --text-sm: 0.875rem;     /* 14px - Labels secundarios, botones pequeños */
+    --text-base: 1rem;       /* 16px - Body text, inputs */
+    --text-lg: 1.125rem;     /* 18px - Subtítulos, descripciones destacadas */
+    --text-xl: 1.25rem;      /* 20px - Títulos de sección (h3) */
+    --text-2xl: 1.5rem;      /* 24px - Títulos principales (h2) */
+    --text-3xl: 2rem;        /* 32px - Hero titles (h1) */
+
+    /* Alturas de Línea - Según Uso */
+    --line-height-tight: 1.2;       /* Títulos (h1-h3) */
+    --line-height-normal: 1.5;      /* Labels, hints, descripciones cortas */
+    --line-height-relaxed: 1.6;     /* Body text, párrafos largos */
+
+    /* Letter Spacing - Ajustes Tipográficos */
+    --letter-spacing-tight: -0.02em;  /* Títulos grandes (h1-h2) */
+    --letter-spacing-normal: 0;       /* Body text por defecto */
+    --letter-spacing-wide: 0.05em;    /* Badges, captions uppercase */
+
+    /* ══════════════════════════════════════════
+       GUÍA DE USO - TIPOGRAFÍA
+       ══════════════════════════════════════════
+
+       TÍTULOS (h1-h3):
+       - Font: var(--font-display)
+       - Weight: var(--font-weight-bold)
+       - Line Height: var(--line-height-tight)
+       - Letter Spacing: var(--letter-spacing-tight) para h1-h2
+       - Uso: Hero titles, step titles, section headers
+
+       LABELS (form-label):
+       - Font: var(--font-body)
+       - Size: var(--text-sm) o var(--text-base)
+       - Weight: var(--font-weight-normal)
+       - Line Height: var(--line-height-normal)
+       - Uso: Form labels, field labels, captions
+
+       BODY TEXT:
+       - Font: var(--font-body)
+       - Size: var(--text-base)
+       - Weight: var(--font-weight-normal)
+       - Line Height: var(--line-height-relaxed)
+       - Uso: Descripciones, instructions, párrafos largos
+
+       BOTONES:
+       - Font: var(--font-body)
+       - Size: var(--text-sm)
+       - Weight: var(--font-weight-bold)
+       - Line Height: var(--line-height-normal)
+       - Letter Spacing: var(--letter-spacing-normal)
+       - Uso: Botones primarios, secundarios, CTAs
+
+       BADGES/PILLS:
+       - Font: var(--font-body)
+       - Size: var(--text-xs)
+       - Weight: var(--font-weight-semibold)
+       - Letter Spacing: var(--letter-spacing-wide)
+       - Text Transform: uppercase
+       - Uso: Step indicators, status badges, tags
+
+       HINTS/HELP TEXT:
+       - Font: var(--font-body)
+       - Size: var(--text-sm)
+       - Weight: var(--font-weight-normal)
+       - Line Height: var(--line-height-normal)
+       - Uso: Form hints, error messages, helper text
+
+       ══════════════════════════════════════════ */
+
+    /* ══════════════════════════════════════════
+       ESPACIADO - Sistema de 4px Base
+       ══════════════════════════════════════════ */
+
+    /* Escala de Espaciado (múltiplos de 4px) */
+    --space-1: 0.25rem;      /* 4px  - Gaps mínimos, ajustes finos */
+    --space-2: 0.5rem;       /* 8px  - Padding pequeño, gap entre iconos y texto */
+    --space-3: 0.75rem;      /* 12px - Padding botones pequeños, margin entre elementos cercanos */
+    --space-4: 1rem;         /* 16px - Padding estándar inputs, gap entre form-groups pequeñas */
+    --space-5: 1.25rem;      /* 20px - Padding medium, margin entre secciones */
+    --space-6: 1.5rem;       /* 24px - Padding grande, margin entre grupos lógicos */
+    --space-8: 2rem;         /* 32px - Padding XL, separación entre secciones relacionadas */
+    --space-10: 2.5rem;      /* 40px - Margin entre secciones principales */
+    --space-12: 3rem;        /* 48px - Separación grande entre bloques */
+    --space-16: 4rem;        /* 64px - Separación hero/section, padding vertical contenedores */
+
+    /* ══════════════════════════════════════════
+       GUÍA DE USO - ESPACIADO
+       ══════════════════════════════════════════
+
+       PADDING INTERNO:
+       - Inputs/Selects: var(--space-4) horizontal
+       - Botones pequeños: var(--space-3) vertical, var(--space-4) horizontal
+       - Botones estándar: var(--space-3) vertical, var(--space-5) horizontal
+       - Cards: var(--space-6) o var(--space-8)
+       - Contenedores principales: var(--space-10) o var(--space-12)
+
+       GAPS (flex/grid):
+       - Icono + texto: var(--space-2)
+       - Elementos muy relacionados: var(--space-3)
+       - Form rows (2 columnas): var(--space-4) o var(--space-6)
+       - Cards en grid: var(--space-6) o var(--space-8)
+
+       MARGIN VERTICAL:
+       - Entre inputs (form-group): var(--space-6) o var(--space-8)
+       - Entre subsecciones: var(--space-10)
+       - Entre secciones principales: var(--space-12) o var(--space-16)
+       - Step header bottom: var(--space-8) o var(--space-12)
+
+       MARGIN HORIZONTAL:
+       - Padding lateral páginas: var(--space-6) o var(--space-8)
+       - Entre botones: var(--space-4)
+       - Entre badges/pills: var(--space-3)
+
+       ══════════════════════════════════════════ */
 
     /* ══════════════════════════════════════════
        BORDER RADIUS - Sistema TuHabi
@@ -212,15 +342,15 @@ h3 { font-size: var(--text-xl); }
 }
 
 .logo h1 {
-    color: var(--tuhabi-text-primary);       /* REAL: texto oscuro (header blanco) */
+    color: var(--color-text-primary);
     font-size: var(--text-2xl);
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-tight);
 }
 
 .logo-accent {
-    color: var(--tuhabi-purple);             /* REAL: morado para accent */
-    font-weight: 700;
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
 }
 
 .header-info {
@@ -230,16 +360,16 @@ h3 { font-size: var(--text-xl); }
 }
 
 .step-indicator {
-    color: var(--tuhabi-text-secondary);     /* REAL: texto gris */
+    color: var(--color-text-secondary);
     font-size: var(--text-sm);
-    font-weight: 500;
-    background: var(--tuhabi-bg-gray-light); /* REAL: fondo gris claro */
+    font-weight: var(--font-weight-medium);
+    background: var(--color-bg-gray-light);
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-full);
 }
 
 #current-step {
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
 }
 
 /* ============================================
@@ -862,30 +992,30 @@ textarea.form-control {
 }
 
 .btn-primary {
-    background: var(--tuhabi-purple);
-    color: var(--tuhabi-white);
+    background: var(--color-primary);
+    color: var(--color-bg-white);
     border: none;
     flex: 1;
 }
 
 .btn-primary:hover {
-    background: var(--tuhabi-purple-dark);
+    background: var(--color-primary-dark);
 }
 
 .btn-primary:active {
-    background: var(--tuhabi-purple-darker);
+    background: var(--color-primary-darker);
 }
 
 .btn-secondary {
-    background: var(--tuhabi-white);
-    color: var(--tuhabi-text-secondary);
-    border: 1px solid var(--tuhabi-border);  /* REAL: 1px (no 2px) */
+    background: var(--color-bg-white);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
 }
 
 .btn-secondary:hover {
-    background: var(--tuhabi-bg-gray);
-    border-color: var(--tuhabi-border);
-    color: var(--tuhabi-text-primary);
+    background: var(--color-bg-gray);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
 }
 
 .btn-success {

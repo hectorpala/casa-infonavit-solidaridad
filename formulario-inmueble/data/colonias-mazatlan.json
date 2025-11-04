@@ -8,11 +8,11 @@
     "totalColonias": 657,
     "fuentes": {
       "INEGI": {
-        "colonias": 425,
+        "colonias": 657,
         "descripcion": "Marco Geoestadístico Nacional (oficial)"
       },
       "SEPOMEX": {
-        "colonias": 232,
+        "colonias": 0,
         "descripcion": "Servicio Postal Mexicano (oficial)"
       }
     },

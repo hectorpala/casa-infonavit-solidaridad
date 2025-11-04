@@ -1,67 +1,88 @@
-/* OVERRIDE FORZADO - Fondo blanco y texto negro */
+/* ============================================
+   OVERRIDE.CSS - Overrides agresivos con !important
+   Propósito: Corregir problemas de rendering (dark mode, font weights)
+   Hereda tokens de main.css
+   ============================================ */
+
+/* ============================================
+   FONDO Y COLORES BASE - Forzar light mode
+   ============================================ */
 html {
-    background-color: #FFFFFF !important;
+    background-color: var(--color-bg-white) !important;
 }
 
 body {
-    background-color: #FFFFFF !important;
-    color: #000000 !important;
+    background-color: var(--color-bg-white) !important;
+    color: var(--color-text-primary) !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #000000 !important;
+    color: var(--color-text-primary) !important;
 }
 
 p, span, div, label {
-    color: #000000 !important;
+    color: var(--color-text-primary) !important;
 }
 
+/* ============================================
+   SECCIONES PRINCIPALES
+   ============================================ */
 .hero-section {
-    background: #FFFFFF !important;
+    background: var(--color-bg-white) !important;
 }
 
 .main-container {
-    background-color: #FFFFFF !important;
+    background-color: var(--color-bg-white) !important;
 }
 
+/* ============================================
+   INPUTS - Forzar fondo blanco
+   ============================================ */
 .form-control,
 .form-control:focus,
 .form-control-readonly,
 .form-control:disabled {
-    background-color: #FFFFFF !important;
-    color: #000000 !important;
+    background-color: var(--color-bg-white) !important;
+    color: var(--color-text-primary) !important;
 }
 
 .form-control-readonly,
 .form-control:disabled {
-    border-color: #d1d5db !important;
+    border-color: var(--color-border) !important;
 }
 
-/* Autocomplete sólido - garantía máxima */
+/* ============================================
+   AUTOCOMPLETE - Garantía máxima de opacidad
+   ============================================ */
 .autocomplete-suggestions {
-    background-color: #FFFFFF !important;
+    background-color: var(--color-bg-white) !important;
     z-index: 9999 !important;
 }
 
 .autocomplete-suggestions.active {
     opacity: 1 !important;
-    background-color: #FFFFFF !important;
+    background-color: var(--color-bg-white) !important;
 }
 
 .autocomplete-item {
-    background-color: #FFFFFF !important;
+    background-color: var(--color-bg-white) !important;
 }
 
 .autocomplete-item:hover,
 .autocomplete-item.active {
-    background-color: #FFF5F3 !important;
+    background-color: #FFF5F3 !important; /* Naranja muy claro - conservar específico */
 }
 
-/* Quitar sombras de texto - TODAS */
+/* ============================================
+   TIPOGRAFÍA - Corregir rendering
+   ============================================ */
+
+/* Eliminar TODAS las sombras de texto */
 * {
     text-shadow: none !important;
 }
 
+/* Font smoothing + peso normal para mejor legibilidad */
 .form-label,
 label,
 .form-group label,
@@ -72,12 +93,12 @@ p, span, div, input, textarea, select, button {
     text-shadow: none !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
-    font-weight: 400 !important; /* Peso normal, sin bold */
+    font-weight: var(--font-weight-normal) !important; /* Peso normal, sin bold */
 }
 
-/* Asegurar que los labels específicamente no tengan bold */
+/* Labels específicamente con peso normal */
 .form-label {
-    font-weight: 400 !important;
+    font-weight: var(--font-weight-normal) !important;
     text-rendering: optimizeLegibility !important;
 }
 
@@ -92,5 +113,5 @@ strong {
     text-decoration: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    font-weight: 600 !important; /* Peso medio, no ultra-bold */
+    font-weight: var(--font-weight-semibold) !important; /* Peso medio, no ultra-bold */
 }

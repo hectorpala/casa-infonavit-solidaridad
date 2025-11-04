@@ -29,7 +29,7 @@
     }
 
     .hero-title {
-        font-size: 1.75rem;
+        font-size: var(--text-2xl);
     }
 
     .hero-subtitle {
@@ -50,7 +50,7 @@
     }
 
     .step-title {
-        font-size: 1.75rem;
+        font-size: var(--text-2xl);
     }
 
     .property-type-grid {
@@ -107,7 +107,7 @@
 
     /* Step Header */
     .step-title {
-        font-size: 2rem; /* 32px */
+        font-size: var(--text-3xl); /* Escalado para tablet */
     }
 
     .step-description {
@@ -180,11 +180,11 @@
         margin-bottom: var(--space-10);
     }
 
-    /* Inputs estilo TuHabi */
+    /* Inputs */
     .form-control {
         padding: var(--space-3) var(--space-4);
         font-size: var(--text-base);
-        min-height: 44px;
+        min-height: 44px; /* Tamaño touch-friendly */
     }
 
     /* Labels */
@@ -193,11 +193,11 @@
         margin-bottom: var(--space-4);
     }
 
-    /* Buttons estilo TuHabi */
+    /* Buttons */
     .btn {
         padding: var(--space-4) var(--space-10);
         font-size: var(--text-lg);
-        min-height: 48px;
+        min-height: 48px; /* Tamaño touch-friendly */
     }
 
     /* Hero Block */
@@ -518,7 +518,7 @@
 
     .btn {
         border-width: 2px;
-        font-weight: 700;
+        font-weight: var(--font-weight-bold);
     }
 
     .property-type-card {

@@ -39,11 +39,12 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: var(--text-base);
-    color: var(--gray-500);
+    color: var(--color-text-secondary);
     pointer-events: none;
     transition: all var(--transition-fast);
-    background: var(--color-white);
+    background: var(--color-bg-white);
     padding: 0 var(--space-2);
+    font-weight: var(--font-weight-normal);
 }
 
 .form-group-float .form-control:focus + .form-label-float,
@@ -51,7 +52,7 @@
     top: 0;
     font-size: var(--text-sm);
     color: var(--color-primary);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
 }
 
 /* ============================================
@@ -142,15 +143,15 @@
 
 .hint-title {
     font-size: var(--text-base);
-    font-weight: 600;
-    color: var(--color-contrast);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
     margin-bottom: var(--space-2);
 }
 
 .hint-text {
     font-size: var(--text-sm);
-    color: var(--gray-600);
-    line-height: 1.5;
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-normal);
 }
 
 /* ============================================

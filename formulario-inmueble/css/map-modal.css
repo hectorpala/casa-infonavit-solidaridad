@@ -1,5 +1,6 @@
 /* ============================================
    MAP-MODAL.CSS - Modal de Mapa Post-Formulario
+   Hereda design system de main.css
    ============================================ */
 
 /* ============================================
@@ -19,8 +20,9 @@
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    padding: 2rem;
+    transition: opacity var(--transition-base) ease,
+                visibility var(--transition-base) ease;
+    padding: var(--space-8);
 }
 
 .map-modal-overlay.active {
@@ -32,15 +34,15 @@
    CONTENEDOR DEL MODAL
    ============================================ */
 .map-modal {
-    background: #FFFFFF;
-    border-radius: 16px;
+    background: var(--color-bg-white);
+    border-radius: var(--radius-xl);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     max-width: 900px;
     width: 100%;
     max-height: 90vh;
     overflow: hidden;
     transform: scale(0.9) translateY(20px);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base) ease;
     display: flex;
     flex-direction: column;
 }
@@ -53,8 +55,8 @@
    HEADER DEL MODAL
    ============================================ */
 .map-modal-header {
-    background: var(--tuhabi-purple);
-    padding: 1.5rem 2rem;
+    background: var(--color-primary);
+    padding: var(--space-6) var(--space-8);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,7 +66,7 @@
 .map-modal-title {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--space-3);
     margin: 0;
 }
 
@@ -73,9 +75,11 @@
 }
 
 .map-modal-title h2 {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
     margin: 0;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-display);
+    line-height: var(--line-height-tight);
 }
 
 .map-modal-close {
@@ -84,12 +88,12 @@
     color: #FFFFFF;
     width: 36px;
     height: 36px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     font-size: 1.2rem;
 }
 
@@ -102,32 +106,35 @@
    CONTENIDO DEL MODAL
    ============================================ */
 .map-modal-content {
-    padding: 2rem;
+    padding: var(--space-8);
     flex: 1;
     overflow-y: auto;
 }
 
 .map-modal-intro {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-6);
 }
 
 .map-modal-intro p {
-    font-size: 1rem;
-    color: #78747B;
-    margin: 0.5rem 0;
-    line-height: 1.6;
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    margin: var(--space-2) 0;
+    line-height: var(--line-height-relaxed);
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-normal);
 }
 
 .map-modal-intro .address-display {
-    font-size: 1.1rem;
-    color: #44403C;
-    font-weight: 600;
-    margin: 1rem 0;
-    padding: 0.75rem 1rem;
-    background: #F8F9FA;
-    border-radius: 8px;
-    border-left: 4px solid var(--tuhabi-purple);
+    font-size: var(--text-lg);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-semibold);
+    margin: var(--space-4) 0;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-gray-light);
+    border-radius: var(--radius-sm);
+    border-left: 4px solid var(--color-primary);
+    font-family: var(--font-body);
 }
 
 /* ============================================
@@ -137,10 +144,10 @@
     width: 100%;
     min-height: 400px;
     height: 400px;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background: #E5E1E6;
+    box-shadow: var(--shadow-soft);
+    background: var(--color-bg-gray);
     position: relative;
 }
 
@@ -159,9 +166,9 @@
     transform: translate(-50%, -50%);
     width: 50px;
     height: 50px;
-    border: 4px solid #E5E1E6;
-    border-top-color: var(--tuhabi-purple);
-    border-radius: 50%;
+    border: 4px solid var(--color-bg-gray);
+    border-top-color: var(--color-primary);
+    border-radius: var(--radius-full);
     animation: spin 1s linear infinite;
 }
 
@@ -175,43 +182,46 @@
 .map-coordinates-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin: 1.5rem 0;
+    gap: var(--space-4);
+    margin: var(--space-6) 0;
 }
 
 .coordinate-item {
-    background: #F8F9FA;
-    padding: 1rem;
-    border-radius: 8px;
+    background: var(--color-bg-gray-light);
+    padding: var(--space-4);
+    border-radius: var(--radius-sm);
     text-align: center;
-    border: 1px solid #E5E1E6;
+    border: 1px solid var(--color-border-light);
 }
 
 .coordinate-label {
-    font-size: 0.85rem;
-    color: #78747B;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-2);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: var(--space-2);
+    font-family: var(--font-body);
 }
 
 .coordinate-value {
-    font-size: 1.1rem;
-    color: #44403C;
-    font-weight: 700;
+    font-size: var(--text-lg);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-bold);
     font-family: 'Courier New', monospace;
 }
 
 /* ============================================
    BOTONES DE ACCIÓN
    ============================================ */
+/* Hereda .btn de main.css, solo ajustes específicos */
+
 .map-modal-actions {
     display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
 }
 
 .map-action-btn {
@@ -219,36 +229,42 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.5rem;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-6);
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-body);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all var(--transition-fast);
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    height: 44px;
 }
 
 .map-action-btn.primary {
-    background: var(--tuhabi-purple);
+    background: var(--color-primary);
     color: #FFFFFF;
 }
 
 .map-action-btn.primary:hover {
+    background: var(--color-primary-dark);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(124, 1, 255, 0.3);
 }
 
+.map-action-btn.primary:active {
+    background: var(--color-primary-darker);
+}
+
 .map-action-btn.secondary {
-    background: #FFFFFF;
-    color: var(--tuhabi-purple);
-    border: 2px solid var(--tuhabi-purple);
+    background: var(--color-bg-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
 }
 
 .map-action-btn.secondary:hover {
-    background: var(--tuhabi-purple);
+    background: var(--color-primary);
     color: #FFFFFF;
 }
 
@@ -262,14 +278,13 @@
 .accuracy-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: rgba(42, 157, 143, 0.1);
-    color: #2A9D8F;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-top: 1rem;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-body);
+    margin-top: var(--space-4);
 }
 
 .accuracy-badge i {
@@ -292,76 +307,7 @@
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-@media (max-width: 768px) {
-    .map-modal-overlay {
-        padding: 1rem;
-    }
-
-    .map-modal-header {
-        padding: 1.25rem 1.5rem;
-    }
-
-    .map-modal-title h2 {
-        font-size: 1.25rem;
-    }
-
-    .map-modal-content {
-        padding: 1.5rem;
-    }
-
-    .map-container-modal {
-        min-height: 320px;
-        height: 320px;
-    }
-
-    .map-coordinates-info {
-        grid-template-columns: 1fr;
-    }
-
-    .map-modal-actions {
-        flex-direction: column;
-    }
-
-    .map-action-btn {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .map-modal-overlay {
-        padding: 0.5rem;
-    }
-
-    .map-modal-header {
-        padding: 1rem;
-    }
-
-    .map-modal-title h2 {
-        font-size: 1.1rem;
-    }
-
-    .map-modal-content {
-        padding: 1rem;
-    }
-
-    .map-container-modal {
-        min-height: 280px;
-        height: 280px;
-    }
-
-    .map-modal-intro .address-display {
-        font-size: 0.95rem;
-    }
-
-    .coordinate-value {
-        font-size: 1rem;
-    }
-}
-
-/* ============================================
-   ANIMACIONES ADICIONALES
+   ANIMACIONES ESPECÍFICAS DEL MODAL
    ============================================ */
 @keyframes fadeIn {
     from {
@@ -397,16 +343,85 @@
    ACCESIBILIDAD
    ============================================ */
 .map-modal-overlay:focus-within {
-    outline: 2px solid var(--tuhabi-purple);
+    outline: 2px solid var(--color-primary);
     outline-offset: -2px;
 }
 
 .map-action-btn:focus-visible {
-    outline: 2px solid var(--tuhabi-purple);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
 .map-modal-close:focus-visible {
     outline: 2px solid #FFFFFF;
     outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .map-modal-overlay {
+        padding: var(--space-4);
+    }
+
+    .map-modal-header {
+        padding: var(--space-5) var(--space-6);
+    }
+
+    .map-modal-title h2 {
+        font-size: var(--text-xl);
+    }
+
+    .map-modal-content {
+        padding: var(--space-6);
+    }
+
+    .map-container-modal {
+        min-height: 320px;
+        height: 320px;
+    }
+
+    .map-coordinates-info {
+        grid-template-columns: 1fr;
+    }
+
+    .map-modal-actions {
+        flex-direction: column;
+    }
+
+    .map-action-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-modal-overlay {
+        padding: var(--space-2);
+    }
+
+    .map-modal-header {
+        padding: var(--space-4);
+    }
+
+    .map-modal-title h2 {
+        font-size: var(--text-lg);
+    }
+
+    .map-modal-content {
+        padding: var(--space-4);
+    }
+
+    .map-container-modal {
+        min-height: 280px;
+        height: 280px;
+    }
+
+    .map-modal-intro .address-display {
+        font-size: var(--text-base);
+    }
+
+    .coordinate-value {
+        font-size: var(--text-base);
+    }
 }
