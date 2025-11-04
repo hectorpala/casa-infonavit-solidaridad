@@ -1,0 +1,3205 @@
+{
+  "metadata": {
+    "origen": "INEGI - Marco Geoestadístico Nacional",
+    "url": "https://gaia.inegi.org.mx/wscatgeo/v2/asentamientos/19/018",
+    "fechaConsulta": "2025-11-04",
+    "municipio": "García",
+    "estado": "Nuevo León",
+    "claveGeo": "19018",
+    "codigoGeoestadistico": "19/018",
+    "totalOriginal": 399,
+    "totalProcesadas": 353,
+    "tipos": {
+      "COLONIA": 85,
+      "FRACCIONAMIENTO": 235,
+      "PARQUE INDUSTRIAL": 1,
+      "EJIDO": 19,
+      "AMPLIACIÓN": 1,
+      "ZONA INDUSTRIAL": 4,
+      "PUEBLO": 1,
+      "BARRIO": 3,
+      "NINGUNO": 2,
+      "RESIDENCIAL": 1,
+      "RANCHERÍA": 1
+    }
+  },
+  "colonias": [
+    {
+      "tipo": "COLONIA",
+      "nombre": "ALFONSO MARTÍNEZ DOMÍNGUEZ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "ALTA VILLA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "AMPLIACIÓN NOGALES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "AMPLIACIÓN URBIVILLA DEL PRADO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "ANTORCHISTAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "AREZZO RESIDENCIAL CERRADA RAVELLO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "ATERA RESIDENCIAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "AVANCE POPULAR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "PARQUE INDUSTRIAL",
+      "nombre": "AVANTE MONTERREY",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "BALCONES DE GARCÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "BENITO JUÁREZ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "BOSQUE DE LAS LOMAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "BUGAMBILIAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "CABECERA MUNICIPAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "CAMPESTRE FUNDADORES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CERRADAS LUMINA CUMBRES PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CERRADAS SOLÉ SECTOR UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "AMPLIACIÓN",
+      "nombre": "CERRITOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "CHUPADEROS DEL INDIO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "COLINAS DEL RÍO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "ZONA INDUSTRIAL",
+      "nombre": "COMPLEJO INDUSTRIAL MITRAS PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "ZONA INDUSTRIAL",
+      "nombre": "COMPLEJO INDUSTRIAL MITRAS SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "ZONA INDUSTRIAL",
+      "nombre": "CONJUNTO INDUSTRIAL ARCO VIAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "CRISTALOSA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRE ALTTA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES ALTAIRA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES ANDARA ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES ANDARA ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES DE SANTA MARÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES ELITE PREMIER PRIVADA OLIMPO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES ELITE PREMIER PRIVADA PIRINEOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES ELITE PREMIER PRIVADA VESUBIO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES LA JOYA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES LA RIOJA ETAPA DOS SECTOR ASTURÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES LA RIOJA ETAPA TRES SECTOR ANDALUCÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES LA RIOJA ETAPA UNO SECTOR CANTABRIA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES PLATINUM",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES PROVENZA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES PROVENZA CERRADAS LUX",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES PROVENZA PRIVADA TERRA PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES PROVENZA PRIVADA TERRA SEGUNDO SECTOR ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES PROVENZA PRIVADA TERRA SEGUNDO SECTOR ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES PROVENZA SECTOR AQUA ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES PROVENZA SECTOR AQUA ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES SAN PATRICIO PRIMER SECTOR ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES SAN PATRICIO PRIMER SECTOR ETAPA TRES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES SAN PATRICIO PRIMER SECTOR ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "CUMBRES VERNAZZA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "DIVISIÓN DEL NORTE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "DOCTOR JOSÉ PÁEZ GARCÍA PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "DOCTOR JOSÉ PÁEZ GARCÍA SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "DOMINIO CUMBRES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "DOMINIO CUMBRES SECTOR BRITANIA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "DOMINIOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "EL CEDRAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "EL CIELO ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "EL CIELO ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "ZONA INDUSTRIAL",
+      "nombre": "EL DURAZNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "EL FRAILE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "EL FRAILE SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "EL PALMITAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "EL PORVENIR (EXTENSIÓN CERRITOS)",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "EL REFUGIO (CERRITOS)",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "EL RUBIO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "EL VALLE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "EMILIANO ZAPATA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "EX-HACIENDA SAN JOSÉ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "FERRARA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "FRAY JUAN ANTONIO DE SOBREVILLA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "GRAN RESERVA CUMBRES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "HACIENDA DEL FRAILE PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "HACIENDA DEL FRAILE SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "HACIENDA RENACIMIENTO PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "HACIENDA RENACIMIENTO SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "PUEBLO",
+      "nombre": "ICAMOLE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "INFONAVIT LOS NOGALES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "JOYA DE LA CORONA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "JOYA DEL CARRIZAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "JOYA DEL CARRIZAL DOS SECTOR DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "JOYA DEL CARRIZAL DOS SECTOR UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "BARRIO",
+      "nombre": "LA CANDELARIA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "LA CRUZ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "BARRIO",
+      "nombre": "LA GLORIA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LA MONTAÑA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "LA SOLEDAD",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "NINGUNO",
+      "nombre": "LA VENTURA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "LAS ARBOLEDAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS BRISAS RESIDENCIAL LÍNEA 3",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS BRISAS RESIDENCIAL PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS HACIENDAS SECTOR HACIENDA DE ARAGÓN ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS HACIENDAS SECTOR HACIENDA DE CASTILLA ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECCIÓN PALMEIRA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR BOSQUES CUARTA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR BOSQUES PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR BOSQUES QUINTA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR BOSQUES SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR BOSQUES SEXTA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR BOSQUES SEXTA ETAPA SECCIÓN B",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR BOSQUES TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR JARDINES CUARTA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR JARDINES PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR JARDINES QUINTA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR JARDINES SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR JARDINES TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR PRIVADAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LAS LOMAS SECTOR QUETZALES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "LAS PALMAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "LAS PALOMAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "LAS TORRES DE GUADALUPE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "LAS VILLAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "LOMAS DE GARCÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS ALJIBES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS ARCÁNGELES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "LOS CERRITOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "LOS ELOTES (VILLA DE GARCÍA)",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS ENCINOS RESIDENCIAL CUARTO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS ENCINOS RESIDENCIAL PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS ENCINOS RESIDENCIAL SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS ENCINOS RESIDENCIAL TERCER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "LOS FIERROS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS HÉROES CAPELLANÍA SECTOR BOSQUES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS HÉROES CAPELLANÍA SECTOR HACIENDA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS HÉROES CAPELLANÍA SECTOR LAGO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS HÉROES CAPELLANÍA SECTOR MONTANA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS HÉROES CAPELLANÍA SECTOR RÍO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS HÉROES CAPELLANÍA SECTOR VALLE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS HÉROES CAPELLANÍA SECTOR VILLA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "LOS HÉROES DE CAPELLANÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS HÉROES LINCOLN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS HÉROES LINCOLN ETAPA UNO SECTOR DANUBIO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS NOGALES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS PARQUES PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS PARQUES SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "LOS PARQUES TERCER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MANDARA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "MARAVILLAS DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "MARAVILLAS Y ANEXAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MARTÍN GONZÁLEZ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MIGUEL HIDALGO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MIRADOR DE GARCÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MIRADOR DEL FRAILE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MIRADOR RESIDENCIAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MISIÓN DE SAN JUAN PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MISIÓN DE SAN JUAN SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MISIÓN DE SAN JUAN TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MITRAS BICENTENARIO SECTOR INSURGENTE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MITRAS BICENTENARIO SECTOR LIBERAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MITRAS BICENTENARIO SECTOR LIBERAL DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MITRAS BICENTENARIO SECTOR REFORMA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MITRAS BICENTENARIO SECTOR REPÚBLICA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR AJUSCO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR BOLÍVAR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR CEDRAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR ENSENADA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR GRANADA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR GUADALCÁZAR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR JEREZ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR JORDÁN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR LEONES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR MÁLAGA ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR MÁLAGA ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR SACRAMENTO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR SALVATIERRA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR TOLEDO DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR TOLEDO UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MITRAS PONIENTE SECTOR URDIALES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "MONTANA (MARAVILLAS)",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTENOVA SECTOR ALBERDÍ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTENOVA SECTOR BERLÍN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTENOVA SECTOR NUVEM",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTENOVA SECTOR NUVOL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTICELLO ETAPA CINCO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTICELLO ETAPA CUATRO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTICELLO ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTICELLO ETAPA SEIS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTICELLO ETAPA TRES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MONTICELLO ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "MORELOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MURANO SECTOR DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "MURANO SECTOR UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "NINGUNO",
+      "nombre": "NINGUNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "NUEVO AMANECER",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "OASIS DE GARCÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PARAJE SAN FRANCISCO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR LAGOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR LAS AVES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR LAS CASCADAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR LAS FLORES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR LAS MONTAÑA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR LOS BOSQUES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR LOS PECES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR LOS RÍOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR LOS VALLES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PARAJE SAN JOSÉ SECTOR MARIPOSAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PARQUES DIAMANTE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PASEO ALAMEDAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PASEO DE CAPELLANÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PASEO DE LAS MINAS ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PASEO DE LAS MINAS ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PASEO DE LAS TORRES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PASEO DE LINCOLN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PASEO DE LINCOLN SECTOR DANUBIO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PASEO DEL NOGAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "PASO DE GUADALUPE Y MARIPOSA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PENÍNSULA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "POPULAR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PORTAL DE LAS SIERRAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PORTAL DE LINCOLN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PORTAL DEL PARQUE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PORTO CUMBRES SECTOR MILÁN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PRADERAS DE LINCOLN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PRADERAS DE TORRELUNA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PRIVADA ALAMEDAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PRIVADA DE LAS VILLAS CUARTA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PRIVADA DE LAS VILLAS PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PRIVADA DE LAS VILLAS SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "PRIVADA DE LAS VILLAS TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PRIVADAS DE LINCOLN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PRIVALÍA CUMBRES PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PRIVALÍA CUMBRES SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PUNTA ALTA PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PUNTA DIAMANTE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PUNTA DIAMANTE SECTOR ÁNGELES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "PUNTA ESMERALDA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE CAPELLANÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE LINCOLN ETAPA CUATRO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE LINCOLN ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE LINCOLN ETAPA TRES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE LINCOLN ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "REAL DE SAN FELIPE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE SAN JOAQUÍN CUARTO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE SAN JOAQUÍN PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE SAN JOAQUÍN SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE SAN JOAQUÍN TERCER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "REAL DE VILLA DE GARCÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "RENACIMIENTO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "RESIDENCIAL AYUCCÁ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "RESIDENCIAL SANTA ELENA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "RESIDENCIAL SANTA LUCÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "RESIDENCIAL SANTA MÓNICA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "RIBERAS DE CAPELLANÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "RINCON DE LA SIERRA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "RINCÓN DEL FRAILE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "RINCONADA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "SABANILLAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SAMSARA SECTOR BELLINI",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SAMSARA SECTOR MUSETTA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SAMSARA SECTOR ROMANZA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SAMSARA SECTOR TRAVIATA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "BARRIO",
+      "nombre": "SAN ISIDRO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "SAN JOSÉ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "SAN JUAN BAUTISTA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "SAN MARTÍN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "RESIDENCIAL",
+      "nombre": "SANTA FÁTIMA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA JULIA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA CUARTO SECTOR ETAPA SEIS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA CUARTO SECTOR PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA CUARTO SECTOR SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA CUARTO SECTOR SEGUNDA ETAPA SECCIÓN A",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA CUARTO SECTOR TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA TERCER SECTOR ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA TERCER SECTOR SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA TERCER SECTOR SEGUNDA ETAPA SECCIÓN A",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA TERCER SECTOR TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA MARÍA TERCER SECTOR TERCERA ETAPA SECCIÓN A",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA SOFÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTA SOFÍA ELITE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTORAL PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "SANTORAL SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "SIERRA REAL PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "SIERRA REAL SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "SIERRA REAL TERCER SECTOR PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "SIERRA REAL TERCER SECTOR SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "SIERRA REAL TERCER SECTOR TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "TERRALTA RESIDENCIAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "TOSCANA RESIDENCIAL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "UNIDAD POPULAR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "RANCHERÍA",
+      "nombre": "UNIÓN EMILIANO ZAPATA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "URBIVILLA DEL PRADO ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "URBIVILLA DEL PRADO ETAPA TRES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "URBIVILLA DEL PRADO ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE CUMBRES SECTOR ALBANESES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE CUMBRES SECTOR DANE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE CUMBRES SECTOR EVEREST",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE CUMBRES SECTOR NISA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE CUMBRES SECTOR PLATINO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE CUMBRES SECTOR PREMIER",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE LAS GRUTAS PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE LAS GRUTAS QUINTO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE LAS GRUTAS SECTOR JARDINES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE LAS GRUTAS SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE LAS GRUTAS SEXTO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE LAS GRUTAS TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN CUARTA ETAPA CUARTA PARTE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN CUARTA ETAPA PRIMERA PARTE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN CUARTA ETAPA SEGUNDA PARTE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN CUARTA ETAPA TERCERA PARTE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN ÉLITE NORTE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN ÉLITE SUR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN SECTOR FRAILE PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN SECTOR MINAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN SECTOR SAN AGUSTÍN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN SECTOR SAN JOSÉ",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN SECTOR SAN JOSÉ SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN SECTOR SANTA LUCÍA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE LINCOLN TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE SAN BLAS PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE SAN BLAS SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DE SAN FELIPE",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE SAN JOSÉ ETAPA CUATRO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE SAN JOSÉ ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE SAN JOSÉ ETAPA TRES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE SAN JOSÉ ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLE DE SAN JOSÉ TERCER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DEL FRAILE HACIENDA DEL SOL",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DEL FRAILE HACIENDA DEL SOL SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DEL FRAILE HACIENDA DEL SOL TERCER SECTOR A",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VALLE DEL FRAILE HACIENDA DEL SOL TERCER SECTOR B",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "VALLE ESCONDIDO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VALLES DEL MIRADOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VERANDA PASEO RESIDENCIAL SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VERANDA PASEO RESIDENCIAL TERCER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLA AZUL PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLA AZUL SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VILLA DE LOS NOGALES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VILLA DE LOS NOGALES SEGUNDA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLANOVA CUARTO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLANOVA PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLANOVA QUINTO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLANOVA SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLANOVA TERCER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VILLAS DE ÁLCALI",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VILLAS DE ÁLCALI ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VILLAS DE ÁLCALI ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLAS DE PRIVALIA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "VILLAS DE SAN MARTÍN",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLAS DEL PONIENTE PRIMER SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VILLAS DEL PONIENTE SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "EJIDO",
+      "nombre": "VIRGINIA ROBLES (SANTA CLARA)",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTA BELLA PRIMER SECTOR ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTA BELLA PRIMER SECTOR ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTA BELLA QUINTO SECTOR ETAPA DOS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTA BELLA QUINTO SECTOR ETAPA TRES",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTA BELLA QUINTO SECTOR ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTA BELLA SEGUNDO SECTOR",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTA BELLA TERCER SECTOR ETAPA UNO",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTA MONTAÑA PRIMERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTA MONTAÑA TERCERA ETAPA",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    },
+    {
+      "tipo": "FRACCIONAMIENTO",
+      "nombre": "VISTAS DE LAS MITRAS CERRADAS",
+      "codigoPostal": "",
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "INEGI"
+    }
+  ]
+}

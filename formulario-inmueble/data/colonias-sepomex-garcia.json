@@ -1,0 +1,4520 @@
+{
+  "metadata": {
+    "origen": "SEPOMEX - Servicio Postal Mexicano",
+    "municipio": "García",
+    "estado": "Nuevo León",
+    "codigoGeoestadistico": "19/020",
+    "fecha": "2025-11-04",
+    "totalColonias": 408,
+    "rangoCPs": "66000 - 66999",
+    "totalCPsConsultados": 1000,
+    "cpsConDatos": 83
+  },
+  "colonias": [
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alfonzo Martinez Dominguez",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Alta Villa",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Altrysa",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación Canteras",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación Valle del Mirador",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ampliación los Nogales",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Antigua Hacienda San Agustin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Arbórea Sector Linneo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Arcos del Poniente",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Arezzo Residencial",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Atera Residencial",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Avance Popular",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Avante Monterrey Industrial Park",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Azhara",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Balcones Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Balcones de García",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Balcones de San Agustin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Barranca Del Pedregal",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Benito Juárez",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bosques de La Sierra 1er Sector",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bosques de San Ángel Sector Palmillas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Bosques del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Canoas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Capistrano",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Carrizalejo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cerrada Moralillo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cerradas Solé",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Chipinque",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ciudad Cumbres",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colinas Del Rio",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colinas de La Sierra Madre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colinas de San Agustin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colinas de San Ángel",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Colonial La Sierra",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Comercial Alpino Chipinque",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Conjunto Habitacional Bugambilias",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Conjunto Habitacional Renzo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cordillera Himalaya",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Corporativo Prodesa",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Corporativo Proser",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Corporativo Santa Engracia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cortijo Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres Andara",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres Britania",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres Elite Premier",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres Provenza Privada Terra",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres Provenza Sector Aqua",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres San Patricio",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres Toscana",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres Vernazza",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres de Santa María",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Cumbres la Rioja",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Del Valle Oriente",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Del Valle Sect Norte",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Del Valle Sector Fátima",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "División del Norte",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Echeverría",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Cedral",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Fraile",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Fraile II",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Obispo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Refugio",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Santuario",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Secreto",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "El Sendero",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Emiliano Zapata",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Ex-Hacienda San José",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Flor de Mayo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fomorrey Sobrevilla",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fraile I",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fuentes del David",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fuentes del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fuentes del Valle Sector Colinas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Fátima",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "García Centro",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Gómez Morin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda El Rosario",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda Renacimiento",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda San Agustin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda de Carrizalejo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda de La Sierra",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda de los Callejones",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda del Fraile",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda del Sol",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Hacienda las Campanas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Héroes de Capellanía",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "INFONAVIT los Nogales",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Icamole",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines Coloniales",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines de Campestre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines de Mirasierra",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jardines de San Agustin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jerónimo Siller",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Jesús M Garza",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Joya de la Corona",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Joya del Carrizal",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Joya del Carrizal Sector Dos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Joya del Venado",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Kandelium México",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Admiranza",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Barranca",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Candelaria",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Cañada",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Cima",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Cruz",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Diana",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Encantada",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Finca",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Gloria",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Joya",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Joya de la Corona",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Milarda",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Montaña",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Muralla",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Parvada Angelitos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Sierrita",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Soledad",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Toscana",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Ventana",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "La Ventura",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Alondras",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Arboledas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Brisas Residencial",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Bugambilias",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Capillas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Cañadas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Ceibas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Codornices",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Delicias",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Haciendas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Lomas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Palmas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Privanzas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Sendas Galicias",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Torres de Guadalupe",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Las Villas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lindavista",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas Del Rosario",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas Palmeira",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas Quetzales",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas Valle Sector Convento",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de García",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de San Agustín 1er Sector",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de San Angel",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas de Tampiquito",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas del Bosque",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas del Campestre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lomas del Sur",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Aljibes",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Amates",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Arcángeles",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Cerritos (Nuevos Cerritos)",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Colorines",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Encinos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Encinos Residencial",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Encinos de San Agustín",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Encinos de San Agustín 2",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Fresnos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Héroes Lincoln",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Nogales",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Olivos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Olmos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Pinos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Sauces 1er Sector",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Los Sauces 2 Sector",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lucio Blanco 1er Sector",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lucio Blanco 2do Sector",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lucio Blanco 3er Sector",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Lázaro Garza Ayala",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mandara",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mansión Del Rosario",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Maravillas y Anexas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Martín González",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mesa de la Corona",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Miguel Hidalgo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mirador",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mirador Del Campestre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mirador de Garcia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mirador de Vasconcelos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mirador del Fraile",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Mirasierra",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Misión Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Misión San Patricio",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Misión del Valle 3",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Montenova",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Monticello",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Moralillo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Morelos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Nemak",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Nemesio Garcia Naranjo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Nuevo Amanecer",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Nuevo Renacimiento",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Oasis de García",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Olinalá",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Olímpico",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palo Blanco",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Palo Blanco Sector El Edén",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paraje San Francisco",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paraje San José Sector Peces",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paraje de las Grutas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Parque Corporativo Ucaly",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Parque Industrial Advance Monterrey",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Parque Industrial Ciudad Mitras",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Parque Industrial POLITEK",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Parques Diamante",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Parques Zafiro Residencial",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paseo Alamedas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paseo Del Nogal",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paseo de Capellanía",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paseo de Lincoln",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paseo de las Minas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paseo de las Torres",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Paso de Guadalupe y Mariposa",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Pedregal Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Península",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Plan de Ayala",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Popular Jose Páez Garcia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Portal de Lincoln",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Portal de Santa Engracia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Portal de las Sierras",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Portal del Parque",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Praderas de Lincoln",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Praderas de Torreluna",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Prados de La Sierra",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada 20 de Noviembre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Alamedas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Bosques",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Gruta",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Real de San Agustín",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Residencial Frida Kahlo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Río Ebro",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada San Andrés",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada San Roberto",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Santa Engracia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Sierra Madre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Veredalta",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada Versalles",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada el Cóndor",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privada los Encinos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privadas de Lincoln",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privadas de las Villas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Privalia García",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Pro Vivienda Popular",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Punta Alta García",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Punta Diamante",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Punto Central",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real de Capellanía",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real de Lincoln",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real de San Agustin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real de San Félipe",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real de San Joaquín",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real de San Martín",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Real de Villas de Garcia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Canteras",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Chipinque",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Galeana",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Palo Blanco",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial San Agustín Primer Sector",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial San Agustín Segundo Sector",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial San Carlos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial San Mateo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Santa Bárbara",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Santa Bárbara la Cripta",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Santa Elena",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Santa Lucía",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Santa Mónica",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Santuario",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial Sierra Del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Residencial las Amapas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Revolución",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Riberas de Capellania",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rinconada",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón Colonial",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón de Carrizalejo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón de Corregidora",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón de San Francisco",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón de la Montaña",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón de la Sierra",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Rincón del Fraile",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Samsara",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Agustin Campestre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Francisco",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Isidro",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Juan Bautista",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Martin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Patricio",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Pedro",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Pedro 400",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "San Pedro Garza García Centro",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Cruz",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Elena",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Engracia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Fe",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Julia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa María",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Sofía",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santa Sofía Sector Elite",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Santoral",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sierra Nevada",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Sierra Real",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Stiva García Industrial Park",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Tampiquito",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Terra Park García",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Terralta Residencial Country Club",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Turquesa",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Unión Emiliano Zapata",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Urbi Villa del Prado",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle Del Campestre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle Del Mezquite",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de Chipinque",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de Cumbres",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de Cumbres Premier",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de Lincoln",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de Lincoln Sector Elite",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de Lincoln Sector el Fraile",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de San Agustin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de San Angel Sect Frances",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de San Blas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de San Felipe",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de San Jose",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de San Ángel Rincón Francés",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de San Ángel Sect Español",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de San Ángel Sect Jardines",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de San Ángel Sect Mexicano",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de Santa Engracia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle de Vasconcelos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valle del Seminario",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Valles del Mirador",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Varenna Residencial",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Veranda Paseo Residencial",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Veredalta",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Verona",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Chipinque",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa Montaña",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa de los Patos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa del Obispo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa del Pedregal",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villa las Palmas",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villanova",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas Crisantemo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas La Rivera",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas de Aragón",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas de San Agustin",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas de San Martín",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas de Santa Bárbara",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas de Santa Engracia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas de Terrasol",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas de los Nogales",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas del Poniente",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villas del Álcali",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Villazul",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Vista Bella",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Vista Montaña",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Vista Real",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Vistas de las Mitras",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Volkswagen",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Alpino",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Antigua Exhacienda Carrizalejo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Antigua Exhacienda San Agustín",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Bosques de la Sierra",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Bosques del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Campestre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Carrizalejo",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Clouhtier",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Colinas Sierra Madre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Fuentes del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Fátima",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Hacienda San Agustín",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Hacienda San Francisco",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Industrial",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Jerónimo Siller",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Loma Blanca",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Loma Blanca Poniente",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Loma Larga Oriente",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Lomas de San Agustín",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Lomas del Campestre",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Mirador Vazconcelos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Mirasierra",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Montebello",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Palo Blanco",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Pedregal del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Privada R��o Tamazunchale",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Residencial Chipinque",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Revolución",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Rosario",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona San Agustín",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Santa Bárbara Poniente",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Santa Engracia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Tampiquito",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Valle Oriente Norte",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Valle Poniente",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Valle San Ángel",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Valle Santa Engracia",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona Valle del Mezquite",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona de Los Callejones",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona del Valle",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona el Santuario",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona la Alianza",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona la Cima",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona la Diana",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona los Sabinos",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    },
+    {
+      "tipo": "COLONIA",
+      "nombre": "Zona los Sauces",
+      "codigoPostal": null,
+      "ciudad": "García",
+      "estado": "Nuevo León",
+      "zona": "Urbano",
+      "fuente": "SEPOMEX"
+    }
+  ],
+  "coloniasPorCP": {
+    "66000": {
+      "colonias": [
+        "Los Aljibes",
+        "García Centro"
+      ],
+      "count": 2
+    },
+    "66003": {
+      "colonias": [
+        "Héroes de Capellanía",
+        "Los Nogales",
+        "Rincón del Fraile",
+        "Praderas de Lincoln",
+        "Privadas de Lincoln",
+        "Joya de la Corona",
+        "Stiva García Industrial Park",
+        "Paseo de las Minas",
+        "Mirador de Garcia",
+        "Privadas de las Villas",
+        "Villas del Álcali",
+        "Valle de San Blas",
+        "Hacienda del Sol"
+      ],
+      "count": 13
+    },
+    "66004": {
+      "colonias": [
+        "Privalia García",
+        "Punta Diamante",
+        "Las Haciendas",
+        "Sierra Real",
+        "Las Arboledas",
+        "Paseo de las Torres",
+        "Las Villas",
+        "Villas de los Nogales",
+        "Paseo Del Nogal",
+        "Valle de San Jose",
+        "Urbi Villa del Prado",
+        "Real de Capellanía"
+      ],
+      "count": 12
+    },
+    "66005": {
+      "colonias": [
+        "San Martin",
+        "Morelos",
+        "Fraile I",
+        "El Fraile II",
+        "Benito Juárez",
+        "INFONAVIT los Nogales",
+        "Emiliano Zapata",
+        "Nuevo Amanecer",
+        "Fomorrey Sobrevilla",
+        "El Cedral",
+        "Real de Villas de Garcia"
+      ],
+      "count": 11
+    },
+    "66006": {
+      "colonias": [
+        "Mirador del Fraile",
+        "Martín González",
+        "Alfonzo Martinez Dominguez",
+        "Colinas Del Rio",
+        "Los Nogales",
+        "Ampliación los Nogales",
+        "Las Bugambilias",
+        "Balcones de García",
+        "Valles del Mirador",
+        "División del Norte"
+      ],
+      "count": 10
+    },
+    "66007": {
+      "colonias": [
+        "Las Torres de Guadalupe",
+        "Avance Popular",
+        "Riberas de Capellania",
+        "Paseo de Capellanía"
+      ],
+      "count": 4
+    },
+    "66008": {
+      "colonias": [
+        "Los Arcángeles",
+        "Hacienda Renacimiento",
+        "Santa Sofía Sector Elite",
+        "La Cruz",
+        "Miguel Hidalgo",
+        "Popular Jose Páez Garcia",
+        "Valle de San Felipe",
+        "Santa Sofía",
+        "Nuevo Renacimiento"
+      ],
+      "count": 9
+    },
+    "66009": {
+      "colonias": [
+        "Los Encinos Residencial",
+        "Paseo Alamedas",
+        "Privada Alamedas",
+        "Privada los Encinos",
+        "Real de San Joaquín",
+        "San Juan Bautista",
+        "Las Brisas Residencial"
+      ],
+      "count": 7
+    },
+    "66012": {
+      "colonias": [
+        "Villazul",
+        "Residencial Santa Elena",
+        "Residencial Santa Mónica",
+        "Residencial Santa Lucía",
+        "Portal de las Sierras",
+        "Real de San Félipe",
+        "Oasis de García",
+        "Praderas de Torreluna",
+        "Joya del Carrizal Sector Dos",
+        "Villanova",
+        "Santa Julia",
+        "Joya del Carrizal"
+      ],
+      "count": 12
+    },
+    "66013": {
+      "colonias": [
+        "Paseo de Lincoln",
+        "Los Héroes Lincoln",
+        "Portal de Lincoln",
+        "Real de Lincoln",
+        "Vista Bella",
+        "Arcos del Poniente"
+      ],
+      "count": 6
+    },
+    "66014": {
+      "colonias": [
+        "Alta Villa",
+        "Punta Alta García",
+        "Cordillera Himalaya"
+      ],
+      "count": 3
+    },
+    "66017": {
+      "colonias": [
+        "Parque Industrial POLITEK",
+        "Nemak",
+        "Parque Industrial Advance Monterrey",
+        "Kandelium México"
+      ],
+      "count": 4
+    },
+    "66018": {
+      "colonias": [
+        "Vista Montaña",
+        "Hacienda del Fraile"
+      ],
+      "count": 2
+    },
+    "66020": {
+      "colonias": [
+        "Unión Emiliano Zapata"
+      ],
+      "count": 1
+    },
+    "66023": {
+      "colonias": [
+        "Parques Diamante",
+        "Veranda Paseo Residencial",
+        "Paraje de las Grutas",
+        "Avante Monterrey Industrial Park",
+        "Paraje San Francisco",
+        "Portal del Parque",
+        "Paraje San José Sector Peces",
+        "Mandara",
+        "Ex-Hacienda San José",
+        "Real de San Martín",
+        "Las Palmas",
+        "Villas de San Martín",
+        "Villas del Poniente",
+        "Parque Industrial Ciudad Mitras",
+        "Lomas de García"
+      ],
+      "count": 15
+    },
+    "66024": {
+      "colonias": [
+        "Montenova",
+        "Lomas del Sur",
+        "Lomas Palmeira",
+        "Altrysa",
+        "Residencial Santuario",
+        "Cerradas Solé",
+        "Varenna Residencial",
+        "Arbórea Sector Linneo",
+        "Las Lomas"
+      ],
+      "count": 9
+    },
+    "66026": {
+      "colonias": [
+        "Valle de Lincoln Sector el Fraile",
+        "Vistas de las Mitras",
+        "Valle de Lincoln Sector Elite",
+        "Valle de Lincoln"
+      ],
+      "count": 4
+    },
+    "66027": {
+      "colonias": [
+        "El Fraile"
+      ],
+      "count": 1
+    },
+    "66035": {
+      "colonias": [
+        "Cumbres Elite Premier",
+        "Valle de Cumbres",
+        "Cumbres San Patricio",
+        "Península",
+        "Valle de Cumbres Premier",
+        "Lomas Quetzales"
+      ],
+      "count": 6
+    },
+    "66036": {
+      "colonias": [
+        "Cumbres Provenza Privada Terra",
+        "Ciudad Cumbres",
+        "Cumbres Andara",
+        "Cumbres Britania",
+        "Samsara",
+        "Atera Residencial",
+        "Cumbres la Rioja",
+        "Arezzo Residencial",
+        "Cumbres Toscana",
+        "Cumbres Vernazza",
+        "Rincón de la Sierra",
+        "Monticello",
+        "Santoral",
+        "Cumbres Provenza Sector Aqua",
+        "Mirador"
+      ],
+      "count": 15
+    },
+    "66037": {
+      "colonias": [
+        "Cumbres de Santa María",
+        "Terra Park García",
+        "Parques Zafiro Residencial",
+        "Santa María"
+      ],
+      "count": 4
+    },
+    "66040": {
+      "colonias": [
+        "La Cruz"
+      ],
+      "count": 1
+    },
+    "66042": {
+      "colonias": [
+        "Icamole"
+      ],
+      "count": 1
+    },
+    "66043": {
+      "colonias": [
+        "Los Cerritos (Nuevos Cerritos)"
+      ],
+      "count": 1
+    },
+    "66045": {
+      "colonias": [
+        "La Soledad"
+      ],
+      "count": 1
+    },
+    "66046": {
+      "colonias": [
+        "La Candelaria",
+        "La Gloria",
+        "San Isidro",
+        "Terralta Residencial Country Club",
+        "Paso de Guadalupe y Mariposa",
+        "Rinconada"
+      ],
+      "count": 6
+    },
+    "66048": {
+      "colonias": [
+        "Maravillas y Anexas"
+      ],
+      "count": 1
+    },
+    "66200": {
+      "colonias": [
+        "Los Encinos",
+        "San Pedro Garza García Centro"
+      ],
+      "count": 2
+    },
+    "66210": {
+      "colonias": [
+        "San Pedro 400"
+      ],
+      "count": 1
+    },
+    "66214": {
+      "colonias": [
+        "Villa del Obispo"
+      ],
+      "count": 1
+    },
+    "66215": {
+      "colonias": [
+        "San Pedro"
+      ],
+      "count": 1
+    },
+    "66216": {
+      "colonias": [
+        "Vista Montaña",
+        "El Obispo",
+        "Zona Clouhtier"
+      ],
+      "count": 3
+    },
+    "66217": {
+      "colonias": [
+        "Plan de Ayala",
+        "Zona Industrial"
+      ],
+      "count": 2
+    },
+    "66218": {
+      "colonias": [
+        "Lucio Blanco 1er Sector",
+        "Echeverría",
+        "Valle del Seminario",
+        "Lucio Blanco 2do Sector"
+      ],
+      "count": 4
+    },
+    "66219": {
+      "colonias": [
+        "Revolución",
+        "Zona Revolución"
+      ],
+      "count": 2
+    },
+    "66220": {
+      "colonias": [
+        "Del Valle",
+        "Jardines Del Valle"
+      ],
+      "count": 2
+    },
+    "66224": {
+      "colonias": [
+        "Fuentes del David",
+        "Fuentes del Valle",
+        "Fuentes del Valle Sector Colinas",
+        "Residencial Santa Bárbara la Cripta",
+        "Zona Fuentes del Valle",
+        "Zona los Sabinos",
+        "Zona Santa Bárbara Poniente"
+      ],
+      "count": 7
+    },
+    "66225": {
+      "colonias": [
+        "La Joya",
+        "Zona del Valle"
+      ],
+      "count": 2
+    },
+    "66226": {
+      "colonias": [
+        "Valle Del Mezquite",
+        "Conjunto Habitacional Bugambilias"
+      ],
+      "count": 2
+    },
+    "66227": {
+      "colonias": [
+        "Las Capillas",
+        "San Francisco",
+        "Los Olivos"
+      ],
+      "count": 3
+    },
+    "66228": {
+      "colonias": [
+        "Residencial San Carlos",
+        "Zona de Los Callejones"
+      ],
+      "count": 2
+    },
+    "66230": {
+      "colonias": [
+        "La Toscana",
+        "Jardines Coloniales",
+        "La Cima",
+        "La Ventana",
+        "Prados de La Sierra",
+        "Rincón Colonial",
+        "San Pedro",
+        "La Finca",
+        "Las Codornices",
+        "Misión Del Valle",
+        "Privada Versalles",
+        "Zona Rosario",
+        "Zona Palo Blanco",
+        "Zona Hacienda San Francisco",
+        "Zona la Cima"
+      ],
+      "count": 15
+    },
+    "66233": {
+      "colonias": [
+        "Villa de los Patos",
+        "Santa Elena",
+        "Las Sendas Galicias",
+        "Zona Valle Poniente",
+        "Misión del Valle 3"
+      ],
+      "count": 5
+    },
+    "66234": {
+      "colonias": [
+        "La Ventura"
+      ],
+      "count": 1
+    },
+    "66235": {
+      "colonias": [
+        "Los Olmos",
+        "Villa Montaña"
+      ],
+      "count": 2
+    },
+    "66236": {
+      "colonias": [
+        "Jardines de Mirasierra",
+        "Palo Blanco",
+        "Residencial Palo Blanco",
+        "Palo Blanco Sector El Edén",
+        "Villas de Santa Bárbara"
+      ],
+      "count": 5
+    },
+    "66237": {
+      "colonias": [
+        "Los Sauces 1er Sector",
+        "Los Sauces 2 Sector"
+      ],
+      "count": 2
+    },
+    "66238": {
+      "colonias": [
+        "Jesús M Garza",
+        "Lázaro Garza Ayala",
+        "Lindavista",
+        "Rincón de San Francisco",
+        "Valle de Vasconcelos",
+        "Mirador de Vasconcelos",
+        "Lucio Blanco 3er Sector",
+        "Zona los Sauces",
+        "Zona Mirador Vazconcelos"
+      ],
+      "count": 9
+    },
+    "66239": {
+      "colonias": [
+        "Los Pinos",
+        "Nemesio Garcia Naranjo",
+        "Rincón de Corregidora",
+        "Volkswagen",
+        "Residencial las Amapas",
+        "Hacienda de los Callejones"
+      ],
+      "count": 6
+    },
+    "66240": {
+      "colonias": [
+        "La Barranca",
+        "La Montaña",
+        "Lomas de Tampiquito",
+        "Mirasierra",
+        "Olímpico",
+        "Pro Vivienda Popular",
+        "Rincón de la Montaña",
+        "Tampiquito",
+        "Privada San Andrés",
+        "Zona Mirasierra",
+        "Zona Valle del Mezquite"
+      ],
+      "count": 11
+    },
+    "66244": {
+      "colonias": [
+        "Capistrano",
+        "Lomas Valle Sector Convento",
+        "Lomas del Bosque",
+        "Los Fresnos",
+        "Privada 20 de Noviembre"
+      ],
+      "count": 5
+    },
+    "66245": {
+      "colonias": [
+        "Barranca Del Pedregal"
+      ],
+      "count": 1
+    },
+    "66246": {
+      "colonias": [
+        "Hacienda Del Valle"
+      ],
+      "count": 1
+    },
+    "66247": {
+      "colonias": [
+        "Hacienda El Rosario",
+        "La Parvada Angelitos",
+        "Mansión Del Rosario",
+        "Hacienda las Campanas"
+      ],
+      "count": 4
+    },
+    "66249": {
+      "colonias": [
+        "Villas de Terrasol",
+        "Cerrada Moralillo",
+        "Moralillo"
+      ],
+      "count": 3
+    },
+    "66250": {
+      "colonias": [
+        "Bosques del Valle",
+        "Fátima",
+        "Jerónimo Siller",
+        "Privada Sierra Madre",
+        "Valle de Chipinque",
+        "Zona Jerónimo Siller",
+        "Zona Privada R��o Tamazunchale",
+        "Privada Río Ebro"
+      ],
+      "count": 8
+    },
+    "66254": {
+      "colonias": [
+        "Carrizalejo"
+      ],
+      "count": 1
+    },
+    "66256": {
+      "colonias": [
+        "Lomas Del Valle"
+      ],
+      "count": 1
+    },
+    "66257": {
+      "colonias": [
+        "Del Valle Sector Fátima",
+        "Zona Fátima"
+      ],
+      "count": 2
+    },
+    "66259": {
+      "colonias": [
+        "Cortijo Del Valle",
+        "Rincón de Carrizalejo",
+        "La Cañada",
+        "Gómez Morin",
+        "Zona Carrizalejo",
+        "Zona la Alianza",
+        "Zona Antigua Exhacienda Carrizalejo"
+      ],
+      "count": 7
+    },
+    "66260": {
+      "colonias": [
+        "Residencial San Agustín Primer Sector",
+        "Ampliación Valle del Mirador",
+        "Jardines de Campestre",
+        "Corporativo Proser",
+        "Ampliación Canteras",
+        "Residencial San Mateo",
+        "Del Valle Oriente",
+        "Hacienda de La Sierra",
+        "Portal de Santa Engracia",
+        "Residencial San Agustín Segundo Sector",
+        "Residencial Canteras",
+        "Zona San Agustín"
+      ],
+      "count": 12
+    },
+    "66263": {
+      "colonias": [
+        "Zona Campestre",
+        "Zona Santa Engracia"
+      ],
+      "count": 2
+    },
+    "66265": {
+      "colonias": [
+        "Valle Del Campestre",
+        "Zona la Diana"
+      ],
+      "count": 2
+    },
+    "66266": {
+      "colonias": [
+        "Residencial Santa Bárbara",
+        "Villas de San Agustin",
+        "Los Arcángeles",
+        "La Diana",
+        "Mirador Del Campestre",
+        "Zona Loma Larga Oriente",
+        "La Admiranza",
+        "Zona Loma Blanca Poniente",
+        "Vista Real",
+        "Conjunto Habitacional Renzo",
+        "Privada Residencial Frida Kahlo",
+        "Verona",
+        "Zona Valle Oriente Norte"
+      ],
+      "count": 13
+    },
+    "66267": {
+      "colonias": [
+        "Santa Engracia"
+      ],
+      "count": 1
+    },
+    "66268": {
+      "colonias": [
+        "Del Valle Sect Norte",
+        "Valle de Santa Engracia",
+        "Villas de Santa Engracia",
+        "Privada Santa Engracia",
+        "Zona Valle Santa Engracia"
+      ],
+      "count": 5
+    },
+    "66270": {
+      "colonias": [
+        "Privada Veredalta",
+        "Colinas de San Agustin",
+        "San Agustin Campestre",
+        "San Patricio",
+        "Veredalta",
+        "Misión San Patricio",
+        "Los Colorines",
+        "Zona Tampiquito",
+        "Privada Gruta",
+        "Residencial Galeana",
+        "Zona Lomas de San Agustín"
+      ],
+      "count": 11
+    },
+    "66273": {
+      "colonias": [
+        "Villas de Aragón",
+        "Zona Montebello"
+      ],
+      "count": 2
+    },
+    "66274": {
+      "colonias": [
+        "Jardines de San Agustin",
+        "Zona Antigua Exhacienda San Agustín",
+        "El Secreto"
+      ],
+      "count": 3
+    },
+    "66275": {
+      "colonias": [
+        "Los Encinos de San Agustín",
+        "Azhara",
+        "Los Encinos de San Agustín 2",
+        "Privada el Cóndor"
+      ],
+      "count": 4
+    },
+    "66276": {
+      "colonias": [
+        "Hacienda San Agustin",
+        "Villa las Palmas",
+        "Zona Hacienda San Agustín",
+        "Zona Lomas del Campestre"
+      ],
+      "count": 4
+    },
+    "66277": {
+      "colonias": [
+        "Turquesa",
+        "Santa Cruz",
+        "Privada San Roberto",
+        "La Encantada",
+        "Las Ceibas",
+        "Privada Real de San Agustín"
+      ],
+      "count": 6
+    },
+    "66278": {
+      "colonias": [
+        "Antigua Hacienda San Agustin",
+        "Balcones de San Agustin",
+        "Lomas del Campestre",
+        "Los Amates",
+        "Real de San Agustin",
+        "Valle de San Agustin",
+        "Corporativo Prodesa",
+        "Flor de Mayo",
+        "Parque Corporativo Ucaly",
+        "La Muralla",
+        "Real Del Valle",
+        "Santa Fe",
+        "Las Privanzas",
+        "Lomas de San Agustín 1er Sector",
+        "El Refugio"
+      ],
+      "count": 15
+    },
+    "66279": {
+      "colonias": [
+        "Corporativo Santa Engracia",
+        "Punto Central"
+      ],
+      "count": 2
+    },
+    "66280": {
+      "colonias": [
+        "Balcones Del Valle",
+        "Bosques de La Sierra 1er Sector",
+        "Colinas de La Sierra Madre",
+        "Pedregal Del Valle",
+        "Villa del Pedregal",
+        "Villas Crisantemo",
+        "Zona Bosques de la Sierra"
+      ],
+      "count": 7
+    },
+    "66284": {
+      "colonias": [
+        "La Sierrita",
+        "Villa del Pedregal",
+        "Las Cañadas",
+        "Los Encinos",
+        "La Milarda",
+        "El Sendero"
+      ],
+      "count": 6
+    },
+    "66285": {
+      "colonias": [
+        "Sierra Nevada",
+        "Zona Bosques del Valle",
+        "Zona Colinas Sierra Madre",
+        "Zona Valle San Ángel",
+        "Villas del Valle"
+      ],
+      "count": 5
+    },
+    "66286": {
+      "colonias": [
+        "Colonial La Sierra",
+        "Residencial Sierra Del Valle",
+        "El Santuario",
+        "Zona el Santuario"
+      ],
+      "count": 4
+    },
+    "66287": {
+      "colonias": [
+        "Lomas Del Rosario",
+        "Zona Pedregal del Valle"
+      ],
+      "count": 2
+    },
+    "66290": {
+      "colonias": [
+        "Privada Bosques",
+        "Bosques de San Ángel Sector Palmillas",
+        "Olinalá",
+        "Valle de San Ángel Sect Español",
+        "Valle de San Angel Sect Frances",
+        "Valle de San Ángel Sect Jardines",
+        "Valle de San Ángel Sect Mexicano",
+        "Valle de San Ángel Rincón Francés"
+      ],
+      "count": 8
+    },
+    "66295": {
+      "colonias": [
+        "Joya del Venado",
+        "Mesa de la Corona",
+        "Lomas de San Angel",
+        "Hacienda de Carrizalejo",
+        "La Joya de la Corona",
+        "Comercial Alpino Chipinque",
+        "Zona Alpino"
+      ],
+      "count": 7
+    },
+    "66296": {
+      "colonias": [
+        "Chipinque",
+        "Las Delicias",
+        "Canoas",
+        "Colinas de San Ángel"
+      ],
+      "count": 4
+    },
+    "66297": {
+      "colonias": [
+        "Los Encinos",
+        "Residencial Chipinque",
+        "Villa Chipinque",
+        "Zona Loma Blanca",
+        "Las Alondras",
+        "Villas La Rivera",
+        "Zona Residencial Chipinque"
+      ],
+      "count": 7
+    }
+  }
+}

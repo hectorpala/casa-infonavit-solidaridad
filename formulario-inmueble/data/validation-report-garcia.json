@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "municipio": "García",
+    "estado": "Nuevo León",
+    "claveGeoestadistica": "19/018",
+    "fechaValidacion": "2025-11-04",
+    "version": "1.0"
+  },
+  "resumen": {
+    "colonias": {
+      "total": 684,
+      "conCP": 0,
+      "sinCP": 684,
+      "porcentajeConCP": "0.0"
+    },
+    "calles": {
+      "total": 3897,
+      "conTipo": 3870,
+      "sinTipo": 27,
+      "porcentajeConTipo": "99.3"
+    }
+  },
+  "fuentes": {
+    "colonias": {
+      "INEGI": 353,
+      "SEPOMEX": 331
+    },
+    "calles": {
+      "INEGI": 3649,
+      "OSM": 248,
+      "Duplicados evitados": 1487
+    }
+  },
+  "distribuciones": {
+    "coloniasPorTipo": {
+      "COLONIA": 416,
+      "FRACCIONAMIENTO": 235,
+      "PARQUE INDUSTRIAL": 1,
+      "EJIDO": 19,
+      "AMPLIACIÓN": 1,
+      "ZONA INDUSTRIAL": 4,
+      "PUEBLO": 1,
+      "BARRIO": 3,
+      "NINGUNO": 2,
+      "RESIDENCIAL": 1,
+      "RANCHERÍA": 1
+    },
+    "callesPorTipo": {
+      "Avenida": 148,
+      "Boulevard": 24,
+      "Calle": 3362,
+      "Privada": 242,
+      "Circuito": 44,
+      "Andador": 2,
+      "Callejón": 10,
+      "Retorno": 30,
+      "Otros": 35
+    }
+  },
+  "discrepancias": [
+    {
+      "tipo": "Colonias sin CP",
+      "cantidad": 684,
+      "ejemplos": [
+        "ALFONSO MARTÍNEZ DOMÍNGUEZ",
+        "Alfonzo Martinez Dominguez",
+        "ALTA VILLA",
+        "Altrysa",
+        "Ampliación Canteras"
+      ],
+      "severidad": "Media",
+      "recomendacion": "Validar con SEPOMEX o fuentes locales"
+    },
+    {
+      "tipo": "Colonias nombres sospechosos",
+      "cantidad": 1,
+      "ejemplos": [
+        "Zona Privada R��o Tamazunchale"
+      ],
+      "severidad": "Baja",
+      "recomendacion": "Revisar manualmente y normalizar nombres"
+    },
+    {
+      "tipo": "Calles sin tipo específico",
+      "cantidad": 27,
+      "ejemplos": [
+        "AMPLIACIÓN Las Villas",
+        "Avance Popular",
+        "Ave del Paraíso",
+        "Avellano",
+        "Aventurina",
+        "DIAGONAL Ninguno",
+        "EJE VIAL Eje Metrooltano",
+        "NINGUNO Carretera a Icamole",
+        "NINGUNO Carretera Ninguno",
+        "NINGUNO Las Cumbres"
+      ],
+      "severidad": "Baja",
+      "recomendacion": "Agregar prefijo \"Calle\" si corresponde"
+    }
+  ],
+  "recomendacionesMantenimiento": {
+    "frecuenciaActualizacion": {
+      "INEGI": "Anual (actualización del Marco Geoestadístico)",
+      "SEPOMEX": "Trimestral (nuevos fraccionamientos)",
+      "OSM": "Mensual (datos de comunidad)"
+    },
+    "pasosActualizacion": [
+      "1. Re-ejecutar scripts de extracción (INEGI primero)",
+      "2. Ejecutar scripts de fusión (INEGI + complementos)",
+      "3. Validar con este script (validate-garcia.js)",
+      "4. Revisar discrepancias manualmente",
+      "5. Actualizar archivos finales en producción",
+      "6. Actualizar cache busting y publicar"
+    ]
+  }
+}
