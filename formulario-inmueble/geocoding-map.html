@@ -51,18 +51,14 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css?v=20250103">
     <link rel="stylesheet" href="css/form.css?v=20250103">
-    <link rel="stylesheet" href="css/geocoding-map.css?v=1762323719">
+    <link rel="stylesheet" href="css/geocoding-map.css?v=1762324026">
 </head>
 <body class="bg-[#0F1115] text-[#E8EBF0]">
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <a href="index.html" class="back-link">
-                <i class="fas fa-arrow-left"></i>
-                <span>Volver al formulario</span>
-            </a>
-            <h1 class="header-title">Geocodificación con Mapa</h1>
-            <p class="header-subtitle">Obtén las coordenadas exactas de cualquier dirección</p>
+            <h1 class="header-title">Geocodificar una dirección</h1>
+            <p class="header-subtitle">Introduce los datos y valida en el mapa. Puedes arrastrar el marcador para ajustar.</p>
         </div>
     </header>
 
@@ -82,7 +78,7 @@
                         <i class="fas fa-flag"></i>
                         Estado *
                     </label>
-                    <select id="state" name="state" class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control" required>
+                    <select id="state" name="state" class="form-control" required aria-required="true">
                         <option value="">Selecciona un estado</option>
                         <option value="sinaloa" selected>Sinaloa</option>
                         <option value="nuevo-leon">Nuevo León</option>
@@ -95,8 +91,8 @@
                         <i class="fas fa-city"></i>
                         Municipio *
                     </label>
-                    <select id="municipality" name="municipality" class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control" required disabled>
-                        <option value="">Selecciona un municipio</option>
+                    <select id="municipality" name="municipality" class="form-control" required disabled aria-required="true">
+                        <option value="">Ej. Culiacán</option>
                     </select>
                 </div>
 
@@ -110,13 +106,16 @@
                         type="text"
                         id="colonia"
                         name="colonia"
-                        class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
-                        placeholder="Ejemplo: Tres Ríos"
+                        class="form-control"
+                        placeholder="Ej. Las Quintas"
                         autocomplete="off"
                         required
+                        aria-required="true"
+                        aria-describedby="colonia-error"
                     >
                     <input type="hidden" id="colonia-value" name="coloniaSlug">
                     <div class="autocomplete-suggestions" id="colonia-suggestions"></div>
+                    <div id="colonia-error" class="helper-error" style="display: none;"></div>
                 </div>
 
                 <!-- Calle -->
@@ -129,12 +128,15 @@
                         type="text"
                         id="address"
                         name="address"
-                        class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
-                        placeholder="Ejemplo: Blvd. Universitarios"
+                        class="form-control"
+                        placeholder="Ej. Blvd. Doctor Mora"
                         autocomplete="off"
                         required
+                        aria-required="true"
+                        aria-describedby="address-error"
                     >
                     <div class="autocomplete-suggestions" id="address-suggestions"></div>
+                    <div id="address-error" class="helper-error" style="display: none;"></div>
                 </div>
 
                 <!-- Números -->
@@ -180,19 +182,20 @@
                         id="zip-code"
                         name="zipCode"
                         class="form-control form-control-readonly"
-                        placeholder="Se llenará automáticamente"
+                        placeholder="Ej. 80060"
                         maxlength="5"
                         readonly
+                        aria-readonly="true"
                     >
                 </div>
 
                 <!-- Buttons -->
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" aria-label="Geocodificar dirección introducida">
                         <i class="fas fa-search-location"></i>
-                        Geocodificar Dirección
+                        Geocodificar dirección
                     </button>
-                    <button type="button" id="clear-form" class="btn btn-secondary">
+                    <button type="button" id="clear-form" class="btn btn-secondary" aria-label="Limpiar todos los campos">
                         <i class="fas fa-eraser"></i>
                         Limpiar
                     </button>
@@ -244,9 +247,9 @@
                     </a>
 
                     <!-- Copy Coordinates -->
-                    <button id="copy-coords" class="btn btn-copy">
+                    <button id="copy-coords" class="btn btn-copy" aria-label="Copiar coordenadas al portapapeles">
                         <i class="fas fa-copy"></i>
-                        Copiar Coordenadas
+                        Copiar coordenadas
                     </button>
                 </div>
             </div>
@@ -259,16 +262,16 @@
                 <h2>Mapa Interactivo</h2>
             </div>
 
-            <div id="map" class="rounded-2xl border border-[#222734] overflow-hidden map-container"></div>
+            <div id="map" class="map-container" role="application" aria-label="Mapa interactivo de geocodificación"></div>
 
             <div class="map-legend">
                 <div class="legend-item">
-                    <i class="fas fa-map-pin" style="color: #E76F51;"></i>
+                    <i class="fas fa-map-pin" style="color: #4C8CF3;"></i>
                     <span>Ubicación geocodificada</span>
                 </div>
                 <div class="legend-item">
-                    <i class="fas fa-info-circle" style="color: #3483FA;"></i>
-                    <span>Arrastra y haz zoom para explorar</span>
+                    <i class="fas fa-hand-pointer" style="color: #4C8CF3;"></i>
+                    <span>Arrastra el marcador para ajustar</span>
                 </div>
             </div>
         </div>
