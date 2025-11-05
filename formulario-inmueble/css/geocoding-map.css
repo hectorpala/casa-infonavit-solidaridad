@@ -1,17 +1,36 @@
 /* ============================================
-   GEOCODING-MAP.CSS - Rediseño Premium 2025
-   Hereda design system de main.css
-   Matching landing page identity
+   GEOCODING-MAP.CSS - Dark Theme 2025
+   Modern dark design system
    ============================================ */
 
+:root {
+  --bg-app: #0F1115;
+  --bg-panel: #12151B;
+  --text-1: #E8EBF0;
+  --text-2: #A9B0BD;
+  --border: #222734;
+  --field: #171B24;
+  --accent: #4C8CF3;
+  --success: #2FB170;
+  --warn: #F6C14B;
+  --error: #E05656;
+  --radius: 16px;
+  --gap: 24px;
+}
+
+body {
+    background: var(--bg-app);
+    color: var(--text-1);
+}
+
 /* ============================================
-   HEADER - Matching Landing Style
+   HEADER - Dark Theme
    ============================================ */
 .header {
-    background: var(--color-bg-white);
-    border-bottom: 1px solid var(--color-border-light);
-    padding: var(--space-6) 0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .header-container {
@@ -157,42 +176,55 @@
 .geocoding-container {
     display: grid;
     grid-template-columns: 480px 1fr;
-    gap: var(--space-8);
+    gap: var(--gap);
     max-width: 1400px;
-    margin: var(--space-10) auto;
-    padding: 0 var(--space-8);
+    margin: 40px auto;
+    padding: 0 var(--gap);
     min-height: calc(100vh - 400px);
 }
 
 /* ============================================
-   PANELS - Premium Cards
+   PANELS - Dark Cards
    ============================================ */
 .geocoding-form-panel,
 .geocoding-map-panel {
-    background: var(--color-bg-white);
-    border-radius: var(--radius-xl);
-    box-shadow: none;
+    background: var(--bg-panel);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    border: 1px solid var(--color-border-light);
-    transition: box-shadow var(--transition-base);
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
 }
 
 .geocoding-form-panel:hover,
 .geocoding-map-panel:hover {
-    box-shadow: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent);
 }
 
 /* ============================================
-   PANEL HEADERS - Modern & Clean
+   PANEL HEADERS - Dark Theme
    ============================================ */
-.panel-header-geo {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    padding: var(--space-6);
+.panel-header, .panel-header-geo {
+    background: var(--field);
+    padding: 20px 24px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: #FFFFFF;
-    border-bottom: 4px solid var(--color-primary-darker);
+    gap: 12px;
+    color: var(--text-1);
+    border-bottom: 1px solid var(--border);
+}
+
+.panel-header i {
+    color: var(--accent);
+    font-size: 1.25rem;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-1);
 }
 
 .panel-header-content {
@@ -582,14 +614,45 @@
     }
 }
 
+/* Form Controls Dark */
+.form-control, .form-control select, .form-control input, select.form-control, input.form-control {
+    background: var(--field);
+    border: 1px solid var(--border);
+    color: var(--text-1);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus, select.form-control:focus, input.form-control:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(76, 140, 243, 0.15);
+    background: var(--bg-panel);
+}
+
+.form-label {
+    color: var(--text-1);
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-label i {
+    color: var(--accent);
+}
+
+.form-hint {
+    color: var(--text-2);
+    font-size: 0.875rem;
+}
+
 /* ============================================
    FOCUS/HOVER STATES - Enhanced Accessibility
    ============================================ */
-.form-control:focus {
-    outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(124, 1, 255, 0.1);
-}
 
 .btn:focus-visible,
 .btn-result:focus-visible {
@@ -771,4 +834,116 @@
         animation: none;
         border-top-color: var(--color-success);
     }
+}
+
+/* ============================================
+   BUTTONS - Dark Theme
+   ============================================ */
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary:hover {
+    background: #5c9bff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(76, 140, 243, 0.3);
+}
+
+.btn-secondary {
+    background: var(--field);
+    color: var(--text-1);
+    border: 1px solid var(--border);
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-secondary:hover {
+    background: var(--bg-panel);
+    border-color: var(--text-2);
+}
+
+/* Results Panel Dark */
+.results-panel {
+    background: var(--field);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--gap);
+    margin-top: var(--gap);
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.result-label {
+    color: var(--text-2);
+    font-weight: 500;
+}
+
+.result-value {
+    color: var(--text-1);
+    font-weight: 600;
+}
+
+/* Autocomplete Dark */
+.autocomplete-suggestions {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.autocomplete-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.2s ease;
+}
+
+.autocomplete-item:hover, .autocomplete-item.active {
+    background: var(--field);
+    color: var(--accent);
+}
+
+.autocomplete-item-title {
+    color: var(--text-1);
+    font-weight: 500;
+}
+
+.autocomplete-item-meta {
+    color: var(--text-2);
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+.autocomplete-badge {
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.autocomplete-cp {
+    color: var(--text-2);
 }
