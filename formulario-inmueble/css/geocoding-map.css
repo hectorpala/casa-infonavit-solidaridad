@@ -966,3 +966,40 @@ body {
 .autocomplete-cp {
     color: var(--text-2);
 }
+
+/* ============================================
+   TYPOGRAPHY & RENDERING OPTIMIZATIONS
+   ============================================ */
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+label, button, input, select {
+    letter-spacing: 0.2px;
+    line-height: 1.45;
+}
+
+.form-card {
+    word-break: normal;
+    overflow-wrap: anywhere;
+    hyphens: auto;
+}
+
+.btn span, .label {
+    white-space: normal;
+    text-wrap: pretty;
+}
+
+.input, .select, .form-control {
+    min-width: 0;
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY
+   ============================================ */
+@media (max-width: 640px) {
+    h1, .header-title {
+        text-wrap: balance;
+    }
+}
