@@ -450,22 +450,26 @@ body {
 }
 
 /* ============================================
-   MAP CONTAINER - Premium Styling
+   MAP CONTAINER - Dark Theme
    ============================================ */
-.map-container {
+.map-wrap, .geocoding-map-panel .map-container {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.map-container, #map {
     width: 100%;
     height: 600px;
-    background: var(--color-bg-gray);
-    position: relative;
-    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
 }
 
 .map-legend {
-    padding: var(--space-5);
-    background: var(--color-bg-white);
-    border-top: 1px solid var(--color-border-light);
+    padding: 16px 24px;
+    background: var(--field);
+    border-top: 1px solid var(--border);
     display: flex;
-    gap: var(--space-8);
+    gap: 24px;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -473,9 +477,9 @@ body {
 .legend-item {
     display: flex;
     align-items: center;
-    gap: var(--space-2);
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
+    gap: 8px;
+    font-size: 0.875rem;
+    color: var(--text-2);
     font-family: var(--font-body);
     font-weight: var(--font-weight-medium);
 }
