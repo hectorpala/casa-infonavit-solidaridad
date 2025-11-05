@@ -53,17 +53,27 @@
             </div>
 
             <form id="geocoding-form" class="geocoding-form">
+                <!-- Estado -->
+                <div class="form-group">
+                    <label for="state" class="form-label">
+                        <i class="fas fa-flag"></i>
+                        Estado *
+                    </label>
+                    <select id="state" name="state" class="form-control" required>
+                        <option value="">Selecciona un estado</option>
+                        <option value="sinaloa" selected>Sinaloa</option>
+                        <option value="nuevo-leon">Nuevo León</option>
+                    </select>
+                </div>
+
                 <!-- Municipio -->
                 <div class="form-group">
                     <label for="municipality" class="form-label">
                         <i class="fas fa-city"></i>
-                        Municipio
+                        Municipio *
                     </label>
-                    <select id="municipality" name="municipality" class="form-control" required>
+                    <select id="municipality" name="municipality" class="form-control" required disabled>
                         <option value="">Selecciona un municipio</option>
-                        <option value="culiacan" selected>Culiacán</option>
-                        <option value="los-mochis">Los Mochis</option>
-                        <option value="mazatlan">Mazatlán</option>
                     </select>
                 </div>
 
@@ -109,14 +119,15 @@
                     <div class="form-group">
                         <label for="exterior-number" class="form-label">
                             <i class="fas fa-hashtag"></i>
-                            Número Exterior (opcional)
+                            Número Exterior *
                         </label>
                         <input
                             type="text"
                             id="exterior-number"
                             name="exteriorNumber"
                             class="form-control"
-                            placeholder="Dejar vacío si no se conoce"
+                            placeholder="Ej: 2609"
+                            required
                         >
                     </div>
 
@@ -198,11 +209,6 @@
                         <span class="result-value" id="result-accuracy">-</span>
                     </div>
 
-                    <div id="approximate-warning" class="result-item" style="display: none;">
-                        <span class="result-label" style="color: #856404;">⚠️ Ubicación aproximada:</span>
-                        <span class="result-value" style="color: #856404;">Sin número exterior</span>
-                    </div>
-
                     <div class="result-item">
                         <span class="result-label">Servicio Usado:</span>
                         <span class="result-value" id="result-service">-</span>
@@ -263,8 +269,8 @@
             crossorigin=""></script>
 
     <!-- Custom Scripts -->
-    <script src="js/autocomplete.js?v=20250110"></script>
-    <script src="js/geocoding.js?v=20250110"></script>
-    <script src="js/geocoding-map.js?v=20250110"></script>
+    <script src="js/autocomplete.js?v=1762228827"></script>
+    <script src="js/geocoding.js?v=1762228827"></script>
+    <script src="js/geocoding-map.js?v=1762228827"></script>
 </body>
 </html>
