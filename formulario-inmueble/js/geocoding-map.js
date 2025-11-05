@@ -127,6 +127,20 @@ const GeocodingMapApp = {
         const clearBtn = document.getElementById('clear-form');
         clearBtn.addEventListener('click', () => this.clearForm());
 
+        // State change - populate municipalities
+        const stateSelect = document.getElementById('state');
+        if (stateSelect) {
+            stateSelect.addEventListener('change', (e) => {
+                const state = e.target.value;
+                console.log(`🏛️ Estado cambiado a: ${state}`);
+                this.populateMunicipalities(state);
+            });
+
+            // Populate municipalities on load
+            const initialState = stateSelect.value || 'sinaloa';
+            this.populateMunicipalities(initialState);
+        }
+
         // Municipality change
         const municipalitySelect = document.getElementById('municipality');
         municipalitySelect.addEventListener('change', async (e) => {
@@ -332,6 +346,62 @@ const GeocodingMapApp = {
         setTimeout(() => {
             resultsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 300);
+    },
+
+    /**
+     * Popular municipios según el estado seleccionado
+     */
+    populateMunicipalities(state) {
+        const municipalitySelect = document.getElementById('municipality');
+
+        if (!municipalitySelect) {
+            console.warn('⚠️ Select de municipio no encontrado');
+            return;
+        }
+
+        // Definir municipios por estado
+        const municipalitiesByState = {
+            'sinaloa': [
+                { value: 'culiacan', label: 'Culiacán' },
+                { value: 'los-mochis', label: 'Los Mochis' },
+                { value: 'mazatlan', label: 'Mazatlán' }
+            ],
+            'nuevo-leon': [
+                { value: 'garcia', label: 'García' },
+                { value: 'monterrey', label: 'Monterrey' }
+            ]
+        };
+
+        // Obtener municipios del estado
+        const municipalities = municipalitiesByState[state] || [];
+
+        // Limpiar opciones actuales
+        municipalitySelect.innerHTML = '<option value="">Selecciona un municipio</option>';
+
+        // Agregar nuevas opciones
+        municipalities.forEach((mun, index) => {
+            const option = document.createElement('option');
+            option.value = mun.value;
+            option.textContent = mun.label;
+
+            // Seleccionar el primero por default
+            if (index === 0) {
+                option.selected = true;
+            }
+
+            municipalitySelect.appendChild(option);
+        });
+
+        // Habilitar el select
+        municipalitySelect.disabled = false;
+
+        // Trigger change event en el primer municipio
+        if (municipalities.length > 0) {
+            this.currentMunicipality = municipalities[0].value;
+            municipalitySelect.dispatchEvent(new Event('change'));
+        }
+
+        console.log(`✅ Municipios poblados para ${state}:`, municipalities.map(m => m.label).join(', '));
     },
 
     /**
