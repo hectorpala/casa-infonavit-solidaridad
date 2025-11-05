@@ -614,28 +614,18 @@ body {
     }
 }
 
-/* Form Controls Dark */
-.form-control, .form-control select, .form-control input, select.form-control, input.form-control {
-    background: var(--field);
-    border: 1px solid var(--border);
-    color: var(--text-1);
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-size: 0.9375rem;
-    transition: all 0.2s ease;
-}
-
-.form-control:focus, select.form-control:focus, input.form-control:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(76, 140, 243, 0.15);
+/* Form Controls Dark - Refinado */
+.form-card {
     background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
 }
 
-.form-label {
-    color: var(--text-1);
-    font-weight: 500;
-    margin-bottom: 8px;
+.form-label, .label {
+    color: var(--text-2);
+    font-size: 14px;
+    margin-bottom: 6px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -645,9 +635,40 @@ body {
     color: var(--accent);
 }
 
-.form-hint {
+.form-control, .input, .select, select.form-control, input.form-control {
+    width: 100%;
+    height: 48px;
+    color: var(--text-1);
+    background: var(--field);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0 14px;
+    font-size: 0.9375rem;
+    transition: all 0.2s ease;
+}
+
+.form-control::placeholder, .input::placeholder {
+    color: #7C8596;
+}
+
+.form-control:focus, .input:focus, .select:focus, select.form-control:focus, input.form-control:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(76, 140, 243, 0.25);
+}
+
+.form-control.error, .input.error {
+    border-color: var(--error);
+}
+
+.form-hint, .helper-error {
     color: var(--text-2);
-    font-size: 0.875rem;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.helper-error {
+    color: var(--error);
 }
 
 /* ============================================
@@ -837,45 +858,39 @@ body {
 }
 
 /* ============================================
-   BUTTONS - Dark Theme
+   BUTTONS - Dark Theme Refinado
    ============================================ */
-.btn-primary {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    padding: 14px 28px;
+.btn {
+    height: 44px;
     border-radius: 12px;
+    padding: 0 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #0B0E14;
+    border: 1px solid transparent;
 }
 
 .btn-primary:hover {
-    background: #5c9bff;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(76, 140, 243, 0.3);
+    background: #3B78E0;
 }
 
 .btn-secondary {
-    background: var(--field);
+    background: transparent;
     color: var(--text-1);
     border: 1px solid var(--border);
-    padding: 14px 28px;
-    border-radius: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .btn-secondary:hover {
-    background: var(--bg-panel);
-    border-color: var(--text-2);
+    background: #1A1F2A;
 }
 
 /* Results Panel Dark */
