@@ -59,6 +59,7 @@ const Autocomplete = {
             new URL(`formulario-inmueble/data/${resource}-${municipality}.json`, rootFolder).href,
             new URL(`../data/${resource}-${municipality}.json`, baseFolder).href,
             new URL(`../formulario-inmueble/data/${resource}-${municipality}.json`, baseFolder).href,
+            `https://ubicacioncotizar.netlify.app/data/${resource}-${municipality}.json`,
             `https://casasenventa.info/formulario-inmueble/data/${resource}-${municipality}.json`
         ];
 
