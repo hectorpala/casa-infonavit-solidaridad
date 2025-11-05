@@ -20,6 +20,29 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-app': '#0F1115',
+                        'bg-panel': '#12151B',
+                        'text-1': '#E8EBF0',
+                        'text-2': '#A9B0BD',
+                        'border': '#222734',
+                        'field': '#171B24',
+                        'accent': '#4C8CF3',
+                        'success': '#2FB170',
+                        'warn': '#F6C14B',
+                        'error': '#E05656'
+                    }
+                }
+            }
+        }
+    </script>
+
     <!-- Leaflet CSS (OpenStreetMap) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -30,7 +53,7 @@
     <link rel="stylesheet" href="css/form.css?v=20250103">
     <link rel="stylesheet" href="css/geocoding-map.css?v=1762322716">
 </head>
-<body>
+<body class="bg-[#0F1115] text-[#E8EBF0]">
     <!-- Header -->
     <header class="header">
         <div class="header-content">
@@ -44,9 +67,9 @@
     </header>
 
     <!-- Main Container -->
-    <main class="geocoding-container">
+    <main class="max-w-[1280px] mx-auto p-6 grid grid-cols-12 gap-6">
         <!-- Left Panel: Form -->
-        <div class="geocoding-form-panel">
+        <div class="col-span-12 lg:col-span-5 space-y-4 geocoding-form-panel">
             <div class="panel-header">
                 <i class="fas fa-map-marker-alt"></i>
                 <h2>Ingresa la Dirección</h2>
@@ -59,7 +82,7 @@
                         <i class="fas fa-flag"></i>
                         Estado *
                     </label>
-                    <select id="state" name="state" class="form-control" required>
+                    <select id="state" name="state" class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control" required>
                         <option value="">Selecciona un estado</option>
                         <option value="sinaloa" selected>Sinaloa</option>
                         <option value="nuevo-leon">Nuevo León</option>
@@ -72,7 +95,7 @@
                         <i class="fas fa-city"></i>
                         Municipio *
                     </label>
-                    <select id="municipality" name="municipality" class="form-control" required disabled>
+                    <select id="municipality" name="municipality" class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control" required disabled>
                         <option value="">Selecciona un municipio</option>
                     </select>
                 </div>
@@ -87,7 +110,7 @@
                         type="text"
                         id="colonia"
                         name="colonia"
-                        class="form-control"
+                        class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
                         placeholder="Ejemplo: Tres Ríos"
                         autocomplete="off"
                         required
@@ -106,7 +129,7 @@
                         type="text"
                         id="address"
                         name="address"
-                        class="form-control"
+                        class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
                         placeholder="Ejemplo: Blvd. Universitarios"
                         autocomplete="off"
                         required
@@ -125,7 +148,7 @@
                             type="text"
                             id="exterior-number"
                             name="exteriorNumber"
-                            class="form-control"
+                            class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
                             placeholder="Ej: 2609"
                             required
                         >
@@ -140,7 +163,7 @@
                             type="text"
                             id="interior-number"
                             name="interiorNumber"
-                            class="form-control"
+                            class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
                             placeholder="Opcional"
                         >
                     </div>
@@ -230,13 +253,13 @@
         </div>
 
         <!-- Right Panel: Map -->
-        <div class="geocoding-map-panel">
+        <div class="col-span-12 lg:col-span-7 geocoding-map-panel">
             <div class="panel-header">
                 <i class="fas fa-map"></i>
                 <h2>Mapa Interactivo</h2>
             </div>
 
-            <div id="map" class="map-container"></div>
+            <div id="map" class="rounded-2xl border border-[#222734] overflow-hidden map-container"></div>
 
             <div class="map-legend">
                 <div class="legend-item">
