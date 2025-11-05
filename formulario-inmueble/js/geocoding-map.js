@@ -329,10 +329,12 @@ const GeocodingMapApp = {
 
         // Mostrar/ocultar advertencia de ubicación aproximada
         const approximateWarning = document.getElementById('approximate-warning');
-        if (result.approximate) {
-            approximateWarning.style.display = 'block';
-        } else {
-            approximateWarning.style.display = 'none';
+        if (approximateWarning) {
+            if (result.approximate) {
+                approximateWarning.style.display = 'block';
+            } else {
+                approximateWarning.style.display = 'none';
+            }
         }
 
         // Actualizar link de Google Maps
