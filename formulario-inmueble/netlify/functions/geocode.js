@@ -90,14 +90,15 @@ exports.handler = async (event, context) => {
             };
         }
 
-        // Return successful geocoding result
-        console.log('✅ Geocoding successful');
+        // Return successful geocoding result (todos los resultados para evaluación)
+        console.log(`✅ Geocoding successful - ${data.results.length} resultados`);
         return {
             statusCode: 200,
             headers,
             body: JSON.stringify({
                 success: true,
-                result: data.results[0],
+                results: data.results, // Retornar todos los resultados
+                result: data.results[0], // Mantener retrocompatibilidad
                 status: data.status
             })
         };

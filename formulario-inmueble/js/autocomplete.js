@@ -26,6 +26,67 @@ const Autocomplete = {
     selectedColonia: null,
     selectedCalle: null,
     currentMunicipality: 'culiacan', // default
+    _basePaths: null,
+
+    /**
+     * Calcular rutas base absolutas desde ubicacion del script
+     */
+    _getBasePaths() {
+        if (this._basePaths) return this._basePaths;
+
+        const script = document.currentScript || [...document.getElementsByTagName('script')].find(s => s.src.includes('js/autocomplete.js'));
+        const scriptUrl = script ? new URL(script.src, window.location.href) : new URL(window.location.href);
+
+        // scriptUrl.pathname termina en /js/autocomplete.js; obtener carpeta base
+        const scriptDir = scriptUrl.pathname.replace(/\/js\/[^/]+$/, '/');
+        const baseFolder = new URL('.', `${scriptUrl.origin}${scriptDir}`).href;
+        const rootFolder = new URL('.', window.location.origin + window.location.pathname).href;
+
+        this._basePaths = { baseFolder, rootFolder, origin: scriptUrl.origin };
+        return this._basePaths;
+    },
+
+    /**
+     * Resolver rutas candidatas para datasets (con fallback para produccion/local)
+     */
+    resolveDatasetPaths(resource, municipality) {
+        const { baseFolder, rootFolder } = this._getBasePaths();
+
+        const candidates = [
+            new URL(`data/${resource}-${municipality}.json`, baseFolder).href,
+            new URL(`data/${resource}-${municipality}.json`, rootFolder).href,
+            new URL(`formulario-inmueble/data/${resource}-${municipality}.json`, baseFolder).href,
+            new URL(`formulario-inmueble/data/${resource}-${municipality}.json`, rootFolder).href,
+            new URL(`../data/${resource}-${municipality}.json`, baseFolder).href,
+            new URL(`../formulario-inmueble/data/${resource}-${municipality}.json`, baseFolder).href,
+            `https://casasenventa.info/formulario-inmueble/data/${resource}-${municipality}.json`
+        ];
+
+        // Eliminar duplicados usando Set
+        return [...new Set(candidates)];
+    },
+
+    /**
+     * Fetch JSON con fallback a multiples rutas
+     */
+    async fetchJsonWithFallback(paths) {
+        const attempted = [];
+
+        for (const path of paths) {
+            attempted.push(path);
+            try {
+                const response = await fetch(path, { cache: 'no-store' });
+                if (response.ok) {
+                    return await response.json();
+                }
+                console.warn('⚠️ Dataset no encontrado', { path, status: response.status });
+            } catch (error) {
+                console.warn('⚠️ Dataset no encontrado', { path, error: error.message });
+            }
+        }
+
+        throw new Error('DATASET_NOT_FOUND:' + attempted.join('|'));
+    },
 
     /**
      * Inicializar módulo de autocomplete
@@ -47,7 +108,6 @@ const Autocomplete = {
 
         // Solo configurar listener de municipio si se solicita (default: true)
         if (setupMunicipalityListener) {
-            this.setupStateListener();      // NEW: Listener para estado
             this.setupMunicipalityListener();
         }
 
@@ -59,11 +119,11 @@ const Autocomplete = {
      */
     async loadColonias(municipality = 'culiacan') {
         try {
-            const url = `data/colonias-${municipality}.json`;
-            console.log('📥 Cargando colonias desde:', url);
+            const paths = this.resolveDatasetPaths('colonias', municipality);
+            console.log('📥 Cargando colonias desde rutas candidatas...');
+            console.log('📂 Rutas probadas colonias:', paths);
 
-            const response = await fetch(url);
-            const data = await response.json();
+            const data = await this.fetchJsonWithFallback(paths);
 
             // Extraer array de colonias
             this.colonias = data.colonias.map(col => ({
@@ -76,6 +136,10 @@ const Autocomplete = {
             }));
 
             console.log(`✅ Cargadas ${this.colonias.length} colonias de ${municipality}`);
+
+            if (this.colonias.length === 0) {
+                console.warn('⚠️ No hay colonias para', municipality);
+            }
         } catch (error) {
             console.error('❌ Error al cargar colonias:', error);
             this.showError('No se pudieron cargar las colonias. Por favor, recarga la página.');
@@ -485,11 +549,11 @@ const Autocomplete = {
      */
     async loadCalles(municipality = 'culiacan') {
         try {
-            const url = `data/calles-${municipality}.json`;
-            console.log('📥 Cargando calles desde:', url);
+            const paths = this.resolveDatasetPaths('calles', municipality);
+            console.log('📥 Cargando calles desde rutas candidatas...');
+            console.log('📂 Rutas probadas calles:', paths);
 
-            const response = await fetch(url);
-            const data = await response.json();
+            const data = await this.fetchJsonWithFallback(paths);
 
             // Extraer array de calles (puede venir como array directo o en propiedad)
             const callesArray = Array.isArray(data) ? data : (data.calles || []);
@@ -504,6 +568,10 @@ const Autocomplete = {
             });
 
             console.log(`✅ Cargadas ${this.calles.length} calles de ${municipality}`);
+
+            if (this.calles.length === 0) {
+                console.warn('⚠️ No hay calles para', municipality);
+            }
         } catch (error) {
             console.error('❌ Error al cargar calles:', error);
             this.showError('No se pudieron cargar las calles. Por favor, recarga la página.');
@@ -537,140 +605,20 @@ const Autocomplete = {
         ]);
 
         console.log('✅ Datos recargados:', this.colonias.length, 'colonias,', this.calles.length, 'calles');
+
+        // Emitir evento para facilitar QA
+        document.dispatchEvent(new CustomEvent('autocompleteDataLoaded', {
+            detail: {
+                municipality: municipality,
+                coloniasCount: this.colonias.length,
+                callesCount: this.calles.length
+            }
+        }));
     },
 
     /**
      * Setup listener para cambio de municipio
      */
-    /**
-     * Configuración de municipios por estado
-     */
-    getMunicipalitiesByState(state) {
-        const municipalities = {
-            'sinaloa': [
-                { value: 'culiacan', label: 'Culiacán', stateName: 'Sinaloa' },
-                { value: 'los-mochis', label: 'Los Mochis', stateName: 'Sinaloa' },
-                { value: 'mazatlan', label: 'Mazatlán', stateName: 'Sinaloa' }
-            ],
-            'nuevo-leon': [
-                { value: 'garcia', label: 'García', stateName: 'Nuevo León' }
-            ]
-        };
-
-        return municipalities[state] || [];
-    },
-
-    /**
-     * Setup listener para estado
-     */
-    setupStateListener() {
-        const stateSelect = document.getElementById('state');
-        const municipalitySelect = document.getElementById('municipality');
-
-        console.log('🔧 setupStateListener() llamado');
-        console.log('   stateSelect:', stateSelect);
-        console.log('   municipalitySelect:', municipalitySelect);
-
-        if (!stateSelect || !municipalitySelect) {
-            console.warn('⚠️ Selects de estado/municipio no encontrados');
-            return;
-        }
-
-        stateSelect.addEventListener('change', (e) => {
-            const selectedState = e.target.value;
-            console.log('🗺️ Estado cambiado a:', selectedState);
-            console.log('   Llamando updateMunicipalityOptions con:', selectedState);
-
-            // Actualizar lista de municipios
-            this.updateMunicipalityOptions(selectedState);
-
-            // Limpiar autocompletes
-            this.resetAutocompletes();
-        });
-
-        // Inicializar con estado default (Sinaloa)
-        const initialState = stateSelect.value || 'sinaloa';
-        console.log('   Estado inicial detectado:', initialState);
-        this.updateMunicipalityOptions(initialState);
-
-        console.log('✅ Listener de estado configurado');
-    },
-
-    /**
-     * Actualizar opciones de municipio según estado
-     */
-    updateMunicipalityOptions(state) {
-        console.log('📋 updateMunicipalityOptions() llamado con state:', state);
-
-        const municipalitySelect = document.getElementById('municipality');
-        if (!municipalitySelect) {
-            console.error('❌ municipalitySelect no encontrado');
-            return;
-        }
-
-        // Obtener municipios del estado seleccionado
-        const municipalities = this.getMunicipalitiesByState(state);
-        console.log('   Municipios obtenidos:', municipalities);
-
-        // Limpiar options actuales
-        municipalitySelect.innerHTML = '<option value="">Selecciona un municipio</option>';
-
-        // Agregar nuevas opciones
-        municipalities.forEach((mun, index) => {
-            const option = document.createElement('option');
-            option.value = mun.value;
-            option.textContent = mun.label;
-            option.dataset.stateName = mun.stateName;
-
-            // Seleccionar primer municipio por default
-            if (index === 0) {
-                option.selected = true;
-            }
-
-            municipalitySelect.appendChild(option);
-            console.log(`   ✅ Agregada opción: ${mun.label} (${mun.value})`);
-        });
-
-        // Habilitar select
-        municipalitySelect.disabled = !state || municipalities.length === 0;
-        console.log(`   Select habilitado: ${!municipalitySelect.disabled}`);
-
-        // Recargar datos del primer municipio si hay alguno
-        if (municipalities.length > 0) {
-            console.log(`   🔄 Recargando datos para: ${municipalities[0].value}`);
-            this.reloadData(municipalities[0].value);
-
-            // Disparar evento personalizado para que geocoding-map.js actualice el mapa
-            const event = new CustomEvent('municipalityChanged', {
-                detail: { municipality: municipalities[0].value }
-            });
-            document.dispatchEvent(event);
-            console.log(`   📡 Evento 'municipalityChanged' disparado para: ${municipalities[0].value}`);
-        }
-
-        console.log(`✅ Municipios actualizados para ${state}:`, municipalities.map(m => m.label).join(', '));
-    },
-
-    /**
-     * Resetear autocompletes
-     */
-    resetAutocompletes() {
-        // Limpiar inputs
-        const coloniaInput = document.getElementById('colonia');
-        const addressInput = document.getElementById('address');
-
-        if (coloniaInput) coloniaInput.value = '';
-        if (addressInput) addressInput.value = '';
-
-        // Resetear selecciones
-        this.selectedColonia = null;
-        this.selectedCalle = null;
-
-        // Ocultar sugerencias
-        this.hideSuggestions();
-        this.hideStreetSuggestions();
-    },
-
     setupMunicipalityListener() {
         const municipalitySelect = document.getElementById('municipality');
 

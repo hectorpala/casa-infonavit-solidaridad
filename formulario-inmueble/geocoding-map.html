@@ -12,13 +12,13 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
-    <!-- Google Fonts - Montserrat + Roboto (matching landing) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <!-- Leaflet CSS (OpenStreetMap) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -26,99 +26,52 @@
           crossorigin=""/>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/main.css?v=20250104">
-    <link rel="stylesheet" href="css/form.css?v=20250104">
-    <link rel="stylesheet" href="css/geocoding-map.css?v=20250104">
-    <link rel="stylesheet" href="css/responsive.css?v=20250104">
+    <link rel="stylesheet" href="css/main.css?v=20250103">
+    <link rel="stylesheet" href="css/form.css?v=20250103">
+    <link rel="stylesheet" href="css/geocoding-map.css?v=20250103">
 </head>
 <body>
-    <!-- Header - Matching Landing Style -->
+    <!-- Header -->
     <header class="header">
-        <div class="header-container">
-            <div class="logo">
-                <h1>Hector es <span class="logo-accent">Bienes Raíces</span></h1>
-            </div>
-            <a href="index.html" class="back-link-button">
+        <div class="header-content">
+            <a href="index.html" class="back-link">
                 <i class="fas fa-arrow-left"></i>
                 <span>Volver al formulario</span>
             </a>
+            <h1 class="header-title">Geocodificación con Mapa</h1>
+            <p class="header-subtitle">Obtén las coordenadas exactas de cualquier dirección</p>
         </div>
     </header>
-
-    <!-- Hero Section - Matching Landing -->
-    <section class="hero-section-geo">
-        <div class="hero-container-geo">
-            <span class="hero-badge-geo">Herramienta Gratuita</span>
-            <h1 class="hero-title-geo">Geocodificación <span class="hero-highlight-geo">con Mapa</span></h1>
-            <p class="hero-subtitle-geo">Obtén las coordenadas exactas de cualquier dirección en Culiacán, Mazatlán o Monterrey.</p>
-
-            <div class="hero-features-geo">
-                <div class="hero-feature-geo">
-                    <svg class="hero-feature-icon-geo" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Precisión GPS</span>
-                </div>
-                <div class="hero-feature-geo">
-                    <svg class="hero-feature-icon-geo" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Resultado inmediato</span>
-                </div>
-                <div class="hero-feature-geo">
-                    <svg class="hero-feature-icon-geo" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span>Visualización interactiva</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Main Container -->
     <main class="geocoding-container">
         <!-- Left Panel: Form -->
         <div class="geocoding-form-panel">
-            <div class="panel-header-geo">
-                <div class="panel-header-content">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h2>Ingresa la Dirección</h2>
-                </div>
-                <div class="panel-header-badge">Paso 1</div>
+            <div class="panel-header">
+                <i class="fas fa-map-marker-alt"></i>
+                <h2>Ingresa la Dirección</h2>
             </div>
 
             <form id="geocoding-form" class="geocoding-form">
-                <!-- Estado -->
-                <div class="form-group">
-                    <label for="state" class="form-label">
-                        <i class="fas fa-flag"></i>
-                        Estado <span class="required">*</span>
-                    </label>
-                    <select id="state" name="state" class="form-control" required>
-                        <option value="">Selecciona un estado</option>
-                        <option value="sinaloa" selected>Sinaloa</option>
-                        <option value="nuevo-leon">Nuevo León</option>
-                    </select>
-                    <span class="form-hint">Selecciona el estado donde se encuentra el inmueble</span>
-                </div>
-
                 <!-- Municipio -->
                 <div class="form-group">
                     <label for="municipality" class="form-label">
                         <i class="fas fa-city"></i>
-                        Municipio <span class="required">*</span>
+                        Municipio
                     </label>
-                    <select id="municipality" name="municipality" class="form-control" required disabled>
+                    <select id="municipality" name="municipality" class="form-control" required>
                         <option value="">Selecciona un municipio</option>
+                        <option value="culiacan" selected>Culiacán</option>
+                        <option value="los-mochis">Los Mochis</option>
+                        <option value="mazatlan">Mazatlán</option>
                     </select>
-                    <span class="form-hint">Selecciona el municipio donde se encuentra el inmueble</span>
                 </div>
 
                 <!-- Colonia -->
                 <div class="form-group autocomplete-wrapper">
                     <label for="colonia" class="form-label">
                         <i class="fas fa-map-signs"></i>
-                        Colonia o Fraccionamiento <span class="required">*</span>
+                        Colonia o Fraccionamiento *
                     </label>
                     <input
                         type="text"
@@ -131,14 +84,13 @@
                     >
                     <input type="hidden" id="colonia-value" name="coloniaSlug">
                     <div class="autocomplete-suggestions" id="colonia-suggestions"></div>
-                    <span class="form-hint">Escribe para buscar tu colonia o fraccionamiento</span>
                 </div>
 
                 <!-- Calle -->
                 <div class="form-group autocomplete-wrapper">
                     <label for="address" class="form-label">
                         <i class="fas fa-road"></i>
-                        Calle <span class="required">*</span>
+                        Calle *
                     </label>
                     <input
                         type="text"
@@ -150,7 +102,6 @@
                         required
                     >
                     <div class="autocomplete-suggestions" id="address-suggestions"></div>
-                    <span class="form-hint">Nombre de la calle principal</span>
                 </div>
 
                 <!-- Números -->
@@ -158,15 +109,14 @@
                     <div class="form-group">
                         <label for="exterior-number" class="form-label">
                             <i class="fas fa-hashtag"></i>
-                            Número Exterior <span class="required">*</span>
+                            Número Exterior (opcional)
                         </label>
                         <input
                             type="text"
                             id="exterior-number"
                             name="exteriorNumber"
                             class="form-control"
-                            placeholder="Ej: 2609"
-                            required
+                            placeholder="Dejar vacío si no se conoce"
                         >
                     </div>
 
@@ -200,7 +150,6 @@
                         maxlength="5"
                         readonly
                     >
-                    <span class="form-hint">Se completa automáticamente al seleccionar la colonia</span>
                 </div>
 
                 <!-- Buttons -->
@@ -218,88 +167,67 @@
 
             <!-- Results Panel -->
             <div id="results-panel" class="results-panel" style="display: none;">
-                <div class="results-header">
-                    <div class="results-icon-wrapper">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3 class="results-title">Resultados de Geocodificación</h3>
+                <div class="panel-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Resultados de Geocodificación</h3>
                 </div>
 
                 <div class="results-content">
                     <div class="result-item">
-                        <div class="result-label">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <span>Dirección Completa</span>
-                        </div>
+                        <span class="result-label">Dirección Completa:</span>
                         <span class="result-value" id="result-address">-</span>
                     </div>
 
-                    <div class="result-grid">
-                        <div class="result-item-compact">
-                            <div class="result-label-compact">
-                                <i class="fas fa-compass"></i>
-                                <span>Latitud</span>
-                            </div>
-                            <span class="result-value-compact" id="result-lat">-</span>
-                        </div>
-
-                        <div class="result-item-compact">
-                            <div class="result-label-compact">
-                                <i class="fas fa-compass"></i>
-                                <span>Longitud</span>
-                            </div>
-                            <span class="result-value-compact" id="result-lng">-</span>
-                        </div>
+                    <div class="result-item">
+                        <span class="result-label">Latitud:</span>
+                        <span class="result-value" id="result-lat">-</span>
                     </div>
 
                     <div class="result-item">
-                        <div class="result-label">
-                            <i class="fas fa-mail-bulk"></i>
-                            <span>Código Postal</span>
-                        </div>
+                        <span class="result-label">Longitud:</span>
+                        <span class="result-value" id="result-lng">-</span>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="result-label">Código Postal:</span>
                         <span class="result-value" id="result-zip">-</span>
                     </div>
 
                     <div class="result-item">
-                        <div class="result-label">
-                            <i class="fas fa-crosshairs"></i>
-                            <span>Precisión</span>
-                        </div>
+                        <span class="result-label">Precisión:</span>
                         <span class="result-value" id="result-accuracy">-</span>
                     </div>
 
+                    <div id="approximate-warning" class="result-item" style="display: none;">
+                        <span class="result-label" style="color: #856404;">⚠️ Ubicación aproximada:</span>
+                        <span class="result-value" style="color: #856404;">Sin número exterior</span>
+                    </div>
+
                     <div class="result-item">
-                        <div class="result-label">
-                            <i class="fas fa-server"></i>
-                            <span>Servicio Usado</span>
-                        </div>
+                        <span class="result-label">Servicio Usado:</span>
                         <span class="result-value" id="result-service">-</span>
                     </div>
 
-                    <!-- Action Buttons -->
-                    <div class="result-actions">
-                        <a id="open-in-maps" href="#" target="_blank" class="btn-result btn-maps">
-                            <i class="fab fa-google"></i>
-                            Abrir en Google Maps
-                        </a>
+                    <!-- Open in Google Maps -->
+                    <a id="open-in-maps" href="#" target="_blank" class="btn btn-maps">
+                        <i class="fab fa-google"></i>
+                        Abrir en Google Maps
+                    </a>
 
-                        <button id="copy-coords" class="btn-result btn-copy">
-                            <i class="fas fa-copy"></i>
-                            Copiar Coordenadas
-                        </button>
-                    </div>
+                    <!-- Copy Coordinates -->
+                    <button id="copy-coords" class="btn btn-copy">
+                        <i class="fas fa-copy"></i>
+                        Copiar Coordenadas
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Right Panel: Map -->
         <div class="geocoding-map-panel">
-            <div class="panel-header-geo">
-                <div class="panel-header-content">
-                    <i class="fas fa-map"></i>
-                    <h2>Mapa Interactivo</h2>
-                </div>
-                <div class="panel-header-badge">Paso 2</div>
+            <div class="panel-header">
+                <i class="fas fa-map"></i>
+                <h2>Mapa Interactivo</h2>
             </div>
 
             <div id="map" class="map-container"></div>
@@ -310,7 +238,7 @@
                     <span>Ubicación geocodificada</span>
                 </div>
                 <div class="legend-item">
-                    <i class="fas fa-hand-pointer" style="color: #3483FA;"></i>
+                    <i class="fas fa-info-circle" style="color: #3483FA;"></i>
                     <span>Arrastra y haz zoom para explorar</span>
                 </div>
             </div>
@@ -320,9 +248,8 @@
     <!-- Loading Overlay -->
     <div id="loading-overlay" class="loading-overlay" style="display: none;">
         <div class="loading-spinner">
-            <div class="spinner-icon"></div>
-            <p class="loading-text">Geocodificando dirección...</p>
-            <span class="loading-subtext">Esto tomará solo unos segundos</span>
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Geocodificando dirección...</p>
         </div>
     </div>
 
@@ -336,8 +263,8 @@
             crossorigin=""></script>
 
     <!-- Custom Scripts -->
-    <script src="js/autocomplete.js?v=1762237615"></script>
-    <script src="js/geocoding.js?v=1762237615"></script>
-    <script src="js/geocoding-map.js?v=1762237615"></script>
+    <script src="js/autocomplete.js?v=20250110"></script>
+    <script src="js/geocoding.js?v=20250110"></script>
+    <script src="js/geocoding-map.js?v=20250110"></script>
 </body>
 </html>

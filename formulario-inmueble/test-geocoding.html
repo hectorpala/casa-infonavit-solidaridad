@@ -236,8 +236,19 @@
 
                 // Show result
                 if (geocodingResult) {
+                    let approximateWarning = '';
+                    if (geocodingResult.approximate) {
+                        approximateWarning = `
+                            <div class="result-item" style="background: #FFF3CD; border-left: 4px solid #FFC107; padding: 12px;">
+                                <span class="result-label">⚠️ Ubicación aproximada:</span>
+                                <span class="result-value">Sin número exterior</span>
+                            </div>
+                        `;
+                    }
+
                     result.innerHTML = `
                         <h3 class="success">✅ Geocodificación Exitosa</h3>
+                        ${approximateWarning}
                         <div class="result-item">
                             <span class="result-label">📍 Latitud:</span>
                             <span class="result-value">${geocodingResult.latitude}</span>

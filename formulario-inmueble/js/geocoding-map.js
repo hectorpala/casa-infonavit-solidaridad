@@ -11,6 +11,8 @@ const GeocodingMapApp = {
     currentResult: null,
     autocompleteColonia: null,
     autocompleteCalle: null,
+    municipalitiesWithDatasetError: new Set(), // Evitar notificaciones repetidas
+    _listenerAttached: false,
 
     /**
      * Inicializar la aplicación
@@ -83,6 +85,28 @@ const GeocodingMapApp = {
         if (typeof Autocomplete !== 'undefined') {
             await Autocomplete.init(this.currentMunicipality, true);
             console.log(`✅ Autocompletes inicializados para ${this.currentMunicipality}`);
+
+            // Configurar listener de evento autocompleteDataLoaded
+            if (!this._listenerAttached) {
+                document.addEventListener('autocompleteDataLoaded', (evt) => {
+                    const { municipality, coloniasCount } = evt.detail;
+                    console.log('ℹ️ autocompleteDataLoaded', evt.detail);
+                    if (coloniasCount === 0 && !this.municipalitiesWithDatasetError.has(municipality)) {
+                        this.municipalitiesWithDatasetError.add(municipality);
+                        this.showNotification('No se pudieron cargar las colonias. Revisa la ruta de datos.', 'error');
+                    }
+                });
+                this._listenerAttached = true;
+            }
+
+            // Validar que se cargaron las colonias (chequeo inmediato)
+            if (Autocomplete.colonias.length === 0) {
+                console.error('❌ No se cargaron colonias para', this.currentMunicipality);
+                if (!this.municipalitiesWithDatasetError.has(this.currentMunicipality)) {
+                    this.municipalitiesWithDatasetError.add(this.currentMunicipality);
+                    this.showNotification('No se pudieron cargar las colonias. Revisa la ruta de datos.', 'error');
+                }
+            }
         } else {
             console.error('❌ Autocomplete no está disponible. Verifica que autocomplete.js esté cargado.');
         }
@@ -118,6 +142,15 @@ const GeocodingMapApp = {
             if (typeof Autocomplete !== 'undefined' && Autocomplete.reloadData) {
                 console.log(`   Recargando datos de autocomplete para ${newMunicipality}...`);
                 await Autocomplete.reloadData(newMunicipality);
+
+                // Validar que se cargaron las colonias
+                if (Autocomplete.colonias.length === 0) {
+                    console.error('❌ No se cargaron colonias para', newMunicipality);
+                    if (!this.municipalitiesWithDatasetError.has(newMunicipality)) {
+                        this.municipalitiesWithDatasetError.add(newMunicipality);
+                        this.showNotification('No se pudieron cargar las colonias. Revisa la ruta de datos.', 'error');
+                    }
+                }
             }
         });
 
@@ -150,7 +183,7 @@ const GeocodingMapApp = {
         // Validar datos mínimos
         if (!this.validateFormData(addressData)) {
             this.hideLoading();
-            this.showNotification('Por favor completa los campos requeridos (Colonia, Calle, Número Exterior)', 'error');
+            this.showNotification('Por favor completa los campos requeridos (Colonia y Calle)', 'error');
             return;
         }
 
@@ -169,7 +202,10 @@ const GeocodingMapApp = {
                 this.showResults(result, addressData);
 
                 // Notificación de éxito
-                this.showNotification(`Ubicación encontrada con ${result.service}`, 'success');
+                const successMsg = result.approximate
+                    ? `Dirección aproximada (sin número exterior) - ${result.service}`
+                    : `Ubicación encontrada con ${result.service}`;
+                this.showNotification(successMsg, 'success');
             } else {
                 console.error('❌ No se pudo geocodificar');
                 this.showNotification('No se pudo encontrar la ubicación. Verifica la dirección e intenta nuevamente.', 'error');
@@ -199,9 +235,10 @@ const GeocodingMapApp = {
 
     /**
      * Validar datos del formulario
+     * NOTA: El número exterior es opcional - solo requiere colonia y calle
      */
     validateFormData(data) {
-        return data.colonia && data.street && data.number;
+        return data.colonia && data.street;
     },
 
     /**
@@ -242,10 +279,17 @@ const GeocodingMapApp = {
      * Crear contenido del popup
      */
     createPopupContent(addressData, lat, lng) {
+        // Construir dirección mostrando solo datos disponibles
+        let addressLine = addressData.street;
+        if (addressData.number && addressData.number.trim()) {
+            addressLine += ` ${addressData.number}`;
+        }
+        addressLine += `, ${addressData.colonia}`;
+
         return `
             <div class="custom-popup">
                 <h3><i class="fas fa-map-marker-alt"></i> Ubicación Encontrada</h3>
-                <p><strong>Dirección:</strong><br>${addressData.street} ${addressData.number}, ${addressData.colonia}</p>
+                <p><strong>Dirección:</strong><br>${addressLine}</p>
                 <p><strong>Coordenadas:</strong><br>${lat.toFixed(6)}, ${lng.toFixed(6)}</p>
                 ${addressData.zipCode ? `<p><strong>CP:</strong> ${addressData.zipCode}</p>` : ''}
             </div>
@@ -268,6 +312,14 @@ const GeocodingMapApp = {
         document.getElementById('result-zip').textContent = addressData.zipCode || 'No disponible';
         document.getElementById('result-accuracy').textContent = result.accuracy || 'No disponible';
         document.getElementById('result-service').textContent = result.service || 'No disponible';
+
+        // Mostrar/ocultar advertencia de ubicación aproximada
+        const approximateWarning = document.getElementById('approximate-warning');
+        if (result.approximate) {
+            approximateWarning.style.display = 'block';
+        } else {
+            approximateWarning.style.display = 'none';
+        }
 
         // Actualizar link de Google Maps
         const mapsLink = document.getElementById('open-in-maps');
