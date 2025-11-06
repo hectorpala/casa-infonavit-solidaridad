@@ -200,7 +200,27 @@ const Geocoding = {
                     address: candidate.formattedAddress.substring(0, 80)
                 });
 
-                // Validar componentes
+                const isPrecise = locationType === 'ROOFTOP' || locationType === 'RANGE_INTERPOLATED';
+
+                // ✅ PRIORIDAD 1: Si es ROOFTOP con número de calle, aceptar SIN validar colonia
+                // (Google Maps puede usar nombre oficial de colonia diferente al ingresado)
+                if (isPrecise && hasNumber && variant.enforceStreet) {
+                    const streetOnlyValid = this.googleComponentsMatch(
+                        candidate.raw,
+                        addressData,
+                        true,   // enforceStreet = true (validar calle)
+                        false   // enforceColonia = false (NO validar colonia)
+                    );
+
+                    if (streetOnlyValid) {
+                        result = candidate;
+                        usedVariant = variant.query;
+                        console.log(`✅ Candidato ROOFTOP aceptado (calle validada, colonia ignorada)`);
+                        break;
+                    }
+                }
+
+                // ✅ PRIORIDAD 2: Validación completa (calle + colonia)
                 const isValid = this.googleComponentsMatch(
                     candidate.raw,
                     addressData,
@@ -210,8 +230,6 @@ const Geocoding = {
 
                 if (isValid) {
                     // Coincidencia válida encontrada
-                    const isPrecise = locationType === 'ROOFTOP' || locationType === 'RANGE_INTERPOLATED';
-
                     if (!hasNumber || isPrecise) {
                         // Retornar inmediatamente si:
                         // 1. No hay número (cualquier coincidencia válida es buena)
@@ -528,7 +546,13 @@ const Geocoding = {
 
             const data = await response.json();
 
-            if (data.success && data.results && data.results.length > 0) {
+            // ✅ Tolerancia de AMBOS formatos de respuesta:
+            // - Formato nuevo (netlify/functions/geocode.js): { success: true, results: [...] }
+            // - Formato viejo (api/geocode.js): { status: "OK", results: [...] }
+            const statusOk = (data.success === true) || (data.status === 'OK');
+            const hasResults = Array.isArray(data.results) && data.results.length > 0;
+
+            if (statusOk && hasResults) {
                 console.log(`📍 Google Maps retornó ${data.results.length} resultado(s)`);
 
                 // Normalizar y ordenar resultados por precisión
