@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geocodificación con Mapa | Cotizador de Inmuebles</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Herramienta de geocodificación para obtener coordenadas exactas de propiedades en Culiacán y Mazatlán, Sinaloa.">
+    <meta name="keywords" content="geocodificación, mapa, coordenadas, dirección, Culiacán, Mazatlán">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+
+    <!-- Google Fonts - Inter for UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bg-app': '#0F1115',
+                        'bg-panel': '#12151B',
+                        'text-1': '#E8EBF0',
+                        'text-2': '#A9B0BD',
+                        'border': '#222734',
+                        'field': '#171B24',
+                        'accent': '#4C8CF3',
+                        'success': '#2FB170',
+                        'warn': '#F6C14B',
+                        'error': '#E05656'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Leaflet CSS (OpenStreetMap) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css?v=20250103">
+    <link rel="stylesheet" href="css/form.css?v=20250103">
+    <link rel="stylesheet" href="css/geocoding-map.css?v=1762324026">
+</head>
+<body class="bg-[#0F1115] text-[#E8EBF0]">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">Geocodificar una dirección</h1>
+            <p class="header-subtitle">Introduce los datos y valida en el mapa. Puedes arrastrar el marcador para ajustar.</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="geocoding-container">
+        <!-- Left Panel: Form -->
+        <div class="geocoding-form-panel">
+            <div class="panel-header">
+                <i class="fas fa-map-marker-alt"></i>
+                <h2>Ingresa la Dirección</h2>
+            </div>
+
+            <form id="geocoding-form" class="geocoding-form">
+                <!-- Estado -->
+                <div class="form-group">
+                    <label for="state" class="form-label">
+                        <i class="fas fa-flag"></i>
+                        Estado *
+                    </label>
+                    <select id="state" name="state" class="form-control" required aria-required="true">
+                        <option value="">Selecciona un estado</option>
+                        <option value="sinaloa" selected>Sinaloa</option>
+                        <option value="nuevo-leon">Nuevo León</option>
+                    </select>
+                </div>
+
+                <!-- Municipio -->
+                <div class="form-group">
+                    <label for="municipality" class="form-label">
+                        <i class="fas fa-city"></i>
+                        Municipio *
+                    </label>
+                    <select id="municipality" name="municipality" class="form-control" required disabled aria-required="true">
+                        <option value="">Ej. Culiacán</option>
+                    </select>
+                </div>
+
+                <!-- Colonia -->
+                <div class="form-group autocomplete-wrapper">
+                    <label for="colonia" class="form-label">
+                        <i class="fas fa-map-signs"></i>
+                        Colonia o Fraccionamiento *
+                    </label>
+                    <input
+                        type="text"
+                        id="colonia"
+                        name="colonia"
+                        class="form-control"
+                        placeholder="Ej. Las Quintas"
+                        autocomplete="off"
+                        required
+                        aria-required="true"
+                        aria-describedby="colonia-error"
+                    >
+                    <input type="hidden" id="colonia-value" name="coloniaSlug">
+                    <div class="autocomplete-suggestions" id="colonia-suggestions"></div>
+                    <div id="colonia-error" class="helper-error" style="display: none;"></div>
+                </div>
+
+                <!-- Calle -->
+                <div class="form-group autocomplete-wrapper">
+                    <label for="address" class="form-label">
+                        <i class="fas fa-road"></i>
+                        Calle *
+                    </label>
+                    <input
+                        type="text"
+                        id="address"
+                        name="address"
+                        class="form-control"
+                        placeholder="Ej. Blvd. Doctor Mora"
+                        autocomplete="off"
+                        required
+                        aria-required="true"
+                        aria-describedby="address-error"
+                    >
+                    <div class="autocomplete-suggestions" id="address-suggestions"></div>
+                    <div id="address-error" class="helper-error" style="display: none;"></div>
+                </div>
+
+                <!-- Números -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="exterior-number" class="form-label">
+                            <i class="fas fa-hashtag"></i>
+                            Número Exterior *
+                        </label>
+                        <input
+                            type="text"
+                            id="exterior-number"
+                            name="exteriorNumber"
+                            class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
+                            placeholder="Ej: 2609"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interior-number" class="form-label">
+                            <i class="fas fa-door-open"></i>
+                            Número Interior
+                        </label>
+                        <input
+                            type="text"
+                            id="interior-number"
+                            name="interiorNumber"
+                            class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
+                            placeholder="Opcional"
+                        >
+                    </div>
+                </div>
+
+                <!-- Código Postal -->
+                <div class="form-group">
+                    <label for="zip-code" class="form-label">
+                        <i class="fas fa-mail-bulk"></i>
+                        Código Postal
+                    </label>
+                    <input
+                        type="text"
+                        id="zip-code"
+                        name="zipCode"
+                        class="form-control form-control-readonly"
+                        placeholder="Ej. 80060"
+                        maxlength="5"
+                        readonly
+                        aria-readonly="true"
+                    >
+                </div>
+
+                <!-- Buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" aria-label="Geocodificar dirección introducida">
+                        <i class="fas fa-search-location"></i>
+                        Geocodificar dirección
+                    </button>
+                    <button type="button" id="clear-form" class="btn btn-secondary" aria-label="Limpiar todos los campos">
+                        <i class="fas fa-eraser"></i>
+                        Limpiar
+                    </button>
+                </div>
+            </form>
+
+            <!-- Results Panel -->
+            <div id="results-panel" class="results-panel" style="display: none;">
+                <div class="panel-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Resultados de Geocodificación</h3>
+                </div>
+
+                <div class="results-content">
+                    <div class="result-item">
+                        <span class="result-label">Dirección Completa:</span>
+                        <span class="result-value" id="result-address">-</span>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="result-label">Latitud:</span>
+                        <span class="result-value" id="result-lat">-</span>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="result-label">Longitud:</span>
+                        <span class="result-value" id="result-lng">-</span>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="result-label">Código Postal:</span>
+                        <span class="result-value" id="result-zip">-</span>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="result-label">Precisión:</span>
+                        <span class="result-value" id="result-accuracy">-</span>
+                    </div>
+
+                    <div class="result-item">
+                        <span class="result-label">Servicio Usado:</span>
+                        <span class="result-value" id="result-service">-</span>
+                    </div>
+
+                    <!-- Open in Google Maps -->
+                    <a id="open-in-maps" href="#" target="_blank" class="btn btn-maps">
+                        <i class="fab fa-google"></i>
+                        Abrir en Google Maps
+                    </a>
+
+                    <!-- Copy Coordinates -->
+                    <button id="copy-coords" class="btn btn-copy" aria-label="Copiar coordenadas al portapapeles">
+                        <i class="fas fa-copy"></i>
+                        Copiar coordenadas
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel: Map -->
+        <div class="geocoding-map-panel">
+            <div class="panel-header">
+                <i class="fas fa-map"></i>
+                <h2>Mapa Interactivo</h2>
+            </div>
+
+            <div id="map" class="map-container" role="application" aria-label="Mapa interactivo de geocodificación"></div>
+
+            <div class="map-legend">
+                <div class="legend-item">
+                    <i class="fas fa-map-pin" style="color: #4C8CF3;"></i>
+                    <span>Ubicación geocodificada</span>
+                </div>
+                <div class="legend-item">
+                    <i class="fas fa-hand-pointer" style="color: #4C8CF3;"></i>
+                    <span>Arrastra el marcador para ajustar</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>Geocodificando dirección...</p>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Scripts -->
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+    <!-- Custom Scripts -->
+    <script src="js/autocomplete.js?v=1762320897"></script>
+    <script src="js/geocoding.js?v=1762320897"></script>
+    <script src="js/geocoding-map.js?v=1762321123"></script>
+</body>
+</html>

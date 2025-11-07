@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Estilos Historial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-white text-neutral-900 p-8">
+    <div class="max-w-2xl mx-auto space-y-6">
+
+        <!-- Panel de Formulario (REFERENCIA) -->
+        <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-indigo-50 to-indigo-100/50 px-6 py-4 border-b border-indigo-200">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-map-marker-alt text-indigo-600 text-xl"></i>
+                    <h2 class="text-lg font-semibold text-neutral-900">Panel de Formulario (REFERENCIA)</h2>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-neutral-700">Este es el estilo del formulario actual. El fondo es BLANCO.</p>
+            </div>
+        </div>
+
+        <!-- Panel de Historial (PRUEBA) -->
+        <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-indigo-50 to-indigo-100/50 px-6 py-4 border-b border-indigo-200">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-neutral-900">
+                        <i class="fas fa-history text-indigo-600 mr-2"></i>
+                        Búsquedas Recientes (PRUEBA)
+                    </h3>
+                    <button class="text-xs text-red-600 hover:text-red-700 font-medium transition-colors px-2 py-1 rounded hover:bg-red-50">
+                        <i class="fas fa-trash-alt mr-1"></i>
+                        Limpiar
+                    </button>
+                </div>
+            </div>
+
+            <div class="p-6">
+                <div class="space-y-2">
+                    <!-- Item 1 -->
+                    <div class="group cursor-pointer">
+                        <div class="flex items-start gap-3 p-3 rounded-lg border border-neutral-200 bg-white hover:bg-neutral-50 hover:border-indigo-300 transition-all">
+                            <div class="flex-shrink-0 mt-0.5">
+                                <i class="fas fa-map-marker-alt text-indigo-500 text-sm"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-neutral-900 group-hover:text-indigo-600 transition-colors">
+                                    Blvd Elbert 2609, Las Quintas
+                                </p>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs text-neutral-500">
+                                        <i class="far fa-clock mr-1"></i>
+                                        Hace 5m
+                                    </span>
+                                    <span class="text-xs text-neutral-400">•</span>
+                                    <span class="text-xs text-neutral-500">
+                                        Google Maps
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-chevron-right text-neutral-400 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="group cursor-pointer">
+                        <div class="flex items-start gap-3 p-3 rounded-lg border border-neutral-200 bg-white hover:bg-neutral-50 hover:border-indigo-300 transition-all">
+                            <div class="flex-shrink-0 mt-0.5">
+                                <i class="fas fa-map-marker-alt text-indigo-500 text-sm"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-neutral-900 group-hover:text-indigo-600 transition-colors">
+                                    Av Doctor Mora 1640, Las Quintas
+                                </p>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs text-neutral-500">
+                                        <i class="far fa-clock mr-1"></i>
+                                        Hace 2h
+                                    </span>
+                                    <span class="text-xs text-neutral-400">•</span>
+                                    <span class="text-xs text-neutral-500">
+                                        Nominatim
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-chevron-right text-neutral-400 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="group cursor-pointer">
+                        <div class="flex items-start gap-3 p-3 rounded-lg border border-neutral-200 bg-white hover:bg-neutral-50 hover:border-indigo-300 transition-all">
+                            <div class="flex-shrink-0 mt-0.5">
+                                <i class="fas fa-map-marker-alt text-indigo-500 text-sm"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-neutral-900 group-hover:text-indigo-600 transition-colors">
+                                    Calle Privada 123, Fracc. Palmillas
+                                </p>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs text-neutral-500">
+                                        <i class="far fa-clock mr-1"></i>
+                                        Hace 1d
+                                    </span>
+                                    <span class="text-xs text-neutral-400">•</span>
+                                    <span class="text-xs text-neutral-500">
+                                        Google Maps
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-chevron-right text-neutral-400 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Información -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <p class="text-sm text-blue-900">
+                <strong>✅ Verificación:</strong> Ambos paneles deben verse IGUALES (fondo blanco, texto negro/gris).
+                Si el historial se ve con fondo oscuro, hay un problema con los estilos.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

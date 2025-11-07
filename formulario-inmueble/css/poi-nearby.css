@@ -1,0 +1,219 @@
+/**
+ * POI-NEARBY.CSS - Estilos para Panel de Puntos de Interés
+ * IMPORTANTE: Usa !important para sobrescribir dark mode de macOS
+ */
+
+/* ============================================
+   OVERRIDE DARK MODE - Forzar Light Theme
+   ============================================ */
+
+#poi-panel .bg-white {
+    background-color: #ffffff !important;
+}
+
+#poi-panel .rounded-2xl {
+    background-color: #ffffff !important;
+}
+
+#poi-panel .bg-gradient-to-r {
+    background: linear-gradient(to right, #d1fae5, rgba(209, 250, 229, 0.5)) !important;
+}
+
+/* Textos */
+#poi-panel .text-neutral-900 {
+    color: #171717 !important;
+}
+
+#poi-panel .text-neutral-600 {
+    color: #525252 !important;
+}
+
+#poi-panel .text-neutral-500 {
+    color: #737373 !important;
+}
+
+#poi-panel .text-emerald-600 {
+    color: #059669 !important;
+}
+
+#poi-panel .text-emerald-700 {
+    color: #047857 !important;
+}
+
+#poi-panel .bg-emerald-100 {
+    background-color: #d1fae5 !important;
+}
+
+/* Bordes */
+#poi-panel .border-neutral-200 {
+    border-color: #e5e7eb !important;
+}
+
+#poi-panel .border-emerald-200 {
+    border-color: #a7f3d0 !important;
+}
+
+/* ============================================
+   Categorías de POI
+   ============================================ */
+
+.poi-category {
+    margin-bottom: 1rem;
+}
+
+.poi-category:last-child {
+    margin-bottom: 0;
+}
+
+.poi-category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background-color: #f9fafb !important;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.poi-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.poi-category-title {
+    flex: 1;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #171717 !important;
+    margin: 0;
+}
+
+.poi-count {
+    background-color: #e5e7eb !important;
+    color: #525252 !important;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* ============================================
+   Lista de POIs
+   ============================================ */
+
+.poi-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.poi-item {
+    padding: 0.75rem;
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.poi-item:hover {
+    background-color: #f9fafb !important;
+    border-color: #059669 !important;
+    box-shadow: 0 1px 3px rgba(5, 150, 105, 0.1);
+    transform: translateX(2px);
+}
+
+.poi-marker-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   Scroll personalizado
+   ============================================ */
+
+#poi-panel .overflow-y-auto {
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d4 #f5f5f5;
+}
+
+#poi-panel .overflow-y-auto::-webkit-scrollbar {
+    width: 6px;
+}
+
+#poi-panel .overflow-y-auto::-webkit-scrollbar-track {
+    background: #f5f5f5 !important;
+    border-radius: 3px;
+}
+
+#poi-panel .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: #d4d4d4 !important;
+    border-radius: 3px;
+}
+
+#poi-panel .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: #a3a3a3 !important;
+}
+
+/* ============================================
+   Markers personalizados en el mapa
+   ============================================ */
+
+.poi-custom-marker {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 640px) {
+    .poi-category-header {
+        padding: 0.5rem;
+    }
+
+    .poi-item {
+        padding: 0.5rem;
+    }
+
+    .poi-icon {
+        font-size: 1rem;
+    }
+
+    .poi-category-title {
+        font-size: 0.8125rem;
+    }
+}
+
+/* ============================================
+   Animaciones
+   ============================================ */
+
+.poi-category {
+    animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.poi-category:nth-child(1) { animation-delay: 0s; }
+.poi-category:nth-child(2) { animation-delay: 0.05s; }
+.poi-category:nth-child(3) { animation-delay: 0.10s; }
+.poi-category:nth-child(4) { animation-delay: 0.15s; }
+.poi-category:nth-child(5) { animation-delay: 0.20s; }
+.poi-category:nth-child(6) { animation-delay: 0.25s; }
