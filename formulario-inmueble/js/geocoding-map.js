@@ -423,6 +423,9 @@ const GeocodingMapApp = {
         const mapsLink = document.getElementById('open-in-maps');
         mapsLink.href = `https://www.google.com/maps?q=${result.latitude},${result.longitude}`;
 
+        // Actualizar información de negociación desde el marcador guardado
+        this.updateNegotiationInfo(result.latitude, result.longitude);
+
         // Mostrar panel
         resultsPanel.style.display = 'block';
 
@@ -461,8 +464,109 @@ const GeocodingMapApp = {
             console.log('⚡ Mostrando resultado desde caché');
         }
 
+        // Actualizar información de negociación desde el marcador guardado
+        this.updateNegotiationInfo(result.latitude, result.longitude);
+
         // Mostrar panel (ya debería estar visible)
         resultsPanel.style.display = 'block';
+    },
+
+    /**
+     * Actualizar información de negociación en la tarjeta de resultados
+     */
+    updateNegotiationInfo(lat, lng) {
+        // Buscar marcador guardado con estas coordenadas
+        if (typeof MarkerManager === 'undefined') {
+            console.warn('⚠️ MarkerManager no disponible');
+            return;
+        }
+
+        const markers = MarkerManager.getAllMarkers();
+        let foundMarker = null;
+
+        // Buscar marcador que coincida con las coordenadas (con tolerancia pequeña)
+        for (const [id, markerData] of Object.entries(markers)) {
+            const latDiff = Math.abs(markerData.lat - lat);
+            const lngDiff = Math.abs(markerData.lng - lng);
+
+            if (latDiff < 0.00001 && lngDiff < 0.00001) {
+                foundMarker = markerData;
+                break;
+            }
+        }
+
+        const negotiationSection = document.getElementById('result-negotiation-section');
+        const contactContainer = document.getElementById('result-contact-container');
+        const estimatedValueContainer = document.getElementById('result-estimated-value-container');
+        const offerContainer = document.getElementById('result-offer-container');
+        const tagContainer = document.getElementById('result-tag-container');
+
+        // Si no hay marcador guardado, ocultar toda la sección
+        if (!foundMarker) {
+            if (negotiationSection) negotiationSection.style.display = 'none';
+            return;
+        }
+
+        // Formatear moneda
+        const formatCurrency = (amount) => {
+            if (!amount) return '';
+            return new Intl.NumberFormat('es-MX', {
+                style: 'currency',
+                currency: 'MXN',
+                minimumFractionDigits: 0
+            }).format(amount);
+        };
+
+        let hasData = false;
+
+        // Actualizar contacto
+        if (foundMarker.contact) {
+            document.getElementById('result-contact').textContent = foundMarker.contact;
+            contactContainer.style.display = 'block';
+            hasData = true;
+        } else {
+            contactContainer.style.display = 'none';
+        }
+
+        // Actualizar valor estimado
+        if (foundMarker.estimatedValue) {
+            document.getElementById('result-estimated-value').textContent = formatCurrency(foundMarker.estimatedValue);
+            estimatedValueContainer.style.display = 'block';
+            hasData = true;
+        } else {
+            estimatedValueContainer.style.display = 'none';
+        }
+
+        // Actualizar oferta
+        if (foundMarker.offerAmount) {
+            document.getElementById('result-offer').textContent = formatCurrency(foundMarker.offerAmount);
+            offerContainer.style.display = 'block';
+            hasData = true;
+        } else {
+            offerContainer.style.display = 'none';
+        }
+
+        // Actualizar etiqueta
+        if (foundMarker.tag) {
+            const tagInfo = MarkerManager.getTagByValue(foundMarker.tag);
+            if (tagInfo) {
+                const tagBadge = document.getElementById('result-tag-badge');
+                tagBadge.textContent = tagInfo.label;
+                tagBadge.style.backgroundColor = tagInfo.bgColor;
+                tagBadge.style.color = tagInfo.color;
+                tagContainer.style.display = 'block';
+                hasData = true;
+            } else {
+                tagContainer.style.display = 'none';
+            }
+        } else {
+            tagContainer.style.display = 'none';
+        }
+
+        // Mostrar u ocultar sección completa según si hay datos
+        if (negotiationSection) {
+            negotiationSection.style.display = hasData ? 'block' : 'none';
+        }
     },
 
     /**
