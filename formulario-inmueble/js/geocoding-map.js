@@ -276,13 +276,20 @@ const GeocodingMapApp = {
             this.map.removeLayer(this.marker);
         }
 
-        // Crear custom icon
+        // Crear custom icon 3D con SVG (naranja llamativo)
         const customIcon = L.divIcon({
-            className: 'custom-marker-icon',
-            html: '<i class="fas fa-map-marker-alt"></i>',
-            iconSize: [32, 32],
-            iconAnchor: [16, 32],
-            popupAnchor: [0, -32]
+            className: 'property-marker-3d',
+            html: `
+                <div class="marker-circle">
+                    <svg class="marker-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                </div>
+                <div class="marker-shadow"></div>
+            `,
+            iconSize: [48, 48],
+            iconAnchor: [24, 24],
+            popupAnchor: [0, -24]
         });
 
         // Agregar nuevo marcador (DRAGGABLE para reverse geocoding)

@@ -1,0 +1,96 @@
+/**
+ * PROPERTY-MARKER-3D.CSS - Marcador 3D Naranja para Propiedad
+ * Diseño llamativo con gradiente naranja y efecto 3D
+ */
+
+/* ============================================
+   Marcador 3D de la Propiedad
+   ============================================ */
+
+.property-marker-3d {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+/* Círculo principal con gradiente naranja */
+.property-marker-3d .marker-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #ff8533 0%, #ff6a00 50%, #e55d00 100%);
+    border-radius: 50%;
+    box-shadow:
+        0 6px 12px rgba(255, 106, 0, 0.4),
+        0 3px 6px rgba(255, 106, 0, 0.3),
+        0 0 0 3px rgba(255, 106, 0, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    border: 3px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* SVG icon dentro del círculo */
+.property-marker-3d .marker-icon {
+    width: 22px;
+    height: 22px;
+    fill: #ffffff;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Sombra proyectada debajo (efecto elevación) */
+.property-marker-3d .marker-shadow {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 6px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.25) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* Hover effect - Escala y sombra mejorada */
+.property-marker-3d:hover .marker-circle {
+    transform: scale(1.1);
+    box-shadow:
+        0 8px 16px rgba(255, 106, 0, 0.5),
+        0 4px 8px rgba(255, 106, 0, 0.4),
+        0 0 0 4px rgba(255, 106, 0, 0.15),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    .property-marker-3d {
+        width: 44px;
+        height: 44px;
+    }
+
+    .property-marker-3d .marker-circle {
+        width: 44px;
+        height: 44px;
+        border: 2px solid #fff;
+    }
+
+    .property-marker-3d .marker-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .property-marker-3d .marker-shadow {
+        width: 30px;
+        height: 5px;
+        bottom: -8px;
+    }
+}
