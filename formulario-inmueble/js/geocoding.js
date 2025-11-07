@@ -649,13 +649,17 @@ const Geocoding = {
         const { signal } = options;
 
         try {
-            // Detectar si estamos en localhost
+            // Detectar si estamos en localhost o GitHub Pages (sin Netlify Functions)
             const isLocalhost = window.location.hostname === 'localhost' ||
                                window.location.hostname === '127.0.0.1' ||
                                window.location.protocol === 'file:';
 
-            if (isLocalhost) {
-                console.log('🏠 Modo localhost detectado - usando Google Maps directo (API key expuesta)');
+            const isGitHubPages = window.location.hostname.includes('casasenventa.info') ||
+                                 window.location.hostname.includes('github.io');
+
+            if (isLocalhost || isGitHubPages) {
+                const env = isGitHubPages ? 'GitHub Pages' : 'localhost';
+                console.log(`🏠 Modo ${env} detectado - usando Google Maps directo (API key expuesta)`);
 
                 // API Key de desarrollo (solo para localhost)
                 const GOOGLE_API_KEY = 'AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk';
@@ -690,7 +694,7 @@ const Geocoding = {
                         accuracy: this.getGoogleAccuracy(locationType),
                         locationType: locationType,
                         partialMatch: result.partial_match === true,
-                        service: 'Google Maps (localhost)',
+                        service: `Google Maps (${isGitHubPages ? 'GitHub Pages' : 'localhost'})`,
                         raw: result
                     };
                 });
