@@ -54,6 +54,12 @@ const SearchHistory = {
             const { addressData, result } = e.detail;
             this.addToHistory(addressData, result);
         });
+
+        // Escuchar actualización de etiquetas de marcador
+        document.addEventListener('markerTagUpdated', (e) => {
+            const { markerId, tag, keepMarker } = e.detail;
+            this.updateHistoryTag(markerId, tag, keepMarker);
+        });
     },
 
     /**
@@ -214,6 +220,20 @@ const SearchHistory = {
     renderHistoryItem(entry, index) {
         const timeAgo = this.formatTimeAgo(entry.timestamp);
 
+        // Obtener etiqueta si existe
+        let tagHTML = '';
+        if (entry.tag && typeof MarkerManager !== 'undefined') {
+            const tag = MarkerManager.getTagByValue(entry.tag);
+            if (tag.value) {
+                tagHTML = `
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium" style="background-color: ${tag.bgColor}; color: ${tag.color};">
+                        <i class="fas fa-tag mr-1" style="font-size: 9px;"></i>
+                        ${tag.label}
+                    </span>
+                `;
+            }
+        }
+
         return `
             <div class="history-item group" data-index="${index}" role="button" tabindex="0">
                 <div class="flex items-start gap-3 p-3 rounded-lg border border-neutral-200 bg-white hover:bg-neutral-50 hover:border-indigo-300 transition-all cursor-pointer">
@@ -224,7 +244,8 @@ const SearchHistory = {
                         <p class="text-sm font-medium text-neutral-900 group-hover:text-indigo-600 transition-colors">
                             ${this.escapeHtml(entry.displayText)}
                         </p>
-                        <div class="flex items-center gap-2 mt-1">
+                        <div class="flex items-center gap-2 mt-1 flex-wrap">
+                            ${tagHTML}
                             <span class="text-xs text-neutral-500">
                                 <i class="far fa-clock mr-1"></i>
                                 ${timeAgo}
@@ -333,6 +354,37 @@ const SearchHistory = {
         }
 
         console.log('🗑️ Historial limpiado');
+    },
+
+    /**
+     * Actualizar etiqueta de una entrada del historial
+     */
+    updateHistoryTag(markerId, tag, keepMarker) {
+        const history = this.getHistory();
+
+        // Buscar entrada que coincida con las coordenadas del markerId
+        // markerId tiene formato: "marker_LAT_LNG"
+        const coords = markerId.replace('marker_', '').split('_');
+        const targetLat = parseFloat(coords[0]);
+        const targetLng = parseFloat(coords[1]);
+
+        let updated = false;
+        history.forEach(entry => {
+            const entryLat = parseFloat(entry.result.latitude.toFixed(6));
+            const entryLng = parseFloat(entry.result.longitude.toFixed(6));
+
+            if (entryLat === targetLat && entryLng === targetLng) {
+                entry.tag = tag;
+                entry.keepMarker = keepMarker;
+                updated = true;
+            }
+        });
+
+        if (updated) {
+            this.saveHistory(history);
+            this.renderHistory();
+            console.log('✅ Etiqueta actualizada en historial');
+        }
     },
 
     /**
