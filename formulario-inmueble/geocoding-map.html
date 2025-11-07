@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="css/poi-nearby.css?v=20251106">
     <link rel="stylesheet" href="css/property-marker-3d.css?v=20251106">
     <link rel="stylesheet" href="css/saved-markers.css?v=20251106">
+    <link rel="stylesheet" href="css/tagged-properties-panel.css?v=20251107">
 
     <style>
         /* Additional inline styles for enhanced visual hierarchy */
@@ -392,6 +393,30 @@
 
     <!-- Notification Container -->
     <div id="notification-container" class="fixed top-6 right-6 z-50 flex flex-col gap-3 max-w-md"></div>
+
+    <!-- Botón flotante para abrir panel de propiedades etiquetadas -->
+    <button id="toggle-tagged-panel">
+        <i class="fas fa-tags"></i>
+        <span>Propiedades</span>
+        <span class="count-badge" id="tagged-count">0</span>
+    </button>
+
+    <!-- Panel lateral de propiedades etiquetadas -->
+    <div id="tagged-properties-sidebar">
+        <div class="tagged-panel-header">
+            <h3>
+                <i class="fas fa-tags"></i>
+                Propiedades Etiquetadas
+                <span class="count-badge" id="tagged-count-header">0</span>
+            </h3>
+            <button class="close-panel-btn" id="close-tagged-panel">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="tagged-panel-content" id="tagged-panel-content">
+            <!-- Se llenará dinámicamente con JS -->
+        </div>
+    </div>
 
     <!-- Scripts -->
     <!-- Leaflet JS -->

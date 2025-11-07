@@ -183,6 +183,18 @@ const GeocodingMapApp = {
             this.currentMunicipality = newMunicipality;
             this.updateMapCenter();
         });
+
+        // Escuchar eliminación de marcador desde MarkerManager
+        document.addEventListener('markerDeleted', (e) => {
+            const { markerId } = e.detail;
+            this.removeMarkerFromMap(markerId);
+        });
+
+        // Escuchar highlight de marcador desde MarkerManager
+        document.addEventListener('highlightMarker', (e) => {
+            const { markerId } = e.detail;
+            this.highlightMarkerOnMap(markerId);
+        });
     },
 
     /**
@@ -678,7 +690,7 @@ const GeocodingMapApp = {
      * Agregar un marcador guardado al mapa
      */
     addSavedMarker(markerData) {
-        const { lat, lng, address, tag, id } = markerData;
+        const { lat, lng, address, tag, id, contact, estimatedValue, offerAmount } = markerData;
 
         console.log(`📌 Agregando marcador: ${address.substring(0, 40)}...`);
 
@@ -714,9 +726,48 @@ const GeocodingMapApp = {
             title: address
         }).addTo(this.map);
 
+        // Generar sección de datos de negociación
+        let negotiationHTML = '';
+        if (contact || estimatedValue || offerAmount) {
+            const formatCurrency = (amount) => {
+                if (!amount) return '';
+                return new Intl.NumberFormat('es-MX', {
+                    style: 'currency',
+                    currency: 'MXN',
+                    minimumFractionDigits: 0
+                }).format(amount);
+            };
+
+            negotiationHTML = `
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e7eb;">
+                    <div style="font-size: 11px; font-weight: 600; color: #6b7280; margin-bottom: 6px;">
+                        <i class="fas fa-handshake"></i> Información de Negociación
+                    </div>
+                    ${contact ? `
+                        <p style="margin: 4px 0; font-size: 12px; color: #374151;">
+                            <i class="fas fa-user" style="color: #8b5cf6; margin-right: 4px; width: 14px;"></i>
+                            <strong>${contact}</strong>
+                        </p>
+                    ` : ''}
+                    ${estimatedValue ? `
+                        <p style="margin: 4px 0; font-size: 12px; color: #374151;">
+                            <i class="fas fa-dollar-sign" style="color: #10b981; margin-right: 4px; width: 14px;"></i>
+                            Valor: <strong>${formatCurrency(estimatedValue)}</strong>
+                        </p>
+                    ` : ''}
+                    ${offerAmount ? `
+                        <p style="margin: 4px 0; font-size: 12px; color: #374151;">
+                            <i class="fas fa-hand-holding-dollar" style="color: #3b82f6; margin-right: 4px; width: 14px;"></i>
+                            Oferta: <strong>${formatCurrency(offerAmount)}</strong>
+                        </p>
+                    ` : ''}
+                </div>
+            `;
+        }
+
         // Crear popup con información
         const popupContent = `
-            <div style="min-width: 200px;">
+            <div style="min-width: 220px;">
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                     <i class="fas fa-map-marker-alt" style="color: ${tagInfo ? tagInfo.color : '#6366f1'};"></i>
                     <strong style="font-size: 14px;">Propiedad Guardada</strong>
@@ -736,6 +787,7 @@ const GeocodingMapApp = {
                     <i class="fas fa-crosshairs" style="color: #9ca3af; margin-right: 4px;"></i>
                     ${lat.toFixed(6)}, ${lng.toFixed(6)}
                 </p>
+                ${negotiationHTML}
                 <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e7eb;">
                     <button onclick="GeocodingMapApp.jumpToMarker(${lat}, ${lng})" style="width: 100%; padding: 6px 12px; background: #3b82f6; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
                         <i class="fas fa-crosshairs"></i> Centrar aquí
@@ -762,8 +814,50 @@ const GeocodingMapApp = {
      * Saltar a un marcador específico
      */
     jumpToMarker(lat, lng) {
-        this.map.setView([lat, lng], 17);
+        this.map.setView([lat, lng], 18, {
+            animate: true,
+            duration: 1
+        });
         console.log(`🎯 Saltando a marcador: ${lat}, ${lng}`);
+    },
+
+    /**
+     * Eliminar marcador del mapa
+     */
+    removeMarkerFromMap(markerId) {
+        if (!this.savedMarkers) return;
+
+        const index = this.savedMarkers.findIndex(m => m.data.id === markerId);
+        if (index !== -1) {
+            const savedMarker = this.savedMarkers[index];
+            this.map.removeLayer(savedMarker.marker);
+            this.savedMarkers.splice(index, 1);
+            console.log(`🗑️ Marcador eliminado del mapa: ${markerId}`);
+        }
+    },
+
+    /**
+     * Highlight temporal de un marcador
+     */
+    highlightMarkerOnMap(markerId) {
+        if (!this.savedMarkers) return;
+
+        const savedMarker = this.savedMarkers.find(m => m.data.id === markerId);
+        if (savedMarker) {
+            // Abrir popup
+            savedMarker.marker.openPopup();
+
+            // Efecto de pulse temporal
+            const element = savedMarker.marker.getElement();
+            if (element) {
+                element.style.animation = 'pulse 1s ease-in-out 3';
+                setTimeout(() => {
+                    element.style.animation = '';
+                }, 3000);
+            }
+
+            console.log(`✨ Destacando marcador: ${markerId}`);
+        }
     }
 };
 

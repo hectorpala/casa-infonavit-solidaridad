@@ -31,6 +31,12 @@ const MarkerManager = {
         // Setup event listeners
         this.setupEventListeners();
 
+        // Setup panel lateral
+        this.setupTaggedPanel();
+
+        // Actualizar contador inicial
+        this.renderTaggedPropertiesPanel();
+
         console.log('✅ Sistema de marcadores inicializado');
     },
 
@@ -579,6 +585,316 @@ const MarkerManager = {
 
         console.log(`🔄 Restaurando ${toRestore.length} marcadores guardados...`);
         return toRestore;
+    },
+
+    /**
+     * Obtener todas las propiedades etiquetadas (solo con tag)
+     */
+    getTaggedProperties() {
+        const markers = this.getAllMarkers();
+        return Object.entries(markers)
+            .filter(([id, data]) => data.tag && data.tag !== '' && data.keepMarker !== false)
+            .map(([id, data]) => ({ id, ...data }))
+            .sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0)); // Más recientes primero
+    },
+
+    /**
+     * Renderizar panel lateral de propiedades etiquetadas
+     */
+    renderTaggedPropertiesPanel() {
+        const taggedProperties = this.getTaggedProperties();
+        const content = document.getElementById('tagged-panel-content');
+        const countBadge = document.getElementById('tagged-count');
+        const countHeader = document.getElementById('tagged-count-header');
+
+        if (!content) return;
+
+        // Actualizar contador
+        const count = taggedProperties.length;
+        if (countBadge) countBadge.textContent = count;
+        if (countHeader) countHeader.textContent = count;
+
+        // Si no hay propiedades
+        if (count === 0) {
+            content.innerHTML = `
+                <div class="tagged-panel-empty">
+                    <i class="fas fa-tags"></i>
+                    <p>
+                        <strong>No hay propiedades etiquetadas</strong><br>
+                        Geocodifica una propiedad y asígnale una etiqueta para verla aquí.
+                    </p>
+                </div>
+            `;
+            return;
+        }
+
+        // Renderizar tarjetas de propiedades
+        content.innerHTML = taggedProperties.map(property => {
+            const tag = this.getTagByValue(property.tag);
+            const formattedDate = new Date(property.timestamp).toLocaleDateString('es-MX', {
+                day: 'numeric',
+                month: 'short',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            let negotiationHTML = '';
+            if (property.contact || property.estimatedValue || property.offerAmount) {
+                negotiationHTML = `
+                    <div class="negotiation-info">
+                        ${property.contact ? `
+                            <div class="negotiation-info-item">
+                                <i class="fas fa-user"></i>
+                                <strong>${this.escapeHtml(property.contact)}</strong>
+                            </div>
+                        ` : ''}
+                        ${property.estimatedValue ? `
+                            <div class="negotiation-info-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                Valor: <strong>${this.formatCurrency(property.estimatedValue)}</strong>
+                            </div>
+                        ` : ''}
+                        ${property.offerAmount ? `
+                            <div class="negotiation-info-item">
+                                <i class="fas fa-hand-holding-dollar"></i>
+                                Oferta: <strong>${this.formatCurrency(property.offerAmount)}</strong>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="tagged-property-card" data-property-id="${property.id}">
+                    <div class="tag-badge" style="background-color: ${tag.bgColor}; color: ${tag.color};">
+                        <i class="fas fa-tag"></i>
+                        ${tag.label}
+                    </div>
+                    <div class="property-address">${this.escapeHtml(property.address)}</div>
+                    <div class="property-timestamp">
+                        <i class="far fa-clock"></i>
+                        ${formattedDate}
+                    </div>
+                    ${negotiationHTML}
+                    <div class="property-actions">
+                        <button class="property-action-btn" onclick="MarkerManager.centerOnProperty('${property.id}')">
+                            <i class="fas fa-crosshairs"></i>
+                            Centrar
+                        </button>
+                        <button class="property-action-btn" onclick="MarkerManager.editProperty('${property.id}')">
+                            <i class="fas fa-edit"></i>
+                            Editar
+                        </button>
+                        <button class="property-action-btn danger" onclick="MarkerManager.deletePropertyFromPanel('${property.id}')">
+                            <i class="fas fa-trash"></i>
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    },
+
+    /**
+     * Centrar mapa en una propiedad
+     */
+    centerOnProperty(propertyId) {
+        const markers = this.getAllMarkers();
+        const property = markers[propertyId];
+
+        if (!property) {
+            console.warn('⚠️ Propiedad no encontrada:', propertyId);
+            return;
+        }
+
+        // Usar la función de geocoding-map.js para centrar
+        if (typeof GeocodingMapApp !== 'undefined' && GeocodingMapApp.jumpToMarker) {
+            GeocodingMapApp.jumpToMarker(property.lat, property.lng);
+        } else if (window.map) {
+            window.map.setView([property.lat, property.lng], 18, {
+                animate: true,
+                duration: 1
+            });
+        }
+
+        // Cerrar panel
+        this.closeTaggedPanel();
+
+        // Highlight temporal del marcador
+        this.highlightMarker(propertyId);
+    },
+
+    /**
+     * Editar propiedad desde el panel
+     */
+    editProperty(propertyId) {
+        const markers = this.getAllMarkers();
+        const property = markers[propertyId];
+
+        if (!property) return;
+
+        // Establecer como marcador actual
+        this.currentMarker = {
+            id: propertyId,
+            lat: property.lat,
+            lng: property.lng,
+            address: property.address,
+            addressData: property.addressData,
+            tag: property.tag,
+            keepMarker: property.keepMarker,
+            contact: property.contact,
+            estimatedValue: property.estimatedValue,
+            offerAmount: property.offerAmount,
+            timestamp: property.timestamp
+        };
+
+        // Mostrar panel de gestión
+        this.showManagementPanel();
+
+        // Centrar en la propiedad
+        this.centerOnProperty(propertyId);
+
+        // Scroll al panel de gestión
+        setTimeout(() => {
+            const panel = document.getElementById('marker-management-panel');
+            if (panel) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }, 500);
+    },
+
+    /**
+     * Eliminar propiedad desde el panel
+     */
+    deletePropertyFromPanel(propertyId) {
+        const markers = this.getAllMarkers();
+        const property = markers[propertyId];
+
+        if (!property) return;
+
+        if (!confirm(`¿Eliminar "${property.address}"?`)) return;
+
+        // Eliminar de localStorage
+        delete markers[propertyId];
+        try {
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(markers));
+        } catch (error) {
+            console.error('❌ Error al eliminar:', error);
+            return;
+        }
+
+        // Notificar
+        if (typeof GeocodingMapApp !== 'undefined' && GeocodingMapApp.showNotification) {
+            GeocodingMapApp.showNotification('Propiedad eliminada', 'success');
+        }
+
+        // Disparar evento para que el mapa elimine el marcador
+        document.dispatchEvent(new CustomEvent('markerDeleted', {
+            detail: { markerId: propertyId }
+        }));
+
+        // Actualizar panel
+        this.renderTaggedPropertiesPanel();
+    },
+
+    /**
+     * Highlight temporal de un marcador
+     */
+    highlightMarker(propertyId) {
+        // Disparar evento para que el mapa haga highlight
+        document.dispatchEvent(new CustomEvent('highlightMarker', {
+            detail: { markerId: propertyId }
+        }));
+    },
+
+    /**
+     * Abrir panel lateral
+     */
+    openTaggedPanel() {
+        const panel = document.getElementById('tagged-properties-sidebar');
+        if (panel) {
+            panel.classList.add('open');
+            this.renderTaggedPropertiesPanel();
+        }
+    },
+
+    /**
+     * Cerrar panel lateral
+     */
+    closeTaggedPanel() {
+        const panel = document.getElementById('tagged-properties-sidebar');
+        if (panel) {
+            panel.classList.remove('open');
+        }
+    },
+
+    /**
+     * Toggle panel lateral
+     */
+    toggleTaggedPanel() {
+        const panel = document.getElementById('tagged-properties-sidebar');
+        if (panel && panel.classList.contains('open')) {
+            this.closeTaggedPanel();
+        } else {
+            this.openTaggedPanel();
+        }
+    },
+
+    /**
+     * Formatear moneda
+     */
+    formatCurrency(amount) {
+        if (!amount) return '';
+        return new Intl.NumberFormat('es-MX', {
+            style: 'currency',
+            currency: 'MXN',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(amount);
+    },
+
+    /**
+     * Escape HTML
+     */
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    },
+
+    /**
+     * Configurar panel lateral de propiedades etiquetadas
+     */
+    setupTaggedPanel() {
+        // Toggle button
+        const toggleBtn = document.getElementById('toggle-tagged-panel');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', () => {
+                this.toggleTaggedPanel();
+            });
+        }
+
+        // Close button
+        const closeBtn = document.getElementById('close-tagged-panel');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                this.closeTaggedPanel();
+            });
+        }
+
+        // Actualizar panel cuando se guarde un marcador
+        document.addEventListener('markerTagUpdated', () => {
+            setTimeout(() => {
+                this.renderTaggedPropertiesPanel();
+            }, 100);
+        });
+
+        // Actualizar panel cuando se elimine un marcador
+        document.addEventListener('markerDeleted', () => {
+            setTimeout(() => {
+                this.renderTaggedPropertiesPanel();
+            }, 100);
+        });
     }
 };
 
