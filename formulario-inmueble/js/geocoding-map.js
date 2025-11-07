@@ -215,6 +215,11 @@ const GeocodingMapApp = {
                 // Mostrar resultados
                 this.showResults(result, addressData);
 
+                // ✅ DEEP-LINK: Sincronizar URL después de geocodificación exitosa
+                if (typeof DeepLink !== 'undefined' && DeepLink.sync) {
+                    DeepLink.sync();
+                }
+
                 // Notificación de éxito
                 const successMsg = result.approximate
                     ? `Dirección aproximada (sin número exterior) - ${result.service}`
@@ -324,6 +329,11 @@ const GeocodingMapApp = {
             } catch (error) {
                 console.error('❌ Error en reverse geocoding:', error);
                 this.showNotification('Error al obtener dirección', 'error');
+            }
+
+            // ✅ DEEP-LINK: Sincronizar URL después de mover marcador
+            if (typeof DeepLink !== 'undefined' && DeepLink.sync) {
+                DeepLink.sync();
             }
         });
 
