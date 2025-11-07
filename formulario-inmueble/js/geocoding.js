@@ -3,7 +3,80 @@
  * Convierte direcciones completas en coordenadas precisas
  */
 
+// ============================================
+// CORE UTILS: Hash, LRU Cache, Debounce, Abort
+// ============================================
+
+/**
+ * Hash de dirección para caché (normalizado)
+ */
+const hashAddr = (addr) => (addr || '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+/**
+ * Hash de coordenadas lat,lng para caché (6 decimales)
+ */
+const hashLatLng = (lat, lng) => `${Number(lat).toFixed(6)},${Number(lng).toFixed(6)}`;
+
+/**
+ * LRU Cache (Least Recently Used)
+ * Mantiene los elementos más usados recientemente
+ */
+function createLRU(limit = 300) {
+    const map = new Map();
+    return {
+        get(key) {
+            if (!map.has(key)) return null;
+            const value = map.get(key);
+            // Mover al final (más reciente)
+            map.delete(key);
+            map.set(key, value);
+            return value;
+        },
+        set(key, value) {
+            if (map.has(key)) map.delete(key);
+            map.set(key, value);
+            // Eliminar el más antiguo si excede el límite
+            if (map.size > limit) {
+                const firstKey = map.keys().next().value;
+                map.delete(firstKey);
+            }
+        },
+        size() {
+            return map.size;
+        },
+        clear() {
+            map.clear();
+        }
+    };
+}
+
+/**
+ * Cachés globales
+ * - cacheAddr: Geocoding por texto → coordenadas
+ * - cacheRev: Reverse geocoding por coordenadas → dirección
+ */
+const cacheAddr = createLRU(300);
+const cacheRev = createLRU(300);
+
+/**
+ * AbortController global para cancelar requests
+ */
+let activeController = null;
+
+/**
+ * Cancelar request activo si existe
+ */
+function cancelActive() {
+    if (activeController) {
+        console.log('🚫 Cancelando request anterior...');
+        activeController.abort();
+    }
+    activeController = null;
+}
+
+// ============================================
 // Orden de precisión de Google Maps (mejor → peor)
+// ============================================
 const GOOGLE_ACCURACY_PRIORITY = ['ROOFTOP', 'RANGE_INTERPOLATED', 'GEOMETRIC_CENTER', 'APPROXIMATE'];
 
 const Geocoding = {
@@ -161,9 +234,34 @@ const Geocoding = {
 
     /**
      * Geocodificar dirección completa con evaluación de múltiples candidatos
+     * @param {object} addressData - Datos de dirección (street, number, colonia, etc.)
+     * @param {object} options - Opciones adicionales (signal para AbortController)
      */
-    async geocodeAddress(addressData) {
+    async geocodeAddress(addressData, options = {}) {
         console.log('🗺️ Geocodificando dirección completa...');
+
+        // ============================================
+        // CACHÉ: Verificar si ya tenemos este resultado
+        // ============================================
+        const addressString = this.buildFullAddress(addressData);
+        const cacheKey = hashAddr(addressString);
+        const cached = cacheAddr.get(cacheKey);
+
+        if (cached) {
+            console.log('⚡ CACHE HIT - Resultado instantáneo');
+            console.log(`   Dirección: ${addressString}`);
+            console.log(`   Source: ${cached.service}`);
+            return { ...cached, _fromCache: true };
+        }
+
+        console.log('💾 CACHE MISS - Geocodificando...');
+
+        // ============================================
+        // ABORT: Cancelar request anterior y crear nuevo
+        // ============================================
+        cancelActive();
+        activeController = new AbortController();
+        const signal = options.signal || activeController.signal;
 
         // Construir variantes de dirección ordenadas por especificidad
         const addressVariants = this.buildAddressVariants(addressData);
@@ -181,7 +279,7 @@ const Geocoding = {
             console.log(`\nIntentando geocoding con variante ${i + 1}/${addressVariants.length}: ${variant.query}`);
             console.log(`   Flags: enforceStreet=${variant.enforceStreet}, enforceColonia=${variant.enforceColonia}`);
 
-            const candidates = await this.geocodeWithGoogle(variant.query);
+            const candidates = await this.geocodeWithGoogle(variant.query, { signal });
 
             if (candidates.length === 0) {
                 console.log('   Sin resultados de Google Maps');
@@ -362,6 +460,12 @@ const Geocoding = {
                 console.log('⚠️ Ubicación aproximada (fallback - sin coincidencia exacta)');
             }
 
+            // ============================================
+            // CACHÉ: Guardar resultado exitoso
+            // ============================================
+            cacheAddr.set(cacheKey, result);
+            console.log(`💾 Guardado en caché (${cacheAddr.size()} entradas)`);
+
             return result;
         }
 
@@ -538,9 +642,76 @@ const Geocoding = {
     /**
      * Geocodificar con Google Maps Geocoding API via Netlify Function (proxy seguro)
      * Retorna array de candidatos ordenados por precisión
+     * @param {string} address - Dirección a geocodificar
+     * @param {object} options - Opciones adicionales (signal para AbortController)
      */
-    async geocodeWithGoogle(address) {
+    async geocodeWithGoogle(address, options = {}) {
+        const { signal } = options;
+
         try {
+            // Detectar si estamos en localhost
+            const isLocalhost = window.location.hostname === 'localhost' ||
+                               window.location.hostname === '127.0.0.1' ||
+                               window.location.protocol === 'file:';
+
+            if (isLocalhost) {
+                console.log('🏠 Modo localhost detectado - usando Google Maps directo (API key expuesta)');
+
+                // API Key de desarrollo (solo para localhost)
+                const GOOGLE_API_KEY = 'AIzaSyDKzdyJP29acUNCqHr9klrz-Hz_0tIu7sk';
+
+                // Llamada directa a Google Maps API
+                const url = new URL('https://maps.googleapis.com/maps/api/geocode/json');
+                url.searchParams.append('address', address);
+                url.searchParams.append('key', GOOGLE_API_KEY);
+                url.searchParams.append('language', 'es');
+                url.searchParams.append('region', 'mx');
+
+                const response = await fetch(url.toString(), { signal });
+                const data = await response.json();
+
+                if (data.status !== 'OK') {
+                    console.warn('⚠️ Google Maps error:', data.status);
+                    return [];
+                }
+
+                console.log(`📍 Google Maps retornó ${data.results.length} resultado(s)`);
+
+                // Normalizar y ordenar resultados por precisión
+                const candidates = data.results.map(result => {
+                    const location = result.geometry.location;
+                    const locationType = result.geometry.location_type;
+
+                    return {
+                        latitude: location.lat,
+                        longitude: location.lng,
+                        formattedAddress: result.formatted_address,
+                        placeId: result.place_id,
+                        accuracy: this.getGoogleAccuracy(locationType),
+                        locationType: locationType,
+                        partialMatch: result.partial_match === true,
+                        service: 'Google Maps (localhost)',
+                        raw: result
+                    };
+                });
+
+                // Ordenar por precisión (mejor → peor)
+                candidates.sort((a, b) => {
+                    const indexA = GOOGLE_ACCURACY_PRIORITY.indexOf(a.locationType);
+                    const indexB = GOOGLE_ACCURACY_PRIORITY.indexOf(b.locationType);
+                    return indexA - indexB;
+                });
+
+                console.log(`   Candidatos ordenados por precisión:`, candidates.map(c => ({
+                    locationType: c.locationType,
+                    partialMatch: c.partialMatch,
+                    address: c.formattedAddress.substring(0, 60) + '...'
+                })));
+
+                return candidates;
+            }
+
+            // Modo producción: usar Netlify Function
             console.log('🔒 Usando proxy seguro de Netlify para Google Maps...');
 
             // Llamar a Netlify Function en lugar de Google Maps directamente
@@ -549,7 +720,8 @@ const Geocoding = {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ address })
+                body: JSON.stringify({ address }),
+                signal
             });
 
             if (!response.ok) {
@@ -607,6 +779,10 @@ const Geocoding = {
             return [];
 
         } catch (error) {
+            if (error.name === 'AbortError') {
+                console.log('🚫 Geocoding cancelado (AbortError)');
+                return [];
+            }
             console.error('❌ Error en Google Maps Geocoding:', error);
             return [];
         }
@@ -750,6 +926,90 @@ const Geocoding = {
             Geolocation.showGeolocationWarning(message);
         } else {
             console.warn(message);
+        }
+    },
+
+    /**
+     * Reverse geocoding: coordenadas → dirección
+     * Usa caché + AbortController para optimizar requests
+     * @param {number} lat - Latitud
+     * @param {number} lng - Longitud
+     * @param {object} options - Opciones (signal para AbortController)
+     * @returns {Promise<Object|null>} - Datos de ubicación o null si falla
+     */
+    async reverseGeocode(lat, lng, options = {}) {
+        console.log(`🔄 Reverse geocoding: ${lat}, ${lng}`);
+
+        // CACHE CHECK
+        const cacheKey = hashLatLng(lat, lng);
+        const cached = cacheRev.get(cacheKey);
+
+        if (cached) {
+            console.log('⚡ REVERSE CACHE HIT - Resultado instantáneo');
+            return { ...cached, _fromCache: true };
+        }
+
+        console.log('💾 REVERSE CACHE MISS - Consultando Nominatim...');
+
+        // ABORT CONTROLLER - Cancelar request anterior
+        cancelActive();
+        activeController = new AbortController();
+        const signal = options.signal || activeController.signal;
+
+        try {
+            // Nominatim reverse geocoding con parámetros en español
+            const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&addressdetails=1&accept-language=es-MX`;
+
+            const response = await fetch(url, {
+                signal,
+                headers: {
+                    'User-Agent': 'FormularioInmueble/1.0 (casasenventa.info)'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Nominatim reverse failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            if (!data || data.error) {
+                console.warn('⚠️ Nominatim reverse no encontró resultados');
+                return null;
+            }
+
+            const addr = data.address || {};
+
+            // Normalizar resultado al formato estándar
+            const result = {
+                latitude: Number(lat),
+                longitude: Number(lng),
+                formattedAddress: data.display_name || '',
+                postalCode: addr.postcode || '',
+                neighborhood: addr.suburb || addr.neighbourhood || addr.quarter || addr.hamlet || '',
+                admin2: addr.county || addr.city || addr.town || addr.village || addr.municipality || '',
+                admin1: addr.state || '',
+                country: addr.country || 'México',
+                service: 'Nominatim (Reverse)',
+                accuracy: 'Reverse Geocoding',
+                type: data.type || 'unknown'
+            };
+
+            // CACHE STORAGE
+            cacheRev.set(cacheKey, result);
+            console.log(`💾 Reverse guardado en caché (${cacheRev.size()} entradas)`);
+            console.log('📍 Dirección encontrada:', result.formattedAddress);
+
+            return result;
+
+        } catch (error) {
+            if (error.name === 'AbortError') {
+                console.log('🚫 Reverse geocoding cancelado (AbortError)');
+                return { aborted: true };
+            }
+
+            console.error('❌ Error en reverse geocoding:', error);
+            return null;
         }
     }
 };
