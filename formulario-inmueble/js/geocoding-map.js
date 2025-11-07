@@ -475,6 +475,8 @@ const GeocodingMapApp = {
      * Actualizar información de negociación en la tarjeta de resultados
      */
     updateNegotiationInfo(lat, lng) {
+        console.log('🔍 Buscando información de negociación para:', lat, lng);
+
         // Buscar marcador guardado con estas coordenadas
         if (typeof MarkerManager === 'undefined') {
             console.warn('⚠️ MarkerManager no disponible');
@@ -482,17 +484,26 @@ const GeocodingMapApp = {
         }
 
         const markers = MarkerManager.getAllMarkers();
+        console.log('📊 Total de marcadores guardados:', Object.keys(markers).length);
+
         let foundMarker = null;
 
-        // Buscar marcador que coincida con las coordenadas (con tolerancia pequeña)
+        // Buscar marcador que coincida con las coordenadas (tolerancia 0.0001 ≈ 10 metros)
         for (const [id, markerData] of Object.entries(markers)) {
             const latDiff = Math.abs(markerData.lat - lat);
             const lngDiff = Math.abs(markerData.lng - lng);
 
-            if (latDiff < 0.00001 && lngDiff < 0.00001) {
+            console.log(`  Comparando con ${id}: lat diff=${latDiff.toFixed(8)}, lng diff=${lngDiff.toFixed(8)}`);
+
+            if (latDiff < 0.0001 && lngDiff < 0.0001) {
                 foundMarker = markerData;
+                console.log('✅ Marcador encontrado:', id, markerData);
                 break;
             }
+        }
+
+        if (!foundMarker) {
+            console.log('❌ No se encontró marcador con esas coordenadas');
         }
 
         const negotiationSection = document.getElementById('result-negotiation-section');
