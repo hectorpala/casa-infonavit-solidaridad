@@ -1,0 +1,228 @@
+/**
+ * PROPERTY-MARKER-3D.CSS - Pin 3D con Elevación para la Propiedad Principal
+ */
+
+/* ============================================
+   Marker 3D de la Propiedad
+   ============================================ */
+
+.property-marker-3d {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    z-index: 1000 !important;
+}
+
+/* Contenedor principal del marker */
+.property-marker-3d-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Círculo principal con gradiente naranja */
+.property-marker-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #ff8533 0%, #ff6a00 50%, #e55d00 100%);
+    border-radius: 50%;
+    box-shadow:
+        0 8px 16px rgba(255, 106, 0, 0.4),
+        0 4px 8px rgba(255, 106, 0, 0.3),
+        0 0 0 4px rgba(255, 106, 0, 0.1),
+        inset 0 2px 4px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    border: 3px solid #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Efecto de resplandor/glow */
+.property-marker-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255, 106, 0, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse-glow 2s ease-in-out infinite;
+    z-index: -1;
+}
+
+/* Icono de la casa */
+.property-marker-icon {
+    font-size: 28px;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+    position: relative;
+    z-index: 2;
+}
+
+/* Sombra proyectada debajo del marker (efecto de elevación) */
+.property-marker-shadow {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 8px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: shadow-pulse 3s ease-in-out infinite;
+}
+
+/* Efecto de brillo/shine que se mueve */
+.property-marker-circle::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: shine 4s ease-in-out infinite;
+}
+
+/* Badge de "$" o "EN VENTA" opcional */
+.property-marker-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+    color: #333;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 2px solid #fff;
+    z-index: 3;
+    animation: badge-bounce 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Animaciones
+   ============================================ */
+
+/* Animación de flotación suave */
+@keyframes float {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-8px);
+    }
+}
+
+/* Pulso del resplandor */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.15);
+    }
+}
+
+/* Pulso de la sombra (sincronizado con float) */
+@keyframes shadow-pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+
+/* Brillo que se mueve */
+@keyframes shine {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translate(0, 0);
+    }
+    50% {
+        opacity: 0.9;
+        transform: translate(8px, 8px);
+    }
+}
+
+/* Bounce del badge */
+@keyframes badge-bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ============================================
+   Hover Effects
+   ============================================ */
+
+.property-marker-3d:hover .property-marker-circle {
+    transform: scale(1.1);
+    box-shadow:
+        0 12px 24px rgba(255, 106, 0, 0.5),
+        0 6px 12px rgba(255, 106, 0, 0.4),
+        0 0 0 6px rgba(255, 106, 0, 0.15),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.property-marker-3d:hover .property-marker-shadow {
+    width: 50px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 640px) {
+    .property-marker-3d {
+        width: 48px;
+        height: 48px;
+    }
+
+    .property-marker-circle {
+        width: 48px;
+        height: 48px;
+    }
+
+    .property-marker-icon {
+        font-size: 24px;
+    }
+
+    .property-marker-badge {
+        font-size: 9px;
+        padding: 2px 4px;
+    }
+}
+
+/* ============================================
+   Variante sin badge (más limpio)
+   ============================================ */
+
+.property-marker-3d.no-badge .property-marker-badge {
+    display: none;
+}
