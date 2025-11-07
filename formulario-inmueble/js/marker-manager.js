@@ -93,6 +93,9 @@ const MarkerManager = {
         if (savedData) {
             this.currentMarker.tag = savedData.tag;
             this.currentMarker.keepMarker = savedData.keepMarker !== false;
+            this.currentMarker.contact = savedData.contact || '';
+            this.currentMarker.estimatedValue = savedData.estimatedValue || null;
+            this.currentMarker.offerAmount = savedData.offerAmount || null;
         }
 
         // Mostrar panel de gestión
@@ -198,6 +201,21 @@ const MarkerManager = {
         const keepCheckbox = document.getElementById('keep-marker-checkbox');
         if (keepCheckbox && this.currentMarker.keepMarker !== undefined) {
             keepCheckbox.checked = this.currentMarker.keepMarker;
+        }
+
+        // Restaurar campos de negociación
+        const contactInput = document.getElementById('property-contact');
+        const valueInput = document.getElementById('property-value');
+        const offerInput = document.getElementById('property-offer');
+
+        if (contactInput && this.currentMarker.contact) {
+            contactInput.value = this.currentMarker.contact;
+        }
+        if (valueInput && this.currentMarker.estimatedValue) {
+            valueInput.value = this.currentMarker.estimatedValue;
+        }
+        if (offerInput && this.currentMarker.offerAmount) {
+            offerInput.value = this.currentMarker.offerAmount;
         }
     },
 
