@@ -275,12 +275,57 @@ const GeocodingMapApp = {
             popupAnchor: [0, -32]
         });
 
-        // Agregar nuevo marcador
-        this.marker = L.marker([lat, lng], { icon: customIcon }).addTo(this.map);
+        // Agregar nuevo marcador (DRAGGABLE para reverse geocoding)
+        this.marker = L.marker([lat, lng], {
+            icon: customIcon,
+            draggable: true // ✅ Hacer marcador arrastrable
+        }).addTo(this.map);
 
         // Popup con información
         const popupContent = this.createPopupContent(addressData, lat, lng);
         this.marker.bindPopup(popupContent).openPopup();
+
+        // ✅ EVENTO DRAGEND: Reverse geocoding cuando se mueve el marcador
+        this.marker.on('dragend', async (event) => {
+            const newPos = event.target.getLatLng();
+            console.log('🔄 Marcador movido a:', newPos.lat, newPos.lng);
+
+            // Mostrar loading en el panel de resultados
+            this.showNotification('Obteniendo dirección de nuevas coordenadas...', 'warning');
+
+            try {
+                // ✅ Llamar al nuevo método reverseGeocode() con cache + abort
+                const reverseResult = await Geocoding.reverseGeocode(newPos.lat, newPos.lng);
+
+                if (reverseResult && !reverseResult.aborted) {
+                    console.log('✅ Reverse geocoding exitoso:', reverseResult);
+
+                    // Actualizar panel de resultados con nueva dirección
+                    this.showReverseResults(reverseResult);
+
+                    // Actualizar popup del marcador
+                    const reversePopup = `
+                        <div class="custom-popup">
+                            <h3><i class="fas fa-search-location"></i> Ubicación Actualizada</h3>
+                            <p><strong>Dirección encontrada:</strong><br>${reverseResult.formattedAddress}</p>
+                            <p><strong>Coordenadas:</strong><br>${reverseResult.latitude.toFixed(6)}, ${reverseResult.longitude.toFixed(6)}</p>
+                            ${reverseResult._fromCache ? '<p class="text-green-600 text-xs">⚡ Desde caché</p>' : ''}
+                        </div>
+                    `;
+                    this.marker.bindPopup(reversePopup).openPopup();
+
+                    this.showNotification('Dirección actualizada correctamente', 'success');
+                } else if (reverseResult && reverseResult.aborted) {
+                    console.log('🚫 Reverse geocoding cancelado por nuevo movimiento');
+                } else {
+                    console.warn('⚠️ No se pudo obtener dirección de las coordenadas');
+                    this.showNotification('No se pudo obtener la dirección de estas coordenadas', 'error');
+                }
+            } catch (error) {
+                console.error('❌ Error en reverse geocoding:', error);
+                this.showNotification('Error al obtener dirección', 'error');
+            }
+        });
 
         // Centrar y hacer zoom al marcador
         this.map.setView([lat, lng], 17, {
@@ -348,6 +393,39 @@ const GeocodingMapApp = {
         setTimeout(() => {
             resultsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 300);
+    },
+
+    /**
+     * Mostrar resultados de reverse geocoding en el panel
+     */
+    showReverseResults(result) {
+        const resultsPanel = document.getElementById('results-panel');
+
+        // Actualizar valores con datos de reverse geocoding
+        document.getElementById('result-address').textContent = result.formattedAddress;
+        document.getElementById('result-lat').textContent = result.latitude.toFixed(6);
+        document.getElementById('result-lng').textContent = result.longitude.toFixed(6);
+        document.getElementById('result-zip').textContent = result.postalCode || 'No disponible';
+        document.getElementById('result-accuracy').textContent = result.accuracy || 'Reverse Geocoding';
+        document.getElementById('result-service').textContent = result.service || 'Nominatim (Reverse)';
+
+        // Ocultar advertencia de ubicación aproximada para reverse geocoding
+        const approximateWarning = document.getElementById('approximate-warning');
+        if (approximateWarning) {
+            approximateWarning.style.display = 'none';
+        }
+
+        // Actualizar link de Google Maps
+        const mapsLink = document.getElementById('open-in-maps');
+        mapsLink.href = `https://www.google.com/maps?q=${result.latitude},${result.longitude}`;
+
+        // Mostrar badge de caché si aplica
+        if (result._fromCache) {
+            console.log('⚡ Mostrando resultado desde caché');
+        }
+
+        // Mostrar panel (ya debería estar visible)
+        resultsPanel.style.display = 'block';
     },
 
     /**

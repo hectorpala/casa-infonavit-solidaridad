@@ -22,26 +22,6 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bg-app': '#0F1115',
-                        'bg-panel': '#12151B',
-                        'text-1': '#E8EBF0',
-                        'text-2': '#A9B0BD',
-                        'border': '#222734',
-                        'field': '#171B24',
-                        'accent': '#4C8CF3',
-                        'success': '#2FB170',
-                        'warn': '#F6C14B',
-                        'error': '#E05656'
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- Leaflet CSS (OpenStreetMap) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -52,150 +32,196 @@
     <link rel="stylesheet" href="css/main.css?v=20250103">
     <link rel="stylesheet" href="css/form.css?v=20250103">
     <link rel="stylesheet" href="css/geocoding-map.css?v=1762324026">
+    <link rel="stylesheet" href="css/geocoding-map-modern.css?v=20251106">
+
+    <style>
+        /* Additional inline styles for enhanced visual hierarchy */
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d4d4d4;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a3a3a3;
+        }
+    </style>
 </head>
-<body class="bg-[#0F1115] text-[#E8EBF0]">
+<body class="bg-white text-neutral-900">
     <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <h1 class="header-title">Geocodificar una dirección</h1>
-            <p class="header-subtitle">Introduce los datos y valida en el mapa. Puedes arrastrar el marcador para ajustar.</p>
+    <header class="bg-white border-b border-neutral-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center">
+                        <i class="fas fa-map-marked-alt text-white text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-neutral-900">Geocodificación de Direcciones</h1>
+                        <p class="text-sm text-neutral-600 mt-0.5">Obtén coordenadas precisas para tus propiedades</p>
+                    </div>
+                </div>
+                <span class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold border border-emerald-200">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Servicio Activo
+                </span>
+            </div>
         </div>
     </header>
 
     <!-- Main Container -->
-    <main class="geocoding-container">
-        <!-- Left Panel: Form -->
-        <div class="geocoding-form-panel">
-            <div class="panel-header">
-                <i class="fas fa-map-marker-alt"></i>
-                <h2>Ingresa la Dirección</h2>
-            </div>
+    <main class="max-w-7xl mx-auto px-6 py-8 space-y-6">
+        <!-- Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left Panel: Form -->
+            <div class="lg:col-span-5">
+                <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
+                    <div class="bg-gradient-to-r from-indigo-50 to-indigo-100/50 px-6 py-4 border-b border-indigo-200">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-indigo-600 text-xl"></i>
+                            <h2 class="text-lg font-semibold text-neutral-900">Ingresa la Dirección</h2>
+                        </div>
+                    </div>
 
-            <form id="geocoding-form" class="geocoding-form">
-                <!-- Estado -->
-                <div class="form-group">
-                    <label for="state" class="form-label">
-                        <i class="fas fa-flag"></i>
-                        Estado *
-                    </label>
-                    <select id="state" name="state" class="form-control" required aria-required="true">
-                        <option value="">Selecciona un estado</option>
-                        <option value="sinaloa" selected>Sinaloa</option>
-                        <option value="nuevo-leon">Nuevo León</option>
-                    </select>
-                </div>
+            <form id="geocoding-form" class="p-6 space-y-5">
+                <!-- Estado y Municipio -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="state" class="block text-sm font-medium text-neutral-700 mb-1.5">Estado *</label>
+                        <select id="state" name="state" class="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" required aria-required="true" aria-describedby="err-state">
+                            <option value="">Selecciona un estado</option>
+                            <option value="sinaloa" selected>Sinaloa</option>
+                            <option value="nuevo-leon">Nuevo León</option>
+                        </select>
+                        <p id="err-state" class="mt-1 text-xs text-red-600 hidden" role="alert"></p>
+                    </div>
 
-                <!-- Municipio -->
-                <div class="form-group">
-                    <label for="municipality" class="form-label">
-                        <i class="fas fa-city"></i>
-                        Municipio *
-                    </label>
-                    <select id="municipality" name="municipality" class="form-control" required disabled aria-required="true">
-                        <option value="">Ej. Culiacán</option>
-                    </select>
+                    <div>
+                        <label for="municipality" class="block text-sm font-medium text-neutral-700 mb-1.5">Municipio *</label>
+                        <select id="municipality" name="municipality" class="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all disabled:bg-neutral-100 disabled:cursor-not-allowed" required disabled aria-required="true" aria-describedby="err-municipality">
+                            <option value="">Ej. Culiacán</option>
+                        </select>
+                        <p id="err-municipality" class="mt-1 text-xs text-red-600 hidden" role="alert"></p>
+                    </div>
                 </div>
 
                 <!-- Colonia -->
                 <div class="form-group autocomplete-wrapper">
-                    <label for="colonia" class="form-label">
-                        <i class="fas fa-map-signs"></i>
-                        Colonia o Fraccionamiento *
-                    </label>
+                    <label for="colonia" class="block text-sm font-medium text-neutral-700 mb-1.5">Colonia o Fraccionamiento *</label>
                     <input
                         type="text"
                         id="colonia"
                         name="colonia"
-                        class="form-control"
+                        class="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                         placeholder="Ej. Las Quintas"
                         autocomplete="off"
                         required
                         aria-required="true"
-                        aria-describedby="colonia-error"
+                        aria-describedby="err-colonia"
                     >
                     <input type="hidden" id="colonia-value" name="coloniaSlug">
                     <div class="autocomplete-suggestions" id="colonia-suggestions"></div>
-                    <div id="colonia-error" class="helper-error" style="display: none;"></div>
+                    <p id="err-colonia" class="mt-1 text-xs text-red-600 hidden" role="alert"></p>
                 </div>
 
                 <!-- Calle -->
                 <div class="form-group autocomplete-wrapper">
-                    <label for="address" class="form-label">
-                        <i class="fas fa-road"></i>
-                        Calle *
-                    </label>
+                    <label for="address" class="block text-sm font-medium text-neutral-700 mb-1.5">Calle *</label>
                     <input
                         type="text"
                         id="address"
                         name="address"
-                        class="form-control"
+                        class="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                         placeholder="Ej. Blvd. Doctor Mora"
                         autocomplete="off"
                         required
                         aria-required="true"
-                        aria-describedby="address-error"
+                        aria-describedby="err-address"
                     >
                     <div class="autocomplete-suggestions" id="address-suggestions"></div>
-                    <div id="address-error" class="helper-error" style="display: none;"></div>
+                    <p id="err-address" class="mt-1 text-xs text-red-600 hidden" role="alert"></p>
                 </div>
 
                 <!-- Números -->
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="exterior-number" class="form-label">
-                            <i class="fas fa-hashtag"></i>
-                            Número Exterior *
-                        </label>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label for="exterior-number" class="block text-sm font-medium text-neutral-700 mb-1.5">Número Exterior *</label>
                         <input
                             type="text"
                             id="exterior-number"
                             name="exteriorNumber"
-                            class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
-                            placeholder="Ej: 2609"
+                            class="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                            placeholder="Ej: 1640"
                             required
+                            aria-required="true"
+                            aria-describedby="err-exterior-number"
                         >
+                        <p id="err-exterior-number" class="mt-1 text-xs text-red-600 hidden" role="alert"></p>
                     </div>
 
-                    <div class="form-group">
-                        <label for="interior-number" class="form-label">
-                            <i class="fas fa-door-open"></i>
-                            Número Interior
-                        </label>
+                    <div>
+                        <label for="interior-number" class="block text-sm font-medium text-neutral-700 mb-1.5">Número Interior</label>
                         <input
                             type="text"
                             id="interior-number"
                             name="interiorNumber"
-                            class="h-12 rounded-xl bg-[#171B24] border border-[#222734] px-4 text-[#E8EBF0] placeholder-[#7C8596] focus:outline-none focus:ring-4 focus:ring-[rgba(76,140,243,.25)] focus:border-[#4C8CF3] form-control"
+                            class="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                             placeholder="Opcional"
                         >
                     </div>
-                </div>
 
-                <!-- Código Postal -->
-                <div class="form-group">
-                    <label for="zip-code" class="form-label">
-                        <i class="fas fa-mail-bulk"></i>
-                        Código Postal
-                    </label>
-                    <input
-                        type="text"
-                        id="zip-code"
-                        name="zipCode"
-                        class="form-control form-control-readonly"
-                        placeholder="Ej. 80060"
-                        maxlength="5"
-                        readonly
-                        aria-readonly="true"
-                    >
+                    <div>
+                        <label for="zip-code" class="block text-sm font-medium text-neutral-700 mb-1.5">Código Postal *</label>
+                        <input
+                            type="text"
+                            id="zip-code"
+                            name="zipCode"
+                            inputmode="numeric"
+                            pattern="\d{5}"
+                            class="w-full rounded-xl border border-neutral-300 px-3 py-2.5 text-neutral-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                            placeholder="80060"
+                            maxlength="5"
+                            required
+                            aria-required="true"
+                            aria-describedby="err-zip-code"
+                        >
+                        <p id="err-zip-code" class="mt-1 text-xs text-red-600 hidden" role="alert"></p>
+                    </div>
                 </div>
 
                 <!-- Buttons -->
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary" aria-label="Geocodificar dirección introducida">
+                <div class="flex gap-3 pt-4 border-t border-neutral-200">
+                    <button type="submit" id="btn-geocode" class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-3 text-sm font-semibold text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-indigo-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-indigo-600" aria-label="Geocodificar dirección introducida" disabled>
                         <i class="fas fa-search-location"></i>
-                        Geocodificar dirección
+                        Geocodificar
                     </button>
-                    <button type="button" id="clear-form" class="btn btn-secondary" aria-label="Limpiar todos los campos">
+                    <button type="button" id="clear-form" class="inline-flex items-center justify-center gap-2 rounded-xl border border-neutral-300 px-4 py-3 text-sm font-medium text-neutral-700 hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-neutral-100 transition-all" aria-label="Limpiar todos los campos">
                         <i class="fas fa-eraser"></i>
                         Limpiar
                     </button>
@@ -203,90 +229,147 @@
             </form>
 
             <!-- Results Panel -->
-            <div id="results-panel" class="results-panel" style="display: none;">
-                <div class="panel-header">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Resultados de Geocodificación</h3>
+            <div id="results-panel" class="mt-6 bg-emerald-50 rounded-2xl border-2 border-emerald-200 overflow-hidden" style="display: none;">
+                <div class="bg-emerald-500 px-6 py-4">
+                    <div class="flex items-center gap-3 text-white">
+                        <div class="h-10 w-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                            <i class="fas fa-check-circle text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">Resultados de Geocodificación</h3>
+                    </div>
                 </div>
 
-                <div class="results-content">
-                    <div class="result-item">
-                        <span class="result-label">Dirección Completa:</span>
-                        <span class="result-value" id="result-address">-</span>
+                <div class="p-6 space-y-4">
+                    <div class="bg-white rounded-xl p-4 border border-emerald-200">
+                        <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Dirección Completa</span>
+                        <p class="mt-1 text-sm text-neutral-900 font-medium" id="result-address">-</p>
                     </div>
 
-                    <div class="result-item">
-                        <span class="result-label">Latitud:</span>
-                        <span class="result-value" id="result-lat">-</span>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="bg-white rounded-xl p-4 border border-emerald-200">
+                            <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Latitud</span>
+                            <code class="block mt-1 text-sm text-neutral-900 font-mono font-bold" id="result-lat">-</code>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-4 border border-emerald-200">
+                            <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Longitud</span>
+                            <code class="block mt-1 text-sm text-neutral-900 font-mono font-bold" id="result-lng">-</code>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-4 border border-emerald-200">
+                            <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Código Postal</span>
+                            <p class="mt-1 text-sm text-neutral-900 font-medium" id="result-zip">-</p>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-4 border border-emerald-200">
+                            <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Precisión</span>
+                            <p class="mt-1 text-sm text-neutral-900 font-medium" id="result-accuracy">-</p>
+                        </div>
                     </div>
 
-                    <div class="result-item">
-                        <span class="result-label">Longitud:</span>
-                        <span class="result-value" id="result-lng">-</span>
+                    <div class="bg-white rounded-xl p-4 border border-emerald-200">
+                        <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Servicio Usado</span>
+                        <p class="mt-1 text-sm text-neutral-900 font-medium" id="result-service">-</p>
                     </div>
 
-                    <div class="result-item">
-                        <span class="result-label">Código Postal:</span>
-                        <span class="result-value" id="result-zip">-</span>
+                    <!-- Action Buttons -->
+                    <div class="flex gap-3 pt-2">
+                        <a id="open-in-maps" href="#" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:bg-blue-800 transition-all">
+                            <i class="fab fa-google"></i>
+                            Google Maps
+                        </a>
+
+                        <button id="copy-coords" class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 active:bg-emerald-800 transition-all" aria-label="Copiar coordenadas al portapapeles">
+                            <i class="fas fa-copy"></i>
+                            Copiar Coords
+                        </button>
                     </div>
-
-                    <div class="result-item">
-                        <span class="result-label">Precisión:</span>
-                        <span class="result-value" id="result-accuracy">-</span>
-                    </div>
-
-                    <div class="result-item">
-                        <span class="result-label">Servicio Usado:</span>
-                        <span class="result-value" id="result-service">-</span>
-                    </div>
-
-                    <!-- Open in Google Maps -->
-                    <a id="open-in-maps" href="#" target="_blank" class="btn btn-maps">
-                        <i class="fab fa-google"></i>
-                        Abrir en Google Maps
-                    </a>
-
-                    <!-- Copy Coordinates -->
-                    <button id="copy-coords" class="btn btn-copy" aria-label="Copiar coordenadas al portapapeles">
-                        <i class="fas fa-copy"></i>
-                        Copiar coordenadas
-                    </button>
                 </div>
             </div>
+                </div>
         </div>
 
         <!-- Right Panel: Map -->
-        <div class="geocoding-map-panel">
-            <div class="panel-header">
-                <i class="fas fa-map"></i>
-                <h2>Mapa Interactivo</h2>
-            </div>
-
-            <div id="map" class="map-container" role="application" aria-label="Mapa interactivo de geocodificación"></div>
-
-            <div class="map-legend">
-                <div class="legend-item">
-                    <i class="fas fa-map-pin" style="color: #4C8CF3;"></i>
-                    <span>Ubicación geocodificada</span>
+        <div class="lg:col-span-7">
+            <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-50 to-indigo-100/50 px-6 py-4 border-b border-indigo-200">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-map text-indigo-600 text-xl"></i>
+                        <h2 class="text-lg font-semibold text-neutral-900">Mapa Interactivo</h2>
+                    </div>
                 </div>
-                <div class="legend-item">
-                    <i class="fas fa-hand-pointer" style="color: #4C8CF3;"></i>
-                    <span>Arrastra el marcador para ajustar</span>
+
+                <!-- Mapa con overlay card -->
+                <div class="relative">
+                    <div id="map" class="w-full h-[520px] rounded-b-2xl" role="application" aria-label="Mapa interactivo de geocodificación"></div>
+
+                    <!-- Tarjeta fija sobre el mapa -->
+                    <div id="loc-card" class="pointer-events-auto absolute bottom-4 left-4 w-[340px] max-w-[92vw] rounded-2xl bg-white/95 backdrop-blur shadow-xl border border-neutral-200 p-4 space-y-3" style="display: none;">
+                        <div class="flex items-start gap-2">
+                            <div class="mt-0.5 h-2.5 w-2.5 rounded-full bg-emerald-500"></div>
+                            <div class="flex-1">
+                                <h3 class="text-sm font-semibold text-neutral-900">Ubicación encontrada</h3>
+                                <p id="addr" class="text-sm text-neutral-700">Av. Doctor Mora 1640, Las Quintas, Culiacán</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-neutral-500">Coordenadas (dec)</span>
+                                <code id="coords-dec" class="font-mono text-neutral-800">24.814841, -107.369199</code>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-neutral-500">Coordenadas (DMS)</span>
+                                <code id="coords-dms" class="font-mono text-neutral-800">24°48'53.4"N, 107°22'09.1"W</code>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-neutral-500">CP</span>
+                                <span id="cp" class="text-neutral-800">80060</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <button id="btn-copy" class="inline-flex items-center justify-center rounded-xl border border-neutral-300 px-3 py-2 text-sm font-medium hover:bg-neutral-50 active:bg-neutral-100 transition-all">
+                                Copiar coords
+                            </button>
+                            <button id="btn-use" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-700 active:bg-indigo-800 transition-all">
+                                Usar ubicación
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legend -->
+                <div class="bg-neutral-50 px-6 py-3 border-t border-neutral-200 flex flex-wrap gap-4 justify-center text-sm text-neutral-600">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-map-pin text-indigo-600"></i>
+                        <span>Ubicación geocodificada</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-hand-pointer text-indigo-600"></i>
+                        <span>Arrastra el marcador para ajustar</span>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 
     <!-- Loading Overlay -->
-    <div id="loading-overlay" class="loading-overlay" style="display: none;">
-        <div class="loading-spinner">
-            <i class="fas fa-spinner fa-spin"></i>
-            <p>Geocodificando dirección...</p>
+    <div id="loading-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center" style="display: none;">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm mx-4">
+            <div class="flex flex-col items-center space-y-4">
+                <div class="h-16 w-16 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+                <div class="text-center">
+                    <p class="text-lg font-semibold text-neutral-900">Geocodificando dirección...</p>
+                    <p class="text-sm text-neutral-600 mt-1">Esto puede tomar unos segundos</p>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Notification Container -->
-    <div id="notification-container" class="notification-container"></div>
+    <div id="notification-container" class="fixed top-6 right-6 z-50 flex flex-col gap-3 max-w-md"></div>
 
     <!-- Scripts -->
     <!-- Leaflet JS -->
@@ -297,6 +380,7 @@
     <!-- Custom Scripts -->
     <script src="js/autocomplete.js?v=1762320897"></script>
     <script src="js/geocoding.js?v=1762474828"></script>
+    <script src="js/validation.js?v=20251106"></script>
     <script src="js/geocoding-map.js?v=1762321123"></script>
 </body>
 </html>

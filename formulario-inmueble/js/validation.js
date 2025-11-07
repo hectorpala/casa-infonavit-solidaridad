@@ -1,304 +1,239 @@
 /**
- * VALIDATION.JS - Sistema de Validación de Formularios
- * Validación en tiempo real con mensajes de error personalizados
+ * VALIDATION.JS - Sistema de Validación UX en Tiempo Real
+ * Validación accesible con ARIA y feedback visual inmediato
  */
 
-const FormValidation = {
-    // Mensajes de error
-    errorMessages: {
-        required: 'Este campo es requerido',
-        email: 'Ingresa un correo electrónico válido',
-        phone: 'El teléfono debe tener 10 dígitos',
-        zipCode: 'El código postal debe tener 5 dígitos',
-        minLength: 'Mínimo {min} caracteres',
-        maxLength: 'Máximo {max} caracteres',
-        pattern: 'El formato ingresado no es válido',
-        number: 'Ingresa un número válido',
-        min: 'El valor mínimo es {min}',
-        max: 'El valor máximo es {max}'
-    },
+(function() {
+    'use strict';
 
-    /**
-     * Inicializar validaciones
-     */
-    init() {
-        console.log('🔍 Inicializando sistema de validación...');
-
-        // Event listeners para validación en tiempo real
-        const allInputs = document.querySelectorAll('.form-control');
-
-        allInputs.forEach(input => {
-            // Validar en blur (al perder foco)
-            input.addEventListener('blur', function() {
-                FormValidation.validateField(this);
-            });
-
-            // Validar en input (mientras escribe) para inputs de texto
-            if (input.type === 'text' || input.type === 'email' || input.type === 'tel') {
-                input.addEventListener('input', debounce(function() {
-                    if (this.value.length > 0) {
-                        FormValidation.validateField(this);
-                    }
-                }, 300));
-            }
-
-            // Limpiar error en focus
-            input.addEventListener('focus', function() {
-                FormValidation.clearError(this);
-            });
-        });
-
-        console.log('✅ Sistema de validación inicializado');
-    },
-
-    /**
-     * Validar un campo específico
-     */
-    validateField(field) {
-        // Limpiar error previo
-        this.clearError(field);
-
-        let isValid = true;
-        let errorMessage = '';
-
-        // 1. Validar campo requerido
-        if (field.hasAttribute('required')) {
-            if (field.type === 'checkbox') {
-                if (!field.checked) {
-                    isValid = false;
-                    errorMessage = this.errorMessages.required;
-                }
-            } else {
-                if (!field.value || field.value.trim() === '') {
-                    isValid = false;
-                    errorMessage = this.errorMessages.required;
-                }
-            }
-        }
-
-        // Si el campo está vacío y no es requerido, no validar más
-        if (!field.value && !field.hasAttribute('required')) {
-            return true;
-        }
-
-        // 2. Validar por tipo de input
-        if (isValid && field.value) {
-            switch (field.type) {
-                case 'email':
-                    if (!this.isValidEmail(field.value)) {
-                        isValid = false;
-                        errorMessage = this.errorMessages.email;
-                    }
-                    break;
-
-                case 'tel':
-                    if (!this.isValidPhone(field.value)) {
-                        isValid = false;
-                        errorMessage = this.errorMessages.phone;
-                    }
-                    break;
-
-                case 'number':
-                    if (!this.isValidNumber(field.value)) {
-                        isValid = false;
-                        errorMessage = this.errorMessages.number;
-                    }
-                    break;
-            }
-        }
-
-        // 3. Validar patrón (pattern attribute)
-        if (isValid && field.hasAttribute('pattern') && field.value) {
-            const pattern = new RegExp(field.getAttribute('pattern'));
-            if (!pattern.test(field.value)) {
-                isValid = false;
-                errorMessage = this.errorMessages.pattern;
-
-                // Mensajes específicos por ID
-                if (field.id === 'zip-code') {
-                    errorMessage = this.errorMessages.zipCode;
-                } else if (field.id === 'phone') {
-                    errorMessage = this.errorMessages.phone;
-                }
-            }
-        }
-
-        // 4. Validar longitud mínima
-        if (isValid && field.hasAttribute('minlength') && field.value) {
-            const minLength = parseInt(field.getAttribute('minlength'));
-            if (field.value.length < minLength) {
-                isValid = false;
-                errorMessage = this.errorMessages.minLength.replace('{min}', minLength);
-            }
-        }
-
-        // 5. Validar longitud máxima
-        if (isValid && field.hasAttribute('maxlength') && field.value) {
-            const maxLength = parseInt(field.getAttribute('maxlength'));
-            if (field.value.length > maxLength) {
-                isValid = false;
-                errorMessage = this.errorMessages.maxLength.replace('{max}', maxLength);
-            }
-        }
-
-        // 6. Validar rango numérico
-        if (isValid && field.type === 'number' && field.value) {
-            if (field.hasAttribute('min')) {
-                const min = parseFloat(field.getAttribute('min'));
-                if (parseFloat(field.value) < min) {
-                    isValid = false;
-                    errorMessage = this.errorMessages.min.replace('{min}', min);
-                }
-            }
-
-            if (field.hasAttribute('max')) {
-                const max = parseFloat(field.getAttribute('max'));
-                if (parseFloat(field.value) > max) {
-                    isValid = false;
-                    errorMessage = this.errorMessages.max.replace('{max}', max);
-                }
-            }
-        }
-
-        // Mostrar error si no es válido
-        if (!isValid) {
-            this.showError(field, errorMessage);
-            return false;
-        }
-
-        // Marcar como válido
-        this.markAsValid(field);
-        return true;
-    },
-
-    /**
-     * Mostrar mensaje de error
-     */
-    showError(field, message) {
-        // Agregar clase error al input
-        field.classList.add('error');
-        field.classList.remove('valid');
-
-        // Buscar elemento de error
-        const errorId = field.id ? `${field.id}-error` : `${field.name}-error`;
-        const errorElement = document.getElementById(errorId);
-
-        if (errorElement) {
-            errorElement.textContent = message;
-            errorElement.classList.add('active');
-        }
-
-        // Agregar animación shake
-        field.classList.add('shake');
-        setTimeout(() => {
-            field.classList.remove('shake');
-        }, 300);
-    },
-
-    /**
-     * Limpiar error
-     */
-    clearError(field) {
-        field.classList.remove('error');
-
-        const errorId = field.id ? `${field.id}-error` : `${field.name}-error`;
-        const errorElement = document.getElementById(errorId);
-
-        if (errorElement) {
-            errorElement.textContent = '';
-            errorElement.classList.remove('active');
-        }
-    },
-
-    /**
-     * Marcar campo como válido
-     */
-    markAsValid(field) {
-        field.classList.remove('error');
-        field.classList.add('valid');
-    },
-
-    /**
-     * Validar email
-     */
-    isValidEmail(email) {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    },
-
-    /**
-     * Validar teléfono (10 dígitos)
-     */
-    isValidPhone(phone) {
-        const regex = /^\d{10}$/;
-        return regex.test(phone.replace(/\s/g, ''));
-    },
-
-    /**
-     * Validar número
-     */
-    isValidNumber(value) {
-        return !isNaN(parseFloat(value)) && isFinite(value);
-    },
-
-    /**
-     * Validar código postal (5 dígitos)
-     */
-    isValidZipCode(zipCode) {
-        const regex = /^\d{5}$/;
-        return regex.test(zipCode);
-    },
-
-    /**
-     * Validar formulario completo
-     */
-    validateForm() {
-        let isValid = true;
-        const allRequiredFields = document.querySelectorAll('[required]');
-
-        allRequiredFields.forEach(field => {
-            if (!this.validateField(field)) {
-                isValid = false;
-            }
-        });
-
-        return isValid;
-    },
-
-    /**
-     * Validar paso específico
-     */
-    validateStep(stepNumber) {
-        const stepElement = document.querySelector(`.form-step[data-step="${stepNumber}"]`);
-        if (!stepElement) return false;
-
-        let isValid = true;
-        const requiredFields = stepElement.querySelectorAll('[required]');
-
-        requiredFields.forEach(field => {
-            if (!this.validateField(field)) {
-                isValid = false;
-            }
-        });
-
-        return isValid;
+    // Esperar a que el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
     }
-};
 
-/**
- * Utilidad: Debounce
- */
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
+    function init() {
+        console.log('🔍 Sistema de validación inicializado');
+        setupValidation();
+    }
+
+    function setupValidation() {
+        // Utilidades
+        const $ = (selector, context = document) => context.querySelector(selector);
+
+        const setError = (input, msgEl, message) => {
+            if (message) {
+                input.classList.add('border-red-500', 'focus:ring-red-500');
+                input.classList.remove('border-neutral-300', 'focus:ring-indigo-500');
+                input.setAttribute('aria-invalid', 'true');
+                msgEl.textContent = message;
+                msgEl.classList.remove('hidden');
+            } else {
+                input.classList.remove('border-red-500', 'focus:ring-red-500');
+                input.classList.add('border-neutral-300', 'focus:ring-indigo-500');
+                input.removeAttribute('aria-invalid');
+                msgEl.textContent = '';
+                msgEl.classList.add('hidden');
+            }
         };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
 
-// Exportar para uso global
-window.FormValidation = FormValidation;
+        // Validadores
+        const required = v => v && v.trim().length > 0;
+        const isCP = v => /^\d{5}$/.test(v.trim());
+        const isNumExt = v => /^[A-Za-z0-9\-\s]{1,10}$/.test(v.trim());
+
+        // Referencias a elementos del formulario
+        const state = $('#state');
+        const municipality = $('#municipality');
+        const colonia = $('#colonia');
+        const address = $('#address');
+        const numExt = $('#exterior-number');
+        const zipCode = $('#zip-code');
+        const btnGeocode = $('#btn-geocode');
+
+        // Referencias a mensajes de error
+        const errState = $('#err-state');
+        const errMunicipality = $('#err-municipality');
+        const errColonia = $('#err-colonia');
+        const errAddress = $('#err-address');
+        const errNumExt = $('#err-exterior-number');
+        const errZipCode = $('#err-zip-code');
+
+        // Verificar que todos los elementos existen
+        if (!state || !municipality || !colonia || !address || !numExt || !zipCode || !btnGeocode) {
+            console.warn('⚠️ No se encontraron todos los elementos del formulario para validación');
+            return;
+        }
+
+        // Validador central
+        function validateAll() {
+            let isValid = true;
+
+            // Validar Estado
+            if (!state.value || state.value === '') {
+                setError(state, errState, 'Selecciona un estado.');
+                isValid = false;
+            } else {
+                setError(state, errState, '');
+            }
+
+            // Validar Municipio (solo si no está disabled)
+            if (!municipality.disabled) {
+                if (!municipality.value || municipality.value === '') {
+                    setError(municipality, errMunicipality, 'Selecciona un municipio.');
+                    isValid = false;
+                } else {
+                    setError(municipality, errMunicipality, '');
+                }
+            }
+
+            // Validar Colonia
+            if (!required(colonia.value)) {
+                setError(colonia, errColonia, 'La colonia es obligatoria.');
+                isValid = false;
+            } else {
+                setError(colonia, errColonia, '');
+            }
+
+            // Validar Calle
+            if (!required(address.value)) {
+                setError(address, errAddress, 'La calle es obligatoria.');
+                isValid = false;
+            } else {
+                setError(address, errAddress, '');
+            }
+
+            // Validar Número Exterior
+            if (!required(numExt.value)) {
+                setError(numExt, errNumExt, 'El número exterior es obligatorio.');
+                isValid = false;
+            } else if (!isNumExt(numExt.value)) {
+                setError(numExt, errNumExt, 'Número exterior inválido (máx. 10 caracteres alfanuméricos).');
+                isValid = false;
+            } else {
+                setError(numExt, errNumExt, '');
+            }
+
+            // Validar Código Postal
+            if (!required(zipCode.value)) {
+                setError(zipCode, errZipCode, 'El código postal es obligatorio.');
+                isValid = false;
+            } else if (!isCP(zipCode.value)) {
+                setError(zipCode, errZipCode, 'El C.P. debe tener exactamente 5 dígitos.');
+                isValid = false;
+            } else {
+                setError(zipCode, errZipCode, '');
+            }
+
+            // Habilitar/deshabilitar botón
+            btnGeocode.disabled = !isValid;
+
+            return isValid;
+        }
+
+        // Eventos de validación en tiempo real
+        ['input', 'blur', 'change'].forEach(eventType => {
+            state.addEventListener(eventType, validateAll);
+            municipality.addEventListener(eventType, validateAll);
+            colonia.addEventListener(eventType, validateAll);
+            address.addEventListener(eventType, validateAll);
+            numExt.addEventListener(eventType, validateAll);
+            zipCode.addEventListener(eventType, validateAll);
+        });
+
+        // Trim automático en blur
+        [colonia, address, numExt, zipCode].forEach(input => {
+            input.addEventListener('blur', () => {
+                input.value = input.value.trim();
+            });
+        });
+
+        // Solo permitir números en código postal
+        zipCode.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+
+        // Gate de acción en submit
+        const form = $('#geocoding-form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                if (!validateAll()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // Focus al primer campo con error
+                    const firstError = document.querySelector('[aria-invalid="true"]');
+                    if (firstError) {
+                        firstError.focus({ preventScroll: false });
+
+                        // Scroll suave al primer error
+                        firstError.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
+
+                    // Notificación visual
+                    showValidationError();
+
+                    return false;
+                }
+                // Si la validación pasa, el formulario continúa con su flujo normal
+            });
+        }
+
+        // Validación inicial (deshabilitar botón al cargar)
+        validateAll();
+
+        console.log('✅ Validación en tiempo real configurada');
+    }
+
+    /**
+     * Mostrar notificación de error de validación
+     */
+    function showValidationError() {
+        const container = document.getElementById('notification-container');
+        if (!container) return;
+
+        const notification = document.createElement('div');
+        notification.className = 'notification error bg-red-50 border-l-4 border-red-500 p-4 rounded-xl shadow-lg flex items-center gap-3 animate-slideInRight';
+        notification.innerHTML = `
+            <i class="fas fa-exclamation-circle text-red-500 text-xl"></i>
+            <div class="notification-message text-red-900">
+                <strong>Formulario incompleto</strong><br>
+                <span class="text-sm text-red-700">Por favor, corrige los campos marcados en rojo.</span>
+            </div>
+        `;
+
+        container.appendChild(notification);
+
+        // Auto-remover después de 5 segundos
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(400px)';
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+    }
+
+    // Animación CSS para notificaciones
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.3s ease-out;
+        }
+    `;
+    document.head.appendChild(style);
+
+})();
