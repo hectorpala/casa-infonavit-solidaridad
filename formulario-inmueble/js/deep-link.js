@@ -299,15 +299,17 @@ const DeepLink = {
             });
         }
 
-        // Listener para botón "Copiar enlace" (se agregará al HTML)
-        const btnShare = document.getElementById('btn-share-link');
-        if (btnShare) {
-            btnShare.addEventListener('click', (e) => {
+        // Listener para botón "Copiar enlace" usando event delegation
+        // (el botón puede no existir aún si está dentro del panel de resultados)
+        document.addEventListener('click', (e) => {
+            const btnShare = e.target.closest('#btn-share-link');
+            if (btnShare) {
                 e.preventDefault();
+                console.log('🔗 Botón "Copiar enlace" clickeado');
                 this.copyLink();
-            });
-            console.log('✅ Botón "Copiar enlace" conectado');
-        }
+            }
+        });
+        console.log('✅ Event listener "Copiar enlace" configurado (delegación)');
     },
 
     /**
