@@ -599,7 +599,7 @@ const MarkerManager = {
     },
 
     /**
-     * Renderizar panel lateral de propiedades etiquetadas
+     * Renderizar panel lateral de propiedades etiquetadas - Estilo Alberto Cabanillas
      */
     renderTaggedPropertiesPanel() {
         const taggedProperties = this.getTaggedProperties();
@@ -628,7 +628,7 @@ const MarkerManager = {
             return;
         }
 
-        // Renderizar tarjetas de propiedades
+        // Renderizar tarjetas estilo Alberto Cabanillas
         content.innerHTML = taggedProperties.map(property => {
             const tag = this.getTagByValue(property.tag);
             const formattedDate = new Date(property.timestamp).toLocaleDateString('es-MX', {
@@ -638,61 +638,144 @@ const MarkerManager = {
                 minute: '2-digit'
             });
 
-            let negotiationHTML = '';
-            if (property.contact || property.estimatedValue || property.offerAmount) {
-                negotiationHTML = `
-                    <div class="negotiation-info">
-                        ${property.contact ? `
-                            <div class="negotiation-info-item">
-                                <i class="fas fa-user"></i>
-                                <strong>${this.escapeHtml(property.contact)}</strong>
-                            </div>
-                        ` : ''}
-                        ${property.estimatedValue ? `
-                            <div class="negotiation-info-item">
-                                <i class="fas fa-dollar-sign"></i>
-                                Valor: <strong>${this.formatCurrency(property.estimatedValue)}</strong>
-                            </div>
-                        ` : ''}
-                        ${property.offerAmount ? `
-                            <div class="negotiation-info-item">
-                                <i class="fas fa-hand-holding-dollar"></i>
-                                Oferta: <strong>${this.formatCurrency(property.offerAmount)}</strong>
-                            </div>
-                        ` : ''}
-                    </div>
-                `;
-            }
+            // Generar iniciales para el avatar
+            const contactName = property.contact || 'Propiedad';
+            const initials = contactName
+                .split(' ')
+                .map(word => word[0])
+                .join('')
+                .substring(0, 2)
+                .toUpperCase();
+
+            // Extraer rol si existe (lo que está entre paréntesis)
+            const roleMatch = contactName.match(/\((.*?)\)/);
+            const role = roleMatch ? roleMatch[1] : 'Contacto';
+            const cleanName = contactName.replace(/\s*\(.*?\)\s*/g, '').trim() || contactName;
 
             return `
                 <div class="tagged-property-card" data-property-id="${property.id}">
-                    <div class="tag-badge" style="background-color: ${tag.bgColor}; color: ${tag.color};">
-                        <i class="fas fa-tag"></i>
-                        ${tag.label}
+                    <!-- Header clickeable -->
+                    <div class="card-header" onclick="MarkerManager.toggleCard('${property.id}')">
+                        <!-- Avatar con iniciales -->
+                        <div class="contact-avatar" style="background: linear-gradient(135deg, ${tag.color} 0%, ${tag.color}dd 100%);">
+                            ${initials}
+                        </div>
+
+                        <!-- Info de contacto -->
+                        <div class="contact-info">
+                            <div class="contact-name">
+                                ${this.escapeHtml(cleanName)}
+                                <span class="tag-badge" style="background-color: ${tag.bgColor}; color: ${tag.color}; font-size: 0.625rem; padding: 0.125rem 0.5rem;">
+                                    ${tag.label}
+                                </span>
+                            </div>
+                            <div class="contact-role">${this.escapeHtml(role)}</div>
+                            <div class="property-timestamp">
+                                <i class="far fa-clock"></i>
+                                ${formattedDate}
+                            </div>
+                        </div>
+
+                        <!-- Quick actions (siempre visible) -->
+                        <div class="quick-actions" onclick="event.stopPropagation()">
+                            <button class="quick-action-btn edit" onclick="MarkerManager.openEditModal('${property.id}')" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="quick-action-btn" onclick="MarkerManager.centerOnProperty('${property.id}')" title="Centrar en mapa">
+                                <i class="fas fa-crosshairs"></i>
+                            </button>
+                        </div>
+
+                        <!-- Expand indicator -->
+                        <div class="expand-indicator">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
-                    <div class="property-address">${this.escapeHtml(property.address)}</div>
-                    <div class="property-timestamp">
-                        <i class="far fa-clock"></i>
-                        ${formattedDate}
-                    </div>
-                    ${negotiationHTML}
-                    <div class="property-actions">
-                        <button class="property-action-btn" onclick="MarkerManager.centerOnProperty('${property.id}')">
-                            <i class="fas fa-crosshairs"></i>
-                            Centrar
-                        </button>
-                        <button class="property-action-btn" onclick="MarkerManager.editProperty('${property.id}')">
-                            <i class="fas fa-edit"></i>
-                            Editar
-                        </button>
-                        <button class="property-action-btn danger" onclick="MarkerManager.deletePropertyFromPanel('${property.id}')">
-                            <i class="fas fa-trash"></i>
-                            Eliminar
-                        </button>
+
+                    <!-- Body expandible con detalles completos -->
+                    <div class="card-body">
+                        <div class="card-body-content">
+                            <!-- Dirección completa -->
+                            <div style="margin-bottom: 1rem;">
+                                <div class="detail-label">Dirección</div>
+                                <div class="detail-value" style="color: #374151;">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    ${this.escapeHtml(property.address)}
+                                </div>
+                            </div>
+
+                            <!-- Grid de detalles -->
+                            <div class="property-details-grid">
+                                ${property.estimatedValue ? `
+                                    <div class="detail-item">
+                                        <div class="detail-label">Valor Estimado</div>
+                                        <div class="detail-value">
+                                            <i class="fas fa-dollar-sign"></i>
+                                            ${this.formatCurrency(property.estimatedValue)}
+                                        </div>
+                                    </div>
+                                ` : ''}
+                                ${property.offerAmount ? `
+                                    <div class="detail-item">
+                                        <div class="detail-label">Oferta Realizada</div>
+                                        <div class="detail-value">
+                                            <i class="fas fa-hand-holding-dollar"></i>
+                                            ${this.formatCurrency(property.offerAmount)}
+                                        </div>
+                                    </div>
+                                ` : ''}
+                                ${property.phone ? `
+                                    <div class="detail-item">
+                                        <div class="detail-label">Teléfono</div>
+                                        <div class="detail-value">
+                                            <i class="fas fa-phone"></i>
+                                            ${this.escapeHtml(property.phone)}
+                                        </div>
+                                    </div>
+                                ` : ''}
+                                ${property.email ? `
+                                    <div class="detail-item">
+                                        <div class="detail-label">Email</div>
+                                        <div class="detail-value" style="font-size: 0.75rem;">
+                                            <i class="fas fa-envelope"></i>
+                                            ${this.escapeHtml(property.email)}
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+
+                            ${property.notes ? `
+                                <div style="margin-top: 1rem;">
+                                    <div class="detail-label">Notas</div>
+                                    <div style="font-size: 0.8125rem; color: #374151; line-height: 1.5; padding: 0.75rem; background: #f9fafb; border-radius: 6px;">
+                                        ${this.escapeHtml(property.notes)}
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            <!-- Botones de acción expandidos -->
+                            <div class="property-actions" style="margin-top: 1rem;">
+                                <button class="property-action-btn" onclick="MarkerManager.centerOnProperty('${property.id}')">
+                                    <i class="fas fa-crosshairs"></i>
+                                    Centrar en Mapa
+                                </button>
+                                <button class="property-action-btn" onclick="MarkerManager.openEditModal('${property.id}')">
+                                    <i class="fas fa-edit"></i>
+                                    Editar Detalles
+                                </button>
+                                <button class="property-action-btn danger" onclick="MarkerManager.deletePropertyFromPanel('${property.id}')">
+                                    <i class="fas fa-trash"></i>
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
         }).join('');
+
+        // Setup event listeners para los cards después de renderizar
+        this.setupCardEventListeners();
     },
 
     /**
@@ -863,6 +946,237 @@ const MarkerManager = {
     },
 
     /**
+     * Toggle expand/collapse de una tarjeta
+     */
+    toggleCard(propertyId) {
+        const card = document.querySelector(`[data-property-id="${propertyId}"]`);
+        if (card) {
+            card.classList.toggle('expanded');
+        }
+    },
+
+    /**
+     * Setup event listeners para las tarjetas
+     */
+    setupCardEventListeners() {
+        // Ya están implementados con onclick inline
+        // Este método está para futuras mejoras
+    },
+
+    /**
+     * Abrir modal de edición
+     */
+    openEditModal(propertyId) {
+        const markers = this.getAllMarkers();
+        const property = markers[propertyId];
+
+        if (!property) {
+            console.warn('⚠️ Propiedad no encontrada:', propertyId);
+            return;
+        }
+
+        // Guardar ID de propiedad siendo editada
+        this.editingPropertyId = propertyId;
+
+        // Renderizar formulario
+        const modalBody = document.getElementById('edit-modal-body');
+        if (!modalBody) return;
+
+        const tag = this.getTagByValue(property.tag || '');
+
+        modalBody.innerHTML = `
+            <div class="edit-form-section">
+                <h4>
+                    <i class="fas fa-user"></i>
+                    Información de Contacto
+                </h4>
+                <div class="edit-form-group">
+                    <label class="edit-form-label">Nombre/Contacto *</label>
+                    <input
+                        type="text"
+                        class="edit-form-input"
+                        id="edit-contact"
+                        value="${this.escapeHtml(property.contact || '')}"
+                        placeholder="Ej: Juan Pérez (dueño)"
+                    >
+                </div>
+                <div class="edit-form-group">
+                    <label class="edit-form-label">Teléfono</label>
+                    <input
+                        type="tel"
+                        class="edit-form-input"
+                        id="edit-phone"
+                        value="${this.escapeHtml(property.phone || '')}"
+                        placeholder="Ej: 6671234567"
+                    >
+                </div>
+                <div class="edit-form-group">
+                    <label class="edit-form-label">Email</label>
+                    <input
+                        type="email"
+                        class="edit-form-input"
+                        id="edit-email"
+                        value="${this.escapeHtml(property.email || '')}"
+                        placeholder="Ej: contacto@ejemplo.com"
+                    >
+                </div>
+            </div>
+
+            <div class="edit-form-section">
+                <h4>
+                    <i class="fas fa-dollar-sign"></i>
+                    Información Financiera
+                </h4>
+                <div class="edit-form-group">
+                    <label class="edit-form-label">Valor Estimado (MXN)</label>
+                    <input
+                        type="number"
+                        class="edit-form-input"
+                        id="edit-estimated-value"
+                        value="${property.estimatedValue || ''}"
+                        placeholder="Ej: 2500000"
+                        min="0"
+                        step="1000"
+                    >
+                </div>
+                <div class="edit-form-group">
+                    <label class="edit-form-label">Oferta Realizada (MXN)</label>
+                    <input
+                        type="number"
+                        class="edit-form-input"
+                        id="edit-offer-amount"
+                        value="${property.offerAmount || ''}"
+                        placeholder="Ej: 2200000"
+                        min="0"
+                        step="1000"
+                    >
+                </div>
+            </div>
+
+            <div class="edit-form-section">
+                <h4>
+                    <i class="fas fa-sticky-note"></i>
+                    Notas Adicionales
+                </h4>
+                <div class="edit-form-group">
+                    <label class="edit-form-label">Notas</label>
+                    <textarea
+                        class="edit-form-textarea"
+                        id="edit-notes"
+                        placeholder="Agregar observaciones, condiciones especiales, etc."
+                    >${this.escapeHtml(property.notes || '')}</textarea>
+                </div>
+            </div>
+
+            <div class="edit-form-section">
+                <h4>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Ubicación
+                </h4>
+                <div class="edit-form-group">
+                    <label class="edit-form-label">Dirección</label>
+                    <input
+                        type="text"
+                        class="edit-form-input"
+                        id="edit-address"
+                        value="${this.escapeHtml(property.address || '')}"
+                        readonly
+                        style="background: #f9fafb; color: #6b7280;"
+                    >
+                    <p style="font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem;">
+                        <i class="fas fa-info-circle"></i>
+                        La dirección no puede editarse. Para cambiarla, geocodifica nuevamente.
+                    </p>
+                </div>
+            </div>
+        `;
+
+        // Mostrar modal
+        const overlay = document.getElementById('edit-modal-overlay');
+        if (overlay) {
+            overlay.classList.add('active');
+            // Focus en primer input
+            setTimeout(() => {
+                const firstInput = document.getElementById('edit-contact');
+                if (firstInput) firstInput.focus();
+            }, 100);
+        }
+    },
+
+    /**
+     * Cerrar modal de edición
+     */
+    closeEditModal() {
+        const overlay = document.getElementById('edit-modal-overlay');
+        if (overlay) {
+            overlay.classList.remove('active');
+        }
+        this.editingPropertyId = null;
+    },
+
+    /**
+     * Guardar ediciones del modal
+     */
+    saveEditedProperty() {
+        if (!this.editingPropertyId) return;
+
+        const markers = this.getAllMarkers();
+        const property = markers[this.editingPropertyId];
+
+        if (!property) return;
+
+        // Capturar valores del formulario
+        const contact = document.getElementById('edit-contact')?.value.trim() || '';
+        const phone = document.getElementById('edit-phone')?.value.trim() || '';
+        const email = document.getElementById('edit-email')?.value.trim() || '';
+        const estimatedValue = document.getElementById('edit-estimated-value')?.value || null;
+        const offerAmount = document.getElementById('edit-offer-amount')?.value || null;
+        const notes = document.getElementById('edit-notes')?.value.trim() || '';
+
+        // Validación básica
+        if (!contact) {
+            alert('El nombre/contacto es obligatorio');
+            return;
+        }
+
+        // Actualizar propiedad
+        property.contact = contact;
+        property.phone = phone;
+        property.email = email;
+        property.estimatedValue = estimatedValue ? parseFloat(estimatedValue) : null;
+        property.offerAmount = offerAmount ? parseFloat(offerAmount) : null;
+        property.notes = notes;
+        property.lastModified = Date.now();
+
+        // Guardar en localStorage
+        try {
+            localStorage.setItem(this.STORAGE_KEY, JSON.stringify(markers));
+        } catch (error) {
+            console.error('❌ Error al guardar:', error);
+            alert('Error al guardar los cambios');
+            return;
+        }
+
+        // Notificar
+        if (typeof GeocodingMapApp !== 'undefined' && GeocodingMapApp.showNotification) {
+            GeocodingMapApp.showNotification('Cambios guardados exitosamente', 'success');
+        }
+
+        // Actualizar panel
+        this.renderTaggedPropertiesPanel();
+
+        // Actualizar marcador en el mapa (recargar todos)
+        if (typeof GeocodingMapApp !== 'undefined' && GeocodingMapApp.refreshSavedMarkers) {
+            GeocodingMapApp.refreshSavedMarkers();
+        }
+
+        // Cerrar modal
+        this.closeEditModal();
+
+        console.log('✅ Propiedad actualizada:', this.editingPropertyId);
+    },
+
+    /**
      * Configurar panel lateral de propiedades etiquetadas
      */
     setupTaggedPanel() {
@@ -894,6 +1208,45 @@ const MarkerManager = {
             setTimeout(() => {
                 this.renderTaggedPropertiesPanel();
             }, 100);
+        });
+
+        // Event listeners para el modal de edición
+        const editModalClose = document.getElementById('edit-modal-close');
+        if (editModalClose) {
+            editModalClose.addEventListener('click', () => {
+                this.closeEditModal();
+            });
+        }
+
+        const editModalCancel = document.getElementById('edit-modal-cancel');
+        if (editModalCancel) {
+            editModalCancel.addEventListener('click', () => {
+                this.closeEditModal();
+            });
+        }
+
+        const editModalSave = document.getElementById('edit-modal-save');
+        if (editModalSave) {
+            editModalSave.addEventListener('click', () => {
+                this.saveEditedProperty();
+            });
+        }
+
+        // Cerrar modal al hacer click fuera del contenido
+        const editModalOverlay = document.getElementById('edit-modal-overlay');
+        if (editModalOverlay) {
+            editModalOverlay.addEventListener('click', (e) => {
+                if (e.target === editModalOverlay) {
+                    this.closeEditModal();
+                }
+            });
+        }
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && editModalOverlay && editModalOverlay.classList.contains('active')) {
+                this.closeEditModal();
+            }
         });
     }
 };

@@ -858,6 +858,24 @@ const GeocodingMapApp = {
 
             console.log(`✨ Destacando marcador: ${markerId}`);
         }
+    },
+
+    /**
+     * Refrescar todos los marcadores guardados (después de editar)
+     */
+    refreshSavedMarkers() {
+        console.log('🔄 Refrescando marcadores guardados...');
+
+        // Remover todos los marcadores actuales del mapa
+        if (this.savedMarkers && this.savedMarkers.length > 0) {
+            this.savedMarkers.forEach(({marker}) => {
+                this.map.removeLayer(marker);
+            });
+            this.savedMarkers = [];
+        }
+
+        // Restaurar marcadores con datos actualizados
+        this.restoreSavedMarkers();
     }
 };
 
