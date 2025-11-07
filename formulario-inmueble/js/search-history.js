@@ -3,6 +3,8 @@
  * Guarda y muestra las últimas búsquedas de geocodificación para reutilizarlas
  */
 
+console.log('🔵 search-history.js CARGADO');
+
 const SearchHistory = {
     // Configuración
     STORAGE_KEY: 'geocoding_search_history',
