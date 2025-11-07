@@ -1,0 +1,152 @@
+/**
+ * SEARCH-HISTORY.CSS - Estilos para Historial de Búsquedas
+ * IMPORTANTE: Usa !important para sobrescribir dark mode de macOS
+ */
+
+/* ============================================
+   OVERRIDE DARK MODE - Forzar Light Theme
+   ============================================ */
+
+/* Panel principal - forzar fondo blanco */
+#history-panel .bg-white {
+    background-color: #ffffff !important;
+}
+
+#history-panel .rounded-2xl {
+    background-color: #ffffff !important;
+}
+
+#history-panel .bg-gradient-to-r {
+    background: linear-gradient(to right, #eef2ff, rgba(238, 242, 255, 0.5)) !important;
+}
+
+/* Textos - forzar colores oscuros sobre fondo claro */
+#history-panel .text-neutral-900 {
+    color: #171717 !important;
+}
+
+#history-panel .text-neutral-700 {
+    color: #404040 !important;
+}
+
+#history-panel .text-neutral-600 {
+    color: #525252 !important;
+}
+
+#history-panel .text-neutral-500 {
+    color: #737373 !important;
+}
+
+#history-panel .text-neutral-400 {
+    color: #a3a3a3 !important;
+}
+
+#history-panel .text-indigo-600 {
+    color: #4f46e5 !important;
+}
+
+#history-panel .text-indigo-500 {
+    color: #6366f1 !important;
+}
+
+#history-panel .text-red-600 {
+    color: #dc2626 !important;
+}
+
+#history-panel .text-red-700 {
+    color: #b91c1c !important;
+}
+
+/* Bordes - forzar colores claros */
+#history-panel .border-neutral-200 {
+    border-color: #e5e7eb !important;
+}
+
+#history-panel .border-indigo-200 {
+    border-color: #c7d2fe !important;
+}
+
+#history-panel .border-indigo-300 {
+    border-color: #a5b4fc !important;
+}
+
+/* Hover states - forzar fondos claros */
+#history-panel .hover\:bg-neutral-50:hover {
+    background-color: #fafafa !important;
+}
+
+#history-panel .hover\:bg-red-50:hover {
+    background-color: #fef2f2 !important;
+}
+
+#history-panel .hover\:border-indigo-300:hover {
+    border-color: #a5b4fc !important;
+}
+
+#history-panel .hover\:text-indigo-600:hover {
+    color: #4f46e5 !important;
+}
+
+#history-panel .hover\:text-indigo-500:hover {
+    color: #6366f1 !important;
+}
+
+#history-panel .hover\:text-red-700:hover {
+    color: #b91c1c !important;
+}
+
+/* ============================================
+   Scroll personalizado
+   ============================================ */
+#history-panel .space-y-2 {
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d4 #f5f5f5;
+}
+
+#history-panel .space-y-2::-webkit-scrollbar {
+    width: 6px;
+}
+
+#history-panel .space-y-2::-webkit-scrollbar-track {
+    background: #f5f5f5 !important;
+    border-radius: 3px;
+}
+
+#history-panel .space-y-2::-webkit-scrollbar-thumb {
+    background: #d4d4d4 !important;
+    border-radius: 3px;
+}
+
+#history-panel .space-y-2::-webkit-scrollbar-thumb:hover {
+    background: #a3a3a3 !important;
+}
+
+/* ============================================
+   Animaciones
+   ============================================ */
+.history-item {
+    animation: slideInDown 0.2s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delays escalonados */
+.history-item:nth-child(1) { animation-delay: 0s; }
+.history-item:nth-child(2) { animation-delay: 0.02s; }
+.history-item:nth-child(3) { animation-delay: 0.04s; }
+.history-item:nth-child(4) { animation-delay: 0.06s; }
+.history-item:nth-child(5) { animation-delay: 0.08s; }
+.history-item:nth-child(6) { animation-delay: 0.10s; }
+.history-item:nth-child(7) { animation-delay: 0.12s; }
+.history-item:nth-child(8) { animation-delay: 0.14s; }
+.history-item:nth-child(9) { animation-delay: 0.16s; }
+.history-item:nth-child(10) { animation-delay: 0.18s; }

@@ -220,6 +220,11 @@ const GeocodingMapApp = {
                     DeepLink.sync();
                 }
 
+                // ✅ SEARCH HISTORY: Disparar evento para guardar en historial
+                document.dispatchEvent(new CustomEvent('geocodingSuccess', {
+                    detail: { addressData, result }
+                }));
+
                 // Notificación de éxito
                 const successMsg = result.approximate
                     ? `Dirección aproximada (sin número exterior) - ${result.service}`
