@@ -1,0 +1,110 @@
+# ============================================
+# Configuración de Netlify para casasenventa.info
+# ============================================
+
+[build]
+  # No build command (sitio estático)
+  command = ""
+  # Publicar desde root (todo el sitio)
+  publish = "."
+  # Ignorar carpetas node_modules si existen
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."
+
+# ============================================
+# Redirects y Rewrites
+# ============================================
+
+# Redirect de formulario-inmueble Netlify Functions
+[[redirects]]
+  from = "/formulario-inmueble/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Redirect www a non-www (cuando se configure el dominio)
+[[redirects]]
+  from = "https://www.casasenventa.info/*"
+  to = "https://casasenventa.info/:splat"
+  status = 301
+  force = true
+
+# ============================================
+# Headers de Seguridad
+# ============================================
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(self), microphone=(), camera=()"
+
+# Cache de assets estáticos
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ============================================
+# Netlify Functions
+# ============================================
+
+[functions]
+  # Buscar functions en formulario-inmueble/netlify/functions
+  directory = "formulario-inmueble/netlify/functions"
+
+# ============================================
+# Configuración de Deploy
+# ============================================
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# ============================================
+# Context: Production
+# ============================================
+
+[context.production]
+  # Variables de entorno en producción (configurar en Netlify UI)
+  # GOOGLE_MAPS_API_KEY se configura en: Site settings > Environment variables
+
+[context.production.environment]
+  NODE_ENV = "production"
+
+# ============================================
+# Context: Deploy Previews
+# ============================================
+
+[context.deploy-preview]
+  # Deploy previews para PRs
+  publish = "."
+
+[context.branch-deploy]
+  # Deploy de otras ramas
+  publish = "."
