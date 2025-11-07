@@ -262,6 +262,65 @@ const MarkerManager = {
                         </div>
                     </div>
 
+                    <!-- Información de Negociación (condicional) -->
+                    <div id="negotiation-fields" class="space-y-3" style="display: ${currentTag.value ? 'block' : 'none'};">
+                        <div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4">
+                            <h4 class="text-sm font-semibold text-indigo-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-handshake"></i>
+                                Información de Negociación
+                            </h4>
+
+                            <!-- Nombre/Contacto -->
+                            <div class="mb-3">
+                                <label for="property-contact" class="block text-xs font-medium text-neutral-700 mb-1.5">
+                                    <i class="fas fa-user mr-1"></i>
+                                    Nombre/Contacto (Dueño, Agente, Cliente)
+                                </label>
+                                <input
+                                    type="text"
+                                    id="property-contact"
+                                    placeholder="Ej: Juan Pérez (dueño), María López (agente)"
+                                    value="${this.currentMarker.contact || ''}"
+                                    class="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                                >
+                            </div>
+
+                            <!-- Valor Estimado -->
+                            <div class="mb-3">
+                                <label for="property-value" class="block text-xs font-medium text-neutral-700 mb-1.5">
+                                    <i class="fas fa-dollar-sign mr-1"></i>
+                                    Valor Estimado (MXN)
+                                </label>
+                                <input
+                                    type="number"
+                                    id="property-value"
+                                    placeholder="Ej: 2500000"
+                                    value="${this.currentMarker.estimatedValue || ''}"
+                                    min="0"
+                                    step="1000"
+                                    class="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                                >
+                            </div>
+
+                            <!-- Oferta Realizada -->
+                            <div>
+                                <label for="property-offer" class="block text-xs font-medium text-neutral-700 mb-1.5">
+                                    <i class="fas fa-hand-holding-dollar mr-1"></i>
+                                    Oferta Realizada (MXN)
+                                </label>
+                                <input
+                                    type="number"
+                                    id="property-offer"
+                                    placeholder="Ej: 2200000"
+                                    value="${this.currentMarker.offerAmount || ''}"
+                                    min="0"
+                                    step="1000"
+                                    class="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                                >
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Opciones de persistencia -->
                     <div class="bg-neutral-50 rounded-lg p-4 border border-neutral-200">
                         <div class="flex items-start gap-3">
@@ -311,6 +370,7 @@ const MarkerManager = {
     updateTagPreview() {
         const select = document.getElementById('marker-tag-select');
         const preview = document.getElementById('tag-preview');
+        const negotiationFields = document.getElementById('negotiation-fields');
 
         if (!select || !preview) return;
 
@@ -326,6 +386,11 @@ const MarkerManager = {
                 <span class="text-xs text-neutral-600">Vista previa de la etiqueta</span>
             </div>
         `;
+
+        // Mostrar/ocultar campos de negociación según si hay etiqueta seleccionada
+        if (negotiationFields) {
+            negotiationFields.style.display = selectedTag.value ? 'block' : 'none';
+        }
     },
 
     /**
@@ -339,6 +404,9 @@ const MarkerManager = {
 
         const select = document.getElementById('marker-tag-select');
         const keepCheckbox = document.getElementById('keep-marker-checkbox');
+        const contactInput = document.getElementById('property-contact');
+        const valueInput = document.getElementById('property-value');
+        const offerInput = document.getElementById('property-offer');
 
         if (!select || !keepCheckbox) {
             console.error('❌ Elementos del formulario no encontrados');
@@ -348,9 +416,22 @@ const MarkerManager = {
         const tag = select.value;
         const keepMarker = keepCheckbox.checked;
 
+        // Capturar datos de negociación (solo si hay etiqueta seleccionada)
+        let negotiationData = {};
+        if (tag) {
+            negotiationData = {
+                contact: contactInput ? contactInput.value.trim() : '',
+                estimatedValue: valueInput && valueInput.value ? parseFloat(valueInput.value) : null,
+                offerAmount: offerInput && offerInput.value ? parseFloat(offerInput.value) : null
+            };
+        }
+
         // Actualizar marcador actual
         this.currentMarker.tag = tag;
         this.currentMarker.keepMarker = keepMarker;
+        this.currentMarker.contact = negotiationData.contact;
+        this.currentMarker.estimatedValue = negotiationData.estimatedValue;
+        this.currentMarker.offerAmount = negotiationData.offerAmount;
 
         // Guardar en localStorage
         const success = this.saveMarkerData(this.currentMarker.id, {
@@ -360,6 +441,9 @@ const MarkerManager = {
             addressData: this.currentMarker.addressData,
             tag: tag,
             keepMarker: keepMarker,
+            contact: negotiationData.contact,
+            estimatedValue: negotiationData.estimatedValue,
+            offerAmount: negotiationData.offerAmount,
             timestamp: this.currentMarker.timestamp
         });
 
@@ -378,7 +462,10 @@ const MarkerManager = {
                 detail: {
                     markerId: this.currentMarker.id,
                     tag: tag,
-                    keepMarker: keepMarker
+                    keepMarker: keepMarker,
+                    contact: negotiationData.contact,
+                    estimatedValue: negotiationData.estimatedValue,
+                    offerAmount: negotiationData.offerAmount
                 }
             }));
         } else {

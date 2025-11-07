@@ -57,8 +57,8 @@ const SearchHistory = {
 
         // Escuchar actualización de etiquetas de marcador
         document.addEventListener('markerTagUpdated', (e) => {
-            const { markerId, tag, keepMarker } = e.detail;
-            this.updateHistoryTag(markerId, tag, keepMarker);
+            const { markerId, tag, keepMarker, contact, estimatedValue, offerAmount } = e.detail;
+            this.updateHistoryTag(markerId, tag, keepMarker, contact, estimatedValue, offerAmount);
         });
     },
 
@@ -234,6 +234,26 @@ const SearchHistory = {
             }
         }
 
+        // Generar HTML para datos de negociación si existen
+        let negotiationHTML = '';
+        if (entry.contact || entry.estimatedValue || entry.offerAmount) {
+            const parts = [];
+            if (entry.contact) {
+                parts.push(`<i class="fas fa-user mr-1"></i>${this.escapeHtml(entry.contact)}`);
+            }
+            if (entry.estimatedValue) {
+                parts.push(`<i class="fas fa-dollar-sign mr-1"></i>${this.formatCurrency(entry.estimatedValue)}`);
+            }
+            if (entry.offerAmount) {
+                parts.push(`<i class="fas fa-hand-holding-dollar mr-1"></i>${this.formatCurrency(entry.offerAmount)}`);
+            }
+            negotiationHTML = `
+                <div class="mt-2 pt-2 border-t border-neutral-100 text-xs text-neutral-600 space-y-1">
+                    ${parts.map(part => `<div class="flex items-center gap-1">${part}</div>`).join('')}
+                </div>
+            `;
+        }
+
         return `
             <div class="history-item group" data-index="${index}" role="button" tabindex="0">
                 <div class="flex items-start gap-3 p-3 rounded-lg border border-neutral-200 bg-white hover:bg-neutral-50 hover:border-indigo-300 transition-all cursor-pointer">
@@ -255,6 +275,7 @@ const SearchHistory = {
                                 ${entry.result.service}
                             </span>
                         </div>
+                        ${negotiationHTML}
                     </div>
                     <div class="flex-shrink-0">
                         <i class="fas fa-chevron-right text-neutral-400 group-hover:text-indigo-500 group-hover:translate-x-1 transition-all"></i>
@@ -359,7 +380,7 @@ const SearchHistory = {
     /**
      * Actualizar etiqueta de una entrada del historial
      */
-    updateHistoryTag(markerId, tag, keepMarker) {
+    updateHistoryTag(markerId, tag, keepMarker, contact, estimatedValue, offerAmount) {
         const history = this.getHistory();
 
         // Buscar entrada que coincida con las coordenadas del markerId
@@ -376,6 +397,9 @@ const SearchHistory = {
             if (entryLat === targetLat && entryLng === targetLng) {
                 entry.tag = tag;
                 entry.keepMarker = keepMarker;
+                entry.contact = contact;
+                entry.estimatedValue = estimatedValue;
+                entry.offerAmount = offerAmount;
                 updated = true;
             }
         });
@@ -394,6 +418,19 @@ const SearchHistory = {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    },
+
+    /**
+     * Formatear cantidad de dinero a formato mexicano
+     */
+    formatCurrency(amount) {
+        if (!amount) return '';
+        return new Intl.NumberFormat('es-MX', {
+            style: 'currency',
+            currency: 'MXN',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(amount);
     }
 };
 
