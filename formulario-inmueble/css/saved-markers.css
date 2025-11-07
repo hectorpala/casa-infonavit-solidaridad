@@ -1,0 +1,75 @@
+/**
+ * SAVED-MARKERS.CSS - Estilos para Marcadores Guardados en el Mapa
+ */
+
+/* ============================================
+   Marcadores Guardados con Etiquetas
+   ============================================ */
+
+.saved-property-marker {
+    cursor: pointer;
+    z-index: 500 !important; /* Menor que el marcador actual (1000) */
+}
+
+.saved-marker-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Círculo del marcador guardado */
+.saved-marker-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.15),
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgba(255, 255, 255, 0.9);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid white;
+}
+
+.saved-marker-circle:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.2),
+        0 3px 6px rgba(0, 0, 0, 0.15),
+        0 0 0 2px rgba(255, 255, 255, 1);
+}
+
+/* Badge de etiqueta debajo del marcador */
+.saved-marker-badge {
+    margin-top: 4px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    .saved-marker-circle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .saved-marker-circle i {
+        font-size: 12px !important;
+    }
+
+    .saved-marker-badge {
+        font-size: 9px;
+        padding: 2px 6px;
+    }
+}

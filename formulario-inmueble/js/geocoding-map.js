@@ -29,6 +29,9 @@ const GeocodingMapApp = {
         // Event listeners
         this.setupEventListeners();
 
+        // Restaurar marcadores guardados
+        this.restoreSavedMarkers();
+
         console.log('✅ Geocoding Map App inicializado');
     },
 
@@ -637,6 +640,130 @@ const GeocodingMapApp = {
                 container.removeChild(notification);
             }, 300);
         }, 5000);
+    },
+
+    /**
+     * Restaurar marcadores guardados desde localStorage
+     */
+    restoreSavedMarkers() {
+        console.log('🔄 Restaurando marcadores guardados...');
+
+        // Obtener marcadores desde MarkerManager
+        if (typeof MarkerManager === 'undefined') {
+            console.warn('⚠️ MarkerManager no disponible, no se pueden restaurar marcadores');
+            return;
+        }
+
+        const savedMarkers = MarkerManager.getAllMarkers();
+        const markersToRestore = Object.entries(savedMarkers)
+            .filter(([id, data]) => data.keepMarker !== false)
+            .map(([id, data]) => ({ id, ...data }));
+
+        if (markersToRestore.length === 0) {
+            console.log('ℹ️ No hay marcadores guardados para restaurar');
+            return;
+        }
+
+        console.log(`📍 Restaurando ${markersToRestore.length} marcador(es)...`);
+
+        // Restaurar cada marcador
+        markersToRestore.forEach((markerData, index) => {
+            setTimeout(() => {
+                this.addSavedMarker(markerData);
+            }, index * 100); // Pequeño delay entre marcadores para animación
+        });
+    },
+
+    /**
+     * Agregar un marcador guardado al mapa
+     */
+    addSavedMarker(markerData) {
+        const { lat, lng, address, tag, id } = markerData;
+
+        console.log(`📌 Agregando marcador: ${address.substring(0, 40)}...`);
+
+        // Obtener información de la etiqueta
+        let tagInfo = null;
+        if (tag && typeof MarkerManager !== 'undefined') {
+            tagInfo = MarkerManager.getTagByValue(tag);
+        }
+
+        // Crear marcador con icono personalizado
+        const markerIcon = L.divIcon({
+            className: 'saved-property-marker',
+            html: `
+                <div class="saved-marker-container">
+                    <div class="saved-marker-circle" style="background: linear-gradient(135deg, ${tagInfo ? tagInfo.color : '#6366f1'} 0%, ${tagInfo ? tagInfo.color : '#4f46e5'} 100%);">
+                        <i class="fas fa-home" style="color: white; font-size: 14px;"></i>
+                    </div>
+                    ${tagInfo && tagInfo.value ? `
+                        <div class="saved-marker-badge" style="background-color: ${tagInfo.bgColor}; color: ${tagInfo.color};">
+                            ${tagInfo.label}
+                        </div>
+                    ` : ''}
+                </div>
+            `,
+            iconSize: [40, tagInfo && tagInfo.value ? 70 : 40],
+            iconAnchor: [20, tagInfo && tagInfo.value ? 70 : 40],
+            popupAnchor: [0, tagInfo && tagInfo.value ? -70 : -40]
+        });
+
+        // Crear marcador
+        const marker = L.marker([lat, lng], {
+            icon: markerIcon,
+            title: address
+        }).addTo(this.map);
+
+        // Crear popup con información
+        const popupContent = `
+            <div style="min-width: 200px;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                    <i class="fas fa-map-marker-alt" style="color: ${tagInfo ? tagInfo.color : '#6366f1'};"></i>
+                    <strong style="font-size: 14px;">Propiedad Guardada</strong>
+                </div>
+                ${tagInfo && tagInfo.value ? `
+                    <div style="margin-bottom: 8px;">
+                        <span style="display: inline-block; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background-color: ${tagInfo.bgColor}; color: ${tagInfo.color};">
+                            <i class="fas fa-tag" style="font-size: 9px;"></i> ${tagInfo.label}
+                        </span>
+                    </div>
+                ` : ''}
+                <p style="margin: 8px 0; font-size: 13px; color: #374151;">
+                    <i class="fas fa-location-dot" style="color: #9ca3af; margin-right: 4px;"></i>
+                    ${address}
+                </p>
+                <p style="margin: 4px 0; font-size: 12px; color: #6b7280;">
+                    <i class="fas fa-crosshairs" style="color: #9ca3af; margin-right: 4px;"></i>
+                    ${lat.toFixed(6)}, ${lng.toFixed(6)}
+                </p>
+                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e7eb;">
+                    <button onclick="GeocodingMapApp.jumpToMarker(${lat}, ${lng})" style="width: 100%; padding: 6px 12px; background: #3b82f6; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+                        <i class="fas fa-crosshairs"></i> Centrar aquí
+                    </button>
+                </div>
+            </div>
+        `;
+
+        marker.bindPopup(popupContent);
+
+        // Guardar referencia
+        if (!this.savedMarkers) {
+            this.savedMarkers = [];
+        }
+        this.savedMarkers.push({
+            marker: marker,
+            data: markerData
+        });
+
+        console.log(`✅ Marcador agregado: ${address.substring(0, 30)}...`);
+    },
+
+    /**
+     * Saltar a un marcador específico
+     */
+    jumpToMarker(lat, lng) {
+        this.map.setView([lat, lng], 17);
+        console.log(`🎯 Saltando a marcador: ${lat}, ${lng}`);
     }
 };
 
