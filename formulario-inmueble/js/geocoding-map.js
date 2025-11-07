@@ -276,20 +276,13 @@ const GeocodingMapApp = {
             this.map.removeLayer(this.marker);
         }
 
-        // Crear custom icon 3D con elevación
+        // Crear custom icon
         const customIcon = L.divIcon({
-            className: 'property-marker-3d',
-            html: `
-                <div class="property-marker-3d-container">
-                    <div class="property-marker-circle">
-                        <span class="property-marker-icon">🏠</span>
-                    </div>
-                    <div class="property-marker-shadow"></div>
-                </div>
-            `,
-            iconSize: [56, 56],
-            iconAnchor: [28, 28],
-            popupAnchor: [0, -28]
+            className: 'custom-marker-icon',
+            html: '<i class="fas fa-map-marker-alt"></i>',
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
         });
 
         // Agregar nuevo marcador (DRAGGABLE para reverse geocoding)
