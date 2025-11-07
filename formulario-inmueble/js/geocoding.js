@@ -204,7 +204,15 @@ const Geocoding = {
 
                 // ✅ PRIORIDAD 1: Si es ROOFTOP con número de calle, aceptar SIN validar colonia
                 // (Google Maps puede usar nombre oficial de colonia diferente al ingresado)
+                console.log(`🔍 PRIORIDAD 1 - Evaluando condiciones:`, {
+                    isPrecise,
+                    hasNumber,
+                    enforceStreet: variant.enforceStreet,
+                    cumple: isPrecise && hasNumber && variant.enforceStreet
+                });
+
                 if (isPrecise && hasNumber && variant.enforceStreet) {
+                    console.log(`   → Entrando a PRIORIDAD 1 (validar solo calle, ignorar colonia)`);
                     const streetOnlyValid = this.googleComponentsMatch(
                         candidate.raw,
                         addressData,
@@ -212,12 +220,18 @@ const Geocoding = {
                         false   // enforceColonia = false (NO validar colonia)
                     );
 
+                    console.log(`   → Resultado validación solo calle: ${streetOnlyValid}`);
+
                     if (streetOnlyValid) {
                         result = candidate;
                         usedVariant = variant.query;
                         console.log(`✅ Candidato ROOFTOP aceptado (calle validada, colonia ignorada)`);
                         break;
+                    } else {
+                        console.warn(`   ⚠️ PRIORIDAD 1 falló - Calle no válida`);
                     }
+                } else {
+                    console.log(`   → NO entra a PRIORIDAD 1, pasando a PRIORIDAD 2`);
                 }
 
                 // ✅ PRIORIDAD 2: Validación completa (calle + colonia)
