@@ -9,13 +9,13 @@ const MarkerManager = {
     // Configuración
     STORAGE_KEY: 'property_markers',
 
-    // Catálogo de etiquetas (extensible)
+    // Catálogo de etiquetas (extensible) - Paleta unificada
     TAGS: [
-        { value: '', label: 'Sin etiqueta', color: '#94a3b8', bgColor: '#f1f5f9' },
-        { value: 'revision', label: 'En revisión', color: '#f59e0b', bgColor: '#fef3c7' },
+        { value: '', label: 'Sin etiqueta', color: '#64748b', bgColor: '#f1f5f9' },
+        { value: 'revision', label: 'En revisión', color: '#ff6a00', bgColor: '#fff7ed' },
         { value: 'compra', label: 'Compra', color: '#10b981', bgColor: '#d1fae5' },
         { value: 'venta', label: 'Venta', color: '#3b82f6', bgColor: '#dbeafe' },
-        { value: 'flip', label: 'Posible flip', color: '#8b5cf6', bgColor: '#ede9fe' },
+        { value: 'flip', label: 'Posible flip', color: '#a855f7', bgColor: '#f3e8ff' },
         { value: 'descartada', label: 'Descartada', color: '#ef4444', bgColor: '#fee2e2' }
     ],
 
