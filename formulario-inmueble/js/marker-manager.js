@@ -23,6 +23,29 @@ const MarkerManager = {
     currentMarker: null,
 
     /**
+     * Formatear número a moneda (solo número con comas, sin símbolo $)
+     */
+    formatCurrency(value) {
+        if (!value) return '';
+        // Convertir a número si es string
+        const num = typeof value === 'string' ? parseFloat(value.replace(/,/g, '')) : value;
+        if (isNaN(num)) return '';
+        // Formatear con comas (sin símbolo de peso)
+        return num.toLocaleString('es-MX', { maximumFractionDigits: 0 });
+    },
+
+    /**
+     * Parsear moneda formateada a número
+     */
+    parseCurrency(formattedValue) {
+        if (!formattedValue) return null;
+        // Remover comas y convertir a número
+        const cleaned = formattedValue.replace(/,/g, '');
+        const num = parseFloat(cleaned);
+        return isNaN(num) ? null : num;
+    },
+
+    /**
      * Inicializar el sistema de gestión de marcadores
      */
     init() {
@@ -211,18 +234,60 @@ const MarkerManager = {
 
         // Restaurar campos de negociación
         const contactInput = document.getElementById('property-contact');
+        const phoneInput = document.getElementById('property-phone');
         const valueInput = document.getElementById('property-value');
         const offerInput = document.getElementById('property-offer');
 
         if (contactInput && this.currentMarker.contact) {
             contactInput.value = this.currentMarker.contact;
         }
+        if (phoneInput && this.currentMarker.phone) {
+            phoneInput.value = this.currentMarker.phone;
+        }
         if (valueInput && this.currentMarker.estimatedValue) {
-            valueInput.value = this.currentMarker.estimatedValue;
+            valueInput.value = this.formatCurrency(this.currentMarker.estimatedValue);
         }
         if (offerInput && this.currentMarker.offerAmount) {
-            offerInput.value = this.currentMarker.offerAmount;
+            offerInput.value = this.formatCurrency(this.currentMarker.offerAmount);
         }
+
+        // 💰 Agregar event listeners para formatear moneda mientras escribe
+        this.setupCurrencyFormatting(valueInput, offerInput);
+    },
+
+    /**
+     * Configurar formateo automático de campos de moneda
+     */
+    setupCurrencyFormatting(valueInput, offerInput) {
+        const formatInputOnBlur = (input) => {
+            if (!input) return;
+
+            input.addEventListener('blur', () => {
+                const parsed = this.parseCurrency(input.value);
+                if (parsed !== null) {
+                    input.value = this.formatCurrency(parsed);
+                }
+            });
+
+            input.addEventListener('focus', () => {
+                // Mantener formateado al hacer focus
+            });
+
+            // Permitir solo números y comas mientras escribe
+            input.addEventListener('input', (e) => {
+                let value = e.target.value;
+                // Remover todo excepto números
+                value = value.replace(/[^\d]/g, '');
+                if (value) {
+                    // Formatear con comas mientras escribe
+                    const num = parseInt(value, 10);
+                    e.target.value = this.formatCurrency(num);
+                }
+            });
+        };
+
+        formatInputOnBlur(valueInput);
+        formatInputOnBlur(offerInput);
     },
 
     /**
@@ -309,38 +374,55 @@ const MarkerManager = {
                                 >
                             </div>
 
+                            <!-- Teléfono -->
+                            <div class="mb-3">
+                                <label for="property-phone" class="block text-xs font-medium text-neutral-700 mb-1.5">
+                                    <i class="fas fa-phone mr-1"></i>
+                                    Teléfono
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="property-phone"
+                                    placeholder="Ej: 667 123 4567"
+                                    value="${this.currentMarker.phone || ''}"
+                                    class="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                                >
+                            </div>
+
                             <!-- Valor Estimado -->
                             <div class="mb-3">
                                 <label for="property-value" class="block text-xs font-medium text-neutral-700 mb-1.5">
                                     <i class="fas fa-dollar-sign mr-1"></i>
-                                    Valor Estimado (MXN)
+                                    Valor Estimado
                                 </label>
-                                <input
-                                    type="number"
-                                    id="property-value"
-                                    placeholder="Ej: 2500000"
-                                    value="${this.currentMarker.estimatedValue || ''}"
-                                    min="0"
-                                    step="1000"
-                                    class="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                                >
+                                <div class="relative">
+                                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 text-sm font-medium">$</span>
+                                    <input
+                                        type="text"
+                                        id="property-value"
+                                        placeholder="2,500,000"
+                                        value="${this.currentMarker.estimatedValue ? this.formatCurrency(this.currentMarker.estimatedValue) : ''}"
+                                        class="w-full rounded-lg border border-neutral-300 pl-8 pr-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                                    >
+                                </div>
                             </div>
 
                             <!-- Oferta Realizada -->
                             <div>
                                 <label for="property-offer" class="block text-xs font-medium text-neutral-700 mb-1.5">
                                     <i class="fas fa-hand-holding-dollar mr-1"></i>
-                                    Oferta Realizada (MXN)
+                                    Oferta Realizada
                                 </label>
-                                <input
-                                    type="number"
-                                    id="property-offer"
-                                    placeholder="Ej: 2200000"
-                                    value="${this.currentMarker.offerAmount || ''}"
-                                    min="0"
-                                    step="1000"
-                                    class="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
-                                >
+                                <div class="relative">
+                                    <span class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500 text-sm font-medium">$</span>
+                                    <input
+                                        type="text"
+                                        id="property-offer"
+                                        placeholder="2,200,000"
+                                        value="${this.currentMarker.offerAmount ? this.formatCurrency(this.currentMarker.offerAmount) : ''}"
+                                        class="w-full rounded-lg border border-neutral-300 pl-8 pr-3 py-2 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                                    >
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -429,6 +511,7 @@ const MarkerManager = {
         const select = document.getElementById('marker-tag-select');
         const keepCheckbox = document.getElementById('keep-marker-checkbox');
         const contactInput = document.getElementById('property-contact');
+        const phoneInput = document.getElementById('property-phone');
         const valueInput = document.getElementById('property-value');
         const offerInput = document.getElementById('property-offer');
 
@@ -445,8 +528,9 @@ const MarkerManager = {
         if (tag) {
             negotiationData = {
                 contact: contactInput ? contactInput.value.trim() : '',
-                estimatedValue: valueInput && valueInput.value ? parseFloat(valueInput.value) : null,
-                offerAmount: offerInput && offerInput.value ? parseFloat(offerInput.value) : null
+                phone: phoneInput ? phoneInput.value.trim() : '',
+                estimatedValue: valueInput && valueInput.value ? this.parseCurrency(valueInput.value) : null,
+                offerAmount: offerInput && offerInput.value ? this.parseCurrency(offerInput.value) : null
             };
         }
 
@@ -454,6 +538,7 @@ const MarkerManager = {
         this.currentMarker.tag = tag;
         this.currentMarker.keepMarker = keepMarker;
         this.currentMarker.contact = negotiationData.contact;
+        this.currentMarker.phone = negotiationData.phone;
         this.currentMarker.estimatedValue = negotiationData.estimatedValue;
         this.currentMarker.offerAmount = negotiationData.offerAmount;
 
@@ -466,6 +551,7 @@ const MarkerManager = {
             tag: tag,
             keepMarker: keepMarker,
             contact: negotiationData.contact,
+            phone: negotiationData.phone,
             estimatedValue: negotiationData.estimatedValue,
             offerAmount: negotiationData.offerAmount,
             timestamp: this.currentMarker.timestamp
@@ -488,6 +574,7 @@ const MarkerManager = {
                     tag: tag,
                     keepMarker: keepMarker,
                     contact: negotiationData.contact,
+                    phone: negotiationData.phone,
                     estimatedValue: negotiationData.estimatedValue,
                     offerAmount: negotiationData.offerAmount
                 }

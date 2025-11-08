@@ -805,9 +805,23 @@ const GeocodingMapApp = {
      * Agregar un marcador guardado al mapa
      */
     addSavedMarker(markerData) {
-        const { lat, lng, address, tag, id, contact, estimatedValue, offerAmount } = markerData;
+        const { lat, lng, address, tag, id, contact, phone, estimatedValue, offerAmount } = markerData;
 
         console.log(`📌 Agregando marcador: ${address.substring(0, 40)}...`);
+
+        // 🔧 FIX: Remover marcador naranja temporal si existe en la misma ubicación
+        if (this.marker) {
+            const markerPos = this.marker.getLatLng();
+            const latDiff = Math.abs(markerPos.lat - lat);
+            const lngDiff = Math.abs(markerPos.lng - lng);
+
+            // Si el marcador naranja está en la misma ubicación (tolerancia 0.0001 ≈ 10 metros)
+            if (latDiff < 0.0001 && lngDiff < 0.0001) {
+                console.log('🗑️ Removiendo marcador naranja temporal (reemplazado por marcador guardado)');
+                this.map.removeLayer(this.marker);
+                this.marker = null;
+            }
+        }
 
         // Obtener información de la etiqueta
         let tagInfo = null;
@@ -843,7 +857,7 @@ const GeocodingMapApp = {
 
         // Generar sección de datos de negociación
         let negotiationHTML = '';
-        if (contact || estimatedValue || offerAmount) {
+        if (contact || phone || estimatedValue || offerAmount) {
             const formatCurrency = (amount) => {
                 if (!amount) return '';
                 return new Intl.NumberFormat('es-MX', {
@@ -862,6 +876,12 @@ const GeocodingMapApp = {
                         <p style="margin: 4px 0; font-size: 12px; color: #374151;">
                             <i class="fas fa-user" style="color: #8b5cf6; margin-right: 4px; width: 14px;"></i>
                             <strong>${contact}</strong>
+                        </p>
+                    ` : ''}
+                    ${phone ? `
+                        <p style="margin: 4px 0; font-size: 12px; color: #374151;">
+                            <i class="fas fa-phone" style="color: #059669; margin-right: 4px; width: 14px;"></i>
+                            <a href="tel:${phone}" style="color: #059669; text-decoration: none; font-weight: 600;" onclick="event.stopPropagation();">${phone}</a>
                         </p>
                     ` : ''}
                     ${estimatedValue ? `
