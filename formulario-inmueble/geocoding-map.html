@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="antialiased selection:bg-fuchsia-100 selection:text-fuchsia-900">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -127,18 +127,18 @@
         }
     </style>
 </head>
-<body class="bg-white text-neutral-900">
+<body class="bg-white text-zinc-900 text-[clamp(15px,1.6vw,16px)] leading-[1.55] tracking-[0.005em] font-sans">
     <!-- Header -->
     <header class="bg-white border-b border-neutral-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
-        <div class="max-w-7xl mx-auto px-6 py-8">
-            <div class="flex items-center justify-between mb-2">
+        <div class="mx-auto w-full max-w-[1100px] px-4 md:px-6 py-6 md:py-8">
+            <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center">
                         <i class="fas fa-map-marked-alt text-white text-lg"></i>
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold text-neutral-900">Geocodificación de Direcciones</h1>
-                        <p class="text-sm text-neutral-600 mt-0.5">Obtén coordenadas precisas para tus propiedades</p>
+                        <h1 class="text-[clamp(22px,3.5vw,32px)] leading-[1.15] font-semibold text-zinc-900">Geocodificación de Direcciones</h1>
+                        <p class="text-[12px] leading-[1.4] text-zinc-500 mt-1">Obtén coordenadas precisas para tus propiedades</p>
                     </div>
                 </div>
                 <span class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold border border-emerald-200">
@@ -150,23 +150,24 @@
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-7xl mx-auto px-6 py-8 space-y-6">
+    <main class="mx-auto w-full max-w-[1100px] px-4 md:px-6 py-6 md:py-8 space-y-3">
         <!-- Grid Layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
             <!-- Left Panel: Form -->
             <div class="lg:col-span-5">
                 <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
-                    <div class="bg-gradient-to-r from-indigo-50 to-indigo-100/50 px-6 py-4 border-b border-indigo-200">
+                    <!-- Header con patrón de titular de sección -->
+                    <header class="bg-gradient-to-r from-indigo-50 to-indigo-100/50 p-4 md:p-5 border-b border-indigo-200">
                         <div class="flex items-center justify-between">
-                            <div class="flex items-center gap-3">
-                                <i class="fas fa-map-marker-alt text-indigo-600 text-xl"></i>
-                                <h2 class="text-lg font-semibold text-neutral-900">Ingresa la Dirección</h2>
+                            <div>
+                                <h2 class="text-[clamp(18px,2.6vw,24px)] leading-[1.2] font-semibold text-zinc-900">Dirección</h2>
+                                <p class="mt-1 text-[12px] text-zinc-500">Completa los datos para posicionar el pin</p>
                             </div>
-                            <span class="text-[11px] text-zinc-500">* campos obligatorios</span>
+                            <span class="text-[11px] text-zinc-500">* obligatorio</span>
                         </div>
-                    </div>
+                    </header>
 
-            <form id="geocoding-form" class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form id="geocoding-form" class="p-4 md:p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Estado -->
                 <div class="space-y-1.5">
                     <label for="state" class="text-xs font-medium text-zinc-700">Estado</label>
@@ -260,14 +261,14 @@
                 <!-- Botones -->
                 <div class="md:col-span-2 flex items-center gap-3">
                     <button type="submit" id="btn-geocode"
-                            class="h-11 px-5 rounded-xl bg-fuchsia-600 text-white font-medium shadow-sm hover:bg-fuchsia-700 active:translate-y-[1px] transition disabled:opacity-50 disabled:cursor-not-allowed"
+                            class="h-11 px-5 rounded-xl bg-fuchsia-600 text-white font-medium shadow-sm hover:bg-fuchsia-700 active:translate-y-[1px] transition disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-fuchsia-500"
                             aria-label="Geocodificar dirección introducida"
                             disabled>
                         <i class="fas fa-search-location mr-2"></i>
                         Geocodificar
                     </button>
                     <button type="button" id="clear-form"
-                            class="h-11 px-5 rounded-xl border border-zinc-200 text-zinc-700 bg-white hover:bg-zinc-50 transition"
+                            class="h-11 px-5 rounded-xl border border-zinc-200 text-zinc-700 bg-white hover:bg-zinc-50 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-fuchsia-500"
                             aria-label="Limpiar todos los campos">
                         <i class="fas fa-eraser mr-2"></i>
                         Limpiar
@@ -285,43 +286,43 @@
 
             <!-- Results Panel -->
             <div id="results-panel" class="mt-6 bg-emerald-50 rounded-2xl border-2 border-emerald-200 overflow-hidden" style="display: none;">
-                <div class="bg-emerald-500 px-6 py-4">
+                <header class="bg-emerald-500 p-4 md:p-5">
                     <div class="flex items-center gap-3 text-white">
                         <div class="h-10 w-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                             <i class="fas fa-check-circle text-lg"></i>
                         </div>
-                        <h3 class="text-lg font-semibold">Resultados de Geocodificación</h3>
+                        <h3 class="text-[clamp(18px,2.6vw,24px)] leading-[1.2] font-semibold">Resultados</h3>
                     </div>
-                </div>
+                </header>
 
-                <div class="p-6 space-y-4">
+                <div class="p-4 md:p-5 space-y-4">
                     <div class="bg-white rounded-xl p-4 border border-emerald-200">
-                        <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Dirección Completa</span>
-                        <p class="mt-1 text-sm text-neutral-900 font-medium" id="result-address">-</p>
+                        <span class="text-[12px] font-semibold text-emerald-700 uppercase tracking-wide">Dirección Completa</span>
+                        <p class="mt-1 text-sm text-zinc-900 font-medium" id="result-address">-</p>
                     </div>
 
                     <!-- Información de Negociación -->
                     <div id="result-negotiation-section" class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-4 border-2 border-purple-200" style="display: none;">
                         <div class="flex items-center gap-2 mb-3">
                             <i class="fas fa-handshake text-purple-600"></i>
-                            <span class="text-xs font-semibold text-purple-700 uppercase tracking-wide">Información de Negociación</span>
+                            <span class="text-[12px] font-semibold text-purple-700 uppercase tracking-wide">Información de Negociación</span>
                         </div>
 
                         <div class="space-y-2">
                             <div id="result-contact-container" style="display: none;">
-                                <p class="text-sm text-neutral-700">
+                                <p class="text-sm text-zinc-700">
                                     <i class="fas fa-user text-purple-600 mr-2"></i>
                                     <strong>Contacto:</strong> <span id="result-contact">-</span>
                                 </p>
                             </div>
                             <div id="result-estimated-value-container" style="display: none;">
-                                <p class="text-sm text-neutral-700">
+                                <p class="text-sm text-zinc-700">
                                     <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
                                     <strong>Valor Estimado:</strong> <span id="result-estimated-value">-</span>
                                 </p>
                             </div>
                             <div id="result-offer-container" style="display: none;">
-                                <p class="text-sm text-neutral-700">
+                                <p class="text-sm text-zinc-700">
                                     <i class="fas fa-hand-holding-usd text-orange-600 mr-2"></i>
                                     <strong>Oferta Realizada:</strong> <span id="result-offer">-</span>
                                 </p>
@@ -337,50 +338,50 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div class="bg-white rounded-xl p-4 border border-emerald-200">
-                            <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Latitud</span>
-                            <code class="block mt-1 text-sm text-neutral-900 font-mono font-bold" id="result-lat">-</code>
+                            <span class="text-[12px] font-semibold text-emerald-700 uppercase tracking-wide">Latitud</span>
+                            <code class="block mt-1 text-sm text-zinc-900 font-mono font-bold" id="result-lat">-</code>
                         </div>
 
                         <div class="bg-white rounded-xl p-4 border border-emerald-200">
-                            <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Longitud</span>
-                            <code class="block mt-1 text-sm text-neutral-900 font-mono font-bold" id="result-lng">-</code>
+                            <span class="text-[12px] font-semibold text-emerald-700 uppercase tracking-wide">Longitud</span>
+                            <code class="block mt-1 text-sm text-zinc-900 font-mono font-bold" id="result-lng">-</code>
                         </div>
 
                         <div class="bg-white rounded-xl p-4 border border-emerald-200">
-                            <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Código Postal</span>
-                            <p class="mt-1 text-sm text-neutral-900 font-medium" id="result-zip">-</p>
+                            <span class="text-[12px] font-semibold text-emerald-700 uppercase tracking-wide">Código Postal</span>
+                            <p class="mt-1 text-sm text-zinc-900 font-medium" id="result-zip">-</p>
                         </div>
 
                         <div class="bg-white rounded-xl p-4 border border-emerald-200">
-                            <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Precisión</span>
-                            <p class="mt-1 text-sm text-neutral-900 font-medium" id="result-accuracy">-</p>
+                            <span class="text-[12px] font-semibold text-emerald-700 uppercase tracking-wide">Precisión</span>
+                            <p class="mt-1 text-sm text-zinc-900 font-medium" id="result-accuracy">-</p>
                         </div>
                     </div>
 
                     <div class="bg-white rounded-xl p-4 border border-emerald-200">
-                        <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Servicio Usado</span>
-                        <p class="mt-1 text-sm text-neutral-900 font-medium" id="result-service">-</p>
+                        <span class="text-[12px] font-semibold text-emerald-700 uppercase tracking-wide">Servicio Usado</span>
+                        <p class="mt-1 text-sm text-zinc-900 font-medium" id="result-service">-</p>
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="flex flex-col gap-3 pt-2">
                         <!-- Primera fila: Google Maps + Copiar Coords -->
                         <div class="flex gap-3">
-                            <a id="open-in-maps" href="#" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:bg-blue-800 transition-all">
+                            <a id="open-in-maps" href="#" target="_blank" class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 active:bg-blue-800 transition-all">
                                 <i class="fab fa-google"></i>
                                 Google Maps
                             </a>
 
-                            <button id="copy-coords" class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 active:bg-emerald-800 transition-all" aria-label="Copiar coordenadas al portapapeles">
+                            <button id="copy-coords" class="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-500 active:bg-emerald-800 transition-all" aria-label="Copiar coordenadas">
                                 <i class="fas fa-copy"></i>
-                                Copiar Coords
+                                Copiar
                             </button>
                         </div>
 
                         <!-- Segunda fila: Copiar Enlace (Deep-link) -->
-                        <button id="btn-share-link" class="w-full inline-flex items-center justify-center gap-2 rounded-xl border-2 border-indigo-600 bg-white px-4 py-3 text-sm font-semibold text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:bg-indigo-100 transition-all" aria-label="Copiar enlace para compartir esta ubicación">
+                        <button id="btn-share-link" class="w-full inline-flex items-center justify-center gap-2 rounded-xl border-2 border-indigo-600 bg-white px-4 py-3 text-sm font-semibold text-indigo-600 hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500 active:bg-indigo-100 transition-all" aria-label="Copiar enlace">
                             <i class="fas fa-share-alt"></i>
-                            Copiar Enlace para Compartir
+                            Compartir
                         </button>
                     </div>
                 </div>
@@ -391,12 +392,10 @@
         <!-- Right Panel: Map -->
         <div class="lg:col-span-7">
             <div class="bg-white rounded-2xl shadow-sm border border-neutral-200 overflow-hidden">
-                <div class="bg-gradient-to-r from-indigo-50 to-indigo-100/50 px-6 py-4 border-b border-indigo-200">
-                    <div class="flex items-center gap-3">
-                        <i class="fas fa-map text-indigo-600 text-xl"></i>
-                        <h2 class="text-lg font-semibold text-neutral-900">Mapa Interactivo</h2>
-                    </div>
-                </div>
+                <header class="bg-gradient-to-r from-indigo-50 to-indigo-100/50 p-4 md:p-5 border-b border-indigo-200">
+                    <h2 class="text-[clamp(18px,2.6vw,24px)] leading-[1.2] font-semibold text-zinc-900">Mapa Interactivo</h2>
+                    <p class="mt-1 text-[12px] text-zinc-500">Arrastra el pin para ajustar la ubicación</p>
+                </header>
 
                 <!-- Mapa con overlay card -->
                 <div class="relative">
@@ -407,31 +406,31 @@
                         <div class="flex items-start gap-2">
                             <div class="mt-0.5 h-2.5 w-2.5 rounded-full bg-emerald-500"></div>
                             <div class="flex-1">
-                                <h3 class="text-sm font-semibold text-neutral-900">Ubicación encontrada</h3>
-                                <p id="addr" class="text-sm text-neutral-700">Av. Doctor Mora 1640, Las Quintas, Culiacán</p>
+                                <h3 class="text-[clamp(16px,2.2vw,20px)] leading-[1.3] font-medium text-zinc-900">Ubicación encontrada</h3>
+                                <p id="addr" class="text-sm text-zinc-600 mt-1">Av. Doctor Mora 1640, Las Quintas, Culiacán</p>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 gap-2 text-sm">
                             <div class="flex justify-between">
-                                <span class="text-neutral-500">Coordenadas (dec)</span>
-                                <code id="coords-dec" class="font-mono text-neutral-800">24.814841, -107.369199</code>
+                                <span class="text-zinc-500">Coordenadas (dec)</span>
+                                <code id="coords-dec" class="font-mono text-zinc-800">24.814841, -107.369199</code>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-neutral-500">Coordenadas (DMS)</span>
-                                <code id="coords-dms" class="font-mono text-neutral-800">24°48'53.4"N, 107°22'09.1"W</code>
+                                <span class="text-zinc-500">Coordenadas (DMS)</span>
+                                <code id="coords-dms" class="font-mono text-zinc-800">24°48'53.4"N, 107°22'09.1"W</code>
                             </div>
                             <div class="flex justify-between">
-                                <span class="text-neutral-500">CP</span>
-                                <span id="cp" class="text-neutral-800">80060</span>
+                                <span class="text-zinc-500">CP</span>
+                                <span id="cp" class="text-zinc-800">80060</span>
                             </div>
                         </div>
 
                         <div class="flex items-center gap-2">
-                            <button id="btn-copy" class="inline-flex items-center justify-center rounded-xl border border-neutral-300 px-3 py-2 text-sm font-medium hover:bg-neutral-50 active:bg-neutral-100 transition-all">
-                                Copiar coords
+                            <button id="btn-copy" class="inline-flex items-center justify-center rounded-xl border border-zinc-300 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50 active:bg-zinc-100 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-fuchsia-500">
+                                Copiar
                             </button>
-                            <button id="btn-use" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-700 active:bg-indigo-800 transition-all">
+                            <button id="btn-use" class="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-700 active:bg-indigo-800 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-indigo-500">
                                 Usar ubicación
                             </button>
                         </div>
@@ -439,14 +438,14 @@
                 </div>
 
                 <!-- Legend -->
-                <div class="bg-neutral-50 px-6 py-3 border-t border-neutral-200 flex flex-wrap gap-4 justify-center text-sm text-neutral-600">
+                <div class="bg-zinc-50 px-4 md:px-6 py-3 border-t border-zinc-200 flex flex-wrap gap-4 justify-center text-[12px] text-zinc-600">
                     <div class="flex items-center gap-2">
                         <i class="fas fa-map-pin text-indigo-600"></i>
                         <span>Ubicación geocodificada</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i class="fas fa-hand-pointer text-indigo-600"></i>
-                        <span>Arrastra el marcador para ajustar</span>
+                        <span>Arrastra para ajustar</span>
                     </div>
                 </div>
             </div>
@@ -460,8 +459,8 @@
             <div class="flex flex-col items-center space-y-4">
                 <div class="h-16 w-16 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
                 <div class="text-center">
-                    <p class="text-lg font-semibold text-neutral-900">Geocodificando dirección...</p>
-                    <p class="text-sm text-neutral-600 mt-1">Esto puede tomar unos segundos</p>
+                    <p class="text-[clamp(16px,2.2vw,20px)] leading-[1.3] font-medium text-zinc-900">Geocodificando...</p>
+                    <p class="text-[12px] text-zinc-500 mt-1">Esto puede tomar unos segundos</p>
                 </div>
             </div>
         </div>
