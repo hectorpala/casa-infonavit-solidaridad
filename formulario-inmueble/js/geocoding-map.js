@@ -873,24 +873,24 @@ const GeocodingMapApp = {
             }).format(amount);
         };
 
-        // 🎨 POPUP REDISEÑADO - Limpio, con jerarquía, que respire
+        // 🎨 POPUP CON SISTEMA DE DISEÑO SÓLIDO - Tokens CSS consistentes
         const popupContent = `
-            <div class="w-[360px] rounded-2xl border border-zinc-200 bg-white shadow-lg p-4">
+            <div class="w-[360px] rounded-xl border border-[color:var(--brd)] bg-[color:var(--bg)] shadow-[var(--shadow)] p-4 md:p-5">
                 <!-- Encabezado compacto: nombre grande + status chip + teléfono discreto -->
                 <div class="flex items-start justify-between gap-3">
                     <div class="flex-1 min-w-0">
                         ${contact ? `
-                            <h3 class="text-zinc-900 text-lg font-semibold leading-tight truncate">${contact}</h3>
+                            <h3 class="text-[color:var(--fg)] text-lg font-semibold leading-tight truncate">${contact}</h3>
                             ${phone ? `
                                 <a href="tel:${phone}"
-                                   class="text-sm text-zinc-500 hover:text-zinc-700 transition-colors inline-block mt-1"
+                                   class="text-sm text-[color:var(--fg-subtle)] hover:text-[color:var(--fg-muted)] transition-colors inline-block mt-1"
                                    onclick="event.stopPropagation();">
                                     ${phone}
                                 </a>
                             ` : ''}
                         ` : `
-                            <h3 class="text-zinc-900 text-lg font-semibold leading-tight">Sin propietario</h3>
-                            <p class="text-sm text-amber-600 mt-1">Información incompleta</p>
+                            <h3 class="text-[color:var(--fg)] text-lg font-semibold leading-tight">Sin propietario</h3>
+                            <p class="text-sm text-[color:var(--warn)] mt-1">Información incompleta</p>
                         `}
                     </div>
                     ${tagInfo && tagInfo.value ? `
@@ -904,21 +904,21 @@ const GeocodingMapApp = {
                 <!-- Montos en 2 columnas: etiquetas pequeñas + cifras grandes -->
                 <div class="mt-3 grid grid-cols-2 gap-3">
                     <div>
-                        <p class="text-xs text-zinc-500">Valor estimado</p>
-                        <p class="text-base font-semibold text-zinc-900 mt-0.5">
-                            ${estimatedValue ? formatCurrency(estimatedValue) : '<span class="text-zinc-400 font-normal">No especificado</span>'}
+                        <p class="text-xs text-[color:var(--fg-subtle)]">Valor estimado</p>
+                        <p class="text-base font-semibold text-[color:var(--fg)] mt-0.5">
+                            ${estimatedValue ? formatCurrency(estimatedValue) : '<span class="text-[color:var(--fg-subtle)] font-normal">No especificado</span>'}
                         </p>
                     </div>
                     <div>
-                        <p class="text-xs text-zinc-500">Oferta actual</p>
-                        <p class="text-base font-semibold text-zinc-900 mt-0.5">
-                            ${offerAmount ? formatCurrency(offerAmount) : '<span class="text-zinc-400 font-normal">No especificado</span>'}
+                        <p class="text-xs text-[color:var(--fg-subtle)]">Oferta actual</p>
+                        <p class="text-base font-semibold text-[color:var(--fg)] mt-0.5">
+                            ${offerAmount ? formatCurrency(offerAmount) : '<span class="text-[color:var(--fg-subtle)] font-normal">No especificado</span>'}
                         </p>
                     </div>
                 </div>
 
                 <!-- Dirección: caja neutra, icono, 2 líneas máx con ellipsis -->
-                <div class="mt-3 rounded-lg bg-zinc-50 border border-zinc-100 p-3 text-sm text-zinc-700">
+                <div class="mt-3 rounded-lg bg-[color:var(--bg-muted)] border border-[color:var(--brd)] p-3 text-sm text-[color:var(--fg-muted)]">
                     <div class="flex items-start gap-2">
                         <span class="text-base flex-shrink-0">📍</span>
                         <p class="flex-1 line-clamp-2 leading-relaxed" style="
@@ -931,10 +931,10 @@ const GeocodingMapApp = {
                     </div>
                 </div>
 
-                <!-- CTA primario único: full-width, sin degradados, limpio -->
+                <!-- CTA primario: sistema de diseño consistente -->
                 <button
                     onclick="GeocodingMapApp.jumpToMarker(${lat}, ${lng})"
-                    class="mt-4 w-full h-10 rounded-xl bg-fuchsia-600 text-white font-medium hover:bg-fuchsia-700 transition-colors focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:ring-offset-2">
+                    class="mt-4 w-full h-10 rounded-xl bg-[color:var(--accent)] text-white font-medium hover:bg-[color:var(--accent-600)] hover:-translate-y-[0.5px] shadow-md hover:shadow-lg active:translate-y-[1px] transition outline-none ring-4 ring-transparent focus:ring-[color:var(--accent-100)]">
                     Centrar en mapa
                 </button>
             </div>
