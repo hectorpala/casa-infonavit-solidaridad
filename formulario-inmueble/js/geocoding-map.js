@@ -855,83 +855,121 @@ const GeocodingMapApp = {
             title: address
         }).addTo(this.map);
 
-        // Generar sección de datos de negociación
-        let negotiationHTML = '';
-        if (contact || phone || estimatedValue || offerAmount) {
-            const formatCurrency = (amount) => {
-                if (!amount) return '';
-                return new Intl.NumberFormat('es-MX', {
-                    style: 'currency',
-                    currency: 'MXN',
-                    minimumFractionDigits: 0
-                }).format(amount);
-            };
+        // Formatter de moneda
+        const formatCurrency = (amount) => {
+            if (!amount) return '';
+            return new Intl.NumberFormat('es-MX', {
+                style: 'currency',
+                currency: 'MXN',
+                minimumFractionDigits: 0
+            }).format(amount);
+        };
 
-            negotiationHTML = `
-                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e7eb;">
-                    <div style="font-size: 11px; font-weight: 600; color: #6b7280; margin-bottom: 6px;">
-                        <i class="fas fa-handshake"></i> Información de Negociación
-                    </div>
-                    ${contact ? `
-                        <p style="margin: 4px 0; font-size: 12px; color: #374151;">
-                            <i class="fas fa-user" style="color: #8b5cf6; margin-right: 4px; width: 14px;"></i>
-                            <strong>${contact}</strong>
-                        </p>
-                    ` : ''}
-                    ${phone ? `
-                        <p style="margin: 4px 0; font-size: 12px; color: #374151;">
-                            <i class="fas fa-phone" style="color: #059669; margin-right: 4px; width: 14px;"></i>
-                            <a href="tel:${phone}" style="color: #059669; text-decoration: none; font-weight: 600;" onclick="event.stopPropagation();">${phone}</a>
-                        </p>
-                    ` : ''}
-                    ${estimatedValue ? `
-                        <p style="margin: 4px 0; font-size: 12px; color: #374151;">
-                            <i class="fas fa-dollar-sign" style="color: #10b981; margin-right: 4px; width: 14px;"></i>
-                            Valor: <strong>${formatCurrency(estimatedValue)}</strong>
-                        </p>
-                    ` : ''}
-                    ${offerAmount ? `
-                        <p style="margin: 4px 0; font-size: 12px; color: #374151;">
-                            <i class="fas fa-hand-holding-dollar" style="color: #3b82f6; margin-right: 4px; width: 14px;"></i>
-                            Oferta: <strong>${formatCurrency(offerAmount)}</strong>
-                        </p>
-                    ` : ''}
-                </div>
-            `;
-        }
-
-        // Crear popup con información
+        // Crear popup con información en el ORDEN REQUERIDO:
+        // 1. Nombre del propietario (destacado)
+        // 2. Dirección completa
+        // 3. Valor estimado
+        // 4. Oferta actual
         const popupContent = `
-            <div style="min-width: 220px;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                    <i class="fas fa-map-marker-alt" style="color: ${tagInfo ? tagInfo.color : '#6366f1'};"></i>
-                    <strong style="font-size: 14px;">Propiedad Guardada</strong>
-                </div>
+            <div style="min-width: 240px; max-width: 320px;">
+                <!-- Header con etiqueta -->
                 ${tagInfo && tagInfo.value ? `
-                    <div style="margin-bottom: 8px;">
-                        <span style="display: inline-block; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background-color: ${tagInfo.bgColor}; color: ${tagInfo.color};">
+                    <div style="margin-bottom: 12px;">
+                        <span style="display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; background-color: ${tagInfo.bgColor}; color: ${tagInfo.color};">
                             <i class="fas fa-tag" style="font-size: 9px;"></i> ${tagInfo.label}
                         </span>
                     </div>
                 ` : ''}
-                <p style="margin: 8px 0; font-size: 13px; color: #374151;">
-                    <i class="fas fa-location-dot" style="color: #9ca3af; margin-right: 4px;"></i>
-                    ${address}
-                </p>
-                <p style="margin: 4px 0; font-size: 12px; color: #6b7280;">
-                    <i class="fas fa-crosshairs" style="color: #9ca3af; margin-right: 4px;"></i>
-                    ${lat.toFixed(6)}, ${lng.toFixed(6)}
-                </p>
-                ${negotiationHTML}
+
+                <!-- 1️⃣ NOMBRE DEL PROPIETARIO (obligatorio, destacado) -->
+                ${contact ? `
+                    <div style="margin-bottom: 12px;">
+                        <p style="margin: 0; font-size: 15px; font-weight: 700; color: #111827; line-height: 1.3;">
+                            <i class="fas fa-user" style="color: #8b5cf6; margin-right: 6px;"></i>${contact}
+                        </p>
+                        ${phone ? `
+                            <p style="margin: 4px 0 0 24px; font-size: 12px; color: #059669;">
+                                <i class="fas fa-phone" style="margin-right: 4px;"></i>
+                                <a href="tel:${phone}" style="color: #059669; text-decoration: none; font-weight: 600;" onclick="event.stopPropagation();">${phone}</a>
+                            </p>
+                        ` : ''}
+                    </div>
+                ` : `
+                    <div style="margin-bottom: 12px; padding: 8px; background: #fef3c7; border-left: 3px solid #f59e0b; border-radius: 4px;">
+                        <p style="margin: 0; font-size: 12px; color: #92400e;">
+                            <i class="fas fa-exclamation-triangle" style="margin-right: 4px;"></i>
+                            <strong>Sin nombre de propietario</strong>
+                        </p>
+                    </div>
+                `}
+
+                <!-- 2️⃣ DIRECCIÓN COMPLETA -->
+                <div style="margin-bottom: 10px; padding: 8px; background: #f3f4f6; border-radius: 6px;">
+                    <p style="margin: 0; font-size: 12px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">
+                        <i class="fas fa-location-dot" style="margin-right: 4px;"></i>Dirección
+                    </p>
+                    <p style="margin: 0; font-size: 13px; color: #374151; line-height: 1.4;">
+                        ${address}
+                    </p>
+                </div>
+
+                <!-- 3️⃣ VALOR ESTIMADO -->
+                <div style="margin-bottom: 8px;">
+                    <p style="margin: 0; font-size: 12px; color: #6b7280;">
+                        <i class="fas fa-dollar-sign" style="color: #10b981; margin-right: 4px; width: 14px;"></i>
+                        Valor estimado:
+                    </p>
+                    <p style="margin: 2px 0 0 20px; font-size: 14px; color: #111827; font-weight: 600;">
+                        ${estimatedValue ? formatCurrency(estimatedValue) : '<span style="color: #9ca3af; font-weight: 400;">No especificado</span>'}
+                    </p>
+                </div>
+
+                <!-- 4️⃣ OFERTA ACTUAL -->
+                <div style="margin-bottom: 12px;">
+                    <p style="margin: 0; font-size: 12px; color: #6b7280;">
+                        <i class="fas fa-hand-holding-dollar" style="color: #3b82f6; margin-right: 4px; width: 14px;"></i>
+                        Oferta actual:
+                    </p>
+                    <p style="margin: 2px 0 0 20px; font-size: 14px; color: #111827; font-weight: 600;">
+                        ${offerAmount ? formatCurrency(offerAmount) : '<span style="color: #9ca3af; font-weight: 400;">No especificado</span>'}
+                    </p>
+                </div>
+
+                <!-- Footer con botón centrar -->
                 <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e7eb;">
-                    <button onclick="GeocodingMapApp.jumpToMarker(${lat}, ${lng})" style="width: 100%; padding: 6px 12px; background: #3b82f6; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s;">
-                        <i class="fas fa-crosshairs"></i> Centrar aquí
+                    <button onclick="GeocodingMapApp.jumpToMarker(${lat}, ${lng})" style="width: 100%; padding: 8px 12px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);">
+                        <i class="fas fa-crosshairs"></i> Centrar en mapa
                     </button>
                 </div>
             </div>
         `;
 
-        marker.bindPopup(popupContent);
+        // Configurar popup con opciones para UX mobile
+        marker.bindPopup(popupContent, {
+            closeButton: true,           // Botón X para cerrar
+            closeOnClick: false,         // NO cerrar al hacer click en el mapa (mejor UX)
+            autoClose: false,            // Permitir múltiples popups abiertos
+            className: 'property-popup', // Clase CSS personalizada
+            maxWidth: 320,              // Ancho máximo
+            minWidth: 240               // Ancho mínimo
+        });
+
+        // 📱 UX Mobile: Cerrar popup al tocar fuera (solo en mobile)
+        if ('ontouchstart' in window) {
+            marker.on('popupopen', () => {
+                const handleOutsideClick = (e) => {
+                    const popup = document.querySelector('.leaflet-popup');
+                    if (popup && !popup.contains(e.target) && !e.target.closest('.leaflet-marker-icon')) {
+                        marker.closePopup();
+                        document.removeEventListener('touchstart', handleOutsideClick);
+                    }
+                };
+                // Delay para evitar que se cierre inmediatamente
+                setTimeout(() => {
+                    document.addEventListener('touchstart', handleOutsideClick);
+                }, 100);
+            });
+        }
 
         // Guardar referencia
         if (!this.savedMarkers) {

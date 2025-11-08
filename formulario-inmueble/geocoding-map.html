@@ -76,6 +76,55 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #a3a3a3;
         }
+
+        /* 📱 UX Mobile: Mejorar tap area de marcadores */
+        .leaflet-marker-icon {
+            cursor: pointer;
+            /* Área táctil mínima 44x44px (Apple HIG) */
+            min-width: 44px !important;
+            min-height: 44px !important;
+        }
+
+        /* Popup personalizado */
+        .leaflet-popup.property-popup {
+            /* Asegurar legibilidad en mobile */
+            font-size: 14px;
+        }
+
+        .leaflet-popup.property-popup .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 0;
+        }
+
+        .leaflet-popup.property-popup .leaflet-popup-content {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Botón de cerrar más grande en mobile */
+        @media (max-width: 768px) {
+            .leaflet-popup-close-button {
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 24px !important;
+                line-height: 32px !important;
+                padding: 4px !important;
+            }
+        }
+
+        /* Marcadores guardados con área táctil cómoda */
+        .saved-property-marker {
+            /* Área táctil amplia */
+            padding: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .saved-property-marker:hover,
+        .saved-property-marker:active {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body class="bg-white text-neutral-900">

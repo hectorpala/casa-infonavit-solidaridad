@@ -359,14 +359,15 @@ const MarkerManager = {
                                 Información de Negociación
                             </h4>
 
-                            <!-- Nombre/Contacto -->
+                            <!-- Nombre del Propietario -->
                             <div class="mb-3">
                                 <label for="property-contact" class="block text-xs font-medium text-neutral-700 mb-1.5">
                                     <i class="fas fa-user mr-1"></i>
-                                    Nombre/Contacto (Dueño, Agente, Cliente)
+                                    Nombre del Propietario <span class="text-red-500">*</span>
                                 </label>
                                 <input
                                     type="text"
+                                    required
                                     id="property-contact"
                                     placeholder="Ej: Juan Pérez (dueño), María López (agente)"
                                     value="${this.currentMarker.contact || ''}"
@@ -526,8 +527,21 @@ const MarkerManager = {
         // Capturar datos de negociación (solo si hay etiqueta seleccionada)
         let negotiationData = {};
         if (tag) {
+            const contactValue = contactInput ? contactInput.value.trim() : '';
+
+            // ⚠️ VALIDACIÓN: Nombre del propietario es OBLIGATORIO si hay etiqueta
+            if (!contactValue) {
+                alert('⚠️ El campo "Nombre del Propietario" es obligatorio.\n\nPor favor ingresa el nombre antes de guardar.');
+                if (contactInput) {
+                    contactInput.focus();
+                    contactInput.classList.add('border-red-500');
+                    setTimeout(() => contactInput.classList.remove('border-red-500'), 2000);
+                }
+                return;
+            }
+
             negotiationData = {
-                contact: contactInput ? contactInput.value.trim() : '',
+                contact: contactValue,
                 phone: phoneInput ? phoneInput.value.trim() : '',
                 estimatedValue: valueInput && valueInput.value ? this.parseCurrency(valueInput.value) : null,
                 offerAmount: offerInput && offerInput.value ? this.parseCurrency(offerInput.value) : null
