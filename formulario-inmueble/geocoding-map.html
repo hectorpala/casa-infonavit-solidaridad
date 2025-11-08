@@ -156,23 +156,51 @@
     </style>
 </head>
 <body class="bg-[color:var(--bg)] text-[color:var(--fg)] text-[clamp(15px,1.6vw,16px)] leading-[1.55] tracking-[0.005em] font-sans">
-    <!-- Header -->
-    <header class="bg-white border-b border-[color:var(--brd)] sticky top-0 z-50 backdrop-blur-sm bg-white/95">
-        <div class="mx-auto w-full max-w-[1100px] px-4 md:px-6 py-6 md:py-8">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center">
-                        <i class="fas fa-map-marked-alt text-white text-lg"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-[clamp(22px,3.5vw,32px)] leading-[1.15] font-semibold text-zinc-900">Geocodificación de Direcciones</h1>
-                        <p class="text-[12px] leading-[1.4] text-zinc-500 mt-1">Obtén coordenadas precisas para tus propiedades</p>
+    <!-- HEADER STICKY COMPACTO -->
+    <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/75 bg-white/95 border-b border-[color:var(--brd)] shadow-sm">
+        <div class="mx-auto max-w-[1100px] px-4 md:px-6">
+            <div class="h-16 flex items-center justify-between gap-3">
+                <!-- Título + Breadcrumb -->
+                <div class="min-w-0 flex-1">
+                    <nav class="text-xs text-[color:var(--fg-subtle)]">
+                        <ol class="flex items-center gap-2">
+                            <li><a class="hover:underline hover:text-[color:var(--fg-muted)]" href="/">Inicio</a></li>
+                            <li class="text-[color:var(--fg-subtle)]">/</li>
+                            <li class="text-[color:var(--fg-muted)]">Direcciones</li>
+                        </ol>
+                    </nav>
+                    <div class="flex items-center gap-2 mt-1">
+                        <h1 class="truncate text-[clamp(18px,2.6vw,24px)] leading-[1.2] font-semibold text-[color:var(--fg)]">
+                            Geocodificador de direcciones
+                        </h1>
+                        <span class="shrink-0 rounded-full px-2 py-0.5 text-xs bg-[color:var(--accent-100)] text-[color:var(--accent)] font-medium">
+                            Beta
+                        </span>
                     </div>
                 </div>
-                <span class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-xs font-semibold border border-emerald-200">
-                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Servicio Activo
-                </span>
+
+                <!-- META CHIPS (desktop) -->
+                <div class="hidden lg:flex items-center gap-2">
+                    <span class="rounded-full bg-[color:var(--bg-muted)] text-[color:var(--fg-muted)] text-xs px-2 py-1 border border-[color:var(--brd)]" id="meta-precision">
+                        Precisión: --
+                    </span>
+                    <span class="rounded-full bg-[color:var(--bg-muted)] text-[color:var(--fg-muted)] text-xs px-2 py-1 border border-[color:var(--brd)]" id="meta-results">
+                        Guardadas: 0
+                    </span>
+                </div>
+
+                <!-- ACCIONES HEADER (desktop) -->
+                <div class="hidden md:flex items-center gap-2">
+                    <button id="header-clear-btn" class="h-10 px-4 rounded-xl border border-[color:var(--brd)] bg-white text-[color:var(--fg-muted)] hover:bg-zinc-50 hover:-translate-y-[0.5px] shadow-sm hover:shadow-lg active:translate-y-[1px] transition outline-none ring-4 ring-transparent focus:ring-[color:var(--accent-100)]">
+                        Limpiar
+                    </button>
+                    <button id="header-center-btn" class="h-10 px-4 rounded-xl border border-[color:var(--brd)] bg-white text-[color:var(--fg-muted)] hover:bg-zinc-50 hover:-translate-y-[0.5px] shadow-sm hover:shadow-lg active:translate-y-[1px] transition outline-none ring-4 ring-transparent focus:ring-[color:var(--accent-100)]">
+                        Centrar mapa
+                    </button>
+                    <button id="header-geocode-btn" class="h-10 px-5 rounded-xl bg-[color:var(--accent)] text-white font-medium hover:bg-[color:var(--accent-600)] hover:-translate-y-[0.5px] shadow-md hover:shadow-lg active:translate-y-[1px] transition outline-none ring-4 ring-transparent focus:ring-[color:var(--accent-100)] disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        Geocodificar
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -500,6 +528,23 @@
     <!-- Notification Container -->
     <div id="notification-container" class="fixed top-6 right-6 z-50 flex flex-col gap-3 max-w-md"></div>
 
+    <!-- BARRA DE ACCIONES MÓVIL (sticky bottom) -->
+    <div class="fixed inset-x-0 bottom-0 z-40 md:hidden border-t border-[color:var(--brd)] bg-white/95 backdrop-blur pb-[max(8px,env(safe-area-inset-bottom))] shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+        <div class="px-4 pt-2">
+            <div class="flex items-center gap-2">
+                <button id="mobile-clear-btn" class="h-11 flex-1 rounded-xl border border-[color:var(--brd)] bg-white text-[color:var(--fg-muted)] text-sm font-medium hover:bg-zinc-50 shadow-sm active:translate-y-[1px] transition">
+                    Limpiar
+                </button>
+                <button id="mobile-center-btn" class="h-11 flex-1 rounded-xl border border-[color:var(--brd)] bg-white text-[color:var(--fg-muted)] text-sm font-medium hover:bg-zinc-50 shadow-sm active:translate-y-[1px] transition">
+                    Centrar
+                </button>
+                <button id="mobile-geocode-btn" class="h-11 flex-[1.2] rounded-xl bg-[color:var(--accent)] text-white text-sm font-medium hover:bg-[color:var(--accent-600)] shadow-md active:translate-y-[1px] transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    Geocodificar
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Botón flotante para abrir panel de propiedades etiquetadas -->
     <button id="toggle-tagged-panel">
         <i class="fas fa-tags"></i>
@@ -566,5 +611,87 @@
     <!-- POI nearby JS removed -->
     <script src="js/geocoding-map.js?v=20251107"></script>
     <script src="js/deep-link.js?v=20251107"></script>
+
+    <!-- Header & Mobile Actions Integration -->
+    <script>
+    (function() {
+        // Sincronizar botones del header con formulario
+        const formGeocodeBtn = document.getElementById('btn-geocode');
+        const formClearBtn = document.getElementById('clear-form');
+        const headerGeocodeBtn = document.getElementById('header-geocode-btn');
+        const headerClearBtn = document.getElementById('header-clear-btn');
+        const headerCenterBtn = document.getElementById('header-center-btn');
+        const mobileGeocodeBtn = document.getElementById('mobile-geocode-btn');
+        const mobileClearBtn = document.getElementById('mobile-clear-btn');
+        const mobileCenterBtn = document.getElementById('mobile-center-btn');
+
+        // Conectar botones del header
+        if (headerGeocodeBtn && formGeocodeBtn) {
+            headerGeocodeBtn.addEventListener('click', () => formGeocodeBtn.click());
+        }
+        if (headerClearBtn && formClearBtn) {
+            headerClearBtn.addEventListener('click', () => formClearBtn.click());
+        }
+        if (headerCenterBtn && window.GeocodingMapApp) {
+            headerCenterBtn.addEventListener('click', () => {
+                if (GeocodingMapApp.marker) {
+                    const pos = GeocodingMapApp.marker.getLatLng();
+                    GeocodingMapApp.jumpToMarker(pos.lat, pos.lng);
+                }
+            });
+        }
+
+        // Conectar botones móviles
+        if (mobileGeocodeBtn && formGeocodeBtn) {
+            mobileGeocodeBtn.addEventListener('click', () => formGeocodeBtn.click());
+        }
+        if (mobileClearBtn && formClearBtn) {
+            mobileClearBtn.addEventListener('click', () => formClearBtn.click());
+        }
+        if (mobileCenterBtn && window.GeocodingMapApp) {
+            mobileCenterBtn.addEventListener('click', () => {
+                if (GeocodingMapApp.marker) {
+                    const pos = GeocodingMapApp.marker.getLatLng();
+                    GeocodingMapApp.jumpToMarker(pos.lat, pos.lng);
+                }
+            });
+        }
+
+        // Sincronizar estado disabled
+        const syncDisabledState = () => {
+            const isDisabled = formGeocodeBtn.disabled;
+            if (headerGeocodeBtn) headerGeocodeBtn.disabled = isDisabled;
+            if (mobileGeocodeBtn) mobileGeocodeBtn.disabled = isDisabled;
+        };
+
+        // Observer para detectar cambios en el botón del formulario
+        if (formGeocodeBtn) {
+            const observer = new MutationObserver(syncDisabledState);
+            observer.observe(formGeocodeBtn, { attributes: true, attributeFilter: ['disabled'] });
+            syncDisabledState(); // Estado inicial
+        }
+
+        // Actualizar meta chips
+        const updateMetaChips = () => {
+            const savedMarkers = JSON.parse(localStorage.getItem('savedMarkers') || '[]');
+            const metaResults = document.getElementById('meta-results');
+            if (metaResults) {
+                metaResults.textContent = `Guardadas: ${savedMarkers.length}`;
+            }
+        };
+
+        // Actualizar al cargar y cuando cambie localStorage
+        updateMetaChips();
+        window.addEventListener('storage', updateMetaChips);
+        window.addEventListener('markerTagUpdated', updateMetaChips);
+        window.addEventListener('markerDeleted', updateMetaChips);
+
+        // Ajustar padding del main en móvil para la barra inferior
+        const main = document.querySelector('main');
+        if (main && window.innerWidth < 768) {
+            main.style.paddingBottom = '80px'; // Espacio para la barra móvil
+        }
+    })();
+    </script>
 </body>
 </html>
