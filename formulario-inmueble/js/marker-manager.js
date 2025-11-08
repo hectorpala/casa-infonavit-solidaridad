@@ -581,6 +581,15 @@ const MarkerManager = {
                 );
             }
 
+            // 🔧 ACTUALIZAR MARCADORES EN MAPA
+            // Solo refrescar si se marcó "Mantener marcador en el mapa"
+            if (keepMarker && typeof GeocodingMapApp !== 'undefined' && GeocodingMapApp.refreshSavedMarkers) {
+                // Delay pequeño para asegurar que localStorage se actualizó
+                setTimeout(() => {
+                    GeocodingMapApp.refreshSavedMarkers();
+                }, 50);
+            }
+
             // Disparar evento para que search-history se actualice
             document.dispatchEvent(new CustomEvent('markerTagUpdated', {
                 detail: {
