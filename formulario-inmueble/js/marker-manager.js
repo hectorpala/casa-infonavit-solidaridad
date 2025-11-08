@@ -170,6 +170,7 @@ const MarkerManager = {
 
             localStorage.setItem(this.STORAGE_KEY, JSON.stringify(markers));
             console.log('✅ Datos de marcador guardados:', markerId);
+            console.log('📊 Datos guardados:', { contact: data.contact, phone: data.phone, estimatedValue: data.estimatedValue, offerAmount: data.offerAmount });
             return true;
         } catch (error) {
             console.error('❌ Error al guardar datos de marcador:', error);

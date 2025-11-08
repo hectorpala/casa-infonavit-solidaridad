@@ -792,6 +792,13 @@ const GeocodingMapApp = {
         }
 
         console.log(`📍 Restaurando ${markersToRestore.length} marcador(es)...`);
+        console.log('📊 Marcadores a restaurar:', markersToRestore.map(m => ({
+            id: m.id,
+            contact: m.contact,
+            phone: m.phone,
+            estimatedValue: m.estimatedValue,
+            offerAmount: m.offerAmount
+        })));
 
         // Restaurar cada marcador
         markersToRestore.forEach((markerData, index) => {
@@ -808,6 +815,7 @@ const GeocodingMapApp = {
         const { lat, lng, address, tag, id, contact, phone, estimatedValue, offerAmount } = markerData;
 
         console.log(`📌 Agregando marcador: ${address.substring(0, 40)}...`);
+        console.log('📊 Datos del marcador:', { contact, phone, estimatedValue, offerAmount });
 
         // 🔧 FIX: Remover marcador naranja temporal si existe en la misma ubicación
         if (this.marker) {
