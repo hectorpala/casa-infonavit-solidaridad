@@ -247,6 +247,198 @@
         .input-with-icon {
             padding-left: 36px;
         }
+
+        /* 🗺️ MAPA PREMIUM - Pins, clusters, popups y controles */
+
+        /* Pin base del mapa */
+        .map-pin {
+            width: 14px;
+            height: 14px;
+            border-radius: 9999px;
+            background: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-100), 0 6px 16px rgba(0, 0, 0, 0.18);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        /* Pin seleccionado */
+        .map-pin--selected {
+            background: var(--accent-600);
+            box-shadow: 0 0 0 4px var(--accent-100), 0 10px 24px rgba(0, 0, 0, 0.24);
+            transform: scale(1.05);
+        }
+
+        /* Pin con pulso */
+        .map-pin--pulse {
+            position: relative;
+        }
+        .map-pin--pulse::after {
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border-radius: 9999px;
+            border: 2px solid var(--accent-100);
+            animation: pulse-map 1.6s infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes pulse-map {
+            0% {
+                transform: scale(0.9);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Pin hover */
+        .map-pin:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px var(--accent-100), 0 8px 20px rgba(0, 0, 0, 0.22);
+        }
+
+        /* Pin focus (teclado) */
+        .map-pin:focus {
+            outline: 3px solid var(--accent-100);
+            outline-offset: 2px;
+        }
+
+        /* Pin dragging */
+        .map-pin--dragging {
+            cursor: grabbing !important;
+            box-shadow: 0 0 0 4px var(--accent-100), 0 12px 28px rgba(0, 0, 0, 0.28);
+            transform: scale(1.1);
+        }
+
+        /* Clusters por densidad */
+        .cluster {
+            display: grid;
+            place-items: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 9999px;
+            color: #fff;
+            font: 600 12px/1.1 system-ui;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .cluster:hover {
+            transform: scale(1.08);
+        }
+
+        .cluster--low {
+            background: #8b5cf6;  /* Violeta - pocos */
+        }
+
+        .cluster--mid {
+            background: var(--accent);  /* Fuchsia - medios */
+        }
+
+        .cluster--high {
+            background: #ea580c;  /* Naranja - muchos */
+        }
+
+        /* Popups minimalistas coherentes */
+        .leaflet-popup-content-wrapper {
+            padding: 0 !important;
+            border-radius: 14px !important;
+            border: 1px solid var(--brd) !important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+            overflow: hidden !important;
+        }
+
+        .leaflet-popup-tip {
+            background: var(--bg) !important;
+            border: 1px solid var(--brd) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .leaflet-popup-content {
+            margin: 0 !important;
+        }
+
+        /* Controles del mapa (zoom, etc) */
+        .leaflet-control-zoom,
+        .leaflet-bar {
+            backdrop-filter: saturate(180%) blur(6px) !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+            border: 1px solid var(--brd) !important;
+            border-radius: 12px !important;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        .leaflet-control-zoom a,
+        .leaflet-bar a {
+            width: 36px !important;
+            height: 36px !important;
+            line-height: 36px !important;
+            display: grid !important;
+            place-items: center !important;
+            color: var(--fg) !important;
+            border: none !important;
+            transition: all 0.2s !important;
+        }
+
+        .leaflet-control-zoom a:hover,
+        .leaflet-bar a:hover {
+            background: var(--bg-muted) !important;
+            color: var(--accent) !important;
+        }
+
+        .leaflet-control-zoom a:first-child {
+            border-radius: 12px 12px 0 0 !important;
+        }
+
+        .leaflet-control-zoom a:last-child {
+            border-radius: 0 0 12px 12px !important;
+        }
+
+        /* Overlay de precisión (círculo radial) */
+        .precision-overlay {
+            width: 180px;
+            height: 180px;
+            border-radius: 9999px;
+            background: var(--accent);
+            opacity: 0.12;
+            border: 1px solid #f5d0fe;
+            pointer-events: none;
+        }
+
+        /* Modo compacto móvil */
+        @media (max-width: 768px) {
+            .map-pin {
+                width: 12px;
+                height: 12px;
+                box-shadow: 0 0 0 2px var(--accent-100), 0 4px 12px rgba(0, 0, 0, 0.16);
+            }
+
+            .cluster {
+                width: 28px;
+                height: 28px;
+                font-size: 11px;
+            }
+
+            .leaflet-control-zoom a,
+            .leaflet-bar a {
+                width: 32px !important;
+                height: 32px !important;
+                line-height: 32px !important;
+            }
+        }
+
+        /* Marcadores guardados premium */
+        .leaflet-marker-icon {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .leaflet-marker-icon:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.2));
+        }
     </style>
 </head>
 <body class="bg-[color:var(--bg)] text-[color:var(--fg)] text-[clamp(15px,1.6vw,16px)] leading-[1.55] tracking-[0.005em] font-sans">
