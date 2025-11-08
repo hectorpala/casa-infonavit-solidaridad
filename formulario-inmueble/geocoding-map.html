@@ -248,6 +248,37 @@
             padding-left: 36px;
         }
 
+        /* 📋 PANEL DE RESULTADOS - Filas y estados */
+
+        /* Fila seleccionada (sincronizada con pin) */
+        .result-row--selected {
+            background-color: var(--accent-100) !important;
+            border-left: 2px solid var(--accent);
+        }
+
+        /* Scroll suave en panel de resultados */
+        #results-list {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar para panel de resultados */
+        #results-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #results-list::-webkit-scrollbar-track {
+            background: var(--bg-muted);
+        }
+
+        #results-list::-webkit-scrollbar-thumb {
+            background: var(--brd-strong);
+            border-radius: 3px;
+        }
+
+        #results-list::-webkit-scrollbar-thumb:hover {
+            background: var(--fg-subtle);
+        }
+
         /* 🗺️ MAPA PREMIUM - Pins, clusters, popups y controles */
 
         /* Pin base del mapa */
@@ -492,11 +523,11 @@
     </header>
 
     <!-- Main Container -->
-    <main class="mx-auto w-full max-w-[1100px] px-4 md:px-6 py-6 md:py-8 space-y-3">
-        <!-- Grid Layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+    <main class="mx-auto w-full max-w-[1440px] px-4 md:px-6 py-6 md:py-8 space-y-3">
+        <!-- Grid Layout: Form + Map + Results -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-0">
             <!-- Left Panel: Form -->
-            <div class="lg:col-span-5">
+            <div class="lg:col-span-4 lg:pr-6 lg:border-r lg:border-[color:var(--brd)]">
                 <div class="bg-[color:var(--bg)] rounded-xl border border-[color:var(--brd)] shadow-[var(--shadow)] overflow-hidden">
                     <!-- Header con patrón de titular de sección -->
                     <header class="bg-[color:var(--bg-muted)] p-4 md:p-5 border-b border-[color:var(--brd)]">
@@ -745,8 +776,8 @@
                 </div>
         </div>
 
-        <!-- Right Panel: Map -->
-        <div class="lg:col-span-7">
+        <!-- Center Panel: Map -->
+        <div class="lg:col-span-5 lg:px-6">
             <div class="bg-[color:var(--bg)] rounded-xl border border-[color:var(--brd)] shadow-[var(--shadow)] overflow-hidden">
                 <header class="bg-[color:var(--bg-muted)] p-4 md:p-5 border-b border-[color:var(--brd)]">
                     <h2 class="text-[clamp(18px,2.6vw,24px)] leading-[1.2] font-semibold text-[color:var(--fg)]">Mapa Interactivo</h2>
@@ -809,6 +840,90 @@
                 </div>
             </div>
         </div>
+
+        <!-- Right Panel: Results List -->
+        <aside class="lg:col-span-3 lg:pl-6 lg:border-l lg:border-[color:var(--brd)]">
+            <div class="sticky top-20 bg-white rounded-xl border border-[color:var(--brd)] shadow-[var(--shadow)] overflow-hidden">
+                <!-- Header con barra de herramientas integrada -->
+                <div class="border-b border-[color:var(--brd)]">
+                    <header class="px-4 py-3 border-b border-[color:var(--brd)]">
+                        <h3 class="text-sm font-semibold text-zinc-900">Resultados</h3>
+                        <p class="text-[12px] text-zinc-500 mt-0.5">
+                            <span id="results-count">0</span> encontrados ·
+                            <span class="text-[color:var(--accent)]">ordenar por cercanía</span>
+                        </p>
+                    </header>
+
+                    <!-- Barra de herramientas del listado -->
+                    <div class="flex items-center gap-2 px-4 py-2 bg-white/95 backdrop-blur">
+                        <button class="h-9 px-3 rounded-lg border border-[color:var(--brd)] text-sm text-[color:var(--fg-muted)] hover:bg-zinc-50 hover:text-[color:var(--fg)] transition active:bg-zinc-100">
+                            Cercanía
+                        </button>
+                        <button class="h-9 px-3 rounded-lg border border-[color:var(--brd)] text-sm text-[color:var(--fg-muted)] hover:bg-zinc-50 hover:text-[color:var(--fg)] transition active:bg-zinc-100">
+                            Recientes
+                        </button>
+                        <div class="ml-auto text-[12px] text-zinc-500">
+                            Mostrando <span id="results-showing">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de resultados con scroll -->
+                <div class="h-[calc(100dvh-280px)] overflow-y-auto overscroll-contain divide-y divide-[color:var(--brd)]" id="results-list">
+                    <!-- Skeleton (estado de carga) -->
+                    <div id="results-skeleton" class="animate-pulse">
+                        <div class="px-4 py-3">
+                            <div class="h-4 w-2/3 bg-zinc-200 rounded"></div>
+                            <div class="mt-2 h-3 w-1/2 bg-zinc-200 rounded"></div>
+                        </div>
+                        <div class="px-4 py-3">
+                            <div class="h-4 w-3/4 bg-zinc-200 rounded"></div>
+                            <div class="mt-2 h-3 w-2/5 bg-zinc-200 rounded"></div>
+                        </div>
+                        <div class="px-4 py-3">
+                            <div class="h-4 w-1/2 bg-zinc-200 rounded"></div>
+                            <div class="mt-2 h-3 w-1/3 bg-zinc-200 rounded"></div>
+                        </div>
+                    </div>
+
+                    <!-- Estado vacío -->
+                    <div id="results-empty" class="p-6 text-center text-zinc-600" style="display: none;">
+                        <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-zinc-100 flex items-center justify-center">
+                            <i class="fas fa-search text-zinc-400 text-lg"></i>
+                        </div>
+                        <p class="text-sm font-medium">Sin resultados</p>
+                        <p class="text-[12px] text-zinc-500 mt-1">Ajusta colonia o código postal</p>
+                    </div>
+
+                    <!-- Filas dinámicas (se llenarán con JS) -->
+                    <div id="results-items">
+                        <!-- Ejemplo de fila (esto se generará dinámicamente) -->
+                        <!--
+                        <article class="group cursor-pointer px-4 py-3 border-b border-[color:var(--brd)] hover:bg-zinc-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[color:var(--accent)]" tabindex="0" data-marker-id="123">
+                            <div class="flex items-start justify-between gap-3">
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="truncate text-[15px] font-medium text-zinc-900">Blvd Dr Mora 1640</h4>
+                                    <p class="truncate text-[13px] text-zinc-600">Las Quintas, 80060 · Culiacán</p>
+                                    <div class="mt-1 flex items-center gap-2 text-[12px] text-zinc-500">
+                                        <span class="inline-flex items-center gap-1 rounded-full bg-zinc-100 text-zinc-700 px-2 py-0.5 text-[11px]">
+                                            <span class="opacity-70">📍</span> Casa
+                                        </span>
+                                        <span>Precisión: Alta</span>
+                                        <span>•</span>
+                                        <span>200 m</span>
+                                    </div>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <p class="text-[12px] text-zinc-500">Valor</p>
+                                    <p class="text-[15px] font-semibold text-zinc-900">$1,200,000</p>
+                                </div>
+                            </div>
+                        </article>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </aside>
         </div>
     </main>
 
@@ -908,6 +1023,7 @@
     <script src="js/validation.js?v=20251107"></script>
     <script src="js/marker-manager.js?v=20251107"></script>
     <script src="js/search-history.js?v=20251107"></script>
+    <script src="js/results-panel.js?v=20251107"></script>
     <!-- POI nearby JS removed -->
     <script src="js/geocoding-map.js?v=20251107"></script>
     <script src="js/deep-link.js?v=20251107"></script>
@@ -991,6 +1107,88 @@
         if (main && window.innerWidth < 768) {
             main.style.paddingBottom = '80px'; // Espacio para la barra móvil
         }
+    })();
+    </script>
+
+    <!-- Results Panel Integration -->
+    <script>
+    (function() {
+        // Inicializar el panel de resultados
+        const resultsPanel = new ResultsPanelManager();
+
+        // Mostrar skeleton inicialmente
+        resultsPanel.showLoading();
+
+        // Ejemplo de datos para testing (esto se reemplazará con datos reales del marker-manager)
+        setTimeout(() => {
+            // Simular resultados de ejemplo
+            const exampleResults = [
+                {
+                    id: 'marker-1',
+                    address: 'Blvd Dr Mora 1640',
+                    colonia: 'Las Quintas',
+                    zipCode: '80060',
+                    municipio: 'Culiacán',
+                    precision: 'ROOFTOP',
+                    distance: 200,
+                    value: 1200000,
+                    type: 'Casa',
+                    lat: 24.814841,
+                    lng: -107.369199
+                },
+                {
+                    id: 'marker-2',
+                    address: 'Av Universidad 1234',
+                    colonia: 'Universidad',
+                    zipCode: '80010',
+                    municipio: 'Culiacán',
+                    precision: 'RANGE_INTERPOLATED',
+                    distance: 450,
+                    value: 850000,
+                    type: 'Departamento',
+                    lat: 24.801234,
+                    lng: -107.381234
+                }
+            ];
+
+            // Renderizar resultados de ejemplo
+            // resultsPanel.renderResults(exampleResults);
+
+            // Por ahora mostrar vacío hasta que se integre con marker-manager
+            resultsPanel.showEmpty();
+        }, 1000);
+
+        // Conectar con eventos de click en filas → centrar mapa
+        resultsPanel.onRowClick = function(result) {
+            console.log('Centrar mapa en:', result);
+            if (window.GeocodingMapApp && result.lat && result.lng) {
+                GeocodingMapApp.jumpToMarker(result.lat, result.lng);
+            }
+        };
+
+        // Conectar con eventos de hover en filas → highlight pin
+        resultsPanel.onRowHover = function(result, isEntering) {
+            console.log('Hover en fila:', result.address, isEntering);
+            // TODO: Implementar highlight del pin en el mapa
+            // Esto requiere acceso al marker layer de Leaflet
+        };
+
+        // Escuchar eventos del mapa para sincronizar selección de filas
+        window.addEventListener('markerSelected', (e) => {
+            const markerId = e.detail?.markerId;
+            if (markerId) {
+                resultsPanel.selectFromMap(markerId);
+            }
+        });
+
+        // Escuchar cuando se agregan nuevos markers
+        window.addEventListener('markerAdded', () => {
+            // TODO: Actualizar lista de resultados con todos los markers guardados
+            console.log('Marker added, refresh results list');
+        });
+
+        // Exponer globalmente para debugging
+        window.ResultsPanel = resultsPanel;
     })();
     </script>
 </body>
