@@ -873,82 +873,70 @@ const GeocodingMapApp = {
             }).format(amount);
         };
 
-        // Crear popup con información en el ORDEN REQUERIDO:
-        // 1. Nombre del propietario (destacado)
-        // 2. Dirección completa
-        // 3. Valor estimado
-        // 4. Oferta actual
+        // 🎨 POPUP REDISEÑADO - Limpio, con jerarquía, que respire
         const popupContent = `
-            <div style="min-width: 240px; max-width: 320px;">
-                <!-- Header con etiqueta -->
-                ${tagInfo && tagInfo.value ? `
-                    <div style="margin-bottom: 12px;">
-                        <span style="display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; background-color: ${tagInfo.bgColor}; color: ${tagInfo.color};">
-                            <i class="fas fa-tag" style="font-size: 9px;"></i> ${tagInfo.label}
+            <div class="w-[360px] rounded-2xl border border-zinc-200 bg-white shadow-lg p-4">
+                <!-- Encabezado compacto: nombre grande + status chip + teléfono discreto -->
+                <div class="flex items-start justify-between gap-3">
+                    <div class="flex-1 min-w-0">
+                        ${contact ? `
+                            <h3 class="text-zinc-900 text-lg font-semibold leading-tight truncate">${contact}</h3>
+                            ${phone ? `
+                                <a href="tel:${phone}"
+                                   class="text-sm text-zinc-500 hover:text-zinc-700 transition-colors inline-block mt-1"
+                                   onclick="event.stopPropagation();">
+                                    ${phone}
+                                </a>
+                            ` : ''}
+                        ` : `
+                            <h3 class="text-zinc-900 text-lg font-semibold leading-tight">Sin propietario</h3>
+                            <p class="text-sm text-amber-600 mt-1">Información incompleta</p>
+                        `}
+                    </div>
+                    ${tagInfo && tagInfo.value ? `
+                        <span class="px-2 py-1 text-xs font-medium rounded-full flex-shrink-0"
+                              style="background-color: ${tagInfo.bgColor}; color: ${tagInfo.color};">
+                            ${tagInfo.label}
                         </span>
-                    </div>
-                ` : ''}
+                    ` : ''}
+                </div>
 
-                <!-- 1️⃣ NOMBRE DEL PROPIETARIO (obligatorio, destacado) -->
-                ${contact ? `
-                    <div style="margin-bottom: 12px;">
-                        <p style="margin: 0; font-size: 15px; font-weight: 700; color: #111827; line-height: 1.3;">
-                            <i class="fas fa-user" style="color: #8b5cf6; margin-right: 6px;"></i>${contact}
-                        </p>
-                        ${phone ? `
-                            <p style="margin: 4px 0 0 24px; font-size: 12px; color: #059669;">
-                                <i class="fas fa-phone" style="margin-right: 4px;"></i>
-                                <a href="tel:${phone}" style="color: #059669; text-decoration: none; font-weight: 600;" onclick="event.stopPropagation();">${phone}</a>
-                            </p>
-                        ` : ''}
-                    </div>
-                ` : `
-                    <div style="margin-bottom: 12px; padding: 8px; background: #fef3c7; border-left: 3px solid #f59e0b; border-radius: 4px;">
-                        <p style="margin: 0; font-size: 12px; color: #92400e;">
-                            <i class="fas fa-exclamation-triangle" style="margin-right: 4px;"></i>
-                            <strong>Sin nombre de propietario</strong>
+                <!-- Montos en 2 columnas: etiquetas pequeñas + cifras grandes -->
+                <div class="mt-3 grid grid-cols-2 gap-3">
+                    <div>
+                        <p class="text-xs text-zinc-500">Valor estimado</p>
+                        <p class="text-base font-semibold text-zinc-900 mt-0.5">
+                            ${estimatedValue ? formatCurrency(estimatedValue) : '<span class="text-zinc-400 font-normal">No especificado</span>'}
                         </p>
                     </div>
-                `}
-
-                <!-- 2️⃣ DIRECCIÓN COMPLETA -->
-                <div style="margin-bottom: 10px; padding: 8px; background: #f3f4f6; border-radius: 6px;">
-                    <p style="margin: 0; font-size: 12px; color: #6b7280; font-weight: 600; margin-bottom: 4px;">
-                        <i class="fas fa-location-dot" style="margin-right: 4px;"></i>Dirección
-                    </p>
-                    <p style="margin: 0; font-size: 13px; color: #374151; line-height: 1.4;">
-                        ${address}
-                    </p>
+                    <div>
+                        <p class="text-xs text-zinc-500">Oferta actual</p>
+                        <p class="text-base font-semibold text-zinc-900 mt-0.5">
+                            ${offerAmount ? formatCurrency(offerAmount) : '<span class="text-zinc-400 font-normal">No especificado</span>'}
+                        </p>
+                    </div>
                 </div>
 
-                <!-- 3️⃣ VALOR ESTIMADO -->
-                <div style="margin-bottom: 8px;">
-                    <p style="margin: 0; font-size: 12px; color: #6b7280;">
-                        <i class="fas fa-dollar-sign" style="color: #10b981; margin-right: 4px; width: 14px;"></i>
-                        Valor estimado:
-                    </p>
-                    <p style="margin: 2px 0 0 20px; font-size: 14px; color: #111827; font-weight: 600;">
-                        ${estimatedValue ? formatCurrency(estimatedValue) : '<span style="color: #9ca3af; font-weight: 400;">No especificado</span>'}
-                    </p>
+                <!-- Dirección: caja neutra, icono, 2 líneas máx con ellipsis -->
+                <div class="mt-3 rounded-lg bg-zinc-50 border border-zinc-100 p-3 text-sm text-zinc-700">
+                    <div class="flex items-start gap-2">
+                        <span class="text-base flex-shrink-0">📍</span>
+                        <p class="flex-1 line-clamp-2 leading-relaxed" style="
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        ">${address}</p>
+                    </div>
                 </div>
 
-                <!-- 4️⃣ OFERTA ACTUAL -->
-                <div style="margin-bottom: 12px;">
-                    <p style="margin: 0; font-size: 12px; color: #6b7280;">
-                        <i class="fas fa-hand-holding-dollar" style="color: #3b82f6; margin-right: 4px; width: 14px;"></i>
-                        Oferta actual:
-                    </p>
-                    <p style="margin: 2px 0 0 20px; font-size: 14px; color: #111827; font-weight: 600;">
-                        ${offerAmount ? formatCurrency(offerAmount) : '<span style="color: #9ca3af; font-weight: 400;">No especificado</span>'}
-                    </p>
-                </div>
-
-                <!-- Footer con botón centrar -->
-                <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e7eb;">
-                    <button onclick="GeocodingMapApp.jumpToMarker(${lat}, ${lng})" style="width: 100%; padding: 8px 12px; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; border: none; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);">
-                        <i class="fas fa-crosshairs"></i> Centrar en mapa
-                    </button>
-                </div>
+                <!-- CTA primario único: full-width, sin degradados, limpio -->
+                <button
+                    onclick="GeocodingMapApp.jumpToMarker(${lat}, ${lng})"
+                    class="mt-4 w-full h-10 rounded-xl bg-fuchsia-600 text-white font-medium hover:bg-fuchsia-700 transition-colors focus:outline-none focus:ring-2 focus:ring-fuchsia-500 focus:ring-offset-2">
+                    Centrar en mapa
+                </button>
             </div>
         `;
 
