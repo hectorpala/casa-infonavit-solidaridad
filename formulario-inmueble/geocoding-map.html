@@ -153,6 +153,100 @@
         .saved-property-marker:active {
             transform: scale(1.1);
         }
+
+        /* 📝 UTILIDADES DE INPUTS - Estados y feedback visual */
+        /* Base input */
+        .input {
+            height: 44px;
+            width: 100%;
+            border-radius: 12px;
+            border-width: 1px;
+            background-color: var(--bg);
+            padding-left: 12px;
+            padding-right: 12px;
+            color: var(--fg);
+            transition: all 0.2s;
+        }
+        .input::placeholder {
+            color: var(--fg-subtle);
+        }
+
+        /* Estados de input */
+        .input--default {
+            border-color: var(--brd);
+        }
+        .input--default:focus {
+            outline: none;
+            border-color: var(--accent);
+            ring: 4px;
+            ring-color: var(--accent-100);
+        }
+
+        .input--success {
+            border-color: var(--ok);
+        }
+        .input--success:focus {
+            outline: none;
+            ring: 4px;
+            ring-color: rgb(16 163 74 / 0.1);
+        }
+
+        .input--warn {
+            border-color: var(--warn);
+        }
+        .input--warn:focus {
+            outline: none;
+            ring: 4px;
+            ring-color: rgb(234 179 8 / 0.1);
+        }
+
+        .input--error {
+            border-color: var(--err);
+        }
+        .input--error:focus {
+            outline: none;
+            ring: 4px;
+            ring-color: rgb(220 38 38 / 0.1);
+        }
+
+        /* Mensajes de feedback */
+        .hint {
+            margin-top: 4px;
+            font-size: 11px;
+            line-height: 1.4;
+            color: var(--fg-subtle);
+        }
+
+        .msg-success {
+            margin-top: 4px;
+            font-size: 12px;
+            line-height: 1.4;
+            color: var(--ok);
+        }
+
+        .msg-warn {
+            margin-top: 4px;
+            font-size: 12px;
+            line-height: 1.4;
+            color: var(--warn);
+        }
+
+        .msg-error {
+            margin-top: 4px;
+            font-size: 12px;
+            line-height: 1.4;
+            color: var(--err);
+        }
+
+        /* Máscara visual para CP */
+        .mask-cp::placeholder {
+            letter-spacing: 0.08em;
+        }
+
+        /* Input con icono (padding left ajustado) */
+        .input-with-icon {
+            padding-left: 36px;
+        }
     </style>
 </head>
 <body class="bg-[color:var(--bg)] text-[color:var(--fg)] text-[clamp(15px,1.6vw,16px)] leading-[1.55] tracking-[0.005em] font-sans">
@@ -248,62 +342,76 @@
                     <p id="err-municipality" class="text-[12px] text-rose-700 hidden" role="alert"></p>
                 </div>
 
-                <!-- Colonia -->
+                <!-- Colonia con icono -->
                 <div class="space-y-1.5 form-group autocomplete-wrapper">
-                    <label for="colonia" class="text-xs font-medium text-zinc-700">Colonia o Fraccionamiento</label>
-                    <input type="text" id="colonia" name="colonia"
-                           class="h-11 w-full rounded-xl border border-zinc-200 bg-white px-3 text-zinc-900 placeholder-zinc-400 outline-none focus:border-fuchsia-500 focus:ring-4 focus:ring-fuchsia-100 transition"
-                           placeholder="Ej. Las Quintas"
-                           autocomplete="off"
-                           required
-                           aria-required="true"
-                           aria-describedby="err-colonia">
-                    <input type="hidden" id="colonia-value" name="coloniaSlug">
-                    <div class="autocomplete-suggestions" id="colonia-suggestions"></div>
-                    <p class="text-[11px] text-zinc-500">Escribe al menos 3 caracteres para sugerencias</p>
-                    <p id="err-colonia" class="text-[12px] text-rose-700 hidden" role="alert"></p>
+                    <label for="colonia" class="text-xs font-medium text-[color:var(--fg-muted)]">Colonia o Fraccionamiento</label>
+                    <div class="relative">
+                        <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[color:var(--fg-subtle)]">🏘️</span>
+                        <input type="text" id="colonia" name="colonia"
+                               class="input input--default input-with-icon"
+                               placeholder="Ej. Las Quintas"
+                               autocomplete="off"
+                               required
+                               aria-required="true"
+                               aria-describedby="err-colonia hint-colonia">
+                        <input type="hidden" id="colonia-value" name="coloniaSlug">
+                        <div class="autocomplete-suggestions" id="colonia-suggestions"></div>
+                    </div>
+                    <p class="hint" id="hint-colonia">Escribe al menos 3 caracteres para sugerencias</p>
+                    <p id="err-colonia" class="msg-error hidden" role="alert"></p>
                 </div>
 
-                <!-- Calle -->
+                <!-- Calle con icono -->
                 <div class="space-y-1.5 form-group autocomplete-wrapper">
-                    <label for="address" class="text-xs font-medium text-zinc-700">Calle</label>
-                    <input type="text" id="address" name="address"
-                           class="h-11 w-full rounded-xl border border-zinc-200 bg-white px-3 text-zinc-900 placeholder-zinc-400 outline-none focus:border-fuchsia-500 focus:ring-4 focus:ring-fuchsia-100 transition"
-                           placeholder="Ej. Blvd. Doctor Mora"
-                           autocomplete="off"
-                           required
-                           aria-required="true"
-                           aria-describedby="err-address">
-                    <div class="autocomplete-suggestions" id="address-suggestions"></div>
-                    <p class="text-[11px] text-zinc-500">Autocompleta desde las calles guardadas</p>
-                    <p id="err-address" class="text-[12px] text-rose-700 hidden" role="alert"></p>
+                    <label for="address" class="text-xs font-medium text-[color:var(--fg-muted)]">Calle</label>
+                    <div class="relative">
+                        <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[color:var(--fg-subtle)]">🔎</span>
+                        <input type="text" id="address" name="address"
+                               class="input input--default input-with-icon"
+                               placeholder="Ej. Blvd. Doctor Mora"
+                               autocomplete="off"
+                               required
+                               aria-required="true"
+                               aria-describedby="err-address hint-address">
+                        <div class="autocomplete-suggestions" id="address-suggestions"></div>
+                    </div>
+                    <p class="hint" id="hint-address">Autocompleta desde las calles guardadas</p>
+                    <p id="err-address" class="msg-error hidden" role="alert"></p>
                 </div>
 
-                <!-- Número Exterior -->
+                <!-- Número Exterior con icono -->
                 <div class="space-y-1.5">
-                    <label for="exterior-number" class="text-xs font-medium text-zinc-700">Número Exterior</label>
-                    <input type="text" id="exterior-number" name="exteriorNumber"
-                           class="h-11 w-full rounded-xl border border-zinc-200 bg-white px-3 text-zinc-900 placeholder-zinc-400 outline-none focus:border-fuchsia-500 focus:ring-4 focus:ring-fuchsia-100 transition"
-                           placeholder="Ej. 1640"
-                           required
-                           aria-required="true"
-                           aria-describedby="err-exterior-number">
-                    <p id="err-exterior-number" class="text-[12px] text-rose-700 hidden" role="alert"></p>
+                    <label for="exterior-number" class="text-xs font-medium text-[color:var(--fg-muted)]">Número Exterior</label>
+                    <div class="relative">
+                        <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[color:var(--fg-subtle)]">#</span>
+                        <input type="text" id="exterior-number" name="exteriorNumber"
+                               class="input input--default input-with-icon"
+                               placeholder="Ej. 1640"
+                               required
+                               aria-required="true"
+                               aria-describedby="err-exterior-number hint-exterior">
+                    </div>
+                    <p class="hint" id="hint-exterior">Necesario para precisión alta</p>
+                    <p id="err-exterior-number" class="msg-error hidden" role="alert"></p>
                 </div>
 
-                <!-- Código Postal -->
+                <!-- Código Postal con máscara -->
                 <div class="space-y-1.5">
-                    <label for="zip-code" class="text-xs font-medium text-zinc-700">Código Postal</label>
-                    <input type="text" id="zip-code" name="zipCode"
-                           inputmode="numeric"
-                           pattern="\d{5}"
-                           class="h-11 w-full rounded-xl border border-zinc-200 bg-white px-3 text-zinc-900 placeholder-zinc-400 outline-none focus:border-fuchsia-500 focus:ring-4 focus:ring-fuchsia-100 transition"
-                           placeholder="Ej. 80060"
-                           maxlength="5"
-                           required
-                           aria-required="true"
-                           aria-describedby="err-zip-code">
-                    <p id="err-zip-code" class="text-[12px] text-rose-700 hidden" role="alert"></p>
+                    <label for="zip-code" class="text-xs font-medium text-[color:var(--fg-muted)]">Código Postal</label>
+                    <div class="relative">
+                        <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[color:var(--fg-subtle)]">📮</span>
+                        <input type="text" id="zip-code" name="zipCode"
+                               inputmode="numeric"
+                               pattern="\d{5}"
+                               class="input input--default input-with-icon mask-cp"
+                               placeholder="80060"
+                               maxlength="5"
+                               required
+                               aria-required="true"
+                               aria-describedby="err-zip-code hint-zip">
+                    </div>
+                    <p class="hint" id="hint-zip">5 dígitos</p>
+                    <p id="err-zip-code" class="msg-error hidden" role="alert"></p>
                 </div>
 
                 <!-- Número Interior (opcional, col-span-2) -->
