@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Geocoding Solidaridad</title>
+    <style>
+        body { font-family: system-ui; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .result { padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test de Geocodificación - Solidaridad</h1>
+    
+    <h2>✅ Cambios Implementados:</h2>
+    <ul>
+        <li>✅ Quintana Roo agregado al selector de estados</li>
+        <li>✅ Solidaridad agregado como municipio</li>
+        <li>✅ Mapas de municipios/estados actualizados en geocoding.js</li>
+        <li>✅ Dataset de 15 colonias principales creado</li>
+    </ul>
+
+    <h2>📋 Ejemplo de Dirección:</h2>
+    <div class="result success">
+        <strong>Input:</strong><br>
+        Estado: <code>quintana-roo</code><br>
+        Municipio: <code>solidaridad</code><br>
+        Colonia: <code>Playacar</code><br>
+        Calle: <code>Avenida Xaman-Ha</code><br>
+        Número: <code>10</code><br>
+        CP: <code>77710</code><br><br>
+        
+        <strong>Dirección Construida:</strong><br>
+        <code>Avenida Xaman-Ha 10, Playacar, 77710, Solidaridad, Quintana Roo, México</code><br><br>
+        
+        <strong>Coordenadas Esperadas:</strong><br>
+        Lat: ~20.623, Lng: ~-87.074 (Playa del Carmen)
+    </div>
+
+    <h2>🔗 Siguiente Paso:</h2>
+    <p>
+        <a href="geocoding-map.html" style="display: inline-block; background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">
+            Abrir Formulario de Geocodificación
+        </a>
+    </p>
+
+    <h2>📝 Instrucciones para Probar:</h2>
+    <ol>
+        <li>Abre el formulario de geocodificación</li>
+        <li>Selecciona <strong>Estado: Quintana Roo</strong></li>
+        <li>Automáticamente aparecerá <strong>Municipio: Solidaridad (Playa del Carmen)</strong></li>
+        <li>Escribe una colonia (ej: "Playacar", "Centro", "Colosio")</li>
+        <li>Completa calle, número, CP</li>
+        <li>Click en "Geocodificar"</li>
+        <li>Verifica que las coordenadas estén en Playa del Carmen (no en Culiacán)</li>
+    </ol>
+
+    <h2>🗺️ Colonias Disponibles:</h2>
+    <ul>
+        <li>Playacar (77710)</li>
+        <li>Centro (77710)</li>
+        <li>Colosio (77723)</li>
+        <li>Ejidal (77712)</li>
+        <li>Gonzalo Guerrero (77720)</li>
+        <li>Zona Hotelera (77710)</li>
+        <li>Villas del Sol (77728)</li>
+        <li>Quinta Avenida (77710)</li>
+        <li>Zazil-Ha (77720)</li>
+        <li>Villamar (77728)</li>
+        <li>El Table (77712)</li>
+        <li>Las Palmas (77723)</li>
+        <li>Real Ibiza (77728)</li>
+        <li>Mayamar (77728)</li>
+    </ul>
+
+    <h2>✅ Archivos Modificados:</h2>
+    <ul>
+        <li><code>geocoding-map.html</code> - Línea 553</li>
+        <li><code>js/geocoding-map.js</code> - Líneas 595-608</li>
+        <li><code>js/geocoding.js</code> - Líneas 508-542, 565-588</li>
+        <li><code>data/colonias-solidaridad.json</code> - Archivo nuevo</li>
+    </ul>
+
+    <p style="margin-top: 40px; padding: 15px; background: #e7f3ff; border-left: 4px solid #2196f3;">
+        <strong>📖 Documentación completa:</strong> Ver <code>GEOCODING-SOLIDARIDAD-UPDATE.md</code>
+    </p>
+</body>
+</html>
