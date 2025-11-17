@@ -509,7 +509,8 @@ const Geocoding = {
             'culiacan': 'Culiacán',
             'los-mochis': 'Los Mochis',
             'mazatlan': 'Mazatlán',
-            'garcia': 'García'
+            'garcia': 'García',
+            'solidaridad': 'Solidaridad'
         };
         const municipality = data.municipality || 'culiacan'; // default: Culiacán
         const cityName = municipalityMap[municipality] || 'Culiacán';
@@ -519,7 +520,8 @@ const Geocoding = {
         // Estado - Mapear estado desde el selector
         const stateMap = {
             'sinaloa': 'Sinaloa',
-            'nuevo-leon': 'Nuevo León'
+            'nuevo-leon': 'Nuevo León',
+            'quintana-roo': 'Quintana Roo'
         };
 
         // Obtener estado desde data o inferir desde municipio
@@ -533,6 +535,10 @@ const Geocoding = {
             // Si es García, usar Nuevo León
             stateName = 'Nuevo León';
             console.log(`   Estado inferido desde municipio García: ${stateName}`);
+        } else if (municipality === 'solidaridad') {
+            // Si es Solidaridad, usar Quintana Roo
+            stateName = 'Quintana Roo';
+            console.log(`   Estado inferido desde municipio Solidaridad: ${stateName}`);
         }
 
         parts.push(stateName);
@@ -560,11 +566,13 @@ const Geocoding = {
             'culiacan': 'Culiacán',
             'los-mochis': 'Los Mochis',
             'mazatlan': 'Mazatlán',
-            'garcia': 'García'
+            'garcia': 'García',
+            'solidaridad': 'Solidaridad'
         };
         const stateMap = {
             'sinaloa': 'Sinaloa',
-            'nuevo-leon': 'Nuevo León'
+            'nuevo-leon': 'Nuevo León',
+            'quintana-roo': 'Quintana Roo'
         };
 
         const municipality = data.municipality || 'culiacan';
@@ -575,6 +583,8 @@ const Geocoding = {
             stateName = stateMap[data.state] || data.state;
         } else if (municipality === 'garcia') {
             stateName = 'Nuevo León';
+        } else if (municipality === 'solidaridad') {
+            stateName = 'Quintana Roo';
         }
 
         // Variante A: calle + número + colonia + CP + ciudad + estado + México (solo si hay número)

@@ -1,0 +1,119 @@
+{
+  "metadata": {
+    "origen": "Manual - Colonias principales de Solidaridad, Quintana Roo",
+    "fechaConversion": "2025-01-17",
+    "totalEntradas": 15,
+    "tipos": {
+      "colonias": 6,
+      "fraccionamientos": 7,
+      "zonas": 2
+    }
+  },
+  "colonias": [
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Playacar",
+      "codigoPostal": "77710",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Centro",
+      "codigoPostal": "77710",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Colosio",
+      "codigoPostal": "77723",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Ejidal",
+      "codigoPostal": "77712",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Luis Donaldo Colosio",
+      "codigoPostal": "77723",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "Gonzalo Guerrero",
+      "codigoPostal": "77720",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Zona",
+      "nombre": "Zona Hotelera",
+      "codigoPostal": "77710",
+      "ciudad": "Playa del Carmen",
+      "zona": "Hotelero"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villas del Sol",
+      "codigoPostal": "77728",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Zona",
+      "nombre": "Quinta Avenida",
+      "codigoPostal": "77710",
+      "ciudad": "Playa del Carmen",
+      "zona": "Comercial"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Zazil-Ha",
+      "codigoPostal": "77720",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Villamar",
+      "codigoPostal": "77728",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Colonia",
+      "nombre": "El Table",
+      "codigoPostal": "77712",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Las Palmas",
+      "codigoPostal": "77723",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Real Ibiza",
+      "codigoPostal": "77728",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    },
+    {
+      "tipo": "Fraccionamiento",
+      "nombre": "Mayamar",
+      "codigoPostal": "77728",
+      "ciudad": "Playa del Carmen",
+      "zona": "Urbano"
+    }
+  ]
+}

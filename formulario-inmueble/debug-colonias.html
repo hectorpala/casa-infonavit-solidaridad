@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>🔍 Debug - Colonias Solidaridad</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        .success { color: #4ec9b0; }
+        .error { color: #f48771; }
+        .warning { color: #dcdcaa; }
+        .info { color: #569cd6; }
+        pre {
+            background: #252526;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        button {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #1177bb;
+        }
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Diagnóstico de Colonias Solidaridad</h1>
+
+    <div>
+        <button onclick="testDirectFetch()">1. Test Fetch Directo</button>
+        <button onclick="testAllPaths()">2. Probar Todas las Rutas</button>
+        <button onclick="testAutocomplete()">3. Test Autocomplete.js</button>
+        <button onclick="clearOutput()">Limpiar</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById('output');
+
+        function log(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = message;
+            output.appendChild(div);
+        }
+
+        function logPre(content) {
+            const pre = document.createElement('pre');
+            pre.textContent = JSON.stringify(content, null, 2);
+            output.appendChild(pre);
+        }
+
+        function clearOutput() {
+            output.innerHTML = '';
+        }
+
+        async function testDirectFetch() {
+            clearOutput();
+            log('📂 Test 1: Fetch Directo del Archivo', 'info');
+            log('═'.repeat(50), 'info');
+
+            const path = 'data/colonias-solidaridad.json';
+            log(`\n🔗 Intentando: ${path}`);
+
+            try {
+                const response = await fetch(path);
+                log(`📊 Status: ${response.status} ${response.statusText}`, 'info');
+
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`✅ JSON cargado correctamente`, 'success');
+                    log(`📍 Tiene propiedad 'colonias': ${'colonias' in data}`, 'success');
+                    log(`🏠 Total colonias: ${data.colonias?.length || 0}`, 'success');
+
+                    if (data.colonias && data.colonias.length > 0) {
+                        log(`\n🏘️  Primera colonia:`, 'success');
+                        logPre(data.colonias[0]);
+
+                        log(`\n🏘️  Primeras 5 colonias:`, 'success');
+                        data.colonias.slice(0, 5).forEach(col => {
+                            log(`  • ${col.nombre} (${col.tipo}, CP: ${col.codigoPostal})`, 'success');
+                        });
+                    }
+                } else {
+                    log(`❌ Error al cargar: ${response.status}`, 'error');
+                }
+            } catch (error) {
+                log(`❌ Fetch falló: ${error.message}`, 'error');
+            }
+        }
+
+        async function testAllPaths() {
+            clearOutput();
+            log('🔗 Test 2: Probando Todas las Rutas Posibles', 'info');
+            log('═'.repeat(50), 'info');
+
+            const paths = [
+                'data/colonias-solidaridad.json',
+                './data/colonias-solidaridad.json',
+                '../data/colonias-solidaridad.json',
+                'formulario-inmueble/data/colonias-solidaridad.json',
+                '/formulario-inmueble/data/colonias-solidaridad.json',
+                window.location.origin + '/formulario-inmueble/data/colonias-solidaridad.json'
+            ];
+
+            for (const path of paths) {
+                log(`\n🔍 Probando: ${path}`, 'info');
+                try {
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        const data = await response.json();
+                        log(`  ✅ OK - ${data.colonias?.length || 0} colonias`, 'success');
+                    } else {
+                        log(`  ❌ Status: ${response.status}`, 'error');
+                    }
+                } catch (error) {
+                    log(`  ❌ Error: ${error.message}`, 'error');
+                }
+            }
+        }
+
+        async function testAutocomplete() {
+            clearOutput();
+            log('🤖 Test 3: Simular Autocomplete.js', 'info');
+            log('═'.repeat(50), 'info');
+
+            if (typeof AutocompleteModule === 'undefined') {
+                log('\n⚠️  AutocompleteModule no está cargado', 'warning');
+                log('Simulando proceso manual...', 'info');
+
+                const path = 'data/colonias-solidaridad.json';
+                try {
+                    const response = await fetch(path);
+                    const data = await response.json();
+
+                    log('\n📊 Simulando: data.colonias.map(...)', 'info');
+                    const colonias = data.colonias.map(col => ({
+                        nombre: col.nombre,
+                        tipo: col.tipo,
+                        codigoPostal: col.codigoPostal,
+                        zona: col.zona,
+                        slug: col.nombre
+                            .toLowerCase()
+                            .normalize('NFD')
+                            .replace(/[\u0300-\u036f]/g, '')
+                            .replace(/[^a-z0-9\s]/g, '')
+                            .trim()
+                            .replace(/\s+/g, '-')
+                    }));
+
+                    log(`✅ Mapeo exitoso: ${colonias.length} colonias`, 'success');
+                    log(`\n🏘️  Muestra de colonias mapeadas:`, 'success');
+                    logPre(colonias.slice(0, 3));
+
+                } catch (error) {
+                    log(`❌ Error en simulación: ${error.message}`, 'error');
+                    logPre(error);
+                }
+            } else {
+                log('\n✅ AutocompleteModule detectado', 'success');
+                log(`📍 Municipio actual: ${AutocompleteModule.currentMunicipality}`, 'info');
+                log(`🏘️  Colonias cargadas: ${AutocompleteModule.colonias.length}`, 'info');
+
+                if (AutocompleteModule.colonias.length === 0) {
+                    log(`\n⚠️  NO hay colonias cargadas`, 'warning');
+                    log(`Intentando recargar para solidaridad...`, 'info');
+
+                    try {
+                        await AutocompleteModule.reloadData('solidaridad');
+                        log(`✅ Recarga completa: ${AutocompleteModule.colonias.length} colonias`, 'success');
+                    } catch (error) {
+                        log(`❌ Error al recargar: ${error.message}`, 'error');
+                    }
+                } else {
+                    log(`\n🏘️  Primeras 5 colonias:`, 'success');
+                    AutocompleteModule.colonias.slice(0, 5).forEach(col => {
+                        log(`  • ${col.nombre} (${col.tipo}, CP: ${col.codigoPostal})`, 'success');
+                    });
+                }
+            }
+        }
+
+        // Auto-ejecutar test 1 al cargar
+        window.addEventListener('load', () => {
+            setTimeout(testDirectFetch, 500);
+        });
+    </script>
+</body>
+</html>

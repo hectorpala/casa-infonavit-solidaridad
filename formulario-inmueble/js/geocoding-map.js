@@ -601,6 +601,9 @@ const GeocodingMapApp = {
             'nuevo-leon': [
                 { value: 'garcia', label: 'García' },
                 { value: 'monterrey', label: 'Monterrey' }
+            ],
+            'quintana-roo': [
+                { value: 'solidaridad', label: 'Solidaridad (Playa del Carmen)' }
             ]
         };
 
