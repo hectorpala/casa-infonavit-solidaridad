@@ -804,7 +804,7 @@
                         <span class="absolute inset-y-0 left-0 pl-4 flex items-center text-slate-400 pointer-events-none">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input type="text" id="header-search" placeholder="Buscar por colonia, fraccionamiento o código postal" class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-300 text-sm md:text-base text-slate-700 placeholder-slate-400 focus:outline-none focus:border-hector focus:ring-2 focus:ring-orange-200 transition" autocomplete="off">
+                        <input type="text" id="header-search" placeholder="Buscar colonia o C.P." data-placeholder-lg="Buscar por colonia, fraccionamiento o código postal" class="w-full pl-11 pr-4 py-3 rounded-xl border border-slate-300 text-sm md:text-base text-slate-700 placeholder-slate-400 focus:outline-none focus:border-hector focus:ring-2 focus:ring-orange-200 transition" autocomplete="off">
                         <!-- Autocomplete Dropdown -->
                         <div id="autocomplete-dropdown" class="absolute z-50 w-full mt-2 bg-white border border-slate-300 rounded-xl shadow-elevation hidden max-h-80 overflow-y-auto">
                             <!-- Suggestions will be inserted here -->
@@ -880,6 +880,17 @@
             chips.forEach(chip => chipButtons[chip.dataset.filterChip] = chip);
             const saveSearchBtn = document.getElementById('save-search-btn');
             const searchInput = document.getElementById('header-search');
+
+            // Placeholder dinámico según viewport (móvil vs desktop)
+            function updateSearchPlaceholder() {
+                if (!searchInput) return;
+                const isDesktop = window.innerWidth >= 768;
+                searchInput.placeholder = isDesktop
+                    ? (searchInput.dataset.placeholderLg || 'Buscar por colonia, fraccionamiento o código postal')
+                    : 'Buscar colonia o C.P.';
+            }
+            updateSearchPlaceholder();
+            window.addEventListener('resize', updateSearchPlaceholder);
 
             // Normalizador compartido (acentos + espacios)
             const normalizeText = (text = '') => text
