@@ -1,0 +1,45 @@
+🚀 INMUEBLES24 SCRAPER - Iniciando...
+
+📚 Histórico cargado: 0 propiedades registradas
+📅 Última revisión: 27/11/2025, 1:27:49 p.m.
+
+🌐 Iniciando navegador...
+📄 Scrapeando página 1: https://www.inmuebles24.com/casas-en-venta-en-culiacan.html
+   ❌ Error en página 1: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+📄 Scrapeando página 2: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_31.html
+   ❌ Error en página 2: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+📄 Scrapeando página 3: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_61.html
+   ❌ Error en página 3: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+📄 Scrapeando página 4: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_91.html
+   ❌ Error en página 4: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+📄 Scrapeando página 5: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_121.html
+   ❌ Error en página 5: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+📄 Scrapeando página 6: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_151.html
+   ❌ Error en página 6: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+📄 Scrapeando página 7: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_181.html
+   ❌ Error en página 7: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+📄 Scrapeando página 8: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_211.html
+   ❌ Error en página 8: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+📄 Scrapeando página 9: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_241.html
+   ❌ Error en página 9: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+📄 Scrapeando página 10: https://www.inmuebles24.com/casas-en-venta-en-culiacan_Desde_271.html
+   ❌ Error en página 10: Attempted to use detached Frame '46D8203483A09A34E47D6EA2C3B45C7F'.
+
+✅ Scraping completado: 0 propiedades totales
+
+============================================================
+📊 REPORTE DE CAMBIOS - INMUEBLES24
+============================================================
+
+📈 Total propiedades actuales: 0
+📉 Total propiedades anterior: 0
+📊 Diferencia: 0
+
+✅ No hay propiedades nuevas
+
+✅ No hay propiedades eliminadas
+
+============================================================
+✅ Histórico guardado en inmuebles24-culiacan-historico.json
+
+✅ Proceso completado exitosamente
