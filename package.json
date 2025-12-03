@@ -6,7 +6,9 @@
     "test:fachada": "node scripts/test-fachada.js",
     "scraper-ui": "node scraper-server.js",
     "pipeline-api": "node pipeline-api-server.js",
-    "start": "node pipeline-api-server.js"
+    "start": "node pipeline-api-server.js",
+    "build:css": "npx tailwindcss -i ./src/input.css -o ./dist/tailwind.min.css --minify",
+    "watch:css": "npx tailwindcss -i ./src/input.css -o ./dist/tailwind.min.css --watch"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
@@ -21,5 +23,8 @@
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "sharp": "^0.34.4",
     "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.18"
   }
 }

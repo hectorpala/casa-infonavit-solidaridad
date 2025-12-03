@@ -19,42 +19,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#FF6A00',
-                        'primary-dark': '#D35500',
-                        'hector': '#FF6A00',
-                        'hector-dark': '#D35500',
-                        'bg-alt': '#121A2D',
-                        'card-glass': 'rgba(255,255,255,0.08)',
-                        'card-border': 'rgba(255,255,255,0.12)',
-                        'text-muted': '#64748B',
-                        'success': '#22C55E',
-                    },
-                    fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif'],
-                        'inter': ['Inter', 'sans-serif'],
-                        'system': ['Poppins', 'system-ui', 'Arial', 'sans-serif'],
-                    },
-                    fontWeight: {
-                        'heading': '800',
-                    },
-                    letterSpacing: {
-                        'heading': '-0.02em',
-                    },
-                    boxShadow: {
-                        'elevation': '0 10px 25px rgba(0,0,0,0.25)',
-                        'shadow': '0 10px 25px rgba(0,0,0,0.35)',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind CSS (Compilado - 46KB vs 300KB CDN) -->
+    <link rel="stylesheet" href="../tailwind.min.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
