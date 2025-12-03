@@ -1,65 +1,11 @@
 {
-  "lastCheck": "2025-11-17T20:27:51.392Z",
+  "lastCheck": "2025-12-02T20:27:43.217Z",
   "properties": [],
   "stats": {
     "totalProperties": 0,
     "nuevasDetectadas": 0,
-    "eliminadasDetectadas": 300,
+    "eliminadasDetectadas": 0,
     "changeLog": [
-      {
-        "date": "2025-10-24T20:29:11.952Z",
-        "nuevas": 256,
-        "eliminadas": 256,
-        "total": 300
-      },
-      {
-        "date": "2025-10-25T20:29:14.048Z",
-        "nuevas": 264,
-        "eliminadas": 264,
-        "total": 300
-      },
-      {
-        "date": "2025-10-26T20:29:15.089Z",
-        "nuevas": 264,
-        "eliminadas": 264,
-        "total": 300
-      },
-      {
-        "date": "2025-10-27T20:28:20.391Z",
-        "nuevas": 54,
-        "eliminadas": 236,
-        "total": 90
-      },
-      {
-        "date": "2025-10-30T20:29:16.628Z",
-        "nuevas": 255,
-        "eliminadas": 59,
-        "total": 300
-      },
-      {
-        "date": "2025-11-03T20:27:59.792Z",
-        "nuevas": 2,
-        "eliminadas": 272,
-        "total": 30
-      },
-      {
-        "date": "2025-11-10T20:29:11.797Z",
-        "nuevas": 273,
-        "eliminadas": 3,
-        "total": 300
-      },
-      {
-        "date": "2025-11-12T20:28:01.376Z",
-        "nuevas": 28,
-        "eliminadas": 244,
-        "total": 60
-      },
-      {
-        "date": "2025-11-13T20:28:41.636Z",
-        "nuevas": 136,
-        "eliminadas": 28,
-        "total": 180
-      },
       {
         "date": "2025-11-14T20:29:14.639Z",
         "nuevas": 245,
@@ -70,6 +16,60 @@
         "date": "2025-11-17T20:27:51.394Z",
         "nuevas": 0,
         "eliminadas": 300,
+        "total": 0
+      },
+      {
+        "date": "2025-11-21T20:27:43.168Z",
+        "nuevas": 0,
+        "eliminadas": 0,
+        "total": 0
+      },
+      {
+        "date": "2025-11-22T20:27:45.852Z",
+        "nuevas": 0,
+        "eliminadas": 0,
+        "total": 0
+      },
+      {
+        "date": "2025-11-23T20:27:42.512Z",
+        "nuevas": 0,
+        "eliminadas": 0,
+        "total": 0
+      },
+      {
+        "date": "2025-11-25T20:27:43.454Z",
+        "nuevas": 0,
+        "eliminadas": 0,
+        "total": 0
+      },
+      {
+        "date": "2025-11-26T20:27:47.181Z",
+        "nuevas": 0,
+        "eliminadas": 0,
+        "total": 0
+      },
+      {
+        "date": "2025-11-27T20:27:49.636Z",
+        "nuevas": 0,
+        "eliminadas": 0,
+        "total": 0
+      },
+      {
+        "date": "2025-11-28T20:27:50.234Z",
+        "nuevas": 0,
+        "eliminadas": 0,
+        "total": 0
+      },
+      {
+        "date": "2025-11-29T20:27:49.982Z",
+        "nuevas": 0,
+        "eliminadas": 0,
+        "total": 0
+      },
+      {
+        "date": "2025-12-02T20:27:43.217Z",
+        "nuevas": 0,
+        "eliminadas": 0,
         "total": 0
       }
     ]
