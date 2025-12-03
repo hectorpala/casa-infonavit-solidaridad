@@ -760,6 +760,44 @@
             color: #64748B !important;
             margin-bottom: 12px !important;
         }
+
+        /* 8. Altura uniforme de cards - CTAs siempre alineados */
+        #properties-grid {
+            align-items: stretch !important;
+        }
+
+        .property-card {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100% !important;
+        }
+
+        .property-card .p-6 {
+            flex: 1 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            min-height: 200px !important;
+        }
+
+        /* Área de chips flexible */
+        .property-card .flex.flex-wrap.gap-3.mb-6 {
+            flex: 1 !important;
+            align-content: flex-start !important;
+        }
+
+        /* CTA siempre al fondo */
+        .property-card .p-6 > a[href*="/index.html"],
+        .property-card .p-6 > a[href*="casa-renta"] {
+            margin-top: auto !important;
+            flex-shrink: 0 !important;
+        }
+
+        /* Quitar alturas fijas que causan problemas */
+        .property-card h3,
+        .property-card p:not(.published-date-text) {
+            height: auto !important;
+            min-height: 0 !important;
+        }
     </style>
 </head>
 <body class="font-poppins bg-gray-50 text-gray-900">
